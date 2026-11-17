@@ -116,7 +116,7 @@ prazo 8/8, autoria 10/10, vigência 4/4 (e as demais verificações); citações
 três normas; citações encontradas na fonte 252/254 (RN), 31/31 (REH) e 145/145 (Decreto).
 
 - `python scripts/avaliar.py --comparar tests/baseline/metricas_v1.json` sai com erro se qualquer
-  métrica piorar. O mesmo roda como etapa "Não regressão do gabarito" no CI (Ubuntu e Windows) e como
+  métrica piorar. O mesmo roda como etapa "Não regressão do gabarito" no CI (Ubuntu, Windows e macOS) e como
   teste (`tests/test_nao_regressao.py`).
 - Falha se: um caso ou verificação acerta menos; uma citação deixa de ser encontrada na fonte; sobem
   as citações não encontradas, as falsamente verificadas, os itens sem âncora verificada, os prazos
