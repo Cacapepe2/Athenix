@@ -4,9 +4,12 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 .hypothesis/
-.env
+.env*
 *.db
 *.db-*
 artifacts/
 *.egg-info/
 playwright-report/
+node_modules/
+dist/
+.vercel/
