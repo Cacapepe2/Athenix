@@ -1,0 +1,24 @@
+﻿id,titulo,principal,grupo,alternativas_cache,status
+a002094347c42776,Implementar os mecanismos de comunicação ao consumidor sobre a previsão de…,"Art. 11, XXIII",III,"Art. 9º, III (Grupo I) | Art. 9º, XIII (Grupo I)",Sugestão de IA; não confirmada; fora da exposição
+b758c9c169c145ec,Disponibilizar em sítio eletrônico o número total de unidades consumidoras afetadas…,"Art. 11, XXIII",III,"Art. 9º, III (Grupo I)",Sugestão de IA; não confirmada; fora da exposição
+c3b421e728c88b65,"Comunicar aos consumidores, por meio dos canais disponíveis, a provável causa da…","Art. 11, XXIII",III,"Art. 9º, III (Grupo I)",Sugestão de IA; não confirmada; fora da exposição
+8bf769e8049238bf,"Disponibilizar em sítio eletrônico, com atualização a cada 30 minutos, o número…","Art. 11, XXIII",III,,Sugestão de IA; não confirmada; fora da exposição
+f210b1cb4b18cd93,Número da ocorrência,"Art. 11, XXIII",III,"Art. 9º, III (Grupo I) | Art. 9º, XIII (Grupo I)",Sugestão de IA; não confirmada; fora da exposição
+454101d0c403c18d,Município/bairro da ocorrência aberta,"Art. 11, XXIII",III,"Art. 9º, III (Grupo I) | Art. 9º, XIII (Grupo I)",Sugestão de IA; não confirmada; fora da exposição
+2095e3040e47b7fe,Data e hora de início da ocorrência aberta,"Art. 11, XXIII",III,"Art. 9º, III (Grupo I) | Art. 9º, XIII (Grupo I)",Sugestão de IA; não confirmada; fora da exposição
+7e175ea36f54d27d,Tipo de ocorrência aberta (programada e não programada),"Art. 11, XXIII",III,"Art. 10, III (Grupo II) | Art. 9º, III (Grupo I)",Sugestão de IA; não confirmada; fora da exposição
+04807cfc5d8b19fd,Sinalização do status da ocorrência aberta (Em preparação/Em Deslocamento/Em Execução),"Art. 11, XXIII",III,"Art. 10, I (Grupo II) | Art. 9º, III (Grupo I)",Sugestão de IA; não confirmada; fora da exposição
+145e90e0d6e92fa1,Quantidade de unidades consumidoras interrompidas da ocorrência aberta e o total da…,"Art. 11, XXIII",III,"Art. 9º, VII (Grupo I) | Art. 9º, XIII (Grupo I)",Sugestão de IA; não confirmada; fora da exposição
+bedd23cf7196cb9b,Duração da ocorrência (hh:mm),"Art. 11, XXIII",III,"Art. 9º, III (Grupo I) | Art. 9º, XIII (Grupo I)",Sugestão de IA; não confirmada; fora da exposição
+4530929b6c0a1c85,Consumidor Hora Interrompido (CHI) da ocorrência aberta e o total da área de atuação,"Art. 11, XXIII",III,"Art. 9º, III (Grupo I)",Sugestão de IA; não confirmada; fora da exposição
+b5295bca7f3ea780,Quantidade de ocorrências abertas segregadas por município e o total na área de atuação,"Art. 11, XXIII",III,"Art. 9º, VII (Grupo I) | Art. 9º, III (Grupo I)",Sugestão de IA; não confirmada; fora da exposição
+bf6d884740a66016,"Quantidade de equipes em atividade, segregadas por município e o total na área de…","Art. 11, XXIII",III,"Art. 9º, III (Grupo I) | Art. 9º, XIII (Grupo I)",Sugestão de IA; não confirmada; fora da exposição
+6812a1cfa93391a2,Motivo da Interrupção: informação sobre a causa da falha,"Art. 11, XXIII",III,"Art. 9º, III (Grupo I) | Art. 10, III (Grupo II)",Sugestão de IA; não confirmada; fora da exposição
+091a033ee197530b,Área Afetada: delimitação geográfica da interrupção,"Art. 11, XXIII",III,"Art. 10, III (Grupo II) | Art. 9º, III (Grupo I)",Sugestão de IA; não confirmada; fora da exposição
+89f0cb5afdcb80cf,Unidades Consumidoras Impactadas: Número de unidades consumidoras afetadas; e,"Art. 11, XXIII",III,"Art. 9º, III (Grupo I) | Art. 9º, II (Grupo I)",Sugestão de IA; não confirmada; fora da exposição
+4c34d39fc8c7c83c,"Previsão de Restabelecimento: estimativa de retorno do fornecimento, com base na…","Art. 11, XXIII",III,"Art. 9º, III (Grupo I)",Sugestão de IA; não confirmada; fora da exposição
+73f0657fc5edfaa2,"Ser realizada, obrigatoriamente, por meio de SMS e aplicativos de mensagens, com…","Art. 11, XXIII",III,"Art. 10, III (Grupo II) | Art. 9º, III (Grupo I)",Sugestão de IA; não confirmada; fora da exposição
+d0e8213e450b813b,"Atualizar as informações referentes à interrupção de que trata o item 105, incluindo…","Art. 11, XXIII",III,"Art. 9º, III (Grupo I) | Art. 10, III (Grupo II)",Sugestão de IA; não confirmada; fora da exposição
+f6f4a14d4a6ded86,"Comunicar ao consumidor, após o reconhecimento da ocorrência de interrupções no…","Art. 11, XXIII",III,"Art. 9º, III (Grupo I)",Sugestão de IA; não confirmada; fora da exposição
+002a92c57c58b27b,Disponibilizar aos consumidores o número total de unidades consumidoras afetadas por…,"Art. 11, XXIII",III,"Art. 9º, III (Grupo I) | Art. 9º, II (Grupo I)",Sugestão de IA; não confirmada; fora da exposição
+2d90cfedd6fa12bb,Observar as disposições relacionadas ao atendimento previstas no Módulo 4 do PRODIST,"Art. 11, XXIII",III,"Art. 13, XIX (Grupo V) | Art. 12, III (Grupo IV)",Sugestão de IA; não confirmada; fora da exposição

@@ -63,7 +63,7 @@
   "sujeicao_penalidades": {
    "descricao": "Infrações sujeitam o agente às penalidades do art. 5º",
    "dispositivo": "Art. 5º",
-   "trecho": "Art. 5º As infrações à legislação setorial, bem como a inobservância aos deveres ou às obrigações decorrentes dos contratos de concessão e permissão, aos atos de autorização de serviços ou instalações de energia elétrica ou aos demais atos administrativos de efeitos concretos expedidos pela Agência sujeitarão o agente infrator às penalidades de:",
+   "trecho": "As infrações à legislação setorial, bem como a inobservância aos deveres ou às obrigações decorrentes dos contratos de concessão e permissão, aos atos de autorização de serviços ou instalações de energia elétrica ou aos demais atos administrativos de efeitos concretos expedidos pela Agência sujeitarão o agente infrator às penalidades de:",
    "ancora": "verified",
    "motivo": null,
    "nota": "rótulo do dispositivo não confirmado pela 2ª leitura",
@@ -74,7 +74,7 @@
   "advertencia": {
    "descricao": "Advertência no lugar da multa (piso zero)",
    "dispositivo": "Art. 6º",
-   "trecho": "Art. 6º A Agência aplicará ao agente infrator a penalidade de advertência, nas infrações passíveis de multa e enquadradas nos arts. 9º a 13, quando não houver reincidência específica, conforme definido no art. 23, e a infração for de baixa ofensividade.",
+   "trecho": "A Agência aplicará ao agente infrator a penalidade de advertência, nas infrações passíveis de multa e enquadradas nos arts. 9º a 13, quando não houver reincidência específica, conforme definido no art. 23, e a infração for de baixa ofensividade.",
    "ancora": "verified",
    "motivo": null,
    "nota": "rótulo do dispositivo não confirmado pela 2ª leitura",
@@ -85,7 +85,7 @@
   "teto_legal": {
    "descricao": "Teto legal por infração (fora da REN 846)",
    "dispositivo": "Art. 7º",
-   "trecho": "Art. 7º A multa pode ser imposta isoladamente ou em conjunto com outras penalidades, observado o limite, por infração, estabelecido na legislação.",
+   "trecho": "A multa pode ser imposta isoladamente ou em conjunto com outras penalidades, observado o limite, por infração, estabelecido na legislação.",
    "ancora": "verified",
    "motivo": null,
    "nota": "rótulo do dispositivo não confirmado pela 2ª leitura",
@@ -107,7 +107,7 @@
   "base_grupos": {
    "descricao": "Percentuais incidem sobre a base do art. 21",
    "dispositivo": "Art. 8º",
-   "trecho": "Art. 8º As infrações sujeitas a penalidade de multa serão divididas em cinco grupos, a que correspondem os seguintes limites percentuais incidentes sobre a base de cálculo estabelecida no art. 21:",
+   "trecho": "As infrações sujeitas a penalidade de multa serão divididas em cinco grupos, a que correspondem os seguintes limites percentuais incidentes sobre a base de cálculo estabelecida no art. 21:",
    "ancora": "verified",
    "motivo": null,
    "nota": "rótulo do dispositivo não confirmado pela 2ª leitura",
@@ -196,10 +196,28 @@
   "base_rol": {
    "descricao": "Base de cálculo: ROL dos 12 meses anteriores ao AI",
    "dispositivo": "Art. 21",
-   "trecho": "Art. 21. A base de cálculo para aplicação de multa aos concessionários, […] permissionários ou autorizados de instalações ou serviços de energia elétrica será o valor da Receita Operacional Líquida - ROL ou o valor estimado da energia produzida nos casos de autoprodução e produção independente, ambos correspondentes aos doze meses anteriores à lavratura do Auto de Infração - AI.",
+   "citacoes": [
+    {
+     "trecho": "A base de cálculo para aplicação de multa aos concessionários,",
+     "ancora": "verified",
+     "unit_id": "u0305",
+     "inicio": 49492,
+     "fim": 49554,
+     "motivo": null
+    },
+    {
+     "trecho": "permissionários ou autorizados de instalações ou serviços de energia elétrica será o valor da Receita Operacional Líquida - ROL ou o valor estimado da energia produzida nos casos de autoprodução e produção independente, ambos correspondentes aos doze meses anteriores à lavratura do Auto de Infração - AI.",
+     "ancora": "verified",
+     "unit_id": "u0305",
+     "inicio": 49642,
+     "fim": 49947,
+     "motivo": null
+    }
+   ],
+   "trecho": "permissionários ou autorizados de instalações ou serviços de energia elétrica será o valor da Receita Operacional Líquida - ROL ou o valor estimado da energia produzida nos casos de autoprodução e produção independente, ambos correspondentes aos doze meses anteriores à lavratura do Auto de Infração - AI.",
    "ancora": "verified",
    "motivo": null,
-   "nota": "rótulo do dispositivo não confirmado pela 2ª leitura",
+   "nota": "rótulo do dispositivo não confirmado pela 2ª leitura; Rodapé interrompe o dispositivo; citações literais separadas em citacoes.",
    "revogado": null,
    "percentuais": [],
    "fonte": "846"
@@ -388,7 +406,7 @@
   "atenuantes_nao_cumulativas": {
    "descricao": "Atenuantes não se acumulam",
    "dispositivo": "Art. 24",
-   "trecho": "Art. 24. Do valor da multa calculado na forma do art. 23, serão deduzidos os percentuais abaixo, de forma não cumulativa, caso incidam as seguintes circunstâncias atenuantes:",
+   "trecho": "Do valor da multa calculado na forma do art. 23, serão deduzidos os percentuais abaixo, de forma não cumulativa, caso incidam as seguintes circunstâncias atenuantes:",
    "ancora": "verified",
    "motivo": null,
    "nota": "rótulo do dispositivo não confirmado pela 2ª leitura",
@@ -468,7 +486,24 @@
    "fonte": "15269",
    "percentuais": [],
    "revogado": null,
-   "trecho": "Art. 24. Esta Lei entra em vigor na data de sua publicação […] IV - na data de sua publicação, quanto aos demais dispositivos.",
+   "trecho": "IV - na data de sua publicação, quanto aos demais dispositivos.",
+   "citacoes": [
+    {
+     "trecho": "Art. 24. Esta Lei entra em vigor na data de sua publicação",
+     "ancora": "verified",
+     "unit_id": "u0362"
+    },
+    {
+     "trecho": "IV - na data de sua publicação, quanto aos demais dispositivos.",
+     "ancora": "verified",
+     "unit_id": "u0367"
+    },
+    {
+     "trecho": "publicado no DOU de 25.11.2025",
+     "ancora": "verified",
+     "unit_id": "u0367"
+    }
+   ],
    "publicacao": "publicado no DOU de 25.11.2025",
    "ancora": "verified",
    "motivo": null,
@@ -799,10 +834,28 @@
   {
    "dispositivo": "Art. 10, IX",
    "grupo": "II",
-   "trecho": "IX - deixar de implantar, operar ou manter, nos termos da legislação, as […] instalações de observações hidrométricas, anemométricas ou solarimétricas;",
+   "citacoes": [
+    {
+     "trecho": "IX - deixar de implantar, operar ou manter, nos termos da legislação, as",
+     "ancora": "verified",
+     "unit_id": "u0089",
+     "inicio": 12041,
+     "fim": 12113,
+     "motivo": null
+    },
+    {
+     "trecho": "instalações de observações hidrométricas, anemométricas ou solarimétricas;",
+     "ancora": "verified",
+     "unit_id": "u0089",
+     "inicio": 12200,
+     "fim": 12274,
+     "motivo": null
+    }
+   ],
+   "trecho": "instalações de observações hidrométricas, anemométricas ou solarimétricas;",
    "ancora": "verified",
    "motivo": null,
-   "nota": null,
+   "nota": "Rodapé interrompe o dispositivo; citações literais separadas em citacoes.",
    "revogado": null,
    "origem": "redação original",
    "termos": []
@@ -1206,10 +1259,28 @@
   {
    "dispositivo": "Art. 11, XXIV",
    "grupo": "III",
-   "trecho": "XXIV - atrasar, dificultar ou representar lesão ou ameaça ao direito de o […] consumidor implementar o exercício da opção de que tratam o art. 15 e o art. 16 da Lei nº 9.074, de 7 de julho de 1995.",
+   "citacoes": [
+    {
+     "trecho": "XXIV - atrasar, dificultar ou representar lesão ou ameaça ao direito de o",
+     "ancora": "verified",
+     "unit_id": "u0128",
+     "inicio": 17784,
+     "fim": 17857,
+     "motivo": null
+    },
+    {
+     "trecho": "consumidor implementar o exercício da opção de que tratam o art. 15 e o art. 16 da Lei nº 9.074, de 7 de julho de 1995. (Redação acrescida pela Resolução Normativa nº 1174/2026)",
+     "ancora": "verified",
+     "unit_id": "u0128",
+     "inicio": 17945,
+     "fim": 18122,
+     "motivo": null
+    }
+   ],
+   "trecho": "consumidor implementar o exercício da opção de que tratam o art. 15 e o art. 16 da Lei nº 9.074, de 7 de julho de 1995.",
    "ancora": "verified",
    "motivo": null,
-   "nota": null,
+   "nota": "Rodapé interrompe o dispositivo; citações literais separadas em citacoes.",
    "revogado": null,
    "origem": "RN 1174/2026",
    "termos": []
@@ -1429,10 +1500,28 @@
   {
    "dispositivo": "Art. 12, XX",
    "grupo": "IV",
-   "trecho": "XX - descumprir as disposições regulamentares ou contratuais relativas à implantação, adequação, operação, envio, recebimento e tratamento de dados do sistema de monitoramento remoto de grandezas elétricas e consumo de […] combustível em usina beneficiada pela sistemática de rateio da Conta de Consumo de Combustíveis Fósseis - CCC ou pela Conta de Desenvolvimento Energético - CDE, incluindo o Sistema de Coleta de Dados Operacionais - SCD;",
+   "citacoes": [
+    {
+     "trecho": "XX - descumprir as disposições regulamentares ou contratuais relativas à implantação, adequação, operação, envio, recebimento e tratamento de dados do sistema de monitoramento remoto de grandezas elétricas e consumo de",
+     "ancora": "verified",
+     "unit_id": "u0154",
+     "inicio": 21644,
+     "fim": 21862,
+     "motivo": null
+    },
+    {
+     "trecho": "combustível em usina beneficiada pela sistemática de rateio da Conta de Consumo de Combustíveis Fósseis - CCC ou pela Conta de Desenvolvimento Energético - CDE, incluindo o Sistema de Coleta de Dados Operacionais - SCD;",
+     "ancora": "verified",
+     "unit_id": "u0154",
+     "inicio": 21950,
+     "fim": 22169,
+     "motivo": null
+    }
+   ],
+   "trecho": "combustível em usina beneficiada pela sistemática de rateio da Conta de Consumo de Combustíveis Fósseis - CCC ou pela Conta de Desenvolvimento Energético - CDE, incluindo o Sistema de Coleta de Dados Operacionais - SCD;",
    "ancora": "verified",
    "motivo": null,
-   "nota": null,
+   "nota": "Rodapé interrompe o dispositivo; citações literais separadas em citacoes.",
    "revogado": null,
    "origem": "redação original",
    "termos": [
@@ -1819,7 +1908,7 @@
    "ato": "REN 1.148/2026",
    "vigencia_desde": "2027-01-01",
    "dispositivo": "Art. 8º",
-   "trecho": "Art. 8º A Resolução Normativa nº 846, de 11 de junho de 2019, passa a vigorar com as seguintes alterações:",
+   "trecho": "A Resolução Normativa nº 846, de 11 de junho de 2019, passa a vigorar com as seguintes alterações:",
    "ancora": "verified",
    "motivo": null,
    "nota": "rótulo do dispositivo não confirmado pela 2ª leitura",
@@ -1829,7 +1918,7 @@
    "ato": "REN 1.174/2026 (texto compilado)",
    "vigencia_desde": "2026-11-04",
    "dispositivo": "Art. 10",
-   "trecho": "Art. 10. A Resolução Normativa nº 846, de 11 de junho de 2019, passa a vigorar com a seguinte alteração:",
+   "trecho": "A Resolução Normativa nº 846, de 11 de junho de 2019, passa a vigorar com a seguinte alteração:",
    "ancora": "verified",
    "motivo": null,
    "nota": "rótulo do dispositivo não confirmado pela 2ª leitura",

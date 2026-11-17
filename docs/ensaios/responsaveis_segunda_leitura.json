@@ -1,0 +1,1002 @@
+{
+ "versao": 1,
+ "metodo": "Triagem documental assistida, sem confirmação humana; literal e contexto do cache, sem novas chamadas de IA. Atribuição desconhecida não conta como cliente.",
+ "atribuicoes": [
+  {
+   "id": "c4d154251e85fc33d3df",
+   "norma": "ren20251137",
+   "chave_conteudo": "12185434d30cb03b826175bbf90b79d86fd62075c57420f995809541be6fe54a",
+   "grupo": "agente_regulado",
+   "responsavel": "As distribuidoras",
+   "fundamento": "O trecho identifica diretamente o agente regulado responsável.",
+   "evidencias": [
+    {
+     "unit_id": "u0028",
+     "quote": "98. As distribuidoras são responsáveis pela realização de ações preventivas, devendo atuar\njunto ao Poder Público Estadual, Distrital e Municipal e manter os registros das solicitações conforme\ndispõe o item 104, e corretivas, visando garantir a segurança da rede de distribuição, a qualidade, a\neficiência e a continuidade do fornecimento de energia elétrica, por meio do manejo adequado da\nvegetação, sempre seguindo às legislações pertinentes."
+    }
+   ]
+  },
+  {
+   "id": "9cf2af820194c07adb22",
+   "norma": "ren20251137",
+   "chave_conteudo": "5c4abd8f6e1ba370035757c54888061e8d9d20364dd439e547d9d2ede97ac726",
+   "grupo": "agente_regulado",
+   "responsavel": "As distribuidoras de energia elétrica",
+   "fundamento": "O trecho identifica diretamente o agente regulado responsável.",
+   "evidencias": [
+    {
+     "unit_id": "u0029",
+     "quote": "99. As distribuidoras de energia elétrica devem realizar inspeções periódicas na vegetação que\n\f\npossam interferir no funcionamento das redes de distribuição, com base na sua estratégia operacional e\nem uma avaliação de risco, atuando em coordenação com os órgãos competentes do Poder Público\nEstadual, Distrital e Municipal, e adotando as seguintes medidas:"
+    }
+   ]
+  },
+  {
+   "id": "47eaa2cf0f2891b6f03c",
+   "norma": "ren20251137",
+   "chave_conteudo": "be1831f9f5d738445cb57334749c9f9b32c45f39c989d71fe8a4007924aa6085",
+   "grupo": "agente_regulado",
+   "responsavel": "As distribuidoras",
+   "fundamento": "O trecho identifica diretamente o agente regulado responsável.",
+   "evidencias": [
+    {
+     "unit_id": "u0035",
+     "quote": "101. O Relatório Anual de Gestão do Manejo Vegetal deve conter no mínimo a descrição das\nseguintes atividades realizadas:"
+    }
+   ]
+  },
+  {
+   "id": "8d9f376e10fb60fc841d",
+   "norma": "ren20251137",
+   "chave_conteudo": "94446ab8ca745306d1458d9ae494b2e96ab9ec3dafa55575a7b0051ddb44a785",
+   "grupo": "agente_regulado",
+   "responsavel": "As distribuidoras de energia",
+   "fundamento": "O trecho identifica diretamente o agente regulado responsável.",
+   "evidencias": [
+    {
+     "unit_id": "u0050",
+     "quote": "107. As distribuidoras de energia devem disponibilizar em sítio eletrônico com atualização a\ncada 30 minutos, as seguintes informações relacionadas às ocorrências abertas:"
+    }
+   ]
+  },
+  {
+   "id": "2d240aa2e9fc0c2a3751",
+   "norma": "ren20251137",
+   "chave_conteudo": "0f92bf306c33b201bb3244c978133f54a8dbde273d44af2bd1810ad799881c9b",
+   "grupo": "agente_regulado",
+   "responsavel": "As distribuidoras",
+   "fundamento": "O trecho identifica diretamente o agente regulado responsável.",
+   "evidencias": [
+    {
+     "unit_id": "u0063",
+     "quote": "109. As informações prestadas ao consumidor devem incluir:"
+    }
+   ]
+  },
+  {
+   "id": "9c91f7f183dab9cc24cb",
+   "norma": "ren20251137",
+   "chave_conteudo": "e732e908c5f95f8039e22e9d22649980c5d3d8c0e8890416cb4e9fc0e54494a9",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "ANEEL",
+   "fundamento": "O dever de estabelecer o procedimento é da agência, não das distribuidoras.",
+   "evidencias": [
+    {
+     "unit_id": "u0076",
+     "quote": "114. A ANEEL estabelecerá procedimento para comunicação e acompanhamento das\nsituações de crise enfrentadas pelas distribuidoras."
+    }
+   ]
+  },
+  {
+   "id": "b89e3af9a3fe3e3387ed",
+   "norma": "ren20251137",
+   "chave_conteudo": "259d1fd335ec2b798555a11f93efa57e055e2919201d72b63b803f3f188ed081",
+   "grupo": "agente_regulado",
+   "responsavel": "Distribuidora cessionária",
+   "fundamento": "O item 128 trata do reembolso em cessão emergencial entre distribuidoras.",
+   "evidencias": [
+    {
+     "unit_id": "u0092",
+     "quote": "128. Neutralidade: os valores referentes aos custos ou despesas incorridos pela cedente em\nfunção da Cessão Emergencial de recursos serão reembolsados pela cessionária à cedente pelo valor\nincorrido, proporcional à folha de pagamento de pessoal ou despesa ou custo pelo uso de equipamento\nou materiais, sem que haja lucro, remuneração ou rentabilidade de qualquer tipo, tendo em vista o\ncaráter de colaboração e solidariedade."
+    },
+    {
+     "unit_id": "u0084",
+     "quote": "Cessão Emergencial de recursos humanos, equipamentos e materiais entre distribuidoras\nObjetivo"
+    }
+   ]
+  },
+  {
+   "id": "8103c93e108a50a1ce79",
+   "norma": "ren20251137",
+   "chave_conteudo": "72cdbedb35fa969661094744864b42d79edb38e3d98e0dac5a34499b5d27e81b",
+   "grupo": "agente_regulado",
+   "responsavel": "a distribuidora",
+   "fundamento": "O trecho identifica diretamente o agente regulado responsável.",
+   "evidencias": [
+    {
+     "unit_id": "u0095",
+     "quote": "131. A Cessão Emergencial de recursos somente pode ser realizada em situações em que a\ndistribuidora tenha atingido limite operacional crítico em relação aos seus recursos disponíveis no\natendimento direto à situação de crise, devendo tal situação ser devidamente demonstrada e\ndocumentada em relatório circunstanciado do evento que gerou a situação de crise."
+    }
+   ]
+  },
+  {
+   "id": "d85438fcb97b28c7d133",
+   "norma": "ren20251137",
+   "chave_conteudo": "af98fc97d3d6ee7385a860958b3ae270f75d8d8e5ecbe100b1b11f73c635218b",
+   "grupo": "agente_regulado",
+   "responsavel": "a distribuidora cessionária",
+   "fundamento": "O trecho identifica diretamente o agente regulado responsável.",
+   "evidencias": [
+    {
+     "unit_id": "u0096",
+     "quote": "132. Ao acionar o mecanismo de Cessão Emergencial de recursos, a distribuidora cessionária\ndeve enviar às áreas de fiscalização da ANEEL, em até 60 dias após o fim da situação emergencial, relatório\ncontendo discriminação das despesas ou custos incorridos a serem reembolsados à cedente, contendo\nas seguintes informações mínimas:"
+    }
+   ]
+  },
+  {
+   "id": "a3f53c76c381c1e1ff37",
+   "norma": "ren20251137",
+   "chave_conteudo": "be3b41eb3e79d47a8306ab653541fde2e7cb2f9d221e55f8046f05a4744476d4",
+   "grupo": "agente_regulado",
+   "responsavel": "As distribuidoras envolvidas",
+   "fundamento": "O trecho identifica diretamente o agente regulado responsável.",
+   "evidencias": [
+    {
+     "unit_id": "u0110",
+     "quote": "133. As distribuidoras envolvidas devem formalizar Acordo de Cessão Emergencial Prévio,\ncontendo:"
+    }
+   ]
+  },
+  {
+   "id": "81f465c481010ac8cdf4",
+   "norma": "ren20251137",
+   "chave_conteudo": "d21238ac2b6f84a3eeb1ade45f13a25797a65f9d49fd11556ca44a6342dea126",
+   "grupo": "agente_regulado",
+   "responsavel": "Distribuidora/transmissora cessionária",
+   "fundamento": "O caput do item 139 identifica o setor dos contratos e a alínea b exige o dossiê da cessionária.",
+   "evidencias": [
+    {
+     "unit_id": "u0129",
+     "quote": "b) a cessionária deverá manter dossiê individualizado em sua sede contendo os documentos\ncomprobatórios que evidenciem a neutralidade de custos e despesas reembolsados à cedente, os quais\npoderão ser requisitados pela fiscalização por até 5 (cinco) anos após fim do evento emergencial."
+    },
+    {
+     "unit_id": "u0127",
+     "quote": "139. Os contratos de Cessão Emergencial de recursos humanos, equipamentos e materiais\nentre distribuidoras e transmissoras e suas partes relacionadas, visando garantir a continuidade do serviço\nem situações de crise, caso sejam atendidas as condições que os autorizem, serão dispensados da\nobrigação de que trata o art. 18 do Módulo V da Resolução Normativa nº 948, de 16 de novembro de\n2021, sem prejuízo de fiscalização a posteriori, desde que:"
+    }
+   ]
+  },
+  {
+   "id": "3c0c0ad3b574441eae2a",
+   "norma": "ren20251137",
+   "chave_conteudo": "d006c0e2dd30aa806fde68d7f28bd34fe559293ffc5af2983c05aad30f4953e5",
+   "grupo": "agente_regulado",
+   "responsavel": "A distribuidora",
+   "fundamento": "O trecho identifica diretamente o agente regulado responsável.",
+   "evidencias": [
+    {
+     "unit_id": "u0180",
+     "quote": "Código da ocorrência Identificador único da ocorrência Com atualização a\ncada 30 minutos"
+    }
+   ]
+  },
+  {
+   "id": "0c19d5af3baa173c4af3",
+   "norma": "ren20251137",
+   "chave_conteudo": "cca33bf2893aa712bfa93195bfedd877be9c6670624a88d468a9f76466151907",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "Não individualizado — regra de aplicabilidade",
+   "fundamento": "O trecho exclui situações dos indicadores; não identifica um devedor. Não atribuir ao cliente só por citar distribuidoras.",
+   "evidencias": [
+    {
+     "unit_id": "u0218",
+     "quote": "181. Os indicadores DICRI e DISE não se aplicam às unidades consumidoras e centrais\ngeradoras atendidas em AT, nem aos pontos de conexão de DIT ou de distribuidoras acessados por outras\ndistribuidoras."
+    }
+   ]
+  },
+  {
+   "id": "42eb1b2cf6d770571ef2",
+   "norma": "ren20251137",
+   "chave_conteudo": "079c86fc92b8d38bc6f3f7c62e5b44865678445f18f0725b548f29ef42cebe1f",
+   "grupo": "agente_regulado",
+   "responsavel": "Distribuidora",
+   "fundamento": "O sujeito canais dedicados retoma os canais que a distribuidora deve estabelecer no Art. 371-A.",
+   "evidencias": [
+    {
+     "unit_id": "u0251",
+     "quote": "§ 1º Os canais dedicados devem contemplar, no mínimo:"
+    },
+    {
+     "unit_id": "u0250",
+     "quote": "Art. 371-A A distribuidora deve estabelecer canais adicionais de comunicação exclusivos ao\natendimento de órgão central e representantes designados dos poderes públicos municipal, distrital e\nestadual."
+    }
+   ]
+  },
+  {
+   "id": "8e2c2f83a79154b854b9",
+   "norma": "ren20251137",
+   "chave_conteudo": "e7f73fdb14abea04b466f193382d7ea0dd6aceb5026ca0094d79f768435744f7",
+   "grupo": "agente_regulado",
+   "responsavel": "Distribuidora",
+   "fundamento": "Tipificação sobre comunicação de interrupções; a obrigação correlata identifica distribuidoras no item 105. Sujeito inferido do contexto, ainda para revisão.",
+   "evidencias": [
+    {
+     "unit_id": "u0264",
+     "quote": "XXIII - deixar de prestar informações decorrentes de interrupções no fornecimento de energia\nelétrica aos consumidores ou usuários, nos termos da regulação vigente.”"
+    },
+    {
+     "unit_id": "u0048",
+     "quote": "105. As distribuidoras devem comunicar aos consumidores, por meio dos canais disponíveis,\na provável causa da interrupção, a área afetada e o tempo previsto para a normalização do fornecimento\nem até 15 (quinze) minutos após o conhecimento da causa da interrupção. Independentemente do\nmomento em que a causa for identificada, a comunicação contendo essas informações deve ser realizada\nem até 1 (uma) hora após o reconhecimento da ocorrência da interrupção no fornecimento de energia\nelétrica."
+    }
+   ]
+  },
+  {
+   "id": "a6e7ca1d5e9b811bb449",
+   "norma": "ren20251137",
+   "chave_conteudo": "2f7f488752ef06b2ad87768fe88ed0f8f0901b24bdc843233aae2eec0bc98b08",
+   "grupo": "agente_regulado",
+   "responsavel": "Distribuidora",
+   "fundamento": "Tipificação sobre plano de contingência; o item 147 atribui a disponibilização do plano às distribuidoras. Não comprova dever novo autônomo.",
+   "evidencias": [
+    {
+     "unit_id": "u0266",
+     "quote": "XXVI - a ausência, inadequação ou descumprimento do Plano de Contingência, nos termos da\nregulação vigente;"
+    },
+    {
+     "unit_id": "u0169",
+     "quote": "147. As distribuidoras devem disponibilizar a versão mais atualizada, sem a identificação e\ncontato dos seus responsáveis pelo seu plano de contingência, em seu sítio eletrônico na Internet e nos\npostos de atendimento presencial, de forma acessível ao público com uso de linguagem clara e adequada."
+    }
+   ]
+  },
+  {
+   "id": "3a259550cc835584b83f",
+   "norma": "ren20251137",
+   "chave_conteudo": "aceb65674a331fe78505f01c7fd7dd6e4a58ada4de496c545941e06a43d8fcbf",
+   "grupo": "agente_regulado",
+   "responsavel": "Distribuidora",
+   "fundamento": "Tipificação sobre manejo vegetal; o item 94 atribui o plano às distribuidoras. Não comprova dever novo autônomo.",
+   "evidencias": [
+    {
+     "unit_id": "u0267",
+     "quote": "XXVII - a ausência, inadequação ou descumprimento do Plano de Manejo Vegetal, nos termos\nda regulação vigente; e"
+    },
+    {
+     "unit_id": "u0024",
+     "quote": "94. As distribuidoras devem estabelecer um plano de manejo vegetal na sua área de atuação,\nque contemple a vegetação que interfira em suas redes de distribuição, em coordenação com o Poder\nPúblico Municipal e em articulação com os órgãos competentes do Poder Público Estadual e Distrital, e\ncom vistas a garantir a segurança da rede de distribuição, a qualidade, eficiência e a continuidade do\nfornecimento de energia elétrica."
+    }
+   ]
+  },
+  {
+   "id": "c3aa05f8654255357689",
+   "norma": "ren20251137",
+   "chave_conteudo": "b586d7f4bd2d623e06dd3b46e901a546411ae15622889a14ff377ba413887587",
+   "grupo": "agente_regulado",
+   "responsavel": "Distribuidora",
+   "fundamento": "Tipificação sobre comunicação de emergência; o item 117 identifica as distribuidoras. Não comprova dever novo autônomo.",
+   "evidencias": [
+    {
+     "unit_id": "u0268",
+     "quote": "XXVIII - comunicar-se de forma ineficiente com o Poder Público em Situações de Emergência,\nnos termos da regulação vigente.”"
+    },
+    {
+     "unit_id": "u0079",
+     "quote": "117. As distribuidoras devem notificar o Poder Público imediatamente após a identificação de\num evento crítico, utilizando canais de comunicação oficiais previamente estabelecidos."
+    }
+   ]
+  },
+  {
+   "id": "457f1cc72a54e618df55",
+   "norma": "ren20251137",
+   "chave_conteudo": "bf12b0c4d054be20ddb882321472008c66e704187702b36e60d66315486c7654",
+   "grupo": "agente_regulado",
+   "responsavel": "Agente de distribuição",
+   "fundamento": "A própria tipificação refere o restabelecimento nos sistemas de distribuição; atribuição setorial para revisão, não confirmação de infração.",
+   "evidencias": [
+    {
+     "unit_id": "u0270",
+     "quote": "XIX - atuar de forma inadequada no restabelecimento do fornecimento de energia elétrica nos\nsistemas de distribuição; e"
+    }
+   ]
+  },
+  {
+   "id": "bc03698d34da37fbbfc5",
+   "norma": "ren20251137",
+   "chave_conteudo": "329cc6f9a705242badf8a223b0b95ba298fa8eba24fab85fc766764289f2d34d",
+   "grupo": "agente_regulado",
+   "responsavel": "Concessionária de transmissão",
+   "fundamento": "O próprio trecho identifica instalações sob responsabilidade de concessionária de transmissão.",
+   "evidencias": [
+    {
+     "unit_id": "u0271",
+     "quote": "XX - atuar de forma inadequada no retorno à disponibilidade das instalações sob\nresponsabilidade de concessionária de transmissão.”(NR)"
+    }
+   ]
+  },
+  {
+   "id": "38be6db32c49c8782fe8",
+   "norma": "ren20251137",
+   "chave_conteudo": "2f099258e52f095fd49a469f3477a0e6ffa2b1901dd4be3c85227ed62494eddc",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "Comitê de Crise da ANEEL",
+   "fundamento": "Atribuição do comitê instituído pela agência no Art. 10.",
+   "evidencias": [
+    {
+     "unit_id": "u0274",
+     "quote": "I - articular, coordenar, monitorar, orientar e supervisionar as providências e medidas a serem\nadotadas pela ANEEL com vistas a mitigar os impactos dos eventos climáticos severos nos segmentos de\ntransmissão e distribuição de energia elétrica;"
+    },
+    {
+     "unit_id": "u0273",
+     "quote": "Art 10. A Agência poderá instituir Comitê de Crise quando da ocorrência de eventos climáticos\nseveros, com no mínimo os seguintes objetivos:"
+    }
+   ]
+  },
+  {
+   "id": "20aca33d883094284348",
+   "norma": "ren20251137",
+   "chave_conteudo": "6ac08292c6698ffecffffaef39bad21313a602dc151efc1c594fe898d8972eb6",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "Comitê de Crise da ANEEL",
+   "fundamento": "Atribuição do comitê instituído pela agência no Art. 10.",
+   "evidencias": [
+    {
+     "unit_id": "u0275",
+     "quote": "II - interagir com demais autoridades e instituições públicas e privadas no endereçamento de\nações e no compartilhamento de informações;"
+    },
+    {
+     "unit_id": "u0273",
+     "quote": "Art 10. A Agência poderá instituir Comitê de Crise quando da ocorrência de eventos climáticos\nseveros, com no mínimo os seguintes objetivos:"
+    }
+   ]
+  },
+  {
+   "id": "b60e73aa1f7be44bddb8",
+   "norma": "ren20251137",
+   "chave_conteudo": "9077a6c0569060205ba50d36e007fa23e1ac65ffb80653c019e61d508bb68c28",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "Comitê de Crise da ANEEL",
+   "fundamento": "Composição do comitê da agência, não obrigação da distribuidora.",
+   "evidencias": [
+    {
+     "unit_id": "u0276",
+     "quote": "§ 1º O Comitê de Crise será composto por membros indicados pela Diretoria, pela Área de\nAssessoria Institucional da Diretoria, pela Área de Fiscalização Técnica dos Serviços de Energia Elétrica,\npela Área de Mediação Administrativa e das Relações de Consumo e pela Área de Regulação dos Serviços\nde Transmissão e Distribuição de Energia Elétrica."
+    },
+    {
+     "unit_id": "u0273",
+     "quote": "Art 10. A Agência poderá instituir Comitê de Crise quando da ocorrência de eventos climáticos\nseveros, com no mínimo os seguintes objetivos:"
+    }
+   ]
+  },
+  {
+   "id": "7520773438308ada641f",
+   "norma": "ren20251137",
+   "chave_conteudo": "5778af0febbf82737530e5c738532f72cbb5b5b03bbb699eee5c4971801e903f",
+   "grupo": "agente_regulado",
+   "responsavel": "Distribuidoras/transmissoras envolvidas na cessão",
+   "fundamento": "O caput identifica as cessões emergenciais entre agentes; a ANEEL é destinatária do relatório, não o devedor.",
+   "evidencias": [
+    {
+     "unit_id": "u0284",
+     "quote": "a) sejam comunicados à ANEEL em até 60 (sessenta) dias após o fim da situação emergencial,\nmediante relatório contendo discriminação das despesas ou custos incorridos a serem reembolsados pela\ncessionária à cedente;"
+    },
+    {
+     "unit_id": "u0283",
+     "quote": "XIII- As cessões emergenciais de recursos humanos, equipamentos e materiais entre\ndistribuidoras e transmissoras e suas partes relacionadas, visando garantir a continuidade do serviço em\nsituações de crise, são dispensadas da obrigação de que trata o art. 18, sem prejuízo da fiscalização a\nposteriori, desde que:"
+    }
+   ]
+  },
+  {
+   "id": "d2a798cca4acca8d7106",
+   "norma": "ren20251137",
+   "chave_conteudo": "82cd34b6f91a82f6f2a030de490c6240b8438467998f51ee66a341e43d5f787b",
+   "grupo": "agente_regulado",
+   "responsavel": "Distribuidora/transmissora cessionária",
+   "fundamento": "A cessionária do contrato energético deve manter o dossiê; contexto no inciso XIII.",
+   "evidencias": [
+    {
+     "unit_id": "u0285",
+     "quote": "b) a cessionária deverá manter dossiê individualizado em sua sede contendo os documentos\ncomprobatórios que evidenciem a neutralidade de custos e despesas reembolsados à cedente, nos\ntermos dos Procedimentos de Distribuição de Energia Elétrica no Sistema Elétrico Nacional – PRODIST e\ndas Regras dos Serviços de Transmissão de Energia Elétrica, os quais poderão ser requisitados pela\nfiscalização por até 5 (cinco) anos após fim do evento emergencial."
+    },
+    {
+     "unit_id": "u0283",
+     "quote": "XIII- As cessões emergenciais de recursos humanos, equipamentos e materiais entre\ndistribuidoras e transmissoras e suas partes relacionadas, visando garantir a continuidade do serviço em\nsituações de crise, são dispensadas da obrigação de que trata o art. 18, sem prejuízo da fiscalização a\nposteriori, desde que:"
+    }
+   ]
+  },
+  {
+   "id": "9008ca9efc1c2f72257c",
+   "norma": "ren20251137",
+   "chave_conteudo": "7aa86420fa897c137d708a4bc05fd2184c9377353c238e8c4d84e0518c3e1165",
+   "grupo": "agente_regulado",
+   "responsavel": "As distribuidoras",
+   "fundamento": "O trecho identifica diretamente o agente regulado responsável.",
+   "evidencias": [
+    {
+     "unit_id": "u0288",
+     "quote": "Art. 13. As distribuidoras devem observar os seguintes prazos para implementação das\ndisposições desta Resolução Normativa, contados da publicação:"
+    }
+   ]
+  },
+  {
+   "id": "927b74736c6a7eb973a3",
+   "norma": "dec12068",
+   "chave_conteudo": "d6cf6e99c874b613e8003e7efcbb3a7050479669f0e980b141b5499c76ddb90e",
+   "grupo": "agente_regulado",
+   "responsavel": "Concessionária de distribuição",
+   "fundamento": "O caput exige demonstração e aceitação pela concessionária como condição da prorrogação; não é dever incondicional de pedir prorrogação.",
+   "evidencias": [
+    {
+     "unit_id": "u0004",
+     "quote": "Art. \r\n\t2º  A prorrogação das concessões de distribuição fica condicionada à \r\n\tdemonstração da prestação do serviço adequado, da expressa aceitação por \r\n\tparte da concessionária das condições estabelecidas neste Decreto e das \r\n\tdemais disposições estabelecidas no termo aditivo ao contrato de concessão."
+    }
+   ]
+  },
+  {
+   "id": "38bb4ac470fae8a02a3d",
+   "norma": "dec12068",
+   "chave_conteudo": "5ed5bceb1cea951216766a472b9e24d3c177cb98c2209034eddaa0a162691bc9",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "ANEEL — apuração de eficiência",
+   "fundamento": "O parágrafo define a métrica; o § 6º atribui à ANEEL a apuração. Não é dever autônomo do cliente.",
+   "evidencias": [
+    {
+     "unit_id": "u0008",
+     "quote": "§ 2º  A eficiência com \r\n\trelação à continuidade do fornecimento de que trata o inciso I do § 1º será \r\n\tmensurada por indicadores que considerem a frequência e a duração média das \r\n\tinterrupções do serviço público de distribuição de energia elétrica."
+    },
+    {
+     "unit_id": "u0014",
+     "quote": "§ 6º  Caberá à Aneel \r\n\tapurar e dar publicidade à verificação da prestação do serviço adequado na \r\n\tforma deste artigo."
+    }
+   ]
+  },
+  {
+   "id": "60ef94a1ad3b3838e86e",
+   "norma": "dec12068",
+   "chave_conteudo": "7a5c60c78434e07274ce0da42067f921805de7abff260ac0114a06cdc88c3cd5",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "ANEEL — apuração de eficiência",
+   "fundamento": "O parágrafo define a métrica; o § 6º atribui à ANEEL a apuração. Não é dever autônomo do cliente.",
+   "evidencias": [
+    {
+     "unit_id": "u0009",
+     "quote": "§ 3º  A eficiência com \r\n\trelação à gestão econômico-financeira de que trata o inciso II do § 1º será \r\n\tmensurada por indicador que ateste a capacidade de a concessionária honrar \r\n\tseus compromissos econômico-financeiros de maneira sustentável."
+    },
+    {
+     "unit_id": "u0014",
+     "quote": "§ 6º  Caberá à Aneel \r\n\tapurar e dar publicidade à verificação da prestação do serviço adequado na \r\n\tforma deste artigo."
+    }
+   ]
+  },
+  {
+   "id": "47c60c0f25ef81e7c4e3",
+   "norma": "dec12068",
+   "chave_conteudo": "7cf01782e9f62e013a363c98c28ce53b3b6d103ccfdadcaad037700a0bcd2c67",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "ANEEL — apuração de indicadores",
+   "fundamento": "O § 6º atribui à ANEEL a apuração prevista no artigo.",
+   "evidencias": [
+    {
+     "unit_id": "u0010",
+     "quote": "§ 4º  Os indicadores \r\n\tprevistos nos § 2º e § 3º serão aferidos individualmente para cada \r\n\tconcessionária e a cada ano civil."
+    },
+    {
+     "unit_id": "u0014",
+     "quote": "§ 6º  Caberá à Aneel \r\n\tapurar e dar publicidade à verificação da prestação do serviço adequado na \r\n\tforma deste artigo."
+    }
+   ]
+  },
+  {
+   "id": "5075eb20155937a09840",
+   "norma": "dec12068",
+   "chave_conteudo": "71d72fd48fb15b1aee115d52ae3f9219e9cfe590be2281b8349e9e6e86fdf27c",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "Sem devedor autônomo — definição de descumprimento",
+   "fundamento": "Caracteriza uma condição jurídica; não individualiza ação exigida da empresa.",
+   "evidencias": [
+    {
+     "unit_id": "u0011",
+     "quote": "§ 5º  Ficará caracterizado \r\n\to descumprimento da prestação do serviço adequado quando for constatado, no \r\n\tperíodo de apuração:"
+    }
+   ]
+  },
+  {
+   "id": "aaa1b596bcf04670f06a",
+   "norma": "dec12068",
+   "chave_conteudo": "704b11915a9fec2055e33ee4b7efbd763fffcae1ed1bdc37cf1848102cac5cd8",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "ANEEL",
+   "fundamento": "A agência deve apurar e dar publicidade à verificação.",
+   "evidencias": [
+    {
+     "unit_id": "u0014",
+     "quote": "§ 6º  Caberá à Aneel \r\n\tapurar e dar publicidade à verificação da prestação do serviço adequado na \r\n\tforma deste artigo."
+    }
+   ]
+  },
+  {
+   "id": "065dbc7f3c566c1b800d",
+   "norma": "dec12068",
+   "chave_conteudo": "546b14b3d0e7df6c48d09ae282a3dac28207788b7f3f3aa6d907147dffc4e787",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "Administração — procedimento de prorrogação",
+   "fundamento": "Suspensão do encaminhamento de recomendação administrativa; não determina uma ação da concessionária.",
+   "evidencias": [
+    {
+     "unit_id": "u0017",
+     "quote": "§ 9º  Na hipótese de \r\n\texistir processo administrativo de caducidade da concessão de distribuição \r\n\tde energia elétrica, instaurado pela Diretoria da Aneel antes ou depois do \r\n\trequerimento de que trata o art. 7º, o encaminhamento da recomendação a que \r\n\tse refere o art. 8º ficará suspenso até a decisão definitiva acerca da \r\n\tcorrespondente apuração do processo."
+    }
+   ]
+  },
+  {
+   "id": "5012f9430d8a3f077062",
+   "norma": "dec12068",
+   "chave_conteudo": "a6d1c6972349759cfa7969bff11b6f4c9c682fbb15076f92c1cd8208ead0be53",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "Administração — análise do requerimento",
+   "fundamento": "Prosseguimento da análise administrativa; não determina uma ação da concessionária.",
+   "evidencias": [
+    {
+     "unit_id": "u0018",
+     "quote": "§ 10.  Na hipótese de \r\n\thaver decisão definitiva no processo administrativo de caducidade da qual \r\n\tnão resulte declaração de caducidade em desfavor da concessionária, será \r\n\tdado prosseguimento à análise do requerimento de que trata o art. 7º de \r\n\tacordo com o estabelecido neste Decreto."
+    }
+   ]
+  },
+  {
+   "id": "95ae97cbeadc072dc994",
+   "norma": "dec12068",
+   "chave_conteudo": "3de511afbb19bd9c178f8169922ce72c80bc5eb5515a611db87d6b18006113ec",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "Administração — indeferimento do requerimento",
+   "fundamento": "Decisão/efeito no procedimento administrativo; não determina uma ação da concessionária.",
+   "evidencias": [
+    {
+     "unit_id": "u0019",
+     "quote": "§ 11.  Na hipótese de \r\n\tsobrevir, a qualquer tempo, declaração de caducidade da concessão, o \r\n\trequerimento de prorrogação da concessão será indeferido."
+    }
+   ]
+  },
+  {
+   "id": "99c5e98072a252c3c541",
+   "norma": "dec12068",
+   "chave_conteudo": "6aacf9cf25c0ef45532b7de517411cd39ec045abfb0ef4c1ec38709da3e7a3a2",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "Sem devedor autônomo — efeito da falta de aporte",
+   "fundamento": "O candidato é a consequência jurídica de não aportar capital, não o dever de efetuar o aporte.",
+   "evidencias": [
+    {
+     "unit_id": "u0022",
+     "quote": "§ 2º  A não efetivação do \r\n\taporte de capital no prazo estabelecido no § 1º:"
+    }
+   ]
+  },
+  {
+   "id": "e2112a92aff514b72d7f",
+   "norma": "dec12068",
+   "chave_conteudo": "8ac50b1a8857c528623cb0ff5e241c6115de5ae7110a7ce443ac0abe3312b8de",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "ANEEL",
+   "fundamento": "O texto atribui à agência a definição da minuta.",
+   "evidencias": [
+    {
+     "unit_id": "u0026",
+     "quote": "Art. \r\n\t4º  A Aneel definirá a minuta do termo aditivo ao contrato de concessão que \r\n\tcontemplará as condições previstas neste Decreto, que deverá conter \r\n\tcláusulas que assegurem, no mínimo:"
+    }
+   ]
+  },
+  {
+   "id": "7b0b0196f9bbb31a44e8",
+   "norma": "dec12068",
+   "chave_conteudo": "48c591a28c2babe94870cbd3fb24739fe8835aa03ad4eb4d2d6003eacd92b6eb",
+   "grupo": "agente_regulado",
+   "responsavel": "Concessionária de distribuição",
+   "fundamento": "Concordância que decorre da falta de aporte; manter como condição/efeito sujeito a revisão, não como novo comando independente.",
+   "evidencias": [
+    {
+     "unit_id": "u0024",
+     "quote": "II - implicará a \r\n\tconcordância, por parte da concessionária, com a prorrogação da concessão \r\n\tnas condições vigentes quando da apresentação do requerimento de que trata o \r\n\tart. 7º, por até vinte e quatro meses, contados do respectivo termo \r\n\tcontratual, a critério do Poder concedente, para a realização da licitação \r\n\tde que trata o art. 13."
+    },
+    {
+     "unit_id": "u0022",
+     "quote": "§ 2º  A não efetivação do \r\n\taporte de capital no prazo estabelecido no § 1º:"
+    }
+   ]
+  },
+  {
+   "id": "783ac7a6985ad98a6637",
+   "norma": "dec12068",
+   "chave_conteudo": "af5565f5244edd6aa8ee50cfde9ce7a38894372ef9628f0d1111398e9c40271a",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "ANEEL — responsável pela minuta",
+   "fundamento": "O Art. 4º atribui à ANEEL a definição da minuta cujas cláusulas são tratadas no Art. 5º.",
+   "evidencias": [
+    {
+     "unit_id": "u0068",
+     "quote": "Art. 5º \r\n\t A minuta do termo aditivo ao contrato de concessão deverá conter hipóteses \r\n\tde abertura de processo do caducidade em razão da não prestação de serviço \r\n\tadequado, estabelecendo, no mínimo:"
+    },
+    {
+     "unit_id": "u0026",
+     "quote": "Art. \r\n\t4º  A Aneel definirá a minuta do termo aditivo ao contrato de concessão que \r\n\tcontemplará as condições previstas neste Decreto, que deverá conter \r\n\tcláusulas que assegurem, no mínimo:"
+    }
+   ]
+  },
+  {
+   "id": "0b0ba56b8614e38167f9",
+   "norma": "dec12068",
+   "chave_conteudo": "815b4996ee762b7f5d842c3fe7ed32fce9d9ca7c4e27b34d71fef09c17322128",
+   "grupo": "agente_regulado",
+   "responsavel": "Concessionária de distribuição",
+   "fundamento": "Restrição de ressarcimento ligada ao compromisso de prorrogação; conferir se é proibição autônoma ou limitação de direito.",
+   "evidencias": [
+    {
+     "unit_id": "u0074",
+     "quote": "Art. 6º \r\n\t Como compromisso pela prorrogação das concessões, as concessionárias:"
+    }
+   ]
+  },
+  {
+   "id": "63582dc5ebe4d1e2bcfd",
+   "norma": "dec12068",
+   "chave_conteudo": "62c70fdd4af0faecc133b70b78899ea41c10a59dfdf1e2c464f5a76a8002b64a",
+   "grupo": "agente_regulado",
+   "responsavel": "Concessionária de distribuição",
+   "fundamento": "O caput do Art. 6º identifica as concessionárias destinatárias dos compromissos.",
+   "evidencias": [
+    {
+     "unit_id": "u0076",
+     "quote": "II - desenvolverão ações \r\n\tpara a redução da vulnerabilidade e para o aumento da resiliência das redes \r\n\tde distribuição frente a eventos climáticos, conforme regulação da Aneel;"
+    },
+    {
+     "unit_id": "u0074",
+     "quote": "Art. 6º \r\n\t Como compromisso pela prorrogação das concessões, as concessionárias:"
+    }
+   ]
+  },
+  {
+   "id": "9334c4007be43b7c4098",
+   "norma": "dec12068",
+   "chave_conteudo": "3da9cba0ec57495d848199310746e115c7e879c2c6d708fa9572082fc03cf777",
+   "grupo": "agente_regulado",
+   "responsavel": "Concessionária de distribuição",
+   "fundamento": "O caput do Art. 6º identifica as concessionárias destinatárias dos compromissos.",
+   "evidencias": [
+    {
+     "unit_id": "u0077",
+     "quote": "III - desenvolverão ações \r\n\tpara robustecer o nível de atendimento do serviço de eletricidade das áreas \r\n\trurais, especialmente nas regiões com potencial para o agronegócio e a \r\n\tagricultura familiar, conforme regulação da Aneel; e"
+    },
+    {
+     "unit_id": "u0074",
+     "quote": "Art. 6º \r\n\t Como compromisso pela prorrogação das concessões, as concessionárias:"
+    }
+   ]
+  },
+  {
+   "id": "14ee77fed6ef4fff2f25",
+   "norma": "dec12068",
+   "chave_conteudo": "4dcd3b67ecc98fc6d15ae56a6a05835c6b04a936c1439534a59dd18e610ba9d8",
+   "grupo": "agente_regulado",
+   "responsavel": "Concessionária de distribuição",
+   "fundamento": "O caput do Art. 6º identifica as concessionárias destinatárias dos compromissos.",
+   "evidencias": [
+    {
+     "unit_id": "u0078",
+     "quote": "IV - desenvolverão ações \r\n\tque promovam a inclusão energética, a redução de perdas não técnicas, a \r\n\tregularização da prestação do serviço público em áreas de vulnerabilidade \r\n\tsocioeconômica e o desenvolvimento tecnológico para a redução da pobreza \r\n\tenergética, conforme diretriz do Ministério de Minas e Energia."
+    },
+    {
+     "unit_id": "u0074",
+     "quote": "Art. 6º \r\n\t Como compromisso pela prorrogação das concessões, as concessionárias:"
+    }
+   ]
+  },
+  {
+   "id": "6f458592d7b03d5779c6",
+   "norma": "dec12068",
+   "chave_conteudo": "37b3be8dba8f6015d8dbbdd11d93fbc8e316182b7a8c8c6d7bf74d35dcd5b766",
+   "grupo": "agente_regulado",
+   "responsavel": "Concessionária de distribuição",
+   "fundamento": "Apresentação do requerimento pela concessionária, se buscar a prorrogação.",
+   "evidencias": [
+    {
+     "unit_id": "u0082",
+     "quote": "Art. 7º \r\n\t O requerimento de prorrogação do prazo da concessão será dirigido à Aneel, \r\n\tcom a antecedência de, no mínimo, trinta e seis meses do advento do termo \r\n\tcontratual, acompanhado dos documentos comprobatórios de regularidade \r\n\tfiscal, trabalhista e setorial e das qualificações jurídica, \r\n\teconômico-financeira e técnica da concessionária."
+    }
+   ]
+  },
+  {
+   "id": "a174cd4622bef25c4dc2",
+   "norma": "dec12068",
+   "chave_conteudo": "1c2b2060c330304753143b3cce0e4cba500b30a93adea8b4c1cf0f404301280e",
+   "grupo": "agente_regulado",
+   "responsavel": "Concessionária de distribuição",
+   "fundamento": "Planos de investimentos referentes aos compromissos das concessionárias no Art. 6º.",
+   "evidencias": [
+    {
+     "unit_id": "u0079",
+     "quote": "§ 1º  Os compromissos de que trata o\ncaput\nserão realizados durante todo o período de vigência \r\n\tcontratual, a partir da assinatura do termo aditivo ao contrato de \r\n\tconcessão, com planos de investimentos estabelecidos para cada ciclo \r\n\ttarifário e acompanhamento pela Aneel."
+    },
+    {
+     "unit_id": "u0074",
+     "quote": "Art. 6º \r\n\t Como compromisso pela prorrogação das concessões, as concessionárias:"
+    }
+   ]
+  },
+  {
+   "id": "ce00a3811c4923c32436",
+   "norma": "dec12068",
+   "chave_conteudo": "814a8681b10a3e92773c60daffcb3e89b09e5c0f1afc16847f6a82f0140c124e",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "ANEEL",
+   "fundamento": "A agência é responsável por licitar as concessões.",
+   "evidencias": [
+    {
+     "unit_id": "u0101",
+     "quote": "13.  As concessões de distribuição de energia elétrica não prorrogadas ou \r\n\tque tenham sido objeto de extinção serão licitadas nos termos da\nLei nº \r\n\t9.074, de 7 de julho de 1995\n, pela Aneel, conforme diretrizes do Ministério \r\n\tde Minas e Energia."
+    }
+   ]
+  },
+  {
+   "id": "4d12608f7985c5fba4e2",
+   "norma": "dec12068",
+   "chave_conteudo": "cbb3a1cba79181d92571428aa5d757e6365a353d3d012993dffcc2b4e8f032f6",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "ANEEL",
+   "fundamento": "Requisito da licitação referida no caput, cuja realização cabe à agência.",
+   "evidencias": [
+    {
+     "unit_id": "u0102",
+     "quote": "§ 1º  A licitação será \r\n\trealizada sem reversão prévia dos bens."
+    }
+   ]
+  },
+  {
+   "id": "6b82a4035c612a0c7616",
+   "norma": "dec12068",
+   "chave_conteudo": "794e4863be25d45df1a56099e288a2594f01fa1d379840051299539c25183ec2",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "ANEEL",
+   "fundamento": "O dispositivo atribui a definição da indenização à agência.",
+   "evidencias": [
+    {
+     "unit_id": "u0103",
+     "quote": "§ 2º  A indenização a ser \r\n\tpaga à antiga concessionária em razão do valor dos investimentos dos bens \r\n\treversíveis ainda não amortizados ou depreciados e as condições para a \r\n\tprestação de garantias e alienação de bens serão definidas pela Aneel."
+    }
+   ]
+  },
+  {
+   "id": "ad78034ca97dd6df45b0",
+   "norma": "dec12068",
+   "chave_conteudo": "c42f7ca29bf665591de9fb50e572031f6a4a269e2958ce0aec9daaf0fe4556cd",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "ANEEL",
+   "fundamento": "O dispositivo atribui a apuração em regulação à agência.",
+   "evidencias": [
+    {
+     "unit_id": "u0104",
+     "quote": "§ 3º  A indenização também \r\n\tconsiderará os saldos remanescentes, ativos ou passivos, de eventual \r\n\tinsuficiência de faturamento ou ressarcimento pela tarifa, em decorrência da \r\n\tlicitação da concessão, relativos a valores financeiros a serem apurados em \r\n\tregulação da Aneel, incluídos aqueles constituídos após a última alteração \r\n\ttarifária."
+    }
+   ]
+  },
+  {
+   "id": "9d5eac1b4dbaf28150a4",
+   "norma": "dec12068",
+   "chave_conteudo": "b195b0e6110a5e06d76dd87ffc8a2a72aa1516a160330d5e7a3b0400c3795729",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "RGR — pagamento de indenização",
+   "fundamento": "O encargo é atribuído à reserva, não à distribuidora/transmissora cliente.",
+   "evidencias": [
+    {
+     "unit_id": "u0106",
+     "quote": "§ 5º  Caso o valor a ser \r\n\tpago pelo vencedor do certame não seja suficiente para quitar a indenização, \r\n\to saldo remanescente será pago pela Reserva Global de Reversão – RGR, cuja \r\n\tforma de pagamento será definida em ato do Ministro de Estado de Minas e \r\n\tEnergia."
+    }
+   ]
+  },
+  {
+   "id": "3424dca4d3df3ba75d7d",
+   "norma": "dec12068",
+   "chave_conteudo": "a63df95f7a6dd680285d42c65138c6ee40d1a0711f3de81f38ab54db29c23ee1",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "Ministro de Minas e Energia",
+   "fundamento": "O ministro define a forma de pagamento.",
+   "evidencias": [
+    {
+     "unit_id": "u0106",
+     "quote": "§ 5º  Caso o valor a ser \r\n\tpago pelo vencedor do certame não seja suficiente para quitar a indenização, \r\n\to saldo remanescente será pago pela Reserva Global de Reversão – RGR, cuja \r\n\tforma de pagamento será definida em ato do Ministro de Estado de Minas e \r\n\tEnergia."
+    }
+   ]
+  },
+  {
+   "id": "efae95a39d992873aa25",
+   "norma": "dec12068",
+   "chave_conteudo": "11cf7ffbaba688bde773a66cb8a16236030b3bf5ea79f11c92c21ccb16b1936a",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "ANEEL",
+   "fundamento": "A agência estabelece os critérios de operação com assistência.",
+   "evidencias": [
+    {
+     "unit_id": "u0107",
+     "quote": "§ 6º  A Aneel estabelecerá \r\n\tcritérios para o período de operação com assistência entre concessionárias, \r\n\tquando necessário, de forma a assegurar a continuidade e a prestação \r\n\tadequada do serviço público de energia elétrica."
+    }
+   ]
+  },
+  {
+   "id": "d0302a2c2f7320b584f1",
+   "norma": "dec12068",
+   "chave_conteudo": "d4d29085372dd2491a27bf8d409742bc4f6c234c4b7d2bd3ff569fed16d246c6",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "Ministério de Minas e Energia",
+   "fundamento": "O ministério publica as diretrizes.",
+   "evidencias": [
+    {
+     "unit_id": "u0108",
+     "quote": "Art. 14.  O Ministério de Minas e Energia publicará diretrizes para \r\n\tprestação temporária de serviço por parte de concessionária designada, seja \r\n\ta própria concessionária, seja a entidade indicada pelo Poder concedente."
+    }
+   ]
+  },
+  {
+   "id": "fb363aa884c864436488",
+   "norma": "dec12068",
+   "chave_conteudo": "892baea41c0f1b64f57eb50e7697a4138679906fd794f3a7adf40d221390a8db",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "Sem devedor autônomo — efeito da adesão",
+   "fundamento": "A adesão não implica prorrogação nem reequilíbrio; isso não cria uma ação exigida da empresa.",
+   "evidencias": [
+    {
+     "unit_id": "u0112",
+     "quote": "Parágrafo único.  A adesão \r\n\tfacultada no\ncaput\nnão \r\n\timplicará a prorrogação dos respectivos prazos contratuais ou o reequilíbrio \r\n\teconômico-financeiro."
+    }
+   ]
+  },
+  {
+   "id": "af8e106307561d7c0bab",
+   "norma": "dec12068",
+   "chave_conteudo": "e0316f38c9a7feca3673685fc03e1e723e02f81534e8548936b9e0648662480b",
+   "grupo": "agente_regulado",
+   "responsavel": "Concessionária de distribuição cedente",
+   "fundamento": "O caput do Art. 16 obriga a distribuidora cedente; o § 1º condiciona a cessão a onerosidade e orientação a custos.",
+   "evidencias": [
+    {
+     "unit_id": "u0114",
+     "quote": "§ 1º  A cessão de que trata o\ncaput\nserá onerosa e orientada a \r\n\tcustos."
+    },
+    {
+     "unit_id": "u0113",
+     "quote": "Art. 16.  As concessionárias de distribuição de energia elétrica deverão \r\n\tceder a pessoa jurídica distinta o espaço em infraestrutura de distribuição, \r\n\tas faixas de ocupação e os pontos de fixação dos postes das redes aéreas de \r\n\tdistribuição destinados ao compartilhamento com o setor de telecomunicações."
+    }
+   ]
+  },
+  {
+   "id": "3d6ae5a5a424bd15e759",
+   "norma": "dec12068",
+   "chave_conteudo": "ebe0010b4a35da77bc925d7f03a9b142164d95130daa83c8e67ac0498b36f9ce",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "ANEEL e Anatel",
+   "fundamento": "A interpretação do ensaio atribui a regulação conjunta às agências; não transferir o dever ao cliente por o compartilhamento envolver distribuidora.",
+   "evidencias": [
+    {
+     "unit_id": "u0115",
+     "quote": "§ 2º  O compartilhamento de que trata o\ncaput\nserá objeto de \r\n\texploração comercial por meio de oferta de referência de espaço de \r\n\tinfraestrutura, conforme regulação conjunta da Aneel e da Agência Nacional \r\n\tde Telecomunicações\n–\nAnatel, quanto ao preço, ao uso da faixa, dentre outros."
+    },
+    {
+     "unit_id": "u0113",
+     "quote": "Art. 16.  As concessionárias de distribuição de energia elétrica deverão \r\n\tceder a pessoa jurídica distinta o espaço em infraestrutura de distribuição, \r\n\tas faixas de ocupação e os pontos de fixação dos postes das redes aéreas de \r\n\tdistribuição destinados ao compartilhamento com o setor de telecomunicações."
+    }
+   ]
+  },
+  {
+   "id": "8b0a8f7fd245083a5861",
+   "norma": "dec12068",
+   "chave_conteudo": "132113a68aba38f110929d7c71266e1933dd85c34238ab8184f7f7ed6af24ac2",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "Pessoa jurídica cessionária de infraestrutura",
+   "fundamento": "No Art. 16 a cessionária é a pessoa jurídica distinta que recebe espaço para telecomunicações, não a distribuidora cedente. Não há prova de que seja distribuidora/transmissora.",
+   "evidencias": [
+    {
+     "unit_id": "u0117",
+     "quote": "I - a cessionária estará sujeita à regulação conjunta da Aneel e da Anatel, \r\n\tàs condições técnicas aplicáveis, inclusive aquelas estabelecidas pela \r\n\tconcessionária de distribuição de energia elétrica cedente, e às regras de \r\n\tregularização da faixa de ocupação; e"
+    },
+    {
+     "unit_id": "u0116",
+     "quote": "§ 3º  Na cessão de que trata o\ncaput\n:"
+    },
+    {
+     "unit_id": "u0113",
+     "quote": "Art. 16.  As concessionárias de distribuição de energia elétrica deverão \r\n\tceder a pessoa jurídica distinta o espaço em infraestrutura de distribuição, \r\n\tas faixas de ocupação e os pontos de fixação dos postes das redes aéreas de \r\n\tdistribuição destinados ao compartilhamento com o setor de telecomunicações."
+    }
+   ]
+  },
+  {
+   "id": "105178b93777e4095b8e",
+   "norma": "dec12068",
+   "chave_conteudo": "deaa51588ea13f02edf591f128986599f04604f9b6f5cf0a85a0addb175f66ea",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "Ministro de Minas e Energia",
+   "fundamento": "O ministro disciplina a Renacon por ato.",
+   "evidencias": [
+    {
+     "unit_id": "u0120",
+     "quote": "§ 1º  Ato do Ministro de \r\n\tEstado de Minas e Energia disciplinará a composição, a competência e o \r\n\tfuncionamento da Renacon, e a instituição de colegiado com a finalidade de \r\n\tarticulação de suas respectivas ações."
+    }
+   ]
+  },
+  {
+   "id": "8bd81dcad0d965da920b",
+   "norma": "dec12068",
+   "chave_conteudo": "94d696204acf78166d86d792c5f3cb825fc3a6c70de5f4380094eb6a60cedbef",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "Renacon",
+   "fundamento": "Atuação institucional da rede, não dever do cliente regulado.",
+   "evidencias": [
+    {
+     "unit_id": "u0121",
+     "quote": "§ 2º  A Renacon atuará em \r\n\testreita articulação com a Aneel e com a Secretaria Nacional do Consumidor \r\n\tdo Ministério da Justiça e Segurança Pública."
+    }
+   ]
+  },
+  {
+   "id": "f73c55354092951d712e",
+   "norma": "dec12068",
+   "chave_conteudo": "d1aa5ada461022afcba92661871ceb5f81c3e2434630f3c4bc99a785eee080db",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "Não identificado — norma alterada com caput omitido",
+   "fundamento": "O texto altera o Decreto 2.655 e omite o caput do Art. 7º. Não se atribui o sujeito por proximidade de palavras.",
+   "evidencias": [
+    {
+     "unit_id": "u0129",
+     "quote": "V -\nminimizar os \r\n\t\t\tcustos de ampliação ou utilização dos sistemas elétricos; e"
+    }
+   ]
+  },
+  {
+   "id": "afdd1c0f70114300bd07",
+   "norma": "dec12068",
+   "chave_conteudo": "761a09bfa558ec762a22a7421da272503dafcd3e6d82117b5cd0bb07d21c8a31",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "Não identificado — norma alterada com caput omitido",
+   "fundamento": "O texto altera o Decreto 2.655 e omite o caput do Art. 7º. Não se atribui o sujeito por proximidade de palavras.",
+   "evidencias": [
+    {
+     "unit_id": "u0130",
+     "quote": "VI -\nestimular ações \r\n\t\t\tde inclusão energética e de combate a perdas não técnicas e à \r\n\t\t\tinadimplência."
+    }
+   ]
+  },
+  {
+   "id": "ff0f667893c010e7322f",
+   "norma": "dec12068",
+   "chave_conteudo": "234df21be91ade6db2618d4b975560e24f45e1f86c09741f7852ea7196cf8c44",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "Conselho de Administração de ato alterado",
+   "fundamento": "Regra de composição no Decreto 5.177, sem atribuição de dever a distribuidora/transmissora.",
+   "evidencias": [
+    {
+     "unit_id": "u0132",
+     "quote": "O Conselho de Administração será integrado por oito membros, \r\n\t\t\teleitos em Assembleia Geral, com mandatos de dois anos, permitidas \r\n\t\t\tduas reconduções, e indicados, em conjunto com os respectivos \r\n\t\t\tsuplentes, da seguinte forma:"
+    }
+   ]
+  },
+  {
+   "id": "95fb3ee328dcfde44408",
+   "norma": "dec12068",
+   "chave_conteudo": "a34048b91e8e7f0f064223e2c1126f300a5ca4c0e427ca1a7b9562b3c5247c50",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "Conselho de Administração de ato alterado",
+   "fundamento": "Regra de mandato no Decreto 5.177, sem atribuição de dever a distribuidora/transmissora.",
+   "evidencias": [
+    {
+     "unit_id": "u0132",
+     "quote": "O Conselho de Administração será integrado por oito membros, \r\n\t\t\teleitos em Assembleia Geral, com mandatos de dois anos, permitidas \r\n\t\t\tduas reconduções, e indicados, em conjunto com os respectivos \r\n\t\t\tsuplentes, da seguinte forma:"
+    }
+   ]
+  },
+  {
+   "id": "40269dc1e4ed170190a1",
+   "norma": "dec12068",
+   "chave_conteudo": "3239a655ba33898a6ecce90bf9626edd8b74c8d538e62733e800cc75700547d5",
+   "grupo": "aneel_governo_outros",
+   "responsavel": "Conselho de Administração de ato alterado",
+   "fundamento": "Regra de indicação no Decreto 5.177, sem atribuição de dever a distribuidora/transmissora.",
+   "evidencias": [
+    {
+     "unit_id": "u0132",
+     "quote": "O Conselho de Administração será integrado por oito membros, \r\n\t\t\teleitos em Assembleia Geral, com mandatos de dois anos, permitidas \r\n\t\t\tduas reconduções, e indicados, em conjunto com os respectivos \r\n\t\t\tsuplentes, da seguinte forma:"
+    }
+   ]
+  }
+ ]
+}
