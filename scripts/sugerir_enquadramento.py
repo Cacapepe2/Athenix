@@ -35,9 +35,12 @@ from athenix.db import digest  # noqa: E402
 from athenix.demo import USUARIO, preparar  # noqa: E402
 
 # Saída esperada por chamada (até 3 justificativas curtas); com raciocínio, soma o pensamento.
-# shortcut: palpites, calibrar com o uso real da 1ª chamada.
+# Calibrado em 17/11/2026 com 2 chamadas reais (gpt-5-mini, Azure v1, mesma obrigação): entrada de
+# 5.843 tokens para ~24,4 KB de pedido (~4 bytes por token); saída de 302 tokens com raciocínio low
+# e 1.393 com medium. shortcut: uma obrigação só; recalibrar com o uso da execução completa.
+BYTES_POR_TOKEN = 4
 SAIDA_ESPERADA = 300
-SAIDA_ESPERADA_RACIOCINIO = 1500
+SAIDA_ESPERADA_RACIOCINIO = {"minimal": 300, "low": 400, "medium": 1500, "high": 3000}
 
 
 def pendentes(params, rows, regras):
@@ -58,10 +61,12 @@ def estimar(settings, params, rows):
     payloads = [enquadramento.payload_ia(settings.model, params, r, raciocinio) for r in rows]
     saida = sum(p["max_completion_tokens"] for p in payloads)
     # Máximo: mesma heurística conservadora de llm.estimate (bytes do pedido + margem por chamada)
-    # e o limite de saída inteiro. Esperado: ~3 bytes por token e SAIDA_ESPERADA por chamada.
+    # e o limite de saída inteiro. Esperado: calibração acima (BYTES_POR_TOKEN, SAIDA_ESPERADA*).
     entrada = sum(len(json.dumps(p, ensure_ascii=False).encode()) + 2048 for p in payloads)
-    entrada_esperada = sum(len(json.dumps(p, ensure_ascii=False).encode()) // 3 for p in payloads)
-    saida_esperada = (SAIDA_ESPERADA_RACIOCINIO if raciocinio else SAIDA_ESPERADA) * len(payloads)
+    entrada_esperada = sum(
+        len(json.dumps(p, ensure_ascii=False).encode()) // BYTES_POR_TOKEN for p in payloads
+    )
+    saida_esperada = SAIDA_ESPERADA_RACIOCINIO.get(raciocinio, SAIDA_ESPERADA) * len(payloads)
     precos = llm.price_config(settings)
     centavos = Decimal("0.01")
     return {

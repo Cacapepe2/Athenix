@@ -149,3 +149,13 @@ def test_pedido_azure_com_raciocinio_sem_store():
     azure = Settings(azure_endpoint="https://x.openai.azure.com", reasoning_effort="")
     assert enquadramento.raciocinio(azure) is None  # vazio: modelo sem raciocínio
     assert enquadramento.raciocinio(Settings(azure_endpoint="", reasoning_effort="low")) is None
+
+
+def test_sugestao_em_dispositivo_com_duvida_aberta_avisa():
+    r = row("Implementar mecanismos de comunicação ao consumidor sobre interrupções.")
+    ia = {"modelo": "m", "gerado_em": "x", "sugestoes": {enquadramento.chave(r): [
+        {"dispositivo": "Art. 11, XXIII", "justificativa": "j"},
+        {"dispositivo": "Art. 9º, III", "justificativa": "j"},
+    ]}}  # fmt: skip
+    a, b = enquadramento.sugestoes(PARAMS, r, [], ia)
+    assert a["duvida"] == "D1" and b["duvida"] is None  # D1: duas redações do Art. 11, XXIII

@@ -92,12 +92,14 @@ def sugestoes(params, row, regras, ia=None):
             )
             for s in ia["sugestoes"].get(chave(row), [])
         ]
+    duvidas = {d.get("dispositivo"): d["id"] for d in params.get("duvidas", [])}
     out, vistos = [], set()
     for dispositivo, origem in candidatas:
         if dispositivo in vistos or dispositivo in rejeitadas or dispositivo not in validas:
             continue
         vistos.add(dispositivo)
-        out.append(origem | {"infracao": validas[dispositivo], "obrigacao": obrigacao})
+        # Dispositivo com dúvida em aberto (ex.: D1, duas redações): a confirmação precisa saber.
+        out.append(origem | {"infracao": validas[dispositivo], "obrigacao": obrigacao, "duvida": duvidas.get(dispositivo)})  # fmt: skip
     return out[:MAXIMO]
 
 
