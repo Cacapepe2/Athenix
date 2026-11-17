@@ -73,7 +73,9 @@ def obrigacao(i, by_id, posicao, params):
         "posicao": posicao,
         "prazo": i["urgencia"]["texto"],
         "data_prazo": i["urgencia"]["data"],
-        "categorias": [{"nome": impacto.CATEGORIAS[c], "motivo": mot} for c, mot in i["categorias"]],
+        "categorias": [
+            {"nome": impacto.CATEGORIAS[c], "motivo": mot} for c, mot in i["categorias"]
+        ],
         "impacto": {
             "grupos": m["grupos"],
             "enquadramentos": [
@@ -168,7 +170,9 @@ def main(saida):
         "alertas": alertas,
         "obrigacoes": obrigacoes,
     }
-    Path(saida).write_text(json.dumps(dados, ensure_ascii=False, indent=1) + "\n", encoding="utf-8", newline="\n")
+    Path(saida).write_text(
+        json.dumps(dados, ensure_ascii=False, indent=1) + "\n", encoding="utf-8", newline="\n"
+    )
     print(f"{saida}: {len(obrigacoes)} obrigações, {len(alertas)} alertas (commit {commit})")
 
 
