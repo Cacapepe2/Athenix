@@ -106,3 +106,21 @@ Itens da revisão técnica fora do escopo atual (decisão de 11/11/2026: prioriz
 | --- | --- |
 | G09 | Remissões nunca resolvidas (item 8); a divergência "20 de julho" × "20 de junho" do Decreto citado passa sem alerta (item 12). |
 | — | Sujeito com oração relativa no Decreto ("…à concessionária, que"): o sujeito correto está contido, mas não isolado. |
+
+## Trava de não regressão
+
+`tests/baseline/metricas_v1.json` congela os números de hoje: 19/20 casos corretos; obrigação 11/11,
+prazo 8/8, autoria 10/10, vigência 4/4 (e as demais verificações); citações falsamente verificadas 0 nas
+três normas; citações encontradas na fonte 252/254 (RN), 31/31 (REH) e 145/145 (Decreto).
+
+- `python scripts/avaliar.py --comparar tests/baseline/metricas_v1.json` sai com erro se qualquer
+  métrica piorar. O mesmo roda como etapa "Não regressão do gabarito" no CI (Ubuntu e Windows) e como
+  teste (`tests/test_nao_regressao.py`).
+- Falha se: um caso ou verificação acerta menos; uma citação deixa de ser encontrada na fonte; sobem
+  as citações não encontradas, as falsamente verificadas, os itens sem âncora verificada, os prazos
+  duplicados ou os sujeitos com rótulo; ou o tamanho do gabarito muda (aí a linha de base precisa ser
+  atualizada de propósito).
+- **Melhoria atualiza a linha de base só em commit próprio**, explicando o porquê:
+  `python scripts/avaliar.py --rotulo <nome> --congelar tests/baseline/metricas_v1.json` (ou uma
+  nova versão `metricas_v2.json` e o caminho trocado no CI).
+- Limite: a trava só vê os 20 casos do gabarito, que não foi revisado por especialista.
