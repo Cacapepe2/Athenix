@@ -156,7 +156,7 @@ A IA é opcional. O modo vem de `ATHENIX_AI_MODE` e aparece no topo de cada tela
 
 O código está sob a **PolyForm Noncommercial License 1.0.0** (arquivo [LICENSE](LICENSE)): uso,
 cópia e modificação são permitidos para fins não comerciais; uso comercial depende de autorização
-do titular.
+do titular. Aviso obrigatório: Copyright (c) 2026 Athenix.
 
 ### Escopo e responsabilidade
 
