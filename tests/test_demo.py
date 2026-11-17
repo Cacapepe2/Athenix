@@ -1,0 +1,33 @@
+"""Demo de um comando: RN 1.137 processada por regras, usuário de demo, sem IA e sem rede."""
+
+from fastapi.testclient import TestClient
+
+from athenix import demo
+from athenix.app import create_app
+from athenix.config import Settings
+
+
+def test_demo_prepares_rn1137_and_a_working_login(tmp_path):
+    settings = Settings(model="", api_key="", ai_mode="off")
+    senha = demo.preparar(settings, banco=tmp_path / "demo.db")
+    assert len(senha) >= 12 and settings.database_url.endswith("demo.db")
+    with TestClient(create_app(settings)) as client:
+        login = client.post("/api/login", json={"username": demo.USUARIO, "password": senha})
+        assert login.status_code == 200
+        obrigacoes = client.get("/api/obligations").json()
+        assert obrigacoes["count"] > 100
+        assert {r["document_title"] for r in obrigacoes["items"]} == {"RN ANEEL 1.137/2025"}
+        # README: a ficha traz o trecho literal destacado, âncora verificada e link ao dispositivo.
+        item = next(r for r in obrigacoes["items"] if r["anchors"][0]["state"] == "verified")
+        ficha = client.get(f"/obligations/{item['id']}").text
+        assert "<mark>" in ficha and f"/documents/{item['document_id']}#" in ficha
+        page = client.get("/impacto?perfil=ilustrativo")
+        assert "Perfil ilustrativo" in page.text and "Citação inconsistente na fonte" in page.text
+
+
+def test_cli_messages_fit_the_windows_console():
+    # Teste do jurado: "→" na saída da demo derrubava o processo num console cp1252.
+    from pathlib import Path
+
+    for nome in ("__main__.py", "demo.py"):
+        (Path(demo.__file__).parent / nome).read_text(encoding="utf-8").encode("cp1252")

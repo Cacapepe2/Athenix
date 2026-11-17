@@ -1,0 +1,79 @@
+{
+ "nota": "Atos oficiais (Lei 9.610/1998, art. 8º, IV). Os PDFs não estão no repositório: são cópias locais (.local/fontes_impacto/, ignorado pelo git) e o hash abaixo identifica o arquivo consultado. Quando as versões oficiais da ANEEL forem colocadas aqui, registrar o novo hash e a origem real.",
+ "ressalva_origem": "A confirmar com a fonte oficial da ANEEL. Os arquivos consultados são compilações de terceiro (Leis.org), baixadas manualmente pelo fundador; os termos de uso do site (cláusula 9) não permitem reproduzi-los ou armazená-los em outros sites sem autorização escrita, então não ficam no repositório.",
+ "documentos": [
+  {
+   "id": "ren2019846",
+   "arquivo": "ren2019846_compilada.pdf",
+   "sha256": "d8b6fae9322fbb01e903f9fcb65fcf0f79155ad95f5cb3f5eb86592cada4d21a",
+   "ato": "Resolução Normativa ANEEL nº 846, de 11 de junho de 2019 (texto compilado)",
+   "compilado_ate": "Resolução Normativa nº 1174/2026 de 27/10/2026",
+   "publicacao_original": "D.O. de 18.06.2019, seção 1, p. 37, v. 157, nº 116",
+   "paginas": 46,
+   "fonte": "a confirmar com a fonte oficial da ANEEL"
+  },
+  {
+   "id": "ren20261148",
+   "arquivo": "ren20261148.pdf",
+   "sha256": "00f8c4a41605a697eddac3be1ec916e4017bf78f2f1480162749f52dd6f801cb",
+   "ato": "Resolução Normativa ANEEL nº 1.148, de 27 de janeiro de 2026",
+   "publicacao_original": "D.O. de 20.02.2026, seção 1, p. 84, v. 164, nº 34",
+   "vigencia_declarada": "1º de janeiro de 2027 (Art. 10)",
+   "paginas": 15,
+   "fonte": "a confirmar com a fonte oficial da ANEEL",
+   "ressalva": "Anexos (Submódulos 2.5 e 2.5-A do PRORET, versões 5.0 e 4.0) não estão no arquivo."
+  },
+  {
+   "id": "ren20261174",
+   "arquivo": "ren20261174.pdf",
+   "sha256": "a2f89f9e431eb9dfc0122d0a646ade8711791434e2c6515c5c91e41d62f38e53",
+   "ato": "Resolução Normativa ANEEL nº 1.174, de 27 de outubro de 2026 (texto compilado)",
+   "publicacao_original": "D.O. de 04.11.2026, seção 1, p. 68, v. 164, nº 207",
+   "paginas": 32,
+   "fonte": "a confirmar com a fonte oficial da ANEEL",
+   "ressalva": "Anexos II e III (Submódulos 1.6 e 1.8 dos Procedimentos de Comercialização) não estão no arquivo."
+  },
+  {
+   "id": "lei9427",
+   "arquivo": "l9427cons.htm",
+   "sha256": "ff948e3442edc619d98a3256fc6988a7c3d0dc21b27e25444a56a701082ac91b",
+   "ato": "Lei nº 9.427, de 26 de dezembro de 1996 (texto compilado)",
+   "url": "https://www.planalto.gov.br/ccivil_03/leis/l9427cons.htm",
+   "obtido_em": "2026-11-17",
+   "publicador": "Presidência da República, Casa Civil (planalto.gov.br)",
+   "codificacao": "windows-1252",
+   "fonte": "oficial (texto compilado; a publicação oficial é o DOU)",
+   "ressalva": "Redação revogada aparece riscada (<strike>) na mesma página; o extrator a marca como revogada. Art. 3º, X com redação dada pela Lei nº 15.269/2025."
+  },
+  {
+   "id": "lei9648",
+   "arquivo": "l9648cons.htm",
+   "sha256": "42e8c5f486f6b7722b07ea59c27a7d9b5b271c257f0441205a8224ff88737648",
+   "ato": "Lei nº 9.648, de 27 de maio de 1998 (texto compilado)",
+   "url": "https://www.planalto.gov.br/ccivil_03/leis/l9648cons.htm",
+   "obtido_em": "2026-11-17",
+   "publicador": "Presidência da República, Casa Civil (planalto.gov.br)",
+   "codificacao": "windows-1252",
+   "fonte": "oficial (texto do planalto.gov.br; a publicação oficial é o DOU)",
+   "ressalva": "Fonte da redação original (2%) do Art. 3º, X da Lei 9.427/1996."
+  },
+  {
+   "id": "lei15269",
+   "arquivo": "l15269.htm",
+   "sha256": "acd97004cd305e8052a865a1668fea71c0fa8492683a91f83ab4c83ec8cbae88",
+   "ato": "Lei nº 15.269, de 24 de novembro de 2025",
+   "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/L15269.htm",
+   "obtido_em": "2026-11-17",
+   "publicador": "Presidência da República, Casa Civil (planalto.gov.br)",
+   "codificacao": "windows-1252",
+   "fonte": "oficial (texto do planalto.gov.br; a publicação oficial é o DOU)",
+   "ressalva": "Art. 3º dá ao Art. 3º, X da Lei 9.427 a redação de 3%; Art. 24 traz a vigência. O inciso III do Art. 24 fica colado no II na extração (quebra de linha do HTML)."
+  }
+ ],
+ "ausentes": [
+  "REN 1.162/2026 (altera arts. 9º, 10 e 21 § 11 da REN 846 segundo o compilado; arquivo não fornecido)",
+  "Despacho nº 1.293/2026 (citado no cabeçalho do compilado; arquivo não fornecido)",
+  "Norma de Parcela Variável (PVI/PVRO) das transmissoras (citada no Art. 13, XIII, da REN 846; arquivo não fornecido)"
+ ],
+ "riscos_conhecidos": "Compilações marcam texto revogado riscado na mesma página (o texto extraído contém as duas redações) e o selo 'Art. N' pode ser lido fora de lugar pelo pypdfium2."
+}

@@ -4,6 +4,7 @@ import json
 import secrets
 import threading
 import time
+from urllib.parse import urlencode
 from collections import Counter
 from contextlib import asynccontextmanager
 from pathlib import Path
@@ -33,7 +34,8 @@ from .db import (
     verify_chain,
 )
 from .evidence import recheck
-from .llm import estimate
+from . import impacto
+from .llm import estimate, modo
 from .services import (
     associate_dependency,
     decision_state,
@@ -71,6 +73,7 @@ LABELS = {
     "confirmed": "Confirmado por pessoa",
     "awaiting_event": "Sem data até evento",
     "not_calculated": "Não calculado",
+    "recurring": "Recorrente",
     "norm": "Norma",
     "compiled": "Versão compilada",
     "clarification": "Esclarecimento",
@@ -145,6 +148,11 @@ def create_app(settings=None, embedded_worker=False):
     templates = Jinja2Templates(directory=str(ROOT / "templates"))
     templates.env.filters["label"] = lambda value: LABELS.get(value, value)
     templates.env.filters["pretty"] = lambda value: json.dumps(value, ensure_ascii=False, indent=2)
+    templates.env.globals["fmt_reais"] = impacto.reais
+    templates.env.globals["aviso_data"] = impacto.AVISO_DATA
+    templates.env.globals["regra_ordem"] = impacto.REGRA_ORDEM
+    templates.env.globals["modo_ia"] = lambda: modo(settings)  # lido a cada página
+    templates.env.filters["data_br"] = lambda v: "/".join(reversed(v.split("-"))) if v else v
     app.mount("/static", StaticFiles(directory=str(ROOT / "static")), name="static")
 
     @app.middleware("http")
@@ -223,7 +231,7 @@ def create_app(settings=None, embedded_worker=False):
         return {
             "status": "ok",
             "version": "0.1.0",
-            "ai_enabled": False,
+            "ai_mode": modo(settings),
             "ai_configured": bool(settings.api_key and settings.model),
         }
 
@@ -678,6 +686,85 @@ def create_app(settings=None, embedded_worker=False):
             ]
             deadlines.sort(key=lambda d: d.get("date") or "9999")
             return render(request, session, "timeline", deadlines=deadlines)
+
+    def impacto_contexto(session, query):
+        params = impacto.carregar()
+        perfil = impacto.perfil(query)
+        rows = obligations(session)
+        resultado = impacto.avaliar(params, rows, perfil)
+        for posicao, item in enumerate(resultado["ranking"], start=1):
+            item["rank"] = posicao
+        alteracoes, divergencias, documentos = [], [], {}
+        for row in rows:
+            documentos.setdefault(row["document_id"], row["document_title"])
+        for document_id, title in documentos.items():
+            units = extraction_data(session, document_id)["units"]
+            divergencias += [
+                d | {"document_id": document_id, "title": title}
+                for d in impacto.citacoes_divergentes(units)
+            ]
+            for unit in impacto.alteracoes_da_regua(units):
+                alteracoes.append(
+                    {
+                        "document_id": document_id,
+                        "title": title,
+                        "unit_id": unit["id"],
+                        "quote": " ".join(unit["text"].split()),
+                    }
+                )
+        demo = impacto.perfil_ilustrativo()
+        # Rótulo só enquanto o perfil for o do arquivo: mudou a base ou o segmento, deixa de ser.
+        ilustrativo = (
+            demo
+            if query.get("base") == demo["base"] and query.get("segmento") == demo["segmento"]
+            else None
+        )
+        return {
+            "params": params,
+            "perfil": perfil,
+            "ilustrativo": ilustrativo,
+            "resultado": resultado,
+            "alteracoes": alteracoes,
+            "divergencias": divergencias,
+            "destaques": impacto.destaques(resultado, perfil),
+            "documentos": list(documentos.values()),
+            "categorias": impacto.CATEGORIAS,
+            "grupos": impacto.GRUPOS,
+        }
+
+    @app.get("/impacto", response_class=HTMLResponse)
+    def impacto_page(request: Request):
+        if request.query_params.get("perfil") == "ilustrativo":
+            # Preenche o formulário com o perfil de demonstração, de forma visível e editável.
+            demo = impacto.perfil_ilustrativo()
+            campos = {k: demo[k] for k in ("segmento", "base", "data_referencia")}
+            return RedirectResponse("/impacto?" + urlencode(campos), status_code=303)
+        with factory() as session:
+            guard(request, session)
+            context = impacto_contexto(session, request.query_params)
+            return render(request, session, "impact", **context)
+
+    @app.get("/impacto/relatorio", response_class=HTMLResponse)
+    def impacto_relatorio(request: Request):
+        with factory() as session:
+            guard(request, session)
+            context = impacto_contexto(session, request.query_params)
+        download = bool(request.query_params.get("download"))
+        return templates.TemplateResponse(
+            request=request,
+            name="impacto_relatorio.html",
+            context=context
+            | {
+                "gerado_em": time.strftime("%d/%m/%Y %H:%M"),
+                # Arquivo baixado abre fora do app: leva o CSS junto.
+                "css": (ROOT / "static" / "app.css").read_text(encoding="utf-8")
+                if download
+                else "",
+            },
+            headers={"Content-Disposition": 'attachment; filename="relatorio_impacto.html"'}
+            if download
+            else None,
+        )
 
     @app.post("/obligations/{interpretation_id}/findings")
     @app.post("/api/obligations/{interpretation_id}/findings")

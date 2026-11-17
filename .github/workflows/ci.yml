@@ -4,7 +4,7 @@ jobs:
   verify:
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest, windows-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -15,9 +15,13 @@ jobs:
       - run: python -m ruff check athenix tests scripts migrations
       - run: python -m ruff format --check athenix tests scripts migrations
       - run: python scripts/check_secrets.py
+      - name: Não regressão do gabarito
+        run: python scripts/avaliar.py --rotulo ci --comparar tests/baseline/metricas_v1.json
       - run: python -m pytest --junitxml=artifacts/tests.xml
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: tests-${{ matrix.os }}
-          path: artifacts/tests.xml
+          path: |
+            artifacts/tests.xml
+            artifacts/avaliacao/

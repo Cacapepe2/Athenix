@@ -109,7 +109,9 @@ def propose_finding(session, interpretation_id, actor, kind, quote, unit_id, exp
     if kind not in allowed:
         raise ValueError("Tipo de contestação desconhecido.")
     extracted = extraction_data(session, item.document_id)
-    anchor = verify(quote, unit_id, extracted["units"], extracted["text_hash"])
+    anchor = verify(
+        quote, unit_id, extracted["units"], extracted["text_hash"], source=extracted.get("source")
+    )
     if anchor["state"] != "verified":
         raise ValueError("Contestação exige trecho literal verificável na unidade declarada.")
     document = session.get(Document, item.document_id)
@@ -211,19 +213,34 @@ def enqueue(
         raise ValueError("Escopo contém unidade inexistente.")
     parameters = {"scope": scope}
     if kind == "ai":
+        modo = llm.modo(settings)
+        if modo["efetivo"] == "off":
+            raise ValueError(
+                f"IA desligada (ATHENIX_AI_MODE={modo['pedido']}): {modo['motivo']}. "
+                "Use a extração por regras ou configure o modo live."
+            )
         estimated = llm.estimate(extraction, settings, scope)
         parameters["estimate"] = estimated
-        if estimated["batches"] and not estimated["configured"]:
-            raise ValueError(
-                "Configure credencial, modelo e preço com fonte/data antes de executar IA."
-            )
-        try:
-            limit = Decimal(budget)
-            reservation = Decimal(estimated["max_cost_usd"] or "0")
-            if not limit.is_finite() or limit < 0 or reservation > limit:
-                raise ValueError("Teto insuficiente para a reserva conservadora exibida.")
-        except InvalidOperation as error:
-            raise ValueError("Orçamento inválido.") from error
+        parameters["mode"] = modo["efetivo"]
+        if modo["efetivo"] == "live":
+            if estimated["batches"] and not estimated["configured"]:
+                raise ValueError(
+                    "Configure credencial, modelo e preço com fonte/data antes de executar IA."
+                )
+            try:
+                limit = Decimal(budget)
+                reservation = Decimal(estimated["max_cost_usd"] or "0")
+                if not limit.is_finite() or limit < 0 or reservation > limit:
+                    raise ValueError("Teto insuficiente para a reserva conservadora exibida.")
+                if limit > Decimal(settings.run_budget_usd):
+                    raise ValueError(
+                        f"Orçamento acima do teto configurado (ATHENIX_RUN_BUDGET_USD = "
+                        f"US$ {settings.run_budget_usd})."
+                    )
+            except InvalidOperation as error:
+                raise ValueError("Orçamento inválido.") from error
+        else:  # cached: nenhuma chamada nova, custo incremental zero
+            limit = reservation = Decimal(0)
         parameters["budget_usd"] = str(limit)
         parameters["reserved_usd"] = str(reservation)
         parameters["model"] = settings.model
@@ -406,6 +423,10 @@ def run_one(factory, settings):
             parameters = run.parameters
         batches = llm.select_batches(extraction, parameters["scope"])
         summaries = []
+        # Fora do live (pedido cached ou modo atual diferente), nenhuma chamada nem trava de chamada.
+        pode_chamar = (
+            parameters.get("mode", "live") == "live" and llm.modo(settings)["efetivo"] == "live"
+        )
         for number, batch in enumerate(batches):
             payload = llm.request_payload(parameters["model"], batch)
             key = llm.cache_key(payload)
@@ -418,7 +439,7 @@ def run_one(factory, settings):
                 ).first()
                 if cached and cached.data["record"]["status"] != "complete":
                     cached = None
-                if not cached:
+                if not cached and pode_chamar:
                     if session.get(CallClaim, key):
                         raise ValueError(
                             "Requisição idêntica ativa ou com resultado desconhecido. Reconciliação necessária antes de repetir cobrança."
@@ -427,6 +448,16 @@ def run_one(factory, settings):
                     session.flush()
             if cached and not parameters.get("fresh"):
                 data = cached.data | {"cached_from": cached.id, "incremental_cost_usd": "0"}
+            elif not pode_chamar:
+                data = {
+                    "request": payload,
+                    "record": {"status": "not_cached", "raw": None},
+                    "requested_model": parameters["model"],
+                    "cost_usd": "0",
+                    "incremental_cost_usd": "0",
+                    "prompt_version": llm.PROMPT_VERSION,
+                    "prompt_hash": digest(llm.PROMPT.encode()),
+                }
             else:
                 with factory.begin() as session:
                     audit(
@@ -503,6 +534,11 @@ def run_one(factory, settings):
                 current.progress = int(100 * (number + 1) / len(batches))
                 current.updated = now()
                 current.result = {"batches": summaries}
+            if data["record"]["status"] == "not_cached":
+                raise ValueError(
+                    "Sem resposta gravada para este lote e IA fora do modo live: nenhuma chamada "
+                    "foi feita (ATHENIX_AI_MODE)."
+                )
             if data["record"]["status"] != "complete":
                 raise ValueError(
                     "Execução interrompida: "
