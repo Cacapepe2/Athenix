@@ -44,6 +44,7 @@ HEADING = re.compile(
     r'^\s*[“"]?\s*((?:TÍTULO|CAPÍTULO|SEÇÃO|SUBSEÇÃO|Título|Capítulo|Seção|Subseção)\s+'
     r"(?:[IVXLCDM]+|\d+(?:\.\d+)*))\s*(?:[–—-]\s*[A-ZÀ-Ú][^\n]{0,80})?\s*$"
 )
+ALTERACAO = r"altera|redação|passa|fica|resolução"
 ACT = re.compile(
     r"(?:Resolução(?:\s+Normativa)?|Lei|Decreto|Portaria)\s*(?:n[º°o.]*)?\s*[\d.]+(?:/\d{4})?", re.I
 )
@@ -235,8 +236,19 @@ def segment(text, pages, faq=False):
         stripped = line.lstrip()
         if not quoted:
             acts = ACT.findall(line)
-            if acts and re.search(r"altera|redação|passa|fica|resolução", line, re.I):
+            if acts and re.search(ALTERACAO, line, re.I):
                 target = acts[-1]
+            if ARTICLE.match(line) and not stripped.startswith(("“", '"')):
+                # Artigo próprio que abre bloco de alteração: a norma-alvo é a lei do caput inteiro,
+                # que o HTML do planalto quebra em várias linhas ("Art. 5º A\nLei\nnº 9.648 ... passa").
+                fim = min(
+                    (p for p in (text.find("“", offset), text.find('"', offset)) if p >= 0),
+                    default=len(text),
+                )
+                caput = text[offset : min(fim, offset + 600)]
+                citados = ACT.findall(caput)
+                if citados and re.search(ALTERACAO, caput, re.I):
+                    target = " ".join(citados[0].split())
         starts_quote = stripped.startswith(("“", '"'))
         owner = target if quoted or starts_quote else "self"
         kind, label, depth, matched = None, None, 0, None
