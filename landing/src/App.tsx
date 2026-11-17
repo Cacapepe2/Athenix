@@ -1,7 +1,6 @@
-import { useEffect } from 'react'
+import { useEffect, type ReactNode } from 'react'
 import { MotionConfig, useReducedMotion } from 'motion/react'
 import { handleAnchorClick } from './lib/scroll'
-import { DemoPage } from './components/DemoPage'
 import { Header } from './components/sections/Header'
 import { Hero } from './components/sections/Hero'
 import { BusinessSummary } from './components/sections/BusinessSummary'
@@ -14,7 +13,10 @@ import { Stakes } from './components/sections/Stakes'
 import { Opportunity } from './components/sections/Opportunity'
 import { Closing } from './components/sections/Closing'
 
-export default function App({ path = '/' }: { path?: string }) {
+export const isDemo = (path: string) => /^\/demo\/?$/.test(path)
+
+/** `demo`: a página /demo, passada pelo ponto de entrada (no navegador, carregada à parte). */
+export default function App({ path = '/', demo }: { path?: string; demo?: ReactNode }) {
   const reduce = useReducedMotion() ?? false
   useEffect(() => {
     const onClick = (e: MouseEvent) => handleAnchorClick(e, reduce)
@@ -25,7 +27,7 @@ export default function App({ path = '/' }: { path?: string }) {
   return (
     // reducedMotion="user": respeita prefers-reduced-motion em todas as animações do Motion.
     <MotionConfig reducedMotion="user">
-      {/^\/demo\/?$/.test(path) ? <DemoPage /> : <>
+      {isDemo(path) ? demo : <>
       <Header />
       <main id="conteudo">
         <Hero />

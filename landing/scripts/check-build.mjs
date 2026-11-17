@@ -7,7 +7,8 @@ for (const p of pages) {
   assert.ok(html.includes(`property="og:description" content="${p.description}"`))
   assert.ok(html.includes(`name="twitter:description" content="${p.description}"`))
   assert.ok(!html.includes('<div id="root"></div>'), `Sem conteúdo em ${p.path}`)
-  assert.ok(html.includes(p.path === '/' ? 'Ver demonstração completa' : 'Como chegamos aqui'))
+  assert.ok(html.includes(p.path === '/' ? 'Ver demonstração completa' : '3 decisões para esta semana'))
+  if (p.path === '/demo') assert.ok(html.includes('Não constitui parecer jurídico') && html.includes('Iniciativa em validação'))
   assert.ok(!/R\$\s*0(?:[,.]00)?\s+a\s+R\$/.test(html))
 }
 console.log('HTML, metadados e pré-renderização conferidos nas duas rotas')
