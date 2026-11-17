@@ -30,11 +30,14 @@ from fastapi.testclient import TestClient  # noqa: E402
 
 from athenix import enquadramento, impacto, llm  # noqa: E402
 from athenix.app import create_app  # noqa: E402
-from athenix.config import Settings  # noqa: E402
+from athenix.config import Settings, carregar_env  # noqa: E402
 from athenix.db import digest  # noqa: E402
 from athenix.demo import USUARIO, preparar  # noqa: E402
 
-MAX_SAIDA = 800  # igual a max_completion_tokens do pedido
+# Saída esperada por chamada (até 3 justificativas curtas); com raciocínio, soma o pensamento.
+# shortcut: palpites, calibrar com o uso real da 1ª chamada.
+SAIDA_ESPERADA = 300
+SAIDA_ESPERADA_RACIOCINIO = 1500
 
 
 def pendentes(params, rows, regras):
@@ -51,17 +54,28 @@ def pendentes(params, rows, regras):
 
 
 def estimar(settings, params, rows):
-    payloads = [enquadramento.payload_ia(settings.model, params, r) for r in rows]
-    # Mesma heurística conservadora de llm.estimate: bytes do pedido + margem por chamada.
+    raciocinio = enquadramento.raciocinio(settings)
+    payloads = [enquadramento.payload_ia(settings.model, params, r, raciocinio) for r in rows]
+    saida = sum(p["max_completion_tokens"] for p in payloads)
+    # Máximo: mesma heurística conservadora de llm.estimate (bytes do pedido + margem por chamada)
+    # e o limite de saída inteiro. Esperado: ~3 bytes por token e SAIDA_ESPERADA por chamada.
     entrada = sum(len(json.dumps(p, ensure_ascii=False).encode()) + 2048 for p in payloads)
+    entrada_esperada = sum(len(json.dumps(p, ensure_ascii=False).encode()) // 3 for p in payloads)
+    saida_esperada = (SAIDA_ESPERADA_RACIOCINIO if raciocinio else SAIDA_ESPERADA) * len(payloads)
     precos = llm.price_config(settings)
+    centavos = Decimal("0.01")
     return {
         "chamadas": len(payloads),
         "modelo": settings.model or None,
+        "azure": bool(settings.azure_endpoint),
+        "raciocinio": raciocinio,
         "tokens_entrada_maximo": entrada,
-        "tokens_saida_maximo": MAX_SAIDA * len(payloads),
+        "tokens_saida_maximo": saida,
+        "tokens_entrada_esperado": entrada_esperada,
+        "tokens_saida_esperado": saida_esperada,
         "preco": precos,
-        "custo_maximo_usd": str(llm.cost(precos, entrada, MAX_SAIDA * len(payloads)).quantize(Decimal("0.01")))
+        "custo_maximo_usd": str(llm.cost(precos, entrada, saida).quantize(centavos)) if precos else None,
+        "custo_esperado_usd": str(llm.cost(precos, entrada_esperada, saida_esperada).quantize(centavos))
         if precos
         else None,
     }  # fmt: skip
@@ -93,7 +107,10 @@ def executar(settings, params, rows, confirmo, saida, call=llm.call_model):
         if gasto > teto:
             falhas.append({"chave": enquadramento.chave(row), "motivo": "teto de custo atingido"})
             continue
-        record = call(settings, enquadramento.payload_ia(settings.model, params, row))
+        payload = enquadramento.payload_ia(
+            settings.model, params, row, enquadramento.raciocinio(settings)
+        )
+        record = call(settings, payload)
         gasto += custo_real(est["preco"], record.get("raw"))
         validas, erro = enquadramento.validar_ia(params, record)
         if erro:
@@ -122,7 +139,9 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--confirmo-custo-usd")
     parser.add_argument("--saida", default=str(enquadramento.SUGESTOES_IA))
+    parser.add_argument("--limite", type=int, help="processa só as N primeiras (teste)")
     args = parser.parse_args()
+    carregar_env()  # .env local; nunca impresso
     params = impacto.carregar()
     with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as tmp:
         demo = Settings(model="", api_key="", ai_mode="off")  # a norma é processada só por regras
@@ -130,7 +149,7 @@ def main():
         with TestClient(create_app(demo)) as client:
             client.post("/api/login", json={"username": USUARIO, "password": senha})
             rows = client.get("/api/obligations").json()["items"]
-    alvo = pendentes(params, rows, enquadramento.carregar_regras())
+    alvo = pendentes(params, rows, enquadramento.carregar_regras())[: args.limite]
     executar(Settings(), params, alvo, args.confirmo_custo_usd, args.saida)
 
 

@@ -113,7 +113,11 @@ def lista_infracoes(params):
     return "\n".join(linhas)
 
 
-def payload_ia(model, params, row):
+MAX_SAIDA = 800
+MAX_SAIDA_RACIOCINIO = 4000  # modelo de raciocínio gasta o limite também pensando
+
+
+def payload_ia(model, params, row, reasoning=None):
     validas = sorted(infracoes_validas(params))
     schema = {
         "type": "object",
@@ -134,7 +138,7 @@ def payload_ia(model, params, row):
         "required": ["sugestoes"],
         "additionalProperties": False,
     }
-    return {
+    payload = {
         "model": model,
         "messages": [
             {
@@ -147,9 +151,18 @@ def payload_ia(model, params, row):
             "type": "json_schema",
             "json_schema": {"name": "enquadramento", "strict": True, "schema": schema},
         },
-        "max_completion_tokens": 800,
+        "max_completion_tokens": MAX_SAIDA,
         "store": False,
     }
+    if reasoning:  # como llm.request_payload: Azure com modelo de raciocínio, sem `store`
+        payload |= {"reasoning_effort": reasoning, "max_completion_tokens": MAX_SAIDA_RACIOCINIO}
+        del payload["store"]
+    return payload
+
+
+def raciocinio(settings):
+    """Esforço de raciocínio só no Azure e só se configurado (vazio = modelo sem raciocínio)."""
+    return (settings.reasoning_effort or None) if settings.azure_endpoint else None
 
 
 def validar_ia(params, record):

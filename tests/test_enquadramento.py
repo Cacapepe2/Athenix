@@ -138,3 +138,14 @@ def test_script_de_ia_nao_chama_sem_live_e_sem_custo_confirmado(tmp_path):
     assert len(chamadas) == 1 and r["custo_usd"] == "0.0028"  # 1000 × 2 + 100 × 8 por milhão
     assert r["sugestoes"][enquadramento.chave(rows[0])][0]["dispositivo"] == "Art. 9º, III"
     assert json.loads(saida.read_text(encoding="utf-8"))["modelo"] == "m"
+
+
+def test_pedido_azure_com_raciocinio_sem_store():
+    sem = enquadramento.payload_ia("m", PARAMS, row("x"))
+    com = enquadramento.payload_ia("m", PARAMS, row("x"), "low")
+    assert sem["store"] is False and "reasoning_effort" not in sem
+    assert "store" not in com and com["reasoning_effort"] == "low"
+    assert com["max_completion_tokens"] > sem["max_completion_tokens"]
+    azure = Settings(azure_endpoint="https://x.openai.azure.com", reasoning_effort="")
+    assert enquadramento.raciocinio(azure) is None  # vazio: modelo sem raciocínio
+    assert enquadramento.raciocinio(Settings(azure_endpoint="", reasoning_effort="low")) is None
