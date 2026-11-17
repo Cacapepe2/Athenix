@@ -40,7 +40,8 @@
 {% elif page == 'risks' %}
 <div class="page-heading"><div><div class="eyebrow">INCERTEZA EXPLICÁVEL</div><h1>O que exige atenção.</h1><p>Risco de interpretação, sem atribuir cumprimento ou descumprimento a uma empresa.</p></div></div><div class="stat-grid"><div class="stat"><span>Achados registrados</span><strong>{{total}}</strong><small>Em {{rows|length}} interpretações atuais</small></div>{% for severity,count in severities.items() %}<div class="stat"><span>Severidade {{severity|label}}</span><strong>{{count}} <em>/ {{total}}</em></strong><small>Achados, incluindo os já decididos</small></div>{% endfor %}</div><div class="card"><h2>Distribuição dos achados</h2>{% for kind,count in counts.items() %}<div class="risk-row"><span>{{kind|label}}</span><meter min="0" max="{{total or 1}}" value="{{count}}">{{count}}</meter><b>{{count}} / {{total}}</b></div>{% else %}<p>Nenhum achado registrado; isso não demonstra ausência de riscos jurídicos.</p>{% endfor %}</div>{{matrix(rows|selectattr('band','ne','ready')|list)}}
 {% elif page == 'impact' %}{% import 'impacto_macros.html' as im with context %}
-<div class="page-heading"><div><div class="eyebrow">IMPACTO E PRIORIDADE</div><h1>O que fazer primeiro, e por quê.</h1><p>Faixas calculadas só com parâmetros citados da REN 846 e com as premissas que você informar.</p></div><div class="actions"><a class="button" href="/impacto/relatorio?{{request.url.query}}">Exportar relatório</a></div></div>
+<div class="page-heading"><div><div class="eyebrow">IMPACTO E PRIORIDADE</div><h1>O que fazer primeiro, e por quê.</h1><p>Faixas calculadas só com parâmetros citados da REN 846 e com as premissas que você informar.</p></div><div class="actions"><a class="button" href="/impacto?perfil=ilustrativo">Usar perfil ilustrativo</a><a class="button primary" href="/impacto/relatorio?{{request.url.query}}">Exportar relatório</a></div></div>
+{{im.aviso_ilustrativo(ilustrativo)}}
 <div class="callout warning"><strong>{{resultado.aviso}}</strong> Parâmetros de multa da REN 846 extraídos de cópia secundária (origem a confirmar com a fonte oficial da ANEEL); teto legal da Lei 9.427/1996 (planalto.gov.br).</div>
 <section class="card">{{im.resumo(destaques, perfil.base)}}</section>
 {{im.parcela_variavel(destaques)}}
@@ -48,6 +49,7 @@
 <section class="card"><h2>Perfil da empresa</h2><p class="small">Campos vazios ficam como premissa desconhecida: a faixa se alarga e a confiança cai. A base de cálculo nunca é estimada pelo sistema.</p><div class="profile-grid">
 <label>Segmento<select name="segmento"><option value="">Não informado</option><option value="distribuicao" {% if perfil.segmento == 'distribuicao' %}selected{% endif %}>Distribuição</option><option value="transmissao" {% if perfil.segmento == 'transmissao' %}selected{% endif %}>Transmissão</option></select></label>
 <label>Base de cálculo em R$ ({{resultado.base.nome}})<input name="base" inputmode="decimal" value="{{request.query_params.get('base','')}}" placeholder="não informada"></label>
+<label>Faturamento bruto em R$ (12 meses; opcional, para o teto legal)<input name="faturamento" inputmode="decimal" value="{{request.query_params.get('faturamento','')}}" placeholder="não informado: teto legal sobre a base"></label>
 <label>Transmissora em operação?<select name="em_operacao"><option value="sim">Sim (base: ROL)</option><option value="nao" {% if not perfil.em_operacao %}selected{% endif %}>Não (base: RAP)</option></select></label>
 <label>Reincidências específicas (2 anos)<input name="reincidencias" type="number" min="0" max="10" value="{{perfil.reincidencias}}"></label>
 <label>Termos de Notificação não atendidos<input name="tn_nao_atendidos" type="number" min="0" max="20" value="{{perfil.tn_nao_atendidos}}"></label>
@@ -59,9 +61,11 @@
 </div><button class="primary">Recalcular</button></section>
 <div class="section-heading"><h2>Alertas e dúvidas</h2></div>
 {{im.alertas(alteracoes, params, divergencias)}}
-<div class="section-heading"><h2>Obrigações priorizadas</h2><span>{{resultado.ranking|length}} com faixa estimável</span></div>
-<div class="table-wrap"><table>{{im.cabecalho_tabela()}}<tbody>{% for i in resultado.ranking %}{{im.linha(i, perfil.base, true)}}{% else %}<tr><td colspan="6" class="empty">Nenhuma obrigação com faixa estimável. Processe um documento e execute a extração por regras.</td></tr>{% endfor %}</tbody></table></div>
-<details class="card"><summary>Fora da prioridade: não aplicáveis ao perfil ou não estimáveis ({{resultado.itens|rejectattr('rank')|list|length}})</summary><div class="table-wrap"><table>{{im.cabecalho_tabela()}}<tbody>{% for i in resultado.itens if not i.rank %}{{im.linha(i, perfil.base, false)}}{% if not i.aplicavel %}<tr><td colspan="6"><small>{{i.motivo_aplicabilidade}}</small></td></tr>{% endif %}{% endfor %}</tbody></table></div></details>
+<div class="section-heading"><h2>Obrigações priorizadas</h2><span>{{resultado.ranking|length}} com enquadramento identificado</span></div>
+<p class="small"><b>{{regra_ordem}}</b></p>
+<div class="table-wrap"><table>{{im.cabecalho_tabela()}}<tbody>{% for i in resultado.ranking %}{{im.linha(i, perfil.base, true)}}{% else %}<tr><td colspan="6" class="empty">Nenhuma obrigação com enquadramento identificado. Veja "Verificar enquadramento" abaixo ou processe um documento.</td></tr>{% endfor %}</tbody></table></div>
+{{im.verificar(resultado, perfil.base, true)}}
+<details class="card"><summary>Fora da prioridade: não aplicáveis ao perfil ou não estimáveis ({{resultado.itens|rejectattr('rank')|rejectattr('verificar')|list|length}})</summary><div class="table-wrap"><table>{{im.cabecalho_tabela()}}<tbody>{% for i in resultado.itens if not i.rank and not i.verificar %}{{im.linha(i, perfil.base, false)}}{% if not i.aplicavel %}<tr><td colspan="6"><small>{{i.motivo_aplicabilidade}}</small></td></tr>{% endif %}{% endfor %}</tbody></table></div></details>
 <button class="primary">Recalcular com os enquadramentos escolhidos</button></form>
 <div class="section-heading"><h2>Fontes, parâmetros e o que não é estimável</h2></div>{{im.fontes(params)}}
 {% elif page == 'audit' %}

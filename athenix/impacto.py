@@ -11,7 +11,9 @@ from datetime import date
 from pathlib import Path
 
 PARAMETROS = Path(__file__).parent / "data" / "penalidades_ren846.json"
+PERFIL_ILUSTRATIVO = Path(__file__).parent / "data" / "perfil_ilustrativo.json"
 AVISO = "Estimativa com base nas premissas listadas, não constitui parecer jurídico."
+AVISO_DATA = "Limite legal conforme a data do prazo; a data real da infração pode diferir."
 GRUPOS = ("I", "II", "III", "IV", "V")
 # Cláusula que altera a régua de penalidade (REN 846/2019).
 ALTERA = r"Resolução Normativa(?:\s+ANEEL)?\s+n[º°o]\s*846\b[^.]{0,80}?passa(?:m)?\s+a\s+vigorar"
@@ -54,6 +56,11 @@ SEGMENTO = {
 
 def carregar(path=PARAMETROS):
     return json.loads(Path(path).read_text(encoding="utf-8"))
+
+
+def perfil_ilustrativo():
+    """Perfil de demonstração (sem empresa real), com a origem da ordem de grandeza da ROL."""
+    return json.loads(PERFIL_ILUSTRATIVO.read_text(encoding="utf-8"))
 
 
 def termos(texto):
@@ -99,6 +106,7 @@ def perfil(form):
         "segmento": segmento,
         "em_operacao": get("em_operacao", "sim") != "nao",
         "base": _numero(get("base")),
+        "faturamento": _numero(get("faturamento")),
         "reincidencias": _numero(get("reincidencias"), 0, 10, True) or 0,
         "tn_nao_atendidos": _numero(get("tn_nao_atendidos"), 0, 20, True) or 0,
         "antecedentes": _numero(get("antecedentes"), 0, 50, True) or 0,
@@ -271,6 +279,92 @@ def urgencia(row, hoje):
     return {"nivel": 3, "dias": None, "data": None, "texto": texto}
 
 
+def teto_legal(params, row, p):
+    """Teto legal por infração em % da base de cálculo: (limite, premissas, detalhes).
+
+    A redação vale pela data da infração: a do prazo (vencido ou a vencer) ou, sem prazo, a data de
+    referência do perfil (premissa). Antes do início dos efeitos da Lei 15.269/2025 vale a redação
+    anterior; se esse início não estiver confirmado, usa o limite atual e mostra o anterior. D6: com
+    faturamento bruto e base informados, o teto (% do faturamento) é convertido para % da base.
+    """
+    atual = parametro(params, "teto_legal_lei")
+    if not atual or not atual["percentuais"]:
+        return (
+            math.inf,
+            [_premissa("Teto legal sem parâmetro verificado: resultado sem limite final", None)],
+            None,
+        )
+    anterior = parametro(params, "teto_legal_anterior")
+    anterior_pct = anterior["percentuais"][0] if anterior and anterior["percentuais"] else None
+    vigencia = parametro(params, "teto_legal_vigencia")
+    inicio = date.fromisoformat(vigencia["data"]) if vigencia and vigencia.get("data") else None
+    prazo = urgencia(row, p["data_referencia"])["data"]
+    quando = date.fromisoformat(prazo) if prazo else p["data_referencia"]
+    origem_data = "data do prazo" if prazo else "data de referência do perfil (obrigação sem prazo)"
+    alternativo = None
+    if inicio and anterior_pct is not None and quando < inicio:
+        lei, pid = anterior, "teto_legal_anterior"
+        regra = (
+            f"infração em {quando:%d/%m/%Y}, antes de {inicio:%d/%m/%Y} ({vigencia['dispositivo']})"
+        )
+    elif inicio:
+        lei, pid = atual, "teto_legal_lei"
+        regra = f"infração em {quando:%d/%m/%Y}, a partir de {inicio:%d/%m/%Y} ({vigencia['dispositivo']})"
+    else:
+        lei, pid, alternativo = atual, "teto_legal_lei", anterior_pct
+        regra = (
+            "início dos efeitos da nova redação não confirmado no texto: usado o limite atual"
+            + (f"; antes dela valia {_pct(anterior_pct)}" if anterior_pct is not None else "")
+        )
+    pct = lei["percentuais"][0]
+    redacao = (
+        f", redação dada pela {lei['redacao_dada_por']}" if lei.get("redacao_dada_por") else ""
+    )
+    premissas = [
+        _premissa(
+            f"Teto legal: {_pct(pct)} do faturamento por infração ({lei['dispositivo']}{redacao}); "
+            f"{regra}; data considerada: {origem_data}",
+            pid,
+            editavel=False,
+        ),
+        _premissa(AVISO_DATA, pid, editavel=False),
+    ]
+    faturamento, base = p.get("faturamento"), p["base"]
+    if faturamento is not None and base:
+        limite = pct * faturamento / base
+        premissas.append(
+            _premissa(
+                f"Faturamento bruto informado ({reais(faturamento)}): teto legal = {_pct(limite)} da base",
+                pid,
+                "dúvida D6",
+            )
+        )
+    elif faturamento is not None:
+        limite = pct
+        premissas.append(
+            _premissa(
+                "Faturamento bruto informado: informe a base para converter o teto legal", None
+            )
+        )
+    else:
+        limite = pct
+        premissas.append(
+            _premissa(
+                "Teto legal possivelmente subestimado: faturamento bruto não informado, aplicado sobre a base (ROL)",
+                pid,
+                "dúvida D6: informe o faturamento bruto dos 12 meses anteriores",
+            )
+        )
+    detalhes = {
+        "pct_lei": pct,
+        "parametro": pid,
+        "data": quando.isoformat(),
+        "alternativo_pct": alternativo,
+        "subestimado": faturamento is None,
+    }
+    return limite, premissas, detalhes
+
+
 def multa(params, row, p, grupos, explicitos):
     """Faixa da multa em % da base e, se informada, em R$. Dois cenários para a dúvida D5."""
     limites = {g: parametro(params, f"limite_grupo_{g}") for g in grupos}
@@ -306,33 +400,15 @@ def multa(params, row, p, grupos, explicitos):
             "premissas": premissas,
         }
     # Teto legal por infração (Lei 9.427/1996, Art. 3º, X): limite final nos dois cenários da D5.
-    legal = parametro(params, "teto_legal_lei")
-    limite = legal["percentuais"][0] if legal and legal["percentuais"] else math.inf
-    if legal:
-        redacao = (
-            f", redação dada pela {legal['redacao_dada_por']}"
-            if legal.get("redacao_dada_por")
-            else ""
-        )
-        premissas.append(
-            _premissa(
-                f"Teto legal: {_pct(limite)} da base por infração ({legal['dispositivo']}{redacao}), "
-                "aplicado ao resultado final nos dois cenários",
-                "teto_legal_lei",
-                "a lei usa o faturamento; o cálculo usa a mesma base informada (dúvida D6)",
-                editavel=False,
-            )
-        )
-    else:
-        premissas.append(
-            _premissa("Teto legal sem parâmetro verificado: resultado sem limite final", None)
-        )
+    limite, extras, legal = teto_legal(params, row, p)
+    premissas += extras
     res = {
         "estimavel": True,
         "grupos": grupos,
         "teto_pct": teto,
         "piso_teto_pct": piso_teto,
         "teto_legal_pct": None if math.isinf(limite) else limite,
+        "teto_legal": legal,
         "agravantes_pct": agr,
         "minimo_pct": 0.0,
         "maximo": {"com_teto": min(teto, limite), "sem_teto": min(teto * (1 + agr / 100), limite)},
@@ -374,9 +450,8 @@ def _base(params, p):
 
 
 def avaliar(params, rows, p):
-    """Avalia e prioriza obrigações. Regra de ordem: vencidas, depois as que vencem em até 90 dias,
-    depois as demais e por fim as sem data; dentro de cada faixa, maior exposição primeiro
-    (provável, se informada; senão máxima), no cenário sem teto."""
+    """Avalia e prioriza obrigações pela REGRA_ORDEM: exposição provável × peso do prazo. As de
+    enquadramento desconhecido saem da fila e vão para "verificar" (faixa larga, confiança baixa)."""
     base_nome, base_pid = _base(params, p)
     resultado = []
     for row in rows:
@@ -420,34 +495,64 @@ def avaliar(params, rows, p):
             }
         item["confianca"], item["motivo_confianca"] = confianca(item, p)
         resultado.append(item)
+    estimaveis = [
+        i for i in resultado if i["aplicavel"] and i["multa"] and i["multa"].get("estimavel")
+    ]
+    for i in estimaveis:
+        i["verificar"] = not enquadramento_conhecido(i, p)
     ranking = sorted(
-        (i for i in resultado if i["aplicavel"] and i["multa"] and i["multa"].get("estimavel")),
-        key=lambda i: (i["urgencia"]["nivel"], -exposicao(i), i["urgencia"]["data"] or "9999"),
+        (i for i in estimaveis if not i["verificar"]),
+        key=lambda i: (-prioridade(i), i["urgencia"]["nivel"], i["urgencia"]["data"] or "9999"),
+    )
+    verificar = sorted(
+        (i for i in estimaveis if i["verificar"]),
+        key=lambda i: (i["urgencia"]["nivel"], i["urgencia"]["data"] or "9999"),
     )
     return {
         "itens": resultado,
         "ranking": ranking,
+        "verificar": verificar,
+        "regra": REGRA_ORDEM,
         "frases": [frase(i, p, n) for n, i in enumerate(ranking[:3])],
         "base": {"nome": base_nome, "parametro": base_pid, "valor": p["base"]},
         "aviso": AVISO,
     }
 
 
+# Peso do prazo na prioridade. Premissa de produto, ainda sem validação de especialista (Bloco 5).
+PESO_URGENCIA = {0: 1.0, 1: 0.8, 2: 0.5, 3: 0.3}
+REGRA_ORDEM = (
+    "Ordem: exposição provável (o valor provável, se informado; senão, o ponto médio da faixa) "
+    "multiplicada pelo peso do prazo (vencida 1; vence em até 90 dias 0,8; depois 0,5; sem data 0,3); "
+    'obrigações com enquadramento desconhecido ficam fora da fila, em "Verificar enquadramento".'
+)
+
+
+def enquadramento_conhecido(item, p):
+    """Grupo escolhido pelo usuário ou infração tipificada identificada pelo texto."""
+    return item["row"]["id"] in p["grupos"] or bool(item["enquadramentos"])
+
+
 def exposicao(item):
+    """Exposição provável em % da base: o valor provável informado ou o ponto médio de [0, máximo]."""
     m = item["multa"]
-    escolhido = m["provavel"] or m["maximo"]
-    return escolhido["sem_teto"]
+    return m["provavel"]["sem_teto"] if m["provavel"] else m["maximo"]["sem_teto"] / 2
+
+
+def prioridade(item):
+    return exposicao(item) * PESO_URGENCIA[item["urgencia"]["nivel"]]
 
 
 def confianca(item, p):
     m = item["multa"]
     if not m or not m.get("estimavel"):
         return "baixo", m["motivo"] if m else "Sem consequência financeira estimável."
+    if not enquadramento_conhecido(item, p):
+        # Faixa de todos os grupos: larga demais para decidir antes de confirmar o enquadramento.
+        return "baixo", "Enquadramento desconhecido: confirme o grupo de multa antes de priorizar."
     faltas = []
     if p["base"] is None:
         faltas.append("base de cálculo não informada")
-    if item["row"]["id"] not in p["grupos"] and not item["enquadramentos"]:
-        faltas.append("enquadramento desconhecido")
     if m["provavel"] is None:
         faltas.append("valor provável sem premissa")
     if not faltas and item["row"]["id"] in p["grupos"]:
@@ -525,6 +630,10 @@ def destaques(resultado, p, limite=5):
             for n, i in enumerate(escolha)
         ],
         "outros": len(ranking) - len(escolha),
+        # Nomeiam o segmento, mas sem enquadramento: ficam em "Verificar enquadramento".
+        "verificar_segmento": [
+            i for i in resultado.get("verificar", []) if alvo and nomeia(i, alvo)
+        ],
         "parcela_variavel": receita if alvo != "distribuicao" else [],
     }
 

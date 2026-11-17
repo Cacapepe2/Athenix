@@ -209,6 +209,13 @@ def _unique(items):
 
 def ai_items(doc, extraction, pages, settings, run, call=llm.call_model, raw_dir=None):
     """Chama o modelo por lote sob teto de custo por execução. `run` acumula gasto e registros."""
+    modo = llm.modo(settings)
+    if modo["efetivo"] != "live":
+        run["ai"] = {
+            "status": "skipped",
+            "reason": f"IA em modo {modo['efetivo']}: {modo['motivo']}",
+        }
+        return [], []
     prices = llm.price_config(settings)
     if not (settings.model and settings.api_key and settings.azure_endpoint and prices):
         run["ai"] = {"status": "skipped", "reason": "provedor, chave ou preço verificável ausente"}

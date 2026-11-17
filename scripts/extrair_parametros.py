@@ -15,6 +15,7 @@ import hashlib
 import json
 import re
 import sys
+import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -41,10 +42,14 @@ DOCS = {
     "1148": (fonte("ren20261148.pdf"), "REN 1.148/2026"),
     "1174": (fonte("ren20261174.pdf"), "REN 1.174/2026 (texto compilado)"),
     "9427": (FONTES / "l9427cons.htm", "Lei 9.427/1996 (texto compilado)"),
+    "9648": (FONTES / "l9648cons.htm", "Lei 9.648/1998 (texto compilado)"),
+    "15269": (FONTES / "l15269.htm", "Lei 15.269/2025"),
 }
 ORIGENS = {
     "1137": "ANEEL (texto compilado já no repositório)",
     "9427": "planalto.gov.br (Presidência da República), texto compilado obtido em 17/11/2026",
+    "9648": "planalto.gov.br (Presidência da República), texto compilado obtido em 17/11/2026",
+    "15269": "planalto.gov.br (Presidência da República), obtido em 17/11/2026",
 }
 # Nota de redação do texto compilado ("(Redação dada pela Lei nº 15.269, de 2025)").
 REDACAO_LEI = re.compile(r"\((?:Redação dada|Incluíd[oa]|Acrescid[oa])\s+pel[ao]\s+([^)]*)\)")
@@ -104,8 +109,15 @@ def words(text):
 
 
 def spelled(text):
-    """Valor de 'cento e vinte e cinco milésimos por cento', 'zero vírgula zero um por cento'."""
-    text = re.sub(r"\s*por\s+cento\s*$", "", text.strip().lower())
+    """Valor de 'cento e vinte e cinco milésimos por cento', 'zero vírgula zero um por cento',
+    'dois inteiros e cinco décimos por cento'. Grafia anterior a 2009 ('cinqüenta') vale igual."""
+    # Trema (grafia antiga) não muda o número: "cinqüenta" = "cinquenta".
+    text = "".join(c for c in unicodedata.normalize("NFD", text) if c != "̈")
+    text = unicodedata.normalize("NFC", " ".join(text.lower().split()))
+    text = re.sub(r"\s*por\s+cento\s*$", "", text)
+    if m := re.fullmatch(r"(.+?)\s+inteiros?\s+e\s+(.+)", text):
+        whole, frac = words(m.group(1)), spelled(m.group(2))
+        return None if whole is None or frac is None else whole + frac
     for name, div in FRACTION.items():
         if text.endswith(name):
             n = words(text[: -len(name)])
@@ -237,6 +249,95 @@ def teto_legal(lei):
     }
 
 
+def teto_anterior(lei):
+    """Redação original do Art. 3º, X da Lei 9.427 (2%), no texto da Lei 9.648/1998 que a incluiu."""
+    alvo = [
+        u
+        for u in lei["units"]
+        if " ".join(u["text"].split()).startswith("X - fixar as multas") and not u.get("struck")
+    ]
+    base = {
+        "descricao": "Teto legal anterior por infração (% do faturamento), para infrações antes da nova redação",
+        "dispositivo": "Art. 3, X da Lei 9.427/1996, redação incluída pela Lei 9.648/1998",
+        "fonte": "9648",
+    }
+    if len(alvo) != 1:
+        return base | {"trecho": "", "ancora": "pending", "motivo": f"{len(alvo)} redações",
+                       "nota": None, "revogado": None, "percentuais": []}  # fmt: skip
+    entry = cite(alvo[0], lei["extraction"])
+    trecho = entry["trecho"] = " ".join(REDACAO_LEI.sub("", entry["trecho"]).split())
+    return (
+        base
+        | entry
+        | {"percentuais": [float(v.replace(",", ".")) for v in PERCENT.findall(trecho)]}
+    )
+
+
+def trecho_verificado(unit, padrao, extraction):
+    """Cita só a frase que casa com `padrao` dentro da unidade, conferida pela segunda leitura."""
+    texto = " ".join(unit["text"].split())
+    m = re.search(padrao, texto)
+    if not m:
+        return None, "invalid"
+    anchor = verify(m.group(0), unit["id"], extraction["units"], extraction["text_hash"],
+                    source=extraction["source"])  # fmt: skip
+    return m, anchor["state"]
+
+
+def vigencia_teto(lei):
+    """Início dos efeitos da redação de 3% (Art. 3º da Lei 15.269/2025 altera o Art. 3º, X da Lei
+    9.427). Só vale com o caput e o inciso IV do Art. 24 citados, o Art. 3º fora das exceções (I a
+    III) e a data de publicação lida do próprio texto; senão fica pendente e o cálculo mostra os dois
+    limites."""
+    proprias = [u for u in lei["units"] if u.get("owner") == "self"]
+    base = {
+        "descricao": "Início dos efeitos da redação de 3% do teto legal",
+        "dispositivo": "Art. 24, caput e IV da Lei 15.269/2025",
+        "fonte": "15269",
+        "percentuais": [],
+        "revogado": None,
+    }
+    caput = next((u for u in proprias if u["path"] == "24"), None)
+    inciso_iv = next((u for u in proprias if u["path"] == "24 > IV"), None)
+    if not caput or not inciso_iv:
+        return base | {"trecho": "", "ancora": "pending", "motivo": "Art. 24 não localizado",
+                       "nota": None, "data": None}  # fmt: skip
+    excecoes = " ".join(
+        " ".join(u["text"].split())
+        for u in proprias
+        if u["path"].startswith("24 > ") and not u["path"].startswith("24 > IV")
+    )
+    # "art. 3º-D" (Lei 10.848) é outro dispositivo; só "art. 3º" sozinho tiraria a regra geral.
+    art3_excecao = re.search(r"\bart\.\s*3º(?![-\w])", excecoes)
+    c, c_estado = trecho_verificado(
+        caput, r"Art\. 24\. Esta Lei entra em vigor na data de sua publicação", lei["extraction"]
+    )
+    iv, iv_estado = trecho_verificado(
+        inciso_iv,
+        r"IV - na data de sua publicação, quanto aos demais dispositivos\.",
+        lei["extraction"],
+    )
+    pub, pub_estado = trecho_verificado(
+        inciso_iv, r"publicado no DOU de (\d{2})\.(\d{2})\.(\d{4})", lei["extraction"]
+    )
+    ok = all(e == "verified" for e in (c_estado, iv_estado, pub_estado)) and not art3_excecao
+    data = f"{pub.group(3)}-{pub.group(2)}-{pub.group(1)}" if pub else None
+    motivo = None
+    if art3_excecao:
+        motivo = "o Art. 3º aparece entre as exceções do Art. 24: conferir"
+    elif not ok:
+        motivo = "trecho do Art. 24 ou data de publicação não confirmados pela segunda leitura"
+    return base | {
+        "trecho": " […] ".join(m.group(0) for m in (c, iv) if m),
+        "publicacao": pub.group(0) if pub else None,
+        "ancora": "verified" if ok else "pending",
+        "motivo": motivo,
+        "nota": "O Art. 3º da Lei 15.269/2025 (nova redação do Art. 3º, X da Lei 9.427) não está nas "
+        "exceções dos incisos I a III do Art. 24: produz efeitos na data da publicação.",
+        "data": data if ok else None,
+    }
+
+
 def group_of(units, article):
     caput = next(u for u in units if u["path"] == article)
     match = re.search(r"Grupo\s+([IV]+)\b", caput["text"])
@@ -267,6 +368,8 @@ def build(docs):
             "fonte": "846",
         }
     parametros["teto_legal_lei"] = teto_legal(docs["9427"])
+    parametros["teto_legal_anterior"] = teto_anterior(docs["9648"])
+    parametros["teto_legal_vigencia"] = vigencia_teto(docs["15269"])
     infracoes = []
     for unit in ren["units"]:
         match = re.fullmatch(r"(9º|10|11|12|13) > ([IVXLC]+)", unit["path"])

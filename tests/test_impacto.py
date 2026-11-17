@@ -105,7 +105,8 @@ def test_report_opens_with_obligations_naming_the_segment():
     gen = row("Os agentes devem informar a ANEEL.", subject="Os agentes", rid="g1")
     gen2 = row("Os agentes devem registrar as ocorrências.", subject="Os agentes", rid="g2")
     rows = [dist, gen, gen2, trans, trans_dup, pv]
-    p = impacto.perfil({"data_referencia": HOJE})  # segmento vazio: transmissoras primeiro
+    grupos = {f"grupo_{r['id']}": "IV" for r in rows}
+    p = impacto.perfil({"data_referencia": HOJE} | grupos)  # segmento vazio: transmissoras primeiro
     d = impacto.destaques(impacto.avaliar(PARAMS, rows, p), p)
     ids = [x["item"]["row"]["id"] for x in d["itens"]]
     assert d["segmento"] == "transmissao" and ids[:2] == ["t1", "t3"]
@@ -113,7 +114,7 @@ def test_report_opens_with_obligations_naming_the_segment():
     assert [x["especifica"] for x in d["itens"]] == [True, True, False]  # completa até 3
     assert d["itens"][0]["frase"].startswith("Faça isto primeiro")
     assert [i["row"]["id"] for i in d["parcela_variavel"]] == ["t3"]
-    p = impacto.perfil({"data_referencia": HOJE, "segmento": "distribuicao"})
+    p = impacto.perfil({"data_referencia": HOJE, "segmento": "distribuicao"} | grupos)
     d = impacto.destaques(impacto.avaliar(PARAMS, rows, p), p)
     assert [x["item"]["row"]["id"] for x in d["itens"]][0] == "d1" and d["parcela_variavel"] == []
 
@@ -142,7 +143,7 @@ def test_same_rule_in_annex_and_new_wording_block_appears_once():
     b = row(
         texto + "preservando a individualidade. ........”(NR)", subject="As transmissoras", rid="b1"
     )
-    p = impacto.perfil({"data_referencia": HOJE})
+    p = impacto.perfil({"data_referencia": HOJE, "grupo_a1": "IV", "grupo_b1": "IV"})
     d = impacto.destaques(impacto.avaliar(PARAMS, [a, b], p), p)
     assert [x["item"]["row"]["id"] for x in d["itens"]] == ["a1"]
 
@@ -189,6 +190,57 @@ def test_real_rn1137_flags_rn948_dates():
     assert {(16, "novembro", "2021"), (21, "novembro", None)} <= datas
 
 
+MAX_V = dict(reincidencias="10", tn_nao_atendidos="20", antecedentes="50", grupo_o1="V")
+
+
+def test_legal_cap_follows_the_date_of_the_infraction():
+    vig = PARAMS["parametros"]["teto_legal_vigencia"]
+    # Lei 15.269/2025, Art. 24, IV + "publicado no DOU de 25.11.2025" (planalto.gov.br).
+    assert vig["ancora"] == "verified" and vig["data"] == "2025-11-25"
+    assert PARAMS["parametros"]["teto_legal_anterior"]["percentuais"] == [2.0]
+    antes = row(PLANO["action"], [{"date": "2025-10-01", "state": "provisional"}])
+    depois = row(PLANO["action"], [{"date": "2026-01-28", "state": "provisional"}])
+    m_antes = avaliar([antes], **MAX_V)["itens"][0]["multa"]
+    m_depois = avaliar([depois], **MAX_V)["itens"][0]["multa"]
+    assert (
+        m_antes["maximo"]["sem_teto"] == 2.0
+        and m_antes["teto_legal"]["parametro"] == "teto_legal_anterior"
+    )
+    assert (
+        m_depois["maximo"]["sem_teto"] == 3.0
+        and m_depois["teto_legal"]["parametro"] == "teto_legal_lei"
+    )
+    texto = next(
+        pr["texto"] for pr in m_antes["premissas"] if pr["parametro"] == "teto_legal_anterior"
+    )
+    assert "antes de 25/11/2025" in texto and "data do prazo" in texto
+    assert any(pr["texto"] == impacto.AVISO_DATA for pr in m_antes["premissas"])
+    # Sem prazo: data de referência do perfil, dito na premissa.
+    sem_prazo = avaliar([PLANO], **MAX_V)["itens"][0]["multa"]
+    assert any("data de referência do perfil" in pr["texto"] for pr in sem_prazo["premissas"])
+
+
+def test_unconfirmed_effective_date_shows_both_limits():
+    sem_vig = copy.deepcopy(PARAMS)
+    sem_vig["parametros"]["teto_legal_vigencia"]["ancora"] = "pending"
+    perfil = impacto.perfil({"data_referencia": HOJE} | MAX_V)
+    m = impacto.avaliar(sem_vig, [PLANO], perfil)["itens"][0]["multa"]
+    assert m["maximo"]["sem_teto"] == 3.0 and m["teto_legal"]["alternativo_pct"] == 2.0
+    assert any("não confirmado" in pr["texto"] and "2%" in pr["texto"] for pr in m["premissas"])
+
+
+def test_gross_revenue_converts_the_legal_cap_d6():
+    com = avaliar([PLANO], base="1000000", faturamento="1500000", **MAX_V)["itens"][0]["multa"]
+    # 3% de R$ 1,5 mi = R$ 45 mil = 4,5% da base (ROL) de R$ 1 mi.
+    assert com["teto_legal_pct"] == pytest.approx(4.5) and not com["teto_legal"]["subestimado"]
+    assert com["reais"]["maximo"]["sem_teto"] == pytest.approx(45000.0)
+    sem = avaliar([PLANO], base="1000000", **MAX_V)["itens"][0]["multa"]
+    assert sem["teto_legal"]["subestimado"]
+    assert any("possivelmente subestimado" in pr["texto"] for pr in sem["premissas"])
+    with pytest.raises(ValueError):
+        impacto.perfil({"faturamento": "-1"})
+
+
 def test_legal_cap_limits_both_scenarios():
     legal = PARAMS["parametros"]["teto_legal_lei"]
     # Lido do Art. 3º, X da Lei 9.427/1996 (planalto.gov.br, sha256 ff948e34…), não digitado.
@@ -210,15 +262,21 @@ def test_legal_cap_limits_both_scenarios():
 
 
 def test_empty_profile_gives_wide_range_in_percent_and_low_confidence():
-    result = avaliar([row("A distribuidora deve enviar o relatório mensal à ANEEL.")])
+    obrigacao = row("A distribuidora deve enviar o relatório mensal à ANEEL.")
+    result = avaliar([obrigacao])
     item = result["itens"][0]
     m = item["multa"]
     assert m["grupos"] == list(impacto.GRUPOS)
     assert (m["piso_teto_pct"], m["teto_pct"], m["minimo_pct"]) == (0.125, 2.0, 0.0)
     assert m["provavel"] is None and "reais" not in m
-    assert item["confianca"] == "baixo"
-    assert "base de cálculo não informada" in item["motivo_confianca"]
-    assert "informe a base" in result["frases"][0]
+    # Enquadramento desconhecido: fora da fila, em "Verificar enquadramento", faixa larga visível.
+    assert result["ranking"] == [] and result["verificar"] == [item] and result["frases"] == []
+    assert item["confianca"] == "baixo" and "Enquadramento desconhecido" in item["motivo_confianca"]
+    # Com o grupo informado entra na fila; sem a base, a confiança segue baixa e a frase pede a base.
+    com_grupo = avaliar([obrigacao], grupo_o1="II")
+    assert com_grupo["ranking"][0]["confianca"] == "baixo"
+    assert "base de cálculo não informada" in com_grupo["ranking"][0]["motivo_confianca"]
+    assert "informe a base" in com_grupo["frases"][0]
 
 
 @pytest.mark.parametrize("broken", ["pending", "revoked"])
@@ -268,7 +326,8 @@ def test_urgency_and_priority_rule():
     vencida = row("deve A", [{"date": "2026-01-28", "state": "provisional"}], rid="a")
     proxima = row("deve B", [{"date": "2026-12-01", "state": "provisional"}], rid="b")
     sem_data = row("deve C", [{"state": "awaiting_event"}], rid="c")
-    result = avaliar([sem_data, proxima, vencida])
+    result = avaliar([sem_data, proxima, vencida], grupo_a="IV", grupo_b="IV", grupo_c="IV")
+    # Mesma exposição: o peso do prazo decide (vencida 1, até 90 dias 0,8, sem data 0,3).
     assert [i["row"]["id"] for i in result["ranking"]] == ["a", "b", "c"]
     assert "há 287 dias" in result["ranking"][0]["urgencia"]["texto"]
     assert "faltam 20 dias" in result["ranking"][1]["urgencia"]["texto"]
@@ -315,3 +374,66 @@ def test_rule_change_alert_and_screens(env):
     assert client.get("/impacto?base=-5").status_code == 400
     client.cookies.clear()
     assert client.get("/impacto").status_code == 401
+
+
+def test_illustrative_profile_is_labeled_and_traceable(env):
+    app, client, settings = env
+    propose(
+        env,
+        "<html><body><p>Art. 1º A distribuidora deve manter Plano de Contingência atualizado.</p></body></html>".encode(),
+    )
+    demo = impacto.perfil_ilustrativo()
+    assert demo["segmento"] == "distribuicao" and float(demo["base"]) > 0 and demo["origem_base"]
+    redirect = client.get("/impacto?perfil=ilustrativo", follow_redirects=False)
+    assert redirect.status_code == 303 and f"base={demo['base']}" in redirect.headers["location"]
+    page = client.get(redirect.headers["location"])
+    assert "Perfil ilustrativo" in page.text and "possivelmente subestimado" in page.text
+    report = client.get(redirect.headers["location"].replace("/impacto?", "/impacto/relatorio?"))
+    assert "PERFIL ILUSTRATIVO" in report.text
+    assert impacto.AVISO_DATA in page.text and impacto.AVISO_DATA in report.text
+    for html in (page.text, report.text):
+        assert "Verificar enquadramento" in html and "peso do prazo" in html
+    # Mudou a base: deixa de ser o perfil ilustrativo e o rótulo some.
+    outra = client.get("/impacto?segmento=distribuicao&base=123")
+    assert "Perfil ilustrativo:" not in outra.text
+
+
+def test_identified_group_iv_ranks_above_any_unknown_framing():
+    # Antes: grupo desconhecido valia "todos os grupos" (máximo 2%) e passava à frente do Grupo IV.
+    vencida = [{"date": "2026-01-28", "state": "provisional"}]
+    conhecido = row(PLANO["action"], subject="As distribuidoras", rid="k1")  # sem prazo, Grupo IV
+    desconhecidos = [
+        row(f"A distribuidora deve enviar o relatório {n} à ANEEL.", vencida, rid=f"u{n}")
+        for n in range(5)
+    ]
+    result = avaliar([*desconhecidos, conhecido], base="1000000")
+    assert [i["row"]["id"] for i in result["ranking"]] == ["k1"]
+    assert result["ranking"][0]["enquadramentos"][0]["grupo"] == "IV"
+    assert {i["row"]["id"] for i in result["verificar"]} == {f"u{n}" for n in range(5)}
+    assert all(i["confianca"] == "baixo" for i in result["verificar"])
+    assert all(i["multa"]["maximo"]["sem_teto"] == 2.0 for i in result["verificar"])  # faixa larga
+
+
+def test_order_combines_probable_exposure_and_deadline():
+    vencida = row("deve A", [{"date": "2026-01-28", "state": "provisional"}], rid="a")
+    sem_data = row("deve B", rid="b")
+    # Grupo V sem data (2%/2 × 0,3 = 0,3) fica abaixo de Grupo IV vencido (1%/2 × 1 = 0,5).
+    result = avaliar([sem_data, vencida], grupo_a="IV", grupo_b="V")
+    assert [i["row"]["id"] for i in result["ranking"]] == ["a", "b"]
+    assert impacto.prioridade(result["ranking"][0]) == pytest.approx(0.5)
+    assert impacto.prioridade(result["ranking"][1]) == pytest.approx(0.3)
+    assert result["regra"] == impacto.REGRA_ORDEM and "peso do prazo" in result["regra"]
+
+
+def test_summary_points_to_segment_obligations_awaiting_framing():
+    trans = row("As transmissoras devem implementar o plano.", [{"date": "2026-01-28", "state": "provisional"}],
+                subject="As transmissoras", rid="t1")  # fmt: skip
+    gen = row(
+        "Os agentes devem manter Plano de Contingência atualizado.", subject="Os agentes", rid="g1"
+    )
+    p = impacto.perfil({"data_referencia": HOJE, "segmento": "transmissao"})
+    d = impacto.destaques(impacto.avaliar(PARAMS, [trans, gen], p), p)
+    assert [x["item"]["row"]["id"] for x in d["itens"]] == ["g1"] and not d["itens"][0][
+        "especifica"
+    ]
+    assert [i["row"]["id"] for i in d["verificar_segmento"]] == ["t1"]

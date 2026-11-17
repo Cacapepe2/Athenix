@@ -39,6 +39,18 @@ def test_legal_cap_is_the_current_wording_of_law_9427():
     assert p["redacao_dada_por"] == "Lei nº 15.269, de 2025"
 
 
+def test_previous_cap_and_effective_date_come_from_the_laws():
+    from scripts.extrair_parametros import read, teto_anterior, vigencia_teto
+
+    anterior = teto_anterior(read("9648"))  # sha256 42e8c5f4…: redação que incluiu o inciso X
+    assert anterior["ancora"] == "verified" and anterior["percentuais"] == [2.0]
+    assert "2% (dois por cento) do faturamento" in anterior["trecho"]
+    vig = vigencia_teto(read("15269"))  # sha256 acd97004…
+    assert vig["ancora"] == "verified" and vig["data"] == "2025-11-25"
+    assert "quanto aos demais dispositivos" in vig["trecho"]
+    assert vig["publicacao"] == "publicado no DOU de 25.11.2025"
+
+
 def test_lowercase_art_at_line_start_is_a_remission_not_an_article():
     text = (
         "Art. 16. Constitui infração:\n"
@@ -100,6 +112,10 @@ def test_real_embargo_daily_fine_is_cited_under_art_16(ren846):
         ("zero vírgula zero um por cento", 0.01),
         ("zero vírgula vinte e cinco por cento", 0.25),
         ("cento e vinte por cento", 120),
+        ("cinqüenta por cento", 50),  # grafia anterior a 2009 (Lei 9.648/1998)
+        ("dois inteiros e cinco décimos\npor cento", 2.5),  # quebra de linha do HTML
+        ("seis inteiros e vinte e cinco centésimos por cento", 6.25),
+        ("um inteiro e cinco décimos por cento", 1.5),
     ],
 )
 def test_spelled_percentages(text, value):
@@ -115,3 +131,25 @@ def test_digits_vs_words_mismatch_is_flagged():
     assert mismatches("Será acrescido o valor de 25% (cinco por cento) para cada antecedente")
     assert not mismatches("I - 40% (quarenta por cento) para cada caso de reincidência")
     assert not mismatches("III - de 1% a 5% (um a cinco por cento) para cada caso")
+
+
+@pytest.mark.parametrize("lei", ["9427", "9648", "15269"])
+def test_laws_have_no_digit_word_false_positives(lei):
+    # Antes: 5 falsos positivos na Lei 9.648 ("cinqüenta", "dois inteiros e cinco décimos").
+    from scripts.extrair_parametros import mismatches, read
+
+    doc = read(lei)
+    assert not [m for u in doc["units"] if not u.get("struck") for m in mismatches(u["text"])]
+
+
+@SEM_PDF
+def test_ren846_only_flags_the_real_inconsistency_d2():
+    from scripts.extrair_parametros import mismatches, read
+
+    doc = read("846")
+    achados = [
+        (u["path"], m) for u in doc["units"] if not u.get("struck") for m in mismatches(u["text"])
+    ]
+    assert [(p, m["algarismo"], m["extenso"]) for p, m in achados] == [
+        ("45-I > § 4º", "25%", "cinco por cento")
+    ]

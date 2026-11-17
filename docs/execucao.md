@@ -43,6 +43,6 @@ O FAQ oficial foi obtido por HTTPS, após robots.txt HTTP 200 e permissão expl�
 - Fundamentação cruzada entre várias normas, diff de versões, calendário versionado, múltiplas amostras com divergência e avaliação independente: pendentes.
 - Revisão dos mecanismos críticos por outra pessoa, revisão jurídica, identidade profissional verificada e dois ensaios oficiais cronometrados: não realizados.
 - A cobertura integral dos critérios de aceitação ainda não foi medida. Contagem de testes executáveis não equivale à cobertura de requisitos.
-- Licença própria: decisão do titular pendente; nenhuma licença pública foi concedida.
+- Licença: PolyForm Noncommercial License 1.0.0 (`LICENSE`), com o aviso "Required Notice: Copyright (c) 2026 Athenix". Uso comercial depende de autorização do titular.
 
 Os requisitos completos continuam na matriz. Uma linha implementada parcialmente não é considerada encerrada por existir uma tela ou por passar apenas no corpus sintético.
