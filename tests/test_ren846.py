@@ -41,6 +41,24 @@ def test_lowercase_art_at_line_start_is_a_remission_not_an_article():
     assert by_id[paragraph["parent"]]["label"] == "16"
 
 
+def test_paragraph_sign_followed_by_connector_is_a_remission_not_a_paragraph():
+    # Lei 9.427/1996 no planalto.gov.br: antes, "§ 6 o do art. 15" virava parágrafo e os incisos
+    # VII a XXII do Art. 3º eram citados como "Art. 3º, § 6º, X".
+    text = (
+        "Art. 3º Compete à ANEEL:\n"
+        "V - dirimir as divergências, na forma do\n"
+        "§ 6 o do art. 15 da Lei n o 9.074, de 7 de julho de 1995;\n"
+        "X - fixar as multas administrativas.\n"
+        "§ 1 o No exercício da competência prevista nos incisos VIII e IX.\n"
+        "§ 2º A ANEEL deverá articular-se com a Secretaria.\n"
+    )
+    units, _ = segment(text, [{"number": 1, "start": 0, "end": len(text)}])
+    by_id = {u["id"]: u for u in units}
+    assert [u["label"] for u in units if u["kind"] == "paragraph"] == ["§ 1", "§ 2º"]
+    inciso = next(u for u in units if u["label"] == "X")
+    assert by_id[inciso["parent"]]["label"] == "3º"
+
+
 @pytest.fixture(scope="module")
 def ren846():
     read = reader.read_pdf(fonte("ren2019846_compilada.pdf"), Settings())
