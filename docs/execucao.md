@@ -1,6 +1,43 @@
 # Evidências e estado da entrega
 
-Registro de verificações da aplicação, atualizado em 05/11/2026.
+Registro de verificações da aplicação. As seções abaixo de "Implementado e exercitado" são de
+05/11 e 10/11/2026 e ficam como histórico; o estado atual está logo a seguir.
+
+## Estado em 17/11/2026
+
+| Verificação | Resultado | Onde |
+| --- | --- | --- |
+| Testes Python | 270 aprovados no Windows local (com as cópias locais dos PDFs da REN 846, 1.148 e 1.174). No CI, 4 testes pulam sem esses PDFs: no último CI da main (`d9036bf`), 264 aprovados e 4 pulados em cada sistema | `python -m pytest`; CI `checks` |
+| Testes do site | 7 aprovados; build e pré-renderização de `/` e `/demo` conferidos | `landing/`: `npm test`, `npm run build` |
+| Gabarito (20 casos, sem revisão de especialista) | 19/20; obrigação 11/11, prazo 8/8, autoria 10/10, vigência 4/4, revogação 2/2, não obrigação 2/2, remissão 0/1 (G09) | [avaliacao.md](avaliacao.md) |
+| Citações | Falsamente verificadas: 0 nas três normas. Encontradas na fonte: 252/254 (RN 1.137), 31/31 (REH 3.348), 145/145 (Decreto 12.068) | `scripts/avaliar.py` |
+| Trava de não regressão | Passa contra `tests/baseline/metricas_v1.json` | CI, nos três sistemas |
+| Lint, formatação e padrões de segredo | Passam | CI |
+| CI remoto | Ubuntu, Windows e macOS (Intel) em todo push e PR, incluindo a trava e os testes do site | `.github/workflows/ci.yml` |
+
+Mudanças em relação às pendências de 05/11 (o texto original segue abaixo, sem edição):
+
+- **Retry-After:** implementado. O erro 429 é repetido até 3 vezes respeitando o cabeçalho
+  (`athenix/llm.py`, `_espera`), com testes em `tests/test_modos_ia.py` e
+  `tests/test_proposals_ai.py`. Limites de tempo/memória em processo isolado e PDFs patológicos
+  continuam pendentes.
+- **CI remoto:** exercitado (três sistemas).
+- **Composição Docker com PostgreSQL:** segundo a revisão independente de 17/11/2026, `docker
+  compose` com PostgreSQL rodou. **Não foi reexecutado neste registro** (Docker indisponível nesta
+  máquina). Até 17/11 o `compose.yaml` não repassava `ATHENIX_AI_MODE`, as variáveis do Azure, o
+  teto de custo nem `ATHENIX_HTTPS`; isso foi corrigido e é conferido por `tests/test_infra.py`.
+  Primeiro acesso no Docker: `docker compose exec web python -m athenix create-user <usuario>`
+  (README), porque `/setup` só aceita acesso local.
+- **Imagem de produção:** instala só `requirements.lock`; pytest, hypothesis e ruff ficam em
+  `requirements-dev.lock`.
+- **Aviso de depreciação do cliente de testes:** resolvido com `httpx2` nas dependências de
+  desenvolvimento (o produto continua usando `httpx`).
+- **IA real:** houve execuções pagas autorizadas (ensaio regras × IA, títulos), registradas em
+  [REVISAO_ENSAIO_2026-11-17.md](REVISAO_ENSAIO_2026-11-17.md). A frase "nenhuma chamada real" das
+  seções antigas não vale mais para o repositório como um todo.
+- **PDF oficial da norma:** a RN 1.137/2025 está em `tests/norma_poc/`. Os PDFs da REN 846
+  compilada, REN 1.148 e REN 1.174 continuam sem versão oficial no repositório (as cópias locais
+  são de terceiro e não podem ser publicadas).
 
 ## Implementado e exercitado
 

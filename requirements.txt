@@ -8,6 +8,3 @@ python-multipart>=0.0.20,<1
 pdfplumber>=0.11,<1
 beautifulsoup4>=4.13,<5
 httpx>=0.28,<1
-pytest>=8,<10
-hypothesis>=6,<7
-ruff>=0.11,<1

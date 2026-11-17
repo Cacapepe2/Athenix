@@ -152,6 +152,31 @@ A IA é opcional. O modo vem de `ATHENIX_AI_MODE` e aparece no topo de cada tela
 | `cached` | Só reaproveita respostas de IA já gravadas no banco; nunca faz chamada nova. Exige `ATHENIX_MODEL`. |
 | `live` | Chama o provedor. Só liga com `ATHENIX_MODEL`, `ATHENIX_API_KEY`, preço com fonte e data (`ATHENIX_INPUT_USD_M`, `ATHENIX_OUTPUT_USD_M`, `ATHENIX_PRICE_SOURCE`, `ATHENIX_PRICE_DATE`) e teto de custo `ATHENIX_RUN_BUDGET_USD`; senão, cai para `off` e diz o motivo. Cada execução pede confirmação e orçamento dentro do teto. Erro 429 é repetido até 3 vezes, respeitando o `Retry-After`. |
 
+### Rodar com Docker (PostgreSQL)
+
+Para usar o aplicativo com PostgreSQL, sem a demo pré-carregada. Precisa de Docker com Compose.
+
+1. Defina a senha do banco no ambiente ou num arquivo `.env` na raiz (fora do git):
+   `ATHENIX_DB_PASSWORD=<senha forte>`. As variáveis `ATHENIX_*` da IA (tabela acima) também são
+   lidas dali; sem `ATHENIX_AI_MODE`, a IA fica desligada (`off`).
+2. Suba: `docker compose up -d --build` (serviços `db`, `web` e `worker`).
+3. **Primeiro acesso:** crie a conta pelo terminal. A tela de configuração inicial (`/setup`) só
+   aceita acesso local ao processo e, dentro do container, o navegador não conta como local; por
+   isso ela responde 403 no Docker, de propósito.
+
+   ```bash
+   docker compose exec web python -m athenix create-user <usuario>
+   ```
+
+   O comando pede a senha (mínimo de 12 caracteres) duas vezes, sem mostrá-la. Papel padrão:
+   `technical`; use `--role operator` ou `--role legal` se for o caso.
+4. Entre em <http://127.0.0.1:8000/login> (a porta só é publicada em `127.0.0.1`).
+
+### Desenvolvimento
+
+Testes, lint e formatação usam as dependências de desenvolvimento, que não entram na imagem Docker:
+`python -m pip install -r requirements-dev.lock`, depois `python -m pytest`.
+
 ### Licença
 
 O código está sob a **PolyForm Noncommercial License 1.0.0** (arquivo [LICENSE](LICENSE)): uso,
