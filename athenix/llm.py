@@ -1,6 +1,7 @@
 """Adaptador opcional. Nenhuma chave, modelo ou preço é escolhido implicitamente."""
 
 import json
+import time
 from datetime import date
 from decimal import Decimal, InvalidOperation
 
@@ -194,17 +195,84 @@ def cache_key(payload):
     return digest({"provider": "openai", "prompt_version": PROMPT_VERSION, "request": payload})
 
 
-def call_model(settings, payload):
-    # No automatic retry: a timeout can represent an already charged request.
-    url, headers = target(settings)
-    with httpx.Client(timeout=45, follow_redirects=False) as client:
-        response = client.post(url, headers=headers, json=payload)
-    if response.status_code == 429:
+MODOS = ("off", "cached", "live")
+
+
+def modo(settings):
+    """Modo de IA efetivo. off (padrão) não faz chamada de rede; cached só reaproveita respostas já
+    gravadas; live chama o provedor e só vale com modelo, chave, preço com fonte e data e teto de
+    custo (ATHENIX_RUN_BUDGET_USD > 0). Pedido inválido ou incompleto cai para off, com o motivo."""
+    pedido = (settings.ai_mode or "off").strip().lower()
+    if pedido not in MODOS:
         return {
-            "status": "rate_limited",
-            "retry_after": response.headers.get("Retry-After"),
-            "raw": None,
+            "pedido": pedido,
+            "efetivo": "off",
+            "motivo": "ATHENIX_AI_MODE inválido; use off, cached ou live",
         }
+    if pedido == "cached" and not settings.model:
+        return {
+            "pedido": pedido,
+            "efetivo": "off",
+            "motivo": "cached precisa de ATHENIX_MODEL para achar as respostas gravadas",
+        }
+    if pedido == "live":
+        try:
+            teto = Decimal(settings.run_budget_usd)
+        except InvalidOperation:
+            teto = Decimal(0)
+        faltam = [
+            nome
+            for nome, ok in (
+                ("ATHENIX_MODEL", settings.model),
+                ("ATHENIX_API_KEY", settings.api_key),
+                ("preço com fonte e data (ATHENIX_INPUT_USD_M, ATHENIX_OUTPUT_USD_M, ATHENIX_PRICE_SOURCE, ATHENIX_PRICE_DATE)", price_config(settings)),
+                ("teto de custo ATHENIX_RUN_BUDGET_USD > 0", teto.is_finite() and teto > 0),
+            )
+            if not ok
+        ]  # fmt: skip
+        if faltam:
+            return {
+                "pedido": pedido,
+                "efetivo": "off",
+                "motivo": "live incompleto, falta: " + "; ".join(faltam),
+            }
+    motivos = {
+        "off": "padrão seguro: nenhuma chamada de rede",
+        "cached": "só respostas já gravadas; nenhuma chamada nova",
+        "live": f"chamadas pagas ao provedor, teto de US$ {settings.run_budget_usd} por execução",
+    }
+    return {"pedido": pedido, "efetivo": pedido, "motivo": motivos[pedido]}
+
+
+def _espera(retry_after, tentativa, limite=60):
+    """Segundos até a próxima tentativa após 429; None quando o provedor pede mais que o limite."""
+    try:
+        segundos = float(retry_after)
+    except (TypeError, ValueError):
+        segundos = 2.0**tentativa
+    return segundos if 0 <= segundos <= limite else None
+
+
+def call_model(settings, payload, tentativas=3, sleep=time.sleep):
+    if modo(settings)["efetivo"] != "live":
+        raise RuntimeError("IA fora do modo live: nenhuma chamada de rede é feita.")
+    # Só 429 é repetido (pedido recusado, não cobrado). Timeout e 5xx podem ter sido cobrados:
+    # nunca repetem.
+    url, headers = target(settings)
+    for tentativa in range(1, tentativas + 1):
+        with httpx.Client(timeout=45, follow_redirects=False) as client:
+            response = client.post(url, headers=headers, json=payload)
+        if response.status_code != 429:
+            break
+        espera = _espera(response.headers.get("Retry-After"), tentativa)
+        if tentativa == tentativas or espera is None:
+            return {
+                "status": "rate_limited",
+                "retry_after": response.headers.get("Retry-After"),
+                "attempts": tentativa,
+                "raw": None,
+            }
+        sleep(espera)
     if response.status_code >= 500:
         return {"status": "unknown_result", "http_status": response.status_code, "raw": None}
     if response.status_code != 200:

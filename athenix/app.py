@@ -35,7 +35,7 @@ from .db import (
 )
 from .evidence import recheck
 from . import impacto
-from .llm import estimate
+from .llm import estimate, modo
 from .services import (
     associate_dependency,
     decision_state,
@@ -149,6 +149,7 @@ def create_app(settings=None, embedded_worker=False):
     templates.env.filters["label"] = lambda value: LABELS.get(value, value)
     templates.env.filters["pretty"] = lambda value: json.dumps(value, ensure_ascii=False, indent=2)
     templates.env.globals["fmt_reais"] = impacto.reais
+    templates.env.globals["modo_ia"] = lambda: modo(settings)  # lido a cada página
     templates.env.filters["data_br"] = lambda v: "/".join(reversed(v.split("-"))) if v else v
     app.mount("/static", StaticFiles(directory=str(ROOT / "static")), name="static")
 
@@ -228,7 +229,7 @@ def create_app(settings=None, embedded_worker=False):
         return {
             "status": "ok",
             "version": "0.1.0",
-            "ai_enabled": False,
+            "ai_mode": modo(settings),
             "ai_configured": bool(settings.api_key and settings.model),
         }
 

@@ -29,6 +29,8 @@ class Settings:
         default_factory=lambda: os.getenv("ATHENIX_REASONING_EFFORT", "low")
     )
     run_budget_usd: str = field(default_factory=lambda: os.getenv("ATHENIX_RUN_BUDGET_USD", "0.50"))
+    # off (padrão): nenhuma chamada de rede; cached: só respostas já gravadas; live: chamada paga.
+    ai_mode: str = field(default_factory=lambda: os.getenv("ATHENIX_AI_MODE", "off"))
 
     def prepare(self):
         if self.database_url == "sqlite:///.local/athenix.db":
