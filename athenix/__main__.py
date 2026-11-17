@@ -1,6 +1,7 @@
 import argparse
 import getpass
 import json
+import sys
 import time
 
 from .auth import create_user
@@ -36,6 +37,10 @@ def main():
     poc.add_argument("--ocr", choices=["none", "docling"], default="none")
     poc.add_argument("--ai", action="store_true", help="Usa o modelo configurado (Azure), com teto")
     args = parser.parse_args()
+    # Console do Windows (cp1252/cp850) ou saída redirecionada: caractere sem mapa vira "?", não erro.
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(errors="replace")
     settings = Settings()
     settings.prepare()
     ia = modo(settings)
@@ -55,8 +60,8 @@ def main():
             f"\nPronto. Abra {url}/login e entre com\n"
             f"  usuário: {USUARIO}\n"
             f"  senha:   {senha}\n"
-            f"Roteiro: Obrigações ({url}/matrix) → Impacto com perfil ilustrativo "
-            f"({url}/impacto?perfil=ilustrativo) → Exportar relatório.\n"
+            f"Roteiro: Obrigações ({url}/matrix) -> Impacto com perfil ilustrativo "
+            f"({url}/impacto?perfil=ilustrativo) -> Exportar relatório.\n"
             "Ctrl+C encerra. A senha muda a cada execução.\n",
             flush=True,
         )

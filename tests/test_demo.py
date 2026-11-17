@@ -19,3 +19,11 @@ def test_demo_prepares_rn1137_and_a_working_login(tmp_path):
         assert {r["document_title"] for r in obrigacoes["items"]} == {"RN ANEEL 1.137/2025"}
         page = client.get("/impacto?perfil=ilustrativo")
         assert "Perfil ilustrativo" in page.text and "Citação inconsistente na fonte" in page.text
+
+
+def test_cli_messages_fit_the_windows_console():
+    # Teste do jurado: "→" na saída da demo derrubava o processo num console cp1252.
+    from pathlib import Path
+
+    for nome in ("__main__.py", "demo.py"):
+        (Path(demo.__file__).parent / nome).read_text(encoding="utf-8").encode("cp1252")
