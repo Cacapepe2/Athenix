@@ -1,0 +1,33 @@
+{
+ "status": "aguardando a norma vigente: nenhum componente preenchido; o cálculo responde 'não estimável'",
+ "norma": {"ato": null, "arquivo": null, "sha256": null, "compilado_ate": null, "origem": null},
+ "procurar": [
+  "Versão vigente (compilada) da REN ANEEL 905/2020 — Regras dos Serviços de Transmissão. A própria RN 1.137/2025 (Art. 6º) revisa o 'Módulo 4 – Prestação do Serviço' do Anexo IV dessa norma; conferir se PVI, PVRO e PVA estão nesse módulo ou em outro.",
+  "Se a 905 remeter a outra norma ou procedimento (por exemplo, a norma histórica de Parcela Variável, REN 729/2016, ou Procedimentos de Rede do ONS), trazer o ato citado e confirmar se ainda está vigente.",
+  "Resolução homologatória da RAP do ciclo da transmissora (a REH 3.348/2024 do repositório tem só o corpo; os anexos com valores de RAP não estão no arquivo)."
+ ],
+ "conferir": [
+  "Definição do pagamento base usado na PV e sua relação com a RAP (componente 'base').",
+  "Fórmula da PVI (indisponibilidade) e o que é programado × não programado.",
+  "Fórmula da PVRO (restrição operativa temporária).",
+  "Fórmula e hipóteses da PVA (atraso), se existir com esse nome.",
+  "Fatores multiplicadores (por tipo de função de transmissão, duração, programação) e franquias.",
+  "Limites de desconto por período ou por função de transmissão (componente 'limite').",
+  "Período de apuração, vigência e regra de transição entre versões.",
+  "Dispositivo e trecho literal de cada item acima; hash do arquivo usado."
+ ],
+ "variaveis": {
+  "RAP": "RAP anual informada pelo usuário (R$/ano)",
+  "BASE": "valor do componente 'base' (calculado pela expressão citada da norma)",
+  "DURACAO": "duração do evento, em minutos (informada pelo usuário)",
+  "TOTAL": "soma das parcelas dos eventos, para o componente 'limite'"
+ },
+ "componentes": {
+  "base": {"expressao": null, "dispositivo": null, "trecho": null},
+  "PVI": {"expressao": null, "dispositivo": null, "trecho": null},
+  "PVRO": {"expressao": null, "dispositivo": null, "trecho": null},
+  "PVA": {"expressao": null, "dispositivo": null, "trecho": null},
+  "limite": {"expressao": null, "dispositivo": null, "trecho": null}
+ },
+ "fatores": {}
+}
