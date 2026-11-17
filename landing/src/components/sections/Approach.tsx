@@ -4,10 +4,13 @@ import type { PointerEvent } from 'react'
 import { approach } from '../../content/site'
 import { Eyebrow, MaskedTitle, Reveal, RevealLi } from '../ui/Reveal'
 
-const icons = [Radar, FileSearch, ListChecks, Gauge]
+const icons = [Radar, FileSearch, Gauge, ListChecks]
+type Scope = 'base' | 'foco' | 'futuro'
+const chip: Record<Scope, string> = { base: 'Base do MVP', foco: 'Foco do MVP', futuro: 'Etapa futura' }
 const ease = [0.16, 1, 0.3, 1] as const
 
-function Pillar({ i, title, text, now }: { i: number; title: string; text: string; now: boolean }) {
+function Pillar({ i, title, text, scope }: { i: number; title: string; text: string; scope: Scope }) {
+  const now = scope !== 'futuro'
   const mx = useMotionValue(-200)
   const my = useMotionValue(-200)
   const glow = useMotionTemplate`radial-gradient(260px circle at ${mx}px ${my}px, rgb(182 163 139 / 0.16), transparent 70%)`
@@ -30,7 +33,11 @@ function Pillar({ i, title, text, now }: { i: number; title: string; text: strin
       transition={{ duration: 0.9, ease, delay: 0.15 + i * 0.12 }}
       whileHover={{ y: -4 }}
       className={`group relative overflow-hidden rounded-2xl border p-6 transition-colors duration-500 ${
-        now ? 'border-ivory/15 bg-ivory/[0.05] hover:border-bronze/50' : 'border-dashed border-ivory/15 hover:border-ivory/30'
+        scope === 'foco'
+          ? 'border-bronze/60 bg-ivory/[0.09] hover:border-bronze'
+          : now
+            ? 'border-ivory/15 bg-ivory/[0.05] hover:border-bronze/50'
+            : 'border-dashed border-ivory/15 hover:border-ivory/30'
       }`}
     >
       <motion.span aria-hidden="true" style={{ background: glow }} className="pointer-events-none absolute inset-0" />
@@ -49,10 +56,14 @@ function Pillar({ i, title, text, now }: { i: number; title: string; text: strin
         <p className={`mt-2.5 text-[0.9rem] leading-relaxed ${now ? 'text-ivory/70' : 'text-ivory/55'}`}>{text}</p>
         <p
           className={`mt-5 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[0.68rem] font-medium ${
-            now ? 'bg-bronze/15 text-bronze' : 'border border-dashed border-ivory/20 text-ivory/55'
+            scope === 'foco'
+              ? 'bg-bronze text-obsidian'
+              : now
+                ? 'bg-bronze/15 text-bronze'
+                : 'border border-dashed border-ivory/20 text-ivory/55'
           }`}
         >
-          {now ? 'Foco do MVP' : 'Etapa futura'}
+          {chip[scope]}
         </p>
       </div>
     </motion.li>
@@ -82,10 +93,10 @@ export function Approach() {
           </div>
 
           {/* Linha de escopo: preenchida no MVP, tracejada na visão futura */}
-          <div aria-hidden="true" className="mt-16 hidden grid-cols-2 gap-5 text-[0.7rem] font-semibold tracking-[0.16em] uppercase md:grid">
-            {[approach.scopeLabels.now, approach.scopeLabels.later].map((label, i) => (
-              <div key={label}>
-                <p className={i === 0 ? 'text-bronze' : 'text-ivory/45'}>{label}</p>
+          <div aria-hidden="true" className="mt-16 hidden gap-4 text-[0.7rem] font-semibold tracking-[0.16em] uppercase lg:grid lg:grid-cols-4">
+            {[approach.scopeLabels.base, approach.scopeLabels.foco, approach.scopeLabels.futuro].map((label, i) => (
+              <div key={label} className={i === 0 ? 'col-span-2' : ''}>
+                <p className={i < 2 ? 'text-bronze' : 'text-ivory/45'}>{label}</p>
                 <div className="relative mt-3 h-px bg-ivory/10">
                   <motion.div
                     initial={{ scaleX: 0 }}
@@ -93,7 +104,7 @@ export function Approach() {
                     viewport={{ once: true }}
                     transition={{ duration: 1.4, ease, delay: 0.2 + i * 0.5 }}
                     className={`absolute inset-0 origin-left ${
-                      i === 0 ? 'bg-bronze' : 'bg-[repeating-linear-gradient(90deg,rgb(250_249_246/0.35)_0_6px,transparent_6px_12px)]'
+                      i < 2 ? 'bg-bronze' : 'bg-[repeating-linear-gradient(90deg,rgb(250_249_246/0.35)_0_6px,transparent_6px_12px)]'
                     }`}
                   />
                 </div>
