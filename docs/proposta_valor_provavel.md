@@ -44,3 +44,31 @@ Sem contornar os bloqueios de acesso, solicitar:
 - PDFs das decisões/votos e exposições de motivos correspondentes, começando pelos dois despachos indicados.
 
 Nenhum percentual histórico foi implementado ou presumido nesta proposta.
+
+## Pipeline pronto (17/11/2026), sem dados reais
+
+Implementado em `athenix/historico.py` e `scripts/referencia_historica.py`. **Não entra no cálculo
+do produto**; o provável continua "não estimável" até aprovação.
+
+- **Entrada:** uma planilha por infração (`--modelo` gera o cabeçalho), com as colunas `auto_infracao`,
+  `agente`, `segmento`, `dispositivo`, `grupo`, `regime`, `data_infracao`, `sancao` (multa ou
+  advertência), `base_tipo`, `base_valor`, `principal_final`, `estado`, `valor_por_infracao`
+  (sim/não), `fonte_arquivo`, `fonte_pagina`, `fonte_trecho`, `fonte_sha256`, `coletado_em` e
+  `sintetico` (mais `processo`, `cnpj`, `principal_inicial` e `base_periodo`, opcionais).
+- **Validação por linha:** campos obrigatórios, grupo I a V, números, base positiva, datas,
+  hash de 64 caracteres. Linha com erro fica fora e é listada.
+- **Exclusões contadas:** auto com total agregado (não se divide), estado sem decisão definitiva
+  (por padrão entram só `encerrado` e `pago`), advertência (contada à parte).
+- **Por estrato (grupo, segmento, regime):** n, agentes distintos, período, mediana, Q1 e Q3,
+  mínimo e máximo, maior participação de um agente. Publicável só com n ≥ 30 **e** diversidade
+  mínima de agentes informada (`--min-agentes`, sem padrão: decisão pendente). Qualquer linha
+  sintética torna o estrato não publicável.
+- **Referência:** base informada × mediana / 100, com Q1–Q3, n e período, rótulo "Referência
+  histórica — não é previsão da sanção".
+- **CSV de autos da ANEEL (`--autos`):** só conferido (colunas citadas acima, linhas, hash); o
+  cadastro não traz base nem decisão, então não vira observação.
+- **Teste com dados sintéticos:** `--sintetico` gera 40 linhas marcadas `sintetico=sim`; nunca
+  publicáveis (`tests/test_historico.py`).
+
+**Decisões pendentes do fundador:** quais estados contam como decisão (incluir
+`reformado_em_recurso`?) e a diversidade mínima de agentes por estrato.
