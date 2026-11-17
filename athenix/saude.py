@@ -58,14 +58,19 @@ NOMES = {
 
 
 def _rotulo(unit):
-    return f"{NOMES.get(unit['kind'], unit['kind'])} {unit['label']}"
+    nome, rotulo = NOMES.get(unit["kind"], unit["kind"]), unit["label"]
+    return rotulo if rotulo.startswith(nome) else f"{nome} {rotulo}"  # "§ 1º" já traz o sinal
 
 
 def numeracao(units):
-    """Saltos, repetições e ordem invertida na sequência de cada nível (mesmo pai, tipo e dono)."""
+    """Saltos, repetições e ordem invertida na sequência de cada nível (mesmo pai, tipo e dono).
+
+    A redação revogada (riscada) entra na sequência: sem ela, um artigo revogado viraria salto. A
+    redação antiga seguida da nova, com o mesmo número, não é repetição.
+    """
     grupos = {}
     for u in units:
-        if u.get("struck") or (n := numero(u)) is None:
+        if (n := numero(u)) is None:
             continue
         grupos.setdefault((u["parent"], u["kind"], u.get("owner")), []).append((u, n))
     achados = []
@@ -73,7 +78,8 @@ def numeracao(units):
         sequencia.sort(key=lambda par: par[0]["start"])
         for (anterior, (n0, s0)), (atual, (n1, s1)) in zip(sequencia, sequencia[1:]):
             if (n1, s1) == (n0, s0):
-                achados.append(("repetição", f"{_rotulo(atual)} repetido"))
+                if not (anterior.get("struck") or atual.get("struck")):
+                    achados.append(("repetição", f"{_rotulo(atual)} repetido"))
             elif n1 == n0 or n1 == n0 + 1:
                 continue  # mesmo número com sufixo ("23" → "23-A") ou o próximo
             elif n1 > n0:
@@ -101,7 +107,7 @@ def avaliar(extracao):
             }
         )
 
-    achados = numeracao(units)
+    achados = numeracao(extracao.get("units", []))
     if achados:
         contagem = {
             t: sum(1 for a in achados if a[0] == t) for t in ("salto", "repetição", "ordem")

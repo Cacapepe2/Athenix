@@ -91,3 +91,12 @@ def test_saude_aparece_no_documento_na_tela_de_impacto_e_no_relatorio(env):
         pagina = client.get(url)
         assert pagina.status_code == 200 and "Qualidade da extração" in pagina.text, url
         assert "nota 100/100" in pagina.text, url
+
+
+def test_redacao_revogada_nao_vira_salto_nem_repeticao():
+    # Lei compilada: Art. 2º revogado (riscado) e o inciso I antigo seguido da nova redação.
+    extracao = html("Art. 1º Um.", "Art. 2º Revogado.", "Art. 3º Três.", "I - antigo;", "I - novo;")
+    for u in extracao["units"]:
+        if u["text"].startswith(("Art. 2º", "I - antigo")):
+            u["struck"] = "revoked"
+    assert "numeracao" not in tipos(saude.avaliar(extracao))
