@@ -1,6 +1,7 @@
 """Verificação local de padrões inequívocos; não pretende detectar todo segredo possível."""
 
 import re
+import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -33,9 +34,24 @@ PATTERNS = {
 }  # fmt: skip
 
 
+def candidatos(root):
+    """Arquivos que podem ir para o git: versionados e novos não ignorados. O .env (ignorado) fica
+    fora: ele guarda a chave de propósito e nunca é commitado. Sem git, todos os arquivos."""
+    try:
+        saida = subprocess.run(
+            ["git", "ls-files", "--cached", "--others", "--exclude-standard", "-z"],
+            cwd=root,
+            capture_output=True,
+            check=True,
+        ).stdout.decode("utf-8")
+        return sorted(root / n for n in saida.split("\0") if n)
+    except (OSError, subprocess.CalledProcessError):
+        return sorted(root.rglob("*"))
+
+
 def scan(root):
     hits = []
-    for file in sorted(root.rglob("*")):
+    for file in candidatos(root):
         parts = file.relative_to(root).parts
         if any(p in EXCLUDED for p in parts) or not file.is_file():
             continue

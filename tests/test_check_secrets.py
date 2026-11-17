@@ -36,3 +36,15 @@ def test_ignores_hashes_placeholders_and_non_utf8(tmp_path):
     (tmp_path / "node_modules").mkdir()
     (tmp_path / "node_modules" / "x.js").write_text("ATHENIX_API" + "_KEY=" + HEX[:32])
     assert scan(tmp_path) == []
+
+
+def test_env_ignorado_pelo_git_fica_fora_e_arquivo_versionavel_nao(tmp_path):
+    import subprocess
+
+    subprocess.run(["git", "init", "-q"], cwd=tmp_path, check=True)
+    (tmp_path / ".gitignore").write_text(".env*\n!.env.example\n", encoding="utf-8")
+    chave = "ATHENIX_API" + "_KEY=" + HEX[:32]
+    (tmp_path / ".env").write_text(chave, encoding="utf-8")  # ignorado: guarda a chave de propósito
+    assert scan(tmp_path) == []
+    (tmp_path / ".env.example").write_text(chave, encoding="utf-8")  # iria para o git
+    assert scan(tmp_path) == [".env.example (chave Azure)"]
