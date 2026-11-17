@@ -34,7 +34,7 @@ from .db import (
     verify_chain,
 )
 from .evidence import recheck
-from . import impacto
+from . import impacto, saude
 from .normalizacao import espacos
 from .llm import estimate, modo
 from .services import (
@@ -410,6 +410,7 @@ def create_app(settings=None, embedded_worker=False):
                 responses=responses,
                 identical=identical,
                 estimated=estimate(extracted, settings) if extracted else None,
+                saude_doc=saude.avaliar(extracted) if extracted else None,
             )
 
     @app.get("/api/documents/{document_id}")
@@ -695,11 +696,15 @@ def create_app(settings=None, embedded_worker=False):
         resultado = impacto.avaliar(params, rows, perfil)
         for posicao, item in enumerate(resultado["ranking"], start=1):
             item["rank"] = posicao
-        alteracoes, divergencias, documentos = [], [], {}
+        alteracoes, divergencias, documentos, saude_docs = [], [], {}, []
         for row in rows:
             documentos.setdefault(row["document_id"], row["document_title"])
         for document_id, title in documentos.items():
-            units = extraction_data(session, document_id)["units"]
+            extracao = extraction_data(session, document_id)
+            units = extracao["units"]
+            saude_docs.append(
+                {"document_id": document_id, "title": title} | saude.avaliar(extracao)
+            )
             divergencias += [
                 d | {"document_id": document_id, "title": title}
                 for d in impacto.citacoes_divergentes(units)
@@ -727,6 +732,7 @@ def create_app(settings=None, embedded_worker=False):
             "resultado": resultado,
             "alteracoes": alteracoes,
             "divergencias": divergencias,
+            "saude_docs": saude_docs,
             "destaques": impacto.destaques(resultado, perfil),
             "documentos": list(documentos.values()),
             "categorias": impacto.CATEGORIAS,

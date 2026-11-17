@@ -79,3 +79,15 @@ def test_texto_pouco_estruturado_fica_para_revisar():
     )
     assert pior["nota"] < saude.LIMITE and pior["situacao"] == "revisar extração"
     assert {"cobertura", "ocr", "literal"} <= tipos(pior)
+
+
+def test_saude_aparece_no_documento_na_tela_de_impacto_e_no_relatorio(env):
+    from conftest import propose
+
+    app, client, settings = env
+    norma = "<html><body>" + "".join(f"<p>{p}</p>" for p in LIMPO) + "</body></html>"
+    doc, _ = propose(env, norma.encode())
+    for url in (f"/documents/{doc['id']}", "/impacto", "/impacto/relatorio"):
+        pagina = client.get(url)
+        assert pagina.status_code == 200 and "Qualidade da extração" in pagina.text, url
+        assert "nota 100/100" in pagina.text, url

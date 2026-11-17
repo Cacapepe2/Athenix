@@ -19,6 +19,7 @@
 {% for d in divergencias %}<li>{{d.title}} cita a {{d.ato}} com datas diferentes ({% for c in d.citacoes %}{{c.trecho.split(', ', 1)[1] if ', ' in c.trecho else c.trecho}}{% if not loop.last %} × {% endif %}{% endfor %}).</li>{% endfor %}
 {% for a in params.alertas_fonte %}<li>{{a.ato}}, {{a.dispositivo}}: {{a.detalhe}}.</li>{% endfor %}
 <li>Interpretações em aberto: teto do grupo após agravantes (D5) e teto legal sobre faturamento × ROL (D6). Por isso mostramos dois cenários{% if params.parametros.teto_legal_lei and params.parametros.teto_legal_lei.ancora == 'verified' %}, e os dois respeitam o teto legal{% endif %}.</li>
+{% for s in saude_docs %}<li>Qualidade da extração de {{s.title}}: nota {{s.nota}}/100{% if s.situacao != 'ok' %}, <b>revisar extração</b>{% endif %}{% if s.alertas %} ({{s.alertas|map(attribute='tipo')|join(', ')}}){% endif %}.</li>{% endfor %}
 <li>Não estimável: Parcela Variável, Fator X, metodologia do valor base e custo de adequação.</li>
 </ul></section>
 </section>
@@ -34,6 +35,9 @@
 <tr><th>Enquadramentos escolhidos</th><td>{{perfil.grupos|length}} obrigação(ões) com grupo informado pelo usuário</td></tr>
 {% if params.parametros.teto_legal_lei %}{% set tl = params.parametros.teto_legal_lei %}{% set ta = params.parametros.teto_legal_anterior %}{% set tv = params.parametros.teto_legal_vigencia %}<tr><th>Teto legal por infração</th><td>{{im.pct(tl.percentuais[0])}} do faturamento{% if tv and tv.ancora == 'verified' %} para infrações a partir de {{tv.data|data_br}} ({{tv.dispositivo}}; {{tv.publicacao}}){% endif %}{% if ta and ta.ancora == 'verified' %}; antes disso, {{im.pct(ta.percentuais[0])}} ({{ta.dispositivo}}){% endif %}. {{aviso_data}} Sem prazo, vale a data de referência. Aplicado ao resultado final. <small>fonte: {{tl.dispositivo}}{% if tl.redacao_dada_por %}, redação dada pela {{tl.redacao_dada_por}}{% endif %}: “{{tl.trecho[:220]}}…”</small></td></tr>{% endif %}
 </tbody></table>
+
+<h2>Qualidade da extração</h2>
+{% for s in saude_docs %}{{im.saude(s, s.title, '')}}{% endfor %}
 
 <h2>Alertas e dúvidas em detalhe</h2>
 {{im.alertas(alteracoes, params, divergencias)}}
