@@ -70,29 +70,36 @@ def mascarar(valor):
 
 
 def separar_uri(texto):
-    """Do "Target URI" do Foundry tira a base, o deployment e a api-version, se vierem juntos."""
+    """(endpoint a gravar, deployment, api-version) a partir do que foi colado:
+    - base_url da API v1 (".../openai/v1/", com ou sem /chat/completions) ou só o host → API v1;
+    - Target URI antigo (".../deployments/<nome>/...?api-version=...") → base, deployment e versão."""
     url = urlparse(texto.strip())
-    base = f"{url.scheme}://{url.netloc}" if url.scheme and url.netloc else texto.strip()
+    if not (url.scheme and url.netloc):
+        return texto.strip(), None, None
+    host = f"{url.scheme}://{url.netloc}"
     m = re.search(r"/deployments/([^/]+)/", url.path + "/")
     versao = parse_qs(url.query).get("api-version", [None])[0]
-    return base, (m.group(1) if m else None), versao
+    if m and versao:
+        return host, m.group(1), versao
+    return host + "/openai/v1/", None, None
 
 
 def validar(nome, valor):
     """Mensagem de erro, ou None se o valor serve."""
     if nome == "ATHENIX_AZURE_ENDPOINT":
-        valor = separar_uri(valor)[0]  # aceita o Target URI inteiro
-        ok = re.fullmatch(r"https://[a-z0-9-]+\.(openai\.azure\.com|cognitiveservices\.azure\.com|services\.ai\.azure\.com)", valor)  # fmt: skip
-        return None if ok else "use a base do endpoint, ex.: https://meu-recurso.openai.azure.com"
+        valor = separar_uri(valor)[0]  # aceita base_url v1, Target URI ou só o host
+        ok = re.fullmatch(r"https://[a-z0-9-]+\.(openai\.azure\.com|cognitiveservices\.azure\.com|services\.ai\.azure\.com)(/openai/v1/)?", valor)  # fmt: skip
+        return None if ok else "ex.: https://meu-recurso.openai.azure.com/openai/v1/"
     if nome == CHAVE:
         return None if len(valor) >= 20 and " " not in valor else "a chave parece incompleta"
     if nome == "ATHENIX_MODEL":
         return None if re.fullmatch(r"[A-Za-z0-9._-]+", valor) else "use o nome do deployment"
-    if nome == "ATHENIX_AZURE_API_VERSION":
-        ok = re.fullmatch(r"\d{4}-\d{2}-\d{2}(-preview)?", valor)
-        return None if ok else "formato AAAA-MM-DD ou AAAA-MM-DD-preview"
+    if nome == "ATHENIX_AZURE_API_VERSION":  # opcional: a API v1 não usa
+        ok = valor == "" or re.fullmatch(r"\d{4}-\d{2}-\d{2}(-preview)?", valor)
+        return None if ok else "vazio (API v1) ou AAAA-MM-DD / AAAA-MM-DD-preview"
     if nome == "ATHENIX_REASONING_EFFORT":
-        return None if valor in {"", "low", "medium", "high"} else "low, medium, high ou vazio"
+        ok = valor in {"", "minimal", "low", "medium", "high"}
+        return None if ok else "minimal, low, medium, high ou vazio"
     if nome in {"ATHENIX_INPUT_USD_M", "ATHENIX_OUTPUT_USD_M", "ATHENIX_RUN_BUDGET_USD"}:
         try:
             ok = Decimal(valor) > 0 and Decimal(valor).is_finite()
@@ -111,10 +118,10 @@ def validar(nome, valor):
 
 
 PERGUNTAS = {
-    "ATHENIX_AZURE_ENDPOINT": "Endpoint (pode colar o Target URI inteiro do deployment)",
+    "ATHENIX_AZURE_ENDPOINT": "Endpoint: o base_url do exemplo oficial (termina em /openai/v1/)",
     "ATHENIX_MODEL": "Nome do deployment",
-    "ATHENIX_AZURE_API_VERSION": "Versão da API",
-    "ATHENIX_REASONING_EFFORT": "Esforço de raciocínio (low/medium/high; '-' = vazio, modelo sem raciocínio)",
+    "ATHENIX_AZURE_API_VERSION": "Versão da API (API antiga)",
+    "ATHENIX_REASONING_EFFORT": "Esforço de raciocínio (minimal/low/medium/high; '-' = vazio, modelo sem raciocínio)",
     "ATHENIX_INPUT_USD_M": "Preço de ENTRADA em US$ por 1 milhão de tokens",
     "ATHENIX_OUTPUT_USD_M": "Preço de SAÍDA em US$ por 1 milhão de tokens",
     "ATHENIX_PRICE_SOURCE": "Página de onde tirou o preço (https://...)",
@@ -155,9 +162,13 @@ def main():
             break
         print(f"  ✗ {erro}")
     novos["ATHENIX_MODEL"] = perguntar("ATHENIX_MODEL", atual.get("ATHENIX_MODEL", ""), deployment)
-    novos["ATHENIX_AZURE_API_VERSION"] = perguntar(
-        "ATHENIX_AZURE_API_VERSION", atual.get("ATHENIX_AZURE_API_VERSION", "2025-04-01-preview"), versao
-    )  # fmt: skip
+    if novos["ATHENIX_AZURE_ENDPOINT"].endswith("/openai/v1/"):
+        novos["ATHENIX_AZURE_API_VERSION"] = ""  # a API v1 não usa api-version
+        print("  API v1: sem api-version.")
+    else:
+        novos["ATHENIX_AZURE_API_VERSION"] = perguntar(
+            "ATHENIX_AZURE_API_VERSION", atual.get("ATHENIX_AZURE_API_VERSION", ""), versao
+        )
     novos["ATHENIX_REASONING_EFFORT"] = perguntar("ATHENIX_REASONING_EFFORT", atual.get("ATHENIX_REASONING_EFFORT", "low"))  # fmt: skip
     for nome in ("ATHENIX_INPUT_USD_M", "ATHENIX_OUTPUT_USD_M", "ATHENIX_PRICE_SOURCE"):
         novos[nome] = perguntar(nome, atual.get(nome, ""))
@@ -168,6 +179,8 @@ def main():
     print("\nGravado em .env (ATHENIX_AI_MODE=off: nenhuma chamada será feita por causa disto).")
     for nome in VARIAVEIS:
         presente = "presente" if final.get(nome) else "ausente"
+        if nome in {"ATHENIX_AZURE_API_VERSION", "ATHENIX_REASONING_EFFORT"} and nome in final:
+            presente = presente if final[nome] else "vazio (de propósito)"
         extra = f"  {mascarar(final[nome])}" if nome == CHAVE and final.get(nome) else ""
         print(f"  {nome:28} {presente}{extra}")
     ignorado = subprocess.run(["git", "check-ignore", "-q", str(ENV)], cwd=ROOT).returncode == 0

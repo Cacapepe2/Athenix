@@ -134,6 +134,12 @@ def target(settings):
     """URL e cabeçalhos do provedor. Azure usa o deployment no caminho e o cabeçalho api-key."""
     if settings.azure_endpoint:
         base = settings.azure_endpoint.rstrip("/")
+        # API v1 do Azure OpenAI (base_url terminando em /openai/v1, ou sem api-version): o nome do
+        # deployment vai no corpo ("model"), como no cliente OpenAI(base_url=..., api_key=...).
+        if base.endswith("/openai/v1") or not settings.azure_api_version:
+            if not base.endswith("/openai/v1"):
+                base += "/openai/v1"
+            return f"{base}/chat/completions", {"api-key": settings.api_key}
         url = (
             f"{base}/openai/deployments/{settings.model}/chat/completions"
             f"?api-version={settings.azure_api_version}"

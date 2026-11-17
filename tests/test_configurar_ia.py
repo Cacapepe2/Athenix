@@ -8,12 +8,17 @@ from scripts import configurar_ia as c
 FICTICIA = "chaveficticia" + "0123456789abcdefWXYZ"
 
 
-def test_target_uri_vira_base_deployment_e_versao():
-    uri = "https://meu-recurso.openai.azure.com/openai/deployments/meu-gpt/chat/completions?api-version=2025-04-01-preview"  # fmt: skip
-    assert c.separar_uri(uri) == ("https://meu-recurso.openai.azure.com", "meu-gpt", "2025-04-01-preview")  # fmt: skip
-    assert c.validar("ATHENIX_AZURE_ENDPOINT", uri) is None
-    assert c.separar_uri("https://x.openai.azure.com") == ("https://x.openai.azure.com", None, None)
+def test_endpoint_v1_target_uri_antigo_e_so_o_host():
+    v1 = "https://meu-recurso.openai.azure.com/openai/v1/"
+    # base_url do exemplo oficial (API v1), com ou sem barra e com /chat/completions: fica v1.
+    for colado in (v1, v1[:-1], v1 + "chat/completions", "https://meu-recurso.openai.azure.com"):
+        assert c.separar_uri(colado) == (v1, None, None), colado
+        assert c.validar("ATHENIX_AZURE_ENDPOINT", colado) is None
+    antigo = "https://meu-recurso.openai.azure.com/openai/deployments/meu-gpt/chat/completions?api-version=2025-04-01-preview"  # fmt: skip
+    assert c.separar_uri(antigo) == ("https://meu-recurso.openai.azure.com", "meu-gpt", "2025-04-01-preview")  # fmt: skip
+    assert c.validar("ATHENIX_AZURE_ENDPOINT", "https://x.services.ai.azure.com/openai/v1/") is None
     assert c.validar("ATHENIX_AZURE_ENDPOINT", "http://x.com") is not None
+    assert c.validar("ATHENIX_AZURE_API_VERSION", "") is None  # opcional
 
 
 def test_validacoes():
@@ -24,6 +29,7 @@ def test_validacoes():
     assert c.validar("ATHENIX_PRICE_SOURCE", "azure.com") is not None
     assert c.validar("ATHENIX_REASONING_EFFORT", "") is None
     assert c.validar("ATHENIX_REASONING_EFFORT", "max") is not None
+    assert c.validar("ATHENIX_REASONING_EFFORT", "minimal") is None  # gpt-5
 
 
 def test_gravar_preserva_o_resto_e_mascara(tmp_path, monkeypatch):
