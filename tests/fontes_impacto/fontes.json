@@ -32,6 +32,18 @@
    "paginas": 32,
    "fonte": "a confirmar com a fonte oficial da ANEEL",
    "ressalva": "Anexos II e III (Submódulos 1.6 e 1.8 dos Procedimentos de Comercialização) não estão no arquivo."
+  },
+  {
+   "id": "lei9427",
+   "arquivo": "l9427cons.htm",
+   "sha256": "ff948e3442edc619d98a3256fc6988a7c3d0dc21b27e25444a56a701082ac91b",
+   "ato": "Lei nº 9.427, de 26 de dezembro de 1996 (texto compilado)",
+   "url": "https://www.planalto.gov.br/ccivil_03/leis/l9427cons.htm",
+   "obtido_em": "2026-11-17",
+   "publicador": "Presidência da República, Casa Civil (planalto.gov.br)",
+   "codificacao": "windows-1252",
+   "fonte": "oficial (texto compilado; a publicação oficial é o DOU)",
+   "ressalva": "Redação revogada aparece riscada (<strike>) na mesma página; o extrator a marca como revogada. Art. 3º, X com redação dada pela Lei nº 15.269/2025."
   }
  ],
  "ausentes": [
