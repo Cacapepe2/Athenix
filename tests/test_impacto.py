@@ -213,6 +213,7 @@ def test_legal_cap_follows_the_date_of_the_infraction():
         pr["texto"] for pr in m_antes["premissas"] if pr["parametro"] == "teto_legal_anterior"
     )
     assert "antes de 25/11/2025" in texto and "data do prazo" in texto
+    assert any(pr["texto"] == impacto.AVISO_DATA for pr in m_antes["premissas"])
     # Sem prazo: data de referência do perfil, dito na premissa.
     sem_prazo = avaliar([PLANO], **MAX_V)["itens"][0]["multa"]
     assert any("data de referência do perfil" in pr["texto"] for pr in sem_prazo["premissas"])
@@ -381,6 +382,7 @@ def test_illustrative_profile_is_labeled_and_traceable(env):
     assert "Perfil ilustrativo" in page.text and "possivelmente subestimado" in page.text
     report = client.get(redirect.headers["location"].replace("/impacto?", "/impacto/relatorio?"))
     assert "PERFIL ILUSTRATIVO" in report.text
+    assert impacto.AVISO_DATA in page.text and impacto.AVISO_DATA in report.text
     # Mudou a base: deixa de ser o perfil ilustrativo e o rótulo some.
     outra = client.get("/impacto?segmento=distribuicao&base=123")
     assert "Perfil ilustrativo:" not in outra.text

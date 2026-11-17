@@ -13,6 +13,7 @@ from pathlib import Path
 PARAMETROS = Path(__file__).parent / "data" / "penalidades_ren846.json"
 PERFIL_ILUSTRATIVO = Path(__file__).parent / "data" / "perfil_ilustrativo.json"
 AVISO = "Estimativa com base nas premissas listadas, não constitui parecer jurídico."
+AVISO_DATA = "Limite legal conforme a data do prazo; a data real da infração pode diferir."
 GRUPOS = ("I", "II", "III", "IV", "V")
 # Cláusula que altera a régua de penalidade (REN 846/2019).
 ALTERA = r"Resolução Normativa(?:\s+ANEEL)?\s+n[º°o]\s*846\b[^.]{0,80}?passa(?:m)?\s+a\s+vigorar"
@@ -325,7 +326,8 @@ def teto_legal(params, row, p):
             f"{regra}; data considerada: {origem_data}",
             pid,
             editavel=False,
-        )
+        ),
+        _premissa(AVISO_DATA, pid, editavel=False),
     ]
     faturamento, base = p.get("faturamento"), p["base"]
     if faturamento is not None and base:
