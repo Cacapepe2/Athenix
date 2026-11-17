@@ -39,6 +39,18 @@ def test_legal_cap_is_the_current_wording_of_law_9427():
     assert p["redacao_dada_por"] == "Lei nº 15.269, de 2025"
 
 
+def test_previous_cap_and_effective_date_come_from_the_laws():
+    from scripts.extrair_parametros import read, teto_anterior, vigencia_teto
+
+    anterior = teto_anterior(read("9648"))  # sha256 42e8c5f4…: redação que incluiu o inciso X
+    assert anterior["ancora"] == "verified" and anterior["percentuais"] == [2.0]
+    assert "2% (dois por cento) do faturamento" in anterior["trecho"]
+    vig = vigencia_teto(read("15269"))  # sha256 acd97004…
+    assert vig["ancora"] == "verified" and vig["data"] == "2025-11-25"
+    assert "quanto aos demais dispositivos" in vig["trecho"]
+    assert vig["publicacao"] == "publicado no DOU de 25.11.2025"
+
+
 def test_lowercase_art_at_line_start_is_a_remission_not_an_article():
     text = (
         "Art. 16. Constitui infração:\n"

@@ -36,6 +36,20 @@
    "sha256": "ff948e3442edc619d98a3256fc6988a7c3d0dc21b27e25444a56a701082ac91b",
    "vigencia": null,
    "origem": "planalto.gov.br (Presidência da República), texto compilado obtido em 17/11/2026"
+  },
+  "9648": {
+   "titulo": "Lei 9.648/1998 (texto compilado)",
+   "arquivo": "tests/fontes_impacto/l9648cons.htm",
+   "sha256": "42e8c5f486f6b7722b07ea59c27a7d9b5b271c257f0441205a8224ff88737648",
+   "vigencia": null,
+   "origem": "planalto.gov.br (Presidência da República), texto compilado obtido em 17/11/2026"
+  },
+  "15269": {
+   "titulo": "Lei 15.269/2025",
+   "arquivo": "tests/fontes_impacto/l15269.htm",
+   "sha256": "acd97004cd305e8052a865a1668fea71c0fa8492683a91f83ab4c83ec8cbae88",
+   "vigencia": null,
+   "origem": "planalto.gov.br (Presidência da República), obtido em 17/11/2026"
   }
  },
  "nao_estimaveis": [
@@ -434,6 +448,32 @@
     3.0
    ],
    "fonte": "9427"
+  },
+  "teto_legal_anterior": {
+   "descricao": "Teto legal anterior por infração (% do faturamento), para infrações antes da nova redação",
+   "dispositivo": "Art. 3, X da Lei 9.427/1996, redação incluída pela Lei 9.648/1998",
+   "fonte": "9648",
+   "trecho": "X - fixar as multas administrativas a serem impostas aos concessionários, permissionários e autorizados de instalações e serviços de energia elétrica, observado o limite, por infração, de 2% (dois por cento) do faturamento, ou do valor estimado da energia produzida nos casos de autoprodução e produção independente, correspondentes aos últimos doze meses anteriores à lavratura do auto de infração ou estimados para um período de doze meses caso o infrator não esteja em operação ou esteja operando por um período inferior a doze meses. Parágrafo único. No exercício da competência prevista nos incisos VIII e IX, a ANEEL deverá articular-se com a Secretaria de Direito Econômico do Ministério da Justiça.\"",
+   "ancora": "verified",
+   "motivo": null,
+   "nota": null,
+   "revogado": null,
+   "percentuais": [
+    2.0
+   ]
+  },
+  "teto_legal_vigencia": {
+   "descricao": "Início dos efeitos da redação de 3% do teto legal",
+   "dispositivo": "Art. 24, caput e IV da Lei 15.269/2025",
+   "fonte": "15269",
+   "percentuais": [],
+   "revogado": null,
+   "trecho": "Art. 24. Esta Lei entra em vigor na data de sua publicação […] IV - na data de sua publicação, quanto aos demais dispositivos.",
+   "publicacao": "publicado no DOU de 25.11.2025",
+   "ancora": "verified",
+   "motivo": null,
+   "nota": "O Art. 3º da Lei 15.269/2025 (nova redação do Art. 3º, X da Lei 9.427) não está nas exceções dos incisos I a III do Art. 24: produz efeitos na data da publicação.",
+   "data": "2025-11-25"
   }
  },
  "infracoes": [

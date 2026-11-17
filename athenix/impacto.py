@@ -11,6 +11,7 @@ from datetime import date
 from pathlib import Path
 
 PARAMETROS = Path(__file__).parent / "data" / "penalidades_ren846.json"
+PERFIL_ILUSTRATIVO = Path(__file__).parent / "data" / "perfil_ilustrativo.json"
 AVISO = "Estimativa com base nas premissas listadas, não constitui parecer jurídico."
 GRUPOS = ("I", "II", "III", "IV", "V")
 # Cláusula que altera a régua de penalidade (REN 846/2019).
@@ -56,6 +57,11 @@ def carregar(path=PARAMETROS):
     return json.loads(Path(path).read_text(encoding="utf-8"))
 
 
+def perfil_ilustrativo():
+    """Perfil de demonstração (sem empresa real), com a origem da ordem de grandeza da ROL."""
+    return json.loads(PERFIL_ILUSTRATIVO.read_text(encoding="utf-8"))
+
+
 def termos(texto):
     """Nomes próprios de instrumentos citados na infração ("Plano de Contingência")."""
     return sorted({t for t in TERM.findall(texto) if t not in GENERIC})
@@ -99,6 +105,7 @@ def perfil(form):
         "segmento": segmento,
         "em_operacao": get("em_operacao", "sim") != "nao",
         "base": _numero(get("base")),
+        "faturamento": _numero(get("faturamento")),
         "reincidencias": _numero(get("reincidencias"), 0, 10, True) or 0,
         "tn_nao_atendidos": _numero(get("tn_nao_atendidos"), 0, 20, True) or 0,
         "antecedentes": _numero(get("antecedentes"), 0, 50, True) or 0,
@@ -271,6 +278,91 @@ def urgencia(row, hoje):
     return {"nivel": 3, "dias": None, "data": None, "texto": texto}
 
 
+def teto_legal(params, row, p):
+    """Teto legal por infração em % da base de cálculo: (limite, premissas, detalhes).
+
+    A redação vale pela data da infração: a do prazo (vencido ou a vencer) ou, sem prazo, a data de
+    referência do perfil (premissa). Antes do início dos efeitos da Lei 15.269/2025 vale a redação
+    anterior; se esse início não estiver confirmado, usa o limite atual e mostra o anterior. D6: com
+    faturamento bruto e base informados, o teto (% do faturamento) é convertido para % da base.
+    """
+    atual = parametro(params, "teto_legal_lei")
+    if not atual or not atual["percentuais"]:
+        return (
+            math.inf,
+            [_premissa("Teto legal sem parâmetro verificado: resultado sem limite final", None)],
+            None,
+        )
+    anterior = parametro(params, "teto_legal_anterior")
+    anterior_pct = anterior["percentuais"][0] if anterior and anterior["percentuais"] else None
+    vigencia = parametro(params, "teto_legal_vigencia")
+    inicio = date.fromisoformat(vigencia["data"]) if vigencia and vigencia.get("data") else None
+    prazo = urgencia(row, p["data_referencia"])["data"]
+    quando = date.fromisoformat(prazo) if prazo else p["data_referencia"]
+    origem_data = "data do prazo" if prazo else "data de referência do perfil (obrigação sem prazo)"
+    alternativo = None
+    if inicio and anterior_pct is not None and quando < inicio:
+        lei, pid = anterior, "teto_legal_anterior"
+        regra = (
+            f"infração em {quando:%d/%m/%Y}, antes de {inicio:%d/%m/%Y} ({vigencia['dispositivo']})"
+        )
+    elif inicio:
+        lei, pid = atual, "teto_legal_lei"
+        regra = f"infração em {quando:%d/%m/%Y}, a partir de {inicio:%d/%m/%Y} ({vigencia['dispositivo']})"
+    else:
+        lei, pid, alternativo = atual, "teto_legal_lei", anterior_pct
+        regra = (
+            "início dos efeitos da nova redação não confirmado no texto: usado o limite atual"
+            + (f"; antes dela valia {_pct(anterior_pct)}" if anterior_pct is not None else "")
+        )
+    pct = lei["percentuais"][0]
+    redacao = (
+        f", redação dada pela {lei['redacao_dada_por']}" if lei.get("redacao_dada_por") else ""
+    )
+    premissas = [
+        _premissa(
+            f"Teto legal: {_pct(pct)} do faturamento por infração ({lei['dispositivo']}{redacao}); "
+            f"{regra}; data considerada: {origem_data}",
+            pid,
+            editavel=False,
+        )
+    ]
+    faturamento, base = p.get("faturamento"), p["base"]
+    if faturamento is not None and base:
+        limite = pct * faturamento / base
+        premissas.append(
+            _premissa(
+                f"Faturamento bruto informado ({reais(faturamento)}): teto legal = {_pct(limite)} da base",
+                pid,
+                "dúvida D6",
+            )
+        )
+    elif faturamento is not None:
+        limite = pct
+        premissas.append(
+            _premissa(
+                "Faturamento bruto informado: informe a base para converter o teto legal", None
+            )
+        )
+    else:
+        limite = pct
+        premissas.append(
+            _premissa(
+                "Teto legal possivelmente subestimado: faturamento bruto não informado, aplicado sobre a base (ROL)",
+                pid,
+                "dúvida D6: informe o faturamento bruto dos 12 meses anteriores",
+            )
+        )
+    detalhes = {
+        "pct_lei": pct,
+        "parametro": pid,
+        "data": quando.isoformat(),
+        "alternativo_pct": alternativo,
+        "subestimado": faturamento is None,
+    }
+    return limite, premissas, detalhes
+
+
 def multa(params, row, p, grupos, explicitos):
     """Faixa da multa em % da base e, se informada, em R$. Dois cenários para a dúvida D5."""
     limites = {g: parametro(params, f"limite_grupo_{g}") for g in grupos}
@@ -306,33 +398,15 @@ def multa(params, row, p, grupos, explicitos):
             "premissas": premissas,
         }
     # Teto legal por infração (Lei 9.427/1996, Art. 3º, X): limite final nos dois cenários da D5.
-    legal = parametro(params, "teto_legal_lei")
-    limite = legal["percentuais"][0] if legal and legal["percentuais"] else math.inf
-    if legal:
-        redacao = (
-            f", redação dada pela {legal['redacao_dada_por']}"
-            if legal.get("redacao_dada_por")
-            else ""
-        )
-        premissas.append(
-            _premissa(
-                f"Teto legal: {_pct(limite)} da base por infração ({legal['dispositivo']}{redacao}), "
-                "aplicado ao resultado final nos dois cenários",
-                "teto_legal_lei",
-                "a lei usa o faturamento; o cálculo usa a mesma base informada (dúvida D6)",
-                editavel=False,
-            )
-        )
-    else:
-        premissas.append(
-            _premissa("Teto legal sem parâmetro verificado: resultado sem limite final", None)
-        )
+    limite, extras, legal = teto_legal(params, row, p)
+    premissas += extras
     res = {
         "estimavel": True,
         "grupos": grupos,
         "teto_pct": teto,
         "piso_teto_pct": piso_teto,
         "teto_legal_pct": None if math.isinf(limite) else limite,
+        "teto_legal": legal,
         "agravantes_pct": agr,
         "minimo_pct": 0.0,
         "maximo": {"com_teto": min(teto, limite), "sem_teto": min(teto * (1 + agr / 100), limite)},

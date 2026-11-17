@@ -4,6 +4,7 @@ import json
 import secrets
 import threading
 import time
+from urllib.parse import urlencode
 from collections import Counter
 from contextlib import asynccontextmanager
 from pathlib import Path
@@ -708,9 +709,17 @@ def create_app(settings=None, embedded_worker=False):
                         "quote": " ".join(unit["text"].split()),
                     }
                 )
+        demo = impacto.perfil_ilustrativo()
+        # Rótulo só enquanto o perfil for o do arquivo: mudou a base ou o segmento, deixa de ser.
+        ilustrativo = (
+            demo
+            if query.get("base") == demo["base"] and query.get("segmento") == demo["segmento"]
+            else None
+        )
         return {
             "params": params,
             "perfil": perfil,
+            "ilustrativo": ilustrativo,
             "resultado": resultado,
             "alteracoes": alteracoes,
             "divergencias": divergencias,
@@ -722,6 +731,11 @@ def create_app(settings=None, embedded_worker=False):
 
     @app.get("/impacto", response_class=HTMLResponse)
     def impacto_page(request: Request):
+        if request.query_params.get("perfil") == "ilustrativo":
+            # Preenche o formulário com o perfil de demonstração, de forma visível e editável.
+            demo = impacto.perfil_ilustrativo()
+            campos = {k: demo[k] for k in ("segmento", "base", "data_referencia")}
+            return RedirectResponse("/impacto?" + urlencode(campos), status_code=303)
         with factory() as session:
             guard(request, session)
             context = impacto_contexto(session, request.query_params)
