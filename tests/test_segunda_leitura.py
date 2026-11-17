@@ -125,3 +125,101 @@ def test_citacao_ruim_anterior_nao_suprime_uma_sugestao_valida():
     result = construir(comparison, context)
     assert [i["id"] for i in result["itens"]] == ["ia1"]
     assert len(result["descartados"]) == 1
+
+
+def attribution_fixture():
+    from athenix.segunda_leitura import chave_atribuicao
+
+    comparison, context = cached()
+    item = construir(comparison, context)["itens"][0]
+    review = {
+        "metodo": "Triagem documental, sem confirmação humana.",
+        "atribuicoes": [
+            {
+                "id": item["id"],
+                "norma": item["norma"],
+                "chave_conteudo": chave_atribuicao(item),
+                "grupo": "agente_regulado",
+                "responsavel": "Distribuidora",
+                "fundamento": "O texto identifica a distribuidora como sujeito.",
+                "evidencias": [{"unit_id": "u1", "quote": item["literal"]}],
+            }
+        ],
+    }
+    return construir(comparison, context), review, context
+
+
+def test_atribuicao_separa_cliente_sem_mutar_o_resultado_original():
+    from athenix.segunda_leitura import atribuir_responsaveis
+
+    result, review, context = attribution_fixture()
+    before = copy.deepcopy(result)
+    separated = atribuir_responsaveis(result, review, context)
+    assert separated["por_norma"]["norma"]["possiveis_obrigacoes_cliente"] == 1
+    assert separated["grupos_responsavel"]["agente_regulado"] == ["ia1"]
+    assert separated["itens"][0]["possivel_obrigacao_cliente"]
+    assert result == before
+
+
+def test_atribuicao_nao_inclui_aneel_governo_outros_na_contagem_do_cliente():
+    from athenix.segunda_leitura import atribuir_responsaveis, chave_atribuicao
+
+    result, review, context = attribution_fixture()
+    text = "A ANEEL deverá fiscalizar as distribuidoras e publicar os resultados."
+    item = result["itens"][0]
+    item["literal"] = text
+    item["interpretacao_ia"] = {
+        "subject": "A ANEEL",
+        "action": "fiscalizar e publicar",
+        "object": "resultados",
+    }
+    e = context["docs"]["norma"]["extraction"]
+    e["units"][0].update(text=text, end=len(text))
+    e["source"]["key"] = key(text)
+    context["docs"]["norma"]["reference_key"] = normalizar(text, espacos="nenhum", caixa=True)[0]
+    r = review["atribuicoes"][0]
+    r.update(
+        grupo="aneel_governo_outros",
+        responsavel="ANEEL",
+        chave_conteudo=chave_atribuicao(item),
+        fundamento="ANEEL fiscaliza; distribuidoras são o objeto, não o sujeito do dever.",
+        evidencias=[{"unit_id": "u1", "quote": text}],
+    )
+    separated = atribuir_responsaveis(result, review, context)
+    assert separated["por_norma"]["norma"]["possiveis_obrigacoes_cliente"] == 0
+    assert separated["por_norma"]["norma"]["aneel_governo_outros"] == 1
+    assert not separated["itens"][0]["possivel_obrigacao_cliente"]
+
+
+def test_atribuicao_desatualizada_ou_sem_cobertura_e_bloqueada():
+    from athenix.segunda_leitura import atribuir_responsaveis
+
+    result, review, context = attribution_fixture()
+    with pytest.raises(ValueError, match="exatamente"):
+        atribuir_responsaveis(result, dict(review, atribuicoes=[]), context)
+    result["itens"][0]["interpretacao_ia"]["subject"] = "Outro sujeito"
+    with pytest.raises(ValueError, match="Sugestão mudou"):
+        atribuir_responsaveis(result, review, context)
+
+
+def test_citacao_de_contexto_inventada_nao_sustenta_atribuicao():
+    from athenix.segunda_leitura import atribuir_responsaveis
+
+    result, review, context = attribution_fixture()
+    review["atribuicoes"][0]["evidencias"][0]["quote"] = (
+        "O governo deverá realizar uma tarefa inexistente."
+    )
+    with pytest.raises(ValueError, match="citação literal"):
+        atribuir_responsaveis(result, review, context)
+
+
+def test_manifesto_documental_tem_64_ids_distintos_e_fontes_de_contexto():
+    import json
+    from pathlib import Path
+
+    path = Path(__file__).parents[1] / "docs/ensaios/responsaveis_segunda_leitura.json"
+    rows = json.loads(path.read_text(encoding="utf-8"))["atribuicoes"]
+    assert len({r["id"] for r in rows}) == len(rows) == 64
+    assert sum(r["grupo"] == "agente_regulado" for r in rows) == 30
+    assert all(r["evidencias"] and len(r["chave_conteudo"]) == 64 for r in rows)
+    assert all(r["grupo"] in {"agente_regulado", "aneel_governo_outros"} for r in rows)

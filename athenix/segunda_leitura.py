@@ -135,3 +135,70 @@ def construir(comparacao, contexto):
         "Até cinco por norma, priorizando verbos de ação concretos; não aleatória nem estimativa de precisão."
     )
     return result
+
+
+def chave_atribuicao(item):
+    """Impede reutilizar a atribuição se a sugestão ou sua interpretação mudar."""
+    import hashlib
+    import json
+
+    relevant = {k: item[k] for k in ("id", "norma", "literal", "interpretacao_ia")}
+    return hashlib.sha256(
+        json.dumps(relevant, ensure_ascii=False, sort_keys=True).encode()
+    ).hexdigest()
+
+
+def atribuir_responsaveis(resultado, revisao, contexto):
+    """Aplica a triagem documental versionada, sem atribuir sujeitos por palavra isolada."""
+    import copy
+
+    records = revisao["atribuicoes"]
+    reviewed = {r["id"]: r for r in records}
+    ids = {i["id"] for i in resultado["itens"]}
+    if len(reviewed) != len(records) or set(reviewed) != ids:
+        raise ValueError("A atribuição precisa cobrir exatamente os itens da segunda leitura.")
+    result = copy.deepcopy(resultado)
+    groups = {"agente_regulado": [], "aneel_governo_outros": []}
+    for item in result["itens"]:
+        r = reviewed[item["id"]]
+        if r["norma"] != item["norma"] or r["chave_conteudo"] != chave_atribuicao(item):
+            raise ValueError("Sugestão mudou: revisar a atribuição de responsável.")
+        if (
+            r["grupo"] not in groups
+            or not r["responsavel"]
+            or not r["fundamento"]
+            or not r["evidencias"]
+        ):
+            raise ValueError("Atribuição incompleta ou grupo inválido.")
+        doc = contexto["docs"][item["norma"]]
+        e = doc["extraction"]
+        anchors = []
+        for proof in r["evidencias"]:
+            a = verify(
+                proof["quote"], proof["unit_id"], e["units"], e["text_hash"], source=e.get("source")
+            )
+            if (
+                a["state"] != "verified"
+                or normalizar(a["quote"], espacos="nenhum", caixa=True)[0]
+                not in doc["reference_key"]
+            ):
+                raise ValueError("Contexto do responsável sem citação literal confirmada.")
+            anchors.append(a)
+        item["responsabilidade"] = {
+            "grupo": r["grupo"],
+            "responsavel": r["responsavel"],
+            "fundamento": r["fundamento"],
+            "evidencias": anchors,
+            "status": "triagem documental · aguarda revisão humana",
+        }
+        item["possivel_obrigacao_cliente"] = r["grupo"] == "agente_regulado"
+        groups[r["grupo"]].append(item["id"])
+    for norm, counts in result["por_norma"].items():
+        items = [i for i in result["itens"] if i["norma"] == norm]
+        counts["possiveis_obrigacoes_cliente"] = sum(i["possivel_obrigacao_cliente"] for i in items)
+        counts["aneel_governo_outros"] = len(items) - counts["possiveis_obrigacoes_cliente"]
+    by_id = {i["id"]: i for i in result["itens"]}
+    result["amostra_10"] = [by_id[i["id"]] for i in result["amostra_10"]]
+    result["grupos_responsavel"] = groups
+    result["criterio_responsavel"] = revisao["metodo"]
+    return result

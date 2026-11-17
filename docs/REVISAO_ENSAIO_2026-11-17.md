@@ -1,6 +1,6 @@
 # Revisão do ensaio — 17/11/2026
 
-Branch local: `revisao-ensaio-segunda-leitura`. A main, a demo e o site não foram alterados. Sem push, publicação ou merge.
+Registro da primeira etapa, antes da publicação do PR: branch local `revisao-ensaio-segunda-leitura`. A main, a demo e o site não foram alterados. Sem push, publicação ou merge.
 
 ## 1. Segunda leitura da extração
 
@@ -84,3 +84,7 @@ Proposta para uma etapa futura, sem implementação:
 - Nenhuma alteração em landing/, templates, static/, main ou configuração da Vercel. Nenhum push ou merge.
 - Enquadramento e resolução de remissões são propostas. CI nos três sistemas não foi executado, pois não houve push; a suíte foi executada localmente no Windows.
 - Citações válidas não equivalem a aprovação da interpretação. Os quatro alertas dos títulos, as sugestões da segunda leitura e a dúvida D1 aguardam revisão humana.
+
+## Complemento — atribuição dos responsáveis e consulta D1
+
+Dos 64 itens, 30 foram atribuídos a distribuidoras/transmissoras para revisão do cliente (21 na RN 1.137 e 9 no Decreto); 34 ficam em ANEEL/governo/outros. Isso não altera o resultado oficial. [Separação e critérios](SEGUNDA_LEITURA_RESPONSAVEIS.md). [Nota curta D1 para especialista](D1_PARA_ESPECIALISTA.md). A branch será publicada em PR rascunho exclusivamente para CI, sem merge.

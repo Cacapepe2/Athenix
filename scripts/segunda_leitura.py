@@ -7,17 +7,24 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from athenix.segunda_leitura import construir  # noqa: E402
+from athenix.segunda_leitura import atribuir_responsaveis, construir  # noqa: E402
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--cache", type=Path, default=ROOT / "artifacts/comparacao-regras-ia")
     parser.add_argument("--saida", type=Path, default=ROOT / "artifacts/revisao-ensaio")
+    parser.add_argument(
+        "--responsaveis", type=Path, default=ROOT / "docs/ensaios/responsaveis_segunda_leitura.json"
+    )
     args = parser.parse_args()
+    contexto = json.loads((args.cache / "contexto_regras.json").read_text(encoding="utf-8"))
     result = construir(
         json.loads((args.cache / "comparacao.json").read_text(encoding="utf-8")),
-        json.loads((args.cache / "contexto_regras.json").read_text(encoding="utf-8")),
+        contexto,
+    )
+    result = atribuir_responsaveis(
+        result, json.loads(args.responsaveis.read_text(encoding="utf-8")), contexto
     )
     args.saida.mkdir(parents=True, exist_ok=True)
     (args.saida / "segunda_leitura.json").write_text(
@@ -28,11 +35,27 @@ def main():
         "",
         "As regras continuam oficiais. Esta lista não entra no gabarito, na trava ou no cálculo de exposição.",
         "",
-        "| Norma | Entradas do ensaio | Possíveis obrigações restantes |",
-        "|---|---:|---:|",
+        "| Norma | Segunda leitura total | Agente regulado — possíveis obrigações do cliente | ANEEL/governo/outros |",
+        "|---|---:|---:|---:|",
     ]
     for norm, c in result["por_norma"].items():
-        lines.append(f"| {norm} | {c['entrada']} | {c.get('restantes', 0)} |")
+        lines.append(
+            f"| {norm} | {c.get('restantes', 0)} | {c['possiveis_obrigacoes_cliente']} | {c['aneel_governo_outros']} |"
+        )
+    lines += [
+        "",
+        result["criterio_responsavel"],
+        "",
+        "## Atribuição dos 64 itens",
+        "",
+        "| # | Norma / dispositivo | Grupo | Responsável atribuído | Fundamento |",
+        "|---:|---|---|---|---|",
+    ]
+    for n, item in enumerate(result["itens"], 1):
+        r = item["responsabilidade"]
+        lines.append(
+            f"| {n} | {item['norma']} · {item['dispositivo']} | {r['grupo']} | {r['responsavel']} | {r['fundamento']} |"
+        )
     lines += [
         "",
         "Critério: " + result["criterio_diferenca"],
@@ -48,6 +71,8 @@ def main():
             f"### {index}. {item['norma']} — {item['dispositivo']}",
             "",
             item["rotulo"],
+            "",
+            f"Responsável: {item['responsabilidade']['responsavel']} · {item['responsabilidade']['grupo']} · Conta para o cliente: {'sim' if item['possivel_obrigacao_cliente'] else 'não'}.",
             "",
             f"Interpretação sugerida: {i['subject']} — {i['action']} {i['object']}",
             "",
