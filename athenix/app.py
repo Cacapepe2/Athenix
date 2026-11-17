@@ -35,6 +35,7 @@ from .db import (
 )
 from .evidence import recheck
 from . import impacto
+from .normalizacao import espacos
 from .llm import estimate, modo
 from .services import (
     associate_dependency,
@@ -709,7 +710,7 @@ def create_app(settings=None, embedded_worker=False):
                         "document_id": document_id,
                         "title": title,
                         "unit_id": unit["id"],
-                        "quote": " ".join(unit["text"].split()),
+                        "quote": espacos(unit["text"]),
                     }
                 )
         demo = impacto.perfil_ilustrativo()

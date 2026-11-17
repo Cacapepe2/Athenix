@@ -13,7 +13,6 @@ import hashlib
 import json
 import re
 import sys
-import unicodedata
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -25,8 +24,10 @@ UNIFY = str.maketrans({c: '"' for c in "“”„‟"} | {c: "'" for c in "‘�
 
 
 def flat(text):
-    text = unicodedata.normalize("NFC", text or "").translate(UNIFY)
-    return re.sub(r"\s+", "", text).casefold()
+    # Mesma normalização do sistema (athenix.normalizacao), sem espaços e sem caixa.
+    from athenix.normalizacao import normalizar
+
+    return normalizar(text, espacos="nenhum", caixa=True)[0]
 
 
 def overlaps(a, b):

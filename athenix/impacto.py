@@ -7,6 +7,8 @@ ou de uma premissa informada pelo usuário. Sem isso, o valor fica "não estimá
 import json
 import math
 import re
+
+from .normalizacao import espacos
 from datetime import date
 from pathlib import Path
 
@@ -581,7 +583,7 @@ ORDEM = ("Faça isto primeiro", "Depois", "Em seguida", "Na sequência", "Por ú
 
 
 def frase(item, p, posicao):
-    acao = " ".join(item["row"].get("action", "").split())
+    acao = espacos(item["row"].get("action", ""))
     acao = acao[:140] + ("…" if len(acao) > 140 else "")
     return f"{ORDEM[posicao]}: {acao} — pesa {formatar(item, p)} e {item['urgencia']['texto']}."
 
@@ -606,7 +608,7 @@ def destaques(resultado, p, limite=5):
     vistos, proprios, genericos = set(), [], []
     for i in ranking:
         # Mesma regra no Anexo e no bloco de nova redação ("…(NR)"): o início basta para repetir.
-        chave = " ".join(i["row"].get("action", "").split()).casefold()[:200]
+        chave = espacos(i["row"].get("action", "")).casefold()[:200]
         if chave in vistos:
             continue
         vistos.add(chave)
@@ -640,7 +642,7 @@ def destaques(resultado, p, limite=5):
 
 def alteracoes_da_regua(units):
     """Dispositivos do documento que alteram a REN 846 (a régua de penalidade)."""
-    return [u for u in units if re.search(ALTERA, " ".join(u["text"].split()))]
+    return [u for u in units if re.search(ALTERA, espacos(u["text"]))]
 
 
 TIPOS_ATO = {
@@ -665,7 +667,7 @@ def citacoes_divergentes(units):
     for unit in units:
         if unit.get("struck"):
             continue
-        texto = " ".join(unit["text"].split())
+        texto = espacos(unit["text"])
         for m in CITACAO_ATO.finditer(texto):
             dia, mes, ano = m.group(4), m.group(5), m.group(6) or m.group(3)
             if not (dia or ano):

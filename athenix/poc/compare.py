@@ -9,7 +9,7 @@ import difflib
 import re
 from collections import Counter
 
-from ..evidence import normalize
+from ..normalizacao import normalizar
 
 EQUAL = 1.0
 NEAR = 0.9  # shortcut: limiar de equivalência incerta, calibrar com pares rotulados
@@ -29,9 +29,8 @@ def _path(unit, by_id):
 
 
 def _norm(text):
-    # Hifenização de quebra de linha e espaços não alteram o dispositivo.
-    flat = normalize(re.sub(r"-\n(?=[a-zà-ú])", "", text))[0]
-    return re.sub(r"\s+", " ", flat).strip().casefold()
+    # Hifenização de quebra de linha, espaços e caixa não alteram o dispositivo (normalização única).
+    return normalizar(text, caixa=True)[0]
 
 
 def _keyed(extraction, pages):

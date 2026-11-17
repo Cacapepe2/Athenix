@@ -15,13 +15,13 @@ import hashlib
 import json
 import re
 import sys
-import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from athenix.config import Settings  # noqa: E402
 from athenix.evidence import verify  # noqa: E402
+from athenix.normalizacao import espacos, normalizar  # noqa: E402
 from athenix.impacto import ALTERA, PARAMETROS, termos  # noqa: E402
 from athenix.poc import reader  # noqa: E402
 from athenix.structure import extract  # noqa: E402
@@ -111,9 +111,8 @@ def words(text):
 def spelled(text):
     """Valor de 'cento e vinte e cinco milésimos por cento', 'zero vírgula zero um por cento',
     'dois inteiros e cinco décimos por cento'. Grafia anterior a 2009 ('cinqüenta') vale igual."""
-    # Trema (grafia antiga) não muda o número: "cinqüenta" = "cinquenta".
-    text = "".join(c for c in unicodedata.normalize("NFD", text) if c != "̈")
-    text = unicodedata.normalize("NFC", " ".join(text.lower().split()))
+    # Trema (grafia antiga) não muda o número: "cinqüenta" = "cinquenta" (athenix.normalizacao).
+    text = normalizar(text, caixa=True)[0]
     text = re.sub(r"\s*por\s+cento\s*$", "", text)
     if m := re.fullmatch(r"(.+?)\s+inteiros?\s+e\s+(.+)", text):
         whole, frac = words(m.group(1)), spelled(m.group(2))
@@ -182,7 +181,7 @@ def cite(unit, extraction):
             )
             if retry["state"] == "verified":
                 anchor, note = retry, "rótulo do dispositivo não confirmado pela 2ª leitura"
-        cited.append(" ".join(part.split()))
+        cited.append(espacos(part))
         anchors.append(anchor)
     verified = bool(anchors) and all(a["state"] == "verified" for a in anchors)
     return {
@@ -238,7 +237,7 @@ def teto_legal(lei):
         }
     entry = cite(vigentes[0], lei["extraction"])
     redacao = REDACAO_LEI.search(entry["trecho"])
-    trecho = entry["trecho"] = " ".join(REDACAO_LEI.sub("", entry["trecho"]).split())
+    trecho = entry["trecho"] = espacos(REDACAO_LEI.sub("", entry["trecho"]))
     return {
         "descricao": "Teto legal da multa por infração (% do faturamento dos 12 meses anteriores)",
         "dispositivo": "Art. 3, X da Lei 9.427/1996",
@@ -254,7 +253,7 @@ def teto_anterior(lei):
     alvo = [
         u
         for u in lei["units"]
-        if " ".join(u["text"].split()).startswith("X - fixar as multas") and not u.get("struck")
+        if espacos(u["text"]).startswith("X - fixar as multas") and not u.get("struck")
     ]
     base = {
         "descricao": "Teto legal anterior por infração (% do faturamento), para infrações antes da nova redação",
@@ -265,7 +264,7 @@ def teto_anterior(lei):
         return base | {"trecho": "", "ancora": "pending", "motivo": f"{len(alvo)} redações",
                        "nota": None, "revogado": None, "percentuais": []}  # fmt: skip
     entry = cite(alvo[0], lei["extraction"])
-    trecho = entry["trecho"] = " ".join(REDACAO_LEI.sub("", entry["trecho"]).split())
+    trecho = entry["trecho"] = espacos(REDACAO_LEI.sub("", entry["trecho"]))
     return (
         base
         | entry
@@ -275,7 +274,7 @@ def teto_anterior(lei):
 
 def trecho_verificado(unit, padrao, extraction):
     """Cita só a frase que casa com `padrao` dentro da unidade, conferida pela segunda leitura."""
-    texto = " ".join(unit["text"].split())
+    texto = espacos(unit["text"])
     m = re.search(padrao, texto)
     if not m:
         return None, "invalid"
@@ -303,7 +302,7 @@ def vigencia_teto(lei):
         return base | {"trecho": "", "ancora": "pending", "motivo": "Art. 24 não localizado",
                        "nota": None, "data": None}  # fmt: skip
     excecoes = " ".join(
-        " ".join(u["text"].split())
+        espacos(u["text"])
         for u in proprias
         if u["path"].startswith("24 > ") and not u["path"].startswith("24 > IV")
     )
@@ -359,7 +358,7 @@ def build(docs):
         if len(current) != 1:
             entry |= {"ancora": "pending", "motivo": f"{len(current)} redações vigentes: conferir"}
         # A nota "(Redação dada pela ...)" é anotação da compilação, não texto do ato: fica fora do trecho.
-        trecho = entry["trecho"] = " ".join(ORIGEM.sub("", entry["trecho"]).split())
+        trecho = entry["trecho"] = espacos(ORIGEM.sub("", entry["trecho"]))
         parametros[pid] = {
             "descricao": description,
             "dispositivo": "Art. " + path.replace(" > ", ", "),
@@ -377,7 +376,7 @@ def build(docs):
             continue
         entry = cite(unit, ren["extraction"])
         origem = ORIGEM.search(entry["trecho"])
-        entry["trecho"] = " ".join(ORIGEM.sub("", entry["trecho"]).split())
+        entry["trecho"] = espacos(ORIGEM.sub("", entry["trecho"]))
         infracoes.append(
             {
                 "dispositivo": f"Art. {match.group(1)}, {match.group(2)}",
@@ -400,7 +399,7 @@ def build(docs):
     for name in ("1137", "1148", "1174"):
         doc = docs[name]
         for unit in doc["units"]:
-            if re.search(ALTERA, " ".join(unit["text"].split())):
+            if re.search(ALTERA, espacos(unit["text"])):
                 alteracoes.append(
                     {
                         "ato": doc["titulo"],
