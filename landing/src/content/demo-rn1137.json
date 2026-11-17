@@ -1,6 +1,6 @@
 {
  "gerado_por": "scripts/exportar_demo_site.py",
- "commit_origem": "bc4886a",
+ "commit_origem": "00cbc2a",
  "gerado_em": "2026-11-17",
  "criterio": "3 primeiras obrigações da ordem de prioridade; exemplo separado sem enquadramento",
  "funil": {
@@ -182,7 +182,7 @@
  ],
  "obrigacoes": [
   {
-   "id": "314e2de5db5a3fb45aa66d367a829f85",
+   "id": "8b8c81452b89e806e7817ec844a24afa",
    "acao": "I - Até 90 (noventa) dias para revisar e publicar os planos de manejo vegetal, de comunicação e de contingência de que tratam os itens 103, 108 e 148 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa;",
    "titulo_curto": "Revisar e publicar planos de manejo, comunicação e contingência",
    "sujeito": "As distribuidoras",
@@ -248,7 +248,7 @@
    "motivo_confianca": "Falta: valor provável sem premissa."
   },
   {
-   "id": "490acfe28a7fd9579bdc19866cb5ce7f",
+   "id": "7707c99d1559d3878bfbd349b013c382",
    "acao": "94. As distribuidoras devem estabelecer um plano de manejo vegetal na sua área de atuação, que contemple a vegetação que interfira em suas redes de distribuição, em coordenação com o Poder Público Municipal e em articulação com os órgãos competentes do Poder Público Estadual e Distrital, e com vistas a garantir a segurança da rede de distribuição, a qualidade, eficiência e a continuidade do fornecimento de energia elétrica.",
    "titulo_curto": "Criar o plano de manejo vegetal",
    "sujeito": "As distribuidoras",
@@ -310,7 +310,7 @@
    "motivo_confianca": "Falta: valor provável sem premissa."
   },
   {
-   "id": "5e7eaa684768396ca4502ace41a85ddd",
+   "id": "cf69308b7fdf1dba8c046880ebac1557",
    "acao": "96. As distribuidoras devem garantir a rápida remoção de árvores ou galhos caídos sobre a rede, atuando de forma coordenada com o Poder Público Estadual, Distrital ou Municipal, dispondo de autonomia necessária para adotar medidas urgentes que assegurem a rápida recuperação do serviço em situações de emergência.",
    "titulo_curto": "Remover árvores ou galhos caídos sobre a rede",
    "sujeito": "As distribuidoras",
@@ -372,7 +372,7 @@
    "motivo_confianca": "Falta: valor provável sem premissa."
   },
   {
-   "id": "40bf737b6bff2a301790d1cb702ee2f1",
+   "id": "8e91b51f58549c0a24d941e4a3c984f3",
    "acao": "II - Até 180 (cento e oitenta) dias para implementar o registro das interações com o Poder Público Municipal em relação ao serviço de manejo da vegetação que apresente risco à segurança das redes elétricas e a continuidade do fornecimento, conforme dispõe o item 104 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa;",
    "titulo_curto": "Implementar o registro das interações com o Poder Público Municipal em relação ao…",
    "sujeito": "As distribuidoras",
