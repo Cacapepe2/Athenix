@@ -297,14 +297,38 @@ def multa(params, row, p, grupos, explicitos):
             "motivo": "Agravante sem parâmetro verificado.",
             "premissas": premissas,
         }
+    # Teto legal por infração (Lei 9.427/1996, Art. 3º, X): limite final nos dois cenários da D5.
+    legal = parametro(params, "teto_legal_lei")
+    limite = legal["percentuais"][0] if legal and legal["percentuais"] else math.inf
+    if legal:
+        redacao = (
+            f", redação dada pela {legal['redacao_dada_por']}"
+            if legal.get("redacao_dada_por")
+            else ""
+        )
+        premissas.append(
+            _premissa(
+                f"Teto legal: {_pct(limite)} da base por infração ({legal['dispositivo']}{redacao}), "
+                "aplicado ao resultado final nos dois cenários",
+                "teto_legal_lei",
+                "a lei usa o faturamento; o cálculo usa a mesma base informada (dúvida D6)",
+                editavel=False,
+            )
+        )
+    else:
+        premissas.append(
+            _premissa("Teto legal sem parâmetro verificado: resultado sem limite final", None)
+        )
     res = {
         "estimavel": True,
         "grupos": grupos,
         "teto_pct": teto,
         "piso_teto_pct": piso_teto,
+        "teto_legal_pct": None if math.isinf(limite) else limite,
         "agravantes_pct": agr,
         "minimo_pct": 0.0,
-        "maximo": {"com_teto": teto, "sem_teto": teto * (1 + agr / 100)},
+        "maximo": {"com_teto": min(teto, limite), "sem_teto": min(teto * (1 + agr / 100), limite)},
+        "limitado_teto_legal": teto * (1 + agr / 100) > limite,
         "provavel": None,
         "premissas": premissas,
     }
@@ -314,8 +338,8 @@ def multa(params, row, p, grupos, explicitos):
         base = teto * p["fracao_valor_base"] / 100
         bruto = base * (1 + agr / 100)
         res["provavel"] = {
-            "com_teto": min(bruto, teto) * (1 - reducao / 100),
-            "sem_teto": bruto * (1 - reducao / 100),
+            "com_teto": min(min(bruto, teto) * (1 - reducao / 100), limite),
+            "sem_teto": min(bruto * (1 - reducao / 100), limite),
         }
         premissas.append(
             _premissa(

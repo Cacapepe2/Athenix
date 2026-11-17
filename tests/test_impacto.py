@@ -79,6 +79,28 @@ def test_fixed_values_all_aggravating_and_cap_scenarios():
     assert m["provavel"]["com_teto"] == pytest.approx(0.05)
     assert m["provavel"]["sem_teto"] == pytest.approx(0.0645)
     assert avaliar([PLANO], **form)["itens"][0]["confianca"] == "alto"
+    # 2,58% fica abaixo do teto legal (3%): o valor não muda e não é marcado como limitado.
+    assert not m["limitado_teto_legal"] and m["teto_legal_pct"] == 3.0
+
+
+def test_legal_cap_limits_both_scenarios():
+    legal = PARAMS["parametros"]["teto_legal_lei"]
+    # Lido do Art. 3º, X da Lei 9.427/1996 (planalto.gov.br, sha256 ff948e34…), não digitado.
+    assert legal["ancora"] == "verified" and legal["percentuais"] == [3.0]
+    form = dict(base="1000000", reincidencias="10", tn_nao_atendidos="20", antecedentes="50",
+                fracao_valor_base="100", grupo_o1="V")  # fmt: skip
+    m = avaliar([PLANO], **form)["itens"][0]["multa"]
+    # Antes: 2% × (1 + 470%) = 11,4% da base no cenário sem teto do grupo. Depois: 3% (teto legal).
+    assert m["agravantes_pct"] == pytest.approx(470)
+    assert m["maximo"] == {"com_teto": 2.0, "sem_teto": 3.0} and m["limitado_teto_legal"]
+    assert m["provavel"]["sem_teto"] == 3.0
+    assert m["reais"]["maximo"]["sem_teto"] == pytest.approx(30000.0)
+    assert any(pr["parametro"] == "teto_legal_lei" for pr in m["premissas"])
+    sem_lei = copy.deepcopy(PARAMS)
+    sem_lei["parametros"]["teto_legal_lei"]["ancora"] = "pending"
+    perfil = impacto.perfil({"data_referencia": HOJE} | form)
+    m = impacto.avaliar(sem_lei, [PLANO], perfil)["itens"][0]["multa"]
+    assert m["maximo"]["sem_teto"] == pytest.approx(11.4) and m["teto_legal_pct"] is None
 
 
 def test_empty_profile_gives_wide_range_in_percent_and_low_confidence():
