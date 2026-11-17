@@ -155,7 +155,7 @@ def label_path(unit, by_id):
 
 
 def cite(unit, extraction):
-    """Cita o dispositivo em pedaços contíguos (o rodapé da página interrompe o texto)."""
+    """Cita um trecho literal; guarda separadamente as partes interrompidas por rodapé."""
     parts = [p.strip() for p in FOOTER.split(unit["text"]) if p and p.strip()]
     cited, anchors, note = [], [], None
     for i, part in enumerate(parts):
@@ -182,12 +182,35 @@ def cite(unit, extraction):
             )
             if retry["state"] == "verified":
                 anchor, note = retry, "rótulo do dispositivo não confirmado pela 2ª leitura"
-        cited.append(espacos(part))
+        cited.append(espacos(anchor.get("quote", part)))
         anchors.append(anchor)
     verified = bool(anchors) and all(a["state"] == "verified" for a in anchors)
+    # Uma citação não pode herdar a verificação de pedaços unidos por reticências.
+    principal = max(range(len(cited)), key=lambda i: len(cited[i]), default=None)
+    fragments = [
+        {
+            "trecho": text,
+            "ancora": anchor["state"],
+            "unit_id": unit["id"],
+            "inicio": anchor.get("start"),
+            "fim": anchor.get("end"),
+            "motivo": anchor.get("reason"),
+        }
+        for text, anchor in zip(cited, anchors)
+    ]
+    if len(fragments) > 1:
+        note = "; ".join(
+            filter(
+                None,
+                [note, "Rodapé interrompe o dispositivo; citações literais separadas em citacoes."],
+            )
+        )
     return {
-        "trecho": " […] ".join(cited),
-        "ancora": "verified" if verified else (anchors[0]["state"] if anchors else "invalid"),
+        **({"citacoes": fragments} if len(fragments) > 1 else {}),
+        "trecho": cited[principal] if principal is not None else "",
+        "ancora": "verified"
+        if verified
+        else next((a["state"] for a in anchors if a["state"] != "verified"), "invalid"),
         "motivo": next((a["reason"] for a in anchors if a.get("reason")), None),
         "nota": note,
         "revogado": unit.get("struck"),
@@ -328,7 +351,16 @@ def vigencia_teto(lei):
     elif not ok:
         motivo = "trecho do Art. 24 ou data de publicação não confirmados pela segunda leitura"
     return base | {
-        "trecho": " […] ".join(m.group(0) for m in (c, iv) if m),
+        "trecho": iv.group(0) if iv else "",
+        "citacoes": [
+            {"trecho": m.group(0), "ancora": state, "unit_id": unit["id"]}
+            for m, state, unit in (
+                (c, c_estado, caput),
+                (iv, iv_estado, inciso_iv),
+                (pub, pub_estado, inciso_iv),
+            )
+            if m
+        ],
         "publicacao": pub.group(0) if pub else None,
         "ancora": "verified" if ok else "pending",
         "motivo": motivo,
