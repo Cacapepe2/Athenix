@@ -462,6 +462,10 @@ def test_presentation_title_and_deadline_keep_literal_and_calculation():
         impacto.titulo_obrigacao("94. As distribuidoras devem estabelecer um plano.")
         == "Estabelecer um plano"
     )
+    # Art. 13, VI da RN 1.137 escreve "dias mês para" (redação literal da norma).
+    assert impacto.titulo_obrigacao(
+        "VI - Até 180 (cento e oitenta) dias mês para iniciar as apurações do DISE;"
+    ) == ("Iniciar as apurações do DISE")
     assert (
         impacto.urgencia(row("x", [{"date": "2026-12-01"}]), date(2026, 11, 11))["principal"]
         == "Vence em 01/12/2026"
