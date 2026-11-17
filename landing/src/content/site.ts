@@ -27,7 +27,7 @@ export const hero = {
   titleLines: ['Quanto cada mudança regulatória', 'pode custar à sua empresa,', 'e o que priorizar.'],
   subtitle:
     'A Athenix estima, para cada obrigação de uma norma da ANEEL, a faixa de impacto em reais e o prazo, com premissas visíveis, nível de confiança e o trecho exato da fonte. Assim, quem decide sabe o que fazer primeiro.',
-  primary: { href: '#demonstracao', label: 'Ver a demonstração' },
+  primary: { href: '/demo', label: 'Ver demonstração completa' },
   secondary: { href: '#contato', label: 'Conversar sobre um piloto' },
   status: 'Iniciativa em validação · MVP em desenvolvimento',
   principles: [
@@ -146,16 +146,6 @@ export const story = {
       text: 'Faixa de impacto em reais por obrigação, com premissas, confiança e fonte (REN 846 e Lei 9.427), e a ordem do que fazer primeiro.',
     },
   ],
-}
-
-export const demo = {
-  eyebrow: 'Demonstração interativa',
-  title: 'Uma norma real, do texto ao impacto estimado.',
-  description:
-    'Navegue pelas etapas com trechos reais da RN ANEEL 1.137/2025: alertas, obrigações com o trecho de origem, prazos e a faixa de impacto com premissas, confiança e fonte. Aceitar ou rejeitar é sempre decisão de uma pessoa.',
-  disclaimer:
-    'Trechos reais da RN ANEEL 1.137/2025, processados por regras, sem IA. Os valores de impacto são estimativa ilustrativa, com um perfil ilustrativo de distribuidora que não é empresa real. Não constitui parecer jurídico.',
-  tabs: ['Norma', 'Alertas', 'Obrigações', 'Prazos', 'Impacto estimado'],
 }
 
 export const approach = {

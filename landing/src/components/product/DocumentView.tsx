@@ -33,7 +33,7 @@ export function DocumentView({ marks = {}, markLabels = {}, focusId, animateMark
           return (
             <p key={a.id} className={`transition-opacity duration-500 ${dim ? 'opacity-40' : ''}`}>
               {/* Texto real já traz o próprio rótulo ("Art. 9º ..."): não repete. */}
-              {!a.text.startsWith(a.label) && <span className="mr-1 font-semibold text-obsidian">{a.label}</span>}
+              {!a.text.startsWith(a.label) && !(a.label.startsWith('item ') && a.text.startsWith(a.label.slice(5) + '.')) && <span className="mr-1 font-semibold text-obsidian">{a.label}</span>}
               {parts ? (
                 <>
                   {parts[0]}

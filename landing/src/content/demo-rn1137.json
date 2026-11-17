@@ -1,14 +1,23 @@
 {
  "gerado_por": "scripts/exportar_demo_site.py",
- "commit_origem": "6213246",
+ "commit_origem": "00cbc2a",
  "gerado_em": "2026-11-17",
- "criterio": "1ª da fila priorizada; a próxima com situação de prazo diferente; a 1ª de Verificar enquadramento",
+ "criterio": "3 primeiras obrigações da ordem de prioridade; exemplo separado sem enquadramento",
+ "funil": {
+  "total": 169,
+  "priorizadas": 42,
+  "verificar": 110,
+  "fora_perfil": 1,
+  "sem_estimativa": 16,
+  "desconsideradas": 0
+ },
  "regra_ordem": "Ordem: exposição provável (o valor provável, se informado; senão, o ponto médio da faixa) multiplicada pelo peso do prazo (vencida 1; vence em até 90 dias 0,8; depois 0,5; sem data 0,3); obrigações com enquadramento desconhecido ficam fora da fila, em \"Verificar enquadramento\".",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "aviso_data": "Limite legal conforme a data do prazo; a data real da infração pode diferir.",
  "norma": {
   "titulo": "RN ANEEL 1.137/2025",
   "arquivo": "tests/norma_poc/ren20251137.pdf",
+  "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
   "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887",
   "vigencia": "2025-10-30",
   "obrigacoes_extraidas": 169,
@@ -30,14 +39,99 @@
    "texto": "94. As distribuidoras devem estabelecer um plano de manejo vegetal na sua área de atuação, que contemple a vegetação que interfira em suas redes de distribuição, em coordenação com o Poder Público Municipal e em articulação com os órgãos competentes do Poder Público Estadual e Distrital, e com vistas a garantir a segurança da rede de distribuição, a qualidade, eficiência e a continuidade do fornecimento de energia elétrica."
   },
   {
+   "id": "u0026",
+   "dispositivo": "item 96",
+   "texto": "96. As distribuidoras devem garantir a rápida remoção de árvores ou galhos caídos sobre a rede, atuando de forma coordenada com o Poder Público Estadual, Distrital ou Municipal, dispondo de autonomia necessária para adotar medidas urgentes que assegurem a rápida recuperação do serviço em situações de emergência."
+  },
+  {
    "id": "u0262",
    "dispositivo": "Art. 9º",
    "texto": "Art. 9º A Resolução Normativa nº 846, de 11 de junho de 2019, passa a vigorar com a seguinte redação:"
   },
   {
+   "id": "u0263",
+   "dispositivo": "Art. 11",
+   "texto": "“Art. 11. Constitui infração do Grupo III: (...)"
+  },
+  {
+   "id": "u0264",
+   "dispositivo": "Art. 11, inciso XXIII",
+   "texto": "XXIII - deixar de prestar informações decorrentes de interrupções no fornecimento de energia elétrica aos consumidores ou usuários, nos termos da regulação vigente.” ............................................."
+  },
+  {
+   "id": "u0265",
+   "dispositivo": "Art. 12",
+   "texto": "“Art. 12. Constitui infração do Grupo IV: ............................................"
+  },
+  {
+   "id": "u0266",
+   "dispositivo": "Art. 12, inciso XXVI",
+   "texto": "XXVI - a ausência, inadequação ou descumprimento do Plano de Contingência, nos termos da regulação vigente;"
+  },
+  {
+   "id": "u0267",
+   "dispositivo": "Art. 12, inciso XXVII",
+   "texto": "XXVII - a ausência, inadequação ou descumprimento do Plano de Manejo Vegetal, nos termos da regulação vigente; e"
+  },
+  {
+   "id": "u0268",
+   "dispositivo": "Art. 12, inciso XXVIII",
+   "texto": "XXVIII - comunicar-se de forma ineficiente com o Poder Público em Situações de Emergência, nos termos da regulação vigente.” ........................................."
+  },
+  {
+   "id": "u0269",
+   "dispositivo": "Art. 13",
+   "texto": "“Art. 13. Constitui infração do Grupo V: (...)"
+  },
+  {
+   "id": "u0270",
+   "dispositivo": "Art. 13, inciso XIX",
+   "texto": "XIX - atuar de forma inadequada no restabelecimento do fornecimento de energia elétrica nos sistemas de distribuição; e"
+  },
+  {
+   "id": "u0271",
+   "dispositivo": "Art. 13, inciso XX",
+   "texto": "XX - atuar de forma inadequada no retorno à disponibilidade das instalações sob responsabilidade de concessionária de transmissão.”(NR)"
+  },
+  {
+   "id": "u0272",
+   "dispositivo": "Seção VIII",
+   "texto": "Seção VIII Das Medidas Administrativas e de Cessão Emergencial"
+  },
+  {
    "id": "u0281",
    "dispositivo": "Art. 12",
    "texto": "Art. 12 O Anexo V – Módulo V da Resolução Normativa nº 948, de 21 de novembro, passa a vigorar com a seguinte redação:"
+  },
+  {
+   "id": "u0282",
+   "dispositivo": "Art. 19",
+   "texto": "“Art. 19. .............................................................................................."
+  },
+  {
+   "id": "u0283",
+   "dispositivo": "Art. 19, inciso XIII",
+   "texto": "XIII- As cessões emergenciais de recursos humanos, equipamentos e materiais entre distribuidoras e transmissoras e suas partes relacionadas, visando garantir a continuidade do serviço em situações de crise, são dispensadas da obrigação de que trata o art. 18, sem prejuízo da fiscalização a posteriori, desde que:"
+  },
+  {
+   "id": "u0284",
+   "dispositivo": "Art. 19, inciso XIII, alínea a",
+   "texto": "a) sejam comunicados à ANEEL em até 60 (sessenta) dias após o fim da situação emergencial, mediante relatório contendo discriminação das despesas ou custos incorridos a serem reembolsados pela cessionária à cedente;"
+  },
+  {
+   "id": "u0285",
+   "dispositivo": "Art. 19, inciso XIII, alínea b",
+   "texto": "b) a cessionária deverá manter dossiê individualizado em sua sede contendo os documentos comprobatórios que evidenciem a neutralidade de custos e despesas reembolsados à cedente, nos termos dos Procedimentos de Distribuição de Energia Elétrica no Sistema Elétrico Nacional – PRODIST e das Regras dos Serviços de Transmissão de Energia Elétrica, os quais poderão ser requisitados pela fiscalização por até 5 (cinco) anos após fim do evento emergencial."
+  },
+  {
+   "id": "u0286",
+   "dispositivo": "Art. 19, inciso XIII, alínea c",
+   "texto": "c) As cessões emergenciais de recursos humanos, equipamentos e materiais entre distribuidoras e transmissoras e suas partes relacionadas devem ser reembolsadas pela cessionária à cedente garantindo a neutralidade da operação, não se tratando de rateio ou prestação de serviços, e preservando a individualidade das concessões. ....................................................................................................”(NR)"
+  },
+  {
+   "id": "u0287",
+   "dispositivo": "Seção X",
+   "texto": "Seção X Das Disposições Finais e Transitórias"
   },
   {
    "id": "u0289",
@@ -53,27 +147,51 @@
  "alertas": [
   {
    "id": "regua",
-   "titulo": "Altera a régua de multa",
+   "titulo": "Mudanças nas infrações e multas",
    "detalhe": "A norma muda a REN 846/2019, que define as multas do setor elétrico.",
-   "unidade": "u0262"
+   "efeito_empresa": "Revise os planos e procedimentos afetados: a norma altera as infrações que podem gerar multa para a empresa.",
+   "unidade": "u0262",
+   "redacao": [
+    "u0263",
+    "u0264",
+    "u0265",
+    "u0266",
+    "u0267",
+    "u0268",
+    "u0269",
+    "u0270",
+    "u0271",
+    "u0272"
+   ]
   },
   {
    "id": "citacao0",
    "titulo": "Mesma norma, datas diferentes",
    "detalhe": "A Resolução Normativa nº 948 aparece como “Resolução Normativa nº 948, de 16 de novembro de 2021” e “Resolução Normativa nº 948, de 21 de novembro”.",
-   "unidade": "u0281"
+   "unidade": "u0281",
+   "efeito_empresa": "Confira a versão oficial citada antes de definir ações e prazos; a referência inconsistente exige revisão.",
+   "redacao": [
+    "u0282",
+    "u0283",
+    "u0284",
+    "u0285",
+    "u0286",
+    "u0287"
+   ]
   }
  ],
  "obrigacoes": [
   {
-   "id": "e10bd161effc054a840038e81c8bd786",
+   "id": "8b8c81452b89e806e7817ec844a24afa",
    "acao": "I - Até 90 (noventa) dias para revisar e publicar os planos de manejo vegetal, de comunicação e de contingência de que tratam os itens 103, 108 e 148 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa;",
+   "titulo_curto": "Revisar e publicar planos de manejo, comunicação e contingência",
    "sujeito": "As distribuidoras",
    "unidade": "u0289",
    "dispositivo": "Art. 13, inciso I",
    "trecho": "I - Até 90 (noventa) dias para revisar e publicar os planos de manejo vegetal, de comunicação e de contingência de que tratam os itens 103, 108 e 148 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa;",
    "posicao": 1,
-   "prazo": "venceu em 28/01/2026, há 293 dias (prazo provisório): exposição atual",
+   "prazo": "Vencido desde 28/01/2026 (293 dias)",
+   "prazo_detalhe": "Prazo provisório; exposição atual calculada na data de referência.",
    "data_prazo": "2026-01-28",
    "categorias": [
     {
@@ -105,6 +223,8 @@
      "com_teto": 1.0,
      "sem_teto": 1.0
     },
+    "provavel_reais": null,
+    "motivo_provavel": "Valor provável não estimável: informe a fração do teto usada como valor base.",
     "teto_grupo_pct": 1.0,
     "teto_legal_pct": 3.0,
     "teto_legal_subestimado": true,
@@ -128,14 +248,16 @@
    "motivo_confianca": "Falta: valor provável sem premissa."
   },
   {
-   "id": "f4a042be2af8eb53a6b3f4f869205b47",
+   "id": "7707c99d1559d3878bfbd349b013c382",
    "acao": "94. As distribuidoras devem estabelecer um plano de manejo vegetal na sua área de atuação, que contemple a vegetação que interfira em suas redes de distribuição, em coordenação com o Poder Público Municipal e em articulação com os órgãos competentes do Poder Público Estadual e Distrital, e com vistas a garantir a segurança da rede de distribuição, a qualidade, eficiência e a continuidade do fornecimento de energia elétrica.",
+   "titulo_curto": "Criar o plano de manejo vegetal",
    "sujeito": "As distribuidoras",
    "unidade": "u0024",
    "dispositivo": "item 94",
    "trecho": "94. As distribuidoras devem estabelecer um plano de manejo vegetal na sua área de atuação, que contemple a vegetação que interfira em suas redes de distribuição, em coordenação com o Poder Público Municipal e em articulação com os órgãos competentes do Poder Público Estadual e Distrital, e com vistas a garantir a segurança da rede de distribuição, a qualidade, eficiência e a continuidade do fornecimento de energia elétrica.",
    "posicao": 2,
-   "prazo": "sem prazo identificado no texto",
+   "prazo": "Sem prazo identificado no texto",
+   "prazo_detalhe": "Nenhuma data foi presumida.",
    "data_prazo": null,
    "categorias": [
     {
@@ -163,6 +285,8 @@
      "com_teto": 1.0,
      "sem_teto": 1.0
     },
+    "provavel_reais": null,
+    "motivo_provavel": "Valor provável não estimável: informe a fração do teto usada como valor base.",
     "teto_grupo_pct": 1.0,
     "teto_legal_pct": 3.0,
     "teto_legal_subestimado": true,
@@ -186,14 +310,78 @@
    "motivo_confianca": "Falta: valor provável sem premissa."
   },
   {
-   "id": "d48629ba3784f8abcf589ff8718a950a",
+   "id": "cf69308b7fdf1dba8c046880ebac1557",
+   "acao": "96. As distribuidoras devem garantir a rápida remoção de árvores ou galhos caídos sobre a rede, atuando de forma coordenada com o Poder Público Estadual, Distrital ou Municipal, dispondo de autonomia necessária para adotar medidas urgentes que assegurem a rápida recuperação do serviço em situações de emergência.",
+   "titulo_curto": "Remover árvores ou galhos caídos sobre a rede",
+   "sujeito": "As distribuidoras",
+   "unidade": "u0026",
+   "dispositivo": "item 96",
+   "trecho": "96. As distribuidoras devem garantir a rápida remoção de árvores ou galhos caídos sobre a rede, atuando de forma coordenada com o Poder Público Estadual, Distrital ou Municipal, dispondo de autonomia necessária para adotar medidas urgentes que assegurem a rápida recuperação do serviço em situações de emergência.",
+   "posicao": 3,
+   "prazo": "Sem prazo identificado no texto",
+   "prazo_detalhe": "Nenhuma data foi presumida.",
+   "data_prazo": null,
+   "categorias": [
+    {
+     "nome": "Penalidade / multa",
+     "motivo": "Dever em norma da ANEEL: o descumprimento sujeita às penalidades do Art. 5º da REN 846."
+    }
+   ],
+   "impacto": {
+    "grupos": [
+     "IV"
+    ],
+    "enquadramentos": [
+     {
+      "dispositivo": "Art. 12, XXVIII",
+      "grupo": "IV",
+      "trecho": "XXVIII - comunicar-se de forma ineficiente com o Poder Público em Situações de Emergência, nos termos da regulação vigente."
+     }
+    ],
+    "minimo_reais": 0.0,
+    "maximo_reais": {
+     "com_teto": 50000000.0,
+     "sem_teto": 50000000.0
+    },
+    "maximo_pct": {
+     "com_teto": 1.0,
+     "sem_teto": 1.0
+    },
+    "provavel_reais": null,
+    "motivo_provavel": "Valor provável não estimável: informe a fração do teto usada como valor base.",
+    "teto_grupo_pct": 1.0,
+    "teto_legal_pct": 3.0,
+    "teto_legal_subestimado": true,
+    "premissas": [
+     "Enquadramento: Grupo(s) IV (indicado por termo coincidente com infração tipificada)",
+     "Mínimo 0: cabe advertência ou atenuante, e a metodologia do valor base não está no repositório",
+     "Máximo sem atenuante (pior caso)",
+     "Teto legal: 3% do faturamento por infração (Art. 3, X da Lei 9.427/1996, redação dada pela Lei nº 15.269, de 2025); infração em 17/11/2026, a partir de 25/11/2025 (Art. 24, caput e IV da Lei 15.269/2025); data considerada: data de referência do perfil (obrigação sem prazo)",
+     "Limite legal conforme a data do prazo; a data real da infração pode diferir.",
+     "Teto legal possivelmente subestimado: faturamento bruto não informado, aplicado sobre a base (ROL)"
+    ],
+    "fontes": [
+     "Art. 8º, IV da REN 846",
+     "Art. 6º da REN 846",
+     "Art. 22, § 1º da REN 846",
+     "Art. 3, X da Lei 9.427/1996"
+    ]
+   },
+   "verificar_enquadramento": false,
+   "confianca": "médio",
+   "motivo_confianca": "Falta: valor provável sem premissa."
+  },
+  {
+   "id": "8e91b51f58549c0a24d941e4a3c984f3",
    "acao": "II - Até 180 (cento e oitenta) dias para implementar o registro das interações com o Poder Público Municipal em relação ao serviço de manejo da vegetação que apresente risco à segurança das redes elétricas e a continuidade do fornecimento, conforme dispõe o item 104 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa;",
+   "titulo_curto": "Implementar o registro das interações com o Poder Público Municipal em relação ao…",
    "sujeito": "As distribuidoras",
    "unidade": "u0290",
    "dispositivo": "Art. 13, inciso II",
    "trecho": "II - Até 180 (cento e oitenta) dias para implementar o registro das interações com o Poder Público Municipal em relação ao serviço de manejo da vegetação que apresente risco à segurança das redes elétricas e a continuidade do fornecimento, conforme dispõe o item 104 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa;",
    "posicao": null,
-   "prazo": "venceu em 28/04/2026, há 203 dias (prazo provisório): exposição atual",
+   "prazo": "Vencido desde 28/04/2026 (203 dias)",
+   "prazo_detalhe": "Prazo provisório; exposição atual calculada na data de referência.",
    "data_prazo": "2026-04-28",
    "categorias": [
     {
@@ -227,6 +415,8 @@
      "com_teto": 2.0,
      "sem_teto": 2.0
     },
+    "provavel_reais": null,
+    "motivo_provavel": "Valor provável não estimável: informe a fração do teto usada como valor base.",
     "teto_grupo_pct": 2.0,
     "teto_legal_pct": 3.0,
     "teto_legal_subestimado": true,

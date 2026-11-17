@@ -186,6 +186,34 @@ def reais(valor):
     return "R$ " + inteiro.replace(",", ".") + "," + frac
 
 
+def titulo_obrigacao(texto):
+    """Resumo derivado do texto; a citação literal continua no detalhe."""
+    texto = espacos(texto)
+    texto = re.sub(r"^(?:(?:[IVXLCDM]+\s*[-–]|\d+[.]|[a-z][)])\s*)+", "", texto)
+    texto = re.sub(r"^Até .*? dias para\s+", "", texto, flags=re.I)
+    modal = re.match(r"^.*?\b(não\s+)?(?:devem|deverão|deve|deverá)\s+", texto, flags=re.I)
+    if modal:
+        texto = ("não " if modal[1] else "") + texto[modal.end() :]
+    resumos = {
+        "revisar e publicar os planos de manejo vegetal, de comunicação e de contingência": "Revisar e publicar planos de manejo, comunicação e contingência",
+        "estabelecer um plano de manejo vegetal na sua área de atuação": "Criar o plano de manejo vegetal",
+        "garantir a rápida remoção de árvores ou galhos caídos sobre a rede": "Remover árvores ou galhos caídos sobre a rede",
+    }
+    for inicio, resumo in resumos.items():
+        if texto.casefold().startswith(inicio):
+            return resumo
+    texto = re.split(
+        r",?\s+(?:de que tratam|conforme|nos termos|que contemple|com vistas)\b",
+        texto,
+        maxsplit=1,
+        flags=re.I,
+    )[0]
+    texto = texto.rstrip(" :;.")
+    if len(texto) > 88:
+        texto = texto[:85].rsplit(" ", 1)[0] + "…"
+    return texto[:1].upper() + texto[1:] if texto else "Revisar obrigação na fonte"
+
+
 def texto_obrigacao(row):
     return " ".join([row.get("action", "")] + [e.get("quote", "") for e in row.get("evidence", [])])
 
@@ -264,12 +292,16 @@ def urgencia(row, hoje):
                 "dias": dias,
                 "data": prazo["date"],
                 "texto": f"venceu em {data_br}, há {-dias} dias (prazo {estado}): exposição atual",
+                "principal": f"Vencido desde {data_br} ({-dias} dias)",
+                "detalhe": f"Prazo {estado}; exposição atual calculada na data de referência.",
             }
         return {
             "nivel": 1 if dias <= 90 else 2,
             "dias": dias,
             "data": prazo["date"],
             "texto": f"vence em {data_br}, faltam {dias} dias (prazo {estado})",
+            "principal": f"Vence em {data_br}",
+            "detalhe": f"Faltam {dias} dias; prazo {estado}.",
         }
     estados = {d.get("state") for d in row.get("deadlines", [])}
     if "recurring" in estados:
@@ -278,7 +310,14 @@ def urgencia(row, hoje):
         texto = "prazo conta de um evento ainda sem data"
     else:
         texto = "sem prazo identificado no texto"
-    return {"nivel": 3, "dias": None, "data": None, "texto": texto}
+    return {
+        "nivel": 3,
+        "dias": None,
+        "data": None,
+        "texto": texto,
+        "principal": texto[:1].upper() + texto[1:],
+        "detalhe": "Nenhuma data foi presumida.",
+    }
 
 
 def teto_legal(params, row, p):
@@ -479,6 +518,7 @@ def avaliar(params, rows, p):
         )
         item = {
             "row": row,
+            "titulo": titulo_obrigacao(row.get("action", "")),
             "verificada": verificada,
             "aplicavel": aplicavel,
             "motivo_aplicabilidade": motivo_aplic,
@@ -646,6 +686,17 @@ def destaques(resultado, p, limite=5):
         ],
         "parcela_variavel": receita if alvo != "distribuicao" else [],
     }
+
+
+def redacao_alterada(units, unit):
+    """Texto que segue o caput até o próximo artigo da própria norma."""
+    index = next(n for n, u in enumerate(units) if u["id"] == unit["id"])
+    redacao = []
+    for u in units[index + 1 :]:
+        if u["kind"] == "article" and u.get("owner") == unit.get("owner"):
+            break
+        redacao.append(u)
+    return redacao
 
 
 def alteracoes_da_regua(units):

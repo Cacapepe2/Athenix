@@ -6,8 +6,7 @@ com o perfil ilustrativo (athenix/data/perfil_ilustrativo.json) e exporta, para 
 escolhida, o trecho literal com âncora verificada, o dispositivo, o prazo e a estimativa de impacto
 com premissas, confiança e fonte. O site só lê este arquivo: nenhum número é digitado nele.
 
-Escolha (registrada no JSON): a 1ª da lista priorizada; a primeira com enquadramento identificado e
-prazo; a primeira com enquadramento identificado e sem prazo.
+Escolha: as três primeiras da ordem calculada e um exemplo separado sem enquadramento.
 """
 
 import argparse
@@ -66,12 +65,14 @@ def obrigacao(i, by_id, posicao, params):
     return {
         "id": row["id"],
         "acao": norm(row["action"]),
+        "titulo_curto": impacto.titulo_obrigacao(row["action"]),
         "sujeito": norm(row["subject"]),
         "unidade": unit["id"],
         "dispositivo": rotulo(unit, by_id),
         "trecho": trecho,
         "posicao": posicao,
-        "prazo": i["urgencia"]["texto"],
+        "prazo": i["urgencia"]["principal"],
+        "prazo_detalhe": i["urgencia"]["detalhe"],
         "data_prazo": i["urgencia"]["data"],
         "categorias": [
             {"nome": impacto.CATEGORIAS[c], "motivo": mot} for c, mot in i["categorias"]
@@ -85,6 +86,8 @@ def obrigacao(i, by_id, posicao, params):
             "minimo_reais": 0.0,
             "maximo_reais": m["reais"]["maximo"],
             "maximo_pct": m["maximo"],
+            "provavel_reais": m["reais"]["provavel"],
+            "motivo_provavel": m["motivo_provavel"],
             "teto_grupo_pct": m["teto_pct"],
             "teto_legal_pct": m["teto_legal_pct"],
             "teto_legal_subestimado": m["teto_legal"]["subestimado"] if m["teto_legal"] else None,
@@ -113,21 +116,27 @@ def main(saida):
     resultado = impacto.avaliar(params, rows, perfil)
     ranking = resultado["ranking"]
     posicao = {id(i): n for n, i in enumerate(ranking, start=1)}
-    # 1ª da fila; a próxima com situação de prazo diferente; a 1ª de "Verificar enquadramento".
-    primeira = ranking[0]
-    segunda = next(
-        i for i in ranking[1:] if bool(i["urgencia"]["data"]) != bool(primeira["urgencia"]["data"])
-    )
-    escolha = [primeira, segunda, resultado["verificar"][0]]
+    escolha = ranking[:3] + resultado["verificar"][:1]
     obrigacoes = [obrigacao(i, by_id, posicao.get(id(i)), params) for i in escolha]
+    outros = [i for i in resultado["itens"] if i not in ranking and i not in resultado["verificar"]]
+    funil = {
+        "total": len(rows),
+        "priorizadas": len(ranking),
+        "verificar": len(resultado["verificar"]),
+        "fora_perfil": sum(not i["aplicavel"] for i in outros),
+        "sem_estimativa": sum(i["aplicavel"] for i in outros),
+        "desconsideradas": len(rows) - len(resultado["itens"]),
+    }
+    assert funil["total"] == sum(v for k, v in funil.items() if k != "total")
 
     alertas, usadas = [], {o["unidade"] for o in obrigacoes}
     regua = impacto.alteracoes_da_regua(units)
     if regua:
         alertas.append({
             "id": "regua",
-            "titulo": "Altera a régua de multa",
+            "titulo": "Mudanças nas infrações e multas",
             "detalhe": "A norma muda a REN 846/2019, que define as multas do setor elétrico.",
+            "efeito_empresa": "Revise os planos e procedimentos afetados: a norma altera as infrações que podem gerar multa para a empresa.",
             "unidade": regua[0]["id"],
         })  # fmt: skip
     for n, d in enumerate(impacto.citacoes_divergentes(units)):
@@ -137,8 +146,14 @@ def main(saida):
             "titulo": "Mesma norma, datas diferentes",
             "detalhe": f"A {d['ato']} aparece como “{norm(cs[0]['trecho'])}” e “{norm(cs[1]['trecho'])}”.",
             "unidade": cs[1]["unit_id"],
+            "efeito_empresa": "Confira a versão oficial citada antes de definir ações e prazos; a referência inconsistente exige revisão.",
         })  # fmt: skip
     usadas |= {a["unidade"] for a in alertas}
+    for alerta in alertas:
+        complementos = [u["id"] for u in impacto.redacao_alterada(units, by_id[alerta["unidade"]])]
+        alerta["redacao"] = complementos
+        usadas.update(complementos)
+
     commit = subprocess.run(
         ["git", "rev-parse", "--short", "HEAD"], cwd=ROOT, capture_output=True, text=True
     ).stdout.strip()
@@ -147,13 +162,15 @@ def main(saida):
         "gerado_por": "scripts/exportar_demo_site.py",
         "commit_origem": commit,
         "gerado_em": date.today().isoformat(),
-        "criterio": "1ª da fila priorizada; a próxima com situação de prazo diferente; a 1ª de Verificar enquadramento",
+        "criterio": "3 primeiras obrigações da ordem de prioridade; exemplo separado sem enquadramento",
+        "funil": funil,
         "regra_ordem": impacto.REGRA_ORDEM,
         "aviso": impacto.AVISO,
         "aviso_data": impacto.AVISO_DATA,
         "norma": {
             "titulo": "RN ANEEL 1.137/2025",
             "arquivo": fonte["arquivo"],
+            "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
             "sha256": fonte["sha256"],
             "vigencia": fonte["vigencia"],
             "obrigacoes_extraidas": len(rows),
