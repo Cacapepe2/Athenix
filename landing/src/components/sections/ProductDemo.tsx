@@ -250,6 +250,7 @@ function ImpactPanel() {
         <span className="font-semibold text-obsidian">Perfil ilustrativo: {profile.label}.</span> {profile.notice} Base de
         cálculo (ROL) de {brl(profile.base)}. {profile.baseOrigin}
       </p>
+      <p className="mb-3 text-[0.78rem] leading-snug text-obsidian">{notices.order}</p>
       <ol className="space-y-3">
         {obligations.map((o, i) => (
           <motion.li
@@ -261,9 +262,13 @@ function ImpactPanel() {
           >
             <div className="flex flex-wrap items-baseline justify-between gap-2">
               <p className="text-[0.9rem] font-semibold text-obsidian">{o.short}</p>
-              <span className="text-[0.72rem] text-ink-soft">
-                {o.position}ª de {demoNorm.prioritized} na lista priorizada
-              </span>
+              {o.verifyFraming ? (
+                <Tag kind="pending" label="Verificar enquadramento: fora da fila" />
+              ) : (
+                <span className="text-[0.72rem] text-ink-soft">
+                  {o.position}ª de {demoNorm.prioritized} na fila priorizada
+                </span>
+              )}
             </div>
             <div className="mt-3 grid gap-4 text-[0.8rem] sm:grid-cols-[1.2fr_1fr_1fr]">
               <div>

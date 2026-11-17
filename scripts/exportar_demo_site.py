@@ -91,6 +91,7 @@ def obrigacao(i, by_id, posicao, params):
             "premissas": [pr["texto"] for pr in m["premissas"]],
             "fontes": fontes,
         },
+        "verificar_enquadramento": bool(i.get("verificar")),
         "confianca": i["confianca"],
         "motivo_confianca": i["motivo_confianca"],
     }
@@ -112,10 +113,13 @@ def main(saida):
     resultado = impacto.avaliar(params, rows, perfil)
     ranking = resultado["ranking"]
     posicao = {id(i): n for n, i in enumerate(ranking, start=1)}
-    escolha = [impacto.destaques(resultado, perfil)["itens"][0]["item"]]
-    escolha.append(next(i for i in ranking if i["enquadramentos"] and i["urgencia"]["data"]))
-    escolha.append(next(i for i in ranking if i["enquadramentos"] and not i["urgencia"]["data"]))
-    obrigacoes = [obrigacao(i, by_id, posicao[id(i)], params) for i in escolha]
+    # 1ª da fila; a próxima com situação de prazo diferente; a 1ª de "Verificar enquadramento".
+    primeira = ranking[0]
+    segunda = next(
+        i for i in ranking[1:] if bool(i["urgencia"]["data"]) != bool(primeira["urgencia"]["data"])
+    )
+    escolha = [primeira, segunda, resultado["verificar"][0]]
+    obrigacoes = [obrigacao(i, by_id, posicao.get(id(i)), params) for i in escolha]
 
     alertas, usadas = [], {o["unidade"] for o in obrigacoes}
     regua = impacto.alteracoes_da_regua(units)
@@ -143,7 +147,8 @@ def main(saida):
         "gerado_por": "scripts/exportar_demo_site.py",
         "commit_origem": commit,
         "gerado_em": date.today().isoformat(),
-        "criterio": "1ª da lista priorizada; primeira com enquadramento e prazo; primeira com enquadramento e sem prazo",
+        "criterio": "1ª da fila priorizada; a próxima com situação de prazo diferente; a 1ª de Verificar enquadramento",
+        "regra_ordem": impacto.REGRA_ORDEM,
         "aviso": impacto.AVISO,
         "aviso_data": impacto.AVISO_DATA,
         "norma": {
@@ -153,6 +158,7 @@ def main(saida):
             "vigencia": fonte["vigencia"],
             "obrigacoes_extraidas": len(rows),
             "priorizadas": len(ranking),
+            "verificar_enquadramento": len(resultado["verificar"]),
         },
         "perfil": {
             "rotulo": demo["rotulo"],

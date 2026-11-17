@@ -42,7 +42,9 @@ export interface Obligation {
   deadlineDate: string | null
   /** Quando a norma não fixa a data, ela fica pendente — nunca é inventada. */
   pending?: string
-  position: number
+  /** Posição na fila priorizada; null quando aguarda verificação do enquadramento. */
+  position: number | null
+  verifyFraming: boolean
   categories: string[]
   impact: Impact
   confidence: string
@@ -68,7 +70,8 @@ export const demoNorm = {
   effective: dataBR(dados.norma.vigencia),
   extracted: dados.norma.obrigacoes_extraidas,
   prioritized: dados.norma.priorizadas,
-  subject: `${dados.norma.obrigacoes_extraidas} obrigações candidatas extraídas por regras, sem IA; ${dados.norma.priorizadas} com faixa de impacto estimável.`,
+  toVerify: dados.norma.verificar_enquadramento,
+  subject: `${dados.norma.obrigacoes_extraidas} obrigações candidatas extraídas por regras, sem IA; ${dados.norma.priorizadas} na fila priorizada e ${dados.norma.verificar_enquadramento} para verificar o enquadramento.`,
   fingerprint: `sha256 ${sha.slice(0, 4)}…${sha.slice(-4)}`,
   sha256: sha,
   articles: dados.unidades.map((u) => ({ id: u.id, label: u.dispositivo, text: u.texto })) satisfies Article[],
@@ -92,6 +95,7 @@ export const obligations: Obligation[] = dados.obrigacoes.map((o) => ({
   deadlineDate: o.data_prazo,
   pending: o.data_prazo ? undefined : 'A norma não traz prazo para esta obrigação. Nenhuma data é presumida.',
   position: o.posicao,
+  verifyFraming: o.verificar_enquadramento,
   categories: o.categorias.map((c) => c.nome),
   impact: {
     min: o.impacto.minimo_reais,
@@ -117,7 +121,7 @@ export const profile = {
   referenceDate: dataBR(dados.perfil.data_referencia),
 }
 
-export const notices = { estimate: dados.aviso, date: dados.aviso_data }
+export const notices = { estimate: dados.aviso, date: dados.aviso_data, order: dados.regra_ordem }
 
 const reais = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 })
 /** "R$ 100 milhões", "R$ 5 bilhões": leitura rápida para quem decide; o valor exato fica no JSON. */

@@ -195,7 +195,8 @@ export function StoryStage({ step }: { step: number }) {
                         />
                       </span>
                       <span className="mt-1 block text-[0.64rem] text-ink-soft">
-                        {o.position}ª na prioridade · confiança {o.confidence} · {o.deadline.split(',')[0]}
+                        {o.verifyFraming ? 'verificar enquadramento' : `${o.position}ª na fila`} · confiança {o.confidence} ·{' '}
+                        {o.deadline.split(',')[0]}
                       </span>
                     </div>
                   ))}

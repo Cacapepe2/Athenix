@@ -37,6 +37,13 @@ test('demo usa dados reais gerados pelo pipeline, com perfil ilustrativo marcado
     assert.ok(['alto', 'médio', 'baixo'].includes(o.confidence))
   }
   assert.match(profile.notice, /não corresponde a nenhuma empresa real/)
+  // Regra da fila: enquadramento desconhecido fica fora dela (verificar), com confiança baixa.
+  for (const o of obligations.filter((x) => x.verifyFraming)) {
+    assert.equal(o.position, null)
+    assert.equal(o.confidence, 'baixo')
+  }
+  assert.ok(obligations.some((o) => o.verifyFraming) && obligations.some((o) => !o.verifyFraming))
+  assert.match(notices.order, /peso do prazo/)
   assert.match(notices.estimate, /não constitui parecer jurídico/)
 })
 
