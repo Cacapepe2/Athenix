@@ -519,51 +519,45 @@
    "nota": null,
    "revogado": null,
    "origem": "redação original",
-   "termos": []
-  },
-  {
-   "dispositivo": "Art. 9º, I",
-   "grupo": "I",
-   "trecho": "I - unidades consumidoras;",
-   "ancora": "verified",
-   "motivo": null,
-   "nota": null,
-   "revogado": null,
-   "origem": "redação original",
-   "termos": []
-  },
-  {
-   "dispositivo": "Art. 9º, II",
-   "grupo": "I",
-   "trecho": "II - centrais geradoras;",
-   "ancora": "verified",
-   "motivo": null,
-   "nota": null,
-   "revogado": null,
-   "origem": "redação original",
-   "termos": []
-  },
-  {
-   "dispositivo": "Art. 9º, III",
-   "grupo": "I",
-   "trecho": "III - instalações de transmissão ou distribuição; ou",
-   "ancora": "verified",
-   "motivo": null,
-   "nota": null,
-   "revogado": null,
-   "origem": "redação original",
-   "termos": []
-  },
-  {
-   "dispositivo": "Art. 9º, IV",
-   "grupo": "I",
-   "trecho": "IV - sistemas de armazenamento de energia.",
-   "ancora": "verified",
-   "motivo": null,
-   "nota": null,
-   "revogado": null,
-   "origem": "RN 1162/2026",
-   "termos": []
+   "termos": [],
+   "itens": [
+    {
+     "dispositivo": "Art. 9º, IV, I",
+     "trecho": "I - unidades consumidoras;",
+     "ancora": "verified",
+     "motivo": null,
+     "nota": null,
+     "revogado": null,
+     "origem": "redação original"
+    },
+    {
+     "dispositivo": "Art. 9º, IV, II",
+     "trecho": "II - centrais geradoras;",
+     "ancora": "verified",
+     "motivo": null,
+     "nota": null,
+     "revogado": null,
+     "origem": "redação original"
+    },
+    {
+     "dispositivo": "Art. 9º, IV, III",
+     "trecho": "III - instalações de transmissão ou distribuição; ou",
+     "ancora": "verified",
+     "motivo": null,
+     "nota": null,
+     "revogado": null,
+     "origem": "redação original"
+    },
+    {
+     "dispositivo": "Art. 9º, IV, IV",
+     "trecho": "IV - sistemas de armazenamento de energia.",
+     "ancora": "verified",
+     "motivo": null,
+     "nota": null,
+     "revogado": null,
+     "origem": "RN 1162/2026"
+    }
+   ]
   },
   {
    "dispositivo": "Art. 9º, V",

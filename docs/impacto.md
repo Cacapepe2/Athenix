@@ -25,7 +25,7 @@ Funciona sem IA e sem chave de API.
 
 | Origem | O que fornece |
 | --- | --- |
-| `athenix/data/penalidades_ren846.json` | 30 parâmetros da REN 846 e o teto legal da Lei 9.427/1996 (limites dos grupos, base, agravantes, atenuantes), 113 infrações tipificadas (arts. 9º–13) com grupo, as duas leituras do Art. 11, XXIII (D1), as alterações da régua e os alertas da fonte. Cada item tem dispositivo, trecho literal, estado da âncora e hash do PDF de origem. |
+| `athenix/data/penalidades_ren846.json` | 30 parâmetros da REN 846 e o teto legal da Lei 9.427/1996 (limites dos grupos, base, agravantes, atenuantes), 109 infrações tipificadas (arts. 9º–13; listas internas de um inciso ficam como itens dele) com grupo, as duas leituras do Art. 11, XXIII (D1), as alterações da régua e os alertas da fonte. Cada item tem dispositivo, trecho literal, estado da âncora e hash do PDF de origem. |
 | `tests/fontes_impacto/l9427cons.htm` | Lei 9.427/1996, texto compilado do planalto.gov.br (sha256 `ff948e3442ed…`, obtido em 17/11/2026). Fonte do teto legal por infração (Art. 3, X da Lei 9.427/1996, redação dada pela Lei nº 15.269, de 2025): “X - fixar as multas administrativas a serem impostas aos concessionários, permissionários e autorizados de instalações e serviços de energia elétrica,…”. Versionado no repositório (ato oficial). |
 | Usuário | Segmento, base de cálculo (ROL ou RAP), número de reincidências, TN não atendidos e antecedentes, soma das multas anteriores, atenuante esperada, valor base como % do teto e grupo de cada obrigação. |
 

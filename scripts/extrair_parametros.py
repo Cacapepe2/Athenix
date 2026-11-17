@@ -24,6 +24,7 @@ from athenix.evidence import verify  # noqa: E402
 from athenix.normalizacao import espacos, normalizar  # noqa: E402
 from athenix.impacto import ALTERA, PARAMETROS, termos  # noqa: E402
 from athenix.poc import reader  # noqa: E402
+from athenix.saude import _romano  # noqa: E402
 from athenix.structure import extract  # noqa: E402
 from athenix.temporal import NUMBERS  # noqa: E402
 
@@ -377,12 +378,25 @@ def build(docs):
         entry = cite(unit, ren["extraction"])
         origem = ORIGEM.search(entry["trecho"])
         entry["trecho"] = espacos(ORIGEM.sub("", entry["trecho"]))
+        entry["origem"] = f"RN {origem.group(1)}" if origem else "redação original"
+        dono = infracoes[-1] if infracoes else None
+        # Lista dentro de um inciso ("IV - ... cadastro relativo a:" seguido de "I - unidades
+        # consumidoras;"): a numeração recomeça. São itens do inciso, não infrações.
+        if (
+            dono
+            and dono["dispositivo"].startswith(f"Art. {match.group(1)},")
+            and dono["trecho"].endswith(":")
+            and _romano(match.group(2)) <= _romano(dono["dispositivo"].rsplit(" ", 1)[1])
+        ):
+            dono.setdefault("itens", []).append(
+                {"dispositivo": f"{dono['dispositivo']}, {match.group(2)}", **entry}
+            )
+            continue
         infracoes.append(
             {
                 "dispositivo": f"Art. {match.group(1)}, {match.group(2)}",
                 "grupo": group_of(ren["units"], match.group(1)),
                 **entry,
-                "origem": f"RN {origem.group(1)}" if origem else "redação original",
                 "termos": termos(entry["trecho"]),
             }
         )
