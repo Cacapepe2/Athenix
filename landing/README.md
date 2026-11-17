@@ -33,7 +33,7 @@ Regras de conteúdo:
 - Não inclua clientes, métricas, depoimentos ou resultados que não existam.
 - Em `demo.ts`, o campo `anchor` de cada obrigação precisa ser cópia literal de um trecho do artigo citado. `npm test` falha se não for, a mesma regra de rastreabilidade do produto.
 - Referência de mensagem: `docs/POSICIONAMENTO.md` (raiz do repositório).
-- **Antes de publicar**, troque `contact.email` em `site.ts`. O valor atual (`contato@example.com`) é um domínio reservado e não recebe e-mails; `npm run build` falha enquanto ele estiver lá.
+- Contato: `contact.email` em `site.ts` (`contato.athenix@gmail.com`). `npm run build` falha se ele voltar a ser um e-mail de exemplo (`example.com`).
 
 ## Estrutura
 

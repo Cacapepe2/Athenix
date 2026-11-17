@@ -3,8 +3,8 @@
 // existam; o que ainda está em validação é dito como tal.
 
 export const contact = {
-  // E-mail oficial a definir pelo fundador. `npm run build` falha enquanto for example.com (não publicar).
-  email: 'contato@example.com',
+  // `npm run build` falha se voltar a ser um e-mail de exemplo (scripts/check-contact.mjs).
+  email: 'contato.athenix@gmail.com',
   subject: 'Conversa sobre piloto — Athenix',
 }
 
