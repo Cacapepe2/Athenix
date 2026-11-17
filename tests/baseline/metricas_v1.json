@@ -1,0 +1,66 @@
+{
+ "versao": 1,
+ "rotulo": "etapa2b: art-minusculo + redação revogada fora do cálculo (D4)",
+ "nota": "Linha de base da trava de não regressão. Só melhora: atualizar em commit próprio, explicando o porquê.",
+ "casos_totalmente_corretos": 19,
+ "total_casos": 20,
+ "por_verificacao": {
+  "obrigacao": {
+   "acertos": 11,
+   "total": 11
+  },
+  "prazo": {
+   "acertos": 8,
+   "total": 8
+  },
+  "autoria": {
+   "acertos": 10,
+   "total": 10
+  },
+  "vigencia": {
+   "acertos": 4,
+   "total": 4
+  },
+  "revogacao": {
+   "acertos": 2,
+   "total": 2
+  },
+  "nao_obrigacao": {
+   "acertos": 2,
+   "total": 2
+  },
+  "remissao": {
+   "acertos": 0,
+   "total": 1
+  }
+ },
+ "por_documento": {
+  "ren20251137": {
+   "itens": 254,
+   "citacoes_encontradas": 252,
+   "nao_encontradas": 2,
+   "falsas_verificadas": 0,
+   "sem_fonte": 2,
+   "prazos_duplicados": 0,
+   "sujeitos_com_rotulo": 0
+  },
+  "reh20243348": {
+   "itens": 31,
+   "citacoes_encontradas": 31,
+   "nao_encontradas": 0,
+   "falsas_verificadas": 0,
+   "sem_fonte": 1,
+   "prazos_duplicados": 0,
+   "sujeitos_com_rotulo": 0
+  },
+  "dec12068": {
+   "itens": 145,
+   "citacoes_encontradas": 145,
+   "nao_encontradas": 0,
+   "falsas_verificadas": 0,
+   "sem_fonte": 0,
+   "prazos_duplicados": 0,
+   "sujeitos_com_rotulo": 0
+  }
+ }
+}

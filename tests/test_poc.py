@@ -40,7 +40,7 @@ def azure_settings(**extra):
         output_price="2.00",
         price_source="https://exemplo.test/precos",
         price_date="2026-01-01",
-        **extra,
+        **({"ai_mode": "live"} | extra),
     )
 
 

@@ -189,10 +189,15 @@ def test_adapter_failure_contracts(monkeypatch, status, body, expected):
         lambda request: httpx.Response(status, json=body, headers={"Retry-After": "30"})
     )
     monkeypatch.setattr(llm.httpx, "Client", lambda **kwargs: real_client(transport=transport))
+    settings = Settings()
+    configured(settings)
+    esperas = []
     result = llm.call_model(
-        Settings(api_key="sintetico-sem-valor"), llm.request_payload("modelo-sintetico", [])
+        settings, llm.request_payload("modelo-sintetico", []), sleep=esperas.append
     )
     assert result["status"] == expected
+    # 429 é repetido (3 tentativas, esperando o Retry-After); os demais nunca repetem.
+    assert esperas == ([30.0, 30.0] if status == 429 else [])
 
 
 def configured(settings):
@@ -202,6 +207,8 @@ def configured(settings):
     settings.output_price = "2"
     settings.price_source = "https://example.invalid/tarifa-sintetica"
     settings.price_date = "2026-01-01"
+    settings.ai_mode = "live"  # chamada só existe em live; o transporte é falso nos testes
+    settings.run_budget_usd = "5"
 
 
 def test_paid_contract_partial_raw_replay_and_final_date_ignored(env, monkeypatch):

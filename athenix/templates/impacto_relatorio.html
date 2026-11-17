@@ -1,0 +1,54 @@
+<!doctype html>
+{% import 'impacto_macros.html' as im with context %}
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Relatório de impacto regulatório · Athenix</title>{% if css %}<style>{{css}}</style>{% else %}<link rel="stylesheet" href="/static/app.css">{% endif %}</head>
+<body class="report">
+<main id="main">
+<section class="first-page">
+<div class="eyebrow">ATHENIX · RELATÓRIO DE IMPACTO E PRIORIDADE</div>
+<h1>Impacto regulatório: {% for d in documentos %}{{d}}{% if not loop.last %}; {% endif %}{% endfor %}</h1>
+<p class="report-meta">{% if ilustrativo %}<b>PERFIL ILUSTRATIVO</b> · {% endif %}Perfil: <b>{{ {'distribuicao':'distribuidora','transmissao':'transmissora'}.get(perfil.segmento, 'segmento não informado') }}</b> · base de cálculo: <b>{% if perfil.base is not none %}{{im.money(perfil.base)}}{% else %}não informada (valores em % da base){% endif %}</b> · data de referência {{perfil.data_referencia.strftime('%d/%m/%Y')}} · gerado em {{gerado_em}}</p>
+<div class="callout warning"><strong>{{resultado.aviso}}</strong> Os números dependem das premissas mostradas em cada item e na página 2. Fontes: parâmetros de multa da REN 846/2019 e alteradoras extraídos de <b>cópia secundária</b>, com origem a confirmar com a fonte oficial da ANEEL; teto legal da Lei 9.427/1996, texto compilado do planalto.gov.br. Obrigações e enquadramentos não foram revisados por especialista.</div>
+
+{{im.aviso_ilustrativo(ilustrativo)}}
+{{im.resumo(destaques, perfil.base)}}
+{{im.parcela_variavel(destaques)}}
+
+<section class="alert-summary"><h2>Antes de decidir, confira</h2><ul>
+{% for a in alteracoes %}<li>{{a.title}} altera a régua de penalidade (REN 846/2019).</li>{% endfor %}
+{% for d in divergencias %}<li>{{d.title}} cita a {{d.ato}} com datas diferentes ({% for c in d.citacoes %}{{c.trecho.split(', ', 1)[1] if ', ' in c.trecho else c.trecho}}{% if not loop.last %} × {% endif %}{% endfor %}).</li>{% endfor %}
+{% for a in params.alertas_fonte %}<li>{{a.ato}}, {{a.dispositivo}}: {{a.detalhe}}.</li>{% endfor %}
+<li>Interpretações em aberto: teto do grupo após agravantes (D5) e teto legal sobre faturamento × ROL (D6). Por isso mostramos dois cenários{% if params.parametros.teto_legal_lei and params.parametros.teto_legal_lei.ancora == 'verified' %}, e os dois respeitam o teto legal{% endif %}.</li>
+<li>Não estimável: Parcela Variável, Fator X, metodologia do valor base e custo de adequação.</li>
+</ul></section>
+</section>
+
+<h2>Premissas do perfil</h2>
+<table class="kv"><tbody>
+<tr><th>Segmento</th><td>{{ {'distribuicao':'Distribuição','transmissao':'Transmissão'}.get(perfil.segmento, 'não informado (todas as obrigações consideradas aplicáveis)') }}</td></tr>
+<tr><th>Base de cálculo</th><td>{% if perfil.base is not none %}{{im.money(perfil.base)}} ({{resultado.base.nome}}), informada pelo usuário{% else %}não informada: resultados em % da base ({{resultado.base.nome}}){% endif %} <small>fonte: {{params.parametros[resultado.base.parametro].dispositivo}} da REN 846</small></td></tr>
+<tr><th>Faturamento bruto</th><td>{% if perfil.faturamento is not none %}{{im.money(perfil.faturamento)}}, informado pelo usuário: o teto legal é convertido para % da base{% else %}não informado: teto legal aplicado sobre a base, <b>possivelmente subestimado</b> (dúvida D6){% endif %}</td></tr>
+<tr><th>Agravantes</th><td>{{perfil.reincidencias}} reincidência(s) · {{perfil.tn_nao_atendidos}} TN não atendido(s) · {{perfil.antecedentes}} antecedente(s){% if perfil.soma_antecedentes_pct is not none %} (soma {{im.pct(perfil.soma_antecedentes_pct)}}){% endif %}</td></tr>
+<tr><th>Atenuante esperada</th><td>{{perfil.atenuante}}</td></tr>
+<tr><th>Valor base (% do teto)</th><td>{% if perfil.fracao_valor_base is not none %}{{im.pct(perfil.fracao_valor_base)}}{% else %}não informado: valor provável não estimável{% endif %}</td></tr>
+<tr><th>Enquadramentos escolhidos</th><td>{{perfil.grupos|length}} obrigação(ões) com grupo informado pelo usuário</td></tr>
+{% if params.parametros.teto_legal_lei %}{% set tl = params.parametros.teto_legal_lei %}{% set ta = params.parametros.teto_legal_anterior %}{% set tv = params.parametros.teto_legal_vigencia %}<tr><th>Teto legal por infração</th><td>{{im.pct(tl.percentuais[0])}} do faturamento{% if tv and tv.ancora == 'verified' %} para infrações a partir de {{tv.data|data_br}} ({{tv.dispositivo}}; {{tv.publicacao}}){% endif %}{% if ta and ta.ancora == 'verified' %}; antes disso, {{im.pct(ta.percentuais[0])}} ({{ta.dispositivo}}){% endif %}. {{aviso_data}} Sem prazo, vale a data de referência. Aplicado ao resultado final. <small>fonte: {{tl.dispositivo}}{% if tl.redacao_dada_por %}, redação dada pela {{tl.redacao_dada_por}}{% endif %}: “{{tl.trecho[:220]}}…”</small></td></tr>{% endif %}
+</tbody></table>
+
+<h2>Alertas e dúvidas em detalhe</h2>
+{{im.alertas(alteracoes, params, divergencias)}}
+
+<h2>Obrigações priorizadas ({{resultado.ranking|length}})</h2>
+<p class="small"><b>{{regra_ordem}}</b></p>
+<table>{{im.cabecalho_tabela()}}<tbody>{% for i in resultado.ranking %}{{im.linha(i, perfil.base, false)}}{% endfor %}</tbody></table>
+
+{{im.verificar(resultado, perfil.base, false)}}
+
+<h2>Fora da prioridade ({{resultado.itens|rejectattr('rank')|rejectattr('verificar')|list|length}})</h2>
+<table>{{im.cabecalho_tabela()}}<tbody>{% for i in resultado.itens if not i.rank and not i.verificar %}{{im.linha(i, perfil.base, false)}}{% endfor %}</tbody></table>
+
+<h2>Fontes, parâmetros e o que não é estimável</h2>
+{{im.fontes(params)}}
+<div class="callout warning"><strong>{{resultado.aviso}}</strong></div>
+</main>
+</body></html>

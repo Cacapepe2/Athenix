@@ -4,6 +4,8 @@ O texto de referência não usa o extrator do sistema: PDF pelo pypdfium2 (motor
 pdfplumber do extrator) e HTML pelo HTMLParser da biblioteca padrão com a codificação conferida à
 mão em fontes.json. A comparação ignora espaços, pois os motores divergem só neles.
 Uso: python scripts/avaliar.py [--rotulo baseline] [--saida artifacts/avaliacao]
+     python scripts/avaliar.py --comparar tests/baseline/metricas_v1.json   # sai com 1 se algo piorou
+     python scripts/avaliar.py --congelar tests/baseline/metricas_vN.json   # só em commit próprio
 """
 
 import argparse
@@ -174,6 +176,26 @@ def check(case, extraction, items):
     return out
 
 
+LABEL_JUNK = re.compile(r"^\s*(?:\d+(?:-[A-Z])?\.|[a-z]\)|[IVXLCDM]+\s*[-–]|Art\.?\s*\d)")
+
+
+def quality(items):
+    """Sinais globais sem gabarito: prazos repetidos, sujeitos com rótulo, penalidades e recorrências."""
+    deadlines = [i["interpretation"] for i in items if i["type"] == "deadline"]
+    keys = [(d.get("quote"), d.get("quantity"), d.get("unit")) for d in deadlines]
+    subjects = [
+        i["interpretation"]["subject"]
+        for i in items
+        if i["type"] in DEONTIC and i["interpretation"]
+    ]
+    return {
+        "prazos_duplicados": len(keys) - len(set(keys)),
+        "sujeitos_com_rotulo": sum(bool(LABEL_JUNK.match(s)) for s in subjects),
+        "penalidades": sum(i["type"] == "penalty" for i in items),
+        "prazos_periodicos": sum(d.get("unit") == "periodic" for d in deadlines),
+    }
+
+
 def evaluate():
     docs, spec = sources(), gold()
     results, global_items = [], {}
@@ -196,6 +218,7 @@ def evaluate():
             },
             # Verificada pelo sistema, mas o trecho não existe na fonte lida por outro motor.
             "falsas_verificadas": sum(flat(a["quote"]) not in reference for a in verified),
+            **quality(items),
         }
         for case in (c for c in spec["casos"] if c["doc"] == doc_id):
             checks = check(case, extraction, items)
@@ -233,6 +256,72 @@ def evaluate():
     }
 
 
+# Contadores por documento que nunca podem subir em relação à linha de base.
+NAO_PODE_SUBIR = (
+    "nao_encontradas",
+    "falsas_verificadas",
+    "sem_fonte",
+    "prazos_duplicados",
+    "sujeitos_com_rotulo",
+)
+
+
+def metricas(report):
+    """Parte estável do relatório que a trava de não regressão congela e compara."""
+    docs = {}
+    for doc_id, g in report["por_documento"].items():
+        docs[doc_id] = {
+            "itens": g["itens"],
+            "citacoes_encontradas": g["citacoes_corretas"],
+            "nao_encontradas": g["itens"] - g["citacoes_corretas"],
+            "falsas_verificadas": g["falsas_verificadas"],
+            "sem_fonte": g["sem_fonte"],
+            "prazos_duplicados": g["prazos_duplicados"],
+            "sujeitos_com_rotulo": g["sujeitos_com_rotulo"],
+        }
+    return {
+        "casos_totalmente_corretos": report["casos_totalmente_corretos"],
+        "total_casos": len(report["casos"]),
+        "por_verificacao": report["por_verificacao"],
+        "por_documento": docs,
+    }
+
+
+def regressoes(atual, base):
+    """O que piorou em relação à linha de base (lista vazia = sem regressão).
+
+    Mudança no tamanho do gabarito também falha: a linha de base precisa ser atualizada de propósito,
+    em commit próprio, para que ninguém compare números de conjuntos diferentes.
+    """
+    ajuste = "atualize a linha de base em commit próprio"
+    out = []
+    if atual["total_casos"] != base["total_casos"]:
+        out.append(f"total de casos {base['total_casos']} -> {atual['total_casos']}: {ajuste}")
+    if atual["casos_totalmente_corretos"] < base["casos_totalmente_corretos"]:
+        out.append(
+            f"casos corretos {base['casos_totalmente_corretos']} -> {atual['casos_totalmente_corretos']}"
+        )
+    for nome, b in base["por_verificacao"].items():
+        a = atual["por_verificacao"].get(nome)
+        if a is None or a["total"] != b["total"]:
+            out.append(f"verificação '{nome}': total {b['total']} -> {a and a['total']}: {ajuste}")
+        elif a["acertos"] < b["acertos"]:
+            out.append(
+                f"verificação '{nome}': {b['acertos']}/{b['total']} -> {a['acertos']}/{a['total']}"
+            )
+    for doc, b in base["por_documento"].items():
+        a = atual["por_documento"].get(doc)
+        if a is None:
+            out.append(f"{doc}: documento ausente da avaliação")
+            continue
+        if a["citacoes_encontradas"] < b["citacoes_encontradas"]:
+            out.append(
+                f"{doc}: citações encontradas na fonte {b['citacoes_encontradas']} -> {a['citacoes_encontradas']}"
+            )
+        out += [f"{doc}: {c} {b[c]} -> {a[c]}" for c in NAO_PODE_SUBIR if a[c] > b[c]]
+    return out
+
+
 def markdown(report, label):
     lines = [
         f"# Avaliação — {label}\n",
@@ -261,6 +350,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--rotulo", default="atual")
     parser.add_argument("--saida", default=str(ROOT / "artifacts" / "avaliacao"))
+    parser.add_argument("--comparar", help="linha de base JSON; sai com 1 se alguma métrica piorou")
+    parser.add_argument("--congelar", help="grava a linha de base atual neste caminho")
     args = parser.parse_args()
     sys.path.insert(0, str(ROOT))
     report = evaluate()
@@ -277,6 +368,25 @@ def main():
         "sem fonte:",
         report["taxa_sem_fonte"],
     )
+    if args.congelar:
+        base = {
+            "versao": 1,
+            "rotulo": args.rotulo,
+            "nota": "Linha de base da trava de não regressão. Só melhora: atualizar em commit próprio, explicando o porquê.",
+        } | metricas(report)
+        Path(args.congelar).parent.mkdir(parents=True, exist_ok=True)
+        Path(args.congelar).write_text(
+            json.dumps(base, ensure_ascii=False, indent=1) + "\n", encoding="utf-8", newline="\n"
+        )
+        print("linha de base gravada em", args.congelar)
+    if args.comparar:
+        base = json.loads(Path(args.comparar).read_text(encoding="utf-8"))
+        piores = regressoes(metricas(report), base)
+        for linha in piores:
+            print("REGRESSÃO:", linha)
+        if piores:
+            raise SystemExit(1)
+        print("Sem regressão em relação a", args.comparar)
 
 
 if __name__ == "__main__":

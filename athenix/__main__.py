@@ -1,11 +1,13 @@
 import argparse
 import getpass
 import json
+import sys
 import time
 
 from .auth import create_user
 from .config import Settings
 from .db import database, initialize, verify_chain
+from .llm import modo
 
 
 def main():
@@ -17,6 +19,10 @@ def main():
     serve.add_argument("--host", default="127.0.0.1")
     serve.add_argument("--port", type=int, default=8000)
     serve.add_argument("--no-worker", action="store_true")
+    demo = sub.add_parser(
+        "demo", help="Demonstração local: RN 1.137 já processada, usuário de demo, sem IA"
+    )
+    demo.add_argument("--port", type=int, default=8000)
     sub.add_parser("worker", help="Trabalhador separado da fila persistente")
     sub.add_parser("verify", help="Conferir trilha")
     user = sub.add_parser(
@@ -31,8 +37,36 @@ def main():
     poc.add_argument("--ocr", choices=["none", "docling"], default="none")
     poc.add_argument("--ai", action="store_true", help="Usa o modelo configurado (Azure), com teto")
     args = parser.parse_args()
+    # Console do Windows (cp1252/cp850) ou saída redirecionada: caractere sem mapa vira "?", não erro.
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(errors="replace")
     settings = Settings()
     settings.prepare()
+    ia = modo(settings)
+    if args.command in {"serve", "worker", "demo", "poc"}:
+        pedido = f" (pedido: {ia['pedido']})" if ia["pedido"] != ia["efetivo"] else ""
+        print(f"Modo de IA: {ia['efetivo']}{pedido}: {ia['motivo']}.", flush=True)
+    if args.command == "demo":
+        import uvicorn
+
+        from .app import create_app
+        from .demo import USUARIO, preparar
+
+        print("Preparando a demo (banco .local/demo.db, RN 1.137 por regras)...", flush=True)
+        senha = preparar(settings)
+        url = f"http://127.0.0.1:{args.port}"
+        print(
+            f"\nPronto. Abra {url}/login e entre com\n"
+            f"  usuário: {USUARIO}\n"
+            f"  senha:   {senha}\n"
+            f"Roteiro: Obrigações ({url}/matrix) -> Impacto com perfil ilustrativo "
+            f"({url}/impacto?perfil=ilustrativo) -> Exportar relatório.\n"
+            "Ctrl+C encerra. A senha muda a cada execução.\n",
+            flush=True,
+        )
+        uvicorn.run(create_app(settings), host="127.0.0.1", port=args.port, access_log=False)
+        return
     if args.command == "poc":
         from .poc.run import run
 

@@ -46,6 +46,10 @@ na fonte, extraída sem o segmentador do sistema.
 | `inicial` | código recebido | 6/20 | não medido com referência independente | 254/254 · 29/29 · 4/92 (método circular para PDF) |
 | `fase2` | prazo "têm N dias", datas, aspas aninhadas, vigência | 11/20 | 3/364 · 1/31 · 124/128 | 256/259 · 28/29 · 4/92 |
 | `item0` | decodificação HTML (BOM → cabeçalho → meta → UTF-8 → windows-1252), detector de mojibake, citação confirmada por segunda leitura | 13/20 | **0/360 · 0/30 · 0/160** | 256/258 · 29/29 · 126/126 |
+| `etapa1` | prazos por extenso, publicação própria × outro evento, assinatura × publicação, prazo herdado sem duplicar, obrigação periódica, título encerra dispositivo, dever + permissão por frase, sujeito sem rótulo | 18/20 | 0/336 · 0/32 · 0/173 | 252/254 · 31/31 · 140/140 |
+| `art-minusculo` | "art." minúsculo no início da linha é remissão, não artigo | 19/20 | 0 · 0 · 0 | 252/254 · 31/31 · 145/145 |
+
+Em `etapa1`, na RN 1.137: prazos duplicados 12 → 0, sujeitos com rótulo ("132.", "a)") 135 → 0, penalidades 4 → 3 (as 3 restantes são "Constitui infração" da RN 846), prazos recorrentes 0 → 2. Decreto: sujeitos com rótulo 9 → 0.
 
 Em `item0`, ficam pendentes (e não verificadas) 2 âncoras da RN (itens 23-G e 23-H, cuja unidade
 engole uma tabela) e 1 da REH (fórmula). Mojibake no texto do Decreto: 634 → 0.
@@ -80,13 +84,45 @@ sua publicação" derivada só com data de publicação única e marcada `basis:
   pendentes. Texto de OCR não tem segunda leitura: fica pendente.
 - Âncoras gravadas antes de `item0` não são reconferidas automaticamente; é preciso reprocessar.
 - REH 3.348 vem de cópia secundária (ver `fontes.json`).
+- Fontes da REN 846 e alteradoras: origem a confirmar com a ANEEL; os PDFs não estão no repositório
+  (ver `docs/parametros_impacto.md`) e os testes sobre o texto real pulam sem eles.
+
+Itens da revisão técnica fora do escopo atual (decisão de 11/11/2026: priorizar o módulo de impacto):
+
+1. **Identidade do arquivo**: SHA-256, assinatura `%PDF-` e limite de tamanho existem; falta marcar "apenas layout" por hash do texto normalizado e registrar falha de download.
+2. **Extração**: offsets e avisos por página e motor registrado existem; falta NFC na extração e mapa de posição da normalização.
+3. **Ruído de layout**: texto riscado (redação revogada em PDF compilado e `<strike>`/`<s>`/`<del>`
+   em HTML compilado) tratado: fica fora da interpretação, com citação pendente. Não tratado (rodapé de compilação de terceiro e número de página dentro do dispositivo, sumário colado na ementa, "1. ......", rodapé web, hifenização, cabeçalho repetido, duas colunas, HTML que quebra linha em cada tag e separa "Art." do número).
+4. **Estrutura**: "art. N" minúsculo no início de linha corrigido (`art-minusculo`); "§ N do art."
+   quebrado em linhas (HTML do planalto.gov.br) é remissão, não parágrafo (Bloco 2); ordinais 5o/5º/5°, validação de inciso romano, itens fora de anexos, caminhos duplicados e separação de epígrafe/ementa não tratados.
+5. **Blocos de alteração**: aspas aninhadas e "(NR)" tratados; falta fechar no próximo artigo próprio ou título, norma-alvo só pelo caput ("INDETERMINADO") e marcas explícitas de inclusão/revogação.
+6. **Tabelas**: marcador "Tabela N" existe; unidade anterior ainda engole a tabela seguinte (itens 23-G/23-H) e não há reconstrução de células.
+7. **FAQ**: perguntas separadas e origem "esclarecimento" marcada; "Publicado em/Atualizado em" não capturados.
+8. **Remissões**: nenhuma é resolvida; ato e dispositivo não são distinguidos.
+11. **IA**: schema estrito, resposta bruta, cache, prompt versionado, estimativa e teto existem; nenhuma chamada real feita, divisão de ações e tratamento de truncamento não exercitados.
+12. **Verificação**: estados verificada/pendente/inválida e mínimo de 16 caracteres existem; falta cobertura % do texto, versão do parser nos resultados e alerta de inconsistência da fonte (necessário para a demo, Etapa 3).
 
 ## Falhas restantes (causa raiz)
 
 | Casos | Causa |
 | --- | --- |
-| Decreto | Codificação resolvida em `item0`. Resta a quebra de linha em cada tag, que separa "Art." do número (item 3). |
-| G15, G16 | Quantidade por extenso ("noventa dias", "cento e vinte dias") não reconhecida. |
-| G06 | Unidade com "deve" e "podem" vira só permissão; o dever se perde. |
-| G11 | Obrigação periódica ("em janeiro") sem representação de prazo. |
-| G09 | Remissões nunca resolvidas; a divergência "20 de julho" × "20 de junho" do Decreto citado passa sem alerta. |
+| G09 | Remissões nunca resolvidas (item 8); a divergência "20 de julho" × "20 de junho" do Decreto citado passa sem alerta (item 12). |
+| — | Sujeito com oração relativa no Decreto ("…à concessionária, que"): o sujeito correto está contido, mas não isolado. |
+
+## Trava de não regressão
+
+`tests/baseline/metricas_v1.json` congela os números de hoje: 19/20 casos corretos; obrigação 11/11,
+prazo 8/8, autoria 10/10, vigência 4/4 (e as demais verificações); citações falsamente verificadas 0 nas
+três normas; citações encontradas na fonte 252/254 (RN), 31/31 (REH) e 145/145 (Decreto).
+
+- `python scripts/avaliar.py --comparar tests/baseline/metricas_v1.json` sai com erro se qualquer
+  métrica piorar. O mesmo roda como etapa "Não regressão do gabarito" no CI (Ubuntu e Windows) e como
+  teste (`tests/test_nao_regressao.py`).
+- Falha se: um caso ou verificação acerta menos; uma citação deixa de ser encontrada na fonte; sobem
+  as citações não encontradas, as falsamente verificadas, os itens sem âncora verificada, os prazos
+  duplicados ou os sujeitos com rótulo; ou o tamanho do gabarito muda (aí a linha de base precisa ser
+  atualizada de propósito).
+- **Melhoria atualiza a linha de base só em commit próprio**, explicando o porquê:
+  `python scripts/avaliar.py --rotulo <nome> --congelar tests/baseline/metricas_v1.json` (ou uma
+  nova versão `metricas_v2.json` e o caminho trocado no CI).
+- Limite: a trava só vê os 20 casos do gabarito, que não foi revisado por especialista.

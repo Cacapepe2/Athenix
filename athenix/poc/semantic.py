@@ -25,6 +25,7 @@ LABEL = {
     "table": "Tabela {}",
     "formula": "fórmula {}",
     "question": "pergunta {}",
+    "heading": "{}",
 }
 # Tipos não deônticos, detectados por padrão literal; sem interpretação além do tipo.
 TYPES = (
@@ -127,14 +128,18 @@ def deterministic_items(doc, extraction, pages):
             )
         )
         for deadline in result["deadlines"]:
+            # O prazo pertence ao dispositivo onde está escrito: alíneas que herdam o caput não o
+            # repetem (mesmo id → _unique descarta as cópias).
+            owner = by_id[deadline["unit_id"]]
+            own_anchors = [a for a in result["anchors"] if a["unit_id"] == owner["id"]]
             items.append(
                 _item(
                     doc,
                     extraction,
                     pages,
-                    unit,
+                    owner,
                     "deadline",
-                    result["anchors"],
+                    own_anchors,
                     deadline,
                     [],
                     "rules",
@@ -144,7 +149,7 @@ def deterministic_items(doc, extraction, pages):
                         [
                             doc["sha256"],
                             "deadline",
-                            unit["start"],
+                            owner["start"],
                             deadline["quote"],
                             deadline["quantity"],
                         ]
@@ -152,8 +157,11 @@ def deterministic_items(doc, extraction, pages):
                 }
             )
     for unit in units:
+        if unit.get("struck") == "revoked":
+            continue  # redação revogada (riscada) não gera penalidade, revogação nem remissão
         for kind, pattern in TYPES:
-            if unit["text"].strip() and pattern.search(unit["text"]):
+            # Penalidade/revogação só com base no próprio dispositivo, nunca num título.
+            if unit["kind"] != "heading" and pattern.search(unit["text"]):
                 anchor = _anchor(unit, extraction)
                 items.append(_item(doc, extraction, pages, unit, kind, [anchor], None, [], "rules"))
         for match in REF.finditer(unit["text"]):
@@ -201,6 +209,13 @@ def _unique(items):
 
 def ai_items(doc, extraction, pages, settings, run, call=llm.call_model, raw_dir=None):
     """Chama o modelo por lote sob teto de custo por execução. `run` acumula gasto e registros."""
+    modo = llm.modo(settings)
+    if modo["efetivo"] != "live":
+        run["ai"] = {
+            "status": "skipped",
+            "reason": f"IA em modo {modo['efetivo']}: {modo['motivo']}",
+        }
+        return [], []
     prices = llm.price_config(settings)
     if not (settings.model and settings.api_key and settings.azure_endpoint and prices):
         run["ai"] = {"status": "skipped", "reason": "provedor, chave ou preço verificável ausente"}
