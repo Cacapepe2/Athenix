@@ -71,9 +71,12 @@ o PDF real são pulados, com mensagem.
     da base; sem ele, o teto é aplicado sobre a base, com o aviso "teto legal possivelmente
     subestimado".
 - **Prazo:** vencido → exposição atual; aberto → dias restantes; recorrente ou sem data → dito.
-- **Prioridade:** vencidas, depois as que vencem em até 90 dias, depois as demais e por fim as sem
-  data; dentro de cada faixa, maior exposição (provável, se houver; senão máxima), no cenário sem
-  teto do grupo (limitado ao teto legal). A frase de decisão diz o peso e o prazo.
+- **Prioridade:** exposição provável (o valor provável, se informado; senão, o ponto médio da faixa)
+  multiplicada pelo peso do prazo: vencida 1; vence em até 90 dias 0,8; depois 0,5; sem data 0,3.
+  Os pesos são premissa de produto, ainda sem validação de especialista. Obrigações com
+  enquadramento desconhecido (sem grupo escolhido nem infração identificada pelo texto) ficam fora
+  da fila, em "Verificar enquadramento", com a faixa de todos os grupos visível e confiança baixa:
+  antes elas valiam o máximo de 2% e passavam à frente de obrigações com grupo identificado.
 - **Abertura do relatório e da tela:** de 3 a 5 obrigações nessa ordem, primeiro as que nomeiam o
   segmento do perfil (sem segmento: transmissoras, quando houver); as de sujeito genérico só
   completam até 3 e vêm marcadas. A mesma regra repetida (Anexo e bloco "(NR)") aparece uma vez.

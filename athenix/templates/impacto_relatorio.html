@@ -39,10 +39,13 @@
 {{im.alertas(alteracoes, params, divergencias)}}
 
 <h2>Obrigações priorizadas ({{resultado.ranking|length}})</h2>
+<p class="small"><b>{{regra_ordem}}</b></p>
 <table>{{im.cabecalho_tabela()}}<tbody>{% for i in resultado.ranking %}{{im.linha(i, perfil.base, false)}}{% endfor %}</tbody></table>
 
-<h2>Fora da prioridade ({{resultado.itens|rejectattr('rank')|list|length}})</h2>
-<table>{{im.cabecalho_tabela()}}<tbody>{% for i in resultado.itens if not i.rank %}{{im.linha(i, perfil.base, false)}}{% endfor %}</tbody></table>
+{{im.verificar(resultado, perfil.base, false)}}
+
+<h2>Fora da prioridade ({{resultado.itens|rejectattr('rank')|rejectattr('verificar')|list|length}})</h2>
+<table>{{im.cabecalho_tabela()}}<tbody>{% for i in resultado.itens if not i.rank and not i.verificar %}{{im.linha(i, perfil.base, false)}}{% endfor %}</tbody></table>
 
 <h2>Fontes, parâmetros e o que não é estimável</h2>
 {{im.fontes(params)}}

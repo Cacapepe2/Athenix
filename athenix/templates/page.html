@@ -61,9 +61,11 @@
 </div><button class="primary">Recalcular</button></section>
 <div class="section-heading"><h2>Alertas e dúvidas</h2></div>
 {{im.alertas(alteracoes, params, divergencias)}}
-<div class="section-heading"><h2>Obrigações priorizadas</h2><span>{{resultado.ranking|length}} com faixa estimável</span></div>
-<div class="table-wrap"><table>{{im.cabecalho_tabela()}}<tbody>{% for i in resultado.ranking %}{{im.linha(i, perfil.base, true)}}{% else %}<tr><td colspan="6" class="empty">Nenhuma obrigação com faixa estimável. Processe um documento e execute a extração por regras.</td></tr>{% endfor %}</tbody></table></div>
-<details class="card"><summary>Fora da prioridade: não aplicáveis ao perfil ou não estimáveis ({{resultado.itens|rejectattr('rank')|list|length}})</summary><div class="table-wrap"><table>{{im.cabecalho_tabela()}}<tbody>{% for i in resultado.itens if not i.rank %}{{im.linha(i, perfil.base, false)}}{% if not i.aplicavel %}<tr><td colspan="6"><small>{{i.motivo_aplicabilidade}}</small></td></tr>{% endif %}{% endfor %}</tbody></table></div></details>
+<div class="section-heading"><h2>Obrigações priorizadas</h2><span>{{resultado.ranking|length}} com enquadramento identificado</span></div>
+<p class="small"><b>{{regra_ordem}}</b></p>
+<div class="table-wrap"><table>{{im.cabecalho_tabela()}}<tbody>{% for i in resultado.ranking %}{{im.linha(i, perfil.base, true)}}{% else %}<tr><td colspan="6" class="empty">Nenhuma obrigação com enquadramento identificado. Veja "Verificar enquadramento" abaixo ou processe um documento.</td></tr>{% endfor %}</tbody></table></div>
+{{im.verificar(resultado, perfil.base, true)}}
+<details class="card"><summary>Fora da prioridade: não aplicáveis ao perfil ou não estimáveis ({{resultado.itens|rejectattr('rank')|rejectattr('verificar')|list|length}})</summary><div class="table-wrap"><table>{{im.cabecalho_tabela()}}<tbody>{% for i in resultado.itens if not i.rank and not i.verificar %}{{im.linha(i, perfil.base, false)}}{% if not i.aplicavel %}<tr><td colspan="6"><small>{{i.motivo_aplicabilidade}}</small></td></tr>{% endif %}{% endfor %}</tbody></table></div></details>
 <button class="primary">Recalcular com os enquadramentos escolhidos</button></form>
 <div class="section-heading"><h2>Fontes, parâmetros e o que não é estimável</h2></div>{{im.fontes(params)}}
 {% elif page == 'audit' %}

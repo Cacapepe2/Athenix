@@ -26,13 +26,15 @@
 </div></article>{% endmacro %}
 
 {% macro resumo(destaques, base) %}{% if destaques.itens %}<section class="summary"><h2>{% if destaques.segmento %}Obrigações mais relevantes para {{seg(destaques.segmento)}}{% else %}Obrigações mais relevantes{% endif %}</h2>
-<p class="small">Ordem pela regra de prioridade: vencidas, depois as que vencem em até 90 dias, depois as demais e por fim as sem data; em cada faixa, a maior exposição. Exposição em % da base de cálculo{% if base is none %} (informe a base para ver em R$){% endif %}, no cenário mais alto (sem teto do grupo após agravantes, limitado ao teto legal).</p>
+<p class="small"><b>{{regra_ordem}}</b> Valores em % da base de cálculo{% if base is none %} (informe a base para ver em R$){% endif %}, no cenário mais alto (sem teto do grupo após agravantes, limitado ao teto legal).</p>
 {% for d in destaques.itens %}{{destaque(d, base, loop.index, destaques.segmento)}}{% endfor %}
 {% if destaques.outros > 0 %}<p class="small">Outras {{destaques.outros}} obrigações estão na lista completa, mais abaixo.</p>{% endif %}</section>{% endif %}{% endmacro %}
 
 {% macro parcela_variavel(destaques) %}{% if destaques.segmento != 'distribuicao' %}<div class="callout pv"><strong>Parcela Variável: o principal impacto para transmissoras, ainda não estimável.</strong> Quando a obrigação envolve disponibilidade de instalações de transmissão, o efeito financeiro esperado é o desconto na receita (Parcela Variável sobre a RAP), não a multa. A norma de Parcela Variável não está no repositório, então esse valor não entra nas faixas acima. {% if destaques.parcela_variavel %}Nesta norma, {{destaques.parcela_variavel|length}} obrigação(ões) tocam esse ponto:<ul>{% for i in destaques.parcela_variavel %}<li><a href="/obligations/{{i.row.id}}">{{i.row.action[:160]}}{% if i.row.action|length > 160 %}…{% endif %}</a></li>{% endfor %}</ul>{% else %}Nenhuma obrigação desta norma menciona disponibilidade, RAP ou Parcela Variável.{% endif %}</div>{% endif %}{% endmacro %}
 
 {% macro aviso_ilustrativo(ilustrativo) %}{% if ilustrativo %}<div class="callout pv"><strong>Perfil ilustrativo: {{ilustrativo.rotulo}}.</strong> {{ilustrativo.aviso}} Base de cálculo de {{money(ilustrativo.base|float)}}: {{ilustrativo.origem_base}} {{ilustrativo.nota_faturamento}}</div>{% endif %}{% endmacro %}
+
+{% macro verificar(resultado, base, editavel) %}<section class="check-framing"><h2>Verificar enquadramento ({{resultado.verificar|length}})</h2><p class="small">A norma não indica a infração da REN 846 para estas obrigações: a faixa considera todos os grupos (I a V), larga demais para decidir, e a confiança é baixa. Escolha o grupo de cada uma para que entre na fila.</p><div class="table-wrap"><table>{{cabecalho_tabela()}}<tbody>{% for i in resultado.verificar %}{{linha(i, base, editavel)}}{% else %}<tr><td colspan="6" class="empty">Nenhuma obrigação com enquadramento desconhecido.</td></tr>{% endfor %}</tbody></table></div></section>{% endmacro %}
 
 {% macro cabecalho_tabela() %}<thead><tr><th>Obrigação e citação</th><th>Consequência</th><th>Enquadramento</th><th>Faixa (% da base · R$)</th><th>Prazo</th><th>Confiança e premissas</th></tr></thead>{% endmacro %}
 

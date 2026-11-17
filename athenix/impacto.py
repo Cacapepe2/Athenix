@@ -450,9 +450,8 @@ def _base(params, p):
 
 
 def avaliar(params, rows, p):
-    """Avalia e prioriza obrigações. Regra de ordem: vencidas, depois as que vencem em até 90 dias,
-    depois as demais e por fim as sem data; dentro de cada faixa, maior exposição primeiro
-    (provável, se informada; senão máxima), no cenário sem teto."""
+    """Avalia e prioriza obrigações pela REGRA_ORDEM: exposição provável × peso do prazo. As de
+    enquadramento desconhecido saem da fila e vão para "verificar" (faixa larga, confiança baixa)."""
     base_nome, base_pid = _base(params, p)
     resultado = []
     for row in rows:
@@ -496,34 +495,64 @@ def avaliar(params, rows, p):
             }
         item["confianca"], item["motivo_confianca"] = confianca(item, p)
         resultado.append(item)
+    estimaveis = [
+        i for i in resultado if i["aplicavel"] and i["multa"] and i["multa"].get("estimavel")
+    ]
+    for i in estimaveis:
+        i["verificar"] = not enquadramento_conhecido(i, p)
     ranking = sorted(
-        (i for i in resultado if i["aplicavel"] and i["multa"] and i["multa"].get("estimavel")),
-        key=lambda i: (i["urgencia"]["nivel"], -exposicao(i), i["urgencia"]["data"] or "9999"),
+        (i for i in estimaveis if not i["verificar"]),
+        key=lambda i: (-prioridade(i), i["urgencia"]["nivel"], i["urgencia"]["data"] or "9999"),
+    )
+    verificar = sorted(
+        (i for i in estimaveis if i["verificar"]),
+        key=lambda i: (i["urgencia"]["nivel"], i["urgencia"]["data"] or "9999"),
     )
     return {
         "itens": resultado,
         "ranking": ranking,
+        "verificar": verificar,
+        "regra": REGRA_ORDEM,
         "frases": [frase(i, p, n) for n, i in enumerate(ranking[:3])],
         "base": {"nome": base_nome, "parametro": base_pid, "valor": p["base"]},
         "aviso": AVISO,
     }
 
 
+# Peso do prazo na prioridade. Premissa de produto, ainda sem validação de especialista (Bloco 5).
+PESO_URGENCIA = {0: 1.0, 1: 0.8, 2: 0.5, 3: 0.3}
+REGRA_ORDEM = (
+    "Ordem: exposição provável (o valor provável, se informado; senão, o ponto médio da faixa) "
+    "multiplicada pelo peso do prazo (vencida 1; vence em até 90 dias 0,8; depois 0,5; sem data 0,3); "
+    'obrigações com enquadramento desconhecido ficam fora da fila, em "Verificar enquadramento".'
+)
+
+
+def enquadramento_conhecido(item, p):
+    """Grupo escolhido pelo usuário ou infração tipificada identificada pelo texto."""
+    return item["row"]["id"] in p["grupos"] or bool(item["enquadramentos"])
+
+
 def exposicao(item):
+    """Exposição provável em % da base: o valor provável informado ou o ponto médio de [0, máximo]."""
     m = item["multa"]
-    escolhido = m["provavel"] or m["maximo"]
-    return escolhido["sem_teto"]
+    return m["provavel"]["sem_teto"] if m["provavel"] else m["maximo"]["sem_teto"] / 2
+
+
+def prioridade(item):
+    return exposicao(item) * PESO_URGENCIA[item["urgencia"]["nivel"]]
 
 
 def confianca(item, p):
     m = item["multa"]
     if not m or not m.get("estimavel"):
         return "baixo", m["motivo"] if m else "Sem consequência financeira estimável."
+    if not enquadramento_conhecido(item, p):
+        # Faixa de todos os grupos: larga demais para decidir antes de confirmar o enquadramento.
+        return "baixo", "Enquadramento desconhecido: confirme o grupo de multa antes de priorizar."
     faltas = []
     if p["base"] is None:
         faltas.append("base de cálculo não informada")
-    if item["row"]["id"] not in p["grupos"] and not item["enquadramentos"]:
-        faltas.append("enquadramento desconhecido")
     if m["provavel"] is None:
         faltas.append("valor provável sem premissa")
     if not faltas and item["row"]["id"] in p["grupos"]:
