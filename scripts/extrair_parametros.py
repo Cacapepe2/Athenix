@@ -1,6 +1,8 @@
 """Extrai, pelo pipeline do Athenix, os dispositivos da REN 846 e das normas que a alteram.
 
 Uso: python scripts/extrair_parametros.py artifacts/parametros.json
+Lê os PDFs em tests/fontes_impacto/ (versão oficial, quando existir) ou, na falta, em
+.local/fontes_impacto/ (cópia local, fora do repositório; origem a confirmar com a ANEEL).
 Cada dispositivo sai com citação literal, estado da âncora (segunda leitura) e alertas:
 algarismo x extenso divergente e texto riscado (redação revogada) no PDF compilado.
 """
@@ -20,11 +22,20 @@ from athenix.evidence import key, verify  # noqa: E402
 from athenix.poc import reader  # noqa: E402
 from athenix.temporal import NUMBERS  # noqa: E402
 
+FONTES = ROOT / "tests" / "fontes_impacto"
+LOCAL = ROOT / ".local" / "fontes_impacto"
+
+
+def fonte(nome):
+    """Versão oficial em tests/fontes_impacto/; na falta, a cópia local (fora do repositório)."""
+    return next((p / nome for p in (FONTES, LOCAL) if (p / nome).exists()), FONTES / nome)
+
+
 DOCS = {
-    "846": ROOT / "tests/fontes_impacto/ren2019846_compilada.pdf",
+    "846": fonte("ren2019846_compilada.pdf"),
     "1137": ROOT / "tests/norma_poc/ren20251137.pdf",
-    "1148": ROOT / "tests/fontes_impacto/ren20261148.pdf",
-    "1174": ROOT / "tests/fontes_impacto/ren20261174.pdf",
+    "1148": fonte("ren20261148.pdf"),
+    "1174": fonte("ren20261174.pdf"),
 }
 FOOTER = re.compile(r"\s*Leis\.org/aneel - [^\n]*(?:\n\s*\d+/\d+)?|\n\s*\d+/\d+\s*(?=\n|$)")
 LABEL = re.compile(

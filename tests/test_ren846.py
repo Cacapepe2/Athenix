@@ -9,18 +9,23 @@ import pytest
 from athenix.config import Settings
 from athenix.poc import reader
 from athenix.structure import segment
+from scripts.extrair_parametros import fonte
 
 DIR = Path(__file__).parent / "fontes_impacto"
 # PDFs do Leis.org ficam fora do repositório público até confirmar os termos de uso.
-SEM_PDF = pytest.mark.skipif(
-    not (DIR / "ren2019846_compilada.pdf").exists(), reason="PDF do Leis.org fora do repositório"
+AGUARDANDO = (
+    "REN 846 não encontrada em tests/fontes_impacto/ (versão oficial) nem em .local/fontes_impacto/ "
+    "(cópia local, fora do repositório): aguardando o arquivo oficial da ANEEL"
 )
+SEM_PDF = pytest.mark.skipif(not fonte("ren2019846_compilada.pdf").exists(), reason=AGUARDANDO)
 
 
-@SEM_PDF
 def test_hashes_match_provenance():
-    for doc in json.loads((DIR / "fontes.json").read_text(encoding="utf-8"))["documentos"]:
-        assert hashlib.sha256((DIR / doc["arquivo"]).read_bytes()).hexdigest() == doc["sha256"]
+    docs = json.loads((DIR / "fontes.json").read_text(encoding="utf-8"))["documentos"]
+    if missing := [d["arquivo"] for d in docs if not fonte(d["arquivo"]).exists()]:
+        pytest.skip(f"{AGUARDANDO} ({', '.join(missing)})")
+    for doc in docs:
+        assert hashlib.sha256(fonte(doc["arquivo"]).read_bytes()).hexdigest() == doc["sha256"]
 
 
 def test_lowercase_art_at_line_start_is_a_remission_not_an_article():
@@ -39,7 +44,7 @@ def test_lowercase_art_at_line_start_is_a_remission_not_an_article():
 
 @pytest.fixture(scope="module")
 def ren846():
-    read = reader.read_pdf(DIR / "ren2019846_compilada.pdf", Settings())
+    read = reader.read_pdf(fonte("ren2019846_compilada.pdf"), Settings())
     units = read["extraction"]["units"]
     return units, {u["id"]: u for u in units}
 
