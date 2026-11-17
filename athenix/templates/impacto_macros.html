@@ -36,6 +36,8 @@
 
 {% macro verificar(resultado, base, editavel) %}<section class="check-framing"><h2>Verificar enquadramento ({{resultado.verificar|length}})</h2><p class="small">A norma não indica a infração da REN 846 para estas obrigações: a faixa considera todos os grupos (I a V), larga demais para decidir, e a confiança é baixa. Escolha o grupo de cada uma para que entre na fila.</p><div class="table-wrap"><table>{{cabecalho_tabela()}}<tbody>{% for i in resultado.verificar %}{{linha(i, base, editavel)}}{% else %}<tr><td colspan="6" class="empty">Nenhuma obrigação com enquadramento desconhecido.</td></tr>{% endfor %}</tbody></table></div></section>{% endmacro %}
 
+{% macro saude(s, titulo, link) %}<div class="callout {{ 'warning' if s.situacao != 'ok' else '' }} health"><strong>Qualidade da extração{% if titulo %}: {% if link %}<a href="{{link}}">{{titulo}}</a>{% else %}{{titulo}}{% endif %}{% endif %} · nota {{s.nota}}/100{% if s.situacao != 'ok' %} · revisar extração{% endif %}.</strong> {% if s.alertas %}<ul>{% for a in s.alertas %}<li>{{a.mensagem}}{% if a.exemplos %} <small>Ex.: {{a.exemplos[:3]|join('; ')}}</small>{% endif %}</li>{% endfor %}</ul>{% else %}Nenhum alerta: numeração em sequência, dispositivos conferidos na fonte e texto estruturado.{% endif %}<small>Invariantes gerais (numeração, trecho literal na fonte, início de dispositivo, cobertura); abaixo de {{s.limite}}, revisar antes de usar os números.</small></div>{% endmacro %}
+
 {% macro cabecalho_tabela() %}<thead><tr><th>Obrigação e citação</th><th>Consequência</th><th>Enquadramento</th><th>Faixa (% da base · R$)</th><th>Prazo</th><th>Confiança e premissas</th></tr></thead>{% endmacro %}
 
 {% macro alertas(alteracoes, params, divergencias=[]) %}

@@ -1,16 +1,12 @@
 import re
-import unicodedata
 
 from .db import digest
-
-TRANSLATION = {c: '"' for c in "“”„‟"} | {c: "'" for c in "‘’"} | {c: "-" for c in "–—"}
+from .normalizacao import chave, normalizar
 
 
 def key(text):
-    """Chave para comparar leituras de motores diferentes: NFC, aspas/travessões unificados, sem
-    espaços (pdfplumber e pdfium divergem só na inferência de espaços)."""
-    normalized = unicodedata.normalize("NFC", text)
-    return "".join(TRANSLATION.get(c, c) for c in normalized if not c.isspace())
+    """Chave para comparar leituras de motores diferentes (normalizacao.chave: sem espaços)."""
+    return chave(text)
 
 
 def source_problem(literal, source):
@@ -25,14 +21,8 @@ def source_problem(literal, source):
 
 
 def normalize(text):
-    chars, positions = [], []
-    for index, character in enumerate(text):
-        converted = " " if character.isspace() else TRANSLATION.get(character, character)
-        if converted == " " and chars and chars[-1] == " ":
-            continue
-        chars.append(converted)
-        positions.append(index)
-    return "".join(chars), positions
+    """Texto normalizado (espaços colapsados) e mapa para o original: normalizacao.normalizar."""
+    return normalizar(text)
 
 
 def locations(quote, text):

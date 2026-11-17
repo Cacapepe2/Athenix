@@ -18,6 +18,7 @@
 {% elif page == 'document' %}
 <div class="page-heading"><div><a class="eyebrow" href="/documents">ACERVO / DOCUMENTO</a><h1>{{doc.title}}</h1><p>{{doc.origin}}</p>{{badge(doc.role)}} {% if doc.synthetic %}<span class="badge synthetic">Corpus sintético · sem validade normativa</span>{% endif %}</div><a class="button" href="/documents/{{doc.id}}/original">Baixar original</a></div>
 <div class="card provenance"><strong>SHA-256 do arquivo</strong><code>{{doc.artifact_id}}</code>{% if doc.source_url %}<span>Fonte declarada: {{doc.source_url}}</span>{% endif %}<small>Recebido: {{doc.created}}{% if extracted %} · {{extracted.extractor}}{% endif %}</small></div>
+{% if saude_doc %}{% import 'impacto_macros.html' as imd with context %}{{imd.saude(saude_doc, '', '')}}{% endif %}
 {% if doc.role == 'compiled' %}<div class="callout warning">Versão compilada. A reconciliação com a publicação oficial ainda não foi demonstrada.</div>{% endif %}
 {% if extracted %}
 {% for warning in extracted.warnings %}<div class="callout warning">{{warning}}</div>{% endfor %}{% if identical %}<div class="callout">Há {{identical|length}} outro(s) arquivo(s) com texto canônico idêntico. As proveniências continuam separadas.</div>{% endif %}
@@ -45,6 +46,7 @@
 <div class="callout warning"><strong>{{resultado.aviso}}</strong> Parâmetros de multa da REN 846 extraídos de cópia secundária (origem a confirmar com a fonte oficial da ANEEL); teto legal da Lei 9.427/1996 (planalto.gov.br).</div>
 <section class="card">{{im.resumo(destaques, perfil.base)}}</section>
 {{im.parcela_variavel(destaques)}}
+{% for s in saude_docs %}{{im.saude(s, s.title, '/documents/' ~ s.document_id)}}{% endfor %}
 <form method="get" action="/impacto">
 <section class="card"><h2>Perfil da empresa</h2><p class="small">Campos vazios ficam como premissa desconhecida: a faixa se alarga e a confiança cai. A base de cálculo nunca é estimada pelo sistema.</p><div class="profile-grid">
 <label>Segmento<select name="segmento"><option value="">Não informado</option><option value="distribuicao" {% if perfil.segmento == 'distribuicao' %}selected{% endif %}>Distribuição</option><option value="transmissao" {% if perfil.segmento == 'transmissao' %}selected{% endif %}>Transmissão</option></select></label>
