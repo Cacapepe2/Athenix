@@ -79,6 +79,134 @@ def test_fixed_values_all_aggravating_and_cap_scenarios():
     assert m["provavel"]["com_teto"] == pytest.approx(0.05)
     assert m["provavel"]["sem_teto"] == pytest.approx(0.0645)
     assert avaliar([PLANO], **form)["itens"][0]["confianca"] == "alto"
+    # 2,58% fica abaixo do teto legal (3%): o valor não muda e não é marcado como limitado.
+    assert not m["limitado_teto_legal"] and m["teto_legal_pct"] == 3.0
+
+
+def test_report_opens_with_obligations_naming_the_segment():
+    vencida = [{"date": "2026-01-28", "state": "provisional"}]
+    trans = row(
+        "As transmissoras devem implementar o plano em 90 dias.",
+        vencida,
+        subject="As transmissoras",
+        rid="t1",
+    )
+    trans_dup = row(
+        "As transmissoras devem implementar o plano em 90 dias.",
+        subject="As transmissoras",
+        rid="t2",
+    )
+    pv = row(
+        "A transmissora deve manter a disponibilidade das instalações.",
+        subject="A transmissora",
+        rid="t3",
+    )
+    dist = row("As distribuidoras devem publicar o plano.", vencida, rid="d1")
+    gen = row("Os agentes devem informar a ANEEL.", subject="Os agentes", rid="g1")
+    gen2 = row("Os agentes devem registrar as ocorrências.", subject="Os agentes", rid="g2")
+    rows = [dist, gen, gen2, trans, trans_dup, pv]
+    p = impacto.perfil({"data_referencia": HOJE})  # segmento vazio: transmissoras primeiro
+    d = impacto.destaques(impacto.avaliar(PARAMS, rows, p), p)
+    ids = [x["item"]["row"]["id"] for x in d["itens"]]
+    assert d["segmento"] == "transmissao" and ids[:2] == ["t1", "t3"]
+    assert "t2" not in ids and "d1" not in ids  # texto repetido uma vez; distribuidora fora
+    assert [x["especifica"] for x in d["itens"]] == [True, True, False]  # completa até 3
+    assert d["itens"][0]["frase"].startswith("Faça isto primeiro")
+    assert [i["row"]["id"] for i in d["parcela_variavel"]] == ["t3"]
+    p = impacto.perfil({"data_referencia": HOJE, "segmento": "distribuicao"})
+    d = impacto.destaques(impacto.avaliar(PARAMS, rows, p), p)
+    assert [x["item"]["row"]["id"] for x in d["itens"]][0] == "d1" and d["parcela_variavel"] == []
+
+
+def test_only_availability_of_installations_counts_as_revenue_risk():
+    p = impacto.perfil({"segmento": "transmissao"})
+    receita = {
+        texto: any(c == "receita" for c, _ in impacto.classificar(row(texto), texto, p))
+        for texto in (
+            "A transmissora deve manter a disponibilidade das instalações.",
+            "A transmissora deve evitar a indisponibilidade de equipamentos.",
+            # Textos reais da RN 1.137 que antes caíam como Parcela Variável:
+            "d) Infraestrutura de Apoio: Garantir a disponibilidade de recursos e infraestrutura",
+            "§ 5º O atendimento telefônico deve ter disponibilidade ininterrupta durante 24 horas",
+        )
+    }
+    assert list(receita.values()) == [True, True, False, False]
+
+
+def test_same_rule_in_annex_and_new_wording_block_appears_once():
+    texto = (
+        "c) As cessões emergenciais entre distribuidoras e transmissoras devem ser reembolsadas "
+        * 3
+    )
+    a = row(texto + "preservando a individualidade.", subject="As transmissoras", rid="a1")
+    b = row(
+        texto + "preservando a individualidade. ........”(NR)", subject="As transmissoras", rid="b1"
+    )
+    p = impacto.perfil({"data_referencia": HOJE})
+    d = impacto.destaques(impacto.avaliar(PARAMS, [a, b], p), p)
+    assert [x["item"]["row"]["id"] for x in d["itens"]] == ["a1"]
+
+
+def units(*textos):
+    return [{"id": f"u{i}", "text": t} for i, t in enumerate(textos)]
+
+
+def test_same_act_cited_with_different_dates_is_flagged():
+    # D3 como regra geral: vale para qualquer ato, não só para a RN 948.
+    alertas = impacto.citacoes_divergentes(units(
+        "Art. 1º Conforme a Resolução Normativa nº 948, de 16 de novembro de 2021, a distribuidora",
+        "Art. 2º A Resolução Normativa nº 948, de 21 de novembro, passa a vigorar com",
+        "Art. 3º Nos termos da Lei nº 9.427, de 26 de dezembro de 1996, e da Lei nº 9.427/1997",
+    ))  # fmt: skip
+    assert [a["ato"] for a in alertas] == ["Resolução Normativa nº 948", "Lei nº 9427"]
+    assert [c["unit_id"] for c in alertas[0]["citacoes"]] == ["u0", "u1"]
+    assert "de 21 de novembro" in alertas[0]["citacoes"][1]["trecho"]
+
+
+def test_consistent_or_undated_citations_are_not_flagged():
+    assert not impacto.citacoes_divergentes(units(
+        "Art. 1º A REN nº 1.000, de 7 de dezembro de 2021, e a Resolução Normativa nº 1.000.",
+        "Art. 2º A Resolução Normativa nº 1.000, de 7 de dezembro de 2021, também se aplica.",
+        "Art. 3º A Resolução Normativa nº 1.001, de 7 de dezembro de 2021, no mesmo dia.",
+        "Art. 4º A Resolução Normativa nº 1.000/2021 e a Resolução Normativa nº 1.000, de 7 de dezembro",
+    ))  # fmt: skip
+    riscado = units(
+        "Art. 1º Lei nº 1, de 2 de maio de 2000", "Art. 2º Lei nº 1, de 3 de maio de 2000"
+    )
+    riscado[1]["struck"] = "revoked"
+    assert not impacto.citacoes_divergentes(riscado)
+
+
+def test_real_rn1137_flags_rn948_dates():
+    from athenix.config import Settings
+    from athenix.poc import reader
+
+    pdf = Path(__file__).parent / "norma_poc" / "ren20251137.pdf"
+    extraction = reader.read_pdf(pdf, Settings())["extraction"]
+    alertas = impacto.citacoes_divergentes(extraction["units"])
+    rn948 = next(a for a in alertas if a["ato"] == "Resolução Normativa nº 948")
+    datas = {c["data"] for c in rn948["citacoes"]}
+    assert {(16, "novembro", "2021"), (21, "novembro", None)} <= datas
+
+
+def test_legal_cap_limits_both_scenarios():
+    legal = PARAMS["parametros"]["teto_legal_lei"]
+    # Lido do Art. 3º, X da Lei 9.427/1996 (planalto.gov.br, sha256 ff948e34…), não digitado.
+    assert legal["ancora"] == "verified" and legal["percentuais"] == [3.0]
+    form = dict(base="1000000", reincidencias="10", tn_nao_atendidos="20", antecedentes="50",
+                fracao_valor_base="100", grupo_o1="V")  # fmt: skip
+    m = avaliar([PLANO], **form)["itens"][0]["multa"]
+    # Antes: 2% × (1 + 470%) = 11,4% da base no cenário sem teto do grupo. Depois: 3% (teto legal).
+    assert m["agravantes_pct"] == pytest.approx(470)
+    assert m["maximo"] == {"com_teto": 2.0, "sem_teto": 3.0} and m["limitado_teto_legal"]
+    assert m["provavel"]["sem_teto"] == 3.0
+    assert m["reais"]["maximo"]["sem_teto"] == pytest.approx(30000.0)
+    assert any(pr["parametro"] == "teto_legal_lei" for pr in m["premissas"])
+    sem_lei = copy.deepcopy(PARAMS)
+    sem_lei["parametros"]["teto_legal_lei"]["ancora"] = "pending"
+    perfil = impacto.perfil({"data_referencia": HOJE} | form)
+    m = impacto.avaliar(sem_lei, [PLANO], perfil)["itens"][0]["multa"]
+    assert m["maximo"]["sem_teto"] == pytest.approx(11.4) and m["teto_legal_pct"] is None
 
 
 def test_empty_profile_gives_wide_range_in_percent_and_low_confidence():
@@ -172,12 +300,14 @@ def test_rule_change_alert_and_screens(env):
     norma = (
         "<html><body><p>Art. 1º A distribuidora deve manter Plano de Contingência atualizado.</p>"
         "<p>Art. 2º A Resolução Normativa nº 846, de 11 de junho de 2019, passa a vigorar com a "
-        "seguinte redação:</p></body></html>"
+        "seguinte redação:</p><p>Art. 3º Aplica-se a Resolução Normativa nº 948, de 16 de novembro "
+        "de 2021, e a Resolução Normativa nº 948, de 21 de novembro.</p></body></html>"
     ).encode()
     propose(env, norma)
     page = client.get("/impacto?base=1000000&segmento=distribuicao")
     assert page.status_code == 200
     assert "altera a régua de penalidade" in page.text and "Art. 12, XXVI" in page.text
+    assert "Citação inconsistente na fonte" in page.text and "de 21 de novembro" in page.text
     assert "a confirmar com a fonte oficial da ANEEL" in page.text and impacto.AVISO in page.text
     report = client.get("/impacto/relatorio?base=1000000&download=1")
     assert report.status_code == 200 and "attachment" in report.headers["content-disposition"]

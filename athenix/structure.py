@@ -26,7 +26,13 @@ SUSPECT_LIMIT = 3  # shortcut: limiar fixo; calibrar com corpus rotulado se entr
 
 # "Art." / "ART." abre artigo; "art." minúsculo no início da linha é remissão quebrada (LC 95/1998).
 ARTICLE = re.compile(r'^\s*[“"]?\s*(?:Art|ART)\.?\s*(\d+(?:[º°])?(?:-[A-Z])?)\.?\s*')
-PARAGRAPH = re.compile(r'^\s*[“"]?\s*(§\s*\d+[º°]?|Parágrafo único)\.?\s*', re.I)
+# "§ 6º do art. 15" no início da linha é remissão quebrada: o texto de um parágrafo começa com
+# maiúscula (LC 95/1998), nunca com "do", "da", "deste", "e"... (o "o" é o ordinal sobrescrito).
+PARAGRAPH = re.compile(
+    r'^\s*[“"]?\s*(§\s*\d+(?!\d)[º°]?|Parágrafo único)\.?'
+    r"(?!\s*[º°]?\s*(?-i:o\s+)?(?-i:d[oa]s?|dest[ea]s?|n[oa]s?|aos?|e|ou)\b)\s*",
+    re.I,
+)
 CLAUSE = re.compile(r"^\s*([IVXLCDM]+)\s*[–—-]\s+")
 LETTER = re.compile(r"^\s*([a-z])\)\s+")
 ITEM = re.compile(r"^\s*(\d+(?:-[A-Z])?)\.\s+")
@@ -250,6 +256,9 @@ def segment(text, pages, faq=False):
             if question:
                 break
             matched = pattern.match(line)
+            if matched and pattern is PARAGRAPH:
+                # A remissão ("§ 6 o / do art. 15") pode continuar na linha seguinte do HTML.
+                matched = pattern.match(text[offset : offset + len(line) + 40])
             if matched:
                 if in_table and candidate_kind in {"letter", "clause"}:
                     continue
@@ -407,7 +416,7 @@ def mark_struck(units, text, pages, struck):
             partial += 1
     if revoked or partial:
         return [
-            f"Texto riscado no PDF: {revoked} dispositivo(s) com redação revogada e {partial} com "
+            f"Texto riscado na fonte: {revoked} dispositivo(s) com redação revogada e {partial} com "
             "riscado parcial ficam fora da interpretação e do cálculo; citações pendentes."
         ]
     return []
@@ -443,6 +452,15 @@ def extract(content, media, settings, role=None, charset=None):
                 }
             )
         pieces = [main_content.get_text("\n", strip=True)]
+        # Texto compilado (ex.: planalto.gov.br) marca a redação revogada com <strike>, como o PDF.
+        riscado = ["strike", "s", "del"]
+        struck = [
+            [
+                words
+                for tag in main_content.find_all(riscado)
+                if not tag.find_parent(riscado) and (words := tag.get_text(" ", strip=True).split())
+            ]
+        ]
         extractor = f"beautifulsoup4/{version('beautifulsoup4')}:main-v1;{encoding} ({method})"
     else:
         import pdfplumber

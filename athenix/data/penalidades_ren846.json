@@ -29,11 +29,17 @@
    "sha256": "a2f89f9e431eb9dfc0122d0a646ade8711791434e2c6515c5c91e41d62f38e53",
    "vigencia": "2026-11-04",
    "origem": "a confirmar com a fonte oficial da ANEEL (cópia local, fora do repositório)"
+  },
+  "9427": {
+   "titulo": "Lei 9.427/1996 (texto compilado)",
+   "arquivo": "tests/fontes_impacto/l9427cons.htm",
+   "sha256": "ff948e3442edc619d98a3256fc6988a7c3d0dc21b27e25444a56a701082ac91b",
+   "vigencia": null,
+   "origem": "planalto.gov.br (Presidência da República), texto compilado obtido em 17/11/2026"
   }
  },
  "nao_estimaveis": [
   "Metodologia de cálculo do valor base da multa (Art. 22, §§ 2º e 6º): não está no repositório.",
-  "Teto legal por infração (Art. 7º remete à legislação): lei não está no repositório.",
   "Perda de receita por Parcela Variável (PVI/PVRO) de transmissoras: norma de PV não fornecida.",
   "Efeitos no Fator X da distribuidora (REN 1.148/2026, PRORET 2.5/2.5-A): anexos não fornecidos.",
   "Alterações da REN 1.162/2026 e Despacho 1.293/2026: atos não fornecidos.",
@@ -414,6 +420,20 @@
     25.0
    ],
    "fonte": "846"
+  },
+  "teto_legal_lei": {
+   "descricao": "Teto legal da multa por infração (% do faturamento dos 12 meses anteriores)",
+   "dispositivo": "Art. 3, X da Lei 9.427/1996",
+   "trecho": "X - fixar as multas administrativas a serem impostas aos concessionários, permissionários e autorizados de instalações e serviços de energia elétrica, observado o limite, por infração, de 3% (três por cento) do faturamento, ou do valor estimado da energia produzida e consumida nos casos de autoprodução, produção independente e unidades consumidoras autorizadas, correspondente aos últimos 12 (doze) meses anteriores à lavratura do auto de infração ou estimados para um período de 12 (doze) meses caso o infrator não esteja em operação ou esteja operando por um período inferior a 12 (doze) meses;",
+   "ancora": "verified",
+   "motivo": null,
+   "nota": null,
+   "revogado": null,
+   "redacao_dada_por": "Lei nº 15.269, de 2025",
+   "percentuais": [
+    3.0
+   ],
+   "fonte": "9427"
   }
  },
  "infracoes": [
@@ -1742,7 +1762,12 @@
   {
    "id": "D5",
    "dispositivo": "Arts. 8º e 23",
-   "texto": "A norma não diz se o resultado após agravantes continua limitado ao teto do grupo: calculados os dois cenários."
+   "texto": "A norma não diz se o resultado após agravantes continua limitado ao teto do grupo: calculados os dois cenários. Nos dois, o resultado fica limitado ao teto legal por infração (Lei 9.427/1996, Art. 3º, X)."
+  },
+  {
+   "id": "D6",
+   "dispositivo": "Lei 9.427/1996, Art. 3º, X × REN 846, Art. 21",
+   "texto": "A lei limita a multa a um percentual do faturamento; a REN 846 calcula sobre a Receita Operacional Líquida (ROL). O cálculo aplica o teto legal sobre a mesma base informada, o que pode subestimar o teto em reais quando o faturamento é maior que a ROL. Dúvida para especialista."
   }
  ],
  "alteracoes_da_regua": [

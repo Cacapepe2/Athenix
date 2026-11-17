@@ -12,11 +12,15 @@ leitura independente do PDF (pypdfium2).
 - **D4, resolvida:** redação riscada no PDF fica fora da interpretação e do cálculo. A extração marca
   os dispositivos revogados (risco em ≥ 90% do texto) ou com risco parcial; os dois ficam com âncora
   pendente e não geram obrigação. Na REN 846: 12 revogados, 0 parciais (`tests/test_redacao_revogada.py`).
-- **D5:** não decidida. O módulo calcula e mostra os dois cenários ("com teto" e "sem teto"),
-  marcados como "depende de interpretação".
+- **D5:** não decidida. O módulo calcula e mostra os dois cenários ("com teto do grupo" e "sem teto
+  do grupo após agravantes"), marcados como "depende de interpretação". Desde 17/11/2026, os dois
+  ficam limitados ao teto legal por infração (Lei 9.427/1996, Art. 3º, X).
+- **D6 (17/11/2026):** dúvida para especialista. A lei limita a multa a um percentual do
+  faturamento; a REN 846 calcula sobre a ROL. O cálculo aplica o teto sobre a mesma base informada.
 - **D1:** dúvida para especialista. A tela mostra as duas leituras do inciso XXIII, com a vigência de
   cada uma.
-- **D2 e D3:** alertas de inconsistência da fonte (D2 já aparece na tela de impacto; D3 entra na demo).
+- **D2 e D3:** alertas de inconsistência da fonte. D2 vem do arquivo de parâmetros; D3 virou regra
+  geral (mesma norma citada com datas diferentes no documento analisado), na tela e no relatório.
 - **Fonte:** a confirmar com a fonte oficial da ANEEL. Os parâmetros atuais saíram de cópias secundárias (compilações de
   terceiro) que não podem ser publicadas; aviso visível na tela e no relatório.
 - **REN 1.162, Despacho 1.293 e norma de Parcela Variável:** seguem como "não estimável".
@@ -35,6 +39,7 @@ pelo git). Os testes procuram primeiro em `tests/fontes_impacto/` (versão ofici
 | REN 846/2019, texto compilado | `ren2019846_compilada.pdf` | d8b6fae9322f | Art. 49 |
 | RN 1.137/2025 | `tests/norma_poc/ren20251137.pdf` | 4a581592e981 | publicação (Art. 21; DOU 30.10.2025) |
 | REN 1.148/2026 | `ren20261148.pdf` | 00f8c4a41605 | **1º/1/2027** (Art. 10) |
+| Lei 9.427/1996, texto compilado (planalto.gov.br, versionado) | `l9427cons.htm` | ff948e3442ed | por dispositivo (Art. 3º, X: redação da Lei nº 15.269, de 2025) |
 | REN 1.174/2026, texto compilado | `ren20261174.pdf` | a2f89f9e431e | publicação, salvo exceções (Art. 18; DOU 04.11.2026) |
 
 **Origem: a confirmar com a fonte oficial da ANEEL.** Os arquivos consultados são compilações de terceiro
@@ -61,7 +66,8 @@ ANEEL forem colocadas em `tests/fontes_impacto/`. As citações literais são de
 | P4 | Limite do Grupo IV | Art. 8º, IV | "IV - Grupo IV: até 1% (um por cento); e" | verificada |
 | P5 | Limite do Grupo V | Art. 8º, V | "V - Grupo V: até 2% (dois por cento)." | verificada |
 | P6 | Os percentuais incidem sobre a base do art. 21 | Art. 8º, caput | "…a que correspondem os seguintes limites percentuais incidentes sobre a base de cálculo estabelecida no art. 21:" | verificada¹ |
-| P7 | Teto legal por infração (externo à REN 846) | Art. 7º | "observado o limite, por infração, estabelecido na legislação." | verificada¹ · **valor não estimável** (a lei não está no repositório) |
+| P7 | Teto legal por infração (externo à REN 846) | Art. 7º | "observado o limite, por infração, estabelecido na legislação." | verificada¹ · valor em P7a |
+| P7a | Teto legal: 3% do faturamento por infração | Art. 3, X da Lei 9.427/1996 (redação dada pela Lei nº 15.269, de 2025) | "X - fixar as multas administrativas a serem impostas aos concessionários, permissionários e autorizados de instalações e serviços de energia elétrica, observado o limite, por infração, de 3% (três por cento) do faturamento, ou do valor estimado da energia produzida e consumida nos casos de autoprodução, produção independente e unidades consumidoras autorizadas, correspondente aos últimos 12 (doze) meses anteriores à lavratura do auto de infração ou estimados para um período de 12 (doze) meses caso o infrator não esteja em operação ou esteja operando por um período inferior a 12 (doze) meses;" | verificada (planalto.gov.br, sha256 ff948e3442ed) |
 | P8 | Multa não repassável à tarifa | Art. 7º, parágrafo único | "É vedado o repasse tarifário ou orçamentário do valor relativo à penalidade de multa." | verificada |
 | P9 | Base de cálculo | Art. 21, caput | "…será o valor da Receita Operacional Líquida - ROL ou o valor estimado da energia produzida nos casos de autoprodução e produção independente, ambos correspondentes aos doze meses anteriores à lavratura do Auto de Infração - AI." | verificada¹ ² |
 | P10 | Base de transmissora fora de operação | Art. 21, § 3º | "No caso de agente de transmissão que não esteja em operação, a base de cálculo será a Receita Anual Permitida - RAP vigente na data da lavratura do AI." | verificada |

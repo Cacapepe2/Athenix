@@ -61,7 +61,27 @@ def test_struck_text_is_revoked_or_pending(tmp_path, path):
     candidates = rule_candidates(extraction)
     assert not [c for c in candidates if c["evidence"][0]["unit_id"] in revoked]
     assert any(c["action"].startswith("Art. 1") for c in candidates)
-    assert any("Texto riscado no PDF" in w for w in extraction["warnings"])
+    assert any("Texto riscado na fonte" in w for w in extraction["warnings"])
+
+
+def test_struck_html_wording_is_revoked_like_pdf():
+    # Formato do texto compilado do planalto.gov.br: redação antiga em <strike>, nova logo abaixo.
+    html = (
+        "<html><body><p>Art. 3º Compete à ANEEL:</p>"
+        "<p><strike>X - fixar as multas, observado o limite, por infração, de 2% (dois por cento) do "
+        "faturamento. (Incluído pela Lei nº 9.648, de 1998)</strike></p>"
+        "<p>X - fixar as multas, observado o limite, por infração, de 3% (três por cento) do "
+        "faturamento; (Redação dada pela Lei nº 15.269, de 2025)</p></body></html>"
+    ).encode()
+    extraction = extract(html, "text/html", Settings())
+    units = extraction["units"]
+    old, new = (
+        by_text(units, "X - fixar as multas, observado o limite, por infração, de 2%"),
+        by_text(units, "X - fixar as multas, observado o limite, por infração, de 3%"),
+    )
+    assert old["struck"] == "revoked" and "struck" not in new
+    assert "struck" not in by_text(units, "Art. 3º")
+    assert any("Texto riscado na fonte" in w for w in extraction["warnings"])
 
 
 def test_unlocated_struck_text_makes_page_pending():

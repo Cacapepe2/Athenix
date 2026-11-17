@@ -23,6 +23,7 @@ from athenix.config import Settings  # noqa: E402
 from athenix.evidence import verify  # noqa: E402
 from athenix.impacto import ALTERA, PARAMETROS, termos  # noqa: E402
 from athenix.poc import reader  # noqa: E402
+from athenix.structure import extract  # noqa: E402
 from athenix.temporal import NUMBERS  # noqa: E402
 
 FONTES = ROOT / "tests" / "fontes_impacto"
@@ -39,7 +40,14 @@ DOCS = {
     "1137": (ROOT / "tests/norma_poc/ren20251137.pdf", "RN 1.137/2025"),
     "1148": (fonte("ren20261148.pdf"), "REN 1.148/2026"),
     "1174": (fonte("ren20261174.pdf"), "REN 1.174/2026 (texto compilado)"),
+    "9427": (FONTES / "l9427cons.htm", "Lei 9.427/1996 (texto compilado)"),
 }
+ORIGENS = {
+    "1137": "ANEEL (texto compilado já no repositório)",
+    "9427": "planalto.gov.br (Presidência da República), texto compilado obtido em 17/11/2026",
+}
+# Nota de redação do texto compilado ("(Redação dada pela Lei nº 15.269, de 2025)").
+REDACAO_LEI = re.compile(r"\((?:Redação dada|Incluíd[oa]|Acrescid[oa])\s+pel[ao]\s+([^)]*)\)")
 FOOTER = re.compile(r"\s*Leis\.org/aneel - [^\n]*(?:\n\s*\d+/\d+)?|\n\s*\d+/\d+\s*(?=\n|$)")
 LABEL = re.compile(
     r"^\s*(?:Art\.?\s*\d+[º°]?(?:-[A-Z])?\.?|§\s*\d+[º°]?|Parágrafo único\.|[IVXLCDM]+\s*-|[a-z]\))\s*"
@@ -177,13 +185,20 @@ def cite(unit, extraction):
 def read(name):
     path, title = DOCS[name]
     content = path.read_bytes()
-    extraction = reader.read_pdf(path, Settings())["extraction"]
+    extraction = (
+        extract(content, "text/html", Settings(), "norm")
+        if path.suffix == ".htm"
+        else reader.read_pdf(path, Settings())["extraction"]
+    )
     by_id = {u["id"]: u for u in extraction["units"]}
     units = [u | {"path": label_path(u, by_id)} for u in extraction["units"]]
     effective = [d for d in extraction["dates"] if d["kind"] == "effective"]
     if len({d["date"] for d in effective}) > 1:
         # Datas de vigência distintas (ex.: vigência de outro ato citada): fica a da publicação.
         effective = [d for d in effective if d.get("basis") == "publication"]
+    if path.suffix == ".htm":
+        # Lei compilada: cada dispositivo vale desde a lei que lhe deu redação; não há data única.
+        effective = []
     return {
         "titulo": title,
         "arquivo": str(path.relative_to(ROOT)).replace("\\", "/"),
@@ -191,6 +206,34 @@ def read(name):
         "vigencia": effective[0]["date"] if len({d["date"] for d in effective}) == 1 else None,
         "extraction": extraction,
         "units": units,
+    }
+
+
+def teto_legal(lei):
+    """Limite por infração da Lei 9.427/1996 (Art. 3º, X): só a redação não riscada entra."""
+    vigentes = [u for u in lei["units"] if u["path"] == "3 > X" and not u.get("struck")]
+    if len(vigentes) != 1:
+        return {
+            "descricao": "Teto legal da multa por infração",
+            "dispositivo": "Art. 3, X",
+            "trecho": "",
+            "ancora": "pending",
+            "motivo": f"{len(vigentes)} redações vigentes",
+            "nota": None,
+            "revogado": None,
+            "percentuais": [],
+            "fonte": "9427",
+        }
+    entry = cite(vigentes[0], lei["extraction"])
+    redacao = REDACAO_LEI.search(entry["trecho"])
+    trecho = entry["trecho"] = " ".join(REDACAO_LEI.sub("", entry["trecho"]).split())
+    return {
+        "descricao": "Teto legal da multa por infração (% do faturamento dos 12 meses anteriores)",
+        "dispositivo": "Art. 3, X da Lei 9.427/1996",
+        **entry,
+        "redacao_dada_por": redacao.group(1) if redacao else None,
+        "percentuais": [float(v.replace(",", ".")) for v in PERCENT.findall(trecho)],
+        "fonte": "9427",
     }
 
 
@@ -223,6 +266,7 @@ def build(docs):
             "percentuais": [float(v.replace(",", ".")) for v in PERCENT.findall(trecho)],
             "fonte": "846",
         }
+    parametros["teto_legal_lei"] = teto_legal(docs["9427"])
     infracoes = []
     for unit in ren["units"]:
         match = re.fullmatch(r"(9º|10|11|12|13) > ([IVXLC]+)", unit["path"])
@@ -283,15 +327,15 @@ def build(docs):
         "fontes": {
             name: {k: doc[k] for k in ("titulo", "arquivo", "sha256", "vigencia")}
             | {
-                "origem": "a confirmar com a fonte oficial da ANEEL (cópia local, fora do repositório)"
-                if name != "1137"
-                else "ANEEL (texto compilado já no repositório)"
+                "origem": ORIGENS.get(
+                    name,
+                    "a confirmar com a fonte oficial da ANEEL (cópia local, fora do repositório)",
+                )
             }
             for name, doc in docs.items()
         },
         "nao_estimaveis": [
             "Metodologia de cálculo do valor base da multa (Art. 22, §§ 2º e 6º): não está no repositório.",
-            "Teto legal por infração (Art. 7º remete à legislação): lei não está no repositório.",
             "Perda de receita por Parcela Variável (PVI/PVRO) de transmissoras: norma de PV não fornecida.",
             "Efeitos no Fator X da distribuidora (REN 1.148/2026, PRORET 2.5/2.5-A): anexos não fornecidos.",
             "Alterações da REN 1.162/2026 e Despacho 1.293/2026: atos não fornecidos.",
@@ -309,7 +353,12 @@ def build(docs):
             {
                 "id": "D5",
                 "dispositivo": "Arts. 8º e 23",
-                "texto": "A norma não diz se o resultado após agravantes continua limitado ao teto do grupo: calculados os dois cenários.",
+                "texto": "A norma não diz se o resultado após agravantes continua limitado ao teto do grupo: calculados os dois cenários. Nos dois, o resultado fica limitado ao teto legal por infração (Lei 9.427/1996, Art. 3º, X).",
+            },
+            {
+                "id": "D6",
+                "dispositivo": "Lei 9.427/1996, Art. 3º, X × REN 846, Art. 21",
+                "texto": "A lei limita a multa a um percentual do faturamento; a REN 846 calcula sobre a Receita Operacional Líquida (ROL). O cálculo aplica o teto legal sobre a mesma base informada, o que pode subestimar o teto em reais quando o faturamento é maior que a ROL. Dúvida para especialista.",
             },
         ],
         "alteracoes_da_regua": alteracoes,

@@ -33,6 +33,13 @@ ADEQUACAO = re.compile(
 RECEITA = re.compile(
     r"Parcela Variável|\bPVI\b|\bPVRO\b|Receita Anual Permitida|\bRAP\b|Fator X", re.I
 )
+# Só disponibilidade de instalações de transmissão pesa na Parcela Variável; "disponibilidade de
+# recursos" ou de atendimento telefônico não (falsos positivos na RN 1.137).
+DISPONIBILIDADE = re.compile(
+    r"(?:in)?disponibilidade\s+d[aeo]s?\s+(?:instala\w+|ativos?|equipamentos?|linhas?\s+de\s+"
+    r"transmiss\w+|fun[çc](?:ão|ões)\s+transmiss\w+|transformador\w*)",
+    re.I,
+)
 FISCALIZACAO = re.compile(
     r"\b(?:ANEEL|fiscaliz\w*|inform\w*|envi\w*|comunic\w*|registr\w*|public\w*|divulg\w*|report\w*)",
     re.I,
@@ -202,9 +209,10 @@ def classificar(row, texto, p):
     ]
     if m := ADEQUACAO.search(row.get("action", "")):
         out.append(("adequacao", f'Exige "{m.group()}": custo interno da empresa.'))
-    if (m := RECEITA.search(texto)) or (
-        p["segmento"] == "transmissao" and re.search(r"disponibilidade|indisponib", texto, re.I)
-    ):
+    transmissao = p["segmento"] == "transmissao" or (
+        not p["segmento"] and SEGMENTO["transmissao"].search(texto)
+    )
+    if (m := RECEITA.search(texto)) or (transmissao and DISPONIBILIDADE.search(texto)):
         termo = m.group() if m else "disponibilidade de instalações de transmissão"
         out.append(
             ("receita", f'Menciona "{termo}": pode afetar a receita (Parcela Variável/Fator X).')
@@ -297,14 +305,38 @@ def multa(params, row, p, grupos, explicitos):
             "motivo": "Agravante sem parâmetro verificado.",
             "premissas": premissas,
         }
+    # Teto legal por infração (Lei 9.427/1996, Art. 3º, X): limite final nos dois cenários da D5.
+    legal = parametro(params, "teto_legal_lei")
+    limite = legal["percentuais"][0] if legal and legal["percentuais"] else math.inf
+    if legal:
+        redacao = (
+            f", redação dada pela {legal['redacao_dada_por']}"
+            if legal.get("redacao_dada_por")
+            else ""
+        )
+        premissas.append(
+            _premissa(
+                f"Teto legal: {_pct(limite)} da base por infração ({legal['dispositivo']}{redacao}), "
+                "aplicado ao resultado final nos dois cenários",
+                "teto_legal_lei",
+                "a lei usa o faturamento; o cálculo usa a mesma base informada (dúvida D6)",
+                editavel=False,
+            )
+        )
+    else:
+        premissas.append(
+            _premissa("Teto legal sem parâmetro verificado: resultado sem limite final", None)
+        )
     res = {
         "estimavel": True,
         "grupos": grupos,
         "teto_pct": teto,
         "piso_teto_pct": piso_teto,
+        "teto_legal_pct": None if math.isinf(limite) else limite,
         "agravantes_pct": agr,
         "minimo_pct": 0.0,
-        "maximo": {"com_teto": teto, "sem_teto": teto * (1 + agr / 100)},
+        "maximo": {"com_teto": min(teto, limite), "sem_teto": min(teto * (1 + agr / 100), limite)},
+        "limitado_teto_legal": teto * (1 + agr / 100) > limite,
         "provavel": None,
         "premissas": premissas,
     }
@@ -314,8 +346,8 @@ def multa(params, row, p, grupos, explicitos):
         base = teto * p["fracao_valor_base"] / 100
         bruto = base * (1 + agr / 100)
         res["provavel"] = {
-            "com_teto": min(bruto, teto) * (1 - reducao / 100),
-            "sem_teto": bruto * (1 - reducao / 100),
+            "com_teto": min(min(bruto, teto) * (1 - reducao / 100), limite),
+            "sem_teto": min(bruto * (1 - reducao / 100), limite),
         }
         premissas.append(
             _premissa(
@@ -440,13 +472,109 @@ def formatar(item, p, chave="sem_teto"):
     return f"{rotulo} {_pct(pct)} da base (informe a base para ver em R$)"
 
 
+ORDEM = ("Faça isto primeiro", "Depois", "Em seguida", "Na sequência", "Por último")
+
+
 def frase(item, p, posicao):
     acao = " ".join(item["row"].get("action", "").split())
     acao = acao[:140] + ("…" if len(acao) > 140 else "")
-    inicio = ("Faça isto primeiro", "Depois", "Em seguida")[posicao]
-    return f"{inicio}: {acao} — pesa {formatar(item, p)} e {item['urgencia']['texto']}."
+    return f"{ORDEM[posicao]}: {acao} — pesa {formatar(item, p)} e {item['urgencia']['texto']}."
+
+
+def nomeia(item, segmento):
+    texto = item["row"].get("subject", "") + " " + item["row"].get("action", "")
+    return bool(SEGMENTO[segmento].search(texto))
+
+
+def destaques(resultado, p, limite=5):
+    """Abertura do relatório: até `limite` obrigações na ordem da regra de prioridade.
+
+    Vêm primeiro as que nomeiam o segmento do perfil; sem segmento informado, as que nomeiam
+    transmissoras (público inicial), quando houver. Só se faltarem (menos de 3) entram as de sujeito
+    genérico, marcadas. Texto repetido aparece uma vez. Também lista onde a Parcela Variável seria o
+    impacto principal: obrigações aplicáveis classificadas como perda de receita.
+    """
+    ranking = resultado["ranking"]
+    alvo = p["segmento"] or (
+        "transmissao" if any(nomeia(i, "transmissao") for i in ranking) else ""
+    )
+    vistos, proprios, genericos = set(), [], []
+    for i in ranking:
+        # Mesma regra no Anexo e no bloco de nova redação ("…(NR)"): o início basta para repetir.
+        chave = " ".join(i["row"].get("action", "").split()).casefold()[:200]
+        if chave in vistos:
+            continue
+        vistos.add(chave)
+        if alvo and nomeia(i, alvo):
+            proprios.append(i)
+        elif not any(nomeia(i, s) for s in SEGMENTO):
+            genericos.append(i)
+    escolha = (
+        proprios[:limite] + genericos[: max(0, 3 - len(proprios))] if alvo else genericos[:limite]
+    )
+    especificos = {id(i) for i in proprios}
+    receita = [
+        i
+        for i in resultado["itens"]
+        if i["aplicavel"] and any(c == "receita" for c, _ in i["categorias"])
+    ]
+    return {
+        "segmento": alvo,
+        "itens": [
+            {"item": i, "especifica": id(i) in especificos, "frase": frase(i, p, n)}
+            for n, i in enumerate(escolha)
+        ],
+        "outros": len(ranking) - len(escolha),
+        "parcela_variavel": receita if alvo != "distribuicao" else [],
+    }
 
 
 def alteracoes_da_regua(units):
     """Dispositivos do documento que alteram a REN 846 (a régua de penalidade)."""
     return [u for u in units if re.search(ALTERA, " ".join(u["text"].split()))]
+
+
+TIPOS_ATO = {
+    "REN": "Resolução Normativa",
+    "RN": "Resolução Normativa",
+    "REH": "Resolução Homologatória",
+}
+CITACAO_ATO = re.compile(
+    r"\b(Resolução Normativa|Resolução Homologatória|Resolução Autorizativa|Lei Complementar|Lei|"
+    r"Decreto|Despacho|Portaria|REN|RN|REH)(?:\s+ANEEL)?\s+(?:n[º°o]\.?\s*)?(\d{1,3}(?:\.\d{3})*|\d+)"
+    r"(?:/(\d{4}))?(?:,?\s+de\s+(\d{1,2})[º°o]?\s+de\s+([a-zç]+)(?:\s+de\s+(\d{4}))?)?"
+)
+
+
+def citacoes_divergentes(units):
+    """Mesma norma (tipo e número) citada no documento com dia, mês ou ano diferentes.
+
+    Parte ausente não conta como conflito: "de 21 de novembro" diverge de "de 16 de novembro de
+    2021" pelo dia. Cada variante leva o trecho e a unidade, para conferência na fonte.
+    """
+    variantes = {}
+    for unit in units:
+        if unit.get("struck"):
+            continue
+        texto = " ".join(unit["text"].split())
+        for m in CITACAO_ATO.finditer(texto):
+            dia, mes, ano = m.group(4), m.group(5), m.group(6) or m.group(3)
+            if not (dia or ano):
+                continue
+            tipo = TIPOS_ATO.get(m.group(1), m.group(1))
+            chave = (tipo, m.group(2).replace(".", ""))
+            data = (int(dia) if dia else None, mes, ano)
+            lista = variantes.setdefault(chave, [])
+            if all(v["data"] != data for v in lista):
+                lista.append({"data": data, "trecho": m.group(0), "unit_id": unit["id"]})
+    alertas = []
+    for (tipo, numero), lista in variantes.items():
+        conflita = any(
+            x is not None and y is not None and x != y
+            for a in lista
+            for b in lista
+            for x, y in zip(a["data"], b["data"])
+        )
+        if conflita:
+            alertas.append({"ato": f"{tipo} nº {numero}", "citacoes": lista})
+    return alertas

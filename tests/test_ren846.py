@@ -21,10 +21,22 @@ SEM_PDF = pytest.mark.skipif(not fonte("ren2019846_compilada.pdf").exists(), rea
 
 def test_hashes_match_provenance():
     docs = json.loads((DIR / "fontes.json").read_text(encoding="utf-8"))["documentos"]
-    if missing := [d["arquivo"] for d in docs if not fonte(d["arquivo"]).exists()]:
-        pytest.skip(f"{AGUARDANDO} ({', '.join(missing)})")
-    for doc in docs:
+    present = [d for d in docs if fonte(d["arquivo"]).exists()]
+    assert any(d["id"] == "lei9427" for d in present)  # fonte oficial versionada: nunca falta
+    for doc in present:
         assert hashlib.sha256(fonte(doc["arquivo"]).read_bytes()).hexdigest() == doc["sha256"]
+    if missing := [d["arquivo"] for d in docs if d not in present]:
+        pytest.skip(f"{AGUARDANDO} ({', '.join(missing)})")
+
+
+def test_legal_cap_is_the_current_wording_of_law_9427():
+    # Texto compilado do planalto.gov.br (sha256 ff948e34…): a redação de 2% está riscada.
+    from scripts.extrair_parametros import read, teto_legal
+
+    p = teto_legal(read("9427"))
+    assert p["ancora"] == "verified" and not p["revogado"]
+    assert p["percentuais"] == [3.0] and "3% (três por cento) do faturamento" in p["trecho"]
+    assert p["redacao_dada_por"] == "Lei nº 15.269, de 2025"
 
 
 def test_lowercase_art_at_line_start_is_a_remission_not_an_article():
@@ -39,6 +51,24 @@ def test_lowercase_art_at_line_start_is_a_remission_not_an_article():
     assert [u["label"] for u in units if u["kind"] == "article"] == ["16"]
     paragraph = next(u for u in units if u["label"] == "§ 1º")
     assert by_id[paragraph["parent"]]["label"] == "16"
+
+
+def test_paragraph_sign_followed_by_connector_is_a_remission_not_a_paragraph():
+    # Lei 9.427/1996 no planalto.gov.br: antes, "§ 6 o do art. 15" virava parágrafo e os incisos
+    # VII a XXII do Art. 3º eram citados como "Art. 3º, § 6º, X".
+    text = (
+        "Art. 3º Compete à ANEEL:\n"
+        "V - dirimir as divergências, na forma do\n"
+        "§ 6 o do art. 15 da Lei n o 9.074, de 7 de julho de 1995;\n"
+        "X - fixar as multas administrativas.\n"
+        "§ 1 o No exercício da competência prevista nos incisos VIII e IX.\n"
+        "§ 2º A ANEEL deverá articular-se com a Secretaria.\n"
+    )
+    units, _ = segment(text, [{"number": 1, "start": 0, "end": len(text)}])
+    by_id = {u["id"]: u for u in units}
+    assert [u["label"] for u in units if u["kind"] == "paragraph"] == ["§ 1", "§ 2º"]
+    inciso = next(u for u in units if u["label"] == "X")
+    assert by_id[inciso["parent"]]["label"] == "3º"
 
 
 @pytest.fixture(scope="module")

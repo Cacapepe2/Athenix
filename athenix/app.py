@@ -690,11 +690,15 @@ def create_app(settings=None, embedded_worker=False):
         resultado = impacto.avaliar(params, rows, perfil)
         for posicao, item in enumerate(resultado["ranking"], start=1):
             item["rank"] = posicao
-        alteracoes, documentos = [], {}
+        alteracoes, divergencias, documentos = [], [], {}
         for row in rows:
             documentos.setdefault(row["document_id"], row["document_title"])
         for document_id, title in documentos.items():
             units = extraction_data(session, document_id)["units"]
+            divergencias += [
+                d | {"document_id": document_id, "title": title}
+                for d in impacto.citacoes_divergentes(units)
+            ]
             for unit in impacto.alteracoes_da_regua(units):
                 alteracoes.append(
                     {
@@ -709,6 +713,8 @@ def create_app(settings=None, embedded_worker=False):
             "perfil": perfil,
             "resultado": resultado,
             "alteracoes": alteracoes,
+            "divergencias": divergencias,
+            "destaques": impacto.destaques(resultado, perfil),
             "documentos": list(documentos.values()),
             "categorias": impacto.CATEGORIAS,
             "grupos": impacto.GRUPOS,
