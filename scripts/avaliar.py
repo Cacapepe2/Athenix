@@ -171,8 +171,14 @@ def check(case, extraction, items):
         ok = any(i["type"] == "revocation" for i in near)
         out["revogacao"] = (ok, "revocation" if ok else "sem item de revogação")
     if "remissao" in expected:
+        want = expected["remissao"]
         refs = [i["reference"] for i in near if i["type"] == "reference"]
-        ok = any(r.get("target") for r in refs)
+        # Acerta só com o alvo do gabarito (documento e dispositivo), não com qualquer alvo.
+        ok = any(
+            (r.get("target") or {}).get("doc") == want["alvo_doc"]
+            and r["target"].get("dispositivo") == want["alvo_dispositivo"]
+            for r in refs
+        )
         out["remissao"] = (ok, [r.get("target") for r in refs] or "sem remissão no trecho")
     return out
 
@@ -198,10 +204,16 @@ def quality(items):
 
 
 def evaluate():
+    from athenix.remissoes import Indice, resolver_itens
+
     docs, spec = sources(), gold()
     results, global_items = [], {}
+    extraidos = {doc_id: run_system(doc) for doc_id, doc in docs.items()}
+    # Índice dos atos do próprio gabarito: remissão só resolve para documento que está aqui.
+    indice = Indice(docs.values(), lambda d: extraidos[d["id"]][0])
     for doc_id, doc in docs.items():
-        extraction, items = run_system(doc)
+        extraction, items = extraidos[doc_id]
+        resolver_itens(items, extraction, indice)
         reference = flat(reference_text(doc))
         anchors = [a for i in items for a in i["anchors"]]
         verified = [a for a in anchors if a["state"] == "verified"]
