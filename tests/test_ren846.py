@@ -12,7 +12,6 @@ from athenix.structure import segment
 from scripts.extrair_parametros import fonte
 
 DIR = Path(__file__).parent / "fontes_impacto"
-# PDFs do Leis.org ficam fora do repositório público até confirmar os termos de uso.
 AGUARDANDO = (
     "REN 846 não encontrada em tests/fontes_impacto/ (versão oficial) nem em .local/fontes_impacto/ "
     "(cópia local, fora do repositório): aguardando o arquivo oficial da ANEEL"
