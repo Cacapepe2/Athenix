@@ -167,3 +167,9 @@ Este repositório apresenta a **iniciativa Athenix**. O conteúdo do README desc
 <br>
 <img src="assets/footer.svg" alt="" width="100%">
 <p align="center"><sub>Projeto <b>Athenix</b> · 2026 · Em desenvolvimento</sub></p>
+
+### Avaliação do repositório
+
+Execute `python scripts/eval_agent.py --perfil health` para o smoke test ou
+`python scripts/eval_agent.py --perfil completo` para testes, segurança e gabarito.
+Consulte [Eval Agent](docs/eval_agent.md) para relatórios, critérios e limites.
