@@ -48,6 +48,7 @@ na fonte, extraída sem o segmentador do sistema.
 | `item0` | decodificação HTML (BOM → cabeçalho → meta → UTF-8 → windows-1252), detector de mojibake, citação confirmada por segunda leitura | 13/20 | **0/360 · 0/30 · 0/160** | 256/258 · 29/29 · 126/126 |
 | `etapa1` | prazos por extenso, publicação própria × outro evento, assinatura × publicação, prazo herdado sem duplicar, obrigação periódica, título encerra dispositivo, dever + permissão por frase, sujeito sem rótulo | 18/20 | 0/336 · 0/32 · 0/173 | 252/254 · 31/31 · 140/140 |
 | `art-minusculo` | "art." minúsculo no início da linha é remissão, não artigo | 19/20 | 0 · 0 · 0 | 252/254 · 31/31 · 145/145 |
+| `remissoes` | remissão explícita a ato do acervo local resolvida como proposta (`athenix/remissoes.py`); o avaliador passa a exigir o alvo do gabarito, não qualquer alvo | 20/20 | 0 · 0 · 0 | 252/254 · 31/31 · 145/145 |
 
 Em `etapa1`, na RN 1.137: prazos duplicados 12 → 0, sujeitos com rótulo ("132.", "a)") 135 → 0, penalidades 4 → 3 (as 3 restantes são "Constitui infração" da RN 846), prazos recorrentes 0 → 2. Decreto: sujeitos com rótulo 9 → 0.
 
@@ -98,7 +99,7 @@ Itens da revisão técnica fora do escopo atual (decisão de 11/11/2026: prioriz
 5. **Blocos de alteração**: aspas aninhadas e "(NR)" tratados; falta fechar no próximo artigo próprio ou título, norma-alvo só pelo caput ("INDETERMINADO") e marcas explícitas de inclusão/revogação.
 6. **Tabelas**: marcador "Tabela N" existe; unidade anterior ainda engole a tabela seguinte (itens 23-G/23-H) e não há reconstrução de células.
 7. **FAQ**: perguntas separadas e origem "esclarecimento" marcada; "Publicado em/Atualizado em" não capturados.
-8. **Remissões**: nenhuma é resolvida; ato e dispositivo não são distinguidos.
+8. **Remissões**: resolvidas só quando o ato citado está no acervo local, uma única vez, e o artigo e os incisos são localizados no destino (cabeçalho pelo início do texto, que pode estar quebrado). O resultado é proposta para revisão humana, com as citações do destino e as divergências (ex.: data do ato citada errada). Um salto só, sem cadeia. No gabarito, 1 remissão resolvida (G09) e 18 continuam "ato citado ausente do acervo local". O produto (banco) ainda não usa o índice: só o avaliador.
 11. **IA**: schema estrito, resposta bruta, cache, prompt versionado, estimativa e teto existem; nenhuma chamada real feita, divisão de ações e tratamento de truncamento não exercitados.
 12. **Verificação**: estados verificada/pendente/inválida e mínimo de 16 caracteres existem; falta cobertura % do texto, versão do parser nos resultados e alerta de inconsistência da fonte (necessário para a demo, Etapa 3).
 
@@ -106,13 +107,13 @@ Itens da revisão técnica fora do escopo atual (decisão de 11/11/2026: prioriz
 
 | Casos | Causa |
 | --- | --- |
-| G09 | Remissões nunca resolvidas (item 8); a divergência "20 de julho" × "20 de junho" do Decreto citado passa sem alerta (item 12). |
+| G09 | Resolvido em `remissoes` como proposta: Decreto 12.068, Art. 4º, V e VI, com a divergência "20/07/2024" × "20/06/2024" listada. O § 1º do Art. 4º do Decreto cita V, VI e VII; o sistema não acrescenta o VII à remissão da RN. Aguarda revisão humana. |
 | — | Sujeito com oração relativa no Decreto ("…à concessionária, que"): o sujeito correto está contido, mas não isolado. |
 
 ## Trava de não regressão
 
-`tests/baseline/metricas_v1.json` congela os números de hoje: 19/20 casos corretos; obrigação 11/11,
-prazo 8/8, autoria 10/10, vigência 4/4 (e as demais verificações); citações falsamente verificadas 0 nas
+`tests/baseline/metricas_v1.json` congela os números de hoje: 20/20 casos corretos; obrigação 11/11,
+prazo 8/8, autoria 10/10, vigência 4/4, remissão 1/1 (e as demais verificações); citações falsamente verificadas 0 nas
 três normas; citações encontradas na fonte 252/254 (RN), 31/31 (REH) e 145/145 (Decreto).
 
 - `python scripts/avaliar.py --comparar tests/baseline/metricas_v1.json` sai com erro se qualquer
