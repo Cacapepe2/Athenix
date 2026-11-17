@@ -17,6 +17,10 @@ def test_demo_prepares_rn1137_and_a_working_login(tmp_path):
         obrigacoes = client.get("/api/obligations").json()
         assert obrigacoes["count"] > 100
         assert {r["document_title"] for r in obrigacoes["items"]} == {"RN ANEEL 1.137/2025"}
+        # README: a ficha traz o trecho literal destacado, âncora verificada e link ao dispositivo.
+        item = next(r for r in obrigacoes["items"] if r["anchors"][0]["state"] == "verified")
+        ficha = client.get(f"/obligations/{item['id']}").text
+        assert "<mark>" in ficha and f"/documents/{item['document_id']}#" in ficha
         page = client.get("/impacto?perfil=ilustrativo")
         assert "Perfil ilustrativo" in page.text and "Citação inconsistente na fonte" in page.text
 

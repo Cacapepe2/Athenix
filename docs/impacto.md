@@ -62,8 +62,14 @@ o PDF real são pulados, com mensagem.
   - provável só com valor base informado e grupo único: valor base + agravantes (Art. 23, somados)
     − atenuante (Art. 24), nos dois cenários;
   - **teto legal** (Lei 9.427/1996, Art. 3º, X, lido do parâmetro verificado): limite final nos dois
-    cenários. Aplicado sobre a mesma base informada (dúvida D6: a lei fala em faturamento). Sem o
-    parâmetro verificado, nada é limitado e a premissa diz isso.
+    cenários. Vale a redação da **data da infração**: a do prazo (vencido ou a vencer) ou, sem
+    prazo, a data de referência do perfil (premissa). A partir de 25/11/2025, 3% do faturamento
+    (redação da Lei 15.269/2025, que produz efeitos na publicação: Art. 24, IV; DOU de 25.11.2025);
+    antes, 2% (redação incluída pela Lei 9.648/1998). Se o início dos efeitos não for confirmado pelo
+    texto, usa 3% e mostra os 2%. Sem o parâmetro verificado, nada é limitado e a premissa diz isso.
+  - **faturamento bruto (D6, opcional):** com ele e a base, o teto legal (% do faturamento) vira %
+    da base; sem ele, o teto é aplicado sobre a base, com o aviso "teto legal possivelmente
+    subestimado".
 - **Prazo:** vencido → exposição atual; aberto → dias restantes; recorrente ou sem data → dito.
 - **Prioridade:** vencidas, depois as que vencem em até 90 dias, depois as demais e por fim as sem
   data; dentro de cada faixa, maior exposição (provável, se houver; senão máxima), no cenário sem
@@ -77,6 +83,12 @@ o PDF real são pulados, com mensagem.
   com base informada e uma premissa faltando, ou grupo só por coincidência de termos; *baixo* nos
   demais casos (inclui o perfil vazio e obrigação sem citação verificada).
 - **Aplicabilidade:** obrigação cujo sujeito é de outro segmento fica fora da prioridade, com o motivo.
+
+## Perfil ilustrativo (demonstração)
+
+`/impacto?perfil=ilustrativo` preenche o formulário com `athenix/data/perfil_ilustrativo.json`:
+distribuidora ilustrativa, sem empresa real, ROL de R$ 5 bilhões. A origem da ordem de grandeza está
+no arquivo e na tela. O rótulo "perfil ilustrativo" some se a base ou o segmento mudarem.
 
 ## Alertas na tela e no relatório
 
@@ -103,7 +115,7 @@ primeira página); Fator X da distribuidora (anexos da REN 1.148 ausentes); REN 
 - Classificação por verbos e termos: pode marcar custo de adequação ou fiscalização onde não há.
 - Prazos herdam as limitações do `temporal` (datas provisórias, calculadas da publicação).
 - Antecedentes sem soma informada usam a faixa máxima (5% cada), dito na premissa.
-- Teto legal aplicado sobre a mesma base informada (ROL); se o faturamento for maior que a ROL, o
-  teto em reais fica subestimado (D6). A vigência da redação dada pela Lei 15.269/2025 não foi
-  conferida: infrações anteriores a ela podem seguir o limite anterior (2%, riscado no texto).
+- Sem faturamento bruto informado, o teto legal fica sobre a base (ROL) e pode estar subestimado
+  (D6, dúvida para especialista).
+- A data da infração é a data do prazo; uma infração continuada ou descoberta depois não é modelada.
 - "Nomeia o segmento" é busca por termos (transmissor, distribuidor…) no sujeito e na ação.

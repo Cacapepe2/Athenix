@@ -127,8 +127,9 @@ python3 -m venv .venv
 
 **3. Roteiro.**
 
-1. **Obrigações:** a RN ANEEL 1.137/2025 já está carregada e processada por regras. Cada obrigação
-   traz o trecho literal da norma e o link "ver no documento".
+1. **Obrigações:** a RN ANEEL 1.137/2025 já está carregada e processada por regras (169 itens).
+   Clique numa obrigação: a ficha mostra o trecho literal da norma destacado, a âncora
+   "verificada" e o link para o dispositivo no documento.
 2. **Impacto → Usar perfil ilustrativo:** uma distribuidora ilustrativa, que não é empresa real, com
    ROL de R$ 5 bilhões e a origem dessa ordem de grandeza indicada na tela.
 3. **Alertas:** a RN 1.137 cita a RN 948 com datas diferentes e altera a régua de multa da REN 846.
