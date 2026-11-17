@@ -21,7 +21,9 @@
 
 A **Athenix** é uma iniciativa de **inteligência regulatória com inteligência artificial**, em fase de descoberta de mercado e desenvolvimento de prova de conceito. Seu foco inicial é apoiar equipes do **setor elétrico brasileiro** a acompanhar normas, identificar mudanças relevantes e transformar textos regulatórios em informações rastreáveis para análise e tomada de decisão.
 
-A prova de conceito explora processamento de documentos regulatórios, extração assistida de obrigações e registro de evidências. Funcionalidades mais amplas, como gestão de conformidade e quantificação de impactos, fazem parte da visão futura e **não devem ser entendidas como recursos já disponíveis**.
+A prova de conceito explora processamento de documentos regulatórios, extração assistida de obrigações e registro de evidências. A estimativa de impacto de multas (REN 846) já existe em **versão experimental**, com premissas explícitas e sem revisão de especialista. Funcionalidades mais amplas, como gestão de conformidade, fazem parte da visão futura e **não devem ser entendidas como recursos já disponíveis**.
+
+**Quer ver funcionando?** Vá para a [demo de 3 minutos](#demo).
 
 > **Em uma frase:** da publicação de uma norma à compreensão verificável do que mudou, do que exige atenção e de onde veio cada informação.
 
@@ -89,6 +91,71 @@ No estágio atual, o objetivo é **testar a utilidade e a confiabilidade** da so
 | **Qualidade da extração** | Precisão e cobertura na identificação de obrigações, condições e prazos | Comparação com referência revisada por humanos |
 | **Produtividade** | Tempo de triagem e análise por documento | Medição comparativa com processo atual |
 | **Utilidade para o usuário** | Avaliação de profissionais e interesse em piloto | Entrevistas, testes e validação de demanda |
+
+<a name="demo"></a>
+
+## Demo de 3 minutos
+
+Sem chave de API, sem criar conta e sem variáveis de ambiente. Precisa de **Python 3.11 ou mais
+recente** e **Git**.
+
+**1. Instalar e subir** (a instalação leva de 1 a 3 minutos na primeira vez).
+
+Windows (PowerShell):
+
+```powershell
+git clone https://github.com/emilynespoli-lab/Athenix.git
+cd Athenix
+python -m venv .venv
+.\.venv\Scripts\python -m pip install -r requirements.lock
+.\.venv\Scripts\python -m athenix demo
+```
+
+macOS e Linux:
+
+```bash
+git clone https://github.com/emilynespoli-lab/Athenix.git
+cd Athenix
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.lock
+.venv/bin/python -m athenix demo
+```
+
+**2. Entrar.** O terminal mostra o endereço, o usuário `demo` e uma senha gerada na hora. Abra
+<http://127.0.0.1:8000/login> e entre com eles. Se a porta 8000 estiver ocupada, use
+`... -m athenix demo --port 8001`.
+
+**3. Roteiro.**
+
+1. **Obrigações:** a RN ANEEL 1.137/2025 já está carregada e processada por regras. Cada obrigação
+   traz o trecho literal da norma e o link "ver no documento".
+2. **Impacto → Usar perfil ilustrativo:** uma distribuidora ilustrativa, que não é empresa real, com
+   ROL de R$ 5 bilhões e a origem dessa ordem de grandeza indicada na tela.
+3. **Alertas:** a RN 1.137 cita a RN 948 com datas diferentes e altera a régua de multa da REN 846.
+4. **Impacto priorizado:** o que fazer primeiro, com faixa em R$ e em % da base, prazo, confiança,
+   premissas e fonte de cada número. O teto legal vem da Lei 9.427/1996 com a data de corte da Lei
+   15.269/2025.
+5. **Exportar relatório:** HTML autocontido; a primeira página é o resumo para decisão. Para PDF,
+   use "Imprimir → Salvar como PDF" no navegador.
+
+Para encerrar, `Ctrl+C` no terminal. A demo usa um banco próprio (`.local/demo.db`), recriado a cada
+execução; nada é enviado para fora da máquina.
+
+### Modos de IA
+
+A IA é opcional. O modo vem de `ATHENIX_AI_MODE` e aparece no topo de cada tela e na saída da CLI.
+
+| Modo | O que faz |
+| :-- | :-- |
+| `off` (padrão) | Nenhuma chamada de rede. Extração por regras, com citação verificada. |
+| `cached` | Só reaproveita respostas de IA já gravadas no banco; nunca faz chamada nova. Exige `ATHENIX_MODEL`. |
+| `live` | Chama o provedor. Só liga com `ATHENIX_MODEL`, `ATHENIX_API_KEY`, preço com fonte e data (`ATHENIX_INPUT_USD_M`, `ATHENIX_OUTPUT_USD_M`, `ATHENIX_PRICE_SOURCE`, `ATHENIX_PRICE_DATE`) e teto de custo `ATHENIX_RUN_BUDGET_USD`; senão, cai para `off` e diz o motivo. Cada execução pede confirmação e orçamento dentro do teto. Erro 429 é repetido até 3 vezes, respeitando o `Retry-After`. |
+
+### Licença
+
+O código está sob a **PolyForm Noncommercial License 1.0.0** (arquivo [LICENSE](LICENSE)): uso,
+cópia e modificação são permitidos para fins não comerciais; uso comercial depende de autorização
+do titular.
 
 ### Escopo e responsabilidade
 
