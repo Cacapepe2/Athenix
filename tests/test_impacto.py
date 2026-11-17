@@ -83,6 +83,48 @@ def test_fixed_values_all_aggravating_and_cap_scenarios():
     assert not m["limitado_teto_legal"] and m["teto_legal_pct"] == 3.0
 
 
+def units(*textos):
+    return [{"id": f"u{i}", "text": t} for i, t in enumerate(textos)]
+
+
+def test_same_act_cited_with_different_dates_is_flagged():
+    # D3 como regra geral: vale para qualquer ato, não só para a RN 948.
+    alertas = impacto.citacoes_divergentes(units(
+        "Art. 1º Conforme a Resolução Normativa nº 948, de 16 de novembro de 2021, a distribuidora",
+        "Art. 2º A Resolução Normativa nº 948, de 21 de novembro, passa a vigorar com",
+        "Art. 3º Nos termos da Lei nº 9.427, de 26 de dezembro de 1996, e da Lei nº 9.427/1997",
+    ))  # fmt: skip
+    assert [a["ato"] for a in alertas] == ["Resolução Normativa nº 948", "Lei nº 9427"]
+    assert [c["unit_id"] for c in alertas[0]["citacoes"]] == ["u0", "u1"]
+    assert "de 21 de novembro" in alertas[0]["citacoes"][1]["trecho"]
+
+
+def test_consistent_or_undated_citations_are_not_flagged():
+    assert not impacto.citacoes_divergentes(units(
+        "Art. 1º A REN nº 1.000, de 7 de dezembro de 2021, e a Resolução Normativa nº 1.000.",
+        "Art. 2º A Resolução Normativa nº 1.000, de 7 de dezembro de 2021, também se aplica.",
+        "Art. 3º A Resolução Normativa nº 1.001, de 7 de dezembro de 2021, no mesmo dia.",
+        "Art. 4º A Resolução Normativa nº 1.000/2021 e a Resolução Normativa nº 1.000, de 7 de dezembro",
+    ))  # fmt: skip
+    riscado = units(
+        "Art. 1º Lei nº 1, de 2 de maio de 2000", "Art. 2º Lei nº 1, de 3 de maio de 2000"
+    )
+    riscado[1]["struck"] = "revoked"
+    assert not impacto.citacoes_divergentes(riscado)
+
+
+def test_real_rn1137_flags_rn948_dates():
+    from athenix.config import Settings
+    from athenix.poc import reader
+
+    pdf = Path(__file__).parent / "norma_poc" / "ren20251137.pdf"
+    extraction = reader.read_pdf(pdf, Settings())["extraction"]
+    alertas = impacto.citacoes_divergentes(extraction["units"])
+    rn948 = next(a for a in alertas if a["ato"] == "Resolução Normativa nº 948")
+    datas = {c["data"] for c in rn948["citacoes"]}
+    assert {(16, "novembro", "2021"), (21, "novembro", None)} <= datas
+
+
 def test_legal_cap_limits_both_scenarios():
     legal = PARAMS["parametros"]["teto_legal_lei"]
     # Lido do Art. 3º, X da Lei 9.427/1996 (planalto.gov.br, sha256 ff948e34…), não digitado.
@@ -194,12 +236,14 @@ def test_rule_change_alert_and_screens(env):
     norma = (
         "<html><body><p>Art. 1º A distribuidora deve manter Plano de Contingência atualizado.</p>"
         "<p>Art. 2º A Resolução Normativa nº 846, de 11 de junho de 2019, passa a vigorar com a "
-        "seguinte redação:</p></body></html>"
+        "seguinte redação:</p><p>Art. 3º Aplica-se a Resolução Normativa nº 948, de 16 de novembro "
+        "de 2021, e a Resolução Normativa nº 948, de 21 de novembro.</p></body></html>"
     ).encode()
     propose(env, norma)
     page = client.get("/impacto?base=1000000&segmento=distribuicao")
     assert page.status_code == 200
     assert "altera a régua de penalidade" in page.text and "Art. 12, XXVI" in page.text
+    assert "Citação inconsistente na fonte" in page.text and "de 21 de novembro" in page.text
     assert "a confirmar com a fonte oficial da ANEEL" in page.text and impacto.AVISO in page.text
     report = client.get("/impacto/relatorio?base=1000000&download=1")
     assert report.status_code == 200 and "attachment" in report.headers["content-disposition"]

@@ -474,3 +474,49 @@ def frase(item, p, posicao):
 def alteracoes_da_regua(units):
     """Dispositivos do documento que alteram a REN 846 (a régua de penalidade)."""
     return [u for u in units if re.search(ALTERA, " ".join(u["text"].split()))]
+
+
+TIPOS_ATO = {
+    "REN": "Resolução Normativa",
+    "RN": "Resolução Normativa",
+    "REH": "Resolução Homologatória",
+}
+CITACAO_ATO = re.compile(
+    r"\b(Resolução Normativa|Resolução Homologatória|Resolução Autorizativa|Lei Complementar|Lei|"
+    r"Decreto|Despacho|Portaria|REN|RN|REH)(?:\s+ANEEL)?\s+(?:n[º°o]\.?\s*)?(\d{1,3}(?:\.\d{3})*|\d+)"
+    r"(?:/(\d{4}))?(?:,?\s+de\s+(\d{1,2})[º°o]?\s+de\s+([a-zç]+)(?:\s+de\s+(\d{4}))?)?"
+)
+
+
+def citacoes_divergentes(units):
+    """Mesma norma (tipo e número) citada no documento com dia, mês ou ano diferentes.
+
+    Parte ausente não conta como conflito: "de 21 de novembro" diverge de "de 16 de novembro de
+    2021" pelo dia. Cada variante leva o trecho e a unidade, para conferência na fonte.
+    """
+    variantes = {}
+    for unit in units:
+        if unit.get("struck"):
+            continue
+        texto = " ".join(unit["text"].split())
+        for m in CITACAO_ATO.finditer(texto):
+            dia, mes, ano = m.group(4), m.group(5), m.group(6) or m.group(3)
+            if not (dia or ano):
+                continue
+            tipo = TIPOS_ATO.get(m.group(1), m.group(1))
+            chave = (tipo, m.group(2).replace(".", ""))
+            data = (int(dia) if dia else None, mes, ano)
+            lista = variantes.setdefault(chave, [])
+            if all(v["data"] != data for v in lista):
+                lista.append({"data": data, "trecho": m.group(0), "unit_id": unit["id"]})
+    alertas = []
+    for (tipo, numero), lista in variantes.items():
+        conflita = any(
+            x is not None and y is not None and x != y
+            for a in lista
+            for b in lista
+            for x, y in zip(a["data"], b["data"])
+        )
+        if conflita:
+            alertas.append({"ato": f"{tipo} nº {numero}", "citacoes": lista})
+    return alertas

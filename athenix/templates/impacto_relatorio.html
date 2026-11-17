@@ -20,7 +20,7 @@
 <tr><th>Enquadramentos escolhidos</th><td>{{perfil.grupos|length}} obrigação(ões) com grupo informado pelo usuário</td></tr>
 </tbody></table>
 
-{{im.alertas(alteracoes, params)}}
+{{im.alertas(alteracoes, params, divergencias)}}
 
 {% if resultado.frases %}<h2>Decisão sugerida pela regra de prioridade</h2><ol>{% for f in resultado.frases %}<li>{{f}}</li>{% endfor %}</ol><p class="small">Regra: vencidas primeiro, depois as que vencem em até 90 dias, depois as demais e por fim as sem data; dentro de cada faixa, maior exposição (provável, se informada; senão máxima), no cenário sem teto.</p>{% endif %}
 

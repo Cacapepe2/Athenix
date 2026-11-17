@@ -42,7 +42,7 @@
 {% elif page == 'impact' %}{% import 'impacto_macros.html' as im with context %}
 <div class="page-heading"><div><div class="eyebrow">IMPACTO E PRIORIDADE</div><h1>O que fazer primeiro, e por quê.</h1><p>Faixas calculadas só com parâmetros citados da REN 846 e com as premissas que você informar.</p></div><div class="actions"><a class="button" href="/impacto/relatorio?{{request.url.query}}">Exportar relatório</a></div></div>
 <div class="callout warning"><strong>{{resultado.aviso}}</strong> Origem dos parâmetros de penalidade: a confirmar com a fonte oficial da ANEEL (extraídos de cópia secundária).</div>
-{{im.alertas(alteracoes, params)}}
+{{im.alertas(alteracoes, params, divergencias)}}
 <form method="get" action="/impacto">
 <section class="card"><h2>Perfil da empresa</h2><p class="small">Campos vazios ficam como premissa desconhecida: a faixa se alarga e a confiança cai. A base de cálculo nunca é estimada pelo sistema.</p><div class="profile-grid">
 <label>Segmento<select name="segmento"><option value="">Não informado</option><option value="distribuicao" {% if perfil.segmento == 'distribuicao' %}selected{% endif %}>Distribuição</option><option value="transmissao" {% if perfil.segmento == 'transmissao' %}selected{% endif %}>Transmissão</option></select></label>
