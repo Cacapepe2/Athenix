@@ -630,6 +630,10 @@ def destaques(resultado, p, limite=5):
             for n, i in enumerate(escolha)
         ],
         "outros": len(ranking) - len(escolha),
+        # Nomeiam o segmento, mas sem enquadramento: ficam em "Verificar enquadramento".
+        "verificar_segmento": [
+            i for i in resultado.get("verificar", []) if alvo and nomeia(i, alvo)
+        ],
         "parcela_variavel": receita if alvo != "distribuicao" else [],
     }
 

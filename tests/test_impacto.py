@@ -423,3 +423,17 @@ def test_order_combines_probable_exposure_and_deadline():
     assert impacto.prioridade(result["ranking"][0]) == pytest.approx(0.5)
     assert impacto.prioridade(result["ranking"][1]) == pytest.approx(0.3)
     assert result["regra"] == impacto.REGRA_ORDEM and "peso do prazo" in result["regra"]
+
+
+def test_summary_points_to_segment_obligations_awaiting_framing():
+    trans = row("As transmissoras devem implementar o plano.", [{"date": "2026-01-28", "state": "provisional"}],
+                subject="As transmissoras", rid="t1")  # fmt: skip
+    gen = row(
+        "Os agentes devem manter Plano de Contingência atualizado.", subject="Os agentes", rid="g1"
+    )
+    p = impacto.perfil({"data_referencia": HOJE, "segmento": "transmissao"})
+    d = impacto.destaques(impacto.avaliar(PARAMS, [trans, gen], p), p)
+    assert [x["item"]["row"]["id"] for x in d["itens"]] == ["g1"] and not d["itens"][0][
+        "especifica"
+    ]
+    assert [i["row"]["id"] for i in d["verificar_segmento"]] == ["t1"]
