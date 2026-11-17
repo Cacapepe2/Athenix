@@ -62,3 +62,28 @@ test('textos do site não afirmam o que o produto ainda não sustenta', async ()
   for (const re of proibidos) assert.doesNotMatch(texto, re)
   assert.match(texto, /Iniciativa em validação/)
 })
+
+
+test('demo apresenta as três primeiras prioridades e fecha o funil sem misturar enquadramento pendente', async () => {
+  const { priorities, unknownFraming, funnel } = await import('../content/demo.ts')
+  assert.deepEqual(priorities.map((o) => o.position), [1, 2, 3])
+  assert.ok(priorities.every((o) => !o.verifyFraming && o.impact.framings.length > 0))
+  assert.ok(unknownFraming.every((o) => o.position === null))
+  assert.equal(funnel.total, funnel.priorizadas + funnel.verificar + funnel.fora_perfil + funnel.sem_estimativa + funnel.desconsideradas)
+  for (const o of obligations) {
+    assert.doesNotMatch(o.short, /^(?:item|[IVX]+\s*-|\d+[.])/i)
+    assert.doesNotMatch(o.deadline, /provisório|exposição atual/)
+    assert.equal(o.impact.probable, null)
+  }
+})
+
+test('alertas de alteração incluem a redação posterior ao caput', async () => {
+  const { changes } = await import('../content/demo.ts')
+  for (const a of changes) {
+    assert.ok(a.effect.length > 20)
+    if (articleById(a.articleId).text.endsWith(':')) {
+      assert.ok(a.wording.length > 0, `redação ausente em ${a.id}`)
+      assert.ok(a.wording.every((id) => articleById(id)))
+    }
+  }
+})

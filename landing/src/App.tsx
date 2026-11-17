@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { MotionConfig, useReducedMotion } from 'motion/react'
 import { handleAnchorClick } from './lib/scroll'
+import { DemoPage } from './components/DemoPage'
 import { Header } from './components/sections/Header'
 import { Hero } from './components/sections/Hero'
 import { BusinessSummary } from './components/sections/BusinessSummary'
@@ -13,7 +14,7 @@ import { Stakes } from './components/sections/Stakes'
 import { Opportunity } from './components/sections/Opportunity'
 import { Closing } from './components/sections/Closing'
 
-export default function App() {
+export default function App({ path = '/' }: { path?: string }) {
   const reduce = useReducedMotion() ?? false
   useEffect(() => {
     const onClick = (e: MouseEvent) => handleAnchorClick(e, reduce)
@@ -24,6 +25,7 @@ export default function App() {
   return (
     // reducedMotion="user": respeita prefers-reduced-motion em todas as animações do Motion.
     <MotionConfig reducedMotion="user">
+      {/^\/demo\/?$/.test(path) ? <DemoPage /> : <>
       <Header />
       <main id="conteudo">
         <Hero />
@@ -37,6 +39,7 @@ export default function App() {
         <Opportunity />
       </main>
       <Closing />
+      </>}
     </MotionConfig>
   )
 }

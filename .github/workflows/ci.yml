@@ -4,10 +4,25 @@ jobs:
   verify:
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        # Intel evita a fila de capacidade ARM que cancelou os últimos jobs sem executar.
+        os: [ubuntu-latest, windows-latest, macos-15-intel]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: landing/package-lock.json
+      - name: Instalar dependências do site
+        run: npm ci
+        working-directory: landing
+      - name: Testes do site
+        run: npm test
+        working-directory: landing
+      - name: Build e pré-renderização das duas rotas
+        run: npm run build
+        working-directory: landing
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'

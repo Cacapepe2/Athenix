@@ -1,15 +1,25 @@
-// Pré-renderização: injeta o HTML do app em dist/index.html (o conteúdo aparece sem JavaScript).
-import { readFile, rm, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { pathToFileURL } from 'node:url'
-import { resolve } from 'node:path'
+import { dirname, resolve } from 'node:path'
+import { pages } from './page-meta.mjs'
 
-const vazio = '<div id="root"></div>'
-const pagina = resolve('dist/index.html')
+const empty = '<div id="root"></div>'
+const template = await readFile(resolve('dist/index.html'), 'utf8')
 const { render } = await import(pathToFileURL(resolve('dist-ssr/entry-server.js')).href)
-const html = await readFile(pagina, 'utf8')
-if (!html.includes(vazio)) throw new Error('dist/index.html sem <div id="root"></div>: pré-renderização não aplicada')
-const corpo = render()
-if (corpo.length < 1000) throw new Error('HTML pré-renderizado curto demais: confira entry-server')
-await writeFile(pagina, html.replace(vazio, `<div id="root">${corpo}</div>`))
+const escape = (s) => s.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;')
+if (!template.includes(empty)) throw new Error('HTML sem ponto de pré-renderização')
+for (const page of pages) {
+  const body = render(page.path)
+  if (body.length < 1000) throw new Error(`Pré-renderização incompleta: ${page.path}`)
+  let html = template.replace(empty, `<div id="root">${body}</div>`)
+    .replace(/<title>.*?<\/title>/, `<title>${escape(page.title)}</title>`)
+    .replace(/<meta name="description"[^>]*>/, `<meta name="description" content="${escape(page.description)}" />`)
+    .replace(/<meta property="og:title"[^>]*>/, `<meta property="og:title" content="${escape(page.title)}" />`)
+    .replace(/<meta property="og:description"[^>]*>/, `<meta property="og:description" content="${escape(page.description)}" />`)
+    .replace('</head>', `<link rel="canonical" href="https://athenix-two.vercel.app${page.path}" /><meta property="og:url" content="https://athenix-two.vercel.app${page.path}" /><meta name="twitter:title" content="${escape(page.title)}" /><meta name="twitter:description" content="${escape(page.description)}" /></head>`)
+  const file = resolve('dist', page.file)
+  await mkdir(dirname(file), { recursive: true })
+  await writeFile(file, html)
+  console.log(`Pré-renderizado ${page.path}: ${body.length} caracteres`)
+}
 await rm(resolve('dist-ssr'), { recursive: true, force: true })
-console.log(`pré-renderizado: ${corpo.length} caracteres em dist/index.html`)

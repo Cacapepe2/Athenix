@@ -448,3 +448,31 @@ def test_summary_points_to_segment_obligations_awaiting_framing():
         "especifica"
     ]
     assert [i["row"]["id"] for i in d["verificar_segmento"]] == ["t1"]
+
+
+def test_presentation_title_and_deadline_keep_literal_and_calculation():
+    literal = "I - Até 90 (noventa) dias para revisar e publicar os planos, conforme a norma;"
+    r = row(literal, [{"date": "2026-01-28", "state": "provisional"}])
+    i = avaliar([r], grupo_o1="IV")["ranking"][0]
+    assert i["titulo"] == "Revisar e publicar os planos"
+    assert i["row"]["action"] == literal
+    assert i["urgencia"]["principal"] == "Vencido desde 28/01/2026 (287 dias)"
+    assert "provisório" in i["urgencia"]["detalhe"]
+    assert (
+        impacto.titulo_obrigacao("94. As distribuidoras devem estabelecer um plano.")
+        == "Estabelecer um plano"
+    )
+    assert (
+        impacto.urgencia(row("x", [{"date": "2026-12-01"}]), date(2026, 11, 11))["principal"]
+        == "Vence em 01/12/2026"
+    )
+
+
+def test_amendment_wording_survives_owner_change():
+    units = [
+        {"id": "a", "kind": "article", "owner": "self", "text": "passa a vigorar:"},
+        {"id": "b", "kind": "article", "owner": "REN846", "text": "Nova redação"},
+        {"id": "c", "kind": "clause", "owner": "REN846", "text": "Infração"},
+        {"id": "d", "kind": "article", "owner": "self", "text": "Próximo artigo"},
+    ]
+    assert [u["id"] for u in impacto.redacao_alterada(units, units[0])] == ["b", "c"]

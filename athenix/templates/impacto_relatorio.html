@@ -43,7 +43,7 @@
 {{im.alertas(alteracoes, params, divergencias)}}
 
 <h2>Obrigações priorizadas ({{resultado.ranking|length}})</h2>
-<p class="small"><b>{{regra_ordem}}</b></p>
+<details><summary>Como calculamos</summary><p class="small">{{regra_ordem}}</p></details>
 <table>{{im.cabecalho_tabela()}}<tbody>{% for i in resultado.ranking %}{{im.linha(i, perfil.base, false)}}{% endfor %}</tbody></table>
 
 {{im.verificar(resultado, perfil.base, false)}}

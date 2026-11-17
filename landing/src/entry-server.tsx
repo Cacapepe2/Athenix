@@ -3,10 +3,10 @@ import { renderToString } from 'react-dom/server'
 import App from './App'
 
 /** HTML estático da página, para buscadores e prévias de link; o navegador hidrata em main.tsx. */
-export function render(): string {
+export function render(path = "/"): string {
   return renderToString(
     <StrictMode>
-      <App />
+      <App path={path} />
     </StrictMode>,
   )
 }

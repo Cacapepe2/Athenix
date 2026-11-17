@@ -726,6 +726,9 @@ def create_app(settings=None, embedded_worker=False):
                         "title": title,
                         "unit_id": unit["id"],
                         "quote": espacos(unit["text"]),
+                        "redacao": [
+                            espacos(u["text"]) for u in impacto.redacao_alterada(units, unit)
+                        ],
                     }
                 )
         demo = impacto.perfil_ilustrativo()

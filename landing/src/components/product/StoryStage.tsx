@@ -2,7 +2,7 @@ import { AnimatePresence, LayoutGroup, motion } from 'motion/react'
 import { CalendarClock, UserRound } from 'lucide-react'
 import { DocumentView } from './DocumentView'
 import { Tag } from './Tag'
-import { articleById, brl, changes, demoNorm, obligations, profile } from '../../content/demo'
+import { articleById, brl, changes, demoNorm, obligations, priorities, profile } from '../../content/demo'
 
 const ease = [0.16, 1, 0.3, 1] as const
 const stageArticles = obligations.map((o) => articleById(o.articleId))
@@ -116,7 +116,7 @@ export function StoryStage({ step }: { step: number }) {
             {step === 2 && (
               <motion.div key="obligations" {...panel}>
                 <div className="flex items-center justify-between">
-                  <p className="font-display text-lg text-obsidian">Obrigações candidatas</p>
+                  <p className="font-display text-lg text-obsidian">Obrigações para revisar</p>
                   <Tag kind="review" />
                 </div>
                 <ul className="mt-3 space-y-2.5">
@@ -177,14 +177,14 @@ export function StoryStage({ step }: { step: number }) {
                   <Tag kind="estimate" />
                 </div>
                 <div className="mt-3 overflow-hidden rounded-xl border border-line bg-white">
-                  {obligations.map((o, r) => (
+                  {priorities.map((o, r) => (
                     <div key={o.id} className="border-b border-line/70 px-3 py-2.5 last:border-0">
                       <div className="flex items-center justify-between gap-2 text-[0.72rem]">
                         <span className="flex min-w-0 items-center gap-2 font-medium text-obsidian">
                           <Badge articleId={o.articleId} />
                           <span className="truncate">{o.short}</span>
                         </span>
-                        <span className="shrink-0 text-ink-soft">até {brl(o.impact.max)}</span>
+                        <span className="shrink-0 text-ink-soft">de advertência até {brl(o.impact.max)}</span>
                       </div>
                       <span className="mt-2 block h-1.5 rounded-full bg-stone">
                         <motion.span
