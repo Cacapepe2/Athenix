@@ -115,3 +115,20 @@ def test_corpus_planalto_versionado_confere_com_os_hashes():
             "id"
         ]
         assert d["url"].startswith("https://www.planalto.gov.br/")
+
+
+def test_vetado_ou_revogado_nao_conta_como_salto_nem_repeticao():
+    vetado = html("Art. 1º Um.", "Art. 2º a 4º (VETADOS).", "Art. 5º Cinco.")
+    assert "numeracao" not in tipos(saude.avaliar(vetado))
+    revogado = html(
+        "Art. 1º Um.",
+        "I - um;",
+        "II - (Revogado pela Lei nº 1, de 2000);",
+        "II - nova redação;",
+        "III - três.",
+    )
+    assert "numeracao" not in tipos(saude.avaliar(revogado))
+    # Sem marca, o mesmo salto continua acusado.
+    assert "numeracao" in tipos(
+        saude.avaliar(html("Art. 1º Um.", "Art. 2º Dois.", "Art. 5º Cinco."))
+    )
