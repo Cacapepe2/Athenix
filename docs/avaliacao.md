@@ -84,12 +84,14 @@ sua publicação" derivada só com data de publicação única e marcada `basis:
   pendentes. Texto de OCR não tem segunda leitura: fica pendente.
 - Âncoras gravadas antes de `item0` não são reconferidas automaticamente; é preciso reprocessar.
 - REH 3.348 vem de cópia secundária (ver `fontes.json`).
+- Fontes da REN 846 e alteradoras: origem a confirmar com a ANEEL; os PDFs não estão no repositório
+  (ver `docs/parametros_impacto.md`) e os testes sobre o texto real pulam sem eles.
 
 Itens da revisão técnica fora do escopo atual (decisão de 11/11/2026: priorizar o módulo de impacto):
 
 1. **Identidade do arquivo**: SHA-256, assinatura `%PDF-` e limite de tamanho existem; falta marcar "apenas layout" por hash do texto normalizado e registrar falha de download.
 2. **Extração**: offsets e avisos por página e motor registrado existem; falta NFC na extração e mapa de posição da normalização.
-3. **Ruído de layout**: texto riscado (redação revogada em PDF compilado) tratado: fica fora da interpretação, com citação pendente. Não tratado (rodapé "Leis.org/aneel" e número de página dentro do dispositivo, sumário colado na ementa, "1. ......", rodapé web, hifenização, cabeçalho repetido, duas colunas, HTML que quebra linha em cada tag e separa "Art." do número).
+3. **Ruído de layout**: texto riscado (redação revogada em PDF compilado) tratado: fica fora da interpretação, com citação pendente. Não tratado (rodapé de compilação de terceiro e número de página dentro do dispositivo, sumário colado na ementa, "1. ......", rodapé web, hifenização, cabeçalho repetido, duas colunas, HTML que quebra linha em cada tag e separa "Art." do número).
 4. **Estrutura**: "art. N" minúsculo no início de linha corrigido (`art-minusculo`); ordinais 5o/5º/5°, validação de inciso romano, itens fora de anexos, caminhos duplicados e separação de epígrafe/ementa não tratados.
 5. **Blocos de alteração**: aspas aninhadas e "(NR)" tratados; falta fechar no próximo artigo próprio ou título, norma-alvo só pelo caput ("INDETERMINADO") e marcas explícitas de inclusão/revogação.
 6. **Tabelas**: marcador "Tabela N" existe; unidade anterior ainda engole a tabela seguinte (itens 23-G/23-H) e não há reconstrução de células.

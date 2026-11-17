@@ -23,13 +23,18 @@ Funciona sem IA e sem chave de API.
 | Usuário | Segmento, base de cálculo (ROL ou RAP), número de reincidências, TN não atendidos e antecedentes, soma das multas anteriores, atenuante esperada, valor base como % do teto e grupo de cada obrigação. |
 
 O arquivo de parâmetros é gerado por `scripts/extrair_parametros.py` (pipeline do Athenix sobre os
-PDFs de `tests/fontes_impacto/`). Percentuais são lidos do trecho citado, nunca digitados. Um
+PDFs de `tests/fontes_impacto/` ou, na falta, de `.local/fontes_impacto/`). Percentuais são lidos do trecho citado, nunca digitados. Um
 parâmetro só entra no cálculo com âncora **verificada** (segunda leitura do PDF) e redação **não
 revogada** (sem risco no PDF compilado); caso contrário a faixa fica "não estimável".
 
-Os PDFs do Leis.org não estão no repositório público (termos de uso em confirmação). Sem eles, o app e
-os testes usam o arquivo de parâmetros versionado; só a regeneração e os testes sobre o PDF real são
-pulados.
+**Origem dos parâmetros: a confirmar com a fonte oficial da ANEEL.** Os parâmetros atuais foram extraídos de três PDFs
+compilados por terceiro (Leis.org), baixados manualmente pelo fundador. Os termos de uso do site
+proíbem reproduzir ou armazenar esses textos em outros sites sem autorização escrita (cláusula 9),
+então os PDFs ficam só em `.local/fontes_impacto/` (ignorado pelo git). O Leis.org é usado apenas
+para consulta manual: o Athenix não baixa nem coleta nada dele. Quando as versões oficiais da ANEEL
+forem colocadas em `tests/fontes_impacto/`, os parâmetros são refeitos e comparados com os atuais. Sem
+os PDFs, o app e os testes usam o arquivo de parâmetros versionado; só a regeneração e os testes sobre
+o PDF real são pulados, com mensagem.
 
 ## Regras de cálculo
 
@@ -63,7 +68,7 @@ pulados.
   01/01/2027). Dúvida para especialista.
 - D5: os dois cenários de teto.
 - Inconsistência da fonte: Art. 45-I, § 4º ("25% (cinco por cento)").
-- Fonte secundária (Leis.org) visível no topo.
+- Aviso de origem dos parâmetros (a confirmar com a ANEEL; cópia secundária) visível no topo.
 
 ## Não estimável
 

@@ -17,8 +17,8 @@ leitura independente do PDF (pypdfium2).
 - **D1:** dúvida para especialista. A tela mostra as duas leituras do inciso XXIII, com a vigência de
   cada uma.
 - **D2 e D3:** alertas de inconsistência da fonte (D2 já aparece na tela de impacto; D3 entra na demo).
-- **Fonte:** PDFs do Leis.org (fonte secundária), aviso visível na tela e no relatório; fora do
-  repositório público até confirmar os termos de uso.
+- **Fonte:** a confirmar com a fonte oficial da ANEEL. Os parâmetros atuais saíram de cópias secundárias (compilações de
+  terceiro) que não podem ser publicadas; aviso visível na tela e no relatório.
 - **REN 1.162, Despacho 1.293 e norma de Parcela Variável:** seguem como "não estimável".
 
 Os parâmetros usados pelo módulo estão em `athenix/data/penalidades_ren846.json` (ver `docs/impacto.md`).
@@ -26,18 +26,24 @@ Os parâmetros usados pelo módulo estão em `athenix/data/penalidades_ren846.js
 ## Fontes
 
 Os hashes e a proveniência estão em `tests/fontes_impacto/fontes.json`, conferidos por
-`tests/test_ren846.py`.
+`tests/test_ren846.py`. Os PDFs **não estão no repositório**: ficam em `.local/fontes_impacto/` (ignorado
+pelo git). Os testes procuram primeiro em `tests/fontes_impacto/` (versão oficial) e depois em
+`.local/`; sem nenhum dos dois, pulam com mensagem.
 
 | Ato | Arquivo | SHA-256 (12) | Vigência declarada |
 | --- | --- | --- | --- |
-| REN 846/2019, texto compilado | `tests/fontes_impacto/ren2019846_compilada.pdf` | d8b6fae9322f | Art. 49 |
+| REN 846/2019, texto compilado | `ren2019846_compilada.pdf` | d8b6fae9322f | Art. 49 |
 | RN 1.137/2025 | `tests/norma_poc/ren20251137.pdf` | 4a581592e981 | publicação (Art. 21; DOU 30.10.2025) |
-| REN 1.148/2026 | `tests/fontes_impacto/ren20261148.pdf` | 00f8c4a41605 | **1º/1/2027** (Art. 10) |
-| REN 1.174/2026, texto compilado | `tests/fontes_impacto/ren20261174.pdf` | a2f89f9e431e | publicação, salvo exceções (Art. 18; DOU 04.11.2026) |
+| REN 1.148/2026 | `ren20261148.pdf` | 00f8c4a41605 | **1º/1/2027** (Art. 10) |
+| REN 1.174/2026, texto compilado | `ren20261174.pdf` | a2f89f9e431e | publicação, salvo exceções (Art. 18; DOU 04.11.2026) |
 
-**Ressalva de origem.** O rodapé de todas as páginas diz "Leis.org/aneel – … Gerado em". São
-compilações de terceiro, não o PDF publicado pela ANEEL. Até conferir com a ANEEL ou o DOU, valem
-como fonte secundária.
+**Origem: a confirmar com a fonte oficial da ANEEL.** Os arquivos consultados são compilações de terceiro
+(Leis.org), baixadas manualmente pelo fundador; os termos de uso do site proíbem reproduzir ou armazenar
+esses textos em outros sites sem autorização escrita (cláusula 9), por isso saíram do repositório. O
+Leis.org é usado só para consulta manual: o Athenix não baixa nem coleta nada dele. Os parâmetros abaixo
+foram extraídos dessas cópias locais e serão refeitos, com comparação, quando as versões oficiais da
+ANEEL forem colocadas em `tests/fontes_impacto/`. As citações literais são de ato oficial
+(Lei 9.610/1998, art. 8º, IV).
 
 **Não fornecidos:**
 

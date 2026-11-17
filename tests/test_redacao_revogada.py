@@ -1,8 +1,6 @@
 """D4: redação revogada (riscada no PDF compilado) nunca vira obrigação, citação verificada nem
 parâmetro de cálculo; riscado parcial fica pendente."""
 
-from pathlib import Path
-
 import pytest
 from pdf_helpers import lines_pdf
 
@@ -11,6 +9,7 @@ from athenix.evidence import verify
 from athenix.poc import reader
 from athenix.proposals import rule_candidates
 from athenix.structure import extract, locate_struck
+from scripts.extrair_parametros import fonte
 
 LINES = [
     "Art. 1 A distribuidora deve enviar o relatorio em 30 dias.",
@@ -70,10 +69,14 @@ def test_unlocated_struck_text_makes_page_pending():
     assert locate_struck("a b\nc d", [["c", "d"]]) == [(4, 7)]
 
 
-REN846 = Path(__file__).parent / "fontes_impacto" / "ren2019846_compilada.pdf"
+REN846 = fonte("ren2019846_compilada.pdf")
 
 
-@pytest.mark.skipif(not REN846.exists(), reason="PDF do Leis.org fora do repositório público")
+@pytest.mark.skipif(
+    not REN846.exists(),
+    reason="REN 846 não encontrada em tests/fontes_impacto/ (versão oficial) nem em "
+    ".local/fontes_impacto/ (cópia local): aguardando o arquivo oficial da ANEEL",
+)
 def test_real_ren846_revoked_wordings():
     # sha256 d8b6fae9…; antes: as duas redações de cada parágrafo saíam "verificadas" (12 revogadas
     # citáveis como vigentes). Depois: 12 marcadas como revogadas, 0 parciais.

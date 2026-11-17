@@ -5,8 +5,9 @@ Uso:
   python scripts/extrair_parametros.py                      # regrava athenix/data/penalidades_ren846.json
   python scripts/extrair_parametros.py --dump saida.json    # também despeja todos os dispositivos
 
-Exige os PDFs em tests/fontes_impacto/ (fora do repositório público até confirmar os termos de
-uso do Leis.org). Nenhum valor é digitado: percentuais são lidos do trecho citado.
+Lê os PDFs em tests/fontes_impacto/ (versão oficial, quando existir) ou, na falta, em
+.local/fontes_impacto/ (cópia local, fora do repositório; origem a confirmar com a fonte oficial da
+ANEEL). Nenhum valor é digitado: percentuais são lidos do trecho citado.
 """
 
 import argparse
@@ -25,11 +26,19 @@ from athenix.poc import reader  # noqa: E402
 from athenix.temporal import NUMBERS  # noqa: E402
 
 FONTES = ROOT / "tests" / "fontes_impacto"
+LOCAL = ROOT / ".local" / "fontes_impacto"
+
+
+def fonte(nome):
+    """Versão oficial em tests/fontes_impacto/; na falta, a cópia local (fora do repositório)."""
+    return next((p / nome for p in (FONTES, LOCAL) if (p / nome).exists()), FONTES / nome)
+
+
 DOCS = {
-    "846": (FONTES / "ren2019846_compilada.pdf", "REN 846/2019 (texto compilado)"),
+    "846": (fonte("ren2019846_compilada.pdf"), "REN 846/2019 (texto compilado)"),
     "1137": (ROOT / "tests/norma_poc/ren20251137.pdf", "RN 1.137/2025"),
-    "1148": (FONTES / "ren20261148.pdf", "REN 1.148/2026"),
-    "1174": (FONTES / "ren20261174.pdf", "REN 1.174/2026 (texto compilado)"),
+    "1148": (fonte("ren20261148.pdf"), "REN 1.148/2026"),
+    "1174": (fonte("ren20261174.pdf"), "REN 1.174/2026 (texto compilado)"),
 }
 FOOTER = re.compile(r"\s*Leis\.org/aneel - [^\n]*(?:\n\s*\d+/\d+)?|\n\s*\d+/\d+\s*(?=\n|$)")
 LABEL = re.compile(
@@ -205,7 +214,8 @@ def build(docs):
         entry = cite(unit, ren["extraction"])
         if len(current) != 1:
             entry |= {"ancora": "pending", "motivo": f"{len(current)} redações vigentes: conferir"}
-        trecho = entry["trecho"]
+        # A nota "(Redação dada pela ...)" é anotação da compilação, não texto do ato: fica fora do trecho.
+        trecho = entry["trecho"] = " ".join(ORIGEM.sub("", entry["trecho"]).split())
         parametros[pid] = {
             "descricao": description,
             "dispositivo": "Art. " + path.replace(" > ", ", "),
@@ -220,13 +230,14 @@ def build(docs):
             continue
         entry = cite(unit, ren["extraction"])
         origem = ORIGEM.search(entry["trecho"])
+        entry["trecho"] = " ".join(ORIGEM.sub("", entry["trecho"]).split())
         infracoes.append(
             {
                 "dispositivo": f"Art. {match.group(1)}, {match.group(2)}",
                 "grupo": group_of(ren["units"], match.group(1)),
                 **entry,
                 "origem": f"RN {origem.group(1)}" if origem else "redação original",
-                "termos": termos(ORIGEM.sub("", entry["trecho"])),
+                "termos": termos(entry["trecho"]),
             }
         )
     # D1: o inciso XXIII do art. 11 tem duas redações em atos diferentes; nenhuma é escolhida.
@@ -272,7 +283,7 @@ def build(docs):
         "fontes": {
             name: {k: doc[k] for k in ("titulo", "arquivo", "sha256", "vigencia")}
             | {
-                "origem": "Leis.org (compilação de terceiro): fonte secundária"
+                "origem": "a confirmar com a fonte oficial da ANEEL (cópia local, fora do repositório)"
                 if name != "1137"
                 else "ANEEL (texto compilado já no repositório)"
             }

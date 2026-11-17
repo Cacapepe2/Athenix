@@ -4,10 +4,10 @@
  "fontes": {
   "846": {
    "titulo": "REN 846/2019 (texto compilado)",
-   "arquivo": "tests/fontes_impacto/ren2019846_compilada.pdf",
+   "arquivo": ".local/fontes_impacto/ren2019846_compilada.pdf",
    "sha256": "d8b6fae9322fbb01e903f9fcb65fcf0f79155ad95f5cb3f5eb86592cada4d21a",
    "vigencia": null,
-   "origem": "Leis.org (compilação de terceiro): fonte secundária"
+   "origem": "a confirmar com a fonte oficial da ANEEL (cópia local, fora do repositório)"
   },
   "1137": {
    "titulo": "RN 1.137/2025",
@@ -18,17 +18,17 @@
   },
   "1148": {
    "titulo": "REN 1.148/2026",
-   "arquivo": "tests/fontes_impacto/ren20261148.pdf",
+   "arquivo": ".local/fontes_impacto/ren20261148.pdf",
    "sha256": "00f8c4a41605a697eddac3be1ec916e4017bf78f2f1480162749f52dd6f801cb",
    "vigencia": "2027-01-01",
-   "origem": "Leis.org (compilação de terceiro): fonte secundária"
+   "origem": "a confirmar com a fonte oficial da ANEEL (cópia local, fora do repositório)"
   },
   "1174": {
    "titulo": "REN 1.174/2026 (texto compilado)",
-   "arquivo": "tests/fontes_impacto/ren20261174.pdf",
+   "arquivo": ".local/fontes_impacto/ren20261174.pdf",
    "sha256": "a2f89f9e431eb9dfc0122d0a646ade8711791434e2c6515c5c91e41d62f38e53",
    "vigencia": "2026-11-04",
-   "origem": "Leis.org (compilação de terceiro): fonte secundária"
+   "origem": "a confirmar com a fonte oficial da ANEEL (cópia local, fora do repositório)"
   }
  },
  "nao_estimaveis": [
@@ -405,7 +405,7 @@
   "reducao_renuncia": {
    "descricao": "Redução por renúncia ao recurso",
    "dispositivo": "Art. 38, § 2º",
-   "trecho": "§ 2º O infrator que renunciar expressamente ao direito de interpor recurso, no prazo de dez dias, nos termos do caput do art. 36, fará jus ao fator de redução de 25% (vinte e cinco por cento) no valor da multa aplicada, caso efetue o pagamento no prazo definido no caput , vedado o parcelamento. (Redação dada pela Resolução Normativa nº 949/2021)",
+   "trecho": "§ 2º O infrator que renunciar expressamente ao direito de interpor recurso, no prazo de dez dias, nos termos do caput do art. 36, fará jus ao fator de redução de 25% (vinte e cinco por cento) no valor da multa aplicada, caso efetue o pagamento no prazo definido no caput , vedado o parcelamento.",
    "ancora": "verified",
    "motivo": null,
    "nota": null,
@@ -497,7 +497,7 @@
   {
    "dispositivo": "Art. 9º, IV",
    "grupo": "I",
-   "trecho": "IV - sistemas de armazenamento de energia. (Redação dada pela Resolução Normativa nº 1162/2026)",
+   "trecho": "IV - sistemas de armazenamento de energia.",
    "ancora": "verified",
    "motivo": null,
    "nota": null,
@@ -530,7 +530,7 @@
   {
    "dispositivo": "Art. 9º, VII",
    "grupo": "I",
-   "trecho": "VII - deixar de registrar ou de analisar as ocorrências nos seus sistemas de distribuição, transmissão, geração ou armazenamento; (Redação dada pela Resolução Normativa nº 1162/2026)",
+   "trecho": "VII - deixar de registrar ou de analisar as ocorrências nos seus sistemas de distribuição, transmissão, geração ou armazenamento;",
    "ancora": "verified",
    "motivo": null,
    "nota": null,
@@ -723,7 +723,7 @@
   {
    "dispositivo": "Art. 10, VII",
    "grupo": "II",
-   "trecho": "VII - descumprir disposições legais ou regulamentares relativas aos limites máximos de exposição humana a campos elétricos, magnéticos e eletromagnéticos variantes no tempo, produzidos pelas instalações de geração, de transmissão, de distribuição, de armazenamento e de interesse restrito, em qualquer nível de tensão; (Redação dada pela Resolução Normativa nº 1162/2026)",
+   "trecho": "VII - descumprir disposições legais ou regulamentares relativas aos limites máximos de exposição humana a campos elétricos, magnéticos e eletromagnéticos variantes no tempo, produzidos pelas instalações de geração, de transmissão, de distribuição, de armazenamento e de interesse restrito, em qualquer nível de tensão;",
    "ancora": "verified",
    "motivo": null,
    "nota": null,
@@ -778,7 +778,7 @@
   {
    "dispositivo": "Art. 10, XII",
    "grupo": "II",
-   "trecho": "XII - deixar de apurar ou de registrar, separadamente, os investimentos, as receitas e os custos por geração, transmissão, distribuição, comercialização e armazenamento de energia elétrica; (Redação dada pela Resolução Normativa nº 1162/2026)",
+   "trecho": "XII - deixar de apurar ou de registrar, separadamente, os investimentos, as receitas e os custos por geração, transmissão, distribuição, comercialização e armazenamento de energia elétrica;",
    "ancora": "verified",
    "motivo": null,
    "nota": null,
@@ -857,7 +857,7 @@
   {
    "dispositivo": "Art. 10, XIX",
    "grupo": "II",
-   "trecho": "XIX - operar centrais geradoras ou sistemas de armazenamento de energia ou instalações da rede básica sem a instalação de medidores de energia elétrica e demais equipamentos de medição exigidos; e (Redação dada pela Resolução Normativa nº 1162/2026)",
+   "trecho": "XIX - operar centrais geradoras ou sistemas de armazenamento de energia ou instalações da rede básica sem a instalação de medidores de energia elétrica e demais equipamentos de medição exigidos; e",
    "ancora": "verified",
    "motivo": null,
    "nota": null,
@@ -988,7 +988,7 @@
   {
    "dispositivo": "Art. 11, X",
    "grupo": "III",
-   "trecho": "X - deixar de cumprir ao disposto nas Condições Gerais de Fornecimento de Energia Elétrica e nas Regras de Prestação do Serviço Público de Distribuição de Energia Elétrica; (Redação dada pela Resolução Normativa nº 1000/2021)",
+   "trecho": "X - deixar de cumprir ao disposto nas Condições Gerais de Fornecimento de Energia Elétrica e nas Regras de Prestação do Serviço Público de Distribuição de Energia Elétrica;",
    "ancora": "verified",
    "motivo": null,
    "nota": null,
@@ -1141,7 +1141,7 @@
   {
    "dispositivo": "Art. 11, XXIII",
    "grupo": "III",
-   "trecho": "XXIII - deixar de prestar informações decorrentes de interrupções no fornecimento de energia elétrica aos consumidores ou usuários, nos termos da regulação vigente. (Redação acrescida pela Resolução Normativa nº 1137/2025)",
+   "trecho": "XXIII - deixar de prestar informações decorrentes de interrupções no fornecimento de energia elétrica aos consumidores ou usuários, nos termos da regulação vigente.",
    "ancora": "verified",
    "motivo": null,
    "nota": null,
@@ -1152,7 +1152,7 @@
   {
    "dispositivo": "Art. 11, XXIV",
    "grupo": "III",
-   "trecho": "XXIV - atrasar, dificultar ou representar lesão ou ameaça ao direito de o […] consumidor implementar o exercício da opção de que tratam o art. 15 e o art. 16 da Lei nº 9.074, de 7 de julho de 1995. (Redação acrescida pela Resolução Normativa nº 1174/2026)",
+   "trecho": "XXIV - atrasar, dificultar ou representar lesão ou ameaça ao direito de o […] consumidor implementar o exercício da opção de que tratam o art. 15 e o art. 16 da Lei nº 9.074, de 7 de julho de 1995.",
    "ancora": "verified",
    "motivo": null,
    "nota": null,
@@ -1445,7 +1445,7 @@
   {
    "dispositivo": "Art. 12, XXVI",
    "grupo": "IV",
-   "trecho": "XXVI - a ausência, inadequação ou descumprimento do Plano de Contingência, nos termos da regulação vigente; (Redação acrescida pela Resolução Normativa nº 1137/2025)",
+   "trecho": "XXVI - a ausência, inadequação ou descumprimento do Plano de Contingência, nos termos da regulação vigente;",
    "ancora": "verified",
    "motivo": null,
    "nota": null,
@@ -1458,7 +1458,7 @@
   {
    "dispositivo": "Art. 12, XXVII",
    "grupo": "IV",
-   "trecho": "XXVII - a ausência, inadequação ou descumprimento do Plano de Manejo Vegetal, nos termos da regulação vigente; e (Redação acrescida pela Resolução Normativa nº 1137/2025)",
+   "trecho": "XXVII - a ausência, inadequação ou descumprimento do Plano de Manejo Vegetal, nos termos da regulação vigente; e",
    "ancora": "verified",
    "motivo": null,
    "nota": null,
@@ -1471,7 +1471,7 @@
   {
    "dispositivo": "Art. 12, XXVIII",
    "grupo": "IV",
-   "trecho": "XXVIII - comunicar-se de forma ineficiente com o Poder Público em Situações de Emergência, nos termos da regulação vigente. (Redação acrescida pela Resolução Normativa nº 1137/2025)",
+   "trecho": "XXVIII - comunicar-se de forma ineficiente com o Poder Público em Situações de Emergência, nos termos da regulação vigente.",
    "ancora": "verified",
    "motivo": null,
    "nota": null,
@@ -1693,7 +1693,7 @@
   {
    "dispositivo": "Art. 13, XIX",
    "grupo": "V",
-   "trecho": "XIX - atuar de forma inadequada no restabelecimento do fornecimento de energia elétrica nos sistemas de distribuição; e (Redação acrescida pela Resolução Normativa nº 1137/2025)",
+   "trecho": "XIX - atuar de forma inadequada no restabelecimento do fornecimento de energia elétrica nos sistemas de distribuição; e",
    "ancora": "verified",
    "motivo": null,
    "nota": null,
@@ -1704,7 +1704,7 @@
   {
    "dispositivo": "Art. 13, XX",
    "grupo": "V",
-   "trecho": "XX - atuar de forma inadequada no retorno à disponibilidade das instalações sob responsabilidade de concessionária de transmissão. (Redação acrescida pela Resolução Normativa nº 1137/2025)",
+   "trecho": "XX - atuar de forma inadequada no retorno à disponibilidade das instalações sob responsabilidade de concessionária de transmissão.",
    "ancora": "verified",
    "motivo": null,
    "nota": null,

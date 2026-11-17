@@ -48,7 +48,9 @@ def test_parameter_file_only_has_verified_current_wordings():
         if path.exists():
             assert hashlib.sha256(path.read_bytes()).hexdigest() == fonte["sha256"]
         else:
-            assert path.parent == fontes  # só os PDFs do Leis.org podem faltar (fora do repo)
+            assert (
+                path.parent.name == fontes.name
+            )  # só as fontes de terceiros podem faltar (fora do repo)
 
 
 def test_fixed_values_explicit_group_with_base_and_premises():
@@ -176,7 +178,7 @@ def test_rule_change_alert_and_screens(env):
     page = client.get("/impacto?base=1000000&segmento=distribuicao")
     assert page.status_code == 200
     assert "altera a régua de penalidade" in page.text and "Art. 12, XXVI" in page.text
-    assert "Leis.org" in page.text and impacto.AVISO in page.text
+    assert "a confirmar com a fonte oficial da ANEEL" in page.text and impacto.AVISO in page.text
     report = client.get("/impacto/relatorio?base=1000000&download=1")
     assert report.status_code == 200 and "attachment" in report.headers["content-disposition"]
     assert report.text.count(impacto.AVISO) >= 2

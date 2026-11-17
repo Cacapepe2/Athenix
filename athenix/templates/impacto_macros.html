@@ -24,7 +24,7 @@
 
 {% macro fontes(params) %}
 <div class="table-wrap"><table><thead><tr><th>Ato</th><th>Arquivo · SHA-256</th><th>Origem</th></tr></thead><tbody>{% for k, f in params.fontes.items() %}<tr><td>{{f.titulo}}</td><td><code>{{f.arquivo}}</code><small><code>{{f.sha256}}</code></small></td><td>{{f.origem}}</td></tr>{% endfor %}</tbody></table></div>
-<p class="small">PDFs do Leis.org não estão no repositório público (termos de uso em confirmação); o arquivo de parâmetros guarda o trecho literal e o hash de cada fonte.</p>
+<p class="small">Origem dos parâmetros de penalidade: a confirmar com a fonte oficial da ANEEL (extraídos de cópia secundária, fora do repositório). O arquivo de parâmetros guarda o trecho literal e o hash de cada fonte.</p>
 <details><summary>Parâmetros usados ({{params.parametros|length}})</summary><div class="table-wrap"><table><thead><tr><th>Parâmetro</th><th>Dispositivo</th><th>Trecho literal</th><th>Âncora</th></tr></thead><tbody>{% for k, p in params.parametros.items() %}<tr><td>{{p.descricao}}</td><td>{{p.dispositivo}}</td><td>“{{p.trecho}}”</td><td>{{p.ancora|label}}{% if p.nota %}<small>{{p.nota}}</small>{% endif %}</td></tr>{% endfor %}</tbody></table></div></details>
 <h3>Não estimável</h3><ul>{% for n in params.nao_estimaveis %}<li>{{n}}</li>{% endfor %}</ul>
 {% endmacro %}
