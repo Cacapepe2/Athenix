@@ -1,0 +1,165 @@
+{
+ "nota": "Corpus de robustez da extração (docs/robustez.md). Atos oficiais (Lei 9.610/1998, art. 8º, IV), baixados uma vez cada do planalto.gov.br, sem edição. Usados só para medir a extração.",
+ "documentos": [
+  {
+   "id": "l8987",
+   "arquivo": "l8987.htm",
+   "sha256": "481e8c87a4b0d882bc86b8d987855ac3164c3994ed0f77ace017f63526a820d0",
+   "ato": "Lei nº 8.987, de 13 de fevereiro de 1995 (texto compilado)",
+   "url": "https://www.planalto.gov.br/ccivil_03/leis/l8987cons.htm",
+   "obtido_em": "2026-11-17",
+   "publicador": "Presidência da República, Casa Civil (planalto.gov.br)",
+   "fonte": "oficial (texto do planalto.gov.br; a publicação oficial é o DOU)"
+  },
+  {
+   "id": "l9074",
+   "arquivo": "l9074.htm",
+   "sha256": "b3d3032dc59f105bc2dd4c7bc893bbba84bacdb247205f3f235565bce6034287",
+   "ato": "Lei nº 9.074, de 7 de julho de 1995 (texto compilado)",
+   "url": "https://www.planalto.gov.br/ccivil_03/leis/l9074cons.htm",
+   "obtido_em": "2026-11-17",
+   "publicador": "Presidência da República, Casa Civil (planalto.gov.br)",
+   "fonte": "oficial (texto do planalto.gov.br; a publicação oficial é o DOU)"
+  },
+  {
+   "id": "l9478",
+   "arquivo": "l9478.htm",
+   "sha256": "75863c37450a19c60fe2ec50dadcd79f806883d6a2f17c4e70a709051420e9c9",
+   "ato": "Lei nº 9.478, de 6 de agosto de 1997",
+   "url": "https://www.planalto.gov.br/ccivil_03/leis/l9478.htm",
+   "obtido_em": "2026-11-17",
+   "publicador": "Presidência da República, Casa Civil (planalto.gov.br)",
+   "fonte": "oficial (texto do planalto.gov.br; a publicação oficial é o DOU)"
+  },
+  {
+   "id": "l9991",
+   "arquivo": "l9991.htm",
+   "sha256": "d9cebcc3ce0878c67534b9ab7c7440f7220bc923d28a5264a959682bcee56b16",
+   "ato": "Lei nº 9.991, de 24 de julho de 2000",
+   "url": "https://www.planalto.gov.br/ccivil_03/leis/l9991.htm",
+   "obtido_em": "2026-11-17",
+   "publicador": "Presidência da República, Casa Civil (planalto.gov.br)",
+   "fonte": "oficial (texto do planalto.gov.br; a publicação oficial é o DOU)"
+  },
+  {
+   "id": "l10438",
+   "arquivo": "l10438.htm",
+   "sha256": "0ceb644391b013c7a5b1a748754bd37aa332f5e7254789c9922e1a7dfd8601c2",
+   "ato": "Lei nº 10.438, de 26 de abril de 2002",
+   "url": "https://www.planalto.gov.br/ccivil_03/leis/2002/l10438.htm",
+   "obtido_em": "2026-11-17",
+   "publicador": "Presidência da República, Casa Civil (planalto.gov.br)",
+   "fonte": "oficial (texto do planalto.gov.br; a publicação oficial é o DOU)"
+  },
+  {
+   "id": "l10848",
+   "arquivo": "l10848.htm",
+   "sha256": "63ad9c363c88b968bc9644b90e0677fbaa8bb9822ca324938e7bdd0cc30cf61b",
+   "ato": "Lei nº 10.848, de 15 de março de 2004",
+   "url": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l10.848.htm",
+   "obtido_em": "2026-11-17",
+   "publicador": "Presidência da República, Casa Civil (planalto.gov.br)",
+   "fonte": "oficial (texto do planalto.gov.br; a publicação oficial é o DOU)"
+  },
+  {
+   "id": "l12783",
+   "arquivo": "l12783.htm",
+   "sha256": "a3e96c6f59521125a8b97e73ce1e7f4be5d8df630bb6a158528a24c6760430e7",
+   "ato": "Lei nº 12.783, de 11 de janeiro de 2013",
+   "url": "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2013/lei/l12783.htm",
+   "obtido_em": "2026-11-17",
+   "publicador": "Presidência da República, Casa Civil (planalto.gov.br)",
+   "fonte": "oficial (texto do planalto.gov.br; a publicação oficial é o DOU)"
+  },
+  {
+   "id": "l13360",
+   "arquivo": "l13360.htm",
+   "sha256": "e076f446a314f989f113aeb1af9272201b684f443cf69129a126bf1e7821e204",
+   "ato": "Lei nº 13.360, de 17 de novembro de 2016",
+   "url": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2016/lei/l13360.htm",
+   "obtido_em": "2026-11-17",
+   "publicador": "Presidência da República, Casa Civil (planalto.gov.br)",
+   "fonte": "oficial (texto do planalto.gov.br; a publicação oficial é o DOU)"
+  },
+  {
+   "id": "l13848",
+   "arquivo": "l13848.htm",
+   "sha256": "e7188b1953f014fd992dea53382f9e46dd8fd518cbb19ca7ec91675fe023ff18",
+   "ato": "Lei nº 13.848, de 25 de junho de 2019",
+   "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/lei/l13848.htm",
+   "obtido_em": "2026-11-17",
+   "publicador": "Presidência da República, Casa Civil (planalto.gov.br)",
+   "fonte": "oficial (texto do planalto.gov.br; a publicação oficial é o DOU)"
+  },
+  {
+   "id": "l14120",
+   "arquivo": "l14120.htm",
+   "sha256": "0590ff4e590850be60bd4779ab72055971b1a1a935679c1342da07df2726e49e",
+   "ato": "Lei nº 14.120, de 1º de março de 2021",
+   "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/l14120.htm",
+   "obtido_em": "2026-11-17",
+   "publicador": "Presidência da República, Casa Civil (planalto.gov.br)",
+   "fonte": "oficial (texto do planalto.gov.br; a publicação oficial é o DOU)"
+  },
+  {
+   "id": "l14182",
+   "arquivo": "l14182.htm",
+   "sha256": "ceb8da3c5f9bef7e7761f3967f124282ab4e57718491841ad9d1039a4f868c26",
+   "ato": "Lei nº 14.182, de 12 de julho de 2021",
+   "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/l14182.htm",
+   "obtido_em": "2026-11-17",
+   "publicador": "Presidência da República, Casa Civil (planalto.gov.br)",
+   "fonte": "oficial (texto do planalto.gov.br; a publicação oficial é o DOU)"
+  },
+  {
+   "id": "l14300",
+   "arquivo": "l14300.htm",
+   "sha256": "1ea82253b42a38ea1990694425f6e3f82844344f73131a64d64994a2a2502890",
+   "ato": "Lei nº 14.300, de 6 de janeiro de 2022",
+   "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2022/lei/l14300.htm",
+   "obtido_em": "2026-11-17",
+   "publicador": "Presidência da República, Casa Civil (planalto.gov.br)",
+   "fonte": "oficial (texto do planalto.gov.br; a publicação oficial é o DOU)"
+  },
+  {
+   "id": "d2335",
+   "arquivo": "d2335.htm",
+   "sha256": "0873efbb7262e0c86cf96d359550edad63be1a6a7e1562cee03a05e46ffa4750",
+   "ato": "Decreto nº 2.335, de 6 de outubro de 1997",
+   "url": "https://www.planalto.gov.br/ccivil_03/decreto/d2335.htm",
+   "obtido_em": "2026-11-17",
+   "publicador": "Presidência da República, Casa Civil (planalto.gov.br)",
+   "fonte": "oficial (texto do planalto.gov.br; a publicação oficial é o DOU)"
+  },
+  {
+   "id": "d5163",
+   "arquivo": "d5163.htm",
+   "sha256": "647b127223339d6026d2a367306b700c975bf251b780a744a9d5dcd6ab2aa63b",
+   "ato": "Decreto nº 5.163, de 30 de julho de 2004",
+   "url": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/decreto/d5163.htm",
+   "obtido_em": "2026-11-17",
+   "publicador": "Presidência da República, Casa Civil (planalto.gov.br)",
+   "fonte": "oficial (texto do planalto.gov.br; a publicação oficial é o DOU)"
+  },
+  {
+   "id": "d7246",
+   "arquivo": "d7246.htm",
+   "sha256": "97bb2c79637ec8f63d328a1f73fc3e4247077619209417d36f0a2179bf397931",
+   "ato": "Decreto nº 7.246, de 28 de julho de 2010",
+   "url": "https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2010/decreto/d7246.htm",
+   "obtido_em": "2026-11-17",
+   "publicador": "Presidência da República, Casa Civil (planalto.gov.br)",
+   "fonte": "oficial (texto do planalto.gov.br; a publicação oficial é o DOU)"
+  },
+  {
+   "id": "d10946",
+   "arquivo": "d10946.htm",
+   "sha256": "0a034217b79cdb6296ac3640bb6cd5a1763dc0dd2e270bfd2eee6a1a14694c55",
+   "ato": "Decreto nº 10.946, de 25 de janeiro de 2022",
+   "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2022/decreto/d10946.htm",
+   "obtido_em": "2026-11-17",
+   "publicador": "Presidência da República, Casa Civil (planalto.gov.br)",
+   "fonte": "oficial (texto do planalto.gov.br; a publicação oficial é o DOU)"
+  }
+ ]
+}

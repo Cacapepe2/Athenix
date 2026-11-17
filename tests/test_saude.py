@@ -100,3 +100,18 @@ def test_redacao_revogada_nao_vira_salto_nem_repeticao():
         if u["text"].startswith(("Art. 2º", "I - antigo")):
             u["struck"] = "revoked"
     assert "numeracao" not in tipos(saude.avaliar(extracao))
+
+
+def test_corpus_planalto_versionado_confere_com_os_hashes():
+    import hashlib
+    import json
+    from pathlib import Path
+
+    pasta = Path(__file__).parent / "corpus_planalto"
+    docs = json.loads((pasta / "fontes.json").read_text(encoding="utf-8"))["documentos"]
+    assert len(docs) == 16
+    for d in docs:
+        assert hashlib.sha256((pasta / d["arquivo"]).read_bytes()).hexdigest() == d["sha256"], d[
+            "id"
+        ]
+        assert d["url"].startswith("https://www.planalto.gov.br/")
