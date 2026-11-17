@@ -33,6 +33,13 @@ ADEQUACAO = re.compile(
 RECEITA = re.compile(
     r"Parcela Variável|\bPVI\b|\bPVRO\b|Receita Anual Permitida|\bRAP\b|Fator X", re.I
 )
+# Só disponibilidade de instalações de transmissão pesa na Parcela Variável; "disponibilidade de
+# recursos" ou de atendimento telefônico não (falsos positivos na RN 1.137).
+DISPONIBILIDADE = re.compile(
+    r"(?:in)?disponibilidade\s+d[aeo]s?\s+(?:instala\w+|ativos?|equipamentos?|linhas?\s+de\s+"
+    r"transmiss\w+|fun[çc](?:ão|ões)\s+transmiss\w+|transformador\w*)",
+    re.I,
+)
 FISCALIZACAO = re.compile(
     r"\b(?:ANEEL|fiscaliz\w*|inform\w*|envi\w*|comunic\w*|registr\w*|public\w*|divulg\w*|report\w*)",
     re.I,
@@ -202,9 +209,10 @@ def classificar(row, texto, p):
     ]
     if m := ADEQUACAO.search(row.get("action", "")):
         out.append(("adequacao", f'Exige "{m.group()}": custo interno da empresa.'))
-    if (m := RECEITA.search(texto)) or (
-        p["segmento"] == "transmissao" and re.search(r"disponibilidade|indisponib", texto, re.I)
-    ):
+    transmissao = p["segmento"] == "transmissao" or (
+        not p["segmento"] and SEGMENTO["transmissao"].search(texto)
+    )
+    if (m := RECEITA.search(texto)) or (transmissao and DISPONIBILIDADE.search(texto)):
         termo = m.group() if m else "disponibilidade de instalações de transmissão"
         out.append(
             ("receita", f'Menciona "{termo}": pode afetar a receita (Parcela Variável/Fator X).')
@@ -464,11 +472,61 @@ def formatar(item, p, chave="sem_teto"):
     return f"{rotulo} {_pct(pct)} da base (informe a base para ver em R$)"
 
 
+ORDEM = ("Faça isto primeiro", "Depois", "Em seguida", "Na sequência", "Por último")
+
+
 def frase(item, p, posicao):
     acao = " ".join(item["row"].get("action", "").split())
     acao = acao[:140] + ("…" if len(acao) > 140 else "")
-    inicio = ("Faça isto primeiro", "Depois", "Em seguida")[posicao]
-    return f"{inicio}: {acao} — pesa {formatar(item, p)} e {item['urgencia']['texto']}."
+    return f"{ORDEM[posicao]}: {acao} — pesa {formatar(item, p)} e {item['urgencia']['texto']}."
+
+
+def nomeia(item, segmento):
+    texto = item["row"].get("subject", "") + " " + item["row"].get("action", "")
+    return bool(SEGMENTO[segmento].search(texto))
+
+
+def destaques(resultado, p, limite=5):
+    """Abertura do relatório: até `limite` obrigações na ordem da regra de prioridade.
+
+    Vêm primeiro as que nomeiam o segmento do perfil; sem segmento informado, as que nomeiam
+    transmissoras (público inicial), quando houver. Só se faltarem (menos de 3) entram as de sujeito
+    genérico, marcadas. Texto repetido aparece uma vez. Também lista onde a Parcela Variável seria o
+    impacto principal: obrigações aplicáveis classificadas como perda de receita.
+    """
+    ranking = resultado["ranking"]
+    alvo = p["segmento"] or (
+        "transmissao" if any(nomeia(i, "transmissao") for i in ranking) else ""
+    )
+    vistos, proprios, genericos = set(), [], []
+    for i in ranking:
+        # Mesma regra no Anexo e no bloco de nova redação ("…(NR)"): o início basta para repetir.
+        chave = " ".join(i["row"].get("action", "").split()).casefold()[:200]
+        if chave in vistos:
+            continue
+        vistos.add(chave)
+        if alvo and nomeia(i, alvo):
+            proprios.append(i)
+        elif not any(nomeia(i, s) for s in SEGMENTO):
+            genericos.append(i)
+    escolha = (
+        proprios[:limite] + genericos[: max(0, 3 - len(proprios))] if alvo else genericos[:limite]
+    )
+    especificos = {id(i) for i in proprios}
+    receita = [
+        i
+        for i in resultado["itens"]
+        if i["aplicavel"] and any(c == "receita" for c, _ in i["categorias"])
+    ]
+    return {
+        "segmento": alvo,
+        "itens": [
+            {"item": i, "especifica": id(i) in especificos, "frase": frase(i, p, n)}
+            for n, i in enumerate(escolha)
+        ],
+        "outros": len(ranking) - len(escolha),
+        "parcela_variavel": receita if alvo != "distribuicao" else [],
+    }
 
 
 def alteracoes_da_regua(units):

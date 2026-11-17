@@ -1,6 +1,6 @@
-"""Gera docs/exemplos/relatorio_impacto_rn1137.html: RN 1.137/2025, distribuidora, base não informada.
+"""Gera docs/exemplos/relatorio_impacto_rn1137.html: RN 1.137/2025, transmissora, base não informada.
 
-Uso: python scripts/gerar_exemplo_relatorio.py [consulta]   # padrão: segmento=distribuicao&data_referencia=2026-11-11
+Uso: python scripts/gerar_exemplo_relatorio.py [consulta]   # padrão: segmento=transmissao&data_referencia=2026-11-17
 Sobe o app com banco descartável, envia a norma de tests/norma_poc/, roda a extração por regras (sem IA)
 e grava o relatório exportável exatamente como o botão "Exportar relatório" o entrega.
 """
@@ -62,4 +62,4 @@ def main(consulta):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1] if len(sys.argv) > 1 else "segmento=distribuicao&data_referencia=2026-11-11")
+    main(sys.argv[1] if len(sys.argv) > 1 else "segmento=transmissao&data_referencia=2026-11-17")

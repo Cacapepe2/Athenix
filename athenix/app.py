@@ -714,6 +714,7 @@ def create_app(settings=None, embedded_worker=False):
             "resultado": resultado,
             "alteracoes": alteracoes,
             "divergencias": divergencias,
+            "destaques": impacto.destaques(resultado, perfil),
             "documentos": list(documentos.values()),
             "categorias": impacto.CATEGORIAS,
             "grupos": impacto.GRUPOS,

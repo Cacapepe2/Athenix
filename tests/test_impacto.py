@@ -83,6 +83,70 @@ def test_fixed_values_all_aggravating_and_cap_scenarios():
     assert not m["limitado_teto_legal"] and m["teto_legal_pct"] == 3.0
 
 
+def test_report_opens_with_obligations_naming_the_segment():
+    vencida = [{"date": "2026-01-28", "state": "provisional"}]
+    trans = row(
+        "As transmissoras devem implementar o plano em 90 dias.",
+        vencida,
+        subject="As transmissoras",
+        rid="t1",
+    )
+    trans_dup = row(
+        "As transmissoras devem implementar o plano em 90 dias.",
+        subject="As transmissoras",
+        rid="t2",
+    )
+    pv = row(
+        "A transmissora deve manter a disponibilidade das instalações.",
+        subject="A transmissora",
+        rid="t3",
+    )
+    dist = row("As distribuidoras devem publicar o plano.", vencida, rid="d1")
+    gen = row("Os agentes devem informar a ANEEL.", subject="Os agentes", rid="g1")
+    gen2 = row("Os agentes devem registrar as ocorrências.", subject="Os agentes", rid="g2")
+    rows = [dist, gen, gen2, trans, trans_dup, pv]
+    p = impacto.perfil({"data_referencia": HOJE})  # segmento vazio: transmissoras primeiro
+    d = impacto.destaques(impacto.avaliar(PARAMS, rows, p), p)
+    ids = [x["item"]["row"]["id"] for x in d["itens"]]
+    assert d["segmento"] == "transmissao" and ids[:2] == ["t1", "t3"]
+    assert "t2" not in ids and "d1" not in ids  # texto repetido uma vez; distribuidora fora
+    assert [x["especifica"] for x in d["itens"]] == [True, True, False]  # completa até 3
+    assert d["itens"][0]["frase"].startswith("Faça isto primeiro")
+    assert [i["row"]["id"] for i in d["parcela_variavel"]] == ["t3"]
+    p = impacto.perfil({"data_referencia": HOJE, "segmento": "distribuicao"})
+    d = impacto.destaques(impacto.avaliar(PARAMS, rows, p), p)
+    assert [x["item"]["row"]["id"] for x in d["itens"]][0] == "d1" and d["parcela_variavel"] == []
+
+
+def test_only_availability_of_installations_counts_as_revenue_risk():
+    p = impacto.perfil({"segmento": "transmissao"})
+    receita = {
+        texto: any(c == "receita" for c, _ in impacto.classificar(row(texto), texto, p))
+        for texto in (
+            "A transmissora deve manter a disponibilidade das instalações.",
+            "A transmissora deve evitar a indisponibilidade de equipamentos.",
+            # Textos reais da RN 1.137 que antes caíam como Parcela Variável:
+            "d) Infraestrutura de Apoio: Garantir a disponibilidade de recursos e infraestrutura",
+            "§ 5º O atendimento telefônico deve ter disponibilidade ininterrupta durante 24 horas",
+        )
+    }
+    assert list(receita.values()) == [True, True, False, False]
+
+
+def test_same_rule_in_annex_and_new_wording_block_appears_once():
+    texto = (
+        "c) As cessões emergenciais entre distribuidoras e transmissoras devem ser reembolsadas "
+        * 3
+    )
+    a = row(texto + "preservando a individualidade.", subject="As transmissoras", rid="a1")
+    b = row(
+        texto + "preservando a individualidade. ........”(NR)", subject="As transmissoras", rid="b1"
+    )
+    p = impacto.perfil({"data_referencia": HOJE})
+    d = impacto.destaques(impacto.avaliar(PARAMS, [a, b], p), p)
+    assert [x["item"]["row"]["id"] for x in d["itens"]] == ["a1"]
+
+
 def units(*textos):
     return [{"id": f"u{i}", "text": t} for i, t in enumerate(textos)]
 
