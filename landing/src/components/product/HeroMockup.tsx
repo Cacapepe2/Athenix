@@ -1,25 +1,25 @@
 import { motion, useTransform, type MotionValue } from 'motion/react'
-import { Bell, CalendarClock, ChevronRight, FileText, Gauge, Layers, ListChecks, UsersRound } from 'lucide-react'
+import { Bell, CalendarClock, ChevronRight, FileText, Gauge, Layers, ListChecks } from 'lucide-react'
 import { LogoMark } from '../ui/Logo'
 import { Tag } from './Tag'
-import { articleById, demoNorm, obligations } from '../../content/demo'
+import { articleById, brl, changes, demoNorm, obligations } from '../../content/demo'
 import { splitAnchor } from '../../lib/text'
 
 const ease = [0.16, 1, 0.3, 1] as const
 
+const first = obligations[0]
 const rows = [
-  { Icon: CalendarClock, title: 'Prazos', detail: '48 h por evento · contínuo · anual (1 pendente)' },
-  { Icon: UsersRound, title: 'Responsáveis sugeridos', detail: 'Operação · Regulatório · TI' },
-  { Icon: Gauge, title: 'Impactos preliminares', detail: 'Regulatório · Operacional · Reputacional' },
+  { Icon: Gauge, title: 'Impacto estimado', detail: `até ${brl(first.impact.max)} · confiança ${first.confidence}` },
+  { Icon: CalendarClock, title: 'Prazo', detail: first.deadline.split(',')[0] },
+  { Icon: Bell, title: `Alertas da norma (${changes.length})`, detail: changes.map((c) => c.title).join(' · ') },
 ]
 
-/** Painel ilustrativo do produto (dados fictícios). Decorativo para leitores de tela; o conteúdo está no texto da página. */
+/** Painel do produto com dados reais da RN 1.137 e impacto ilustrativo. Decorativo para leitores de tela; o conteúdo está no texto da página. */
 export function HeroMockup({ px, py }: { px: MotionValue<number>; py: MotionValue<number> }) {
   const nearX = useTransform(px, [-0.5, 0.5], [-16, 16])
   const nearY = useTransform(py, [-0.5, 0.5], [-12, 12])
   const farX = useTransform(px, [-0.5, 0.5], [10, -10])
   const farY = useTransform(py, [-0.5, 0.5], [8, -8])
-  const first = obligations[0]
   const excerpt = splitAnchor(articleById(first.articleId).text, first.anchor)!
 
   return (
@@ -28,7 +28,7 @@ export function HeroMockup({ px, py }: { px: MotionValue<number>; py: MotionValu
         <div className="grid grid-cols-[52px_1fr] overflow-hidden rounded-[17px] border border-line/70 bg-ivory">
           <div className="flex flex-col items-center gap-4 bg-obsidian py-4 text-ivory/45">
             <LogoMark className="mb-2 h-6 w-6 text-ivory" />
-            {[Layers, Bell, ListChecks, Gauge, UsersRound].map((Icon, i) => (
+            {[Gauge, ListChecks, Bell, FileText, Layers].map((Icon, i) => (
               <span
                 key={i}
                 className={`grid h-8 w-8 place-items-center rounded-lg ${i === 0 ? 'bg-ivory/10 text-ivory' : ''}`}
@@ -39,17 +39,17 @@ export function HeroMockup({ px, py }: { px: MotionValue<number>; py: MotionValu
           </div>
 
           <div className="min-w-0 p-4 sm:p-5">
-            <p className="text-[0.66rem] text-ink-soft">Monitoramento › Publicações</p>
+            <p className="text-[0.66rem] text-ink-soft">Impacto e prioridade › Norma carregada</p>
             <div className="mt-1.5 flex items-start justify-between gap-3">
               <p className="font-display text-[1.15rem] leading-tight text-obsidian sm:text-[1.3rem]">
                 {demoNorm.kind} {demoNorm.number}
               </p>
-              <Tag kind="fictional" label="Ilustrativo" />
+              <Tag kind="estimate" label="Ilustrativo" />
             </div>
             <p className="mt-1 line-clamp-1 text-[0.7rem] text-ink-soft">{demoNorm.subject}</p>
 
             <div className="mt-3 flex gap-4 border-b border-line text-[0.7rem] text-ink-soft">
-              {['Visão geral', 'Obrigações (3)', 'Prazos', 'Impactos'].map((t, i) => (
+              {['Impacto', `Obrigações (${demoNorm.extracted})`, 'Alertas', 'Fontes'].map((t, i) => (
                 <span
                   key={t}
                   className={`-mb-px pb-2 whitespace-nowrap ${
@@ -63,11 +63,14 @@ export function HeroMockup({ px, py }: { px: MotionValue<number>; py: MotionValu
 
             <div className="mt-3 grid gap-2.5 sm:grid-cols-[0.85fr_1.15fr]">
               <div className="flex flex-col justify-between rounded-xl bg-stone/80 p-3.5">
-                <FileText className="h-5 w-5 text-bronze-deep" strokeWidth={1.6} />
+                <Gauge className="h-5 w-5 text-bronze-deep" strokeWidth={1.6} />
                 <div className="mt-3">
-                  <p className="font-display text-[1.05rem] leading-tight text-obsidian">3 obrigações candidatas</p>
+                  <p className="text-[0.62rem] font-semibold tracking-[0.12em] text-bronze-deep uppercase">1ª prioridade</p>
+                  <p className="font-display text-[1.05rem] leading-tight text-obsidian">
+                    {brl(first.impact.min)} a {brl(first.impact.max)}
+                  </p>
                   <p className="mt-1 text-[0.66rem] leading-snug text-ink-soft">
-                    Cada uma ligada ao trecho que a fundamenta.
+                    Faixa estimada com premissas e fonte. Perfil ilustrativo.
                   </p>
                   <Tag kind="review" className="mt-2" />
                 </div>
@@ -120,7 +123,7 @@ export function HeroMockup({ px, py }: { px: MotionValue<number>; py: MotionValu
           <span className="relative inline-flex h-2 w-2 rounded-full bg-slate-blue" />
         </span>
         <span>
-          <span className="block text-[0.68rem] font-semibold text-obsidian">Nova publicação detectada</span>
+          <span className="block text-[0.68rem] font-semibold text-obsidian">Documento carregado</span>
           <span className="block text-[0.6rem] text-ink-soft">Documento original preservado · {demoNorm.fingerprint}</span>
         </span>
       </motion.div>
@@ -135,9 +138,9 @@ export function HeroMockup({ px, py }: { px: MotionValue<number>; py: MotionValu
       >
         <div className="flex items-center justify-between">
           <span className="text-[0.6rem] font-semibold tracking-[0.14em] text-bronze-deep uppercase">Obrigação 1</span>
-          <Tag kind="ai" label="IA" />
+          <Tag kind="rule" label="Regras" />
         </div>
-        <p className="mt-1.5 text-[0.76rem] leading-snug font-semibold text-obsidian">{first.title}</p>
+        <p className="mt-1.5 text-[0.76rem] leading-snug font-semibold text-obsidian">{first.short}</p>
         <p className="mt-2 flex items-center gap-1.5 text-[0.62rem] text-ink-soft">
           <span className="h-px w-3 bg-bronze" />
           Fundamento: {articleById(first.articleId).label} · trecho literal

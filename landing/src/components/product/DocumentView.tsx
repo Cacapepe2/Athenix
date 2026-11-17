@@ -32,7 +32,8 @@ export function DocumentView({ marks = {}, markLabels = {}, focusId, animateMark
           const dim = focusId && focusId !== a.id
           return (
             <p key={a.id} className={`transition-opacity duration-500 ${dim ? 'opacity-40' : ''}`}>
-              <span className="mr-1 font-semibold text-obsidian">{a.label}</span>
+              {/* Texto real já traz o próprio rótulo ("Art. 9º ..."): não repete. */}
+              {!a.text.startsWith(a.label) && <span className="mr-1 font-semibold text-obsidian">{a.label}</span>}
               {parts ? (
                 <>
                   {parts[0]}

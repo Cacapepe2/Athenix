@@ -1,13 +1,17 @@
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { createRoot, hydrateRoot } from 'react-dom/client'
 import '@fontsource-variable/newsreader/opsz.css'
 import '@fontsource-variable/newsreader/opsz-italic.css'
 import '@fontsource-variable/inter-tight'
 import './index.css'
 import App from './App'
 
-createRoot(document.getElementById('root')!).render(
+const root = document.getElementById('root')!
+const app = (
   <StrictMode>
     <App />
-  </StrictMode>,
+  </StrictMode>
 )
+// Build de produção chega pré-renderizado (scripts/prerender.mjs): hidrata; em desenvolvimento, renderiza.
+if (root.hasChildNodes()) hydrateRoot(root, app)
+else createRoot(root).render(app)
