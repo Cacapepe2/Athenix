@@ -55,7 +55,7 @@ export function PlanoPage() {
           <Numero valor={semData} rotulo={`sem data no texto (${r.por_situacao.evento} dependem de um evento)`} />
           {r.grupo_mais_grave && <Numero valor={`Grupo ${r.grupo_mais_grave}`} rotulo={`grupo de infração mais grave identificado${tetoGrupo ? `: até ${pct(tetoGrupo.teto_grupo_pct)} da receita por infração` : ''}`} />}
         </dl>
-        <div className="grid gap-5 lg:grid-cols-[1.4fr_1fr]">
+        <div className="grid items-start gap-5 lg:grid-cols-[1.4fr_1fr]">
           <section aria-labelledby="decisoes" className="rounded-2xl border border-line bg-white p-5 sm:p-7">
             <h2 id="decisoes" className="font-display text-2xl sm:text-3xl">3 decisões para esta semana</h2>
             <ol className="mt-5 space-y-5">
@@ -74,7 +74,7 @@ export function PlanoPage() {
               {gap.semResposta === plano.temas.length ? <>Nenhum tema marcado ainda.</> : <>Lacuna informada: <strong>{gap.nao} obrigações</strong> em temas que vocês não atendem e <strong>{gap.parcial}</strong> em temas parciais. {gap.semResposta} {gap.semResposta === 1 ? 'tema' : 'temas'} sem resposta.</>}
             </p>
             <p className="text-xs text-ink-soft">As marcações ficam só nesta aba do navegador: nada é salvo nem enviado.</p>
-            <div className="mt-auto flex flex-wrap gap-3 print:hidden">
+            <div className="flex flex-wrap gap-3 print:hidden">
               <button type="button" onClick={() => baixarCsv(diag)} className="inline-flex min-h-11 items-center gap-2 rounded-full bg-slate-blue px-5 text-sm font-medium text-ivory hover:bg-obsidian"><Download aria-hidden="true" className="h-4 w-4" />Baixar planilha (CSV)</button>
               <button type="button" onClick={() => window.print()} className="inline-flex min-h-11 items-center gap-2 rounded-full border border-obsidian/20 bg-white px-5 text-sm font-medium hover:border-obsidian/40"><Printer aria-hidden="true" className="h-4 w-4" />Imprimir ou salvar PDF</button>
             </div>

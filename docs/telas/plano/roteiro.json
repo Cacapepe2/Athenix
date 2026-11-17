@@ -1,0 +1,30 @@
+{
+ "erros_js": [],
+ "passos": [],
+ "ordem_inicial": [
+  "Manejo da vegetação",
+  "Comunicação ao consumidor sobre interrupções",
+  "Articulação com o Poder Público",
+  "Apuração do DISE e compensações",
+  "Plano de contingência",
+  "Informações à ANEEL",
+  "Cessão emergencial entre distribuidoras",
+  "Outras obrigações"
+ ],
+ "ordem_apos_diagnostico": [
+  "Articulação com o Poder Público",
+  "Comunicação ao consumidor sobre interrupções",
+  "Apuração do DISE e compensações",
+  "Plano de contingência",
+  "Informações à ANEEL",
+  "Cessão emergencial entre distribuidoras",
+  "Outras obrigações",
+  "Manejo da vegetação"
+ ],
+ "lacuna": "Lacuna informada: 18 obrigações em temas que vocês não atendem e 0 em temas parciais. 6 temas sem resposta.",
+ "csv_linhas": 173,
+ "detalhes_impressao": 177,
+ "overflow_390": 0,
+ "sem_js_tem_decisoes": true,
+ "home_carrega_plano": false
+}
