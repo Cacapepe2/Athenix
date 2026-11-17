@@ -1,8 +1,8 @@
 {
  "versao": 1,
- "rotulo": "etapa2b: art-minusculo + redação revogada fora do cálculo (D4)",
+ "rotulo": "remissoes: remissão a ato do acervo local resolvida como proposta (G09)",
  "nota": "Linha de base da trava de não regressão. Só melhora: atualizar em commit próprio, explicando o porquê.",
- "casos_totalmente_corretos": 19,
+ "casos_totalmente_corretos": 20,
  "total_casos": 20,
  "por_verificacao": {
   "obrigacao": {
@@ -30,7 +30,7 @@
    "total": 2
   },
   "remissao": {
-   "acertos": 0,
+   "acertos": 1,
    "total": 1
   }
  },

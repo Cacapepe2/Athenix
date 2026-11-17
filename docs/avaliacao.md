@@ -112,8 +112,8 @@ Itens da revisão técnica fora do escopo atual (decisão de 11/11/2026: prioriz
 
 ## Trava de não regressão
 
-`tests/baseline/metricas_v1.json` congela os números de hoje: 19/20 casos corretos; obrigação 11/11,
-prazo 8/8, autoria 10/10, vigência 4/4 (e as demais verificações); citações falsamente verificadas 0 nas
+`tests/baseline/metricas_v1.json` congela os números de hoje: 20/20 casos corretos; obrigação 11/11,
+prazo 8/8, autoria 10/10, vigência 4/4, remissão 1/1 (e as demais verificações); citações falsamente verificadas 0 nas
 três normas; citações encontradas na fonte 252/254 (RN), 31/31 (REH) e 145/145 (Decreto).
 
 - `python scripts/avaliar.py --comparar tests/baseline/metricas_v1.json` sai com erro se qualquer
