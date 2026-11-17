@@ -464,6 +464,14 @@ def avaliar(params, rows, p):
         aplicavel, motivo_aplic = aplicabilidade(row, p)
         cats = classificar(row, texto, p)
         explicitos = enquadramentos(params, texto)
+        if confirmado := row.get("enquadramento"):
+            # Enquadramento confirmado por pessoa (services.review, ação "frame") prevalece.
+            infracao = next(
+                (i for i in params["infracoes"] if i["dispositivo"] == confirmado["dispositivo"]),
+                None,
+            )
+            if infracao:
+                explicitos = [infracao | {"confirmado": confirmado}]
         grupos = (
             [p["grupos"][row["id"]]]
             if row["id"] in p["grupos"]

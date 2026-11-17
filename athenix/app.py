@@ -34,7 +34,7 @@ from .db import (
     verify_chain,
 )
 from .evidence import recheck
-from . import impacto, saude
+from . import enquadramento, impacto, saude
 from .normalizacao import espacos
 from .llm import estimate, modo
 from .services import (
@@ -673,6 +673,11 @@ def create_app(settings=None, embedded_worker=False):
             )
         if request.url.path.startswith("/api/"):
             return {"id": decision.id, "data": decision.data}
+        voltar = str(payload.get("voltar", ""))
+        if voltar == "/impacto" or voltar.startswith(
+            "/impacto?"
+        ):  # só volta para a tela de impacto
+            return RedirectResponse(voltar, status_code=303)
         return RedirectResponse(
             "/obligations/" + decision.data.get("successor", interpretation_id), status_code=303
         )
@@ -696,6 +701,11 @@ def create_app(settings=None, embedded_worker=False):
         resultado = impacto.avaliar(params, rows, perfil)
         for posicao, item in enumerate(resultado["ranking"], start=1):
             item["rank"] = posicao
+        # Sugestões só para quem aguarda enquadramento; as da IA só com IA em cached ou live.
+        regras = enquadramento.carregar_regras()
+        ia = enquadramento.carregar_ia() if modo(settings)["efetivo"] != "off" else None
+        for item in resultado["verificar"]:
+            item["sugestoes"] = enquadramento.sugestoes(params, item["row"], regras, ia)
         alteracoes, divergencias, documentos, saude_docs = [], [], {}, []
         for row in rows:
             documentos.setdefault(row["document_id"], row["document_title"])

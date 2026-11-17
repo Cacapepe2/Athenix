@@ -77,6 +77,9 @@ o PDF real são pulados, com mensagem.
   enquadramento desconhecido (sem grupo escolhido nem infração identificada pelo texto) ficam fora
   da fila, em "Verificar enquadramento", com a faixa de todos os grupos visível e confiança baixa:
   antes elas valiam o máximo de 2% e passavam à frente de obrigações com grupo identificado.
+  Para cada uma, o sistema sugere até 3 infrações (regra curada ou IA), com o trecho da obrigação
+  e o da infração. Só a confirmação de uma pessoa, com justificativa, grava o enquadramento e
+  leva a obrigação para a fila (`docs/proposta_enquadramento.md`).
 - **Abertura do relatório e da tela:** de 3 a 5 obrigações nessa ordem, primeiro as que nomeiam o
   segmento do perfil (sem segmento: transmissoras, quando houver); as de sujeito genérico só
   completam até 3 e vêm marcadas. A mesma regra repetida (Anexo e bloco "(NR)") aparece uma vez.
