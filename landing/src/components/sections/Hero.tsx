@@ -16,7 +16,9 @@ export function Hero() {
   const mockY = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : 90])
   const textY = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : 40])
   const tilt = usePointerTilt(5)
-  const [lead, last] = [hero.titleLines[1].split(' ').slice(0, -1).join(' '), hero.titleLines[1].split(' ').at(-1)]
+  const fim = hero.titleLines.length - 1
+  const palavras = hero.titleLines[fim].split(' ')
+  const [lead, last] = [palavras.slice(0, -1).join(' '), palavras.at(-1)]
 
   return (
     <section
@@ -41,7 +43,7 @@ export function Hero() {
             <Eyebrow>{hero.eyebrow}</Eyebrow>
           </motion.div>
 
-          <h1 className="font-display mt-6 text-[2.55rem] leading-[1.04] font-normal text-obsidian sm:text-[3.5rem] lg:text-[3.15rem] xl:text-[3.75rem]">
+          <h1 className="font-display mt-6 text-[2.3rem] leading-[1.06] font-normal text-obsidian sm:text-[3rem] lg:text-[2.35rem] xl:text-[2.65rem]">
             {hero.titleLines.map((line, i) => (
               <span key={line} className="block overflow-hidden pb-[0.08em]">
                 <motion.span
@@ -50,7 +52,7 @@ export function Hero() {
                   animate={{ y: '0%' }}
                   transition={{ duration: 1.1, ease, delay: 0.2 + i * 0.12 }}
                 >
-                  {i === 1 ? (
+                  {i === fim ? (
                     <>
                       {lead} <em className="text-slate-blue">{last}</em>
                     </>
