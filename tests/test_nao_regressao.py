@@ -28,14 +28,14 @@ def piorar(base, mudanca):
 
 def test_baseline_freezes_the_agreed_numbers(base):
     por = base["por_verificacao"]
-    assert (base["casos_totalmente_corretos"], base["total_casos"]) == (19, 20)
-    assert [
-        (por[k]["acertos"], por[k]["total"]) for k in ("obrigacao", "prazo", "autoria", "vigencia")
-    ] == [
+    assert (base["casos_totalmente_corretos"], base["total_casos"]) == (20, 20)
+    chaves = ("obrigacao", "prazo", "autoria", "vigencia", "remissao")
+    assert [(por[k]["acertos"], por[k]["total"]) for k in chaves] == [
         (11, 11),
         (8, 8),
         (10, 10),
         (4, 4),
+        (1, 1),
     ]
     assert {d: m["falsas_verificadas"] for d, m in base["por_documento"].items()} == {
         "ren20251137": 0,
