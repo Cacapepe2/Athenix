@@ -2,13 +2,13 @@ import { AnimatePresence, LayoutGroup, motion } from 'motion/react'
 import { CalendarClock, UserRound } from 'lucide-react'
 import { DocumentView } from './DocumentView'
 import { Tag } from './Tag'
-import { articleById, changes, demoNorm, impactAreas, obligations, type RiskLevel } from '../../content/demo'
+import { articleById, brl, changes, demoNorm, obligations, profile } from '../../content/demo'
 
 const ease = [0.16, 1, 0.3, 1] as const
-const stageArticles = ['art3', 'art5', 'art7', 'art9'].map(articleById)
+const stageArticles = obligations.map((o) => articleById(o.articleId))
 const allMarks = Object.fromEntries(obligations.map((o) => [o.articleId, o.anchor]))
 const numbers = Object.fromEntries(obligations.map((o, i) => [o.articleId, String(i + 1)]))
-const levelWidth: Record<RiskLevel, string> = { Alta: '100%', Média: '62%', Baixa: '28%' }
+const maior = Math.max(...obligations.map((o) => o.impact.max))
 
 function Badge({ articleId }: { articleId: string }) {
   return (
@@ -37,10 +37,10 @@ export function StoryStage({ step }: { step: number }) {
     >
       <div className="flex items-center justify-between gap-3 border-b border-line px-4 py-3 sm:px-5">
         <span className="truncate text-[0.72rem] text-ink-soft">
-          <span className="font-semibold text-obsidian">Athenix</span> · análise demonstrativa
+          <span className="font-semibold text-obsidian">Athenix</span> · RN ANEEL 1.137/2025
         </span>
         <span className="flex items-center gap-2">
-          <Tag kind="fictional" label={demoNorm.badge} />
+          <Tag kind="estimate" label={demoNorm.badge} />
           <span className="text-[0.68rem] text-ink-soft tabular-nums">{step + 1}/5</span>
         </span>
       </div>
@@ -73,9 +73,9 @@ export function StoryStage({ step }: { step: number }) {
                   >
                     <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-blue px-2.5 py-1 font-medium text-ivory">
                       <span className="h-1.5 w-1.5 rounded-full bg-bronze" />
-                      Nova publicação
+                      Documento carregado
                     </span>
-                    Publicada em {demoNorm.published} · {demoNorm.fingerprint}
+                    Vigência {demoNorm.effective} · {demoNorm.fingerprint}
                   </motion.div>
                 )}
                 <DocumentView
@@ -90,8 +90,8 @@ export function StoryStage({ step }: { step: number }) {
             {step === 1 && (
               <motion.div key="summary" {...panel} className="max-sm:hidden">
                 <div className="flex items-center justify-between">
-                  <p className="font-display text-lg text-obsidian">O que mudou</p>
-                  <Tag kind="ai" />
+                  <p className="font-display text-lg text-obsidian">Alertas da norma</p>
+                  <Tag kind="rule" label="Por regra" />
                 </div>
                 <ul className="mt-3 space-y-2.5">
                   {changes.map((c, i) => (
@@ -102,11 +102,11 @@ export function StoryStage({ step }: { step: number }) {
                       transition={{ duration: 0.8, ease, delay: 0.3 + i * 0.18 }}
                       className="rounded-xl border border-line bg-white p-3"
                     >
-                      <p className="flex items-center justify-between text-[0.8rem] font-semibold text-obsidian">
+                      <p className="flex items-center justify-between gap-2 text-[0.8rem] font-semibold text-obsidian">
                         {c.title}
                         <span className="text-[0.66rem] font-normal text-bronze-deep">{articleById(c.articleId).label}</span>
                       </p>
-                      <p className="mt-1 text-[0.74rem] leading-snug text-ink-soft">{c.detail}</p>
+                      <p className="mt-1 line-clamp-3 text-[0.74rem] leading-snug text-ink-soft">{c.detail}</p>
                     </motion.li>
                   ))}
                 </ul>
@@ -124,9 +124,9 @@ export function StoryStage({ step }: { step: number }) {
                     <li key={o.id} className="flex gap-3 rounded-xl border border-line bg-white p-3">
                       <Badge articleId={o.articleId} />
                       <span className="min-w-0">
-                        <span className="block text-[0.8rem] leading-snug font-semibold text-obsidian">{o.title}</span>
+                        <span className="block text-[0.8rem] leading-snug font-semibold text-obsidian">{o.short}</span>
                         <span className="mt-1 block text-[0.68rem] text-ink-soft">
-                          Fundamento: {articleById(o.articleId).label} · <span className="text-bronze-deep">“{o.anchor}”</span>
+                          Fundamento: {articleById(o.articleId).label} · trecho literal
                         </span>
                       </span>
                     </li>
@@ -138,8 +138,8 @@ export function StoryStage({ step }: { step: number }) {
             {step === 3 && (
               <motion.div key="deadlines" {...panel} className="min-h-0">
                 <div className="flex items-center justify-between">
-                  <p className="font-display text-lg text-obsidian">Prazos e responsáveis</p>
-                  <Tag kind="ai" label="Sugestão da IA" />
+                  <p className="font-display text-lg text-obsidian">Prazos</p>
+                  <Tag kind="rule" label="Provisórios" />
                 </div>
                 <ul className="mt-3 space-y-2.5">
                   {obligations.map((o, i) => (
@@ -160,102 +160,50 @@ export function StoryStage({ step }: { step: number }) {
                         </span>
                         <span className="inline-flex items-center gap-1.5">
                           <UserRound className="h-3.5 w-3.5 text-slate-blue" />
-                          {o.owner}
+                          {o.subject}
                         </span>
-                        {o.pending && <Tag kind="pending" label="Primeira data pendente" />}
+                        {o.pending && <Tag kind="pending" label="Sem data no texto" />}
                       </motion.div>
                     </li>
                   ))}
                 </ul>
-                <div className="mt-5 max-sm:hidden">
-                  <p className="text-[0.62rem] font-semibold tracking-[0.16em] text-bronze-deep uppercase">Linha do tempo</p>
-                  <div className="relative mt-4 grid grid-cols-3 text-[0.68rem]">
-                    <motion.span
-                      className="absolute top-[5px] left-1 h-px w-[66%] origin-left bg-slate-blue"
-                      initial={{ scaleX: 0 }}
-                      animate={{ scaleX: 1 }}
-                      transition={{ duration: 1, ease, delay: 0.6 }}
-                    />
-                    <span className="absolute top-[5px] right-0 left-[67%] h-px border-t border-dashed border-pending/60" />
-                    {[
-                      { d: demoNorm.published, l: 'Publicação' },
-                      { d: demoNorm.effective, l: 'Início da vigência' },
-                      { d: 'A definir', l: '1º relatório anual', pending: true },
-                    ].map((m) => (
-                      <span key={m.l} className="relative">
-                        <span
-                          className={`block h-[11px] w-[11px] rounded-full border-2 ${m.pending ? 'border-pending bg-white' : 'border-slate-blue bg-slate-blue'}`}
-                        />
-                        <span className={`mt-2 block font-semibold ${m.pending ? 'text-pending' : 'text-obsidian'}`}>{m.d}</span>
-                        <span className="block text-ink-soft">{m.l}</span>
-                      </span>
-                    ))}
-                  </div>
-                </div>
               </motion.div>
             )}
 
             {step === 4 && (
               <motion.div key="impacts" {...panel}>
                 <div className="flex items-center justify-between">
-                  <p className="font-display text-lg text-obsidian">Impactos preliminares</p>
-                  <Tag kind="review" label="Requer validação" />
+                  <p className="font-display text-lg text-obsidian">Impacto e prioridade</p>
+                  <Tag kind="estimate" />
                 </div>
                 <div className="mt-3 overflow-hidden rounded-xl border border-line bg-white">
-                  <div className="grid grid-cols-[minmax(0,1.25fr)_repeat(4,minmax(0,1fr))] gap-2 border-b border-line px-3 py-2 text-[0.6rem] font-semibold text-ink-soft">
-                    <span />
-                    {impactAreas.map((a) => (
-                      <span key={a} className="truncate">
-                        {a}
-                      </span>
-                    ))}
-                  </div>
                   {obligations.map((o, r) => (
-                    <div
-                      key={o.id}
-                      className="grid grid-cols-[minmax(0,1.25fr)_repeat(4,minmax(0,1fr))] items-center gap-2 border-b border-line/70 px-3 py-2.5 last:border-0"
-                    >
-                      <span className="flex items-center gap-2 text-[0.72rem] font-medium text-obsidian">
-                        <Badge articleId={o.articleId} />
-                        <span className="truncate max-sm:hidden">{o.short}</span>
-                      </span>
-                      {impactAreas.map((a, c) => (
-                        <span key={a} className="h-1.5 rounded-full bg-stone">
-                          <motion.span
-                            className={`block h-full rounded-full ${o.risks[a] === 'Alta' ? 'bg-obsidian' : o.risks[a] === 'Média' ? 'bg-slate-blue' : 'bg-bronze'}`}
-                            initial={{ width: 0 }}
-                            animate={{ width: levelWidth[o.risks[a]] }}
-                            transition={{ duration: 0.8, ease, delay: 0.3 + r * 0.12 + c * 0.06 }}
-                          />
+                    <div key={o.id} className="border-b border-line/70 px-3 py-2.5 last:border-0">
+                      <div className="flex items-center justify-between gap-2 text-[0.72rem]">
+                        <span className="flex min-w-0 items-center gap-2 font-medium text-obsidian">
+                          <Badge articleId={o.articleId} />
+                          <span className="truncate">{o.short}</span>
                         </span>
-                      ))}
+                        <span className="shrink-0 text-ink-soft">até {brl(o.impact.max)}</span>
+                      </div>
+                      <span className="mt-2 block h-1.5 rounded-full bg-stone">
+                        <motion.span
+                          className="block h-full rounded-full bg-slate-blue"
+                          initial={{ width: 0 }}
+                          animate={{ width: `${(100 * o.impact.max) / maior}%` }}
+                          transition={{ duration: 0.8, ease, delay: 0.3 + r * 0.12 }}
+                        />
+                      </span>
+                      <span className="mt-1 block text-[0.64rem] text-ink-soft">
+                        {o.position}ª na prioridade · confiança {o.confidence} · {o.deadline.split(',')[0]}
+                      </span>
                     </div>
                   ))}
                 </div>
-                <div className="mt-2.5 flex flex-wrap items-center gap-x-4 gap-y-1 text-[0.66rem] text-ink-soft">
-                  {[['bg-obsidian', 'Alta'], ['bg-slate-blue', 'Média'], ['bg-bronze', 'Baixa']].map(([c, l]) => (
-                    <span key={l} className="inline-flex items-center gap-1.5">
-                      <span className={`h-1.5 w-3 rounded-full ${c}`} />
-                      {l}
-                    </span>
-                  ))}
-                  <span>· classificação qualitativa e ilustrativa</span>
-                </div>
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, ease, delay: 0.9 }}
-                  className="mt-4 rounded-xl border border-line bg-stone/50 p-3.5 max-sm:hidden"
-                >
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="text-[0.62rem] font-semibold tracking-[0.16em] text-bronze-deep uppercase">Ponto de atenção</span>
-                    <Tag kind="source" label={`Base: ${articleById('art9').label}`} />
-                  </div>
-                  <p className="mt-1.5 text-[0.76rem] leading-snug text-obsidian">{obligations[0].impactNote}</p>
-                  <p className="mt-1.5 text-[0.68rem] text-ink-soft">
-                    Magnitude financeira não estimada: depende de dados da empresa e da validação da equipe.
-                  </p>
-                </motion.div>
+                <p className="mt-2.5 text-[0.66rem] leading-snug text-ink-soft">
+                  Faixa de 0 até o máximo, com perfil ilustrativo ({profile.label}, base de {brl(profile.base)}). Premissas,
+                  confiança e fonte em cada item da demonstração.
+                </p>
               </motion.div>
             )}
           </AnimatePresence>

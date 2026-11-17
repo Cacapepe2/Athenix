@@ -1,0 +1,248 @@
+{
+ "gerado_por": "scripts/exportar_demo_site.py",
+ "commit_origem": "7a803a8",
+ "gerado_em": "2026-11-17",
+ "criterio": "1ª da lista priorizada; primeira com enquadramento e prazo; primeira com enquadramento e sem prazo",
+ "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
+ "aviso_data": "Limite legal conforme a data do prazo; a data real da infração pode diferir.",
+ "norma": {
+  "titulo": "RN ANEEL 1.137/2025",
+  "arquivo": "tests/norma_poc/ren20251137.pdf",
+  "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887",
+  "vigencia": "2025-10-30",
+  "obrigacoes_extraidas": 169,
+  "priorizadas": 152
+ },
+ "perfil": {
+  "rotulo": "Distribuidora ilustrativa",
+  "aviso": "Perfil ilustrativo para demonstração: não corresponde a nenhuma empresa real.",
+  "segmento": "distribuicao",
+  "base_reais": 5000000000.0,
+  "origem_base": "Ordem de grandeza da Receita Operacional Líquida anual de distribuidoras de médio porte em demonstrações financeiras públicas de 2024 (cerca de R$ 4,5 bilhões a R$ 10,7 bilhões, segundo notícias sobre os balanços consultadas em 17/11/2026). Valor arredondado; não conferido nos balanços originais.",
+  "data_referencia": "2026-11-17"
+ },
+ "unidades": [
+  {
+   "id": "u0024",
+   "dispositivo": "item 94",
+   "texto": "94. As distribuidoras devem estabelecer um plano de manejo vegetal na sua área de atuação, que contemple a vegetação que interfira em suas redes de distribuição, em coordenação com o Poder Público Municipal e em articulação com os órgãos competentes do Poder Público Estadual e Distrital, e com vistas a garantir a segurança da rede de distribuição, a qualidade, eficiência e a continuidade do fornecimento de energia elétrica."
+  },
+  {
+   "id": "u0262",
+   "dispositivo": "Art. 9º",
+   "texto": "Art. 9º A Resolução Normativa nº 846, de 11 de junho de 2019, passa a vigorar com a seguinte redação:"
+  },
+  {
+   "id": "u0281",
+   "dispositivo": "Art. 12",
+   "texto": "Art. 12 O Anexo V – Módulo V da Resolução Normativa nº 948, de 21 de novembro, passa a vigorar com a seguinte redação:"
+  },
+  {
+   "id": "u0289",
+   "dispositivo": "Art. 13, inciso I",
+   "texto": "I - Até 90 (noventa) dias para revisar e publicar os planos de manejo vegetal, de comunicação e de contingência de que tratam os itens 103, 108 e 148 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa;"
+  },
+  {
+   "id": "u0290",
+   "dispositivo": "Art. 13, inciso II",
+   "texto": "II - Até 180 (cento e oitenta) dias para implementar o registro das interações com o Poder Público Municipal em relação ao serviço de manejo da vegetação que apresente risco à segurança das redes elétricas e a continuidade do fornecimento, conforme dispõe o item 104 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa;"
+  }
+ ],
+ "alertas": [
+  {
+   "id": "regua",
+   "titulo": "Altera a régua de multa",
+   "detalhe": "A norma muda a REN 846/2019, que define as multas do setor elétrico.",
+   "unidade": "u0262"
+  },
+  {
+   "id": "citacao0",
+   "titulo": "Mesma norma, datas diferentes",
+   "detalhe": "A Resolução Normativa nº 948 aparece como “Resolução Normativa nº 948, de 16 de novembro de 2021” e “Resolução Normativa nº 948, de 21 de novembro”.",
+   "unidade": "u0281"
+  }
+ ],
+ "obrigacoes": [
+  {
+   "id": "b2cc0ecd5e8b4f070932c355339f428f",
+   "acao": "II - Até 180 (cento e oitenta) dias para implementar o registro das interações com o Poder Público Municipal em relação ao serviço de manejo da vegetação que apresente risco à segurança das redes elétricas e a continuidade do fornecimento, conforme dispõe o item 104 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa;",
+   "sujeito": "As distribuidoras",
+   "unidade": "u0290",
+   "dispositivo": "Art. 13, inciso II",
+   "trecho": "II - Até 180 (cento e oitenta) dias para implementar o registro das interações com o Poder Público Municipal em relação ao serviço de manejo da vegetação que apresente risco à segurança das redes elétricas e a continuidade do fornecimento, conforme dispõe o item 104 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa;",
+   "posicao": 1,
+   "prazo": "venceu em 28/04/2026, há 203 dias (prazo provisório): exposição atual",
+   "data_prazo": "2026-04-28",
+   "categorias": [
+    {
+     "nome": "Penalidade / multa",
+     "motivo": "Dever em norma da ANEEL: o descumprimento sujeita às penalidades do Art. 5º da REN 846."
+    },
+    {
+     "nome": "Custo de adequação",
+     "motivo": "Exige \"implementar\": custo interno da empresa."
+    },
+    {
+     "nome": "Risco operacional / fiscalização",
+     "motivo": "Dever de \"registro\": falha é verificável em fiscalização."
+    }
+   ],
+   "impacto": {
+    "grupos": [
+     "I",
+     "II",
+     "III",
+     "IV",
+     "V"
+    ],
+    "enquadramentos": [],
+    "minimo_reais": 0.0,
+    "maximo_reais": {
+     "com_teto": 100000000.0,
+     "sem_teto": 100000000.0
+    },
+    "maximo_pct": {
+     "com_teto": 2.0,
+     "sem_teto": 2.0
+    },
+    "teto_grupo_pct": 2.0,
+    "teto_legal_pct": 3.0,
+    "teto_legal_subestimado": true,
+    "premissas": [
+     "Enquadramento: Grupo(s) I, II, III, IV, V (desconhecido: considerados todos os grupos)",
+     "Mínimo 0: cabe advertência ou atenuante, e a metodologia do valor base não está no repositório",
+     "Máximo sem atenuante (pior caso)",
+     "Teto legal: 3% do faturamento por infração (Art. 3, X da Lei 9.427/1996, redação dada pela Lei nº 15.269, de 2025); infração em 28/04/2026, a partir de 25/11/2025 (Art. 24, caput e IV da Lei 15.269/2025); data considerada: data do prazo",
+     "Limite legal conforme a data do prazo; a data real da infração pode diferir.",
+     "Teto legal possivelmente subestimado: faturamento bruto não informado, aplicado sobre a base (ROL)"
+    ],
+    "fontes": [
+     "Art. 8º, V da REN 846",
+     "Art. 6º da REN 846",
+     "Art. 22, § 1º da REN 846",
+     "Art. 3, X da Lei 9.427/1996"
+    ]
+   },
+   "confianca": "baixo",
+   "motivo_confianca": "Falta: enquadramento desconhecido; valor provável sem premissa."
+  },
+  {
+   "id": "ae082806eb34b8fe993660c5c8c82a63",
+   "acao": "I - Até 90 (noventa) dias para revisar e publicar os planos de manejo vegetal, de comunicação e de contingência de que tratam os itens 103, 108 e 148 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa;",
+   "sujeito": "As distribuidoras",
+   "unidade": "u0289",
+   "dispositivo": "Art. 13, inciso I",
+   "trecho": "I - Até 90 (noventa) dias para revisar e publicar os planos de manejo vegetal, de comunicação e de contingência de que tratam os itens 103, 108 e 148 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa;",
+   "posicao": 6,
+   "prazo": "venceu em 28/01/2026, há 293 dias (prazo provisório): exposição atual",
+   "data_prazo": "2026-01-28",
+   "categorias": [
+    {
+     "nome": "Penalidade / multa",
+     "motivo": "Dever em norma da ANEEL: o descumprimento sujeita às penalidades do Art. 5º da REN 846."
+    },
+    {
+     "nome": "Risco operacional / fiscalização",
+     "motivo": "Dever de \"publicar\": falha é verificável em fiscalização."
+    }
+   ],
+   "impacto": {
+    "grupos": [
+     "IV"
+    ],
+    "enquadramentos": [
+     {
+      "dispositivo": "Art. 12, XXVII",
+      "grupo": "IV",
+      "trecho": "XXVII - a ausência, inadequação ou descumprimento do Plano de Manejo Vegetal, nos termos da regulação vigente; e"
+     }
+    ],
+    "minimo_reais": 0.0,
+    "maximo_reais": {
+     "com_teto": 50000000.0,
+     "sem_teto": 50000000.0
+    },
+    "maximo_pct": {
+     "com_teto": 1.0,
+     "sem_teto": 1.0
+    },
+    "teto_grupo_pct": 1.0,
+    "teto_legal_pct": 3.0,
+    "teto_legal_subestimado": true,
+    "premissas": [
+     "Enquadramento: Grupo(s) IV (indicado por termo coincidente com infração tipificada)",
+     "Mínimo 0: cabe advertência ou atenuante, e a metodologia do valor base não está no repositório",
+     "Máximo sem atenuante (pior caso)",
+     "Teto legal: 3% do faturamento por infração (Art. 3, X da Lei 9.427/1996, redação dada pela Lei nº 15.269, de 2025); infração em 28/01/2026, a partir de 25/11/2025 (Art. 24, caput e IV da Lei 15.269/2025); data considerada: data do prazo",
+     "Limite legal conforme a data do prazo; a data real da infração pode diferir.",
+     "Teto legal possivelmente subestimado: faturamento bruto não informado, aplicado sobre a base (ROL)"
+    ],
+    "fontes": [
+     "Art. 8º, IV da REN 846",
+     "Art. 6º da REN 846",
+     "Art. 22, § 1º da REN 846",
+     "Art. 3, X da Lei 9.427/1996"
+    ]
+   },
+   "confianca": "médio",
+   "motivo_confianca": "Falta: valor provável sem premissa."
+  },
+  {
+   "id": "315abe82f9a508dc7a3ced95426b725d",
+   "acao": "94. As distribuidoras devem estabelecer um plano de manejo vegetal na sua área de atuação, que contemple a vegetação que interfira em suas redes de distribuição, em coordenação com o Poder Público Municipal e em articulação com os órgãos competentes do Poder Público Estadual e Distrital, e com vistas a garantir a segurança da rede de distribuição, a qualidade, eficiência e a continuidade do fornecimento de energia elétrica.",
+   "sujeito": "As distribuidoras",
+   "unidade": "u0024",
+   "dispositivo": "item 94",
+   "trecho": "94. As distribuidoras devem estabelecer um plano de manejo vegetal na sua área de atuação, que contemple a vegetação que interfira em suas redes de distribuição, em coordenação com o Poder Público Municipal e em articulação com os órgãos competentes do Poder Público Estadual e Distrital, e com vistas a garantir a segurança da rede de distribuição, a qualidade, eficiência e a continuidade do fornecimento de energia elétrica.",
+   "posicao": 112,
+   "prazo": "sem prazo identificado no texto",
+   "data_prazo": null,
+   "categorias": [
+    {
+     "nome": "Penalidade / multa",
+     "motivo": "Dever em norma da ANEEL: o descumprimento sujeita às penalidades do Art. 5º da REN 846."
+    }
+   ],
+   "impacto": {
+    "grupos": [
+     "IV"
+    ],
+    "enquadramentos": [
+     {
+      "dispositivo": "Art. 12, XXVII",
+      "grupo": "IV",
+      "trecho": "XXVII - a ausência, inadequação ou descumprimento do Plano de Manejo Vegetal, nos termos da regulação vigente; e"
+     }
+    ],
+    "minimo_reais": 0.0,
+    "maximo_reais": {
+     "com_teto": 50000000.0,
+     "sem_teto": 50000000.0
+    },
+    "maximo_pct": {
+     "com_teto": 1.0,
+     "sem_teto": 1.0
+    },
+    "teto_grupo_pct": 1.0,
+    "teto_legal_pct": 3.0,
+    "teto_legal_subestimado": true,
+    "premissas": [
+     "Enquadramento: Grupo(s) IV (indicado por termo coincidente com infração tipificada)",
+     "Mínimo 0: cabe advertência ou atenuante, e a metodologia do valor base não está no repositório",
+     "Máximo sem atenuante (pior caso)",
+     "Teto legal: 3% do faturamento por infração (Art. 3, X da Lei 9.427/1996, redação dada pela Lei nº 15.269, de 2025); infração em 17/11/2026, a partir de 25/11/2025 (Art. 24, caput e IV da Lei 15.269/2025); data considerada: data de referência do perfil (obrigação sem prazo)",
+     "Limite legal conforme a data do prazo; a data real da infração pode diferir.",
+     "Teto legal possivelmente subestimado: faturamento bruto não informado, aplicado sobre a base (ROL)"
+    ],
+    "fontes": [
+     "Art. 8º, IV da REN 846",
+     "Art. 6º da REN 846",
+     "Art. 22, § 1º da REN 846",
+     "Art. 3, X da Lei 9.427/1996"
+    ]
+   },
+   "confianca": "médio",
+   "motivo_confianca": "Falta: valor provável sem premissa."
+  }
+ ]
+}

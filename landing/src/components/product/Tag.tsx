@@ -1,10 +1,25 @@
-import { Quote, Sparkles, UserRound, Check, X } from 'lucide-react'
+import { Calculator, Cog, Quote, Sparkles, UserRound, Check, X } from 'lucide-react'
 
-export type TagKind = 'source' | 'ai' | 'review' | 'accepted' | 'rejected' | 'fictional' | 'pending'
+export type TagKind =
+  | 'source'
+  | 'ai'
+  | 'rule'
+  | 'estimate'
+  | 'review'
+  | 'accepted'
+  | 'rejected'
+  | 'fictional'
+  | 'pending'
 
 const config: Record<TagKind, { label: string; cls: string; Icon?: typeof Quote }> = {
   source: { label: 'Texto da norma', cls: 'bg-stone text-bronze-deep', Icon: Quote },
   ai: { label: 'Interpretação da IA', cls: 'bg-slate-blue/10 text-slate-blue', Icon: Sparkles },
+  rule: { label: 'Interpretação automática (regras)', cls: 'bg-slate-blue/10 text-slate-blue', Icon: Cog },
+  estimate: {
+    label: 'Estimativa ilustrativa',
+    cls: 'border border-dashed border-bronze-deep/50 text-bronze-deep',
+    Icon: Calculator,
+  },
   review: { label: 'Aguarda revisão humana', cls: 'bg-[#f6ecd9] text-pending', Icon: UserRound },
   accepted: { label: 'Aceita na revisão', cls: 'bg-slate-blue text-ivory', Icon: Check },
   rejected: { label: 'Rejeitada na revisão', cls: 'bg-obsidian/8 text-ink-soft', Icon: X },

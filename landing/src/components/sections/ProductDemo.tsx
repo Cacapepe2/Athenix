@@ -2,7 +2,7 @@ import { useRef, useState, type KeyboardEvent, type ReactNode } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { ArrowLeft, ArrowRight, Check, Info, RotateCcw, X } from 'lucide-react'
 import { demo } from '../../content/site'
-import { articleById, changes, demoNorm, impactAreas, obligations, type RiskLevel } from '../../content/demo'
+import { articleById, brl, changes, demoNorm, notices, obligations, pct, profile } from '../../content/demo'
 import { DocumentView } from '../product/DocumentView'
 import { Tag } from '../product/Tag'
 import { Eyebrow, MaskedTitle, Reveal } from '../ui/Reveal'
@@ -10,10 +10,10 @@ import { Eyebrow, MaskedTitle, Reveal } from '../ui/Reveal'
 const ease = [0.16, 1, 0.3, 1] as const
 type Decision = 'accepted' | 'rejected' | undefined
 
-const levelStyle: Record<RiskLevel, { bar: string; w: string }> = {
-  Alta: { bar: 'bg-obsidian', w: '100%' },
-  Média: { bar: 'bg-slate-blue', w: '62%' },
-  Baixa: { bar: 'bg-bronze', w: '28%' },
+const confStyle: Record<string, string> = {
+  alto: 'bg-slate-blue text-ivory',
+  médio: 'bg-[#f6ecd9] text-pending',
+  baixo: 'bg-obsidian/8 text-obsidian',
 }
 
 function PanelTitle({ title, tag }: { title: string; tag?: ReactNode }) {
@@ -27,23 +27,25 @@ function PanelTitle({ title, tag }: { title: string; tag?: ReactNode }) {
 
 function NormPanel() {
   const meta = [
-    ['Órgão', demoNorm.issuer],
-    ['Publicação', demoNorm.published],
-    ['Vigência', demoNorm.effective],
-    ['Impressão digital', `${demoNorm.fingerprint} (ilustrativa)`],
-    ['Origem', 'Documento fictício criado para esta demonstração'],
+    ['Órgão', 'ANEEL'],
+    ['Vigência', `${demoNorm.effective} (na publicação)`],
+    ['Impressão digital', demoNorm.fingerprint],
+    ['Extração', `${demoNorm.extracted} obrigações candidatas, por regras e sem IA`],
+    ['Origem', 'PDF publicado pela ANEEL; trechos abaixo copiados literalmente'],
   ]
   return (
     <div className="grid gap-6 md:grid-cols-[1fr_260px]">
       <div>
-        <PanelTitle title="Documento original" tag={<Tag kind="source" />} />
+        <PanelTitle title="Trechos da norma usados na análise" tag={<Tag kind="source" />} />
         <DocumentView />
       </div>
       <dl className="space-y-3 self-start rounded-xl bg-stone/60 p-4 text-[0.82rem]">
         {meta.map(([k, v]) => (
           <div key={k}>
             <dt className="text-[0.68rem] font-semibold tracking-[0.14em] text-bronze-deep uppercase">{k}</dt>
-            <dd className="mt-0.5 text-obsidian">{v}</dd>
+            <dd className="mt-0.5 text-obsidian" title={k === 'Impressão digital' ? demoNorm.sha256 : undefined}>
+              {v}
+            </dd>
           </div>
         ))}
         <p className="border-t border-line pt-3 text-[0.75rem] leading-snug text-ink-soft">
@@ -54,14 +56,14 @@ function NormPanel() {
   )
 }
 
-function SummaryPanel() {
+function AlertsPanel() {
   const [sel, setSel] = useState(changes[0].id)
   const change = changes.find((c) => c.id === sel)!
   const art = articleById(change.articleId)
   return (
     <div className="grid gap-6 md:grid-cols-2">
       <div>
-        <PanelTitle title="O que mudou" tag={<Tag kind="ai" />} />
+        <PanelTitle title="O que a norma pede atenção" tag={<Tag kind="rule" label="Alerta por regra" />} />
         <ul className="space-y-2">
           {changes.map((c) => (
             <li key={c.id}>
@@ -92,13 +94,13 @@ function SummaryPanel() {
             className="paper rounded-xl border border-line p-5"
           >
             <p className="text-[0.7rem] font-semibold tracking-[0.14em] text-bronze-deep uppercase">
-              {demoNorm.kind} {demoNorm.number} · {art.label}
+              RN ANEEL 1.137/2025 · {art.label}
             </p>
             <p className="font-display mt-2 text-[1.12rem] leading-relaxed text-obsidian">“{art.text}”</p>
           </motion.blockquote>
         </AnimatePresence>
         <p className="mt-3 text-[0.78rem] leading-snug text-ink-soft">
-          O resumo à esquerda é interpretação. O texto acima é a norma, citada literalmente.
+          O alerta à esquerda é gerado por regra. O texto acima é a norma, citada literalmente.
         </p>
       </div>
     </div>
@@ -134,7 +136,7 @@ function ObligationsPanel({
                   {i + 1}
                 </span>
                 <span className="min-w-0 flex-1">
-                  <span className="block text-[0.88rem] leading-snug font-semibold text-obsidian">{x.title}</span>
+                  <span className="block text-[0.88rem] leading-snug font-semibold text-obsidian">{x.short}</span>
                   <span className="mt-1.5 flex flex-wrap gap-1.5">
                     <Tag kind={decisions[x.id] ?? 'review'} />
                   </span>
@@ -147,11 +149,11 @@ function ObligationsPanel({
 
       <div>
         <PanelTitle title="Fundamento e revisão" tag={<Tag kind="source" label={`${articleById(o.articleId).label} · trecho literal`} />} />
-        <DocumentView focusId={o.articleId} marks={{ [o.articleId]: o.anchor }} animateMarks key={o.id} />
+        <DocumentView articles={[articleById(o.articleId)]} marks={{ [o.articleId]: o.anchor }} animateMarks key={o.id} />
         <div className="mt-4 rounded-xl border border-line bg-white p-4">
           <p className="text-[0.82rem] text-ink-soft">
-            <Tag kind="ai" className="mr-2" />
-            {o.title}.
+            <Tag kind="rule" className="mr-2" />
+            Sujeito: <span className="text-obsidian">{o.subject}</span> · {o.categories.join(' · ')}
           </p>
           <div className="mt-3 flex flex-wrap items-center gap-2">
             {d ? (
@@ -195,15 +197,14 @@ function ObligationsPanel({
 function DeadlinesPanel() {
   return (
     <div>
-      <PanelTitle title="Prazos e responsáveis" tag={<Tag kind="ai" label="Responsáveis sugeridos pela IA" />} />
+      <PanelTitle title="Prazos" tag={<Tag kind="rule" label="Calculados do texto · provisórios" />} />
       <div className="overflow-hidden rounded-xl border border-line bg-white">
         <table className="w-full text-left text-[0.84rem]">
           <thead className="bg-stone/60 text-[0.68rem] font-semibold tracking-[0.12em] text-bronze-deep uppercase max-md:sr-only">
             <tr>
               <th className="px-4 py-3 font-semibold">Obrigação</th>
               <th className="px-4 py-3 font-semibold">Prazo</th>
-              <th className="px-4 py-3 font-semibold">Tipo</th>
-              <th className="px-4 py-3 font-semibold">Responsável sugerido</th>
+              <th className="px-4 py-3 font-semibold">Sujeito (do texto)</th>
               <th className="px-4 py-3 font-semibold">Fundamento</th>
             </tr>
           </thead>
@@ -221,13 +222,12 @@ function DeadlinesPanel() {
                   {o.deadline}
                   {o.pending && (
                     <span className="mt-1.5 block">
-                      <Tag kind="pending" />
+                      <Tag kind="pending" label="Sem data no texto" />
                       <span className="mt-1 block text-[0.75rem] leading-snug text-pending">{o.pending}</span>
                     </span>
                   )}
                 </td>
-                <td className="text-ink-soft md:px-4 md:py-3.5">{o.deadlineKind}</td>
-                <td className="text-ink-soft md:px-4 md:py-3.5">{o.owner}</td>
+                <td className="text-ink-soft md:px-4 md:py-3.5">{o.subject}</td>
                 <td className="text-bronze-deep md:px-4 md:py-3.5">{articleById(o.articleId).label}</td>
               </motion.tr>
             ))}
@@ -235,58 +235,77 @@ function DeadlinesPanel() {
         </table>
       </div>
       <p className="mt-3 text-[0.78rem] text-ink-soft">
-        Quando o texto não permite fixar uma data, ela fica pendente para revisão. Nenhuma data é presumida.
+        Prazos contados da publicação e marcados como provisórios. Quando o texto não permite fixar uma data, ela não é
+        presumida. Atribuir responsáveis faz parte da gestão de conformidade, etapa futura.
       </p>
     </div>
   )
 }
 
-function ImpactsPanel() {
+function ImpactPanel() {
   return (
     <div>
-      <PanelTitle title="Riscos e impactos preliminares" tag={<Tag kind="review" label="Requer validação da equipe" />} />
-      <div className="overflow-x-auto rounded-xl border border-line bg-white">
-        <table className="w-full min-w-[560px] text-left text-[0.82rem]">
-          <thead className="bg-stone/60 text-[0.68rem] tracking-[0.12em] text-bronze-deep uppercase">
-            <tr>
-              <th className="px-4 py-3 font-semibold">Obrigação</th>
-              {impactAreas.map((a) => (
-                <th key={a} className="px-4 py-3 font-semibold">
-                  {a}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {obligations.map((o, r) => (
-              <tr key={o.id} className="border-t border-line">
-                <th scope="row" className="px-4 py-3.5 font-semibold text-obsidian">
-                  {o.short}
-                  <span className="mt-1 block max-w-[220px] text-[0.72rem] leading-snug font-normal text-ink-soft">
-                    {o.impactNote}
-                  </span>
-                </th>
-                {impactAreas.map((a, c) => (
-                  <td key={a} className="px-4 py-3.5 align-top">
-                    <span className="block text-[0.75rem] text-obsidian">{o.risks[a]}</span>
-                    <span className="mt-1.5 block h-1.5 w-20 rounded-full bg-stone" aria-hidden="true">
-                      <motion.span
-                        className={`block h-full rounded-full ${levelStyle[o.risks[a]].bar}`}
-                        initial={{ width: 0 }}
-                        animate={{ width: levelStyle[o.risks[a]].w }}
-                        transition={{ duration: 0.8, ease, delay: 0.15 + r * 0.1 + c * 0.05 }}
-                      />
-                    </span>
-                  </td>
+      <PanelTitle title="Impacto estimado e prioridade" tag={<Tag kind="estimate" />} />
+      <p className="mb-4 rounded-xl border border-dashed border-bronze-deep/40 bg-ivory/70 p-3.5 text-[0.8rem] leading-snug text-ink-soft">
+        <span className="font-semibold text-obsidian">Perfil ilustrativo: {profile.label}.</span> {profile.notice} Base de
+        cálculo (ROL) de {brl(profile.base)}. {profile.baseOrigin}
+      </p>
+      <ol className="space-y-3">
+        {obligations.map((o, i) => (
+          <motion.li
+            key={o.id}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease, delay: 0.08 * i }}
+            className="rounded-xl border border-line bg-white p-4"
+          >
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <p className="text-[0.9rem] font-semibold text-obsidian">{o.short}</p>
+              <span className="text-[0.72rem] text-ink-soft">
+                {o.position}ª de {demoNorm.prioritized} na lista priorizada
+              </span>
+            </div>
+            <div className="mt-3 grid gap-4 text-[0.8rem] sm:grid-cols-[1.2fr_1fr_1fr]">
+              <div>
+                <p className="text-[0.66rem] font-semibold tracking-[0.12em] text-bronze-deep uppercase">Faixa estimada</p>
+                <p className="font-display mt-1 text-[1.25rem] leading-tight text-obsidian">
+                  {brl(o.impact.min)} a {brl(o.impact.max)}
+                </p>
+                <p className="mt-1 text-ink-soft">
+                  0 a {pct(o.impact.maxPct)} da base · {o.impact.framings.length
+                    ? o.impact.framings.map((f) => `${f.dispositivo} da REN 846 (Grupo ${f.grupo})`).join('; ')
+                    : `infração não identificada pelo texto: grupos ${o.impact.groups.join(', ')}`}
+                </p>
+              </div>
+              <div>
+                <p className="text-[0.66rem] font-semibold tracking-[0.12em] text-bronze-deep uppercase">Prazo</p>
+                <p className="mt-1 text-obsidian">{o.deadline}</p>
+              </div>
+              <div>
+                <p className="text-[0.66rem] font-semibold tracking-[0.12em] text-bronze-deep uppercase">Confiança</p>
+                <span className={`mt-1 inline-block rounded-full px-2 py-0.5 text-[0.72rem] font-semibold ${confStyle[o.confidence] ?? ''}`}>
+                  {o.confidence}
+                </span>
+                <p className="mt-1 text-[0.74rem] leading-snug text-ink-soft">{o.confidenceReason}</p>
+              </div>
+            </div>
+            <details className="mt-3 text-[0.76rem] text-ink-soft">
+              <summary className="cursor-pointer text-slate-blue">
+                Premissas ({o.impact.premises.length}) e fontes ({o.impact.sources.length})
+              </summary>
+              <ul className="mt-2 list-disc space-y-1 pl-5">
+                {o.impact.premises.map((p) => (
+                  <li key={p}>{p}</li>
                 ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+              </ul>
+              <p className="mt-2">Fontes: {o.impact.sources.join(' · ')}.</p>
+            </details>
+          </motion.li>
+        ))}
+      </ol>
       <p className="mt-3 text-[0.78rem] leading-snug text-ink-soft">
-        Classificação qualitativa e ilustrativa. Estimativas financeiras dependem de dados da empresa e não são
-        apresentadas sem eles.
+        {notices.estimate} {notices.date} Mínimo zero: cabe advertência ou atenuante. Parcela Variável de transmissoras
+        ainda não estimada.
       </p>
     </div>
   )
@@ -316,10 +335,10 @@ export function ProductDemo() {
 
   const panels = [
     <NormPanel key="0" />,
-    <SummaryPanel key="1" />,
+    <AlertsPanel key="1" />,
     <ObligationsPanel key="2" decisions={decisions} decide={decide} />,
     <DeadlinesPanel key="3" />,
-    <ImpactsPanel key="4" />,
+    <ImpactPanel key="4" />,
   ]
 
   return (
@@ -358,7 +377,7 @@ export function ProductDemo() {
               </p>
               <p className="mt-0.5 text-[0.78rem] text-ink-soft">{demoNorm.subject}</p>
             </div>
-            <Tag kind="fictional" label={demoNorm.badge} />
+            <Tag kind="estimate" label={demoNorm.badge} />
           </div>
 
           <div
