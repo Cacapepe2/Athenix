@@ -1,0 +1,763 @@
+[
+ {
+  "documento": "Lei 8.987/1995 (concessões)",
+  "origem": "Planalto · HTML",
+  "sha256": "481e8c87a4b0d882bc86b8d987855ac3164c3994ed0f77ace017f63526a820d0",
+  "nota": 80,
+  "situacao": "ok",
+  "limite": 70,
+  "alertas": [
+   {
+    "tipo": "numeracao",
+    "mensagem": "Numeração fora de sequência: 8 saltos, 2 ordens invertidas.",
+    "exemplos": [
+     "§ 2 → § 5º",
+     "inciso III → inciso VII",
+     "inciso VIII → inciso XII",
+     "inciso XVI antes de inciso I",
+     "inciso III → inciso V"
+    ],
+    "penalidade": 20
+   }
+  ],
+  "metricas": {
+   "dispositivos": 167,
+   "testados_literal": 154,
+   "cobertura": 0.989,
+   "anomalias_numeracao": 10
+  }
+ },
+ {
+  "documento": "Lei 9.074/1995 (concessões e permissões)",
+  "origem": "Planalto · HTML",
+  "sha256": "b3d3032dc59f105bc2dd4c7bc893bbba84bacdb247205f3f235565bce6034287",
+  "nota": 82,
+  "situacao": "ok",
+  "limite": 70,
+  "alertas": [
+   {
+    "tipo": "numeracao",
+    "mensagem": "Numeração fora de sequência: 6 saltos, 1 repetição, 2 ordens invertidas.",
+    "exemplos": [
+     "Art. 4 repetido",
+     "§ 2º → § 4º",
+     "§ 2º → § 4º",
+     "§ 14 antes de § 1",
+     "§ 2 → § 4"
+    ],
+    "penalidade": 18
+   }
+  ],
+  "metricas": {
+   "dispositivos": 179,
+   "testados_literal": 169,
+   "cobertura": 0.993,
+   "anomalias_numeracao": 9
+  }
+ },
+ {
+  "documento": "Lei 9.427/1996 (ANEEL)",
+  "origem": "Planalto · HTML",
+  "sha256": "ff948e3442edc619d98a3256fc6988a7c3d0dc21b27e25444a56a701082ac91b",
+  "nota": 70,
+  "situacao": "ok",
+  "limite": 70,
+  "alertas": [
+   {
+    "tipo": "numeracao",
+    "mensagem": "Numeração fora de sequência: 7 saltos, 11 repetições.",
+    "exemplos": [
+     "inciso IV → inciso VII",
+     "inciso XXI → inciso XXIII",
+     "inciso II → inciso IV",
+     "inciso II → inciso IV",
+     "inciso III → inciso VII"
+    ],
+    "penalidade": 30
+   }
+  ],
+  "metricas": {
+   "dispositivos": 180,
+   "testados_literal": 161,
+   "cobertura": 0.996,
+   "anomalias_numeracao": 18
+  }
+ },
+ {
+  "documento": "Lei 9.478/1997 (política energética)",
+  "origem": "Planalto · HTML",
+  "sha256": "75863c37450a19c60fe2ec50dadcd79f806883d6a2f17c4e70a709051420e9c9",
+  "nota": 70,
+  "situacao": "ok",
+  "limite": 70,
+  "alertas": [
+   {
+    "tipo": "numeracao",
+    "mensagem": "Numeração fora de sequência: 15 saltos, 24 repetições, 5 ordens invertidas.",
+    "exemplos": [
+     "Art. 2 repetido",
+     "Art. 2 repetido",
+     "Art. 8 repetido",
+     "Art. 49-A repetido",
+     "Art. 68-B repetido"
+    ],
+    "penalidade": 30
+   }
+  ],
+  "metricas": {
+   "dispositivos": 475,
+   "testados_literal": 440,
+   "cobertura": 0.994,
+   "anomalias_numeracao": 44
+  }
+ },
+ {
+  "documento": "Lei 9.648/1998",
+  "origem": "Planalto · HTML",
+  "sha256": "42e8c5f486f6b7722b07ea59c27a7d9b5b271c257f0441205a8224ff88737648",
+  "nota": 70,
+  "situacao": "ok",
+  "limite": 70,
+  "alertas": [
+   {
+    "tipo": "numeracao",
+    "mensagem": "Numeração fora de sequência: 27 saltos, 3 repetições, 39 ordens invertidas.",
+    "exemplos": [
+     "Art. 5 → Art. 17",
+     "Art. 17 → Art. 23",
+     "Art. 24 → Art. 26",
+     "Art. 26 → Art. 32",
+     "Art. 32 → Art. 40"
+    ],
+    "penalidade": 30
+   }
+  ],
+  "metricas": {
+   "dispositivos": 145,
+   "testados_literal": 144,
+   "cobertura": 0.988,
+   "anomalias_numeracao": 69
+  }
+ },
+ {
+  "documento": "Lei 9.991/2000 (P&D e eficiência)",
+  "origem": "Planalto · HTML",
+  "sha256": "d9cebcc3ce0878c67534b9ab7c7440f7220bc923d28a5264a959682bcee56b16",
+  "nota": 96,
+  "situacao": "ok",
+  "limite": 70,
+  "alertas": [
+   {
+    "tipo": "numeracao",
+    "mensagem": "Numeração fora de sequência: 1 salto, 1 repetição.",
+    "exemplos": [
+     "inciso I repetido",
+     "inciso I → inciso III"
+    ],
+    "penalidade": 4
+   }
+  ],
+  "metricas": {
+   "dispositivos": 54,
+   "testados_literal": 53,
+   "cobertura": 0.997,
+   "anomalias_numeracao": 2
+  }
+ },
+ {
+  "documento": "Lei 10.438/2002 (Proinfa, CDE)",
+  "origem": "Planalto · HTML",
+  "sha256": "0ceb644391b013c7a5b1a748754bd37aa332f5e7254789c9922e1a7dfd8601c2",
+  "nota": 70,
+  "situacao": "ok",
+  "limite": 70,
+  "alertas": [
+   {
+    "tipo": "numeracao",
+    "mensagem": "Numeração fora de sequência: 9 saltos, 14 repetições, 6 ordens invertidas.",
+    "exemplos": [
+     "Art. 13 repetido",
+     "Art. 18 antes de Art. 8",
+     "Art. 8 → Art. 19",
+     "inciso IV repetido",
+     "inciso VII repetido"
+    ],
+    "penalidade": 30
+   }
+  ],
+  "metricas": {
+   "dispositivos": 289,
+   "testados_literal": 288,
+   "cobertura": 0.994,
+   "anomalias_numeracao": 29
+  }
+ },
+ {
+  "documento": "Lei 10.848/2004 (comercialização)",
+  "origem": "Planalto · HTML",
+  "sha256": "63ad9c363c88b968bc9644b90e0677fbaa8bb9822ca324938e7bdd0cc30cf61b",
+  "nota": 70,
+  "situacao": "ok",
+  "limite": 70,
+  "alertas": [
+   {
+    "tipo": "numeracao",
+    "mensagem": "Numeração fora de sequência: 20 saltos, 7 repetições, 3 ordens invertidas.",
+    "exemplos": [
+     "Art. 2º-B repetido",
+     "inciso II repetido",
+     "§ 2º repetido",
+     "§ 7º repetido",
+     "§ 8º antes de § 5º"
+    ],
+    "penalidade": 30
+   }
+  ],
+  "metricas": {
+   "dispositivos": 364,
+   "testados_literal": 363,
+   "cobertura": 0.994,
+   "anomalias_numeracao": 30
+  }
+ },
+ {
+  "documento": "Lei 12.783/2013 (renovação de concessões)",
+  "origem": "Planalto · HTML",
+  "sha256": "a3e96c6f59521125a8b97e73ce1e7f4be5d8df630bb6a158528a24c6760430e7",
+  "nota": 70,
+  "situacao": "ok",
+  "limite": 70,
+  "alertas": [
+   {
+    "tipo": "numeracao",
+    "mensagem": "Numeração fora de sequência: 8 saltos, 12 repetições, 2 ordens invertidas.",
+    "exemplos": [
+     "Art. 2º repetido",
+     "Art. 11 repetido",
+     "Art. 13 repetido",
+     "§ 1º repetido",
+     "§ 1º repetido"
+    ],
+    "penalidade": 30
+   }
+  ],
+  "metricas": {
+   "dispositivos": 231,
+   "testados_literal": 214,
+   "cobertura": 0.988,
+   "anomalias_numeracao": 22
+  }
+ },
+ {
+  "documento": "Lei 13.360/2016",
+  "origem": "Planalto · HTML",
+  "sha256": "e076f446a314f989f113aeb1af9272201b684f443cf69129a126bf1e7821e204",
+  "nota": 70,
+  "situacao": "ok",
+  "limite": 70,
+  "alertas": [
+   {
+    "tipo": "numeracao",
+    "mensagem": "Numeração fora de sequência: 27 saltos, 17 repetições, 8 ordens invertidas.",
+    "exemplos": [
+     "Art. 4º → Art. 13",
+     "Art. 13 → Art. 16",
+     "Art. 16 → Art. 27",
+     "Art. 27 antes de Art. 13",
+     "Art. 13 → Art. 17"
+    ],
+    "penalidade": 30
+   }
+  ],
+  "metricas": {
+   "dispositivos": 182,
+   "testados_literal": 181,
+   "cobertura": 0.978,
+   "anomalias_numeracao": 52
+  }
+ },
+ {
+  "documento": "Lei 13.848/2019 (agências reguladoras)",
+  "origem": "Planalto · HTML",
+  "sha256": "e7188b1953f014fd992dea53382f9e46dd8fd518cbb19ca7ec91675fe023ff18",
+  "nota": 70,
+  "situacao": "ok",
+  "limite": 70,
+  "alertas": [
+   {
+    "tipo": "numeracao",
+    "mensagem": "Numeração fora de sequência: 17 saltos, 7 ordens invertidas.",
+    "exemplos": [
+     "Art. 5º → Art. 7º",
+     "Art. 7º → Art. 20",
+     "Art. 20 → Art. 23",
+     "Art. 24 → Art. 29",
+     "Art. 29 → Art. 49"
+    ],
+    "penalidade": 30
+   }
+  ],
+  "metricas": {
+   "dispositivos": 302,
+   "testados_literal": 290,
+   "cobertura": 0.986,
+   "anomalias_numeracao": 24
+  }
+ },
+ {
+  "documento": "Lei 14.120/2021",
+  "origem": "Planalto · HTML",
+  "sha256": "0590ff4e590850be60bd4779ab72055971b1a1a935679c1342da07df2726e49e",
+  "nota": 70,
+  "situacao": "ok",
+  "limite": 70,
+  "alertas": [
+   {
+    "tipo": "numeracao",
+    "mensagem": "Numeração fora de sequência: 6 saltos, 9 repetições, 6 ordens invertidas.",
+    "exemplos": [
+     "Art. 1º → Art. 5º",
+     "Art. 5º-B antes de Art. 4º",
+     "Art. 4º → Art. 26",
+     "Art. 26 antes de Art. 13",
+     "Art. 13 antes de Art. 2º"
+    ],
+    "penalidade": 30
+   }
+  ],
+  "metricas": {
+   "dispositivos": 123,
+   "testados_literal": 122,
+   "cobertura": 0.972,
+   "anomalias_numeracao": 21
+  }
+ },
+ {
+  "documento": "Lei 14.182/2021 (Eletrobras)",
+  "origem": "Planalto · HTML",
+  "sha256": "ceb8da3c5f9bef7e7761f3967f124282ab4e57718491841ad9d1039a4f868c26",
+  "nota": 84,
+  "situacao": "ok",
+  "limite": 70,
+  "alertas": [
+   {
+    "tipo": "numeracao",
+    "mensagem": "Numeração fora de sequência: 3 saltos, 3 repetições, 2 ordens invertidas.",
+    "exemplos": [
+     "§ 12 → § 14",
+     "§ 16 → § 19",
+     "Art. 4º repetido",
+     "Art. 5º-A → Art. 13",
+     "Art. 13 antes de Art. 2º"
+    ],
+    "penalidade": 16
+   }
+  ],
+  "metricas": {
+   "dispositivos": 224,
+   "testados_literal": 220,
+   "cobertura": 0.989,
+   "anomalias_numeracao": 8
+  }
+ },
+ {
+  "documento": "Lei 14.300/2022 (micro e minigeração)",
+  "origem": "Planalto · HTML",
+  "sha256": "1ea82253b42a38ea1990694425f6e3f82844344f73131a64d64994a2a2502890",
+  "nota": 88,
+  "situacao": "ok",
+  "limite": 70,
+  "alertas": [
+   {
+    "tipo": "numeracao",
+    "mensagem": "Numeração fora de sequência: 2 saltos, 2 repetições, 2 ordens invertidas.",
+    "exemplos": [
+     "Art. 1º → Art. 8º",
+     "§ 4º antes de § 1º",
+     "§ 3º repetido",
+     "§ 2º repetido",
+     "Art. 2º → Art. 26"
+    ],
+    "penalidade": 12
+   }
+  ],
+  "metricas": {
+   "dispositivos": 157,
+   "testados_literal": 148,
+   "cobertura": 0.979,
+   "anomalias_numeracao": 6
+  }
+ },
+ {
+  "documento": "Lei 15.269/2025",
+  "origem": "Planalto · HTML",
+  "sha256": "acd97004cd305e8052a865a1668fea71c0fa8492683a91f83ab4c83ec8cbae88",
+  "nota": 70,
+  "situacao": "ok",
+  "limite": 70,
+  "alertas": [
+   {
+    "tipo": "numeracao",
+    "mensagem": "Numeração fora de sequência: 43 saltos, 7 repetições, 17 ordens invertidas.",
+    "exemplos": [
+     "Art. 4º → Art. 7º",
+     "Art. 8º-A → Art. 15",
+     "Art. 17 antes de Art. 1º",
+     "Art. 3º → Art. 12",
+     "Art. 12 → Art. 20"
+    ],
+    "penalidade": 30
+   }
+  ],
+  "metricas": {
+   "dispositivos": 368,
+   "testados_literal": 359,
+   "cobertura": 0.981,
+   "anomalias_numeracao": 67
+  }
+ },
+ {
+  "documento": "Decreto 2.335/1997 (estrutura da ANEEL)",
+  "origem": "Planalto · HTML",
+  "sha256": "0873efbb7262e0c86cf96d359550edad63be1a6a7e1562cee03a05e46ffa4750",
+  "nota": 98,
+  "situacao": "ok",
+  "limite": 70,
+  "alertas": [
+   {
+    "tipo": "numeracao",
+    "mensagem": "Numeração fora de sequência: 1 ordem invertida.",
+    "exemplos": [
+     "Art. 6º antes de Art. 1º"
+    ],
+    "penalidade": 2
+   }
+  ],
+  "metricas": {
+   "dispositivos": 257,
+   "testados_literal": 237,
+   "cobertura": 0.987,
+   "anomalias_numeracao": 1
+  }
+ },
+ {
+  "documento": "Decreto 5.163/2004 (comercialização)",
+  "origem": "Planalto · HTML",
+  "sha256": "647b127223339d6026d2a367306b700c975bf251b780a744a9d5dcd6ab2aa63b",
+  "nota": 86,
+  "situacao": "ok",
+  "limite": 70,
+  "alertas": [
+   {
+    "tipo": "numeracao",
+    "mensagem": "Numeração fora de sequência: 7 repetições.",
+    "exemplos": [
+     "inciso I repetido",
+     "alínea d repetido",
+     "§ 1º repetido",
+     "§ 2 repetido",
+     "inciso I repetido"
+    ],
+    "penalidade": 14
+   }
+  ],
+  "metricas": {
+   "dispositivos": 373,
+   "testados_literal": 353,
+   "cobertura": 0.994,
+   "anomalias_numeracao": 7
+  }
+ },
+ {
+  "documento": "Decreto 7.246/2010 (sistemas isolados)",
+  "origem": "Planalto · HTML",
+  "sha256": "97bb2c79637ec8f63d328a1f73fc3e4247077619209417d36f0a2179bf397931",
+  "nota": 86,
+  "situacao": "ok",
+  "limite": 70,
+  "alertas": [
+   {
+    "tipo": "numeracao",
+    "mensagem": "Numeração fora de sequência: 7 repetições.",
+    "exemplos": [
+     "inciso II repetido",
+     "inciso III repetido",
+     "§ 1º repetido",
+     "§ 2 repetido",
+     "§ 3 repetido"
+    ],
+    "penalidade": 14
+   }
+  ],
+  "metricas": {
+   "dispositivos": 130,
+   "testados_literal": 128,
+   "cobertura": 0.981,
+   "anomalias_numeracao": 7
+  }
+ },
+ {
+  "documento": "Decreto 10.946/2022 (eólica offshore)",
+  "origem": "Planalto · HTML",
+  "sha256": "0a034217b79cdb6296ac3640bb6cd5a1763dc0dd2e270bfd2eee6a1a14694c55",
+  "nota": 86,
+  "situacao": "ok",
+  "limite": 70,
+  "alertas": [
+   {
+    "tipo": "numeracao",
+    "mensagem": "Numeração fora de sequência: 7 saltos.",
+    "exemplos": [
+     "inciso II → inciso IV",
+     "inciso VI → inciso IX",
+     "inciso II → inciso IV",
+     "inciso II → inciso IV",
+     "inciso VI → inciso IX"
+    ],
+    "penalidade": 14
+   }
+  ],
+  "metricas": {
+   "dispositivos": 108,
+   "testados_literal": 100,
+   "cobertura": 0.964,
+   "anomalias_numeracao": 7
+  }
+ },
+ {
+  "documento": "Decreto 12.068/2024",
+  "origem": "Planalto · HTML",
+  "sha256": "74f0e0d54568761a373291a350161c7ddab6094918d5158b0d9287f44a849ee0",
+  "nota": 78,
+  "situacao": "ok",
+  "limite": 70,
+  "alertas": [
+   {
+    "tipo": "numeracao",
+    "mensagem": "Numeração fora de sequência: 7 saltos, 4 ordens invertidas.",
+    "exemplos": [
+     "Art. 1º → Art. 3º",
+     "Art. 3º → Art. 5º",
+     "Art. 7º → Art. 9º",
+     "Art. 9º → Art. 14",
+     "Art. 14 → Art. 16"
+    ],
+    "penalidade": 22
+   }
+  ],
+  "metricas": {
+   "dispositivos": 135,
+   "testados_literal": 125,
+   "cobertura": 0.946,
+   "anomalias_numeracao": 11
+  }
+ },
+ {
+  "documento": "RN ANEEL 1.137/2025",
+  "origem": "ANEEL · PDF",
+  "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887",
+  "nota": 88,
+  "situacao": "ok",
+  "limite": 70,
+  "alertas": [
+   {
+    "tipo": "numeracao",
+    "mensagem": "Numeração fora de sequência: 5 saltos, 1 ordem invertida.",
+    "exemplos": [
+     "item 134-A antes de item 1",
+     "item 1 → item 23-A",
+     "item 23-M → item 172",
+     "item 173 → item 180-A",
+     "item 181 → item 220"
+    ],
+    "penalidade": 12
+   },
+   {
+    "tipo": "literal",
+    "mensagem": "3 de 240 dispositivos não aparecem na segunda leitura da fonte.",
+    "exemplos": [
+     "item 23-G",
+     "item 23-H",
+     "alínea e"
+    ],
+    "penalidade": 0.5
+   }
+  ],
+  "metricas": {
+   "dispositivos": 304,
+   "testados_literal": 240,
+   "cobertura": 0.988,
+   "anomalias_numeracao": 6
+  }
+ },
+ {
+  "documento": "RN 1.137/2025 no DOU",
+  "origem": "DOU · PDF",
+  "sha256": "ca2dbbb8ffda728d78ad1c6cc0a3f581ed7a39aa996bdacf9c6bc97dfd05fec2",
+  "nota": 50,
+  "situacao": "revisar extração",
+  "limite": 70,
+  "alertas": [
+   {
+    "tipo": "literal",
+    "mensagem": "Sem segunda leitura confiável da fonte: o texto extraído não pôde ser conferido.",
+    "exemplos": [],
+    "penalidade": 20
+   },
+   {
+    "tipo": "cobertura",
+    "mensagem": "Só 0% do texto ficou estruturado em dispositivos (mínimo 80%).",
+    "exemplos": [],
+    "penalidade": 30
+   }
+  ],
+  "metricas": {
+   "dispositivos": 1,
+   "testados_literal": 0,
+   "cobertura": 0.0,
+   "anomalias_numeracao": 0
+  }
+ },
+ {
+  "documento": "REH ANEEL 3.348/2024",
+  "origem": "Cópia de terceiro (ISA) · PDF",
+  "sha256": "c074ee9a23af3a633819135bd7c9b7a21106fb7a617f815af7de2a99e68e0f5c",
+  "nota": 98,
+  "situacao": "ok",
+  "limite": 70,
+  "alertas": [
+   {
+    "tipo": "literal",
+    "mensagem": "1 de 24 dispositivos não aparecem na segunda leitura da fonte.",
+    "exemplos": [
+     "inciso II"
+    ],
+    "penalidade": 1.7
+   }
+  ],
+  "metricas": {
+   "dispositivos": 30,
+   "testados_literal": 24,
+   "cobertura": 0.806,
+   "anomalias_numeracao": 0
+  }
+ },
+ {
+  "documento": "REN ANEEL 846/2019 compilada",
+  "origem": "Cópia local (Leis.org) · PDF",
+  "sha256": "d8b6fae9322fbb01e903f9fcb65fcf0f79155ad95f5cb3f5eb86592cada4d21a",
+  "nota": 85,
+  "situacao": "ok",
+  "limite": 70,
+  "alertas": [
+   {
+    "tipo": "numeracao",
+    "mensagem": "Numeração fora de sequência: 2 repetições, 1 ordem invertida.",
+    "exemplos": [
+     "Art. 31 repetido",
+     "Art. 34 repetido",
+     "inciso IV antes de inciso I"
+    ],
+    "penalidade": 6
+   },
+   {
+    "tipo": "literal",
+    "mensagem": "114 de 484 dispositivos não aparecem na segunda leitura da fonte.",
+    "exemplos": [
+     "Art. 1º",
+     "inciso I",
+     "Art. 2º",
+     "Art. 3º",
+     "Art. 4º"
+    ],
+    "penalidade": 9.4
+   }
+  ],
+  "metricas": {
+   "dispositivos": 551,
+   "testados_literal": 484,
+   "cobertura": 0.982,
+   "anomalias_numeracao": 3
+  }
+ },
+ {
+  "documento": "REN ANEEL 1.148/2026",
+  "origem": "Cópia local (Leis.org) · PDF",
+  "sha256": "00f8c4a41605a697eddac3be1ec916e4017bf78f2f1480162749f52dd6f801cb",
+  "nota": 72,
+  "situacao": "ok",
+  "limite": 70,
+  "alertas": [
+   {
+    "tipo": "numeracao",
+    "mensagem": "Numeração fora de sequência: 3 saltos, 2 repetições, 2 ordens invertidas.",
+    "exemplos": [
+     "Art. 7º repetido",
+     "Art. 439-A → Art. 448-A",
+     "alínea l antes de alínea b",
+     "item 268 → item 270-A",
+     "alínea a repetido"
+    ],
+    "penalidade": 14
+   },
+   {
+    "tipo": "literal",
+    "mensagem": "21 de 59 dispositivos não aparecem na segunda leitura da fonte.",
+    "exemplos": [
+     "Art. 1º",
+     "Art. 2º",
+     "Art. 3º",
+     "Art. 439",
+     "Art. 4º"
+    ],
+    "penalidade": 14.2
+   }
+  ],
+  "metricas": {
+   "dispositivos": 75,
+   "testados_literal": 59,
+   "cobertura": 0.951,
+   "anomalias_numeracao": 7
+  }
+ },
+ {
+  "documento": "REN ANEEL 1.174/2026 compilada",
+  "origem": "Cópia local (Leis.org) · PDF",
+  "sha256": "a2f89f9e431eb9dfc0122d0a646ade8711791434e2c6515c5c91e41d62f38e53",
+  "nota": 65,
+  "situacao": "revisar extração",
+  "limite": 70,
+  "alertas": [
+   {
+    "tipo": "numeracao",
+    "mensagem": "Numeração fora de sequência: 30 saltos, 1 repetição, 2 ordens invertidas.",
+    "exemplos": [
+     "Art. 11 repetido",
+     "Art. 1º → Art. 42",
+     "Art. 42 → Art. 90",
+     "Art. 90 → Art. 96-A",
+     "Art. 96-A → Art. 138"
+    ],
+    "penalidade": 30
+   },
+   {
+    "tipo": "literal",
+    "mensagem": "47 de 361 dispositivos não aparecem na segunda leitura da fonte.",
+    "exemplos": [
+     "Art. 1º",
+     "Art. 2º",
+     "inciso I",
+     "Art. 96-A",
+     "Art. 159"
+    ],
+    "penalidade": 5.2
+   }
+  ],
+  "metricas": {
+   "dispositivos": 371,
+   "testados_literal": 361,
+   "cobertura": 0.989,
+   "anomalias_numeracao": 33
+  }
+ }
+]

@@ -62,11 +62,20 @@ def _rotulo(unit):
     return rotulo if rotulo.startswith(nome) else f"{nome} {rotulo}"  # "§ 1º" já traz o sinal
 
 
+VETADO_REVOGADO = re.compile(r"\((?:VETAD[OA]S?|Revogad[oa]s?)\b", re.I)
+
+
+def marcado(unit):
+    """Vetado ou revogado: riscado no documento ou com a marca "(VETADO)"/"(Revogado ...)"."""
+    return bool(unit.get("struck")) or bool(VETADO_REVOGADO.search(unit["text"]))
+
+
 def numeracao(units):
     """Saltos, repetições e ordem invertida na sequência de cada nível (mesmo pai, tipo e dono).
 
-    A redação revogada (riscada) entra na sequência: sem ela, um artigo revogado viraria salto. A
-    redação antiga seguida da nova, com o mesmo número, não é repetição.
+    A redação revogada (riscada) entra na sequência: sem ela, um artigo revogado viraria salto.
+    Dispositivo vetado ou revogado não gera salto com o vizinho ("Arts. 4º a 6º (VETADOS)") nem
+    repetição com a nova redação de mesmo número.
     """
     grupos = {}
     for u in units:
@@ -78,11 +87,14 @@ def numeracao(units):
         sequencia.sort(key=lambda par: par[0]["start"])
         for (anterior, (n0, s0)), (atual, (n1, s1)) in zip(sequencia, sequencia[1:]):
             if (n1, s1) == (n0, s0):
-                if not (anterior.get("struck") or atual.get("struck")):
+                if not (marcado(anterior) or marcado(atual)):
                     achados.append(("repetição", f"{_rotulo(atual)} repetido"))
             elif n1 == n0 or n1 == n0 + 1:
                 continue  # mesmo número com sufixo ("23" → "23-A") ou o próximo
             elif n1 > n0:
+                if marcado(anterior) or marcado(atual):
+                    continue
+
                 achados.append(("salto", f"{_rotulo(anterior)} → {_rotulo(atual)}"))
             else:
                 achados.append(("ordem", f"{_rotulo(anterior)} antes de {_rotulo(atual)}"))

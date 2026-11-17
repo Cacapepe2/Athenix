@@ -32,16 +32,17 @@ def make(tmp_path, name, pages):
 
 
 def azure_settings(**extra):
-    return Settings(
-        model="gpt-5-mini",
-        api_key="chave-falsa",
-        azure_endpoint="https://exemplo.openai.azure.com/",
-        input_price="0.25",
-        output_price="2.00",
-        price_source="https://exemplo.test/precos",
-        price_date="2026-01-01",
-        **({"ai_mode": "live"} | extra),
-    )
+    base = {
+        "model": "gpt-5-mini",
+        "api_key": "chave-falsa",
+        "azure_endpoint": "https://exemplo.openai.azure.com/",
+        "input_price": "0.25",
+        "output_price": "2.00",
+        "price_source": "https://exemplo.test/precos",
+        "price_date": "2026-01-01",
+        "ai_mode": "live",
+    }
+    return Settings(**(base | extra))
 
 
 def test_identity_hash_and_invalid_input(tmp_path):
@@ -158,6 +159,15 @@ def test_azure_target_and_payload():
         "https://exemplo.openai.azure.com/openai/deployments/gpt-5-mini/chat/completions?api-version="
     )
     assert headers == {"api-key": "chave-falsa"}
+    # API v1: base_url terminando em /openai/v1 (com ou sem barra) ou api-version vazia; sem api-version.
+    v1 = "https://exemplo.openai.azure.com/openai/v1/chat/completions"
+    for endpoint, versao in [
+        ("https://exemplo.openai.azure.com/openai/v1/", "2025-04-01-preview"),
+        ("https://exemplo.openai.azure.com/openai/v1", ""),
+        ("https://exemplo.openai.azure.com", ""),
+    ]:
+        url, headers = llm.target(azure_settings(azure_endpoint=endpoint, azure_api_version=versao))
+        assert url == v1 and headers == {"api-key": "chave-falsa"}
     payload = llm.request_payload("gpt-5-mini", [], "low")
     assert payload["reasoning_effort"] == "low" and "store" not in payload
     assert "store" in llm.request_payload("m", [])  # OpenAI inalterado

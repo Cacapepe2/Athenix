@@ -100,3 +100,35 @@ def test_redacao_revogada_nao_vira_salto_nem_repeticao():
         if u["text"].startswith(("Art. 2º", "I - antigo")):
             u["struck"] = "revoked"
     assert "numeracao" not in tipos(saude.avaliar(extracao))
+
+
+def test_corpus_planalto_versionado_confere_com_os_hashes():
+    import hashlib
+    import json
+    from pathlib import Path
+
+    pasta = Path(__file__).parent / "corpus_planalto"
+    docs = json.loads((pasta / "fontes.json").read_text(encoding="utf-8"))["documentos"]
+    assert len(docs) == 16
+    for d in docs:
+        assert hashlib.sha256((pasta / d["arquivo"]).read_bytes()).hexdigest() == d["sha256"], d[
+            "id"
+        ]
+        assert d["url"].startswith("https://www.planalto.gov.br/")
+
+
+def test_vetado_ou_revogado_nao_conta_como_salto_nem_repeticao():
+    vetado = html("Art. 1º Um.", "Art. 2º a 4º (VETADOS).", "Art. 5º Cinco.")
+    assert "numeracao" not in tipos(saude.avaliar(vetado))
+    revogado = html(
+        "Art. 1º Um.",
+        "I - um;",
+        "II - (Revogado pela Lei nº 1, de 2000);",
+        "II - nova redação;",
+        "III - três.",
+    )
+    assert "numeracao" not in tipos(saude.avaliar(revogado))
+    # Sem marca, o mesmo salto continua acusado.
+    assert "numeracao" in tipos(
+        saude.avaliar(html("Art. 1º Um.", "Art. 2º Dois.", "Art. 5º Cinco."))
+    )

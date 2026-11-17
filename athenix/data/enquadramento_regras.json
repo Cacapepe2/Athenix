@@ -1,0 +1,23 @@
+{
+ "nota": "Regras curadas de SUGESTÃO de enquadramento (docs/proposta_enquadramento.md). Cada regra liga um instrumento nomeado no texto da obrigação a uma infração da REN 846 (o trecho literal vem de penalidades_ren846.json). Nada é enquadrado sem confirmação humana. Medidas sobre a RN 1.137/2025; revisar com especialista (Bloco 5).",
+ "regras": [
+  {
+   "id": "manejo_vegetal",
+   "dispositivo": "Art. 12, XXVII",
+   "padroes": ["\\bmanejo\\s+(?:da\\s+)?vegeta"],
+   "motivo": "A obrigação trata do manejo da vegetação, instrumento nomeado na infração (Plano de Manejo Vegetal)."
+  },
+  {
+   "id": "poder_publico_comunicacao",
+   "dispositivo": "Art. 12, XXVIII",
+   "padroes": ["\\bPoder\\s+P[úu]blico\\b", "\\b(?:notific|comunic|alert)\\w*"],
+   "motivo": "A obrigação é de comunicar ou notificar o Poder Público, conduta descrita na infração."
+  },
+  {
+   "id": "postos_atendimento",
+   "dispositivo": "Art. 9º, II",
+   "padroes": ["\\bpostos\\s+de\\s+atendimento\\s+presencia", "\\b(?:disponibiliz|à\\s+disposição)"],
+   "motivo": "A obrigação é de deixar documento ou informação à disposição nos postos de atendimento presencial, conduta descrita na infração."
+  }
+ ]
+}

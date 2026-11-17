@@ -18,6 +18,7 @@ from .db import (
     Interpretation,
     ModelResponse,
     Run,
+    User,
     audit,
     digest,
     now,
@@ -620,7 +621,19 @@ def decision_state(session, interpretation):
         data["band"] = "attention"
         data["reasons"].extend(f.data["explanation"] for f in findings)
     data["review_level"] = "none"
+    data["enquadramento"], data["enquadramento_rejeitado"] = None, []
     for decision in decisions:
+        if decision.action == "frame":
+            user = session.get(User, decision.user_id)
+            data["enquadramento"] = decision.data | {
+                "por": user.username if user else decision.user_id,
+                "em": decision.created,
+                "tipo": decision.review_type,
+            }
+        if decision.action == "reject_frame":
+            data["enquadramento_rejeitado"].append(decision.data["dispositivo"])
+            if (data["enquadramento"] or {}).get("dispositivo") == decision.data["dispositivo"]:
+                data["enquadramento"] = None
         if decision.action in {"accept", "reject", "supersede", "revoke", "correct"}:
             data["status"] = {
                 "accept": "validated",
@@ -681,6 +694,8 @@ def review(session, interpretation_id, actor, action, review_type, reason, expec
         "supersede",
         "revoke",
         "confirm_deadline",
+        "frame",
+        "reject_frame",
     }:
         raise ValueError("Ação inválida.")
     extraction = extraction_data(session, item.document_id)
@@ -709,6 +724,19 @@ def review(session, interpretation_id, actor, action, review_type, reason, expec
         if index < 0 or index >= len(data["deadlines"]) or not data["deadlines"][index].get("date"):
             raise ValueError("Prazo calculado não encontrado.")
         decision_payload = {"index": index, "convention": data["deadlines"][index]["convention"]}
+    elif action in {"frame", "reject_frame"}:
+        from . import enquadramento, impacto
+
+        dispositivo = str(payload.get("dispositivo", ""))
+        infracao = enquadramento.infracoes_validas(impacto.carregar()).get(dispositivo)
+        if not infracao:
+            raise ValueError("Infração da REN 846 inexistente ou sem citação verificada.")
+        decision_payload = {
+            "dispositivo": dispositivo,
+            "grupo": infracao["grupo"],
+            "trecho": infracao["trecho"],
+            "sugerido_por": str(payload.get("sugerido_por", "humano"))[:20],
+        }
     elif action == "correct":
         candidate = validate_item(
             payload.get("candidate", {}), {u["id"] for u in extraction["units"]}

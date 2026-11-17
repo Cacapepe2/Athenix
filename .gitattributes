@@ -3,3 +3,4 @@
 tests/fontes_impacto/*.htm binary
 *.png binary
 tests/gabarito/*.htm binary
+tests/corpus_planalto/*.htm binary

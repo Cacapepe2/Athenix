@@ -66,3 +66,10 @@ def test_idempotente_e_mapa_valido(texto):
     assert normalizar(normal)[0] == normal
     assert len(mapa) == len(normal)
     assert mapa == sorted(mapa) and all(0 <= p < len(texto) for p in mapa)
+
+
+def test_acento_que_nao_compoe_nao_quebra_o_mapa():
+    # Achado pelo hypothesis: "0" + virama não compõe em NFC; o mapa perdia uma posição.
+    for texto in ("0्", "्", "á"):
+        normal, mapa = normalizar(texto)
+        assert len(mapa) == len(normal) and normalizar(normal)[0] == normal

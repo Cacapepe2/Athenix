@@ -2,6 +2,27 @@ import os
 from dataclasses import dataclass, field
 from pathlib import Path
 
+ENV = Path(__file__).resolve().parents[1] / ".env"
+
+
+def carregar_env(path=ENV):
+    """Lê variáveis ATHENIX_* de .env para o ambiente, sem sobrescrever as já definidas.
+    Nunca imprime valores: devolve só os nomes lidos. Chamado nos pontos de entrada (CLI e scripts),
+    não na importação, para os testes não herdarem o .env de quem desenvolve."""
+    path = Path(path)
+    if not path.is_file():
+        return []
+    nomes = []
+    for linha in path.read_text(encoding="utf-8-sig").splitlines():
+        linha = linha.strip()
+        if linha.startswith("#") or "=" not in linha:
+            continue
+        nome, valor = (p.strip() for p in linha.split("=", 1))
+        if nome.startswith("ATHENIX_"):
+            os.environ.setdefault(nome, valor.strip("\"'"))
+            nomes.append(nome)
+    return nomes
+
 
 @dataclass
 class Settings:

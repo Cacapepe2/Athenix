@@ -5,7 +5,7 @@ import sys
 import time
 
 from .auth import create_user
-from .config import Settings
+from .config import Settings, carregar_env
 from .db import database, initialize, verify_chain
 from .llm import modo
 
@@ -37,6 +37,7 @@ def main():
     poc.add_argument("--ocr", choices=["none", "docling"], default="none")
     poc.add_argument("--ai", action="store_true", help="Usa o modelo configurado (Azure), com teto")
     args = parser.parse_args()
+    carregar_env()  # .env local (fora do git); variáveis já definidas no ambiente prevalecem
     # Console do Windows (cp1252/cp850) ou saída redirecionada: caractere sem mapa vira "?", não erro.
     for stream in (sys.stdout, sys.stderr):
         if hasattr(stream, "reconfigure"):

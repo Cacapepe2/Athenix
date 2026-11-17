@@ -53,6 +53,17 @@ def test_parameter_file_only_has_verified_current_wordings():
             )  # só as fontes de terceiros podem faltar (fora do repo)
 
 
+def test_list_inside_an_infraction_is_not_an_infraction():
+    # Art. 9º, IV ("cadastro relativo a:") enumera I a IV; antes viravam infrações com rótulo repetido.
+    rotulos = [i["dispositivo"] for i in PARAMS["infracoes"]]
+    assert len(rotulos) == len(set(rotulos)) == 109
+    iv = next(i for i in PARAMS["infracoes"] if i["dispositivo"] == "Art. 9º, IV")
+    assert [x["dispositivo"] for x in iv["itens"]] == [
+        f"Art. 9º, IV, {n}" for n in ("I", "II", "III", "IV")
+    ]
+    assert all(x["ancora"] == "verified" for x in iv["itens"])
+
+
 def test_fixed_values_explicit_group_with_base_and_premises():
     item = avaliar([PLANO], segmento="distribuicao", base="1.000.000,00", reincidencias="1",
                    fracao_valor_base="50")["itens"][0]  # fmt: skip

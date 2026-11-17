@@ -58,10 +58,15 @@ def normalizar(texto, espacos="um", hifenizacao=True, trema=True, caixa=False):
                 c = " "
         elif unicodedata.combining(c):
             # Acento separado do caractere base: compõe com o anterior (mesma posição de origem).
-            if not (trema and c == TREMA) and saida:
-                saida[-1] = unicodedata.normalize("NFC", saida[-1] + c)
-            i += 1
-            continue
+            composto = unicodedata.normalize("NFC", saida[-1] + c) if saida else ""
+            if trema and c == TREMA:
+                i += 1
+                continue
+            if len(composto) == 1:
+                saida[-1] = composto
+                i += 1
+                continue
+            # Não compõe ("0" + virama): fica como caractere próprio, para o mapa não perder posição.
         else:
             c = EQUIVALENTES.get(c, c)
             if trema and c in "üÜ":

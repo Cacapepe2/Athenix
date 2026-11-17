@@ -8,7 +8,7 @@ import pytest
 
 from athenix.config import Settings
 from athenix.poc import reader
-from athenix.structure import segment
+from athenix.structure import extract, segment
 from scripts.extrair_parametros import fonte
 
 DIR = Path(__file__).parent / "fontes_impacto"
@@ -153,3 +153,28 @@ def test_ren846_only_flags_the_real_inconsistency_d2():
     assert [(p, m["algarismo"], m["extenso"]) for p, m in achados] == [
         ("45-I > § 4º", "25%", "cinco por cento")
     ]
+
+
+def test_each_amendment_block_belongs_to_the_law_in_its_caput():
+    # Lei 15.269/2025 (planalto.gov.br): o caput quebrado em linhas ("Art. 5º A\nLei\nnº 9.648 ...
+    # passa a vigorar") deixava todos os blocos com a primeira lei alterada (Lei 9.074).
+    doc = extract(Path(DIR / "l15269.htm").read_bytes(), "text/html", Settings(), "norm")
+    units = doc["units"]
+    alvos = {}
+    for u in units:
+        if u["kind"] == "article" and u["owner"] == "self" and u["label"] in {"5º", "6º", "7º"}:
+            bloco = next(x for x in units if x["start"] > u["start"] and x["owner"] != "self")
+            alvos[u["label"]] = " ".join(bloco["owner"].split())
+    assert alvos == {"5º": "Lei nº 9.648", "6º": "Lei nº 9.991", "7º": "Lei nº 10.438"}
+
+
+def test_split_caput_sets_the_target_of_the_next_block():
+    html = (
+        "<html><body><p>Art. 1º A Lei nº 1.000 passa a vigorar com as seguintes alterações:</p>"
+        "<p>“Art. 2º Texto novo da Lei 1.000.” (NR)</p>"
+        "<p>Art. 2º A<br>Lei<br>nº 2.000, de 1º de janeiro de 2000<br>, passa a vigorar com as seguintes alterações:</p>"
+        "<p>“Art. 7º Texto novo da Lei 2.000.” (NR)</p></body></html>"
+    ).encode()
+    units = extract(html, "text/html", Settings(), "norm")["units"]
+    donos = [" ".join(u["owner"].split()) for u in units if u["text"].startswith("“Art.")]
+    assert donos == ["Lei nº 1.000", "Lei nº 2.000"]
