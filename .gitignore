@@ -10,3 +10,6 @@ __pycache__/
 artifacts/
 *.egg-info/
 playwright-report/
+# Cópias de terceiro (Leis.org): não publicar (termos de uso, cláusula 9). Remover esta linha ao
+# incluir as versões oficiais da ANEEL.
+tests/fontes_impacto/*.pdf
