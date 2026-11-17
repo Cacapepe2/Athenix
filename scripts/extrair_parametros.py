@@ -15,6 +15,7 @@ import hashlib
 import json
 import re
 import sys
+import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -44,7 +45,6 @@ DOCS = {
     "9648": (FONTES / "l9648cons.htm", "Lei 9.648/1998 (texto compilado)"),
     "15269": (FONTES / "l15269.htm", "Lei 15.269/2025"),
 }
-REGUA = ("846", "1137", "1148", "1174")
 ORIGENS = {
     "1137": "ANEEL (texto compilado já no repositório)",
     "9427": "planalto.gov.br (Presidência da República), texto compilado obtido em 17/11/2026",
@@ -109,8 +109,15 @@ def words(text):
 
 
 def spelled(text):
-    """Valor de 'cento e vinte e cinco milésimos por cento', 'zero vírgula zero um por cento'."""
-    text = re.sub(r"\s*por\s+cento\s*$", "", text.strip().lower())
+    """Valor de 'cento e vinte e cinco milésimos por cento', 'zero vírgula zero um por cento',
+    'dois inteiros e cinco décimos por cento'. Grafia anterior a 2009 ('cinqüenta') vale igual."""
+    # Trema (grafia antiga) não muda o número: "cinqüenta" = "cinquenta".
+    text = "".join(c for c in unicodedata.normalize("NFD", text) if c != "̈")
+    text = unicodedata.normalize("NFC", " ".join(text.lower().split()))
+    text = re.sub(r"\s*por\s+cento\s*$", "", text)
+    if m := re.fullmatch(r"(.+?)\s+inteiros?\s+e\s+(.+)", text):
+        whole, frac = words(m.group(1)), spelled(m.group(2))
+        return None if whole is None or frac is None else whole + frac
     for name, div in FRACTION.items():
         if text.endswith(name):
             n = words(text[: -len(name)])
@@ -403,9 +410,7 @@ def build(docs):
                     | cite(unit, doc["extraction"])
                 )
     alertas = []
-    # Só a régua de penalidade (REN 846 e alteradoras): as leis entram por um dispositivo cada, e
-    # o verificador não lê "cinqüenta" nem "dois inteiros e cinco décimos" (falsos positivos).
-    for name, doc in ((n, d) for n, d in docs.items() if n in REGUA):
+    for name, doc in docs.items():
         for unit in doc["units"]:
             if unit.get("struck"):
                 continue
