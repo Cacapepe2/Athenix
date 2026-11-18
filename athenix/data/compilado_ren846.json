@@ -8005,35 +8005,6 @@
     "texto": "a) unidades consumidoras;",
     "tipo": "base",
     "vigencia": "2025-10-21"
-   },
-   {
-    "aviso": "subitem não reproduzido na nova redação de article:9/clause:IV: revogação inferida, conferir",
-    "citacao": {
-     "artigo_do_ato": "16",
-     "ato": "REN 1.162/2026",
-     "fim": 41745,
-     "inicio": 41496,
-     "trecho": "IV - deixar de proceder à organização ou atualização de cadastro relativo a: unidades consumidoras; centrais geradoras; instalações de transmissão ou distribuição; ou sistemas de armazenamento de energia."
-    },
-    "fonte": {
-     "arquivo": "tests/fontes_impacto/dou/dou_ren20261162.html",
-     "publicacao": "2026-06-24",
-     "publicacao_dou": {
-      "data": "2026-06-24",
-      "edicao": "116",
-      "orgao": "Ministério de Minas e Energia/Agência Nacional de Energia Elétrica/Diretoria Colegiada",
-      "pagina": "92",
-      "secao": "1"
-     },
-     "sha256": "2e5e9962c8541a0732d4cf404b6270accb2e790654ea379a86d69105a7cb03f5",
-     "tipo": "DOU"
-    },
-    "inferido": true,
-    "redacao_dada_por": "REN 1.162/2026",
-    "situacao": "revogado",
-    "texto": null,
-    "tipo": "revogar_implicito",
-    "vigencia": "2026-06-24"
    }
   ],
   "article:9/clause:IV/letter:b": [
@@ -8050,35 +8021,6 @@
     "texto": "b) centrais geradoras; ou",
     "tipo": "base",
     "vigencia": "2025-10-21"
-   },
-   {
-    "aviso": "subitem não reproduzido na nova redação de article:9/clause:IV: revogação inferida, conferir",
-    "citacao": {
-     "artigo_do_ato": "16",
-     "ato": "REN 1.162/2026",
-     "fim": 41745,
-     "inicio": 41496,
-     "trecho": "IV - deixar de proceder à organização ou atualização de cadastro relativo a: unidades consumidoras; centrais geradoras; instalações de transmissão ou distribuição; ou sistemas de armazenamento de energia."
-    },
-    "fonte": {
-     "arquivo": "tests/fontes_impacto/dou/dou_ren20261162.html",
-     "publicacao": "2026-06-24",
-     "publicacao_dou": {
-      "data": "2026-06-24",
-      "edicao": "116",
-      "orgao": "Ministério de Minas e Energia/Agência Nacional de Energia Elétrica/Diretoria Colegiada",
-      "pagina": "92",
-      "secao": "1"
-     },
-     "sha256": "2e5e9962c8541a0732d4cf404b6270accb2e790654ea379a86d69105a7cb03f5",
-     "tipo": "DOU"
-    },
-    "inferido": true,
-    "redacao_dada_por": "REN 1.162/2026",
-    "situacao": "revogado",
-    "texto": null,
-    "tipo": "revogar_implicito",
-    "vigencia": "2026-06-24"
    }
   ],
   "article:9/clause:IV/letter:c": [
@@ -8095,35 +8037,6 @@
     "texto": "c) instalações de transmissão ou distribuição.",
     "tipo": "base",
     "vigencia": "2025-10-21"
-   },
-   {
-    "aviso": "subitem não reproduzido na nova redação de article:9/clause:IV: revogação inferida, conferir",
-    "citacao": {
-     "artigo_do_ato": "16",
-     "ato": "REN 1.162/2026",
-     "fim": 41745,
-     "inicio": 41496,
-     "trecho": "IV - deixar de proceder à organização ou atualização de cadastro relativo a: unidades consumidoras; centrais geradoras; instalações de transmissão ou distribuição; ou sistemas de armazenamento de energia."
-    },
-    "fonte": {
-     "arquivo": "tests/fontes_impacto/dou/dou_ren20261162.html",
-     "publicacao": "2026-06-24",
-     "publicacao_dou": {
-      "data": "2026-06-24",
-      "edicao": "116",
-      "orgao": "Ministério de Minas e Energia/Agência Nacional de Energia Elétrica/Diretoria Colegiada",
-      "pagina": "92",
-      "secao": "1"
-     },
-     "sha256": "2e5e9962c8541a0732d4cf404b6270accb2e790654ea379a86d69105a7cb03f5",
-     "tipo": "DOU"
-    },
-    "inferido": true,
-    "redacao_dada_por": "REN 1.162/2026",
-    "situacao": "revogado",
-    "texto": null,
-    "tipo": "revogar_implicito",
-    "vigencia": "2026-06-24"
    }
   ],
   "article:9/clause:IX": [
@@ -8366,19 +8279,25 @@
  },
  "inferencias": [
   {
+   "aplicada": false,
    "ato": "REN 1.162/2026",
+   "decisao": "o subitem continua no texto vigente; requer decisão humana",
    "dispositivo": "article:9/clause:IV/letter:a",
-   "motivo": "nova redação de article:9/clause:IV"
+   "motivo": "subitem não reproduzido na nova redação de article:9/clause:IV"
   },
   {
+   "aplicada": false,
    "ato": "REN 1.162/2026",
+   "decisao": "o subitem continua no texto vigente; requer decisão humana",
    "dispositivo": "article:9/clause:IV/letter:b",
-   "motivo": "nova redação de article:9/clause:IV"
+   "motivo": "subitem não reproduzido na nova redação de article:9/clause:IV"
   },
   {
+   "aplicada": false,
    "ato": "REN 1.162/2026",
+   "decisao": "o subitem continua no texto vigente; requer decisão humana",
    "dispositivo": "article:9/clause:IV/letter:c",
-   "motivo": "nova redação de article:9/clause:IV"
+   "motivo": "subitem não reproduzido na nova redação de article:9/clause:IV"
   }
  ],
  "nao_aplicado": [],

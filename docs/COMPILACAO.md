@@ -27,8 +27,9 @@ guarda a nova versão com a data de vigência e preserva as anteriores. **Sem IA
   (`conflitos`): a redação proposta não é aplicada e o caso vai para decisão humana.
 - **Duas normas, mesmo dispositivo, mesma data, textos diferentes → conflito**; datas diferentes
   valem em sequência e o histórico guarda todas.
-- **Subitens de dispositivo substituído** que o ato não reproduz saem como revogação **inferida**
-  (`inferido: true`, `inferencias`): é interpretação (LC 95), marcada e a conferir.
+- **Subitens de dispositivo substituído** que o ato não reproduz: **não são revogados**. O pontilhado
+  (`........`) da LC 95 diz que o resto continua valendo e a regra não distingue os dois casos; o
+  subitem fica vigente e vai para `inferencias` (`aplicada: false`) para decisão humana.
 - **Revogação de artigo** leva os subitens (`revogar_com_pai`, não inferido).
 - **Revogação explícita**: só `art. N`, `§ N do art. M`, `inciso R do art. N` e `parágrafo único do
   art. N` viram caminho; o resto (`a Seção IV do Capítulo V`, `a linha referente ao art. 96-A do Anexo
@@ -50,7 +51,7 @@ Base: compilado oficial da ANEEL (`atren2019846.pdf`, sha256 `efe4e35f…`), atu
 | Ato (fonte) | Vigência | O que faz na REN 846 | Resultado |
 |---|---|---|---|
 | REN 1.148/2026 (biblioteca da ANEEL) | 01/01/2027 | art. 8º: inciso XXIII do art. 11 | **conflito** (abaixo) |
-| REN 1.162/2026 (DOU, p. 92) | 24/06/2026 | art. 16: arts. 9º IV e VII; 10 VII, XII e XIX; 21 § 11 (+ inciso I e 4 linhas de fórmula) | 11 substituições/inclusões aplicadas + 3 revogações inferidas (alíneas a–c do art. 9º, IV) |
+| REN 1.162/2026 (DOU, p. 92) | 24/06/2026 | art. 16: arts. 9º IV e VII; 10 VII, XII e XIX; 21 § 11 (+ inciso I e 4 linhas de fórmula) | 11 substituições/inclusões aplicadas; 3 subitens (alíneas a–c do art. 9º, IV) em `inferencias`, não revogados, para decisão humana |
 | REN 1.174/2026 (DOU, p. 68) | 04/11/2026 | art. 10: inciso XXIV do art. 11 | 1 inclusão aplicada |
 
 **Conflito (não resolvido):** a RN 1.148 traz um inciso XXIII ("deixar de responder … Ouvidoria") e a

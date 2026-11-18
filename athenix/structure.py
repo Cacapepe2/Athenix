@@ -39,7 +39,7 @@ ITEM = re.compile(r'^\s*[“"]?\s*(\d+(?:-[A-Z])?)\.\s+')
 # "Anexo I do Decreto..." no início de uma linha quebrada é remissão no meio da frase, não anexo: a
 # continuação em minúscula ("do", "da", "ao"...) a denuncia; "ANEXO I DA RESOLUÇÃO" segue anexo.
 ANNEX = re.compile(
-    r'^\s*[“"]?\s*ANEXO\s+([IVXLCDM\d]+)(?!\s*[º°]?\s*(?-i:d[oae]s?|n[oa]s?|aos?|e|ou|dest[ea]s?)\b)',
+    r'^\s*[“"]?\s*ANEXO\s+([IVXLCDM\d]+)(?![IVXLCDM\d])(?!\s*[º°]?\s*(?-i:d[oae]s?|n[oa]s?|aos?|e|ou|dest[ea]s?)\b)',
     re.I,
 )
 TABLE = re.compile(r"^\s*Tabela\s+(\d+)", re.I)
@@ -241,7 +241,13 @@ def segment(text, pages, faq=False):
     for line in text.splitlines(keepends=True):
         stripped = line.lstrip()
         article = ARTICLE.match(line)
-        if quoted and article and caput_art is not None and not stripped.startswith(("“", '"')):
+        if (
+            quoted
+            and article
+            and "-" not in article.group(1)
+            and caput_art is not None
+            and not stripped.startswith(("“", '"'))
+        ):
             # Texto oficial sem as aspas de fechamento nem "(NR)" (ex.: RN 1.148 da biblioteca da
             # ANEEL): o artigo seguinte do próprio ato, sem aspas, encerra o bloco.
             if int(re.match(r"\d+", article.group(1)).group()) == caput_art + 1:

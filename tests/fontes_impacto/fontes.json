@@ -77,7 +77,7 @@
   }
  ],
  "oficiais_baixados_2026-11-17": {
-  "nota": "Baixados manualmente pelo fundador em 17/11/2026 (arquivos em C:/Users/.../Downloads, movidos para cá). Oficiais prevalecem sobre cópias do Leis.org. Os PDFs da biblioteca da ANEEL no nível de tests/fontes_impacto/ continuam ignorados pelo git (decisão de versionar é do fundador); os de dou/, parcela_variavel/ e dados_abertos/ não são ignorados.",
+  "nota": "Baixados manualmente pelo fundador em 17/11/2026 (arquivos em C:/Users/.../Downloads, movidos para cá). Oficiais prevalecem sobre cópias do Leis.org. Os PDFs da biblioteca da ANEEL no nível de tests/fontes_impacto/ são versionados (decisão do fundador de 18/11/2026; só *_leisorg.* e .local/ são ignorados); os de dou/, parcela_variavel/ e dados_abertos/ não são ignorados.",
   "biblioteca_aneel": [
    {
     "arquivo": "atren2019846.pdf",
@@ -198,7 +198,7 @@
    {
     "id": "ren20261148",
     "arquivo": "ren20261148.pdf",
-    "sha256": "c1bf6ff2da617d0699cc00e2abd774eabd6950bb4d7f2d76f5f86b6ee923697e",
+    "sha256": "00f8c4a41605a697eddac3be1ec916e4017bf78f2f1480162749f52dd6f801cb",
     "ato": "Resolução Normativa ANEEL nº 1.148, de 27 de janeiro de 2026"
    },
    {

@@ -387,6 +387,12 @@ def sobrepor_alteracoes(infracoes, docs, em, ren_units):
     futuras = []
     for chave, historico in comp["historico"].items():
         m = re.fullmatch(r"article:(9|10|11|12|13)/clause:([IVXLC]+)", chave)
+        if m and historico[-1]["situacao"] == "revogado":  # revogado na compilação: sai do catálogo
+            rotulo = "9º" if m.group(1) == "9" else m.group(1)
+            infracoes[:] = [
+                x for x in infracoes if x["dispositivo"] != f"Art. {rotulo}, {m.group(2)}"
+            ]
+            continue
         ops = [h for h in historico if h["tipo"] in {"substituir", "incluir"}]
         if not m or not ops:
             continue

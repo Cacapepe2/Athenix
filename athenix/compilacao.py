@@ -402,7 +402,7 @@ def compilar(norma, base, alteradoras):
                 }
             )
             continue
-        if tipo == "incluir":
+        if tipo == "incluir" and o["chave"] not in ordem:
             ordem.insert(posicao(ordem, o["chave"]), o["chave"])
         hist.setdefault(o["chave"], []).append(
             {
@@ -434,31 +434,20 @@ def compilar(norma, base, alteradoras):
                         }
                     )
         if tipo == "substituir":
-            # Nova redação de um dispositivo vale para ele inteiro: subitens que o ato não reproduz
-            # (nem lista) saem com ele. É inferência (LC 95), marcada e levada ao relatório.
+            # Subitens que o ato não reproduz podem ter saído com o dispositivo (LC 95) ou continuar
+            # valendo (o pontilhado "........" diz isso). Não dá para saber por regra: NÃO se aplica;
+            # fica em `inferencias` (aplicada: false) para decisão humana.
             do_ato = {x[4]["chave"] for x in ops if x[5] is alt and x[0] == vigencia}
             for filho in subarvore(ordem, o["chave"])[1:]:
                 if filho in do_ato or not hist[filho][-1]["situacao"].startswith("vigente"):
                     continue
-                hist[filho].append(
-                    {
-                        "vigencia": vigencia,
-                        "tipo": "revogar_implicito",
-                        "texto": None,
-                        "situacao": "revogado",
-                        "redacao_dada_por": alt["ato"]["nome"],
-                        "fonte": alt["fonte"],
-                        "citacao": o["citacao"],
-                        "inferido": True,
-                        "aviso": f"subitem não reproduzido na nova redação de {o['chave']}: "
-                        "revogação inferida, conferir",
-                    }
-                )
                 inferencias.append(
                     {
                         "dispositivo": filho,
                         "ato": alt["ato"]["nome"],
-                        "motivo": f"nova redação de {o['chave']}",
+                        "motivo": f"subitem não reproduzido na nova redação de {o['chave']}",
+                        "aplicada": False,
+                        "decisao": "o subitem continua no texto vigente; requer decisão humana",
                     }
                 )
         aplicadas.append(
