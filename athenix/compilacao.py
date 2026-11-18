@@ -329,7 +329,7 @@ def compilar(norma, base, alteradoras):
         for alt in alteradoras
         for n, o in enumerate(alt["operacoes"])
     ]
-    conflitos, nao_aplicado, aplicadas, inferencias = [], [], [], []
+    conflitos, nao_aplicado, aplicadas, inferencias, duvidas = [], [], [], [], []
     por_chave = {}
     for item in ops:
         por_chave.setdefault((item[4]["chave"], item[0]), []).append(item)
@@ -383,6 +383,27 @@ def compilar(norma, base, alteradoras):
             tipo, situacao = "substituir", "vigente"
         elif o["texto"] == atual["texto"]:
             continue  # mesma redação: nada a aplicar
+        elif o["marcador"] is None and vigencia > atual["vigencia"]:
+            # Sem (NR)/(AC) no texto da fonte, mas com vigência posterior: sucessão no tempo (decisão do
+            # fundador, 18/11/2026). As duas redações ficam, cada uma com a sua data; a incerteza do
+            # parsing e a possível colisão de numeração vão para decisão de especialista.
+            tipo, situacao = "substituir", "vigente"
+            aviso = (
+                "INCERTO: a fonte não traz (NR)/(AC) nem aspas de fechamento; lido como nova redação "
+                f"em sucessão à de {atual['redacao_dada_por']}"
+            )
+            duvidas.append(
+                {
+                    "dispositivo": o["chave"],
+                    "atos": [atual["redacao_dada_por"], alt["ato"]["nome"]],
+                    "vigencias": {"anterior": atual["vigencia"], "nova": vigencia},
+                    "motivo": "possível colisão de numeração: a norma nova propõe, para o mesmo número, conteúdo "
+                    "diferente do já vigente, sem (NR)/(AC) no texto da fonte",
+                    "redacao_existente": atual["texto"],
+                    "redacao_proposta": o["texto"],
+                    "para": "especialista (junto da dúvida D1)",
+                }
+            )
         else:
             conflitos.append(
                 {
@@ -466,6 +487,7 @@ def compilar(norma, base, alteradoras):
         "nao_aplicado": nao_aplicado,
         "aplicadas": aplicadas,
         "inferencias": inferencias,
+        "duvidas_para_especialista": duvidas,
     }
 
 
