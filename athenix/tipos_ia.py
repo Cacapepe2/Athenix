@@ -106,7 +106,122 @@ def ler_resposta(texto, ids_do_lote, cfg=None):
 
 
 def carregar_cache(path=CACHE):
-    return json.loads(Path(path).read_text(encoding="utf-8")) if Path(path).exists() else {}
+    """{chave da obrigação: tipo}. A chave é `enquadramento.chave(row)` (texto, estável entre bancos)."""
+    if not Path(path).exists():
+        return {}
+    return json.loads(Path(path).read_text(encoding="utf-8")).get("tipos", {})
+
+
+def schema_resposta(cfg=None):
+    ids = [t["id"] for t in (cfg or tipos.carregar())["tipos"]]
+    item = {
+        "type": "object",
+        "properties": {"id": {"type": "string"}, "tipo": {"type": "string", "enum": ids}},
+        "required": ["id", "tipo"],
+        "additionalProperties": False,
+    }
+    return {
+        "type": "object",
+        "properties": {"itens": {"type": "array", "items": item}},
+        "required": ["itens"],
+        "additionalProperties": False,
+    }
+
+
+def payload(settings, lote, cfg=None):
+    p = {
+        "model": settings.model,
+        "messages": [
+            {"role": "system", "content": lote["sistema"]},
+            {"role": "user", "content": lote["usuario"]},
+        ],
+        "response_format": {
+            "type": "json_schema",
+            "json_schema": {"name": "tipos", "strict": True, "schema": schema_resposta(cfg)},
+        },
+        "max_completion_tokens": LIMITE_SAIDA_RACIOCINIO,
+    }
+    if settings.reasoning_effort:
+        p["reasoning_effort"] = settings.reasoning_effort
+    else:
+        p["store"] = False
+    return p
+
+
+def _postar(settings, corpo, tentativas=3):
+    """Uma chamada ao provedor. Só 429 (recusado, não cobrado) é repetido; timeout e 5xx não."""
+    import time
+
+    import httpx
+
+    from . import llm
+
+    url, cabecalhos = llm.target(settings)
+    for n in range(1, tentativas + 1):
+        with httpx.Client(timeout=120, follow_redirects=False) as c:
+            r = c.post(url, headers=cabecalhos, json=corpo)
+        if r.status_code != 429:
+            break
+        espera = llm._espera(r.headers.get("Retry-After"), n)
+        if n == tentativas or espera is None:
+            return {"status": "rate_limited"}
+        time.sleep(espera)
+    if r.status_code != 200:
+        return {"status": "erro_http", "http": r.status_code}
+    try:
+        return {"status": "ok", "raw": r.json()}
+    except ValueError:
+        return {"status": "resposta_invalida"}
+
+
+def rodar(lotes, settings, preco, orcamento_usd, chamar=None, cfg=None):
+    """Executa os lotes (uma chamada por lote) SEM nunca passar do orçamento: antes de cada chamada,
+    o pior caso dela (entrada estimada + 3000 tokens de saída) somado ao já gasto tem de caber.
+    `preco`: {"entrada": US$/1M, "saida": US$/1M} (TETO conservador, não o preço real).
+    Devolve {"tipos": {id: tipo}, "uso": {...}, "falhas": [...]}. A resposta bruta não é guardada."""
+    chamar = chamar or (lambda corpo: _postar(settings, corpo))
+    gasto, tokens_in, tokens_out, resultado, falhas, chamadas = 0.0, 0, 0, {}, [], 0
+    for i, lote in enumerate(lotes, start=1):
+        entrada = estimar_tokens(lote["sistema"] + lote["usuario"])
+        pior = (entrada * preco["entrada"] + LIMITE_SAIDA_RACIOCINIO * preco["saida"]) / 1e6
+        if gasto + pior > orcamento_usd:
+            falhas.append({"lote": i, "motivo": "orçamento esgotado antes da chamada"})
+            break
+        r = chamar(payload(settings, lote, cfg))
+        chamadas += 1
+        if r.get("status") != "ok":
+            falhas.append({"lote": i, "motivo": r.get("status"), "http": r.get("http")})
+            gasto += pior  # sem leitura do uso: conta o pior caso (a chamada pode ter sido cobrada)
+            continue
+        raw = r["raw"]
+        uso = raw.get("usage") or {}
+        t_in, t_out = uso.get("prompt_tokens"), uso.get("completion_tokens")
+        if t_in is None or t_out is None:
+            t_in, t_out = entrada, LIMITE_SAIDA_RACIOCINIO
+        tokens_in += t_in
+        tokens_out += t_out
+        gasto += (t_in * preco["entrada"] + t_out * preco["saida"]) / 1e6
+        escolha = (raw.get("choices") or [{}])[0]
+        if escolha.get("finish_reason") != "stop":
+            falhas.append({"lote": i, "motivo": f"finish_reason={escolha.get('finish_reason')}"})
+            continue
+        lidos = ler_resposta((escolha.get("message") or {}).get("content") or "", lote["ids"], cfg)
+        if len(lidos) < len(lote["ids"]):
+            falhas.append(
+                {"lote": i, "motivo": f"{len(lote['ids']) - len(lidos)} itens sem tipo válido"}
+            )
+        resultado.update(lidos)
+    return {
+        "tipos": resultado,
+        "uso": {
+            "chamadas": chamadas,
+            "tokens_entrada": tokens_in,
+            "tokens_saida": tokens_out,
+            "custo_ao_preco_teto_usd": round(gasto, 6),
+            "orcamento_usd": orcamento_usd,
+        },
+        "falhas": falhas,
+    }
 
 
 def comparar(regras, ia):

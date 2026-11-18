@@ -1,0 +1,11 @@
+{
+ "rotulo": "Referência de escala, não estimativa por obrigação",
+ "segmento": "distribuição",
+ "unidade": "auto de infração inteiro (pode reunir várias infrações; o CSV não separa valor por infração)",
+ "autos": 21,
+ "empresas": 14,
+ "mediana_reais": 10349703,
+ "maximo_reais": 48654893,
+ "fonte": "Dados abertos da ANEEL, CSV de Auto de Infração (sha256 453451f4…, 1.635 linhas, 06/2018 a 11/2026), análise por auto em docs/valor_provavel_csv.md (reproduzir com scripts/analisar_autos.py). Mediana e máximo do VlrPenalidade; valores do CSV, sem decisões posteriores da Diretoria. Nenhuma empresa é identificada.",
+ "limites": "Mediana de 21 autos de distribuição (11 da ANEEL e 10 de agências estaduais conveniadas), de qualquer combinação de grupos. Não é valor por infração, não é previsão de multa e não vale para uma empresa em particular."
+}

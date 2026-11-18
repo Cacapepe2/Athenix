@@ -55,11 +55,29 @@ export interface Obrigacao {
   ia: { dispositivo: string; grupo: string; justificativa: string; duvida: string | null } | null
   grupo: string | null
   faixa: Faixa | null
+  /** Faixa do grupo SUGERIDO pela IA (aguarda confirmação); só entra no "cenário preliminar". */
+  faixa_preliminar: Faixa | null
+  analise?: AnaliseObrigacao
   premissas: string[]
   motivo_sem_calculo: string | null
   evidencias: { id: string; trecho: string }[]
   guardar: string[]
   excludente: string | null
+}
+
+export type SituacaoTipo = 'so_regra' | 'concordam' | 'a_revisar' | 'sem_tipo'
+export interface AnaliseObrigacao {
+  tipo: { id: string | null; nome: string | null; situacao: SituacaoTipo; por: string }
+  dependencias_no_texto: { id: string; trecho_literal: string }[]
+}
+export interface ManualDependencia {
+  id: string
+  nome: string
+  o_que_guardar: string[]
+  caminho: string
+  cautela: string
+  status: string
+  precedentes: { id: string; titulo: string; urls: string[]; o_que_e: string; a_confirmar: string }[]
 }
 
 export interface Tema {
@@ -68,13 +86,16 @@ export interface Tema {
   fontes: { rotulo: string; titulo: string; unidade: string }[]
   n: number
   contagem: Record<Situacao, number>
-  prazo_mais_urgente: { obrigacao: string; data: string | null; texto: string; situacao: Situacao } | null
+  prazo_mais_urgente: { obrigacao: string; data: string | null; texto: string; dias: number | null; situacao: Situacao } | null
   na_fila: number
   a_confirmar: number
   grupos: string[]
   grupo_mais_grave: string | null
   infracoes: string[]
   faixa: Faixa | null
+  faixa_preliminar: Faixa | null
+  grupos_sugeridos: string[]
+  dependencias_no_texto: { obrigacao: string; id: string; trecho_literal: string }[]
   ia: { dispositivo: string; n: number; de: number } | null
   evidencias: { id: string; n: number; exemplo: { obrigacao: string; trecho: string } }[]
   principais: string[]
@@ -103,7 +124,7 @@ export const plano = dados as unknown as {
     grupo_mais_grave: string | null
     temas: number
   }
-  decisoes: { titulo: string; itens: string[]; obrigacoes: string[]; temas: string[]; motivo: string }[]
+  decisoes: { principais: unknown[]; confirmar: { obrigacoes: number; temas_sem_calculo_confirmado: number } }
   temas: Tema[]
   ordem_inicial: string[]
   obrigacoes: Obrigacao[]
@@ -114,6 +135,17 @@ export const plano = dados as unknown as {
   evidencias: Record<string, string>
   reducao: { rotulo: string; regras: Citacao[]; medidas: Medida[]; causa_externa: string }
   guardar: Record<string, string>
+  analise: {
+    rotulo: string
+    tipo_so_regra: string
+    tipo_a_revisar: string
+    manuais: Record<string, { nome: string; ideias_cumprimento: string[]; evidencias: string[]; status: string }>
+    dependencias: Record<string, ManualDependencia>
+    pratica_por_tema: Record<string, string>
+    causas_por_tema: Record<string, { nome: string; nota: string }>
+    contraponto: { titulo: string; urls: string[]; o_que_e: string; a_confirmar: string }
+  }
+  referencia_escala: { rotulo: string; segmento: string; unidade: string; autos: number; empresas: number; mediana_reais: number; maximo_reais: number; fonte: string; limites: string }
   simulador: {
     faixas: { id: string; rotulo: string; base: number }[]
     origem_faixas: string
@@ -125,40 +157,89 @@ export const obrigacaoPorId = new Map(plano.obrigacoes.map((o) => [o.id, o]))
 export const obrigacao = (id: string) => obrigacaoPorId.get(id)!
 
 export const SITUACOES: Situacao[] = ['vencida', '90dias', 'depois', 'recorrente', 'evento', 'sem_prazo']
-const GRUPOS = ['I', 'II', 'III', 'IV', 'V']
 // Mesma regra de athenix/plano.py (ordenar_temas); o teste compara com plano.ordem_inicial.
 const DEGRAU: Record<Situacao, number> = { vencida: 0, '90dias': 1, depois: 2, recorrente: 3, evento: 4, sem_prazo: 4 }
-const LACUNA: Partial<Record<Diagnostico, number>> = { nao: 0, parcial: 1 }
 
-function chave(t: Tema, d?: Diagnostico): (number | string)[] {
-  const degraus = SITUACOES.filter((s) => t.contagem[s]).map((s) => DEGRAU[s])
-  const degrau = degraus.length ? Math.min(...degraus) : 5
-  const data = t.prazo_mais_urgente?.data ?? '9999-12-31'
-  const grav = t.grupo_mais_grave ? GRUPOS.indexOf(t.grupo_mais_grave) : -1
-  return [d === 'sim' ? 1 : 0, degrau, degrau < 3 ? data : '', -grav, LACUNA[d as Diagnostico] ?? 2, -t.n]
+/** "preliminar": inclui as sugestões da IA (aguardam confirmação); "confirmados": só o que o texto da obrigação nomeia. */
+export type Modo = 'preliminar' | 'confirmados'
+export interface Exposicao {
+  /** Máximo por infração em % da base (a maior das infrações do tema; nunca a soma). */
+  pct: number
+  reais: number | null
+  origem: 'confirmado' | 'sugerido'
+  faixa: Faixa
 }
 
-export function ordenarTemas(temas: Tema[], diag: Diagnosticos = {}): Tema[] {
+/** Exposição máxima por infração do tema no porte simulado. Sem enquadramento (nem sugerido): null. */
+export function exposicaoTema(t: Tema, s: Simulacao | null, modo: Modo = 'preliminar'): Exposicao | null {
+  const conf = t.faixa
+  const sug = modo === 'preliminar' ? t.faixa_preliminar : null
+  const base = s ?? SIM_INICIAL
+  const v = (f: Faixa) => maximoPct(f, base)
+  const usa = sug && (!conf || v(sug) > v(conf)) ? sug : conf
+  if (!usa) return null
+  const pct = v(usa)
+  return { pct, reais: s ? reaisDe(pct, s) : null, origem: usa === conf ? 'confirmado' : 'sugerido', faixa: usa }
+}
+
+function chave(t: Tema, d: Diagnostico | undefined, s: Simulacao | null, modo: Modo): (number | string)[] {
+  const degraus = SITUACOES.filter((x) => t.contagem[x]).map((x) => DEGRAU[x])
+  const degrau = degraus.length ? Math.min(...degraus) : 5
+  const data = t.prazo_mais_urgente?.data ?? '9999-12-31'
+  const e = exposicaoTema(t, s, modo)
+  // R$ por infração; empate: confirmado antes de sugerido; depois mais obrigações vencidas (cada uma é uma infração possível, o R$ nunca soma); depois o prazo.
+  return [d === 'sim' ? 1 : 0, e ? -e.pct : 1, e?.origem === 'sugerido' ? 1 : 0, -t.contagem.vencida, degrau, degrau < 3 ? data : '', -t.n]
+}
+
+export function ordenarTemas(temas: Tema[], diag: Diagnosticos = {}, sim: Simulacao | null = SIM_INICIAL, modo: Modo = 'preliminar'): Tema[] {
   return [...temas].sort((a, b) => {
-    const ka = chave(a, diag[a.id])
-    const kb = chave(b, diag[b.id])
+    const ka = chave(a, diag[a.id], sim, modo)
+    const kb = chave(b, diag[b.id], sim, modo)
     for (let i = 0; i < ka.length; i++) if (ka[i] !== kb[i]) return ka[i] < kb[i] ? -1 : 1
     return 0
   })
 }
 
+/** Situação do prazo do tema em palavras ("prazo vencido há 293 dias"). */
+export function situacaoPrazo(t: Tema): string {
+  const u = t.prazo_mais_urgente
+  if (u && t.contagem.vencida && u.dias != null) return `prazo vencido há ${Math.abs(u.dias)} dias`
+  if (u && t.contagem['90dias'] && u.dias != null) return `vence em ${u.dias} dias`
+  if (t.contagem.recorrente) return 'obrigação recorrente'
+  return 'sem data no texto'
+}
+
+/** As 3 decisões da semana: os 3 primeiros temas da ordem que ainda não estão atendidos. */
+export function decisoesDaSemana(temas: Tema[], diag: Diagnosticos, sim: Simulacao | null, modo: Modo): Tema[] {
+  return ordenarTemas(temas, diag, sim, modo).filter((t) => diag[t.id] !== 'sim').slice(0, 3)
+}
+
+/** "3 obrigações vencidas": cada uma é uma infração possível; o R$ nunca é somado. */
+export const textoVencidas = (n: number) => `${n} ${n === 1 ? 'obrigação vencida' : 'obrigações vencidas'}`
+
+export interface Manchete {
+  temasVencidos: number
+  obrigacoesVencidas: number
+  maximo: Exposicao | null
+  /** Temas vencidos cuja exposição vem só de sugestão (cenário preliminar). */
+  sugeridos: number
+}
+
+/** Manchete: quantos temas com prazo vencido e a MAIOR exposição por infração entre eles (nunca soma). */
+export function manchete(temas: Tema[], diag: Diagnosticos, sim: Simulacao | null, modo: Modo): Manchete {
+  const vencidos = temas.filter((t) => t.contagem.vencida && diag[t.id] !== 'sim')
+  const exps = vencidos.map((t) => exposicaoTema(t, sim, modo)).filter((e): e is Exposicao => e != null)
+  const maximo = exps.length ? exps.reduce((a, b) => (b.pct > a.pct ? b : a)) : null
+  return { temasVencidos: vencidos.length, obrigacoesVencidas: vencidos.reduce((n, t) => n + t.contagem.vencida, 0), maximo, sugeridos: exps.filter((e) => e.origem === 'sugerido').length }
+}
+
 /** Por que o tema está nesta posição, nas palavras da regra de ordem. */
-export function motivoPosicao(t: Tema, d?: Diagnostico): string[] {
+export function motivoPosicao(t: Tema, d: Diagnostico | undefined, sim: Simulacao | null, modo: Modo): string[] {
   const out: string[] = []
   if (d === 'sim') out.push('Você marcou como já atendido')
-  const u = t.prazo_mais_urgente
-  if (t.contagem.vencida && u) out.push(`Prazo vencido desde ${dataBR(u.data!)}`)
-  else if (t.contagem['90dias'] && u) out.push(`Vence em ${dataBR(u.data!)}`)
-  else if (t.contagem.recorrente) out.push('Obrigação recorrente')
-  else out.push('Sem data no texto')
-  out.push(t.grupo_mais_grave ? `Grupo ${t.grupo_mais_grave} de infração` : 'Enquadramento a confirmar')
-  if (d === 'nao') out.push('Lacuna: não temos')
-  if (d === 'parcial') out.push('Lacuna: parcial')
+  const e = exposicaoTema(t, sim, modo)
+  out.push(e ? `Até ${e.reais != null ? brl(e.reais) : pct(e.pct) + ' da receita'} por infração` : 'Exposição a enquadrar')
+  out.push(situacaoPrazo(t).replace(/^./, (c) => c.toUpperCase()))
   return out
 }
 
@@ -222,10 +303,17 @@ export function lerReais(texto: string): number | null {
   return Number.isFinite(v) && v > 0 && v <= 1e13 ? v : null
 }
 
-/** Faixa por infração: "advertência até R$ X", nunca "R$ 0 a R$ X". Sem base: em % da base. */
+/** Valor por infração: "até R$ X por infração", nunca "R$ 0 a R$ X". Sem base: em % da base. */
 export function textoFaixa(f: Faixa, s: Simulacao | null = SIM_INICIAL): string {
   const teto = s ? brl(reaisDe(maximoPct(f, s), s)) : `${pct(maximoPct(f, SIM_INICIAL))} da base`
-  return `De advertência (sem multa) até ${teto} por infração`
+  return `até ${teto} por infração`
+}
+export const NOTA_ADVERTENCIA = 'pode ser só advertência'
+
+/** "R$ 50 mi", "R$ 48,7 mi", "R$ 1 bi": para a manchete. */
+export function brlCurto(v: number): string {
+  const f = (n: number, u: string) => `R$ ${n.toLocaleString('pt-BR', { maximumFractionDigits: 1 })} ${u}`
+  return v >= 1e9 ? f(v / 1e9, 'bi') : v >= 1e6 ? f(v / 1e6, 'mi') : brl(v)
 }
 
 const NOMES_DIAG: Record<Diagnostico, string> = { sim: 'Já temos', parcial: 'Parcial', nao: 'Não temos' }
@@ -239,7 +327,8 @@ export function celula(v: unknown): string {
 }
 
 export function csvPlano(diag: Diagnosticos, s: Simulacao | null = SIM_INICIAL): string {
-  const temas = ordenarTemas(plano.temas, diag)
+  // A planilha só traz o que o texto da obrigação confirma: a ordem usa o modo 'confirmados'.
+  const temas = ordenarTemas(plano.temas, diag, s, 'confirmados')
   const linhas: unknown[][] = [
     ['Plano de ação — ' + plano.norma.titulo + ' — ' + plano.perfil.rotulo + (s ? ' — receita operacional líquida considerada: ' + brl(s.base) + ' (premissa informada ou ilustrativa)' : '')],
     ['ESTIMATIVA ILUSTRATIVA. ' + plano.perfil.aviso + ' ' + plano.aviso + ' Iniciativa em validação.'],
@@ -260,7 +349,7 @@ export function csvPlano(diag: Diagnosticos, s: Simulacao | null = SIM_INICIAL):
         o.prazo.data ? dataBR(o.prazo.data) + (o.prazo.provisorio ? ' (provisório)' : '') : o.prazo.texto,
         o.enquadramento.map((e) => e.dispositivo).join('; '),
         o.grupo ?? 'a confirmar',
-        o.faixa ? textoFaixa(o.faixa, s) : o.motivo_sem_calculo ?? 'Enquadramento a confirmar',
+        o.faixa ? `${textoFaixa(o.faixa, s)} (${NOTA_ADVERTENCIA})` : o.motivo_sem_calculo ?? 'Enquadramento a confirmar',
         o.ia ? `${o.ia.dispositivo} (Grupo ${o.ia.grupo})${o.ia.duvida ? ' · depende da dúvida ' + o.ia.duvida : ''}` : '',
         o.evidencias.map((e) => plano.evidencias[e.id]).join('; '),
         o.trecho,
