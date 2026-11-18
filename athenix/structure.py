@@ -33,10 +33,15 @@ PARAGRAPH = re.compile(
     r"(?!\s*[º°]?\s*(?-i:o\s+)?(?-i:d[oa]s?|dest[ea]s?|n[oa]s?|aos?|e|ou)\b)\s*",
     re.I,
 )
-CLAUSE = re.compile(r"^\s*([IVXLCDM]+)\s*[–—-]\s+")
-LETTER = re.compile(r"^\s*([a-z])\)\s+")
-ITEM = re.compile(r"^\s*(\d+(?:-[A-Z])?)\.\s+")
-ANNEX = re.compile(r'^\s*[“"]?\s*ANEXO\s+([IVXLCDM\d]+)', re.I)
+CLAUSE = re.compile(r'^\s*[“"]?\s*([IVXLCDM]+)\s*[–—-]\s+')
+LETTER = re.compile(r'^\s*[“"]?\s*([a-z])\)\s+')
+ITEM = re.compile(r'^\s*[“"]?\s*(\d+(?:-[A-Z])?)\.\s+')
+# "Anexo I do Decreto..." no início de uma linha quebrada é remissão no meio da frase, não anexo: a
+# continuação em minúscula ("do", "da", "ao"...) a denuncia; "ANEXO I DA RESOLUÇÃO" segue anexo.
+ANNEX = re.compile(
+    r'^\s*[“"]?\s*ANEXO\s+([IVXLCDM\d]+)(?!\s*[º°]?\s*(?-i:d[oae]s?|n[oa]s?|aos?|e|ou|dest[ea]s?)\b)',
+    re.I,
+)
 TABLE = re.compile(r"^\s*Tabela\s+(\d+)", re.I)
 # Título/Capítulo/Seção sozinho na linha (ou "– Nome"): encerra o dispositivo anterior, para o
 # texto do título não vazar para ele (ex.: "Seção VII Das Sanções e Penalidades" após um §).
@@ -228,13 +233,25 @@ def segment(text, pages, faq=False):
     quoted, nesting, straight = False, 0, False
     heading_title = False
     target = None
+    caput_art = None  # nº do artigo do próprio ato que abriu o bloco de alteração em curso
     stack = []
     offset = 0
     in_table = False
     warnings = []
     for line in text.splitlines(keepends=True):
         stripped = line.lstrip()
-        if not quoted:
+        article = ARTICLE.match(line)
+        if quoted and article and caput_art is not None and not stripped.startswith(("“", '"')):
+            # Texto oficial sem as aspas de fechamento nem "(NR)" (ex.: RN 1.148 da biblioteca da
+            # ANEEL): o artigo seguinte do próprio ato, sem aspas, encerra o bloco.
+            if int(re.match(r"\d+", article.group(1)).group()) == caput_art + 1:
+                quoted, nesting, straight = False, 0, False
+                warnings.append(
+                    f"Bloco citado sem aspas de fechamento: encerrado antes do {line.strip()[:14]}"
+                )
+        # A 1ª linha de um bloco citado não troca a norma-alvo: a norma que ela cita é parte do
+        # texto citado, e só o HTML (linha inteira) a deixaria visível ao ACT; no PDF ela quebra.
+        if not quoted and not stripped.startswith(("“", '"')):
             acts = ACT.findall(line)
             if acts and re.search(ALTERACAO, line, re.I):
                 target = acts[-1]
@@ -249,6 +266,7 @@ def segment(text, pages, faq=False):
                 citados = ACT.findall(caput)
                 if citados and re.search(ALTERACAO, caput, re.I):
                     target = " ".join(citados[0].split())
+                    caput_art = int(re.match(r"\d+", ARTICLE.match(line).group(1)).group())
         starts_quote = stripped.startswith(("“", '"'))
         owner = target if quoted or starts_quote else "self"
         kind, label, depth, matched = None, None, 0, None
@@ -329,7 +347,9 @@ def segment(text, pages, faq=False):
                 nesting = max(0, nesting - 1)
             elif character == '"':
                 straight = not straight
-        if re.search(r'[”"]\s*\(NR\)', line):  # LC 95: "(NR)" encerra a nova redação
+        # LC 95: "(NR)"/"(AC)" encerra a nova redação, com ou sem as aspas de fechamento (o DOU as omite
+        # em alguns blocos).
+        if re.search(r'[”"]\s*\((?:NR|AC)\)|\((?:NR|AC)\)\s*$', line):
             nesting, straight = 0, False
         quoted = nesting > 0 or straight
         offset += len(line)
@@ -434,6 +454,97 @@ def mark_struck(units, text, pages, struck):
     return []
 
 
+GUTTER_MIN = 8.0  # largura mínima (pt) do corredor entre colunas
+GUTTER_LINES = 15  # linhas de texto corrido exigidas em cada coluna
+GUTTER_FILL = 0.6  # largura mediana das linhas / largura da metade da página: texto corrido
+
+
+def _median(values):
+    ordered = sorted(values)
+    return ordered[len(ordered) // 2] if ordered else 0
+
+
+def _column_lines(words, left, right):
+    rows = {}
+    for w in words:
+        if left <= (w["x0"] + w["x1"]) / 2 < right:
+            rows.setdefault(round(w["top"] / 3), []).append(w)
+    return [r for r in rows.values() if len(r) >= 4]
+
+
+def column_gutter(page):
+    """x do corredor vertical entre duas colunas de texto corrido (ex.: página do DOU), ou None.
+
+    Conservador: só há corredor se uma faixa livre de palavras de ≥ 8 pt cruza quase toda a
+    página e cada lado tem muitas linhas largas. Tabela e página de coluna única dão None."""
+    words = page.extract_words()
+    if len(words) < 150:
+        return None
+    width = int(page.width)
+    cover = [0] * (width + 2)
+    for w in words:
+        for x in range(int(w["x0"]) + 1, min(int(w["x1"]) + 1, width + 1)):
+            cover[x] += 1
+    tolerance = max(2, int(len(words) * 0.015))
+    best, run = None, None
+    for x in range(int(width * 0.3), int(width * 0.7) + 1):
+        if cover[x] <= tolerance:
+            run = (run[0], x) if run else (x, x)
+            if best is None or run[1] - run[0] > best[1] - best[0]:
+                best = run
+        else:
+            run = None
+    if not best or best[1] - best[0] < GUTTER_MIN:
+        return None
+    middle = (best[0] + best[1]) / 2
+    for left, right, span in ((0, middle, middle), (middle, width, width - middle)):
+        lines = _column_lines(words, left, right)
+        wide = [max(w["x1"] for w in r) - min(w["x0"] for w in r) for r in lines]
+        if len(lines) < GUTTER_LINES or _median(wide) < GUTTER_FILL * span:
+            return None
+    if any(t.bbox[0] < middle < t.bbox[2] for t in page.find_tables()):
+        return None  # o "corredor" é o vão entre colunas de uma tabela que cruza a página
+    return middle
+
+
+def page_sides(page):
+    """Páginas (filtradas) na ordem de leitura: uma por coluna, esquerda antes da direita."""
+    gutter = column_gutter(page)
+    if gutter is None:
+        return [page]
+
+    # Cada palavra inteira fica na coluna do seu centro: um número que cruza o corredor (ex.: o
+    # número da página do DOU, no meio do rodapé) não é cortado ao meio.
+    rows = {}
+    for w in page.extract_words():
+        rows.setdefault(round(w["top"]), []).append(w)
+
+    def word_center(char):
+        cx, cy = (char["x0"] + char["x1"]) / 2, round(char["top"])
+        for row in (cy - 1, cy, cy + 1):
+            for w in rows.get(row, ()):
+                if w["x0"] - 0.5 <= cx <= w["x1"] + 0.5:
+                    return (w["x0"] + w["x1"]) / 2
+        return cx
+
+    def side(left):
+        def keep(obj):
+            if obj.get("object_type") != "char":
+                return True
+            return (word_center(obj) < gutter) is left
+
+        return page.filter(keep)
+
+    return [side(True), side(False)]
+
+
+def page_text(page):
+    sides = page_sides(page)
+    if len(sides) == 1:
+        return page.extract_text() or ""  # coluna única: idêntico à leitura anterior
+    return "\n".join(s.extract_text() or "" for s in sides)
+
+
 def extract(content, media, settings, role=None, charset=None):
     warnings, links = [], []
     pieces, struck = [], []
@@ -483,7 +594,7 @@ def extract(content, media, settings, role=None, charset=None):
                 if len(pdf.pages) > settings.max_pages:
                     raise ValueError("PDF excede o limite de páginas.")
                 for page in pdf.pages:
-                    pieces.append(page.extract_text() or "")
+                    pieces.append(page_text(page))
                     struck.append(struck_runs(page))
                     if not pieces[-1].strip():
                         warnings.append(f"Página {page.page_number} sem texto: requer OCR.")
