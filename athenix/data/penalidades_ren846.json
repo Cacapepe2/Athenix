@@ -66,20 +66,30 @@
   "Despacho 1.293/2026 (DOU 23/04/2026): indefere súmula sobre os arts. 36 a 45 da REN 846; não decide multa nem altera parâmetro.",
   "Custo de adequação: depende de dados internos da empresa."
  ],
- "vigencia_futura": [],
- "conflitos_de_compilacao": [
+ "vigencia_futura": [
+  {
+   "dispositivo": "Art. 11, XXIII",
+   "ato": "REN 1.148/2026",
+   "vigencia_desde": "2027-01-01",
+   "trecho": "XXIII - deixar de responder ou responder de forma não conclusiva as demandas relacionadas ao Sistema de Gestão de Ouvidoria da ANEEL-SGO/ANEEL, ou outro que vier a substituí-lo, no prazo específico definido pela ANEEL."
+  }
+ ],
+ "conflitos_de_compilacao": [],
+ "duvidas_de_compilacao": [
   {
    "atos": [
     "Incluído: REN ANEEL 1.137, de 21.10.2025",
     "REN 1.148/2026"
    ],
-   "decisao": "nenhuma: a redação proposta não foi aplicada; requer decisão humana",
    "dispositivo": "article:11/clause:XXIII",
-   "motivo": "texto diferente sobre dispositivo que já existe, sem marcador (NR)/(AC) na norma alteradora",
+   "motivo": "possível colisão de numeração: a norma nova propõe, para o mesmo número, conteúdo diferente do já vigente, sem (NR)/(AC) no texto da fonte",
+   "para": "especialista (junto da dúvida D1)",
    "redacao_existente": "XXIII - deixar de prestar informações decorrentes de interrupções no fornecimento de energia elétrica aos consumidores ou usuários, nos termos da regulação vigente. (Incluído pela REN ANEEL 1.137, de 21.10.2025)",
    "redacao_proposta": "XXIII - deixar de responder ou responder de forma não conclusiva as demandas relacionadas ao Sistema de Gestão de Ouvidoria da ANEEL-SGO/ANEEL, ou outro que vier a substituí-lo, no prazo específico definido pela ANEEL.",
-   "trecho": "XXIII - deixar de responder ou responder de forma não conclusiva as demandas relacionadas ao Sistema de Gestão de Ouvidoria da ANEEL-SGO/ANEEL, ou outro que vier a substituí-lo, no prazo específico definido pela ANEEL.",
-   "vigencia": "2027-01-01"
+   "vigencias": {
+    "anterior": "2025-10-21",
+    "nova": "2027-01-01"
+   }
   }
  ],
  "data_de_referencia": "2026-11-17",
@@ -1822,7 +1832,7 @@
   {
    "id": "D1",
    "dispositivo": "Art. 11, XXIII",
-   "texto": "Duas redações para o mesmo inciso em atos diferentes; o compilado mostra só a da RN 1.137. Dúvida para especialista.",
+   "texto": "Sucessão no tempo: a redação da RN 1.137 vale até 31/12/2026 e a da RN 1.148, a partir de 01/01/2027. Incerteza: o texto da RN 1.148 na biblioteca da ANEEL não traz (NR)/(AC) nem aspas de fechamento, e a numeração pode colidir (a 1.148 propõe outro inciso XXIII). Dúvida para especialista",
    "leituras": [
     {
      "ato": "RN 1.137/2025",

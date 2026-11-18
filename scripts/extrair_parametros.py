@@ -391,6 +391,12 @@ def sobrepor_alteracoes(infracoes, docs, em, ren_units):
     futuras = []
     for chave, historico in comp["historico"].items():
         m = re.fullmatch(r"article:(9|10|11|12|13)/clause:([IVXLC]+)", chave)
+        if m and historico[-1]["situacao"] == "revogado":  # revogado na compilação: sai do catálogo
+            rotulo = "9º" if m.group(1) == "9" else m.group(1)
+            infracoes[:] = [
+                x for x in infracoes if x["dispositivo"] != f"Art. {rotulo}, {m.group(2)}"
+            ]
+            continue
         ops = [h for h in historico if h["tipo"] in {"substituir", "incluir"}]
         if not m or not ops:
             continue
@@ -569,6 +575,9 @@ def build(docs, em=EM_PADRAO):
         ],
         "vigencia_futura": futuras,
         "conflitos_de_compilacao": json.loads(COMPILADO.read_text(encoding="utf-8"))["conflitos"],
+        "duvidas_de_compilacao": json.loads(COMPILADO.read_text(encoding="utf-8"))[
+            "duvidas_para_especialista"
+        ],
         "data_de_referencia": em,
         "parametros": parametros,
         "infracoes": infracoes,
@@ -576,7 +585,7 @@ def build(docs, em=EM_PADRAO):
             {
                 "id": "D1",
                 "dispositivo": "Art. 11, XXIII",
-                "texto": "Duas redações para o mesmo inciso em atos diferentes; o compilado mostra só a da RN 1.137. Dúvida para especialista.",
+                "texto": "Sucessão no tempo: a redação da RN 1.137 vale até 31/12/2026 e a da RN 1.148, a partir de 01/01/2027. Incerteza: o texto da RN 1.148 na biblioteca da ANEEL não traz (NR)/(AC) nem aspas de fechamento, e a numeração pode colidir (a 1.148 propõe outro inciso XXIII). Dúvida para especialista",
                 "leituras": leituras,
             },
             {

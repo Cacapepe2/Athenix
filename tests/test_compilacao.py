@@ -88,23 +88,32 @@ def test_cada_dispositivo_registra_a_norma_e_a_fonte_da_redacao_atual(comp):
     )
 
 
-def test_conflito_e_sinalizado_e_nenhuma_redacao_e_escolhida(comp):
-    # A RN 1.148 traz um inciso XXIII diferente do que a RN 1.137 já incluiu, sem (NR)/(AC).
-    assert [c["dispositivo"] for c in comp["conflitos"]] == ["article:11/clause:XXIII"]
-    c = comp["conflitos"][0]
-    assert "1.137" in c["atos"][0] and c["atos"][1] == "REN 1.148/2026"
-    assert "não foi aplicada" in c["decisao"] and "Ouvidoria" in c["redacao_proposta"]
-    h = comp["historico"]["article:11/clause:XXIII"]
-    assert (
-        len(h) == 1 and "interrupções no fornecimento" in h[0]["texto"]
-    )  # segue a redação da 1.137
+def test_xxiii_e_sucessao_no_tempo_com_incerteza_e_duvida_de_numeracao(comp):
+    # RN 1.137 até 31/12/2026; RN 1.148 (sem (NR)/(AC) no texto da fonte) a partir de 01/01/2027.
+    assert comp["conflitos"] == []
+    chave_xxiii = "article:11/clause:XXIII"
+    assert "interrupções no fornecimento" in _texto(comp, "2026-12-31", chave_xxiii)
+    assert "Ouvidoria" in _texto(comp, "2027-01-01", chave_xxiii)
+    h = comp["historico"][chave_xxiii]
+    assert [x["vigencia"] for x in h] == ["2025-10-21", "2027-01-01"]
+    assert h[1]["redacao_dada_por"] == "REN 1.148/2026" and h[1]["aviso"].startswith("INCERTO")
+    (d,) = comp["duvidas_para_especialista"]
+    assert d["dispositivo"] == chave_xxiii and d["para"].startswith("especialista")
+    assert d["vigencias"] == {"anterior": "2025-10-21", "nova": "2027-01-01"}
 
 
-def test_subitens_nao_reproduzidos_saem_marcados_como_inferencia(comp):
+def test_mesma_data_sem_marcador_continua_conflito():
+    base = _base(("article:1", "Art. 1º A."))
+    a = _alt("REN A", "2026-01-01", "2026-02-01", ("article:1", "Art. 1º B.", None))
+    b = _alt("REN B", "2026-01-02", "2026-02-01", ("article:1", "Art. 1º C.", None))
+    assert len(compilacao.compilar({"nome": "T"}, base, [a, b])["conflitos"]) == 1
+
+
+def test_subitens_nao_reproduzidos_ficam_vigentes_e_vao_para_decisao_humana(comp):
     filhos = {i["dispositivo"] for i in comp["inferencias"]}
     assert filhos == {f"article:9/clause:IV/letter:{x}" for x in "abc"}
-    h = comp["historico"]["article:9/clause:IV/letter:a"][-1]
-    assert h["inferido"] is True and h["situacao"] == "revogado"
+    assert all(i["aplicada"] is False for i in comp["inferencias"])
+    assert len(comp["historico"]["article:9/clause:IV/letter:a"]) == 1  # nada foi revogado
 
 
 def test_revogacao_explicita_so_vira_caminho_nas_formas_simples():
@@ -236,3 +245,95 @@ def test_detectar_o_que_a_norma_nova_altera_no_acervo():
     assert "846" not in d["revogacoes"]  # a 1.174 altera a 846 (art. 10) mas não a revoga
     # Norma que não cita nenhuma do acervo: nada a fazer.
     assert compilacao.detectar(_doc("dou_dsp20261293"), {"846"})["no_acervo"] == []
+
+
+def test_pontilhado_depois_do_caput_mantem_os_incisos():
+    # "Art. 9º Texto novo: / ........ / II - novo; / ........" (NR): I e III continuam valendo.
+    base = _base(("article:9", "Art. 9º Velho:"), ("article:9/clause:I", "I - a;"),
+                 ("article:9/clause:II", "II - b;"), ("article:9/clause:III", "III - c."))  # fmt: skip
+    alt = _alt("REN A", "2026-01-01", "2026-02-01", ("article:9", "Art. 9º Novo:", "NR"),
+               ("article:9/clause:II", "II - novo;", "NR"))  # fmt: skip
+    r = compilacao.compilar({"nome": "T"}, base, [alt])
+    vigentes = [d["chave"] for d in compilacao.texto_vigente(r, "2026-02-01")]
+    assert vigentes == [
+        "article:9",
+        "article:9/clause:I",
+        "article:9/clause:II",
+        "article:9/clause:III",
+    ]
+    assert {i["dispositivo"] for i in r["inferencias"]} == {
+        "article:9/clause:I",
+        "article:9/clause:III",
+    }
+
+
+def test_incluir_de_novo_dispositivo_revogado_nao_duplica_a_ordem():
+    base = _base(("article:1", "Art. 1º A."))
+    rev = _alt("REN R", "2026-01-01", "2026-02-01", ("article:1", None, None), tipo="revogar")
+    nova = _alt("REN N", "2026-03-01", "2026-04-01", ("article:1", "Art. 1º B.", "NR"))
+    r = compilacao.compilar({"nome": "T"}, base, [rev, nova])
+    assert r["ordem"] == ["article:1"]
+    assert [d["texto"] for d in compilacao.texto_vigente(r, "2026-04-01")] == ["Art. 1º B."]
+
+
+def test_caput_mais_um_com_sufixo_nao_fecha_o_bloco():
+    linhas = [
+        "Art. 1º A Resolução Normativa nº 846, de 2019, passa a vigorar com as seguintes alterações:",
+        "“Art. 2º-A Texto novo.",
+        "Art. 2º-B Outro texto novo.” (NR)",
+        "Art. 2º Esta Resolução vale.",
+    ]
+    texto = "NL".join(linhas).replace("NL", chr(10)) + chr(10)
+    marcadores, avisos = structure.segment(texto, [{"number": 1, "start": 0, "end": len(texto)}])
+    donos = {m["label"]: m["owner"] for m in marcadores if m["kind"] == "article"}
+    assert "846" in donos["2º-B"] and donos["2º"] == "self"
+    assert not [a for a in avisos if "sem aspas" in a]
+
+
+@pytest.mark.parametrize(
+    ("linha", "anexo"),
+    [
+        ("Anexo II do Decreto nº 1", False),
+        ("Anexo 12 da Lei nº 2", False),
+        ("Anexo II e III da Lei", False),
+        ("ANEXO II", True),
+        ("ANEXO I DA RESOLUÇÃO", True),
+    ],
+)
+def test_remissao_a_anexo_em_linha_quebrada(linha, anexo):
+    marcadores, _ = structure.segment(
+        "Art. 1º X." + chr(10) + linha + chr(10), [{"number": 1, "start": 0, "end": 99}]
+    )
+    assert any(m["kind"] == "annex" for m in marcadores) is anexo
+
+
+def test_original_de_2019_x_compilado_oficial():
+    # Validação (a): o que deve coincidir. Original (DOU de 18/06/2019, p. 37) x compilado oficial
+    # (até a RN 1.137): todo dispositivo sem nota de redação no compilado tem o texto do original.
+    html = dou.ler_html((RAIZ / "tests/fontes_impacto/dou/dou_ren20190846.html").read_bytes())
+    assert html["publicacao"]["pagina"] == "37" and html["titulo"]["numero"] == "846"
+    ex = structure.from_pieces([html["texto"]], [], [], "dou", S)
+    chaves = compilacao.caminhos(ex["units"])
+    ignorar = {"heading", "unstructured"}
+    original = {
+        chaves[u["id"]]: compilacao.limpa_texto(u["text"])
+        for u in ex["units"]
+        if u["owner"] == "self" and u["kind"] not in ignorar
+    }
+    comp = json.loads((RAIZ / "athenix/data/compilado_ren846.json").read_text(encoding="utf-8"))
+    base = {k: h[0] for k, h in comp["historico"].items() if h[0]["tipo"] == "base"}
+    nota = re.compile(
+        r"\s*\((?:Redação (?:dada|acrescida)|Incluíd[oa]|Acrescid[oa]|Revogad[oa])[^)]*\)"
+    )
+    assert len(original) == 343 and not [k for k in original if k not in base]
+    sem_nota = [k for k, b in base.items() if b["redacao_dada_por"].startswith("texto original")]
+    diferentes = [
+        k
+        for k in sem_nota
+        if k in original
+        and chave(nota.sub("", original[k])) != chave(nota.sub("", base[k]["texto"]))
+    ]
+    # As 2 diferenças são ruído: "26." solto no fim do art. 27 do HTML e o aviso "Este texto não
+    # substitui o publicado no D.O." no fim do art. 51 do compilado.
+    assert diferentes == ["article:27", "article:51"]
+    assert len(base) - len(original) == 142  # dispositivos criados por alterações até a RN 1.137

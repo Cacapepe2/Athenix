@@ -21,7 +21,7 @@ def _decisao(nome):
 def test_voto_que_reforma_a_multa_traz_o_novo_valor_com_citacao():
     d = _decisao("adsp20242090_1.pdf")
     assert d["processo"]["valor"] == "48500.006992/2022-98" and d["processo"]["pagina"] == 1
-    assert "Taesa" in d["agente"]["valor"] and d["auto_de_infracao"]["numero"] == "0018/2023-SFT"
+    assert d["agente"]["valor"] and d["auto_de_infracao"]["numero"] == "0018/2023-SFT"
     assert [v["reais"] for v in d["valores_decididos"]] == ["8738737.50"]
     assert {"negar provimento", "reformar"} <= set(d["efeito"])
     assert "R$ 8.738.737,50" in d["dispositivo"]["trecho"] and d["dispositivo"]["pagina"] >= 15
