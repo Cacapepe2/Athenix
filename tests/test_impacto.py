@@ -54,14 +54,15 @@ def test_parameter_file_only_has_verified_current_wordings():
 
 
 def test_list_inside_an_infraction_is_not_an_infraction():
-    # Art. 9º, IV ("cadastro relativo a:") enumera I a IV; antes viravam infrações com rótulo repetido.
+    # Art. 9º, IV ("cadastro relativo a:") enumerava I a IV como itens; a REN 1.162/2026 (DOU) deu
+    # nova redação ao inciso, com a lista na própria frase. Nenhum rótulo se repete e o inciso
+    # novo não deixa itens da redação anterior (as alíneas a-c saem como revogação inferida).
     rotulos = [i["dispositivo"] for i in PARAMS["infracoes"]]
     assert len(rotulos) == len(set(rotulos)) == 109
     iv = next(i for i in PARAMS["infracoes"] if i["dispositivo"] == "Art. 9º, IV")
-    assert [x["dispositivo"] for x in iv["itens"]] == [
-        f"Art. 9º, IV, {n}" for n in ("I", "II", "III", "IV")
-    ]
-    assert all(x["ancora"] == "verified" for x in iv["itens"])
+    assert "itens" not in iv and iv["origem"] == "REN 1.162/2026" and iv["ancora"] == "verified"
+    assert "unidades consumidoras; centrais geradoras" in iv["trecho"]
+    assert iv["trecho_literal"].startswith("IV - ") or iv["trecho_literal"].startswith('"')
 
 
 def test_fixed_values_explicit_group_with_base_and_premises():

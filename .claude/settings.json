@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(**/artifacts/**)",
+      "Read(**/.local/**)",
+      "Read(**/node_modules/**)",
+      "Read(**/*.pdf)"
+    ]
+  }
+}

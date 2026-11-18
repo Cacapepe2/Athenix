@@ -25,7 +25,8 @@ from athenix.normalizacao import espacos, normalizar  # noqa: E402
 from athenix.impacto import ALTERA, PARAMETROS, termos  # noqa: E402
 from athenix.poc import reader  # noqa: E402
 from athenix.saude import _romano  # noqa: E402
-from athenix.structure import extract  # noqa: E402
+from athenix import dou  # noqa: E402
+from athenix.structure import extract, from_pieces, independent_source  # noqa: E402
 from athenix.temporal import NUMBERS  # noqa: E402
 
 FONTES = ROOT / "tests" / "fontes_impacto"
@@ -38,16 +39,24 @@ def fonte(nome):
 
 
 DOCS = {
-    "846": (fonte("ren2019846_compilada.pdf"), "REN 846/2019 (texto compilado)"),
+    "846": (
+        FONTES / "atren2019846.pdf",
+        "REN 846/2019 (texto compilado oficial até a RN 1.137/2025)",
+    ),
     "1137": (ROOT / "tests/norma_poc/ren20251137.pdf", "RN 1.137/2025"),
-    "1148": (fonte("ren20261148.pdf"), "REN 1.148/2026"),
-    "1174": (fonte("ren20261174.pdf"), "REN 1.174/2026 (texto compilado)"),
+    "1148": (FONTES / "ren20261148.pdf", "REN 1.148/2026"),
+    "1162": (FONTES / "dou/dou_ren20261162.html", "REN 1.162/2026 (DOU)"),
+    "1174": (FONTES / "dou/dou_ren20261174.html", "REN 1.174/2026 (DOU)"),
     "9427": (FONTES / "l9427cons.htm", "Lei 9.427/1996 (texto compilado)"),
     "9648": (FONTES / "l9648cons.htm", "Lei 9.648/1998 (texto compilado)"),
     "15269": (FONTES / "l15269.htm", "Lei 15.269/2025"),
 }
 ORIGENS = {
+    "846": "biblioteca da ANEEL (compilado oficial), baixado em 17/11/2026",
     "1137": "ANEEL (texto compilado já no repositório)",
+    "1148": "biblioteca da ANEEL, baixado em 17/11/2026",
+    "1162": "DOU de 24/06/2026, seção 1, p. 92 (Imprensa Nacional), baixado em 17/11/2026",
+    "1174": "DOU de 04/11/2026, seção 1, p. 68 (Imprensa Nacional), baixado em 17/11/2026",
     "9427": "planalto.gov.br (Presidência da República), texto compilado obtido em 17/11/2026",
     "9648": "planalto.gov.br (Presidência da República), texto compilado obtido em 17/11/2026",
     "15269": "planalto.gov.br (Presidência da República), obtido em 17/11/2026",
@@ -63,7 +72,7 @@ PCT = re.compile(r"(?<!%\sa\s)(\d+(?:,\d+)?)\s*%\s*\(([^)]+)\)")
 PERCENT = re.compile(r"(\d+(?:,\d+)?)\s*%")
 FRACTION = {"décimos": 10, "centésimos": 100, "milésimos": 1000}
 ORIGEM = re.compile(
-    r"\(Reda[çc][ãa]o (?:dada|acrescida) pela Resolu[çc][ãa]o\s+Normativa\s+n[º°]\s*(\d+/\d+)\)"
+    r"\((?:Reda[çc][ãa]o\s+(?:dada|acrescida)|Incluíd[oa]|Acrescid[oa])\s+pel[ao]\s+([^)]*)\)"
 )
 
 # Parâmetro → dispositivo da REN 846 compilada. O valor sai do trecho, nunca deste arquivo.
@@ -194,14 +203,39 @@ def cite(unit, extraction):
     }
 
 
+COMPILADO = ROOT / "athenix/data/compilado_ren846.json"
+EM_PADRAO = (
+    "2026-11-17"  # data de referência do catálogo (data do sprint); redação posterior é futura
+)
+
+
+def vigencia_compilada(name):
+    """Vigência do ato que altera a REN 846, como a compilação a leu (entra em vigor / publicação)."""
+    if not COMPILADO.exists():
+        return None
+    for alteradora in json.loads(COMPILADO.read_text(encoding="utf-8"))["alteradoras"]:
+        if re.sub(r"\D", "", alteradora["ato"]["nome"].split("/")[0]) == name:
+            return alteradora["vigencia_padrao"]
+    return None
+
+
 def read(name):
     path, title = DOCS[name]
     content = path.read_bytes()
-    extraction = (
-        extract(content, "text/html", Settings(), "norm")
-        if path.suffix == ".htm"
-        else reader.read_pdf(path, Settings())["extraction"]
-    )
+    if path.suffix == ".html":  # matéria do DOU: só o ato, sem navegação do portal
+        texto = dou.ler_html(content)["texto"]
+        extraction = from_pieces(
+            [texto],
+            [],
+            [],
+            "dou.ler_html",
+            Settings(),
+            source=independent_source(content, "text/html"),
+        )
+    elif path.suffix == ".htm":
+        extraction = extract(content, "text/html", Settings(), "norm")
+    else:
+        extraction = reader.read_pdf(path, Settings())["extraction"]
     by_id = {u["id"]: u for u in extraction["units"]}
     units = [u | {"path": label_path(u, by_id)} for u in extraction["units"]]
     effective = [d for d in extraction["dates"] if d["kind"] == "effective"]
@@ -215,7 +249,8 @@ def read(name):
         "titulo": title,
         "arquivo": str(path.relative_to(ROOT)).replace("\\", "/"),
         "sha256": hashlib.sha256(content).hexdigest(),
-        "vigencia": effective[0]["date"] if len({d["date"] for d in effective}) == 1 else None,
+        "vigencia": vigencia_compilada(name)
+        or (effective[0]["date"] if len({d["date"] for d in effective}) == 1 else None),
         "extraction": extraction,
         "units": units,
     }
@@ -344,7 +379,73 @@ def group_of(units, article):
     return match.group(1) if match else None
 
 
-def build(docs):
+def sobrepor_alteracoes(infracoes, docs, em, ren_units):
+    """Aplica ao catálogo de infrações as redações que a compilação (`compilado_ren846.json`) dá
+    aos incisos dos arts. 9º a 13 por atos posteriores ao compilado oficial. Redação com vigência
+    depois de `em` não entra: vai para `vigencia_futura`. O literal do ato fica em `trecho_literal`."""
+    comp = json.loads(COMPILADO.read_text(encoding="utf-8"))
+    futuras = []
+    for chave, historico in comp["historico"].items():
+        m = re.fullmatch(r"article:(9|10|11|12|13)/clause:([IVXLC]+)", chave)
+        if m and historico[-1]["situacao"] == "revogado":  # revogado na compilação: sai do catálogo
+            rotulo = "9º" if m.group(1) == "9" else m.group(1)
+            infracoes[:] = [
+                x for x in infracoes if x["dispositivo"] != f"Art. {rotulo}, {m.group(2)}"
+            ]
+            continue
+        ops = [h for h in historico if h["tipo"] in {"substituir", "incluir"}]
+        if not m or not ops:
+            continue
+        artigo = "9º" if m.group(1) == "9" else m.group(1)
+        dispositivo = f"Art. {artigo}, {m.group(2)}"
+        for h in (h for h in ops if h["vigencia"] > em):
+            futuras.append(
+                {
+                    "dispositivo": dispositivo,
+                    "ato": h["redacao_dada_por"],
+                    "vigencia_desde": h["vigencia"],
+                    "trecho": h["texto"],
+                }
+            )
+        vigentes = [h for h in ops if h["vigencia"] <= em]
+        if not vigentes:
+            continue
+        h = vigentes[-1]
+        doc = docs[re.sub(r"\D", "", h["redacao_dada_por"].split("/")[0])]
+        unit = next(
+            u
+            for u in doc["units"]
+            if "846" in u["owner"] and u["path"] == f"{artigo} > {m.group(2)}"
+        )
+        literal = cite(unit, doc["extraction"])
+        entrada = {
+            "dispositivo": dispositivo,
+            "grupo": group_of(ren_units, artigo),
+            **literal,
+            "trecho": h["texto"],
+            "trecho_literal": literal["trecho"],
+            "origem": h["redacao_dada_por"],
+            "vigencia_desde": h["vigencia"],
+            "fonte_da_redacao": {k: h["fonte"].get(k) for k in ("tipo", "arquivo", "sha256")},
+            "termos": termos(h["texto"]),
+        }
+        existente = next(
+            (i for i, x in enumerate(infracoes) if x["dispositivo"] == dispositivo), None
+        )
+        if existente is not None:
+            infracoes[existente] = entrada
+        else:
+            ordem = _romano(m.group(2))
+            mesmos = [
+                i for i, x in enumerate(infracoes)
+                if x["dispositivo"].startswith(f"Art. {artigo},")
+                and _romano(x["dispositivo"].rsplit(" ", 1)[1]) < ordem
+            ]  # fmt: skip
+            infracoes.insert((mesmos[-1] + 1) if mesmos else len(infracoes), entrada)
+    return futuras
+
+
+def build(docs, em=EM_PADRAO):
     ren = docs["846"]
     by_path = {}
     for unit in ren["units"]:
@@ -378,7 +479,7 @@ def build(docs):
         entry = cite(unit, ren["extraction"])
         origem = ORIGEM.search(entry["trecho"])
         entry["trecho"] = espacos(ORIGEM.sub("", entry["trecho"]))
-        entry["origem"] = f"RN {origem.group(1)}" if origem else "redação original"
+        entry["origem"] = espacos(origem.group(1)) if origem else "redação original"
         dono = infracoes[-1] if infracoes else None
         # Lista dentro de um inciso ("IV - ... cadastro relativo a:" seguido de "I - unidades
         # consumidoras;"): a numeração recomeça. São itens do inciso, não infrações.
@@ -400,6 +501,17 @@ def build(docs):
                 "termos": termos(entry["trecho"]),
             }
         )
+    futuras = sobrepor_alteracoes(infracoes, docs, em, ren["units"])
+    # Base de cálculo para Sistemas de Armazenamento (REN 1.162, art. 21, § 11): inclusão de 2026.
+    sae = next(u for u in docs["1162"]["units"] if "846" in u["owner"] and u["path"] == "21 > § 11")
+    parametros["base_armazenamento"] = {
+        "descricao": "Base de cálculo da multa para Sistemas de Armazenamento de Energia (valor estimado da receita anual)",
+        "dispositivo": "Art. 21, § 11 (incluído pela REN 1.162/2026)",
+        **cite(sae, docs["1162"]["extraction"]),
+        "percentuais": [],
+        "fonte": "1162",
+        "vigencia_desde": docs["1162"]["vigencia"],
+    }
     # D1: o inciso XXIII do art. 11 tem duas redações em atos diferentes; nenhuma é escolhida.
     leituras = []
     for name in ("1137", "1148"):
@@ -410,7 +522,7 @@ def build(docs):
             | cite(unit, doc["extraction"])
         )
     alteracoes = []
-    for name in ("1137", "1148", "1174"):
+    for name in ("1137", "1148", "1162", "1174"):
         doc = docs[name]
         for unit in doc["units"]:
             if re.search(ALTERA, espacos(unit["text"])):
@@ -452,18 +564,24 @@ def build(docs):
         },
         "nao_estimaveis": [
             "Metodologia de cálculo do valor base da multa (Art. 22, §§ 2º e 6º): não está no repositório.",
-            "Perda de receita por Parcela Variável (PVI/PVRO) de transmissoras: norma de PV não fornecida.",
+            "Perda de receita por Parcela Variável (PVI/PVRO) de transmissoras: a REN 905 veio só em 3 páginas, sem os módulos (e a REN 1.162 também a altera).",
             "Efeitos no Fator X da distribuidora (REN 1.148/2026, PRORET 2.5/2.5-A): anexos não fornecidos.",
-            "Alterações da REN 1.162/2026 e Despacho 1.293/2026: atos não fornecidos.",
+            "Despacho 1.293/2026 (DOU 23/04/2026): indefere súmula sobre os arts. 36 a 45 da REN 846; não decide multa nem altera parâmetro.",
             "Custo de adequação: depende de dados internos da empresa.",
         ],
+        "vigencia_futura": futuras,
+        "conflitos_de_compilacao": json.loads(COMPILADO.read_text(encoding="utf-8"))["conflitos"],
+        "duvidas_de_compilacao": json.loads(COMPILADO.read_text(encoding="utf-8"))[
+            "duvidas_para_especialista"
+        ],
+        "data_de_referencia": em,
         "parametros": parametros,
         "infracoes": infracoes,
         "duvidas": [
             {
                 "id": "D1",
                 "dispositivo": "Art. 11, XXIII",
-                "texto": "Duas redações para o mesmo inciso em atos diferentes; o compilado mostra só a da RN 1.137. Dúvida para especialista.",
+                "texto": "Sucessão no tempo: a redação da RN 1.137 vale até 31/12/2026 e a da RN 1.148, a partir de 01/01/2027. Incerteza: o texto da RN 1.148 na biblioteca da ANEEL não traz (NR)/(AC) nem aspas de fechamento, e a numeração pode colidir (a 1.148 propõe outro inciso XXIII). Dúvida para especialista",
                 "leituras": leituras,
             },
             {
@@ -487,9 +605,10 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--saida", default=str(PARAMETROS))
     parser.add_argument("--dump")
+    parser.add_argument("--em", default=EM_PADRAO, help="data de referência (AAAA-MM-DD)")
     args = parser.parse_args()
     docs = {name: read(name) for name in DOCS}
-    result = build(docs)
+    result = build(docs, args.em)
     Path(args.saida).write_text(
         json.dumps(result, ensure_ascii=False, indent=1) + "\n", encoding="utf-8", newline="\n"
     )

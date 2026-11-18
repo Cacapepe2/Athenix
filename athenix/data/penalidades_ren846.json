@@ -3,11 +3,11 @@
  "gerado_por": "scripts/extrair_parametros.py (pipeline Athenix, sem valores digitados)",
  "fontes": {
   "846": {
-   "titulo": "REN 846/2019 (texto compilado)",
-   "arquivo": ".local/fontes_impacto/ren2019846_compilada.pdf",
-   "sha256": "d8b6fae9322fbb01e903f9fcb65fcf0f79155ad95f5cb3f5eb86592cada4d21a",
-   "vigencia": null,
-   "origem": "a confirmar com a fonte oficial da ANEEL (cópia local, fora do repositório)"
+   "titulo": "REN 846/2019 (texto compilado oficial até a RN 1.137/2025)",
+   "arquivo": "tests/fontes_impacto/atren2019846.pdf",
+   "sha256": "efe4e35fb41aa1306846677ffc32a0c2a150ee6ac44aafe5f15e475e6ad05ad9",
+   "vigencia": "2023-11-21",
+   "origem": "biblioteca da ANEEL (compilado oficial), baixado em 17/11/2026"
   },
   "1137": {
    "titulo": "RN 1.137/2025",
@@ -18,17 +18,24 @@
   },
   "1148": {
    "titulo": "REN 1.148/2026",
-   "arquivo": ".local/fontes_impacto/ren20261148.pdf",
-   "sha256": "00f8c4a41605a697eddac3be1ec916e4017bf78f2f1480162749f52dd6f801cb",
+   "arquivo": "tests/fontes_impacto/ren20261148.pdf",
+   "sha256": "c1bf6ff2da617d0699cc00e2abd774eabd6950bb4d7f2d76f5f86b6ee923697e",
    "vigencia": "2027-01-01",
-   "origem": "a confirmar com a fonte oficial da ANEEL (cópia local, fora do repositório)"
+   "origem": "biblioteca da ANEEL, baixado em 17/11/2026"
+  },
+  "1162": {
+   "titulo": "REN 1.162/2026 (DOU)",
+   "arquivo": "tests/fontes_impacto/dou/dou_ren20261162.html",
+   "sha256": "2e5e9962c8541a0732d4cf404b6270accb2e790654ea379a86d69105a7cb03f5",
+   "vigencia": "2026-06-24",
+   "origem": "DOU de 24/06/2026, seção 1, p. 92 (Imprensa Nacional), baixado em 17/11/2026"
   },
   "1174": {
-   "titulo": "REN 1.174/2026 (texto compilado)",
-   "arquivo": ".local/fontes_impacto/ren20261174.pdf",
-   "sha256": "a2f89f9e431eb9dfc0122d0a646ade8711791434e2c6515c5c91e41d62f38e53",
+   "titulo": "REN 1.174/2026 (DOU)",
+   "arquivo": "tests/fontes_impacto/dou/dou_ren20261174.html",
+   "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507",
    "vigencia": "2026-11-04",
-   "origem": "a confirmar com a fonte oficial da ANEEL (cópia local, fora do repositório)"
+   "origem": "DOU de 04/11/2026, seção 1, p. 68 (Imprensa Nacional), baixado em 17/11/2026"
   },
   "9427": {
    "titulo": "Lei 9.427/1996 (texto compilado)",
@@ -54,11 +61,38 @@
  },
  "nao_estimaveis": [
   "Metodologia de cálculo do valor base da multa (Art. 22, §§ 2º e 6º): não está no repositório.",
-  "Perda de receita por Parcela Variável (PVI/PVRO) de transmissoras: norma de PV não fornecida.",
+  "Perda de receita por Parcela Variável (PVI/PVRO) de transmissoras: a REN 905 veio só em 3 páginas, sem os módulos (e a REN 1.162 também a altera).",
   "Efeitos no Fator X da distribuidora (REN 1.148/2026, PRORET 2.5/2.5-A): anexos não fornecidos.",
-  "Alterações da REN 1.162/2026 e Despacho 1.293/2026: atos não fornecidos.",
+  "Despacho 1.293/2026 (DOU 23/04/2026): indefere súmula sobre os arts. 36 a 45 da REN 846; não decide multa nem altera parâmetro.",
   "Custo de adequação: depende de dados internos da empresa."
  ],
+ "vigencia_futura": [
+  {
+   "dispositivo": "Art. 11, XXIII",
+   "ato": "REN 1.148/2026",
+   "vigencia_desde": "2027-01-01",
+   "trecho": "XXIII - deixar de responder ou responder de forma não conclusiva as demandas relacionadas ao Sistema de Gestão de Ouvidoria da ANEEL-SGO/ANEEL, ou outro que vier a substituí-lo, no prazo específico definido pela ANEEL."
+  }
+ ],
+ "conflitos_de_compilacao": [],
+ "duvidas_de_compilacao": [
+  {
+   "atos": [
+    "Incluído: REN ANEEL 1.137, de 21.10.2025",
+    "REN 1.148/2026"
+   ],
+   "dispositivo": "article:11/clause:XXIII",
+   "motivo": "possível colisão de numeração: a norma nova propõe, para o mesmo número, conteúdo diferente do já vigente, sem (NR)/(AC) no texto da fonte",
+   "para": "especialista (junto da dúvida D1)",
+   "redacao_existente": "XXIII - deixar de prestar informações decorrentes de interrupções no fornecimento de energia elétrica aos consumidores ou usuários, nos termos da regulação vigente. (Incluído pela REN ANEEL 1.137, de 21.10.2025)",
+   "redacao_proposta": "XXIII - deixar de responder ou responder de forma não conclusiva as demandas relacionadas ao Sistema de Gestão de Ouvidoria da ANEEL-SGO/ANEEL, ou outro que vier a substituí-lo, no prazo específico definido pela ANEEL.",
+   "vigencias": {
+    "anterior": "2025-10-21",
+    "nova": "2027-01-01"
+   }
+  }
+ ],
+ "data_de_referencia": "2026-11-17",
  "parametros": {
   "sujeicao_penalidades": {
    "descricao": "Infrações sujeitam o agente às penalidades do art. 5º",
@@ -66,7 +100,7 @@
    "trecho": "Art. 5º As infrações à legislação setorial, bem como a inobservância aos deveres ou às obrigações decorrentes dos contratos de concessão e permissão, aos atos de autorização de serviços ou instalações de energia elétrica ou aos demais atos administrativos de efeitos concretos expedidos pela Agência sujeitarão o agente infrator às penalidades de:",
    "ancora": "verified",
    "motivo": null,
-   "nota": "rótulo do dispositivo não confirmado pela 2ª leitura",
+   "nota": null,
    "revogado": null,
    "percentuais": [],
    "fonte": "846"
@@ -77,7 +111,7 @@
    "trecho": "Art. 6º A Agência aplicará ao agente infrator a penalidade de advertência, nas infrações passíveis de multa e enquadradas nos arts. 9º a 13, quando não houver reincidência específica, conforme definido no art. 23, e a infração for de baixa ofensividade.",
    "ancora": "verified",
    "motivo": null,
-   "nota": "rótulo do dispositivo não confirmado pela 2ª leitura",
+   "nota": null,
    "revogado": null,
    "percentuais": [],
    "fonte": "846"
@@ -88,7 +122,7 @@
    "trecho": "Art. 7º A multa pode ser imposta isoladamente ou em conjunto com outras penalidades, observado o limite, por infração, estabelecido na legislação.",
    "ancora": "verified",
    "motivo": null,
-   "nota": "rótulo do dispositivo não confirmado pela 2ª leitura",
+   "nota": null,
    "revogado": null,
    "percentuais": [],
    "fonte": "846"
@@ -110,7 +144,7 @@
    "trecho": "Art. 8º As infrações sujeitas a penalidade de multa serão divididas em cinco grupos, a que correspondem os seguintes limites percentuais incidentes sobre a base de cálculo estabelecida no art. 21:",
    "ancora": "verified",
    "motivo": null,
-   "nota": "rótulo do dispositivo não confirmado pela 2ª leitura",
+   "nota": null,
    "revogado": null,
    "percentuais": [],
    "fonte": "846"
@@ -196,10 +230,10 @@
   "base_rol": {
    "descricao": "Base de cálculo: ROL dos 12 meses anteriores ao AI",
    "dispositivo": "Art. 21",
-   "trecho": "Art. 21. A base de cálculo para aplicação de multa aos concessionários, […] permissionários ou autorizados de instalações ou serviços de energia elétrica será o valor da Receita Operacional Líquida - ROL ou o valor estimado da energia produzida nos casos de autoprodução e produção independente, ambos correspondentes aos doze meses anteriores à lavratura do Auto de Infração - AI.",
+   "trecho": "Art. 21. A base de cálculo para aplicação de multa aos concessionários, permissionários ou autorizados de instalações ou serviços de energia elétrica será o valor da Receita Operacional Líquida - ROL ou o valor estimado da energia produzida nos casos de autoprodução e produção independente, ambos correspondentes aos doze meses anteriores à lavratura do Auto de Infração – AI.",
    "ancora": "verified",
    "motivo": null,
-   "nota": "rótulo do dispositivo não confirmado pela 2ª leitura",
+   "nota": null,
    "revogado": null,
    "percentuais": [],
    "fonte": "846"
@@ -207,7 +241,7 @@
   "base_rap": {
    "descricao": "Base de transmissora fora de operação: RAP",
    "dispositivo": "Art. 21, § 3º",
-   "trecho": "§ 3º No caso de agente de transmissão que não esteja em operação, a base de cálculo será a Receita Anual Permitida - RAP vigente na data da lavratura do AI.",
+   "trecho": "§ 3º No caso de agente de transmissão que não esteja em operação, a base de cálculo será a Receita Anual Permitida – RAP vigente na data da lavratura do AI.",
    "ancora": "verified",
    "motivo": null,
    "nota": null,
@@ -377,7 +411,7 @@
   "agravantes_somam": {
    "descricao": "Agravantes se somam",
    "dispositivo": "Art. 23, § 2º",
-   "trecho": "§ 2º Na hipótese de incidência de mais de um dos incisos doc aput deverão ser somados os percentuais relativos a cada fator.",
+   "trecho": "§ 2º Na hipótese de incidência de mais de um dos incisos do caput deverão ser somados os percentuais relativos a cada fator.",
    "ancora": "verified",
    "motivo": null,
    "nota": null,
@@ -391,7 +425,7 @@
    "trecho": "Art. 24. Do valor da multa calculado na forma do art. 23, serão deduzidos os percentuais abaixo, de forma não cumulativa, caso incidam as seguintes circunstâncias atenuantes:",
    "ancora": "verified",
    "motivo": null,
-   "nota": "rótulo do dispositivo não confirmado pela 2ª leitura",
+   "nota": null,
    "revogado": null,
    "percentuais": [],
    "fonte": "846"
@@ -425,7 +459,7 @@
   "reducao_renuncia": {
    "descricao": "Redução por renúncia ao recurso",
    "dispositivo": "Art. 38, § 2º",
-   "trecho": "§ 2º O infrator que renunciar expressamente ao direito de interpor recurso, no prazo de dez dias, nos termos do caput do art. 36, fará jus ao fator de redução de 25% (vinte e cinco por cento) no valor da multa aplicada, caso efetue o pagamento no prazo definido no caput , vedado o parcelamento.",
+   "trecho": "§ 2º O infrator que renunciar expressamente ao direito de interpor recurso, no prazo de dez dias, nos termos do caput do art. 36, fará jus ao fator de redução de 25% (vinte e cinco por cento) no valor da multa aplicada, caso efetue o pagamento no prazo definido no caput, vedado o parcelamento.",
    "ancora": "verified",
    "motivo": null,
    "nota": null,
@@ -474,6 +508,18 @@
    "motivo": null,
    "nota": "O Art. 3º da Lei 15.269/2025 (nova redação do Art. 3º, X da Lei 9.427) não está nas exceções dos incisos I a III do Art. 24: produz efeitos na data da publicação.",
    "data": "2025-11-25"
+  },
+  "base_armazenamento": {
+   "descricao": "Base de cálculo da multa para Sistemas de Armazenamento de Energia (valor estimado da receita anual)",
+   "dispositivo": "Art. 21, § 11 (incluído pela REN 1.162/2026)",
+   "trecho": "§ 11 No caso de Sistemas de Armazenamento de Energia, a base de cálculo para aplicação de multa será o valor estimado da receita anual, resultante do produto do valor estimado da energia injetada em um ano pelo Valor Anual de Referência - VR vigente quando da lavratura do AI.",
+   "ancora": "verified",
+   "motivo": null,
+   "nota": null,
+   "revogado": null,
+   "percentuais": [],
+   "fonte": "1162",
+   "vigencia_desde": "2026-06-24"
   }
  },
  "infracoes": [
@@ -513,51 +559,20 @@
   {
    "dispositivo": "Art. 9º, IV",
    "grupo": "I",
-   "trecho": "IV - deixar de proceder à organização ou atualização de cadastro relativo a:",
+   "trecho": "IV - deixar de proceder à organização ou atualização de cadastro relativo a: unidades consumidoras; centrais geradoras; instalações de transmissão ou distribuição; ou sistemas de armazenamento de energia.",
    "ancora": "verified",
    "motivo": null,
    "nota": null,
    "revogado": null,
-   "origem": "redação original",
-   "termos": [],
-   "itens": [
-    {
-     "dispositivo": "Art. 9º, IV, I",
-     "trecho": "I - unidades consumidoras;",
-     "ancora": "verified",
-     "motivo": null,
-     "nota": null,
-     "revogado": null,
-     "origem": "redação original"
-    },
-    {
-     "dispositivo": "Art. 9º, IV, II",
-     "trecho": "II - centrais geradoras;",
-     "ancora": "verified",
-     "motivo": null,
-     "nota": null,
-     "revogado": null,
-     "origem": "redação original"
-    },
-    {
-     "dispositivo": "Art. 9º, IV, III",
-     "trecho": "III - instalações de transmissão ou distribuição; ou",
-     "ancora": "verified",
-     "motivo": null,
-     "nota": null,
-     "revogado": null,
-     "origem": "redação original"
-    },
-    {
-     "dispositivo": "Art. 9º, IV, IV",
-     "trecho": "IV - sistemas de armazenamento de energia.",
-     "ancora": "verified",
-     "motivo": null,
-     "nota": null,
-     "revogado": null,
-     "origem": "RN 1162/2026"
-    }
-   ]
+   "trecho_literal": "IV - deixar de proceder à organização ou atualização de cadastro relativo a: unidades consumidoras; centrais geradoras; instalações de transmissão ou distribuição; ou sistemas de armazenamento de energia. ...........................................",
+   "origem": "REN 1.162/2026",
+   "vigencia_desde": "2026-06-24",
+   "fonte_da_redacao": {
+    "tipo": "DOU",
+    "arquivo": "tests/fontes_impacto/dou/dou_ren20261162.html",
+    "sha256": "2e5e9962c8541a0732d4cf404b6270accb2e790654ea379a86d69105a7cb03f5"
+   },
+   "termos": []
   },
   {
    "dispositivo": "Art. 9º, V",
@@ -589,7 +604,14 @@
    "motivo": null,
    "nota": null,
    "revogado": null,
-   "origem": "RN 1162/2026",
+   "trecho_literal": "VII - deixar de registrar ou de analisar as ocorrências nos seus sistemas de distribuição, transmissão, geração ou armazenamento;\" (NR) ............................................",
+   "origem": "REN 1.162/2026",
+   "vigencia_desde": "2026-06-24",
+   "fonte_da_redacao": {
+    "tipo": "DOU",
+    "arquivo": "tests/fontes_impacto/dou/dou_ren20261162.html",
+    "sha256": "2e5e9962c8541a0732d4cf404b6270accb2e790654ea379a86d69105a7cb03f5"
+   },
    "termos": []
   },
   {
@@ -664,7 +686,7 @@
   {
    "dispositivo": "Art. 9º, XIV",
    "grupo": "I",
-   "trecho": "XIV - deixar de encaminhar à ANEEL, nos prazos e nas condições estabelecidas, indicadores utilizados para apurar a qualidade do atendimento e do fornecimento de energia elétrica;",
+   "trecho": "XIV – deixar de encaminhar à ANEEL, nos prazos e nas condições estabelecidas, indicadores utilizados para apurar a qualidade do atendimento e do fornecimento de energia elétrica;",
    "ancora": "verified",
    "motivo": null,
    "nota": null,
@@ -782,7 +804,14 @@
    "motivo": null,
    "nota": null,
    "revogado": null,
-   "origem": "RN 1162/2026",
+   "trecho_literal": "VII - descumprir disposições legais ou regulamentares relativas aos limites máximos de exposição humana a campos elétricos, magnéticos e eletromagnéticos variantes no tempo, produzidos pelas instalações de geração, de transmissão, de distribuição, de armazenamento e de interesse restrito, em qualquer nível de tensão; (NR) .................................................................",
+   "origem": "REN 1.162/2026",
+   "vigencia_desde": "2026-06-24",
+   "fonte_da_redacao": {
+    "tipo": "DOU",
+    "arquivo": "tests/fontes_impacto/dou/dou_ren20261162.html",
+    "sha256": "2e5e9962c8541a0732d4cf404b6270accb2e790654ea379a86d69105a7cb03f5"
+   },
    "termos": []
   },
   {
@@ -799,7 +828,7 @@
   {
    "dispositivo": "Art. 10, IX",
    "grupo": "II",
-   "trecho": "IX - deixar de implantar, operar ou manter, nos termos da legislação, as […] instalações de observações hidrométricas, anemométricas ou solarimétricas;",
+   "trecho": "IX - deixar de implantar, operar ou manter, nos termos da legislação, as instalações de observações hidrométricas, anemométricas ou solarimétricas;",
    "ancora": "verified",
    "motivo": null,
    "nota": null,
@@ -837,7 +866,14 @@
    "motivo": null,
    "nota": null,
    "revogado": null,
-   "origem": "RN 1162/2026",
+   "trecho_literal": "\"XII - deixar de apurar ou de registrar, separadamente, os investimentos, as receitas e os custos por geração, transmissão, distribuição, comercialização e armazenamento de energia elétrica;",
+   "origem": "REN 1.162/2026",
+   "vigencia_desde": "2026-06-24",
+   "fonte_da_redacao": {
+    "tipo": "DOU",
+    "arquivo": "tests/fontes_impacto/dou/dou_ren20261162.html",
+    "sha256": "2e5e9962c8541a0732d4cf404b6270accb2e790654ea379a86d69105a7cb03f5"
+   },
    "termos": []
   },
   {
@@ -916,7 +952,14 @@
    "motivo": null,
    "nota": null,
    "revogado": null,
-   "origem": "RN 1162/2026",
+   "trecho_literal": "XIX - operar centrais geradoras ou sistemas de armazenamento de energia ou instalações da rede básica sem a instalação de medidores de energia elétrica e demais equipamentos de medição exigidos; e\" (NR) ......................................................",
+   "origem": "REN 1.162/2026",
+   "vigencia_desde": "2026-06-24",
+   "fonte_da_redacao": {
+    "tipo": "DOU",
+    "arquivo": "tests/fontes_impacto/dou/dou_ren20261162.html",
+    "sha256": "2e5e9962c8541a0732d4cf404b6270accb2e790654ea379a86d69105a7cb03f5"
+   },
    "termos": []
   },
   {
@@ -1047,7 +1090,7 @@
    "motivo": null,
    "nota": null,
    "revogado": null,
-   "origem": "RN 1000/2021",
+   "origem": "REN ANEEL 1.000, de 07.12.2021",
    "termos": [
     "Condições Gerais de Fornecimento de Energia Elétrica",
     "Regras de Prestação do Serviço Público de Distribuição de Energia Elétrica"
@@ -1200,18 +1243,25 @@
    "motivo": null,
    "nota": null,
    "revogado": null,
-   "origem": "RN 1137/2025",
+   "origem": "REN ANEEL 1.137, de 21.10.2025",
    "termos": []
   },
   {
    "dispositivo": "Art. 11, XXIV",
    "grupo": "III",
-   "trecho": "XXIV - atrasar, dificultar ou representar lesão ou ameaça ao direito de o […] consumidor implementar o exercício da opção de que tratam o art. 15 e o art. 16 da Lei nº 9.074, de 7 de julho de 1995.",
+   "trecho": "XXIV - atrasar, dificultar ou representar lesão ou ameaça ao direito de o consumidor implementar o exercício da opção de que tratam o art. 15 e o art. 16 da Lei nº 9.074, de 7 de julho de 1995.",
    "ancora": "verified",
    "motivo": null,
    "nota": null,
    "revogado": null,
-   "origem": "RN 1174/2026",
+   "trecho_literal": "XXIV - atrasar, dificultar ou representar lesão ou ameaça ao direito de o consumidor implementar o exercício da opção de que tratam o art. 15 e o art. 16 da Lei nº 9.074, de 7 de julho de 1995.\"",
+   "origem": "REN 1.174/2026",
+   "vigencia_desde": "2026-11-04",
+   "fonte_da_redacao": {
+    "tipo": "DOU",
+    "arquivo": "tests/fontes_impacto/dou/dou_ren20261174.html",
+    "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+   },
    "termos": []
   },
   {
@@ -1429,7 +1479,7 @@
   {
    "dispositivo": "Art. 12, XX",
    "grupo": "IV",
-   "trecho": "XX - descumprir as disposições regulamentares ou contratuais relativas à implantação, adequação, operação, envio, recebimento e tratamento de dados do sistema de monitoramento remoto de grandezas elétricas e consumo de […] combustível em usina beneficiada pela sistemática de rateio da Conta de Consumo de Combustíveis Fósseis - CCC ou pela Conta de Desenvolvimento Energético - CDE, incluindo o Sistema de Coleta de Dados Operacionais - SCD;",
+   "trecho": "XX - descumprir as disposições regulamentares ou contratuais relativas à implantação, adequação, operação, envio, recebimento e tratamento de dados do sistema de monitoramento remoto de grandezas elétricas e consumo de combustível em usina beneficiada pela sistemática de rateio da Conta de Consumo de Combustíveis Fósseis - CCC ou pela Conta de Desenvolvimento Energético - CDE, incluindo o Sistema de Coleta de Dados Operacionais - SCD;",
    "ancora": "verified",
    "motivo": null,
    "nota": null,
@@ -1504,7 +1554,7 @@
    "motivo": null,
    "nota": null,
    "revogado": null,
-   "origem": "RN 1137/2025",
+   "origem": "REN ANEEL 1.137, de 21.10.2025",
    "termos": [
     "Plano de Contingência"
    ]
@@ -1512,12 +1562,12 @@
   {
    "dispositivo": "Art. 12, XXVII",
    "grupo": "IV",
-   "trecho": "XXVII - a ausência, inadequação ou descumprimento do Plano de Manejo Vegetal, nos termos da regulação vigente; e",
+   "trecho": "XXVII – a ausência, inadequação ou descumprimento do Plano de Manejo Vegetal, nos termos da regulação vigente; e",
    "ancora": "verified",
    "motivo": null,
    "nota": null,
    "revogado": null,
-   "origem": "RN 1137/2025",
+   "origem": "REN ANEEL 1.137, de 21.10.2025",
    "termos": [
     "Plano de Manejo Vegetal"
    ]
@@ -1525,12 +1575,12 @@
   {
    "dispositivo": "Art. 12, XXVIII",
    "grupo": "IV",
-   "trecho": "XXVIII - comunicar-se de forma ineficiente com o Poder Público em Situações de Emergência, nos termos da regulação vigente.",
+   "trecho": "XXVIII – comunicar-se de forma ineficiente com o Poder Público em Situações de Emergência, nos termos da regulação vigente.",
    "ancora": "verified",
    "motivo": null,
    "nota": null,
    "revogado": null,
-   "origem": "RN 1137/2025",
+   "origem": "REN ANEEL 1.137, de 21.10.2025",
    "termos": [
     "Poder Público",
     "Situações de Emergência"
@@ -1752,7 +1802,7 @@
    "motivo": null,
    "nota": null,
    "revogado": null,
-   "origem": "RN 1137/2025",
+   "origem": "REN ANEEL 1.137, de 21.10.2025",
    "termos": []
   },
   {
@@ -1763,7 +1813,7 @@
    "motivo": null,
    "nota": null,
    "revogado": null,
-   "origem": "RN 1137/2025",
+   "origem": "REN ANEEL 1.137, de 21.10.2025",
    "termos": []
   }
  ],
@@ -1771,7 +1821,7 @@
   {
    "id": "D1",
    "dispositivo": "Art. 11, XXIII",
-   "texto": "Duas redações para o mesmo inciso em atos diferentes; o compilado mostra só a da RN 1.137. Dúvida para especialista.",
+   "texto": "Sucessão no tempo: a redação da RN 1.137 vale até 31/12/2026 e a da RN 1.148, a partir de 01/01/2027. Incerteza: o texto da RN 1.148 na biblioteca da ANEEL não traz (NR)/(AC) nem aspas de fechamento, e a numeração pode colidir (a 1.148 propõe outro inciso XXIII). Dúvida para especialista",
    "leituras": [
     {
      "ato": "RN 1.137/2025",
@@ -1785,9 +1835,9 @@
     {
      "ato": "REN 1.148/2026",
      "vigencia_desde": "2027-01-01",
-     "trecho": "XXIII - deixar de responder ou responder de forma não conclusiva as demandas relacionadas ao Sistema de Gestão de Ouvidoria da ANEEL-SGO/ANEEL, ou outro que vier a substituí-lo, no prazo específico definido pela ANEEL. ..",
-     "ancora": "verified",
-     "motivo": null,
+     "trecho": "XXIII - deixar de responder ou responder de forma não conclusiva as demandas relacionadas ao Sistema de Gestão de Ouvidoria da ANEEL-SGO/ANEEL, ou outro que vier a substituí-lo, no prazo espe- cífico definido pela ANEEL. ....................................................................................................................",
+     "ancora": "pending",
+     "motivo": "trecho não confirmado na fonte original por leitura independente",
      "nota": null,
      "revogado": null
     }
@@ -1819,30 +1869,40 @@
    "ato": "REN 1.148/2026",
    "vigencia_desde": "2027-01-01",
    "dispositivo": "Art. 8º",
-   "trecho": "Art. 8º A Resolução Normativa nº 846, de 11 de junho de 2019, passa a vigorar com as seguintes alterações:",
-   "ancora": "verified",
-   "motivo": null,
-   "nota": "rótulo do dispositivo não confirmado pela 2ª leitura",
+   "trecho": "Art. 8º A Resolução Normativa nº 846, de 11 de junho de 2019, passa a vigorar com as seguin- tes alterações:",
+   "ancora": "pending",
+   "motivo": "trecho não confirmado na fonte original por leitura independente",
+   "nota": null,
    "revogado": null
   },
   {
-   "ato": "REN 1.174/2026 (texto compilado)",
+   "ato": "REN 1.162/2026 (DOU)",
+   "vigencia_desde": "2026-06-24",
+   "dispositivo": "Art. 16",
+   "trecho": "Art. 16. A Resolução Normativa nº 846, de 11 de junho de 2019, passa a vigorar com a seguinte alteração:",
+   "ancora": "verified",
+   "motivo": null,
+   "nota": null,
+   "revogado": null
+  },
+  {
+   "ato": "REN 1.174/2026 (DOU)",
    "vigencia_desde": "2026-11-04",
    "dispositivo": "Art. 10",
    "trecho": "Art. 10. A Resolução Normativa nº 846, de 11 de junho de 2019, passa a vigorar com a seguinte alteração:",
    "ancora": "verified",
    "motivo": null,
-   "nota": "rótulo do dispositivo não confirmado pela 2ª leitura",
+   "nota": null,
    "revogado": null
   }
  ],
  "alertas_fonte": [
   {
    "tipo": "algarismo_extenso",
-   "ato": "REN 846/2019 (texto compilado)",
+   "ato": "REN 846/2019 (texto compilado oficial até a RN 1.137/2025)",
    "dispositivo": "Art. 45-I, § 4º",
    "detalhe": "25% escrito como \"cinco por cento\"",
-   "trecho": "§ 4º Será acrescido o valor de 25% (cinco por cento) para cada antecedente até o limite de 100% (cem por cento).",
+   "trecho": "§ 4º Será acrescido o valor de 25% (cinco por cento) para cada antecedente até o limite de 100% (cem por cento). (Incluído pela REN ANEEL 1.063, de 02.04.2023)",
    "ancora": "verified",
    "motivo": null,
    "nota": null,

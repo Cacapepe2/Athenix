@@ -21,9 +21,9 @@ leitura independente do PDF (pypdfium2).
   cada uma.
 - **D2 e D3:** alertas de inconsistência da fonte. D2 vem do arquivo de parâmetros; D3 virou regra
   geral (mesma norma citada com datas diferentes no documento analisado), na tela e no relatório.
-- **Fonte:** a confirmar com a fonte oficial da ANEEL. Os parâmetros atuais saíram de cópias secundárias (compilações de
-  terceiro) que não podem ser publicadas; aviso visível na tela e no relatório.
-- **REN 1.162, Despacho 1.293 e norma de Parcela Variável:** seguem como "não estimável".
+- **Fonte:** desde 18/11/2026 os parâmetros saem de fontes oficiais (ver "Fontes oficiais" abaixo). Os
+  textos de 11–17/11 saíram de cópias do Leis.org, que não podem ser publicadas.
+- **REN 1.162:** aplicada (18/11/2026). **Despacho 1.293:** não decide multa. **Parcela Variável:** segue "não estimável" (REN 905 incompleta).
 
 Os parâmetros usados pelo módulo estão em `athenix/data/penalidades_ren846.json` (ver `docs/impacto.md`).
 
@@ -38,7 +38,7 @@ pelo git). Os testes procuram primeiro em `tests/fontes_impacto/` (versão ofici
 | --- | --- | --- | --- |
 | REN 846/2019, texto compilado | `ren2019846_compilada.pdf` | d8b6fae9322f | Art. 49 |
 | RN 1.137/2025 | `tests/norma_poc/ren20251137.pdf` | 4a581592e981 | publicação (Art. 21; DOU 30.10.2025) |
-| REN 1.148/2026 | `ren20261148.pdf` | 00f8c4a41605 | **1º/1/2027** (Art. 10) |
+| REN 1.148/2026 | `ren20261148.pdf` | c1bf6ff2da61 (oficial; antes 00f8c4a41605, Leis.org) | **1º/1/2027** (Art. 10) |
 | Lei 9.427/1996, texto compilado (planalto.gov.br, versionado) | `l9427cons.htm` | ff948e3442ed | por dispositivo (Art. 3º, X: redação da Lei nº 15.269, de 2025) |
 | REN 1.174/2026, texto compilado | `ren20261174.pdf` | a2f89f9e431e | publicação, salvo exceções (Art. 18; DOU 04.11.2026) |
 
@@ -175,3 +175,39 @@ confiança baixa.
   **não estimável** até a norma de PV entrar no repositório.
 - **Redução de receita da distribuidora pelo Fator X** (REN 1.148, a partir de 2027): **não
   estimável**, porque faltam os anexos do PRORET.
+
+
+## Fontes oficiais (18/11/2026) e diferenças em relação aos parâmetros anteriores
+Os parâmetros agora vêm do **compilado oficial da ANEEL** (`atren2019846.pdf`, sha256 `efe4e35f…`,
+até a RN 1.137/2025) mais as alterações de 2026 aplicadas pela compilação (`docs/COMPILACAO.md`):
+REN 1.148 (biblioteca da ANEEL, `c1bf6ff2…`), REN 1.162 e REN 1.174 (DOU, HTML, `2e5e9962…` e
+`fe1f0608…`). As cópias do Leis.org (`d8b6fae9…`, `00f8c4a4…`, `a2f89f9e…`) deixam de ser usadas.
+Data de referência do catálogo: 17/11/2026 (`--em`); redação com vigência posterior iria para
+`vigencia_futura` (hoje: o inciso XXIII da RN 1.148, a partir de 01/01/2027).
+`scripts/extrair_parametros.py` regrava o arquivo; os 34 parâmetros ficam com âncora verificada.
+
+**Parâmetros (33 anteriores):** os **percentuais são idênticos nos 33**. Quatro trechos mudam só de
+tipografia: `agravantes_somam` ("doc aput" → "do caput"), `base_rap` (travessão), `base_rol` (o
+"[…]" do Leis.org some) e `reducao_renuncia` (nota de redação). Novo: `base_armazenamento`, a base de
+cálculo da multa para Sistemas de Armazenamento (Art. 21, § 11, incluído pela REN 1.162, vigência
+24/06/2026; `VEE = 8.760 × PMax × FC`, FC = 0,25).
+
+**Infrações (109 → 109, mesmos rótulos):**
+- **Art. 9º, IV mudou de conteúdo.** A REN 1.162 deu nova redação ao inciso, com a lista na própria
+  frase ("unidades consumidoras; centrais geradoras; instalações de transmissão ou distribuição; ou
+  sistemas de armazenamento de energia"). A cópia do Leis.org ainda trazia o inciso com 4 itens
+  (I a IV). O inciso passa a ser tratado como um só dispositivo no catálogo; as alíneas a–c da redação anterior seguem no compilado e vão para decisão humana (`inferencias`, não revogadas).
+- Arts. 9º VII, 10 VII, 10 XII e 10 XIX (REN 1.162) já estavam com a nova redação na cópia anterior;
+  o texto é o mesmo, a origem passa a citar a norma e o DOU, com `trecho_literal` do ato.
+- Art. 11, XXIV (REN 1.174): igual, sem o "[…]" de quebra de página do Leis.org.
+- A "origem" muda de formato ("RN 1137/2025" → "REN ANEEL 1.137, de 21.10.2025", a nota do
+  compilado oficial) e a tipografia dos incisos (`–` no lugar de `-`) segue a do compilado oficial.
+- **Art. 11, XXIII (D1):** **sucessão no tempo**, decisão do fundador de 18/11/2026: a redação da RN
+  1.137 vale até 31/12/2026 e a da RN 1.148, a partir de 01/01/2027 (`vigencia_futura`). Duas
+  incertezas seguem para o especialista (`duvidas_de_compilacao`): o texto da RN 1.148 na biblioteca
+  da ANEEL não traz (NR)/(AC) nem aspas de fechamento, e a numeração pode colidir (a 1.148 propõe
+  outro inciso XXIII).
+
+`alteracoes_da_regua`: 3 → 4 (entra a REN 1.162, art. 16). `nao_estimaveis`: o item da REN 1.162 sai;
+entra o Despacho 1.293 (indefere súmula, sem efeito no cálculo) e a REN 905 passa a "veio só em 3
+páginas".

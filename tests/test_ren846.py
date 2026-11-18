@@ -16,7 +16,7 @@ AGUARDANDO = (
     "REN 846 não encontrada em tests/fontes_impacto/ (versão oficial) nem em .local/fontes_impacto/ "
     "(cópia local, fora do repositório): aguardando o arquivo oficial da ANEEL"
 )
-SEM_PDF = pytest.mark.skipif(not fonte("ren2019846_compilada.pdf").exists(), reason=AGUARDANDO)
+SEM_PDF = pytest.mark.skipif(not fonte("atren2019846.pdf").exists(), reason=AGUARDANDO)
 
 
 def test_hashes_match_provenance():
@@ -85,7 +85,7 @@ def test_paragraph_sign_followed_by_connector_is_a_remission_not_a_paragraph():
 
 @pytest.fixture(scope="module")
 def ren846():
-    read = reader.read_pdf(fonte("ren2019846_compilada.pdf"), Settings())
+    read = reader.read_pdf(fonte("atren2019846.pdf"), Settings())
     units = read["extraction"]["units"]
     return units, {u["id"]: u for u in units}
 
