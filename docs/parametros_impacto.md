@@ -183,7 +183,7 @@ até a RN 1.137/2025) mais as alterações de 2026 aplicadas pela compilação (
 REN 1.148 (biblioteca da ANEEL, `c1bf6ff2…`), REN 1.162 e REN 1.174 (DOU, HTML, `2e5e9962…` e
 `fe1f0608…`). As cópias do Leis.org (`d8b6fae9…`, `00f8c4a4…`, `a2f89f9e…`) deixam de ser usadas.
 Data de referência do catálogo: 17/11/2026 (`--em`); redação com vigência posterior iria para
-`vigencia_futura` (hoje vazio: o único caso, o inciso XXIII da RN 1.148, é conflito e não entra).
+`vigencia_futura` (hoje: o inciso XXIII da RN 1.148, a partir de 01/01/2027).
 `scripts/extrair_parametros.py` regrava o arquivo; os 34 parâmetros ficam com âncora verificada.
 
 **Parâmetros (33 anteriores):** os **percentuais são idênticos nos 33**. Quatro trechos mudam só de
@@ -202,8 +202,11 @@ cálculo da multa para Sistemas de Armazenamento (Art. 21, § 11, incluído pela
 - Art. 11, XXIV (REN 1.174): igual, sem o "[…]" de quebra de página do Leis.org.
 - A "origem" muda de formato ("RN 1137/2025" → "REN ANEEL 1.137, de 21.10.2025", a nota do
   compilado oficial) e a tipografia dos incisos (`–` no lugar de `-`) segue a do compilado oficial.
-- **Art. 11, XXIII (D1):** continua conflito, agora também registrado em `conflitos_de_compilacao`:
-  a RN 1.148 propõe outro inciso XXIII, sem (NR)/(AC) no texto da biblioteca da ANEEL.
+- **Art. 11, XXIII (D1):** **sucessão no tempo**, decisão do fundador de 18/11/2026: a redação da RN
+  1.137 vale até 31/12/2026 e a da RN 1.148, a partir de 01/01/2027 (`vigencia_futura`). Duas
+  incertezas seguem para o especialista (`duvidas_de_compilacao`): o texto da RN 1.148 na biblioteca
+  da ANEEL não traz (NR)/(AC) nem aspas de fechamento, e a numeração pode colidir (a 1.148 propõe
+  outro inciso XXIII).
 
 `alteracoes_da_regua`: 3 → 4 (entra a REN 1.162, art. 16). `nao_estimaveis`: o item da REN 1.162 sai;
 entra o Despacho 1.293 (indefere súmula, sem efeito no cálculo) e a REN 905 passa a "veio só em 3

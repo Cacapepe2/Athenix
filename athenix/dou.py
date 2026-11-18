@@ -22,8 +22,8 @@ TIPOS = (
 )
 TITULO = re.compile(
     rf"^(?P<tipo>{TIPOS})(?:\s+(?P<sigla>[A-ZÀ-Ú][A-ZÀ-Ú/-]*))?\s+N[º°o]\s*(?P<numero>[\d.]+)"
-    r"(?:/(?P<ano_n>\d{4}))?,?\s+DE\s+(?P<dia>\d{1,2})[º°]?\s+(?:DE\s+)?(?P<mes>[A-ZÇÀ-Ú]+)\s+DE\s+"
-    r"(?P<ano>\d{4})\s*$"
+    r"(?:/(?P<ano_n>\d{4}))?,?(?i:\s+de\s+)(?P<dia>\d{1,2})[º°]?(?i:\s+(?:de\s+)?)"  # data: caixa livre
+    r"(?P<mes>[A-Za-zÇçÀ-ú]+)(?i:\s+de\s+)(?P<ano>\d{4})\s*$"
 )
 MESES = (
     "JANEIRO FEVEREIRO MARÇO ABRIL MAIO JUNHO JULHO AGOSTO SETEMBRO OUTUBRO NOVEMBRO DEZEMBRO"

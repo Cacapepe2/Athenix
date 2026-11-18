@@ -225,7 +225,7 @@ tipo, número, data, edição, página e ementa batem; o PDF omite o órgão em 
 infringidos, cada campo com trecho literal e página (`tests/test_penalidade.py`). Nenhum dos três
 atos do DOU do acervo decide multa: o Despacho 1.293 indefere uma súmula sobre os arts. 36 a 45 da
 REN 846, sem agente nem valor. Os dois votos da ANEEL em `.local/dados_aneel/` são decisões:
-- Proc. 48500.006992/2022-98, Taesa, AI 0018/2023-SFT: multa reformada para R$ 8.738.737,50.
-- Proc. 48500.004507/2021-61, Neoenergia Pernambuco, AI 002/2022-SFE: multa mantida em
+- Proc. 48500.006992/2022-98, AI 0018/2023-SFT (transmissora): multa reformada para R$ 8.738.737,50.
+- Proc. 48500.004507/2021-61, AI 002/2022-SFE (distribuidora): multa mantida em
   R$ 32.949.775,22.
 Resultado "pendente de revisão humana". Ainda não conferido com o CSV (Bloco 4).

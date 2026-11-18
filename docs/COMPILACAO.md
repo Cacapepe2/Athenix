@@ -23,8 +23,12 @@ guarda a nova versão com a data de vigência e preserva as anteriores. **Sem IA
 - **Âncora**: dispositivo cujo texto é só pontilhado (`Art. 9º ........`) não muda; serve de caminho.
 - **(NR)/(AC) fecha o bloco inteiro** (LC 95): vale para todos os dispositivos entre a abertura das
   aspas e o marcador. Com (NR), existente → substitui; inexistente → inclui (com aviso).
-- **Sem marcador, ou (AC) sobre dispositivo existente, com texto diferente → conflito**
-  (`conflitos`): a redação proposta não é aplicada e o caso vai para decisão humana.
+- **Sem marcador (NR)/(AC), texto diferente, vigência POSTERIOR à da redação atual → sucessão no
+  tempo** (decisão do fundador, 18/11/2026): as duas redações ficam, cada uma com a sua data; o
+  histórico marca `INCERTO` (a fonte não traz o marcador) e `duvidas_para_especialista` registra a
+  possível colisão de numeração. **(AC) sobre dispositivo existente, ou sem marcador com a mesma data
+  ou data anterior → conflito** (`conflitos`): a redação proposta não é aplicada e vai para decisão
+  humana.
 - **Duas normas, mesmo dispositivo, mesma data, textos diferentes → conflito**; datas diferentes
   valem em sequência e o histórico guarda todas.
 - **Subitens de dispositivo substituído** que o ato não reproduz: **não são revogados**. O pontilhado
@@ -50,16 +54,19 @@ Base: compilado oficial da ANEEL (`atren2019846.pdf`, sha256 `efe4e35f…`), atu
 
 | Ato (fonte) | Vigência | O que faz na REN 846 | Resultado |
 |---|---|---|---|
-| REN 1.148/2026 (biblioteca da ANEEL) | 01/01/2027 | art. 8º: inciso XXIII do art. 11 | **conflito** (abaixo) |
+| REN 1.148/2026 (biblioteca da ANEEL) | 01/01/2027 | art. 8º: inciso XXIII do art. 11 | 1 substituição em sucessão, **marcada incerta** (abaixo) |
 | REN 1.162/2026 (DOU, p. 92) | 24/06/2026 | art. 16: arts. 9º IV e VII; 10 VII, XII e XIX; 21 § 11 (+ inciso I e 4 linhas de fórmula) | 11 substituições/inclusões aplicadas; 3 subitens (alíneas a–c do art. 9º, IV) em `inferencias`, não revogados, para decisão humana |
 | REN 1.174/2026 (DOU, p. 68) | 04/11/2026 | art. 10: inciso XXIV do art. 11 | 1 inclusão aplicada |
 
-**Conflito (não resolvido):** a RN 1.148 traz um inciso XXIII ("deixar de responder … Ouvidoria") e a
-base já tem outro XXIII ("deixar de prestar informações … interrupções", incluído pela RN 1.137).
-O texto da RN 1.148 na biblioteca da ANEEL não tem aspas de fechamento nem (NR)/(AC), então não dá
-para saber se é substituição, inclusão ou erro de numeração. Fica a redação da RN 1.137 e a proposta
-da 1.148 em `conflitos`. Para resolver: a versão da RN 1.148 no DOU de 20/02/2026 (p. 84) ou
-decisão do especialista. Mesmo se for inclusão, a vigência só chega em 01/01/2027.
+**Inciso XXIII do art. 11 (sucessão no tempo, com incerteza):** a base tem o XXIII "deixar de prestar
+informações … interrupções" (incluído pela RN 1.137), vigente **até 31/12/2026**. A RN 1.148 traz um
+XXIII "deixar de responder … Ouvidoria", vigente **a partir de 01/01/2027**. As duas ficam no
+histórico, cada uma com a sua data (`texto_vigente` em 31/12/2026 devolve a da 1.137; em
+01/01/2027, a da 1.148). **Incerteza do parsing:** o texto da RN 1.148 na biblioteca da ANEEL não
+traz aspas de fechamento nem (NR)/(AC); o bloco é encerrado pelo próximo artigo do próprio ato. A
+**colisão de numeração** (a 1.148 propõe, para o mesmo número, conteúdo diferente do que a 1.137
+incluiu) continua como **dúvida para especialista**, junto da D1 (`duvidas_para_especialista`).
+Resolver: a versão da RN 1.148 no DOU de 20/02/2026 (p. 84), que o fundador vai baixar.
 
 Datas: as versões consultáveis vão de 21/10/2025 em diante. Antes disso o estado da norma não é
 reconstituível a partir deste compilado (ver validação).
@@ -70,12 +77,16 @@ reconstituível a partir deste compilado (ver validação).
   e XIX; 21 § 11 e inciso I). As outras 2 diferem só no layout do Leis.org (inciso IV partido em itens;
   XXIV cortado pelo rodapé de página). O Leis.org não consolida a RN 1.148 (vigência 2027), o que
   confirma que o XXIII não deve entrar hoje. Teste: `test_conferencia_independente…`.
-- **(a) O que deveria coincidir com o compilado oficial.** Hoje a base é o próprio compilado, então
-  coincide por construção. A validação real (original de 2019 + todas as alteradoras até a RN 1.137
-  contra o compilado) **está pendente**: falta o texto original (o fundador vai baixar do DOU de
-  18/06/2019) e as alteradoras intermediárias que as notas do compilado citam: REN 1.063 (70
-  dispositivos), 1.077 (56), 1.137 (9), 852 (3), 949 (1) e 1.000 (1). Só a 1.137 está no
-  repositório. Quando chegarem: montar, comparar dispositivo a dispositivo e listar o que diverge.
+- **(a) O que deveria coincidir com o compilado oficial.** Original de 2019 (DOU de 18/06/2019,
+  p. 37, `dou_ren20190846.html`, 343 dispositivos) × compilado oficial: **todo dispositivo do original
+  existe no compilado** e, dos sem nota de redação, **341 de 343 têm o mesmo texto**. As 2 diferenças
+  são ruído, não conteúdo (um "26." solto no fim do art. 27 do HTML e o aviso "Este texto não substitui
+  o publicado no D.O." no fim do art. 51 do compilado). O compilado tem 142 dispositivos a mais, todos
+  criados por alterações até a RN 1.137. Teste: `test_original_de_2019_x_compilado_oficial`.
+  **Ainda pendente:** montar o compilado a partir do original + as alteradoras e comparar o que
+  mudou. Faltam as alteradoras intermediárias que as notas do compilado citam: REN 1.063 (70
+  dispositivos), 1.077 (56), 852 (3), 949 (1) e 1.000 (1); só a 1.137 está no repositório. O PDF
+  certificado do original é só a página 37 (o HTML é o ato completo).
 - A RN 1.162 também altera a REN 905 (Parcela Variável); a REN 905 do repositório tem 3 páginas, sem
   os módulos, então essa parte não é compilada.
 
