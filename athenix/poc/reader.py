@@ -65,6 +65,34 @@ def _page_lines(page, ocr_page):
     return "text_layer", lines
 
 
+def link_continuations(tables, tolerance=3.0):
+    """Tabela que abre a página seguinte com a mesma moldura horizontal da última tabela da página
+    anterior é continuação: não tem cabeçalho próprio, a 1ª linha é dado. Herda o cabeçalho e
+    guarda a origem; as linhas e o texto ficam como lidos (só metadado)."""
+    first, last = {}, {}
+    for t in tables:
+        first.setdefault(t["page"], t)
+        last[t["page"]] = t
+    for page, t in first.items():
+        prev = last.get(page - 1)
+        if not prev or t.get("source") == "ocr" or prev.get("source") == "ocr":
+            continue
+        same_frame = abs(prev["bbox"][0] - t["bbox"][0]) <= tolerance and (
+            abs(prev["bbox"][2] - t["bbox"][2]) <= tolerance
+        )
+        filled = lambda row: [c for c in (row or []) if c]  # noqa: E731
+        repeats_header = filled(t["header"]) == filled(prev.get("header"))
+        if (
+            same_frame
+            and not repeats_header
+            and t["id"].endswith("-t1")
+            and t["bbox"][1] < prev["bbox"][1]
+        ):
+            t["continuation_of"] = prev["id"]
+            t["header"] = prev.get("header", [])
+            t["header_inherited"] = True
+
+
 def _ocr_tables(number, lines):
     grouped = {}
     for ln in lines:
@@ -171,6 +199,7 @@ def read_pdf(path, settings, ocr=None):
                 }
             )
             offset += len(text) + 3  # separador "\n\f\n" de from_pieces
+    link_continuations(tables)
     engines = sorted({v.get("engine", "ocr") for v in (ocr or {}).values() if isinstance(v, dict)})
     extractor = f"pdfplumber/{version('pdfplumber')}" + "".join(
         f"+{e}" for e in engines or (["ocr"] if ocr else [])
