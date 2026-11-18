@@ -1,0 +1,585 @@
+{
+ "versao": 1,
+ "nota": "Manual por TIPO de obrigação, escrito uma vez e reaproveitado em qualquer norma. Sinais em minúsculas e sem acento (o texto é normalizado só para comparar; o texto da norma não muda). Pontuação: 2 por sinal de verbo/expressão + 1 por sinal de contexto; tipo com exige_contexto só vale se houver ao menos um sinal de contexto; empate vai para o tipo de maior prioridade (ordem desta lista). Sem sinal suficiente: 'outros'. Ideias e evidências são sugestões genéricas de boa prática, não exigência da norma e não são parecer jurídico. Bônus de 3 pontos ao tipo cujo sinal de verbo aparece logo depois de 'deve/devem/deverá/deverão' (verbo principal da obrigação).",
+ "minimo_pontos": 3,
+ "status_geral": "rascunho — revisar",
+ "tipos": [
+  {
+   "id": "comunicar_consumidores",
+   "nome": "Comunicar consumidores",
+   "sinais": [
+    "comunic",
+    "informa",
+    "avis",
+    "notific",
+    "alert",
+    "orient",
+    "esclarec",
+    "divulg"
+   ],
+   "contexto": [
+    "consumidor",
+    "usuario",
+    "unidades? consumidora",
+    "cliente",
+    "populacao"
+   ],
+   "exige_contexto": true,
+   "ideias_cumprimento": [
+    "Definir canais e modelos de mensagem (SMS, aplicativo, call center, redes sociais) para cada situação prevista na norma.",
+    "Automatizar o disparo a partir do evento que gera a obrigação e registrar quem recebeu e quando.",
+    "Priorizar consumidores com necessidade especial ou serviço essencial, se a norma os destacar.",
+    "Testar a mensagem e o canal antes de precisar deles (simulação)."
+   ],
+   "evidencias": [
+    "Log de envio com data, hora, canal e destinatários.",
+    "Modelo da mensagem na versão vigente e histórico de versões.",
+    "Relatório de alcance e de falhas de entrega."
+   ],
+   "dependencias_tipicas": [
+    "evento_extremo_defesa_civil",
+    "dado_de_terceiro"
+   ],
+   "status": "rascunho — revisar"
+  },
+  {
+   "id": "comunicar_poder_publico_terceiros",
+   "nome": "Comunicar Poder Público e terceiros",
+   "sinais": [
+    "comunic",
+    "informa",
+    "notific",
+    "interag",
+    "reporta",
+    "encaminh"
+   ],
+   "contexto": [
+    "poder publico",
+    "prefeitura",
+    "municip",
+    "defesa civil",
+    "\\bons\\b",
+    "operador nacional",
+    "orgao\\w* (publico|ambiental)",
+    "autoridade",
+    "imprensa",
+    "ministerio"
+   ],
+   "exige_contexto": true,
+   "ideias_cumprimento": [
+    "Manter lista atualizada de contatos oficiais (prefeituras, Defesa Civil, ONS) com responsável e canal formal.",
+    "Usar canal que gere protocolo e registro de data e hora.",
+    "Definir gatilhos internos para acionar a comunicação e quem a aprova.",
+    "Guardar a resposta, ou a ausência dela, junto do pedido."
+   ],
+   "evidencias": [
+    "Protocolo ou comprovante de envio com data e hora.",
+    "Cópia do ofício ou mensagem enviada.",
+    "Resposta recebida ou registro de que não houve resposta."
+   ],
+   "dependencias_tipicas": [
+    "autorizacao_municipal",
+    "operador_sistema",
+    "evento_extremo_defesa_civil"
+   ],
+   "status": "rascunho — revisar"
+  },
+  {
+   "id": "publicar_no_site",
+   "nome": "Publicar no site",
+   "sinais": [
+    "divulg",
+    "disponibiliz\\w* (em|no|na) (seu|sua)? ?(sitio|site|portal|pagina)",
+    "sitio eletronico",
+    "portal",
+    "pagina na internet",
+    "\\bsite\\b",
+    "\\bpublic(ar|a|am|ad[oa]s?)\\b",
+    "publicac(ao|oes) (no|em|na) (seu|sua)? ?(sitio|site|portal)",
+    "disponibiliz\\w* .{0,80}(sitio|site|portal)"
+   ],
+   "contexto": [],
+   "exige_contexto": false,
+   "ideias_cumprimento": [
+    "Designar responsável e prazo interno para cada publicação exigida.",
+    "Manter página própria, de fácil localização, com data de atualização visível.",
+    "Programar revisão periódica do conteúdo publicado.",
+    "Arquivar a versão anterior quando houver atualização."
+   ],
+   "evidencias": [
+    "Captura de tela datada da página publicada e URL.",
+    "Registro da publicação (sistema de gestão de conteúdo, com data e autor).",
+    "Histórico das versões publicadas."
+   ],
+   "dependencias_tipicas": [],
+   "status": "rascunho — revisar"
+  },
+  {
+   "id": "manter_registro_historico",
+   "nome": "Manter registro ou histórico",
+   "sinais": [
+    "registr",
+    "historico",
+    "cadastr",
+    "armazen",
+    "guardar",
+    "base de dados",
+    "rastre",
+    "manter .{0,20}(dados|registro|informac)"
+   ],
+   "contexto": [],
+   "exige_contexto": false,
+   "ideias_cumprimento": [
+    "Definir o que registrar, em que sistema, por quanto tempo e quem pode alterar.",
+    "Registrar no momento do fato, com data e hora automáticas.",
+    "Proteger o registro contra edição posterior (trilha de auditoria).",
+    "Testar a recuperação do registro para uma fiscalização."
+   ],
+   "evidencias": [
+    "Exportação do registro com período e filtros usados.",
+    "Política de retenção e controle de acesso.",
+    "Trilha de auditoria do sistema."
+   ],
+   "dependencias_tipicas": [
+    "autorizacao_municipal",
+    "dado_de_terceiro"
+   ],
+   "status": "rascunho — revisar"
+  },
+  {
+   "id": "elaborar_ou_revisar_plano",
+   "nome": "Elaborar ou revisar plano",
+   "sinais": [
+    "elabor",
+    "revis",
+    "atualiz",
+    "aprov",
+    "implement\\w* (o )?plano",
+    "plano de (contingencia|manejo|comunicacao|acao|trabalho)",
+    "estabelec\\w* (um |o |os )?(plano|programa|protocolo)"
+   ],
+   "contexto": [
+    "plano",
+    "programa",
+    "protocolo"
+   ],
+   "exige_contexto": true,
+   "ideias_cumprimento": [
+    "Partir de um modelo com os itens que a norma lista, marcando onde cada item é atendido.",
+    "Definir responsável, data de aprovação e periodicidade de revisão.",
+    "Submeter à aprovação formal da diretoria ou de quem a norma indicar.",
+    "Registrar a data em que o plano foi efetivamente aplicado, se a norma exigir."
+   ],
+   "evidencias": [
+    "Versão aprovada do plano, com data, responsável e aprovação.",
+    "Controle de versões e ata ou registro da revisão.",
+    "Registro de aplicação do plano e das lições incorporadas."
+   ],
+   "dependencias_tipicas": [
+    "evento_extremo_defesa_civil",
+    "autorizacao_municipal"
+   ],
+   "status": "rascunho — revisar"
+  },
+  {
+   "id": "enviar_informacao_aneel",
+   "nome": "Enviar informação à ANEEL",
+   "sinais": [
+    "encaminh",
+    "envi",
+    "remet",
+    "protocol",
+    "report",
+    "apresent",
+    "relatorio",
+    "informa"
+   ],
+   "contexto": [
+    "aneel",
+    "agencia"
+   ],
+   "exige_contexto": true,
+   "ideias_cumprimento": [
+    "Montar calendário interno com antecedência sobre o prazo de cada envio.",
+    "Definir quem prepara, quem confere e quem envia.",
+    "Enviar com folga e guardar o protocolo do sistema da ANEEL.",
+    "Ter plano alternativo se o sistema estiver indisponível (registro da tentativa e contato formal)."
+   ],
+   "evidencias": [
+    "Protocolo do envio gerado pelo sistema da ANEEL.",
+    "Arquivo enviado e conferência interna.",
+    "Registro de indisponibilidade do sistema, se houver (captura de tela com data e hora)."
+   ],
+   "dependencias_tipicas": [
+    "sistema_aneel_indisponivel",
+    "dado_de_terceiro"
+   ],
+   "status": "rascunho — revisar"
+  },
+  {
+   "id": "apurar_calcular_indicador",
+   "nome": "Apurar ou calcular indicador",
+   "sinais": [
+    "apur",
+    "calcul",
+    "mensur",
+    "medic",
+    "monitor",
+    "indicador",
+    "metrica",
+    "avali"
+   ],
+   "contexto": [
+    "\\bdec\\b",
+    "\\bfec\\b",
+    "tempo medio",
+    "percentual",
+    "meta"
+   ],
+   "exige_contexto": false,
+   "ideias_cumprimento": [
+    "Documentar a fórmula, as fontes de dado e o período de apuração.",
+    "Reproduzir o cálculo de forma independente antes de enviar.",
+    "Automatizar a coleta e guardar os dados brutos do período.",
+    "Definir regra para dado faltante ou corrigido depois."
+   ],
+   "evidencias": [
+    "Memória de cálculo e dados brutos do período.",
+    "Versão da fórmula e quem a validou.",
+    "Comparação com a apuração anterior e justificativa de variações."
+   ],
+   "dependencias_tipicas": [
+    "dado_de_terceiro"
+   ],
+   "status": "rascunho — revisar"
+  },
+  {
+   "id": "implantar_sistema_processo",
+   "nome": "Implantar sistema ou processo",
+   "sinais": [
+    "implant",
+    "implement",
+    "desenvolv",
+    "sistema",
+    "ferramenta",
+    "plataforma",
+    "automatiz",
+    "tecnologia",
+    "procedimento interno"
+   ],
+   "contexto": [],
+   "exige_contexto": false,
+   "ideias_cumprimento": [
+    "Levantar requisitos a partir do texto da norma, item por item.",
+    "Definir marcos intermediários e responsável, com data de conclusão anterior ao prazo.",
+    "Testar com casos reais e guardar o resultado do teste.",
+    "Documentar o processo e treinar quem o opera."
+   ],
+   "evidencias": [
+    "Cronograma com marcos e entregas.",
+    "Registro dos testes e da homologação.",
+    "Manual do processo e lista de treinados."
+   ],
+   "dependencias_tipicas": [
+    "sistema_aneel_indisponivel",
+    "dado_de_terceiro"
+   ],
+   "status": "rascunho — revisar"
+  },
+  {
+   "id": "articular_coordenar_terceiros",
+   "nome": "Articular e coordenar com terceiros",
+   "sinais": [
+    "articul",
+    "coorden",
+    "interag",
+    "cooper",
+    "parceria",
+    "convenio",
+    "acordo",
+    "cessao emergencial",
+    "comite",
+    "integrar",
+    "compartilh"
+   ],
+   "contexto": [],
+   "exige_contexto": false,
+   "ideias_cumprimento": [
+    "Formalizar o combinado com os envolvidos (acordo, ata, protocolo de atuação).",
+    "Definir responsáveis, canais e gatilhos de acionamento de cada parte.",
+    "Fazer exercícios conjuntos antes de a necessidade surgir.",
+    "Registrar as reuniões e os encaminhamentos."
+   ],
+   "evidencias": [
+    "Acordo, convênio ou ata assinada.",
+    "Lista de contatos e papéis de cada parte.",
+    "Registro das reuniões e das ações combinadas."
+   ],
+   "dependencias_tipicas": [
+    "autorizacao_municipal",
+    "operador_sistema",
+    "evento_extremo_defesa_civil",
+    "dado_de_terceiro"
+   ],
+   "status": "rascunho — revisar"
+  },
+  {
+   "id": "capacitar_equipe",
+   "nome": "Capacitar equipe",
+   "sinais": [
+    "capacit",
+    "trein",
+    "simulado",
+    "exercicio",
+    "qualific",
+    "formacao"
+   ],
+   "contexto": [
+    "equipe",
+    "colaborador",
+    "empregado",
+    "profissiona"
+   ],
+   "exige_contexto": false,
+   "ideias_cumprimento": [
+    "Mapear quem precisa de qual treinamento a partir das funções da obrigação.",
+    "Incluir simulados e exercícios práticos, não só aula expositiva.",
+    "Definir periodicidade de reciclagem.",
+    "Avaliar o aprendizado e registrar o resultado."
+   ],
+   "evidencias": [
+    "Lista de presença e conteúdo programático.",
+    "Registro dos simulados e resultados.",
+    "Calendário de reciclagem."
+   ],
+   "dependencias_tipicas": [
+    "evento_extremo_defesa_civil"
+   ],
+   "status": "rascunho — revisar"
+  },
+  {
+   "id": "estrutura_atendimento_contingencia",
+   "nome": "Manter estrutura de atendimento ou contingência",
+   "sinais": [
+    "atendiment",
+    "plantao",
+    "equipe",
+    "centro de operac",
+    "mobiliz",
+    "recurso\\w* (humano|material)",
+    "estrutura",
+    "prontidao",
+    "canal de atendimento",
+    "medidas? (de )?contingencia",
+    "contingencia",
+    "garant\\w* (a )?(disponibilidade|acessibilidade|operacionalidade)",
+    "canais? (de comunicacao|oficia\\w*)"
+   ],
+   "contexto": [
+    "autonomia",
+    "sobrevida",
+    "essencial",
+    "emergenc",
+    "eventos? (climatic|extremo|severo)"
+   ],
+   "exige_contexto": false,
+   "ideias_cumprimento": [
+    "Dimensionar equipes, equipamentos e canais para o pior cenário que a norma prevê.",
+    "Definir escalas de plantão e regras de mobilização.",
+    "Manter inventário de recursos e contratos de apoio.",
+    "Revisar o dimensionamento após cada evento real."
+   ],
+   "evidencias": [
+    "Escalas e registros de mobilização.",
+    "Inventário de recursos e contratos de apoio vigentes.",
+    "Relatório pós-evento com o que foi acionado."
+   ],
+   "dependencias_tipicas": [
+    "evento_extremo_defesa_civil",
+    "operador_sistema"
+   ],
+   "status": "rascunho — revisar"
+  },
+  {
+   "id": "inspecionar_executar_manutencao",
+   "nome": "Inspecionar ou executar manutenção",
+   "sinais": [
+    "inspec",
+    "vistori",
+    "manuten",
+    "poda",
+    "manejo",
+    "supress",
+    "limpeza",
+    "faixa de servidao",
+    "reparo",
+    "vegetacao"
+   ],
+   "contexto": [],
+   "exige_contexto": false,
+   "ideias_cumprimento": [
+    "Definir critérios de priorização por risco e calendário de inspeção.",
+    "Registrar cada inspeção ou serviço com local, data, responsável e fotos.",
+    "Registrar o pedido de autorização, quando a atividade a exigir de terceiros, antes de executar.",
+    "Acompanhar pendências até a conclusão."
+   ],
+   "evidencias": [
+    "Ordens de serviço com data, local e responsável.",
+    "Fotos georreferenciadas antes e depois.",
+    "Protocolos de pedidos de autorização e respostas."
+   ],
+   "dependencias_tipicas": [
+    "autorizacao_municipal",
+    "licenciamento_ambiental"
+   ],
+   "status": "rascunho — revisar"
+  },
+  {
+   "id": "adequar_contrato_documento",
+   "nome": "Adequar contrato ou documento",
+   "sinais": [
+    "contrat",
+    "termo\\b",
+    "minuta",
+    "clausula",
+    "instrumento",
+    "convenio",
+    "regulamento interno",
+    "previsao (de|em)",
+    "responsabilidade pelas despesas",
+    "duracao",
+    "adequar",
+    "adequacao (de|do|da|dos|das)"
+   ],
+   "contexto": [],
+   "exige_contexto": false,
+   "ideias_cumprimento": [
+    "Listar os itens que a norma manda constar e conferir cláusula por cláusula.",
+    "Usar modelo padrão revisado pelo jurídico.",
+    "Controlar a data de adequação de cada contrato existente.",
+    "Guardar a versão assinada e a anterior."
+   ],
+   "evidencias": [
+    "Contrato ou aditivo assinado, com data.",
+    "Matriz de aderência entre a norma e as cláusulas.",
+    "Registro de revisão pelo jurídico."
+   ],
+   "dependencias_tipicas": [
+    "dado_de_terceiro"
+   ],
+   "status": "rascunho — revisar"
+  },
+  {
+   "id": "responder_prazo_solicitacao",
+   "nome": "Responder em prazo a solicitação",
+   "sinais": [
+    "respond",
+    "resposta",
+    "atender (a )?solicita",
+    "prazo (para|de) (resposta|atendimento)"
+   ],
+   "contexto": [
+    "solicita",
+    "pedido",
+    "demanda",
+    "reclama"
+   ],
+   "exige_contexto": false,
+   "ideias_cumprimento": [
+    "Registrar a data de recebimento de cada solicitação e o prazo calculado.",
+    "Criar alerta antes do vencimento e fila com responsável.",
+    "Padronizar respostas para os casos mais comuns.",
+    "Guardar a resposta e a prova de envio."
+   ],
+   "evidencias": [
+    "Registro de recebimento com data e hora.",
+    "Resposta enviada e comprovante.",
+    "Relatório de prazos cumpridos e vencidos."
+   ],
+   "dependencias_tipicas": [
+    "sistema_aneel_indisponivel",
+    "dado_de_terceiro"
+   ],
+   "status": "rascunho — revisar"
+  },
+  {
+   "id": "restabelecer_ou_compensar",
+   "nome": "Restabelecer fornecimento ou compensar",
+   "sinais": [
+    "restabele",
+    "compens",
+    "ressarc",
+    "indeniz",
+    "reparar",
+    "devolv"
+   ],
+   "contexto": [],
+   "exige_contexto": false,
+   "ideias_cumprimento": [
+    "Mapear o fato gerador e o prazo de cada compensação ou restabelecimento previstos.",
+    "Automatizar o cálculo e o crédito, com conferência por amostragem.",
+    "Registrar o início e o fim de cada evento com data e hora.",
+    "Reconciliar valores pagos com o cálculo."
+   ],
+   "evidencias": [
+    "Registro do evento com início e fim.",
+    "Memória de cálculo e comprovante de crédito.",
+    "Relatório de reconciliação."
+   ],
+   "dependencias_tipicas": [
+    "evento_extremo_defesa_civil",
+    "operador_sistema"
+   ],
+   "status": "rascunho — revisar"
+  },
+  {
+   "id": "estabelecer_criterios_e_papeis",
+   "nome": "Estabelecer critérios, regras ou responsáveis",
+   "sinais": [
+    "criterio",
+    "parametro",
+    "definir",
+    "defin",
+    "estabelec",
+    "competencia",
+    "atribuic",
+    "responsavel",
+    "diretriz",
+    "regra"
+   ],
+   "contexto": [],
+   "exige_contexto": false,
+   "ideias_cumprimento": [
+    "Transformar a norma em regra interna escrita, com responsável por cada decisão.",
+    "Definir quem aprova exceções e como são registradas.",
+    "Dar ciência formal às áreas envolvidas.",
+    "Revisar a regra quando a norma mudar."
+   ],
+   "evidencias": [
+    "Norma interna aprovada, com data e versão.",
+    "Registro de ciência das áreas.",
+    "Registro das exceções aprovadas."
+   ],
+   "dependencias_tipicas": [],
+   "status": "rascunho — revisar"
+  },
+  {
+   "id": "outros",
+   "nome": "Outros",
+   "sinais": [],
+   "contexto": [],
+   "exige_contexto": false,
+   "ideias_cumprimento": [
+    "Ler o dispositivo com o jurídico e identificar o que precisa ser feito, por quem e até quando.",
+    "Transformar em tarefa com responsável e prazo interno.",
+    "Definir que prova será guardada."
+   ],
+   "evidencias": [
+    "Registro da decisão interna sobre como cumprir.",
+    "Documento que comprove o cumprimento, com data."
+   ],
+   "dependencias_tipicas": [],
+   "status": "rascunho — revisar"
+  }
+ ]
+}
