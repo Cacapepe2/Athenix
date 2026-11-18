@@ -8,7 +8,6 @@ marcados como interpretação e nunca entram no cálculo.
 
 import json
 import re
-from datetime import date
 from pathlib import Path
 
 from . import impacto
@@ -29,11 +28,11 @@ NOMES_SITUACAO = {
     "sem_prazo": "Sem prazo no texto",
 }
 ORDEM_PLANO = (
-    "Sem histórico de multas, o valor provável não é estimável e não entra na ordem. Ordenamos por: "
-    "1) o que você marcou como já atendido vai para o fim; 2) prazo vencido primeiro (o mais antigo "
-    "antes), depois a vencer, recorrente e sem data; 3) grupo de infração mais grave identificado "
-    "(na REN 846, o Grupo V é o mais grave; enquadramento a confirmar vem depois); 4) a lacuna "
-    "informada (não temos antes de parcial); 5) número de obrigações."
+    "Sem histórico de multas, o valor provável não é estimável. Ordenamos por: 1) o que você marcou "
+    "como já atendido vai para o fim; 2) exposição máxima por infração do tema, no porte escolhido "
+    "(a maior primeiro; tema sem enquadramento, nem sugerido, fica depois); 3) prazo vencido antes de "
+    "a vencer (o mais antigo primeiro), depois recorrente e sem data; 4) número de obrigações. "
+    "Exposições de infrações diferentes não se somam: vale a maior de cada tema."
 )
 # Como reduzir a exposição. Trecho, dispositivo e percentual vêm do catálogo (fonte e hash); a
 # condição e o efeito em linguagem simples são interpretação da Athenix e aguardam revisão humana.
@@ -62,10 +61,26 @@ REDUCOES = (
 REGRAS_REDUCAO = ("atenuantes_nao_cumulativas", "atenuante_comprovacao", "ordem_calculo")
 # Degraus de prazo da ordem: evento sem data e sem prazo no texto ficam juntos ("sem data").
 DEGRAU = {"vencida": 0, "90dias": 1, "depois": 2, "recorrente": 3, "evento": 4, "sem_prazo": 4}
-LACUNA = {"nao": 0, "parcial": 1}
 
 
-def ordenar_temas(temas, diagnostico=None):
+def exposicao_pct(t, preliminar=True):
+    """Exposição máxima por infração do tema, em % da base, e a origem do grupo: "confirmado" (o texto
+    da obrigação nomeia a infração) ou "sugerido" (interpretação da IA, só no cenário preliminar).
+    Nunca soma infrações: vale a maior. Sem enquadramento nem sugestão: (None, None)."""
+    conf = t["faixa"]["maximo_pct"]["com_teto"] if t["faixa"] else None
+    sug = (
+        t["faixa_preliminar"]["maximo_pct"]["com_teto"]
+        if preliminar and t["faixa_preliminar"]
+        else None
+    )
+    if conf is None and sug is None:
+        return None, None
+    if sug is not None and (conf is None or sug > conf):
+        return sug, "sugerido"
+    return conf, "confirmado"
+
+
+def ordenar_temas(temas, diagnostico=None, preliminar=True):
     """Temas na ordem de ORDEM_PLANO. `diagnostico`: {tema: "sim" | "parcial" | "nao"}.
     landing/src/content/plano.ts repete esta regra; o teste de lá compara com `ordem_inicial`."""
     diag = diagnostico or {}
@@ -73,9 +88,14 @@ def ordenar_temas(temas, diagnostico=None):
     def chave(t):
         degrau = min((DEGRAU[s] for s in SITUACOES if t["contagem"][s]), default=5)
         data = (t["prazo_mais_urgente"] or {}).get("data") or "9999-12-31"
-        grav = impacto.GRUPOS.index(t["grupo_mais_grave"]) if t["grupo_mais_grave"] else -1
-        d = diag.get(t["id"])
-        return (d == "sim", degrau, data if degrau < 3 else "", -grav, LACUNA.get(d, 2), -t["n"])
+        valor = exposicao_pct(t, preliminar)[0]
+        return (
+            diag.get(t["id"]) == "sim",
+            -(-1 if valor is None else valor),
+            degrau,
+            data if degrau < 3 else "",
+            -t["n"],
+        )
 
     return sorted(temas, key=chave)
 
@@ -192,7 +212,10 @@ def _ia_enquadramento(item, ia, validas):
 def _faixa(item, base, com_atenuante=None):
     """`com_atenuante`: {atenuante: % da base}, o valor do motor com valor base no teto do grupo
     (pior caso, sem agravantes) e o atenuante aplicado (REN 846, art. 24)."""
-    m = item["multa"]
+    return _faixa_de(item["multa"], base, com_atenuante)
+
+
+def _faixa_de(m, base, com_atenuante=None):
     com_atenuante = com_atenuante or {}
     out = {
         "grupos": m["grupos"],
@@ -207,6 +230,25 @@ def _faixa(item, base, com_atenuante=None):
         out["maximo_reais"] = {k: v / 100 * base for k, v in m["maximo"].items()}
         out["com_atenuante_reais"] = {k: v / 100 * base for k, v in com_atenuante.items()}
     return out
+
+
+def _faixa_preliminar(params, row, p, grupo):
+    """Faixa do cenário preliminar: o grupo SUGERIDO pela IA (aguarda confirmação) passado pelo mesmo
+    motor (impacto.multa), com os atenuantes do art. 24 calculados como nos enquadramentos do texto.
+    Fora do cálculo confirmado; só a demo a usa, marcada como "cenário preliminar"."""
+    m = impacto.multa(params, row, p, [grupo], False)
+    if not m.get("estimavel"):
+        return None
+    com = {}
+    for nome in impacto.ATENUANTES:
+        if nome == "nenhuma":
+            continue
+        mm = impacto.multa(
+            params, row, p | {"atenuante": nome, "fracao_valor_base": 100.0}, [grupo], False
+        )
+        if mm.get("provavel"):
+            com[nome] = mm["provavel"]["com_teto"]
+    return _faixa_de(m, p["base"], com)
 
 
 def _com_atenuante(cenarios, row_id):
@@ -315,6 +357,7 @@ def montar(resultado, units, params, p, cfg, ia=None, chave=None, cenarios=None)
             "enquadramento": regra,
             "ia": sugestao,
             "grupo": max((e["grupo"] for e in regra), key=impacto.GRUPOS.index, default=None),
+            "faixa_preliminar": _faixa_preliminar(params, row, p, sugestao["grupo"]) if sugestao else None,
             "faixa": _faixa(item, p["base"], _com_atenuante(cenarios, row["id"])) if calculo == "fila" else None,
             "premissas": [pr["texto"] for pr in item["multa"]["premissas"]] if calculo == "fila" else [],
             "motivo_sem_calculo": None
@@ -365,6 +408,12 @@ def _tema(cfg_tema, obrigacoes, fontes, cfg):
         (o["faixa"] for o in na_fila), key=lambda f: f["maximo_pct"]["com_teto"], default=None
     )
     infr = sorted({e["dispositivo"] for o in na_fila for e in o["enquadramento"]})
+    sugeridas = [o for o in obs if o["faixa_preliminar"]]
+    faixa_prelim = max(
+        (o["faixa_preliminar"] for o in sugeridas),
+        key=lambda f: f["maximo_pct"]["com_teto"],
+        default=None,
+    )
     ia = [o["ia"]["dispositivo"] for o in obs if o["ia"]]
     ia_top = max(set(ia), key=lambda d: (ia.count(d), d)) if ia else None
     ev = {}
@@ -408,6 +457,8 @@ def _tema(cfg_tema, obrigacoes, fontes, cfg):
         "grupo_mais_grave": grupos[-1] if grupos else None,
         "infracoes": infr,
         "faixa": faixa,
+        "faixa_preliminar": faixa_prelim,
+        "grupos_sugeridos": sorted({o["ia"]["grupo"] for o in sugeridas}, key=impacto.GRUPOS.index),
         "ia": {"dispositivo": ia_top, "n": ia.count(ia_top), "de": len(ia)} if ia_top else None,
         "evidencias": sorted(ev.values(), key=lambda e: -e["n"])[:3],
         "guardar": [{"id": g, "n": n} for g, n in sorted(guardar.items(), key=lambda x: -x[1])[:3]],
@@ -433,45 +484,25 @@ def _resumo(obrigacoes, resultado, temas):
     }
 
 
-def _data_br(iso):
-    return date.fromisoformat(iso).strftime("%d/%m/%Y")
-
-
-def decisoes(obrigacoes, temas):
-    """Até três decisões para a semana, derivadas dos prazos e do enquadramento pendente."""
-    nomes = {t["id"]: t["nome"] for t in temas}
-    vencidas = [o for o in obrigacoes if o["situacao"] == "vencida"]
-    proximas = [o for o in obrigacoes if o["situacao"] == "90dias"]
-    out = []
-    for grupo in (vencidas, proximas):
-        por_data = {}
-        for o in grupo:
-            por_data.setdefault(o["prazo"]["data"], []).append(o)
-        for data, obs in sorted(por_data.items()):
-            if len(out) == 2:
-                break
-            verbo = "venceu" if grupo is vencidas else "vence"
-            n = len(obs)
-            titulo = (
-                f"Comprovar ou regularizar a entrega cujo prazo {verbo} em {_data_br(data)}"
-                if n == 1
-                else f"Comprovar ou regularizar as {n} entregas cujo prazo {verbo} em {_data_br(data)}"
-            )
-            out.append({
-                "titulo": titulo,
-                "itens": [o["titulo"] for o in obs],
-                "obrigacoes": [o["id"] for o in obs],
-                "temas": sorted({nomes[o["tema"]] for o in obs}),
-                "motivo": "Data calculada pelo motor temporal a partir da publicação da norma; continua provisória até uma pessoa confirmar a contagem.",
-            })  # fmt: skip
+def decisoes(obrigacoes, temas, preliminar=True):
+    """As 3 primeiras decisões da semana: os 3 primeiros temas da ordem (já com a exposição por
+    infração), cada um com R$ em risco (em % da base aqui; a demo converte no porte escolhido) e a
+    situação do prazo. Mais um item secundário: confirmar enquadramentos libera o cálculo de N temas."""
+    top = [
+        {
+            "tema": t["id"],
+            "nome": t["nome"],
+            "exposicao_pct": exposicao_pct(t, preliminar)[0],
+            "origem": exposicao_pct(t, preliminar)[1],
+            "prazo": t["prazo_mais_urgente"],
+        }
+        for t in temas[:3]
+    ]
     a_confirmar = [o for o in obrigacoes if o["calculo"] == "verificar"]
-    if a_confirmar and len(out) < 3:
-        temas_sem = [t["nome"] for t in temas if t["a_confirmar"] and not t["na_fila"]]
-        out.append({
-            "titulo": f"Designar quem confirma o enquadramento de {len(a_confirmar)} obrigações na REN 846",
-            "itens": [f"Sem essa confirmação, a exposição destes temas não é calculada: {', '.join(temas_sem)}."] if temas_sem else [],
-            "obrigacoes": [],
-            "temas": temas_sem,
-            "motivo": "Sugestões de enquadramento (por regra ou pela IA) só entram no cálculo depois de confirmadas por uma pessoa.",
-        })  # fmt: skip
-    return out[:3]
+    return {
+        "principais": top,
+        "confirmar": {
+            "obrigacoes": len(a_confirmar),
+            "temas_sem_calculo_confirmado": sum(1 for t in temas if not t["faixa"]),
+        },
+    }

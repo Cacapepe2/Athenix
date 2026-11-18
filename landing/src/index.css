@@ -73,6 +73,27 @@
   .paper {
     background: linear-gradient(180deg, #fff 0%, #fdfcf9 100%);
   }
+  /* Valor que vem de sugestão aguardando confirmação: hachurado (o texto ao lado diz o mesmo). */
+  .hachura {
+    background-image: repeating-linear-gradient(
+      135deg,
+      var(--color-slate-blue) 0 4px,
+      color-mix(in srgb, var(--color-slate-blue) 25%, white) 4px 8px
+    );
+  }
+  .hachura-leve {
+    background-image: repeating-linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--color-slate-blue) 14%, white) 0 4px,
+      #fff 4px 8px
+    );
+  }
+}
+
+/* Demo: etiquetas pequenas sobre fundo creme/pedra precisam de contraste AA (4,5:1). */
+#plano {
+  --color-pending: #855a17;
+  --color-bronze-deep: #6e5b46;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -9,6 +9,7 @@ Base de cálculo (ROL) e faturamento em branco: a exposição sai em % da base, 
 gerente preencher. Nenhum dado de empresa. PDF gerado pelo Edge instalado (Playwright, canal msedge).
 """
 
+import re
 import sys
 from datetime import date
 from pathlib import Path
@@ -19,7 +20,7 @@ sys.path.insert(0, str(ROOT))
 from jinja2 import Environment  # noqa: E402
 from playwright.sync_api import sync_playwright  # noqa: E402
 
-from athenix import impacto  # noqa: E402
+from athenix import analise, impacto, plano  # noqa: E402
 from exportar_plano_demo import montar  # noqa: E402
 
 SAIDA = ROOT / "artifacts" / "piloto" / "relatorio_rn1137_distribuidora.pdf"
@@ -50,7 +51,14 @@ h1 { font-size: 18pt; line-height: 1.15; } h2 { font-size: 13pt; margin: 0 0 4pt
 ol.dec { padding-left: 15pt; margin: 4pt 0; } ol.dec li { margin-bottom: 3pt; } ol.dec .itens { display: block; font-size: 8.3pt; }
 table { width: 100%; border-collapse: collapse; font-size: 8.3pt; } th, td { text-align: left; vertical-align: top; padding: 3.5pt 4pt; border-bottom: 1px solid #dcd7ce; }
 th { font-size: 7.5pt; color: #4f5a69; font-weight: 600; } tr { page-break-inside: avoid; } table.resumo td { padding: 2pt 4pt; font-size: 7.9pt; }
-.tema { border: 1px solid #dcd7ce; border-radius: 7px; padding: 8pt 10pt; margin-bottom: 9pt; page-break-inside: avoid; }
+.tema { border: 1px solid #dcd7ce; border-radius: 7px; padding: 8pt 10pt; margin-bottom: 9pt; }
+.manchete { border: 1px solid #b6a38b; background: #f3efe8; border-radius: 6px; padding: 7pt 9pt; margin: 8pt 0; }
+.manchete .grande { font-family: Georgia, serif; font-size: 14pt; line-height: 1.2; margin: 3pt 0 5pt; }
+table.portes th, table.portes td { font-size: 8pt; padding: 2.5pt 4pt; }
+.analise { border-top: 1px dashed #b6a38b; margin-top: 6pt; padding-top: 5pt; font-size: 8pt; }
+.analise .ob { margin: 4pt 0; padding: 3pt 0; border-bottom: 1px solid #ece8e0; page-break-inside: avoid; }
+.ato { border: 1px solid #d9b98a; background: #f6ecd9; border-radius: 5px; padding: 4pt 6pt; margin: 3pt 0; }
+.pratica { border: 1px dashed #b6a38b; border-radius: 5px; padding: 4pt 6pt; margin: 4pt 0; color: #3a4452; font-size: 7.6pt; word-break: break-word; }
 .tema-top { display: flex; justify-content: space-between; gap: 10pt; align-items: baseline; }
 .box { font-size: 8.5pt; white-space: nowrap; } .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8pt; margin: 6pt 0; border-top: 1px solid #dcd7ce; padding-top: 6pt; }
 .grid4 dt { font-size: 7.3pt; color: #4f5a69; } .grid4 dd { margin: 1pt 0 0; font-weight: 600; } .grid4 dd.n { font-weight: 400; font-size: 7.8pt; color: #4f5a69; }
@@ -69,28 +77,31 @@ th { font-size: 7.5pt; color: #4f5a69; font-weight: 600; } tr { page-break-insid
   <div><span class="small muted">ROL dos 12 meses anteriores (base da REN 846, Art. 21), R$</span><div class="campo"></div></div>
   <div><span class="small muted">Faturamento bruto dos 12 meses (teto legal, dúvida D6), R$</span><div class="campo"></div></div>
  </div>
- <div class="nums">
-  <div class="num"><b>{{ r.aplicaveis }}</b><span>obrigações para distribuidoras</span></div>
-  <div class="num alerta"><b>{{ r.por_situacao.vencida }}</b><span>com prazo vencido</span></div>
-  <div class="num"><b>{{ r.por_situacao['90dias'] }}</b><span>vencem nos próximos 90 dias</span></div>
-  <div class="num"><b>{{ r.por_situacao.recorrente }}</b><span>recorrentes</span></div>
-  <div class="num"><b>{{ r.por_situacao.evento + r.por_situacao.sem_prazo }}</b><span>sem data ({{ r.por_situacao.evento }} dependem de evento)</span></div>
-  <div class="num"><b>Grupo {{ r.grupo_mais_grave }}</b><span>grupo mais grave identificado: até {{ pct(teto) }} da ROL por infração</span></div>
+ <div class="manchete">
+  <p class="small muted" style="margin:0">Cenário preliminar · faixa ilustrativa · valores por infração, nunca somados</p>
+  <p class="grande">{{ vencidos }} {{ 'tema' if vencidos == 1 else 'temas' }} com prazo vencido · exposição de até <b>{{ pct(top_pct) }} da ROL</b> por infração, no tema mais exposto</p>
+  <table class="portes"><tr><th>Porte (ROL anual, ilustrativo)</th>{% for f in portes %}<th>{{ f.rotulo }} ~{{ brl_curto(f.base) }}</th>{% endfor %}</tr>
+  <tr><td>Até, por infração</td>{% for f in portes %}<td><b>{{ brl_curto(f.base * top_pct / 100) }}</b></td>{% endfor %}</tr></table>
+  <p class="small muted" style="margin:3pt 0 0">Referência do setor: auto de infração típico em distribuição ≈ {{ brl_curto(esc.mediana_reais) }} (mediana de {{ esc.autos }} autos); maior registrado ≈ {{ brl_curto(esc.maximo_reais) }}. <i>{{ esc.rotulo }}.</i> É o valor do auto inteiro, que pode reunir várias infrações. Em reais, o valor da empresa é % × ROL informada.</p>
  </div>
+ <p class="small muted" style="margin:6pt 0">{{ r.aplicaveis }} obrigações para distribuidoras · {{ r.por_situacao.vencida }} com prazo vencido · {{ r.por_situacao['90dias'] }} vencem em 90 dias · {{ r.por_situacao.recorrente }} recorrentes · {{ r.por_situacao.evento + r.por_situacao.sem_prazo }} sem data ({{ r.por_situacao.evento }} dependem de evento)</p>
  <h2>3 decisões para esta semana</h2>
- <ol class="dec">{% for d in p.decisoes %}<li><b>{{ d.titulo }}</b>{% if d.itens %}<span class="itens">{{ d.itens|join(' · ') }}</span>{% endif %}{% if loop.last or d.motivo != p.decisoes[loop.index].motivo %}<span class="small muted">{{ d.motivo }}</span>{% endif %}</li>{% endfor %}</ol>
- <h2 style="margin-top:6pt">Temas em ordem de prioridade</h2>
- <table class="resumo"><tr><th>#</th><th>Tema</th><th>Obrigações</th><th>Prazo mais urgente</th><th>Enquadramento</th><th>Exposição por infração</th></tr>
- {% for t in p.temas %}<tr><td>{{ loop.index }}</td><td><b>{{ t.nome }}</b></td><td>{{ t.n }}</td><td>{{ t.prazo_mais_urgente.texto if t.prazo_mais_urgente else 'Sem data no texto' }}</td>
- <td>{{ ('Grupo ' ~ t.grupos|join(', ')) if t.grupos else 'A confirmar' }}</td><td>{{ faixa(t.faixa) if t.faixa else 'Não calculada até confirmar o enquadramento' }}</td></tr>{% endfor %}</table>
- <p class="small muted" style="margin-top:3pt">Ordem: prazo vencido (mais antigo primeiro), depois grupo de infração mais grave e número de obrigações; o valor provável não é estimável (sem histórico de multas). Regra completa na página seguinte.</p>
+ <ol class="dec">{% for d in p.decisoes.principais %}<li><b>{{ d.nome }}</b> · {% if d.exposicao_pct is not none %}até {{ pct(d.exposicao_pct) }} da ROL por infração{% if d.origem == 'sugerido' %} <span class="ia">(sugerido, aguarda confirmação)</span>{% endif %}{% else %}exposição a enquadrar{% endif %} · {{ prazo_txt(d.prazo) }}</li>{% endfor %}
+ </ol>
+ <p class="small muted">Confirmar enquadramentos libera o cálculo de {{ p.decisoes.confirmar.temas_sem_calculo_confirmado }} temas (hoje só há sugestão). Quem confirma: a definir pela empresa.</p>
+ <h2 style="margin-top:6pt">Temas em ordem de reais em risco</h2>
+ <table class="resumo"><tr><th>#</th><th>Tema</th><th>Obrigações</th><th>Prazo mais urgente</th><th>Grupo</th><th>Exposição por infração</th></tr>
+ {% for t in p.temas %}{% set e = expo(t) %}<tr><td>{{ loop.index }}</td><td><b>{{ t.nome }}</b></td><td>{{ t.n }}</td><td>{{ t.prazo_mais_urgente.texto if t.prazo_mais_urgente else 'Sem data no texto' }}</td>
+ <td>{% if e[1] == 'confirmado' %}Grupo {{ t.grupos|join(', ') }} (confirmado){% elif e[1] == 'sugerido' %}Grupo {{ t.grupos_sugeridos|last }} <span class="ia">(sugerido)</span>{% else %}A confirmar{% endif %}</td>
+ <td>{% if e[0] is not none %}até {{ pct(e[0]) }} da ROL{% if e[1] == 'sugerido' %} <span class="ia">cenário preliminar: inclui sugestão aguardando confirmação</span>{% endif %}{% else %}Exposição a enquadrar{% endif %}</td></tr>{% endfor %}</table>
+ <p class="small muted" style="margin-top:3pt">Ordem: o que a empresa marcar como já atendido vai para o fim; depois, a exposição máxima por infração do tema (maior primeiro); prazo vencido antes de a vencer; número de obrigações. O valor provável não é estimável (sem histórico de multas). Exposições de infrações diferentes não se somam.</p>
  <div class="aviso">Iniciativa em validação. Estimativa ilustrativa com base nas premissas listadas; não indica descumprimento da empresa e não constitui parecer jurídico. Prazos são provisórios até confirmação da contagem. Interpretações da IA aguardam revisão humana e não entram no cálculo. Exposições de obrigações diferentes não devem ser somadas.</div>
 </section>
 
 <section class="page">
  <p class="kicker">Plano por tema</p>
  <h2>O que fazer em cada tema</h2>
- <p class="small muted">Marque a situação atual da empresa em cada tema. Temas pela própria norma; obrigações completas e trechos no anexo. {{ p.regra_ordem }}</p>
+ <p class="small muted">Marque a situação atual da empresa em cada tema. Temas pela própria norma; obrigações completas e trechos no anexo. {{ p.regra_ordem|replace('no porte escolhido', 'em % da ROL') }}</p>
  {% for t in p.temas %}<div class="tema">
   <div class="tema-top"><h3>{{ loop.index }}. {{ t.nome }} <span class="small muted">· {{ t.n }} obrigações</span></h3>
    <span class="box">☐ Já temos &nbsp; ☐ Parcial &nbsp; ☐ Não temos</span></div>
@@ -98,11 +109,29 @@ th { font-size: 7.5pt; color: #4f5a69; font-weight: 600; } tr { page-break-insid
    <div><dt>Prazo mais urgente</dt><dd>{{ t.prazo_mais_urgente.texto if t.prazo_mais_urgente else 'Sem data no texto' }}</dd><dd class="n">{{ contagem(t) }}</dd></div>
    <div><dt>Enquadramento na REN 846</dt><dd>{% if t.grupos %}Grupo {{ t.grupos|join(', ') }} · {{ t.infracoes|join('; ') }}{% else %}A confirmar{% endif %}</dd>
     <dd class="n">{% if t.grupos %}Identificado pelo texto em {{ t.na_fila }} de {{ t.n }}; {{ t.a_confirmar }} a confirmar.{% endif %}{% if t.ia %} <span class="ia">Interpretação da IA</span>: {{ t.ia.dispositivo }} em {{ t.ia.n }} de {{ t.ia.de }} (aguarda revisão; fora do cálculo).{% endif %}</dd></div>
-   <div><dt>Exposição</dt><dd>{{ faixa(t.faixa) if t.faixa else 'Não calculada até confirmar o enquadramento' }}</dd><dd class="n">Em R$: % × ROL informada. Provável não estimável (sem histórico de multas).</dd></div>
+   <div><dt>Exposição por infração</dt>{% set e = expo(t) %}<dd>{% if e[0] is not none %}até {{ pct(e[0]) }} da ROL (pode ser só advertência){% else %}Exposição a enquadrar{% endif %}</dd><dd class="n">{% if e[1] == 'sugerido' %}Cenário preliminar: inclui sugestões aguardando confirmação. {% endif %}Em R$: % × ROL informada. Provável não estimável (sem histórico de multas).</dd></div>
    <div><dt>Como provar que cumpriu (sugestão)</dt>{% for e in t.evidencias %}<dd class="n">• {{ p.evidencias[e.id] }} ({{ e.n }})</dd>{% else %}<dd class="n">Definir com a equipe.</dd>{% endfor %}</div>
   </dl>
   <p class="small"><b>Obrigações principais:</b> {% for id in t.principais %}{{ ob[id].titulo }}{% if ob[id].titulo_origem == 'ia' %}*{% endif %} <span class="muted">({{ ob[id].prazo.texto }})</span>{% if not loop.last %}; {% endif %}{% endfor %}</p>
   {% if t.fontes %}<p class="small muted">Tema pela norma: {% for f in t.fontes %}{{ f.rotulo }}, “{{ f.titulo }}”{% if not loop.last %}; {% endif %}{% endfor %}.</p>{% endif %}
+  <div class="analise"><p class="kicker">{{ p.analise.rotulo }}</p>
+   {% if t.dependencias_no_texto %}<div class="ato"><b>Prazo condicionado a ato da ANEEL: verificar se as instruções foram publicadas.</b>
+    {% for d in t.dependencias_no_texto %}<blockquote>“{{ d.trecho_literal }}” <span class="muted">{{ ob[d.obrigacao].dispositivo }} · trecho literal conferido na fonte</span></blockquote>{% endfor %}</div>{% endif %}
+   {% for id in t.principais %}{% set o = ob[id] %}{% set a = o.analise %}<div class="ob">
+    <b>{{ o.titulo }}</b> <span class="muted">· {{ o.dispositivo or '—' }}</span>
+    {% if o.trecho %}<blockquote>“{{ o.trecho }}” <span class="muted">{{ o.dispositivo }}</span></blockquote>{% endif %}
+    <div><b>Tipo:</b> {% if a.tipo.situacao == 'concordam' %}{{ a.tipo.nome }}{% elif a.tipo.situacao == 'so_regra' %}{{ a.tipo.nome }} <span class="ia">só pela regra, segunda leitura da IA não feita (a revisar)</span>{% elif a.tipo.situacao == 'a_revisar' %}tipo a revisar{% else %}sem tipo próprio{% endif %}</div>
+    {% if a.tipo.id %}{% set m = p.analise.manuais[a.tipo.id] %}
+    <div><b>Como cumprir</b> <span class="ia">sugestão</span>: {{ m.ideias_cumprimento|join(' · ') }}</div>
+    <div><b>O que provar para a ANEEL</b> <span class="ia">sugestão</span>: {{ m.evidencias|join(' · ') }}</div>{% endif %}
+   </div>{% endfor %}
+   {% if p.analise.pratica_por_tema.get(t.id) %}{% set dep = p.analise.dependencias[p.analise.pratica_por_tema[t.id]] %}<div class="pratica">
+    <b>Prática conhecida (fora do texto da norma): {{ dep.nome }}.</b> {{ dep.cautela }}
+    <div><b>Caminho:</b> {{ dep.caminho }}</div>
+    <div><b>O que guardar desde já:</b> {{ dep.o_que_guardar|join(' · ') }}</div>
+    <div><b>Referências públicas:</b> {% for pr in dep.precedentes %}{{ pr.titulo }} ({% for u in pr.urls %}{{ u }}{% if not loop.last %}; {% endif %}{% endfor %}){% if not loop.last %}; {% endif %}{% endfor %}. <i>Contraponto:</i> {{ p.analise.contraponto.titulo }} ({{ p.analise.contraponto.urls|join('; ') }}).</div>
+   </div>{% endif %}
+  </div>
  </div>{% endfor %}
  <p class="small muted">* Título resumido com IA a partir do texto, com citação conferida; aguarda revisão humana.</p>
 </section>
@@ -153,6 +182,28 @@ def main():
     p, params, perfil = montar(None, REFERENCIA)
     ob = {o["id"]: o for o in p["obrigacoes"]}
     fila = next(o for o in p["obrigacoes"] if o["faixa"])
+    vencidos = [t for t in p["temas"] if t["contagem"]["vencida"]]
+    top_pct = max(
+        (plano.exposicao_pct(t)[0] for t in vencidos if plano.exposicao_pct(t)[0] is not None),
+        default=None,
+    )
+    assert top_pct is not None, "sem exposição nos temas vencidos"
+    perfil_demo = impacto.perfil_ilustrativo()
+    portes = [
+        {"rotulo": f["rotulo"], "base": float(f["base"])} for f in perfil_demo["faixas_porte"]
+    ]
+
+    def brl_curto(v):
+        n, u = (v / 1e9, "bi") if v >= 1e9 else (v / 1e6, "mi")
+        return f"R$ {n:.1f}".replace(".0", "").replace(".", ",") + f" {u}"
+
+    def prazo_txt(u):
+        if not u:
+            return "sem data no texto"
+        return (
+            f"prazo vencido há {abs(u['dias'])} dias" if u["situacao"] == "vencida" else u["texto"]
+        )
+
     premissas = [pr for pr in fila["premissas"] if "data considerada" not in pr]
     premissas.append(
         "Teto legal conforme a data da infração; a data do prazo foi usada como referência."
@@ -179,6 +230,13 @@ def main():
             teto=fila["faixa"]["teto_grupo_pct"],
             pct=impacto._pct,
             faixa=faixa,
+            expo=plano.exposicao_pct,
+            vencidos=len(vencidos),
+            top_pct=top_pct,
+            portes=portes,
+            brl_curto=brl_curto,
+            prazo_txt=prazo_txt,
+            esc=analise.referencia_escala(),
             contagem=contagem,
             premissas=premissas,
             perguntas=PERGUNTAS,
@@ -192,7 +250,11 @@ def main():
             commit=commit,
         )
     )
-    assert "R$" not in html.split("Premissas da exposição")[0].replace("ROL dos 12 meses anteriores (base da REN 846, Art. 21), R$", "").replace("Faturamento bruto dos 12 meses (teto legal, dúvida D6), R$", "").replace("Em R$", ""), "valor em reais sem base informada"  # fmt: skip
+    # Valor em reais só nos portes ilustrativos e na referência de escala (milhões/bilhões); a ROL da
+    # empresa fica em branco para o gerente preencher.
+    fora = re.sub(r"R\$ [\d,]+ (?:mi|bi)\b", "", html.split("Premissas da exposição")[0])
+    fora = fora.replace("ROL dos 12 meses anteriores (base da REN 846, Art. 21), R$", "").replace("Faturamento bruto dos 12 meses (teto legal, dúvida D6), R$", "").replace("Em R$", "")  # fmt: skip
+    assert "R$" not in fora, "valor em reais sem base informada"
     (SAIDA.with_suffix(".html")).write_text(html, encoding="utf-8")
     with sync_playwright() as pw:
         b = pw.chromium.launch(channel="msedge")

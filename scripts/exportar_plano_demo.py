@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from fastapi.testclient import TestClient  # noqa: E402
 
-from athenix import impacto, plano  # noqa: E402
+from athenix import analise, impacto, plano  # noqa: E402
 from athenix.app import create_app  # noqa: E402
 from athenix.config import Settings  # noqa: E402
 from athenix.demo import USUARIO, preparar  # noqa: E402
@@ -44,7 +44,7 @@ def processar():
             client.post("/api/login", json={"username": USUARIO, "password": senha})
             rows = client.get("/api/obligations").json()["items"]
             doc = client.get(f"/api/documents/{rows[0]['document_id']}").json()
-    return rows, doc["extraction"]["units"], impacto.carregar()
+    return rows, doc["extraction"], impacto.carregar()
 
 
 def avaliar(rows, params, base, data_referencia, faturamento=None, atenuante="nenhuma"):
@@ -60,7 +60,8 @@ def avaliar(rows, params, base, data_referencia, faturamento=None, atenuante="ne
 
 def montar(base, data_referencia, faturamento=None, processado=None):
     """Plano para uma distribuidora com a base informada (None = em branco)."""
-    rows, units, params = processado or processar()
+    rows, extraction, params = processado or processar()
+    units = extraction["units"]
     resultado, p = avaliar(rows, params, base, data_referencia, faturamento)
     cenarios = {
         a: avaliar(rows, params, base, data_referencia, faturamento, a)[0]
@@ -76,6 +77,7 @@ def montar(base, data_referencia, faturamento=None, processado=None):
         plano.carregar_ia(),
         cenarios=cenarios,
     )
+    out["analise"] = analise.montar(out, rows, extraction)
     by_id = {u["id"]: u for u in units}
     for o in out["obrigacoes"]:
         o["dispositivo"] = rotulo(by_id[o["unidade"]], by_id) if o["unidade"] else None
@@ -179,6 +181,7 @@ def main(saida):
         }
         if ia
         else None,  # fmt: skip
+        "referencia_escala": analise.referencia_escala(),
         "simulador": simulador(demo, processado),
         **out,
     }

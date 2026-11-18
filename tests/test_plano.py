@@ -94,8 +94,10 @@ def test_linha_do_tempo_e_decisoes_usam_as_datas_do_motor():
     assert out["linha_do_tempo"]["vencida"] == ["t"]
     assert out["linha_do_tempo"]["evento"] == ["c"]
     assert out["resumo"]["por_situacao"]["vencida"] == 1
-    primeira = out["decisoes"][0]
-    assert primeira["obrigacoes"] == ["t"] and "28/04/2026" in primeira["titulo"]
+    com_prazo = next(d for d in out["decisoes"]["principais"] if d["prazo"])
+    assert (
+        com_prazo["prazo"]["data"] == "2026-04-28" and com_prazo["prazo"]["situacao"] == "vencida"
+    )
     t = next(o for o in out["obrigacoes"] if o["id"] == "t")
     assert t["prazo"]["provisorio"] is True
 
@@ -154,35 +156,79 @@ def test_base_em_branco_mantem_percentuais_sem_reais():
     assert all(o["faixa"]["teto_grupo_pct"] for o in fila)
 
 
-def test_ordem_dos_temas_pelo_prazo_gravidade_e_diagnostico():
-    def tema(tid, sit, data=None, grupo=None, n=1):
-        contagem = {s: int(s == sit) for s in plano.SITUACOES}
-        urg = {"data": data} if data else None
-        return {"id": tid, "contagem": contagem, "prazo_mais_urgente": urg, "grupo_mais_grave": grupo, "n": n}  # fmt: skip
+def faixa(pct):
+    return {"maximo_pct": {"com_teto": pct, "sem_teto": pct}}
 
+
+def tema(tid, sit, data=None, conf=None, sug=None, n=1):
+    contagem = {s: int(s == sit) for s in plano.SITUACOES}
+    urg = {"data": data} if data else None
+    return {
+        "id": tid, "contagem": contagem, "prazo_mais_urgente": urg, "n": n,
+        "faixa": faixa(conf) if conf else None,
+        "faixa_preliminar": faixa(sug) if sug else None,
+    }  # fmt: skip
+
+
+def ids(ts):
+    return [t["id"] for t in ts]
+
+
+def test_ordem_dos_temas_por_reais_em_risco_depois_prazo_e_diagnostico():
     temas = [
-        tema("sem_data_iv", "sem_prazo", grupo="IV", n=30),
-        tema("evento_sem_grupo", "evento", n=40),
-        tema("vencida_recente", "vencida", "2026-04-28", "IV"),
-        tema("vencida_antiga", "vencida", "2026-01-28"),
-        tema("vencida_recente_v", "vencida", "2026-04-28", "V"),
+        tema("sem_data_iv", "sem_prazo", conf=1.0, n=30),
+        tema("sem_enquadramento", "evento", n=40),
+        tema("vencida_recente", "vencida", "2026-04-28", conf=1.0),
+        tema("vencida_antiga_ii", "vencida", "2026-01-28", conf=0.5),
+        tema("vencida_antiga_iv", "vencida", "2026-01-28", conf=1.0),
     ]
-    ids = lambda ts: [t["id"] for t in ts]  # noqa: E731
+    # maior exposição primeiro; empate: prazo vencido (o mais antigo antes) e depois o resto
     assert ids(plano.ordenar_temas(temas)) == [
-        "vencida_antiga",
-        "vencida_recente_v",
+        "vencida_antiga_iv",
         "vencida_recente",
         "sem_data_iv",
-        "evento_sem_grupo",
+        "vencida_antiga_ii",  # menos R$ em risco, mesmo vencida
+        "sem_enquadramento",  # sem enquadramento, nem sugerido: depois de todos
     ]
-    diag = {"vencida_antiga": "sim", "sem_data_iv": "parcial", "evento_sem_grupo": "nao"}
+    diag = {"vencida_antiga_iv": "sim", "vencida_antiga_ii": "nao"}
     assert ids(plano.ordenar_temas(temas, diag)) == [
-        "vencida_recente_v",
         "vencida_recente",
-        "sem_data_iv",  # grupo identificado (IV) vem antes da lacuna maior sem grupo
-        "evento_sem_grupo",
-        "vencida_antiga",
+        "sem_data_iv",
+        "vencida_antiga_ii",
+        "sem_enquadramento",
+        "vencida_antiga_iv",  # "já temos" vai para o fim
     ]
+
+
+def test_cenario_preliminar_inclui_sugestoes_e_so_confirmados_volta_ao_calculo_atual():
+    t = tema("manejo", "vencida", "2026-01-28", conf=0.5, sug=1.0)
+    s = tema("so_sugestao", "evento", sug=0.5)
+    assert plano.exposicao_pct(t) == (1.0, "sugerido")
+    assert plano.exposicao_pct(t, preliminar=False) == (0.5, "confirmado")
+    assert plano.exposicao_pct(s) == (0.5, "sugerido")
+    assert plano.exposicao_pct(s, preliminar=False) == (None, None)
+    # confirmado e sugerido iguais: vale como confirmado (sólido)
+    assert plano.exposicao_pct(tema("x", "evento", conf=1.0, sug=1.0))[1] == "confirmado"
+    # a ordem muda com o modo: só confirmados, o tema sem enquadramento confirmado cai
+    temas = [s, t, tema("conf", "evento", conf=0.5)]
+    assert ids(plano.ordenar_temas(temas, preliminar=True))[0] == "manejo"
+    assert ids(plano.ordenar_temas(temas, preliminar=False))[-1] == "so_sugestao"
+
+
+def test_exposicao_do_tema_e_a_maior_e_nunca_a_soma_das_infracoes():
+    out = montar()
+    for t in out["temas"]:
+        for f in (t["faixa"], t["faixa_preliminar"]):
+            if f:
+                assert f["maximo_pct"]["com_teto"] <= f["teto_grupo_pct"]
+                assert (
+                    f["maximo_pct"]["com_teto"] <= 3
+                )  # teto legal; soma de infrações passaria disto
+    por_id = {o["id"]: o for o in out["obrigacoes"]}
+    for t in out["temas"]:
+        maximos = [por_id[i]["faixa"]["maximo_pct"]["com_teto"] for i in t["obrigacoes"] if por_id[i]["faixa"]]  # fmt: skip
+        if maximos:
+            assert t["faixa"]["maximo_pct"]["com_teto"] == max(maximos)
 
 
 def cenarios(base="5000000000"):
