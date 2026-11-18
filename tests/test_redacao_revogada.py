@@ -89,7 +89,7 @@ def test_unlocated_struck_text_makes_page_pending():
     assert locate_struck("a b\nc d", [["c", "d"]]) == [(4, 7)]
 
 
-REN846 = fonte("ren2019846_compilada.pdf")
+REN846 = fonte("ren2019846_compilada.pdf")  # cópia do Leis.org (só .local): tem redação riscada
 
 
 @pytest.mark.skipif(
@@ -113,3 +113,22 @@ def test_real_ren846_revoked_wordings():
     # Art. 12, X tem o mesmo texto do Art. 11, X revogado, mas está vigente.
     current = [u for u in units if u["text"].startswith("X - deixar de investir")]
     assert sorted(u.get("struck", "vigente") for u in current) == ["revoked", "vigente"]
+
+
+def test_official_compiled_ren846_has_only_current_wordings():
+    # Compilado oficial da ANEEL (atren2019846.pdf, sha256 efe4e35f…): traz só a redação vigente,
+    # com a nota "(Redação dada pela …)"; nada riscado, então nenhum dispositivo sai revogado.
+    oficial = fonte("atren2019846.pdf")
+    units = reader.read_pdf(oficial, Settings())["extraction"]["units"]
+    assert not [u for u in units if u.get("struck")]
+    assert by_text(
+        units, "§ 8º Tratando-se das entidades responsáveis pela operação do sistema ou pela"
+    )
+    assert by_text(
+        units,
+        "§ 2º O infrator que renunciar expressamente ao direito de interpor recurso, no prazo",
+    )
+    assert not [
+        u for u in units if " ".join(u["text"].split()).startswith("§ 9º Nos casos de infrações")
+    ]
+    assert len([u for u in units if u["text"].startswith("X - deixar de investir")]) == 1

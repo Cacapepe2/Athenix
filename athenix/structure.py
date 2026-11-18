@@ -33,9 +33,9 @@ PARAGRAPH = re.compile(
     r"(?!\s*[º°]?\s*(?-i:o\s+)?(?-i:d[oa]s?|dest[ea]s?|n[oa]s?|aos?|e|ou)\b)\s*",
     re.I,
 )
-CLAUSE = re.compile(r"^\s*([IVXLCDM]+)\s*[–—-]\s+")
-LETTER = re.compile(r"^\s*([a-z])\)\s+")
-ITEM = re.compile(r"^\s*(\d+(?:-[A-Z])?)\.\s+")
+CLAUSE = re.compile(r'^\s*[“"]?\s*([IVXLCDM]+)\s*[–—-]\s+')
+LETTER = re.compile(r'^\s*[“"]?\s*([a-z])\)\s+')
+ITEM = re.compile(r'^\s*[“"]?\s*(\d+(?:-[A-Z])?)\.\s+')
 # "Anexo I do Decreto..." no início de uma linha quebrada é remissão no meio da frase, não anexo: a
 # continuação em minúscula ("do", "da", "ao"...) a denuncia; "ANEXO I DA RESOLUÇÃO" segue anexo.
 ANNEX = re.compile(
@@ -233,12 +233,22 @@ def segment(text, pages, faq=False):
     quoted, nesting, straight = False, 0, False
     heading_title = False
     target = None
+    caput_art = None  # nº do artigo do próprio ato que abriu o bloco de alteração em curso
     stack = []
     offset = 0
     in_table = False
     warnings = []
     for line in text.splitlines(keepends=True):
         stripped = line.lstrip()
+        article = ARTICLE.match(line)
+        if quoted and article and caput_art is not None and not stripped.startswith(("“", '"')):
+            # Texto oficial sem as aspas de fechamento nem "(NR)" (ex.: RN 1.148 da biblioteca da
+            # ANEEL): o artigo seguinte do próprio ato, sem aspas, encerra o bloco.
+            if int(re.match(r"\d+", article.group(1)).group()) == caput_art + 1:
+                quoted, nesting, straight = False, 0, False
+                warnings.append(
+                    f"Bloco citado sem aspas de fechamento: encerrado antes do {line.strip()[:14]}"
+                )
         # A 1ª linha de um bloco citado não troca a norma-alvo: a norma que ela cita é parte do
         # texto citado, e só o HTML (linha inteira) a deixaria visível ao ACT; no PDF ela quebra.
         if not quoted and not stripped.startswith(("“", '"')):
@@ -256,6 +266,7 @@ def segment(text, pages, faq=False):
                 citados = ACT.findall(caput)
                 if citados and re.search(ALTERACAO, caput, re.I):
                     target = " ".join(citados[0].split())
+                    caput_art = int(re.match(r"\d+", ARTICLE.match(line).group(1)).group())
         starts_quote = stripped.startswith(("“", '"'))
         owner = target if quoted or starts_quote else "self"
         kind, label, depth, matched = None, None, 0, None
@@ -336,7 +347,9 @@ def segment(text, pages, faq=False):
                 nesting = max(0, nesting - 1)
             elif character == '"':
                 straight = not straight
-        if re.search(r'[”"]\s*\(NR\)', line):  # LC 95: "(NR)" encerra a nova redação
+        # LC 95: "(NR)"/"(AC)" encerra a nova redação, com ou sem as aspas de fechamento (o DOU as omite
+        # em alguns blocos).
+        if re.search(r'[”"]\s*\((?:NR|AC)\)|\((?:NR|AC)\)\s*$', line):
             nesting, straight = 0, False
         quoted = nesting > 0 or straight
         offset += len(line)

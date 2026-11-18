@@ -50,13 +50,13 @@ DOCS = [
     ("REH ANEEL 3.348/2024", "Cópia de terceiro (ISA) · PDF", R / "tests/gabarito/reh20243348.pdf"),
     (
         "REN ANEEL 846/2019 compilada",
-        "Cópia local (Leis.org) · PDF",
-        R / ".local/fontes_impacto/ren2019846_compilada.pdf",
+        "Biblioteca da ANEEL · PDF",
+        R / "tests/fontes_impacto/atren2019846.pdf",
     ),
     (
         "REN ANEEL 1.148/2026",
-        "Cópia local (Leis.org) · PDF",
-        R / ".local/fontes_impacto/ren20261148.pdf",
+        "Biblioteca da ANEEL · PDF",
+        R / "tests/fontes_impacto/ren20261148.pdf",
     ),
     (
         "REN ANEEL 1.174/2026 compilada",
