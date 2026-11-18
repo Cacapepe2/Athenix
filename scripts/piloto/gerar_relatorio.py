@@ -80,9 +80,12 @@ table.portes th, table.portes td { font-size: 8pt; padding: 2.5pt 4pt; }
  </div>
  <div class="manchete">
   <p class="small muted" style="margin:0">Cenário preliminar · faixa ilustrativa · valores por infração, nunca somados</p>
-  <p class="grande">{{ vencidos }} {{ 'tema vencido' if vencidos == 1 else 'temas vencidos' }}, {{ n_vencidas }} {{ 'obrigação vencida' if n_vencidas == 1 else 'obrigações vencidas' }} · exposição de até <b>{{ pct(top_pct) }} da ROL</b> por infração, no tema mais exposto</p>
+  <p class="grande">Até <b>{{ pct(top_pct) }} da ROL</b> por infração em {{ vencidos }} {{ 'tema já vencido' if vencidos == 1 else 'temas já vencidos' }}</p>
+  <p class="small muted" style="margin:0 0 5pt">{{ n_vencidas }} {{ 'obrigação vencida' if n_vencidas == 1 else 'obrigações vencidas' }} · datas provisórias · os valores não se somam</p>
   <table class="portes"><tr><th>Porte (ROL anual, ilustrativo)</th>{% for f in portes %}<th>{{ f.rotulo }} ~{{ brl_curto(f.base) }}</th>{% endfor %}</tr>
-  <tr><td>Até, por infração</td>{% for f in portes %}<td><b>{{ brl_curto(f.base * top_pct / 100) }}</b></td>{% endfor %}</tr></table>
+  <tr><td>Teto, por infração</td>{% for f in portes %}<td><b>{{ brl_curto(f.base * top_pct / 100) }}</b></td>{% endfor %}</tr>
+  {% if top_aten.ate_tn is not none %}<tr><td>Art. 24, II</td>{% for f in portes %}<td>{{ brl_curto(f.base * top_aten.ate_tn / 100) }}</td>{% endfor %}</tr>{% endif %}
+  {% if top_aten.espontanea is not none %}<tr><td>Art. 24, I (regularizar antes da fiscalização)</td>{% for f in portes %}<td>{{ brl_curto(f.base * top_aten.espontanea / 100) }}</td>{% endfor %}</tr>{% endif %}</table>
   <p class="small muted" style="margin:3pt 0 0">Referência do setor: auto de infração típico em distribuição ≈ {{ brl_curto(esc.mediana_reais) }} (mediana de {{ esc.autos }} autos); maior registrado ≈ {{ brl_curto(esc.maximo_reais) }}. <i>{{ esc.rotulo }}.</i> É o valor do auto inteiro, que pode reunir várias infrações. Em reais, o valor da empresa é % × ROL informada.</p>
  </div>
  <p class="small muted" style="margin:6pt 0">{{ r.aplicaveis }} obrigações para distribuidoras · {{ r.por_situacao.vencida }} com prazo vencido · {{ r.por_situacao['90dias'] }} vencem em 90 dias · {{ r.por_situacao.recorrente }} recorrentes · {{ r.por_situacao.evento + r.por_situacao.sem_prazo }} sem data ({{ r.por_situacao.evento }} dependem de evento)</p>
@@ -110,11 +113,12 @@ table.portes th, table.portes td { font-size: 8pt; padding: 2.5pt 4pt; }
    <div><dt>Prazo mais urgente</dt><dd>{{ t.prazo_mais_urgente.texto if t.prazo_mais_urgente else 'Sem data no texto' }}</dd><dd class="n">{{ contagem(t) }}</dd></div>
    <div><dt>Enquadramento na REN 846</dt><dd>{% if t.grupos %}Grupo {{ t.grupos|join(', ') }} · {{ t.infracoes|join('; ') }}{% else %}A confirmar{% endif %}</dd>
     <dd class="n">{% if t.grupos %}Identificado pelo texto em {{ t.na_fila }} de {{ t.n }}; {{ t.a_confirmar }} a confirmar.{% endif %}{% if t.ia %} <span class="ia">Interpretação da IA</span>: {{ t.ia.dispositivo }} em {{ t.ia.n }} de {{ t.ia.de }} (aguarda revisão; só no cenário preliminar).{% endif %}</dd></div>
-   <div><dt>Exposição por infração</dt>{% set e = expo(t) %}<dd>{% if e[0] is not none %}até {{ pct(e[0]) }} da ROL (pode ser só advertência){% else %}Exposição a enquadrar{% endif %}</dd><dd class="n">{% if e[1] == 'sugerido' %}Cenário preliminar: inclui sugestões aguardando confirmação. {% endif %}Em R$: % × ROL informada. Provável não estimável (sem histórico de multas).</dd></div>
+   <div><dt>Exposição por infração</dt>{% set e = expo(t) %}<dd>{% if e[0] is not none %}até {{ pct(e[0]) }} da ROL (pode ser só advertência){% else %}Exposição a enquadrar{% endif %}</dd>{% set at = aten(t) %}{% if at.espontanea is not none %}<dd class="n">pode cair para {{ pct(at.espontanea) }} da ROL se regularizar antes da fiscalização (art. 24, I){% if at.ate_tn is not none %}; {{ pct(at.ate_tn) }} até o prazo do Termo de Notificação (art. 24, II){% endif %}</dd>{% endif %}<dd class="n">{% if e[1] == 'sugerido' %}Cenário preliminar: inclui sugestões aguardando confirmação. {% endif %}Em R$: % × ROL informada. Provável não estimável (sem histórico de multas).</dd></div>
    <div><dt>Como provar que cumpriu (sugestão)</dt>{% for e in t.evidencias %}<dd class="n">• {{ p.evidencias[e.id] }} ({{ e.n }})</dd>{% else %}<dd class="n">Definir com a equipe.</dd>{% endfor %}</div>
   </dl>
   <p class="small"><b>Obrigações principais:</b> {% for id in t.principais %}{{ ob[id].titulo }}{% if ob[id].titulo_origem == 'ia' %}*{% endif %} <span class="muted">({{ ob[id].prazo.texto }})</span>{% if not loop.last %}; {% endif %}{% endfor %}</p>
   {% if t.fontes %}<p class="small muted">Tema pela norma: {% for f in t.fontes %}{{ f.rotulo }}, “{{ f.titulo }}”{% if not loop.last %}; {% endif %}{% endfor %}.</p>{% endif %}
+  <p class="small"><b>Causas externas:</b> {% set cs = causas(t) %}{% if cs %}{% for c in cs %}{{ c.nome }} <span class="muted">({{ c.origem }})</span>{% if c.texto %}: <span class="muted">{{ c.texto }}</span>{% endif %}{% if not loop.last %}; {% endif %}{% endfor %}{% else %}nenhuma identificada{% endif %}</p>
   <div class="analise"><p class="kicker">{{ p.analise.rotulo }}</p>
    {% if t.dependencias_no_texto %}<div class="ato"><b>Prazo condicionado a ato da ANEEL: verificar se as instruções foram publicadas.</b>
     {% for d in t.dependencias_no_texto %}<blockquote>“{{ d.trecho_literal }}” <span class="muted">{{ ob[d.obrigacao].dispositivo or '—' }} · trecho literal conferido na fonte</span></blockquote>{% endfor %}</div>{% endif %}
@@ -190,6 +194,41 @@ def main():
     )
     assert top_pct is not None, "sem exposição nos temas vencidos"
     perfil_demo = impacto.perfil_ilustrativo()
+
+    def aten(t):
+        """Atenuantes do art. 24 (% da ROL) sobre a faixa que dá o valor do tema (confirmada ou sugerida)."""
+        _, origem = plano.exposicao_pct(t)
+        f = t["faixa_preliminar"] if origem == "sugerido" else t["faixa"]
+        c = (f or {}).get("com_atenuante_pct", {})
+        return {"espontanea": c.get("espontanea"), "ate_tn": c.get("ate_tn")}
+
+    top_tema = max(
+        (t for t in vencidos if plano.exposicao_pct(t)[0] is not None),
+        key=lambda t: plano.exposicao_pct(t)[0],
+    )
+    top_aten = aten(top_tema)
+
+    def causas(t):
+        a = p["analise"]
+        out = []
+        for d in t["dependencias_no_texto"]:
+            disp = ob[d["obrigacao"]].get("dispositivo") or "dispositivo a confirmar"
+            out.append({"nome": "Instruções da ANEEL ainda por publicar", "origem": "no texto, com citação", "texto": f"“{d['trecho_literal']}” ({disp})"})  # fmt: skip
+        for x in t["excludentes"]:
+            disp = ob[x["obrigacao"]].get("dispositivo") or "dispositivo a confirmar"
+            out.append({"nome": "Excludente previsto no texto", "origem": "no texto, com citação", "texto": f"“{x['trecho']}” ({disp})"})  # fmt: skip
+        if t["id"] in a["pratica_por_tema"]:
+            nome = a["dependencias"][a["pratica_por_tema"][t["id"]]]["nome"]
+            out.append(
+                {"nome": nome, "origem": "prática conhecida, fora do texto da norma", "texto": ""}
+            )
+        if t["id"] in a["causas_por_tema"]:
+            c = a["causas_por_tema"][t["id"]]
+            out.append(
+                {"nome": c["nome"], "origem": "a avaliar com o jurídico, sem citação", "texto": ""}
+            )
+        return out
+
     portes = [
         {"rotulo": f["rotulo"], "base": float(f["base"])} for f in perfil_demo["faixas_porte"]
     ]
@@ -233,6 +272,9 @@ def main():
             faixa=faixa,
             expo=plano.exposicao_pct,
             vencidos=len(vencidos),
+            aten=aten,
+            causas=causas,
+            top_aten=top_aten,
             n_vencidas=sum(t["contagem"]["vencida"] for t in vencidos),
             top_pct=top_pct,
             portes=portes,

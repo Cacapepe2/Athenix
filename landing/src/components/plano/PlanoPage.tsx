@@ -53,7 +53,7 @@ export function PlanoPage() {
 
   return <Cenario.Provider value={{ sim, modo }}>
     <header className="border-b border-line bg-ivory print:hidden"><div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-8"><a href="/" aria-label="Athenix, voltar ao início"><Logo /></a><a href="/" className="text-sm font-semibold text-slate-blue">← Voltar ao site</a></div></header>
-    <main id="plano" className="mx-auto max-w-7xl space-y-14 px-4 pt-6 pb-28 sm:px-8 sm:pt-10 print:pb-10">
+    <main id="plano" className="mx-auto max-w-7xl space-y-14 px-4 pt-6 pb-8 sm:px-8 sm:pt-10 md:pb-28 print:pb-10">
       <section aria-labelledby="titulo-plano" className="space-y-6">
         <p className={kicker}>Plano de ação · RN 1.137/2025 · {plano.perfil.rotulo.toLowerCase()} (não é empresa real)</p>
         <Porte setSim={setSim} />
@@ -150,7 +150,7 @@ export function PlanoPage() {
       </details></section></div>
       <footer className="border-t border-line pt-6 text-sm text-ink-soft">{plano.aviso} Iniciativa em validação. Valores ilustrativos, que não indicam descumprimento de uma empresa real. Não constitui parecer jurídico. <a className="ml-2 underline print:hidden" href="/">Voltar à Athenix</a></footer>
     </main>
-    <div role="note" className="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-obsidian/95 px-4 py-2.5 text-center text-xs leading-snug text-ivory print:hidden">
+    <div role="note" className="z-30 border-t md:fixed md:inset-x-0 md:bottom-0 border-line bg-obsidian/95 px-4 py-2.5 text-center text-xs leading-snug text-ivory print:hidden">
       Iniciativa em validação · valores ilustrativos · não constitui parecer jurídico
     </div>
   </Cenario.Provider>
