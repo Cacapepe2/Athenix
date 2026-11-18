@@ -59,7 +59,7 @@ export function PlanoPage() {
     return () => window.removeEventListener('beforeprint', antes)
   }, [])
   const marcar = (id: string, d: Diagnostico) => setDiag((atual) => ({ ...atual, [id]: d }))
-  const vencidos = m.temasVencidos === 0 ? 'Nenhum tema com prazo vencido em aberto' : `${m.temasVencidos} ${m.temasVencidos === 1 ? 'tema' : 'temas'} com prazo vencido`
+  const vencidos = m.temasVencidos === 0 ? 'Nenhum tema com prazo vencido em aberto' : `${m.temasVencidos} ${m.temasVencidos === 1 ? 'tema' : 'temas'} com prazo vencido (data provisória)`
   const esc = plano.referencia_escala
 
   return <Imprimindo.Provider value={imprimindo}><Cenario.Provider value={{ sim, modo }}>
@@ -78,7 +78,7 @@ export function PlanoPage() {
           </p>
           <h1 id="titulo-plano" aria-live="polite" className="font-display mt-3 text-[1.75rem] leading-tight sm:text-[2.6rem] sm:leading-[1.12]">
             {vencidos} · {m.maximo
-              ? <>exposição de até <span className="whitespace-nowrap text-slate-blue">{valorCurto(m.maximo)}</span> por infração, no tema mais exposto</>
+              ? <>exposição de até <span className="whitespace-nowrap text-slate-blue">{valorCurto(m.maximo)}</span> por infração, no tema vencido mais exposto</>
               : 'exposição a enquadrar'}
           </h1>
           <div className="mt-4 flex flex-wrap items-center gap-3">
@@ -89,7 +89,7 @@ export function PlanoPage() {
               {modo === 'preliminar' ? 'Mostrar só confirmados' : 'Voltar ao cenário preliminar'}
             </button>
           </div>
-          <p className="mt-5 border-t border-line pt-4 text-sm">Referência do setor: auto de infração típico em distribuição ≈ <strong>{brlCurto(esc.mediana_reais)}</strong> (mediana de {esc.autos} autos); maior registrado ≈ <strong>{brlCurto(esc.maximo_reais)}</strong>.</p>
+          <p className="mt-5 border-t border-line pt-4 text-sm">Referência do setor: mediana de {esc.autos} autos de infração publicados em distribuição (amostra pequena) ≈ <strong>{brlCurto(esc.mediana_reais)}</strong>; maior na amostra ≈ <strong>{brlCurto(esc.maximo_reais)}</strong>.</p>
           <p className="mt-1 text-xs text-ink-soft">{esc.rotulo}. É valor do auto inteiro, que pode reunir várias infrações. Detalhes em “Como chegamos aqui”.</p>
         </div>
         <p className="px-1 text-sm text-ink-soft">{r.aplicaveis} obrigações para distribuidoras · {r.por_situacao.vencida} com prazo vencido · {r.por_situacao['90dias']} vencem em 90 dias · {r.por_situacao.recorrente} recorrentes · {semData} sem data ({r.por_situacao.evento} dependem de evento)</p>

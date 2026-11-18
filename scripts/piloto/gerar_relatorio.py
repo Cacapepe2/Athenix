@@ -10,6 +10,7 @@ gerente preencher. Nenhum dado de empresa. PDF gerado pelo Edge instalado (Playw
 """
 
 import re
+from urllib.parse import urlparse
 import sys
 from datetime import date
 from pathlib import Path
@@ -95,7 +96,7 @@ table.portes th, table.portes td { font-size: 8pt; padding: 2.5pt 4pt; }
  <td>{% if e[1] == 'confirmado' %}Grupo {{ t.grupos|join(', ') }} (confirmado){% elif e[1] == 'sugerido' %}Grupo {{ t.grupos_sugeridos|last }} <span class="ia">(sugerido)</span>{% else %}A confirmar{% endif %}</td>
  <td>{% if e[0] is not none %}até {{ pct(e[0]) }} da ROL{% if e[1] == 'sugerido' %} <span class="ia">cenário preliminar: inclui sugestão aguardando confirmação</span>{% endif %}{% else %}Exposição a enquadrar{% endif %}</td></tr>{% endfor %}</table>
  <p class="small muted" style="margin-top:3pt">Ordem: o que a empresa marcar como já atendido vai para o fim; depois, a exposição máxima por infração do tema (maior primeiro); prazo vencido antes de a vencer; número de obrigações. O valor provável não é estimável (sem histórico de multas). Exposições de infrações diferentes não se somam.</p>
- <div class="aviso">Iniciativa em validação. Estimativa ilustrativa com base nas premissas listadas; não indica descumprimento da empresa e não constitui parecer jurídico. Prazos são provisórios até confirmação da contagem. Interpretações da IA aguardam revisão humana e não entram no cálculo. Exposições de obrigações diferentes não devem ser somadas.</div>
+ <div class="aviso">Iniciativa em validação. Estimativa ilustrativa com base nas premissas listadas; não indica descumprimento da empresa e não constitui parecer jurídico. Prazos são provisórios até confirmação da contagem. Interpretações da IA aguardam revisão humana; só entram no valor do cenário preliminar, sempre marcadas como sugestão. Exposições de obrigações diferentes não devem ser somadas.</div>
 </section>
 
 <section class="page">
@@ -108,7 +109,7 @@ table.portes th, table.portes td { font-size: 8pt; padding: 2.5pt 4pt; }
   <dl class="grid4">
    <div><dt>Prazo mais urgente</dt><dd>{{ t.prazo_mais_urgente.texto if t.prazo_mais_urgente else 'Sem data no texto' }}</dd><dd class="n">{{ contagem(t) }}</dd></div>
    <div><dt>Enquadramento na REN 846</dt><dd>{% if t.grupos %}Grupo {{ t.grupos|join(', ') }} · {{ t.infracoes|join('; ') }}{% else %}A confirmar{% endif %}</dd>
-    <dd class="n">{% if t.grupos %}Identificado pelo texto em {{ t.na_fila }} de {{ t.n }}; {{ t.a_confirmar }} a confirmar.{% endif %}{% if t.ia %} <span class="ia">Interpretação da IA</span>: {{ t.ia.dispositivo }} em {{ t.ia.n }} de {{ t.ia.de }} (aguarda revisão; fora do cálculo).{% endif %}</dd></div>
+    <dd class="n">{% if t.grupos %}Identificado pelo texto em {{ t.na_fila }} de {{ t.n }}; {{ t.a_confirmar }} a confirmar.{% endif %}{% if t.ia %} <span class="ia">Interpretação da IA</span>: {{ t.ia.dispositivo }} em {{ t.ia.n }} de {{ t.ia.de }} (aguarda revisão; só no cenário preliminar).{% endif %}</dd></div>
    <div><dt>Exposição por infração</dt>{% set e = expo(t) %}<dd>{% if e[0] is not none %}até {{ pct(e[0]) }} da ROL (pode ser só advertência){% else %}Exposição a enquadrar{% endif %}</dd><dd class="n">{% if e[1] == 'sugerido' %}Cenário preliminar: inclui sugestões aguardando confirmação. {% endif %}Em R$: % × ROL informada. Provável não estimável (sem histórico de multas).</dd></div>
    <div><dt>Como provar que cumpriu (sugestão)</dt>{% for e in t.evidencias %}<dd class="n">• {{ p.evidencias[e.id] }} ({{ e.n }})</dd>{% else %}<dd class="n">Definir com a equipe.</dd>{% endfor %}</div>
   </dl>
@@ -116,7 +117,7 @@ table.portes th, table.portes td { font-size: 8pt; padding: 2.5pt 4pt; }
   {% if t.fontes %}<p class="small muted">Tema pela norma: {% for f in t.fontes %}{{ f.rotulo }}, “{{ f.titulo }}”{% if not loop.last %}; {% endif %}{% endfor %}.</p>{% endif %}
   <div class="analise"><p class="kicker">{{ p.analise.rotulo }}</p>
    {% if t.dependencias_no_texto %}<div class="ato"><b>Prazo condicionado a ato da ANEEL: verificar se as instruções foram publicadas.</b>
-    {% for d in t.dependencias_no_texto %}<blockquote>“{{ d.trecho_literal }}” <span class="muted">{{ ob[d.obrigacao].dispositivo }} · trecho literal conferido na fonte</span></blockquote>{% endfor %}</div>{% endif %}
+    {% for d in t.dependencias_no_texto %}<blockquote>“{{ d.trecho_literal }}” <span class="muted">{{ ob[d.obrigacao].dispositivo or '—' }} · trecho literal conferido na fonte</span></blockquote>{% endfor %}</div>{% endif %}
    {% for id in t.principais %}{% set o = ob[id] %}{% set a = o.analise %}<div class="ob">
     <b>{{ o.titulo }}</b> <span class="muted">· {{ o.dispositivo or '—' }}</span>
     {% if o.trecho %}<blockquote>“{{ o.trecho }}” <span class="muted">{{ o.dispositivo }}</span></blockquote>{% endif %}
@@ -129,7 +130,7 @@ table.portes th, table.portes td { font-size: 8pt; padding: 2.5pt 4pt; }
     <b>Prática conhecida (fora do texto da norma): {{ dep.nome }}.</b> {{ dep.cautela }}
     <div><b>Caminho:</b> {{ dep.caminho }}</div>
     <div><b>O que guardar desde já:</b> {{ dep.o_que_guardar|join(' · ') }}</div>
-    <div><b>Referências públicas:</b> {% for pr in dep.precedentes %}{{ pr.titulo }} ({% for u in pr.urls %}{{ u }}{% if not loop.last %}; {% endif %}{% endfor %}){% if not loop.last %}; {% endif %}{% endfor %}. <i>Contraponto:</i> {{ p.analise.contraponto.titulo }} ({{ p.analise.contraponto.urls|join('; ') }}).</div>
+    <div><b>Referências públicas:</b> {% for pr in dep.precedentes if pr.titulo != p.analise.contraponto.titulo %}{{ pr.titulo }} ({% for u in pr.urls %}{{ dominio(u) }}{% if not loop.last %}; {% endif %}{% endfor %}); {% endfor %}<i>contraponto:</i> {{ p.analise.contraponto.titulo }} ({% for u in p.analise.contraponto.urls %}{{ dominio(u) }}{% if not loop.last %}; {% endif %}{% endfor %}). Links completos na demo.</div>
    </div>{% endif %}
   </div>
  </div>{% endfor %}
@@ -237,6 +238,7 @@ def main():
             brl_curto=brl_curto,
             prazo_txt=prazo_txt,
             esc=analise.referencia_escala(),
+            dominio=lambda u: urlparse(u).netloc,
             contagem=contagem,
             premissas=premissas,
             perguntas=PERGUNTAS,
@@ -252,7 +254,10 @@ def main():
     )
     # Valor em reais só nos portes ilustrativos e na referência de escala (milhões/bilhões); a ROL da
     # empresa fica em branco para o gerente preencher.
-    fora = re.sub(r"R\$ [\d,]+ (?:mi|bi)\b", "", html.split("Premissas da exposição")[0])
+    # Só a manchete (portes ilustrativos e referência de escala) traz R$; o resto fica em % da ROL.
+    fora = re.sub(
+        r'<div class="manchete">.*?</div>', "", html.split("Premissas da exposição")[0], flags=re.S
+    )
     fora = fora.replace("ROL dos 12 meses anteriores (base da REN 846, Art. 21), R$", "").replace("Faturamento bruto dos 12 meses (teto legal, dúvida D6), R$", "").replace("Em R$", "")  # fmt: skip
     assert "R$" not in fora, "valor em reais sem base informada"
     (SAIDA.with_suffix(".html")).write_text(html, encoding="utf-8")

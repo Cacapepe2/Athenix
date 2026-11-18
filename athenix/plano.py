@@ -235,7 +235,7 @@ def _faixa_de(m, base, com_atenuante=None):
 def _faixa_preliminar(params, row, p, grupo):
     """Faixa do cenário preliminar: o grupo SUGERIDO pela IA (aguarda confirmação) passado pelo mesmo
     motor (impacto.multa), com os atenuantes do art. 24 calculados como nos enquadramentos do texto.
-    Fora do cálculo confirmado; só a demo a usa, marcada como "cenário preliminar"."""
+    Fora do cálculo confirmado; só o cenário preliminar (demo e relatório-piloto) a usa, marcada."""
     m = impacto.multa(params, row, p, [grupo], False)
     if not m.get("estimavel"):
         return None
@@ -503,6 +503,8 @@ def decisoes(obrigacoes, temas, preliminar=True):
         "principais": top,
         "confirmar": {
             "obrigacoes": len(a_confirmar),
-            "temas_sem_calculo_confirmado": sum(1 for t in temas if not t["faixa"]),
+            "temas_sem_calculo_confirmado": sum(
+                1 for t in temas if not t["faixa"] and t["a_confirmar"]
+            ),
         },
     }

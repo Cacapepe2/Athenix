@@ -321,7 +321,8 @@ export function celula(v: unknown): string {
 }
 
 export function csvPlano(diag: Diagnosticos, s: Simulacao | null = SIM_INICIAL): string {
-  const temas = ordenarTemas(plano.temas, diag)
+  // A planilha só traz o que o texto da obrigação confirma: a ordem usa o modo 'confirmados'.
+  const temas = ordenarTemas(plano.temas, diag, s, 'confirmados')
   const linhas: unknown[][] = [
     ['Plano de ação — ' + plano.norma.titulo + ' — ' + plano.perfil.rotulo + (s ? ' — receita operacional líquida considerada: ' + brl(s.base) + ' (premissa informada ou ilustrativa)' : '')],
     ['ESTIMATIVA ILUSTRATIVA. ' + plano.perfil.aviso + ' ' + plano.aviso + ' Iniciativa em validação.'],
