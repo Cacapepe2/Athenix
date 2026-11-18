@@ -107,10 +107,26 @@ th { font-size: 7.5pt; color: #4f5a69; font-weight: 600; } tr { page-break-insid
  <p class="small muted">* Título resumido com IA a partir do texto, com citação conferida; aguarda revisão humana.</p>
 </section>
 
+<section class="page">
+ <p class="kicker">Como reduzir a exposição</p>
+ <h2>Atenuantes e reduções da REN 846</h2>
+ <p class="small"><b>{{ p.reducao.rotulo }}.</b> Texto citado do {{ p.reducao.medidas[0].fonte }}, SHA-256 {{ p.reducao.medidas[0].sha256 }}. Condição e efeito em linguagem simples: <span class="ia">Interpretação · aguarda revisão humana</span>.</p>
+ <table><tr><th style="width:20%">Medida</th><th style="width:11%">Dispositivo</th><th style="width:11%">Redução</th><th>Trecho literal</th><th style="width:26%">Condição e efeito (interpretação)</th></tr>
+ {% for m in p.reducao.medidas %}<tr><td><b>{{ m.nome }}</b></td><td>{{ m.dispositivo }}</td><td>{{ ('−' ~ pct(m.percentual)) if m.percentual is not none else 'o texto não fixa percentual' }}</td><td>“{{ m.trecho }}”</td><td>{{ m.condicao }} {{ m.efeito }}</td></tr>{% endfor %}</table>
+ <p class="small">{% for c in p.reducao.regras %}<b>{{ c.dispositivo }}:</b> “{{ c.trecho }}” {% endfor %}</p>
+ <h3 style="margin-top:8pt">Por tema</h3>
+ <table><tr><th style="width:24%">Tema</th><th style="width:24%">Com atenuante (% da ROL, pior caso)</th><th style="width:16%">Causas externas</th><th>O que guardar desde já (sugestão, não exigência da norma)</th></tr>
+ {% for t in p.temas %}<tr><td><b>{{ t.nome }}</b></td>
+ <td>{% if t.faixa and t.faixa.com_atenuante_pct %}{% for m in p.reducao.medidas if m.cenario and m.cenario in t.faixa.com_atenuante_pct %}{{ m.dispositivo }}: até {{ pct(t.faixa.com_atenuante_pct[m.cenario]) }}{% if not loop.last %}<br>{% endif %}{% endfor %}{% else %}Não calculada até confirmar o enquadramento{% endif %}</td>
+ <td>{% if t.excludentes %}{% for e in t.excludentes %}“{{ e.trecho }}”{% endfor %}{% else %}{{ t.causa_externa }}{% endif %}</td>
+ <td>{% for g in t.guardar %}• {{ p.guardar[g.id] }}<br>{% else %}Definir com a equipe.{% endfor %}</td></tr>{% endfor %}</table>
+ <p class="small muted">Cenário com atenuante: valor base no teto do grupo, sem agravantes; atenuantes não se acumulam (art. 24). Em R$: % × ROL informada.</p>
+</section>
+
 <section class="page anexo">
  <p class="kicker">Anexo</p>
  <h2>Obrigações, trechos literais e fontes</h2>
- <p class="small muted">Fonte: {{ norma.titulo }} ({{ norma.url }}), SHA-256 {{ norma.sha256 }}. Infrações: REN ANEEL 846/2019 (catálogo da Athenix; origem da cópia a confirmar com a fonte oficial da ANEEL). Teto legal: Lei 9.427/1996, Art. 3º, X, com redação da Lei 15.269/2025.</p>
+ <p class="small muted">Fonte: {{ norma.titulo }} ({{ norma.url }}), SHA-256 {{ norma.sha256 }}. Infrações: {{ p.reducao.medidas[0].fonte }} (catálogo extraído pela Athenix). Teto legal: Lei 9.427/1996, Art. 3º, X, com redação da Lei 15.269/2025.</p>
  {% for t in p.temas %}<h3 style="margin-top:8pt">{{ loop.index }}. {{ t.nome }}</h3>
  <table><tr><th style="width:22%">Obrigação</th><th style="width:13%">Dispositivo · prazo</th><th>Trecho literal da norma</th><th style="width:21%">Infração (REN 846)</th></tr>
  {% for id in t.obrigacoes %}{% set o = ob[id] %}<tr><td>{{ o.titulo }}{% if o.titulo_origem == 'ia' %}*{% endif %}</td><td>{{ o.dispositivo or '—' }}<br><span class="muted">{{ o.prazo.texto }}</span></td>
