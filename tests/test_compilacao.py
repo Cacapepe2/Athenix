@@ -100,11 +100,11 @@ def test_conflito_e_sinalizado_e_nenhuma_redacao_e_escolhida(comp):
     )  # segue a redação da 1.137
 
 
-def test_subitens_nao_reproduzidos_saem_marcados_como_inferencia(comp):
+def test_subitens_nao_reproduzidos_ficam_vigentes_e_vao_para_decisao_humana(comp):
     filhos = {i["dispositivo"] for i in comp["inferencias"]}
     assert filhos == {f"article:9/clause:IV/letter:{x}" for x in "abc"}
-    h = comp["historico"]["article:9/clause:IV/letter:a"][-1]
-    assert h["inferido"] is True and h["situacao"] == "revogado"
+    assert all(i["aplicada"] is False for i in comp["inferencias"])
+    assert len(comp["historico"]["article:9/clause:IV/letter:a"]) == 1  # nada foi revogado
 
 
 def test_revogacao_explicita_so_vira_caminho_nas_formas_simples():
@@ -236,3 +236,63 @@ def test_detectar_o_que_a_norma_nova_altera_no_acervo():
     assert "846" not in d["revogacoes"]  # a 1.174 altera a 846 (art. 10) mas não a revoga
     # Norma que não cita nenhuma do acervo: nada a fazer.
     assert compilacao.detectar(_doc("dou_dsp20261293"), {"846"})["no_acervo"] == []
+
+
+def test_pontilhado_depois_do_caput_mantem_os_incisos():
+    # "Art. 9º Texto novo: / ........ / II - novo; / ........" (NR): I e III continuam valendo.
+    base = _base(("article:9", "Art. 9º Velho:"), ("article:9/clause:I", "I - a;"),
+                 ("article:9/clause:II", "II - b;"), ("article:9/clause:III", "III - c."))  # fmt: skip
+    alt = _alt("REN A", "2026-01-01", "2026-02-01", ("article:9", "Art. 9º Novo:", "NR"),
+               ("article:9/clause:II", "II - novo;", "NR"))  # fmt: skip
+    r = compilacao.compilar({"nome": "T"}, base, [alt])
+    vigentes = [d["chave"] for d in compilacao.texto_vigente(r, "2026-02-01")]
+    assert vigentes == [
+        "article:9",
+        "article:9/clause:I",
+        "article:9/clause:II",
+        "article:9/clause:III",
+    ]
+    assert {i["dispositivo"] for i in r["inferencias"]} == {
+        "article:9/clause:I",
+        "article:9/clause:III",
+    }
+
+
+def test_incluir_de_novo_dispositivo_revogado_nao_duplica_a_ordem():
+    base = _base(("article:1", "Art. 1º A."))
+    rev = _alt("REN R", "2026-01-01", "2026-02-01", ("article:1", None, None), tipo="revogar")
+    nova = _alt("REN N", "2026-03-01", "2026-04-01", ("article:1", "Art. 1º B.", "NR"))
+    r = compilacao.compilar({"nome": "T"}, base, [rev, nova])
+    assert r["ordem"] == ["article:1"]
+    assert [d["texto"] for d in compilacao.texto_vigente(r, "2026-04-01")] == ["Art. 1º B."]
+
+
+def test_caput_mais_um_com_sufixo_nao_fecha_o_bloco():
+    linhas = [
+        "Art. 1º A Resolução Normativa nº 846, de 2019, passa a vigorar com as seguintes alterações:",
+        "“Art. 2º-A Texto novo.",
+        "Art. 2º-B Outro texto novo.” (NR)",
+        "Art. 2º Esta Resolução vale.",
+    ]
+    texto = "NL".join(linhas).replace("NL", chr(10)) + chr(10)
+    marcadores, avisos = structure.segment(texto, [{"number": 1, "start": 0, "end": len(texto)}])
+    donos = {m["label"]: m["owner"] for m in marcadores if m["kind"] == "article"}
+    assert "846" in donos["2º-B"] and donos["2º"] == "self"
+    assert not [a for a in avisos if "sem aspas" in a]
+
+
+@pytest.mark.parametrize(
+    ("linha", "anexo"),
+    [
+        ("Anexo II do Decreto nº 1", False),
+        ("Anexo 12 da Lei nº 2", False),
+        ("Anexo II e III da Lei", False),
+        ("ANEXO II", True),
+        ("ANEXO I DA RESOLUÇÃO", True),
+    ],
+)
+def test_remissao_a_anexo_em_linha_quebrada(linha, anexo):
+    marcadores, _ = structure.segment(
+        "Art. 1º X." + chr(10) + linha + chr(10), [{"number": 1, "start": 0, "end": 99}]
+    )
+    assert any(m["kind"] == "annex" for m in marcadores) is anexo
