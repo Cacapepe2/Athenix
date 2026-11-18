@@ -4,7 +4,8 @@ Gerado por `python scripts/relatorio_tipos.py` (regras, sem IA). Manuais e depen
 **rascunho — revisar**. Texto normativo = citação; tipo e dependência inferida = interpretação.
 
 **Precisão:** classificar por regra não é o mesmo que classificar certo. Em revisão manual de duas
-amostras (28 e 34 obrigações, de 3 em 3 e de 5 em 5), cerca de 65% a 75% dos tipos eram plausíveis.
+amostras (28 e 34 obrigações, de 3 em 3 e de 5 em 5) lidas pelo Claude em 18/11/2026 (não é conjunto rotulado por
+especialista e pode ficar desatualizada se as regras mudarem), cerca de 65% a 75% dos tipos eram plausíveis.
 Erros típicos: dispositivo que lista conteúdo (alínea) herda o tipo do caput; verbo genérico vence o
 verbo principal. "outros" é o resultado honesto quando falta sinal. A revisão humana dos tipos é necessária.
 
@@ -30,9 +31,9 @@ verbo principal. "outros" é o resultado honesto quando falta sinal. A revisão 
 | Implantar sistema ou processo | 2 |
 
 ## Dependências externas
-- Sinal **no próprio texto**: 27 obrigações. Por dependência: {'autorizacao_municipal': 20, 'evento_extremo_defesa_civil': 7}.
-- Só **inferida pelo tipo** (sem sinal no texto): 110 obrigações.
-- Citação do trecho que disparou (verificação literal): {'verified': 27}.
+- Sinal **no próprio texto**: 9 obrigações. Por dependência: {'autorizacao_municipal': 4, 'evento_extremo_defesa_civil': 5}.
+- Só **inferida pelo tipo** (sem sinal no texto): 123 obrigações.
+- Citação do trecho que disparou (verificação literal): {'verified': 9}.
 
 ## Obrigações em "outros" (com a citação)
 

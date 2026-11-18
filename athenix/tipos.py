@@ -32,9 +32,14 @@ def carregar(path=TIPOS):
 
 
 def normalizar(texto):
-    """Minúsculas e sem acento, mantendo o mesmo comprimento (índice a índice) do original."""
+    """Minúsculas e sem acento. O texto é composto antes (NFC), então 1 caractere = 1 índice; quem
+    fatia o original por esses índices deve usar o mesmo texto em NFC (como `classificar_texto` e
+    `dependencias.detectar` fazem)."""
     saida = []
-    for c in texto or "":
+    for c in unicodedata.normalize("NFC", texto or ""):
+        c = (
+            " " if c in chr(10) + chr(13) + chr(9) else c
+        )  # quebra de linha do PDF = espaço (mesmo índice)
         base = unicodedata.normalize("NFD", c)[0] if not unicodedata.combining(c) else ""
         saida.append(base.lower() if base else "")
     return "".join(saida)
@@ -62,6 +67,7 @@ def _pontuar(tipo, norm):
 
 def classificar_texto(texto, cfg=None):
     cfg = cfg or carregar()
+    texto = unicodedata.normalize("NFC", texto or "")
     norm = normalizar(texto)
     candidatos = []
     for ordem, tipo in enumerate(cfg["tipos"]):
@@ -112,6 +118,14 @@ def estimar_custo(obrigacoes, tokens_por_chamada=900):
     return {"chamadas": len(obrigacoes), "tokens_estimados": len(obrigacoes) * tokens_por_chamada}
 
 
+ROTULO_IA = "Interpretação da IA · aguarda revisão humana"
+
+
+def _interpretacao(texto_ia):
+    """Todo texto vindo da IA sai rotulado como interpretação, nunca como citação."""
+    return {"texto": texto_ia, "rotulo": ROTULO_IA, "citacao": False} if texto_ia else None
+
+
 def especializar(obrigacao_id, tipo_id, texto, modo="off", gerador=None, custo_confirmado=False):
     """Texto do manual especializado para a obrigação, ou None. Interpretação, nunca citação."""
     if modo == "off":
@@ -119,11 +133,12 @@ def especializar(obrigacao_id, tipo_id, texto, modo="off", gerador=None, custo_c
     if modo == "cached":
         if not CACHE_MANUAIS.exists():
             return None
-        return json.loads(CACHE_MANUAIS.read_text(encoding="utf-8")).get(obrigacao_id)
+        texto_ia = json.loads(CACHE_MANUAIS.read_text(encoding="utf-8")).get(obrigacao_id)
+        return _interpretacao(texto_ia)
     if modo == "live":
         if gerador is None or not custo_confirmado:
             raise PermissionError(
                 "modo live exige gerador explícito e custo_confirmado=True (ok do fundador)"
             )
-        return gerador(obrigacao_id, tipo_id, texto)
+        return _interpretacao(gerador(obrigacao_id, tipo_id, texto))
     raise ValueError(f"modo desconhecido: {modo}")

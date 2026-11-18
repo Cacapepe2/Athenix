@@ -208,11 +208,63 @@ def test_rn_1137_ponta_a_ponta_dependencias_no_texto_com_citacao_verificada():
     assert {"autorizacao_municipal"} <= {
         d["id"] for d in do_texto
     }  # manejo vegetal / Poder Público Municipal
-    assert all(d["trecho_literal"] in i["texto"] or d["trecho_literal"].split()[0] in i["texto"]
-               for i in itens for d in i["dependencias"] if d["origem"] == "texto")  # fmt: skip
+    por_id = {i["id"]: i for i in itens}
+    for i in por_id.values():
+        for d in i["dependencias"]:
+            if d["origem"] == "texto":
+                assert " ".join(d["trecho_literal"].split()) in i["texto"], d[
+                    "trecho_literal"
+                ]  # frase inteira
     assert all(
         d["trecho_literal"] is None
         for i in itens
         for d in i["dependencias"]
         if d["origem"] != "texto"
+    )
+
+
+def test_trecho_literal_e_a_frase_inteira_mesmo_com_quebra_de_linha_do_pdf():
+    linhas = [
+        "A distribuidora deve registrar as interações com o Poder Público",
+        "Municipal sobre o manejo da vegetação,",
+        "com data e hora.",
+    ]
+    texto = chr(10).join(linhas)
+    (d,) = [x for x in dependencias.detectar(texto) if x["id"] == "autorizacao_municipal"]
+    assert d["trecho_literal"] == texto.rstrip(".")  # não para na quebra de linha (o ponto final fica de fora)
+
+
+@pytest.mark.parametrize(
+    "texto",
+    [
+        "b) Município/bairro da ocorrência aberta;",  # município como dado, não como autorização
+        "j) Quantidade de equipes em atividade, segregadas por município e o total na área de atuação; e",
+        "A distribuidora deve manter canal com os poderes públicos municipais.",
+        "Prazo de até o terceiro dia útil.",
+        "Energia fornecida por geração distribuída.",
+        "Supressão de cargas em caso de emergência.",
+        "A Portaria que instituir Comitê de Crise deverá atender as demais disposições.",
+    ],
+)
+def test_nao_marca_dependencia_em_falso_positivos_conhecidos(texto):
+    assert [d for d in dependencias.detectar(texto) if d["origem"] == "texto"] == []
+
+
+def test_todo_tipo_de_dependencia_traz_o_contraponto_de_pedidos_negados():
+    cfg = dependencias.carregar()
+    for t in cfg["tipos"]:
+        assert cfg["contraponto_obrigatorio"] in t["precedentes"], t["id"]
+
+
+def test_texto_em_nfd_nao_desloca_o_trecho():
+    import unicodedata
+
+    texto = unicodedata.normalize(
+        "NFD", "O Município deve acionar a Prefeitura para a poda da vegetação."
+    )
+    (d,) = [x for x in dependencias.detectar(texto) if x["id"] == "autorizacao_municipal"]
+    assert (
+        d["sinal"]
+        and d["trecho_literal"].startswith("O Município")
+        and len(tipos.normalizar(texto)) == len(unicodedata.normalize("NFC", texto))
     )

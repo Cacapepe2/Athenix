@@ -117,7 +117,8 @@ def markdown(itens, r):
          "Gerado por `python scripts/relatorio_tipos.py` (regras, sem IA). Manuais e dependências estão como",
          "**rascunho — revisar**. Texto normativo = citação; tipo e dependência inferida = interpretação.", "",
          "**Precisão:** classificar por regra não é o mesmo que classificar certo. Em revisão manual de duas",
-         "amostras (28 e 34 obrigações, de 3 em 3 e de 5 em 5), cerca de 65% a 75% dos tipos eram plausíveis.",
+         "amostras (28 e 34 obrigações, de 3 em 3 e de 5 em 5) lidas pelo Claude em 18/11/2026 (não é conjunto rotulado por",
+         "especialista e pode ficar desatualizada se as regras mudarem), cerca de 65% a 75% dos tipos eram plausíveis.",
          "Erros típicos: dispositivo que lista conteúdo (alínea) herda o tipo do caput; verbo genérico vence o",
          "verbo principal. \"outros\" é o resultado honesto quando falta sinal. A revisão humana dos tipos é necessária.", "",
          f"- Obrigações: **{r['obrigacoes']}**; classificadas por regra: **{r['classificadas_por_regra']} "

@@ -17,11 +17,13 @@ import re
 from functools import lru_cache
 from pathlib import Path
 
+import unicodedata
+
 from .tipos import carregar as carregar_tipos
 from .tipos import normalizar
 
 DEPENDENCIAS = Path(__file__).parent / "data" / "dependencias_externas.json"
-FIM_FRASE = re.compile(r"[.;:\n]")
+FIM_FRASE = re.compile(r"[.;:]")
 LIMITE = 400
 
 
@@ -29,26 +31,33 @@ LIMITE = 400
 def carregar(path=DEPENDENCIAS):
     cfg = json.loads(Path(path).read_text(encoding="utf-8"))
     for tipo in cfg["tipos"]:
-        tipo["_sinais"] = [re.compile(p) for p in tipo["sinais"]]
+        tipo["_sinais"] = [re.compile(p, re.S) for p in tipo["sinais"]]
     return cfg
 
 
 def _frase(texto, inicio, fim):
-    """Frase (ou item) do original que contém [inicio, fim), no máximo LIMITE caracteres."""
-    ini = max((m.end() for m in FIM_FRASE.finditer(texto, 0, inicio)), default=0)
-    m = FIM_FRASE.search(texto, fim)
-    fim_f = m.start() if m else len(texto)
-    trecho = texto[ini:fim_f].strip()
-    if len(trecho) > LIMITE:  # frase longa: recorta em torno do sinal, em palavras inteiras
-        a, b = max(inicio - LIMITE // 2, 0), min(fim + LIMITE // 2, len(texto))
-        trecho = texto[a:b].strip()
-    return trecho
+    """Frase (ou item) do original que contém [inicio, fim), no máximo LIMITE caracteres. As quebras
+    de linha do PDF não encerram a frase (a busca usa o texto com as quebras trocadas por espaço, de
+    mesmo comprimento); o recorte de frase longa é em palavras inteiras."""
+    plano = texto.replace(chr(10), " ")
+    ini = max((m.end() for m in FIM_FRASE.finditer(plano, 0, inicio)), default=0)
+    m = FIM_FRASE.search(plano, fim)
+    fim_f = m.start() if m else len(plano)
+    if fim_f - ini > LIMITE:  # frase longa: recorta em torno do sinal, em palavras inteiras
+        a, b = max(inicio - LIMITE // 2, 0), min(fim + LIMITE // 2, len(plano))
+        a = plano.rfind(" ", 0, a + 1) + 1 if a > 0 else 0
+        b = plano.find(" ", b) if plano.find(" ", b) >= 0 else len(plano)
+        ini, fim_f = a, b
+    return texto[ini:fim_f].strip()
 
 
 def detectar(texto, tipo_obrigacao=None, verificar=None, cfg=None):
     """Dependências da obrigação. `verificar(trecho)` (opcional) devolve o estado da citação
     ("verified"/"pending"/…); sem ele, o estado fica "nao_verificada"."""
     cfg = cfg or carregar()
+    texto = unicodedata.normalize(
+        "NFC", texto or ""
+    )  # 1 caractere = 1 índice; o literal sai em NFC
     norm = normalizar(texto)
     achadas, vistos = [], set()
     for tipo in cfg["tipos"]:
