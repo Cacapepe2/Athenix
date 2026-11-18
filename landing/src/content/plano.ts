@@ -12,8 +12,30 @@ export interface Faixa {
   teto_grupo_pct: number
   maximo_pct: { com_teto: number; sem_teto: number }
   teto_legal_pct: number | null
+  teto_legal_lei_pct: number | null
   teto_legal_subestimado: boolean | null
   maximo_reais?: { com_teto: number; sem_teto: number }
+  /** % da base calculado pelo motor com o atenuante (valor base no teto do grupo, sem agravantes). */
+  com_atenuante_pct: Partial<Record<Cenario, number>>
+  com_atenuante_reais?: Partial<Record<Cenario, number>>
+}
+
+export type Cenario = 'espontanea' | 'ate_tn'
+
+export interface Citacao {
+  parametro: string
+  dispositivo: string
+  trecho: string
+  percentual: number | null
+  fonte: string
+  sha256: string
+}
+
+export interface Medida extends Citacao {
+  nome: string
+  condicao: string
+  efeito: string
+  cenario: Cenario | null
 }
 
 export interface Obrigacao {
@@ -36,6 +58,8 @@ export interface Obrigacao {
   premissas: string[]
   motivo_sem_calculo: string | null
   evidencias: { id: string; trecho: string }[]
+  guardar: string[]
+  excludente: string | null
 }
 
 export interface Tema {
@@ -55,6 +79,9 @@ export interface Tema {
   evidencias: { id: string; n: number; exemplo: { obrigacao: string; trecho: string } }[]
   principais: string[]
   obrigacoes: string[]
+  guardar: { id: string; n: number }[]
+  excludentes: { obrigacao: string; trecho: string }[]
+  causa_externa: string | null
 }
 
 export const plano = dados as unknown as {
@@ -85,6 +112,13 @@ export const plano = dados as unknown as {
   nomes_situacao: Record<Situacao, string>
   regra_ordem: string
   evidencias: Record<string, string>
+  reducao: { rotulo: string; regras: Citacao[]; medidas: Medida[]; causa_externa: string }
+  guardar: Record<string, string>
+  simulador: {
+    faixas: { id: string; rotulo: string; base: number }[]
+    origem_faixas: string
+    conferencia: { base: number; faturamento: number | null; obrigacao: string; maximo_reais: number; com_atenuante_reais: Partial<Record<Cenario, number>> }[]
+  }
 }
 
 export const obrigacaoPorId = new Map(plano.obrigacoes.map((o) => [o.id, o]))
@@ -142,16 +176,55 @@ export function lacuna(temas: Tema[], diag: Diagnosticos) {
 export const dataBR = (iso: string) => iso.split('-').reverse().join('/')
 
 export function brl(valor: number): string {
-  if (valor >= 1e9) return `R$ ${(valor / 1e9).toLocaleString('pt-BR', { maximumFractionDigits: 1 })} bilhões`
-  if (valor >= 1e6) return `R$ ${(valor / 1e6).toLocaleString('pt-BR', { maximumFractionDigits: 1 })} milhões`
+  // Singular abaixo de 2: "R$ 1 bilhão", "R$ 1,5 milhão".
+  const escala = (n: number, um: string, varios: string) => `R$ ${n.toLocaleString('pt-BR', { maximumFractionDigits: 1 })} ${n < 2 ? um : varios}`
+  if (valor >= 1e9) return escala(valor / 1e9, 'bilhão', 'bilhões')
+  if (valor >= 1e6) return escala(valor / 1e6, 'milhão', 'milhões')
   return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
 }
 
 export const pct = (v: number) => `${v.toLocaleString('pt-BR', { maximumFractionDigits: 3 })}%`
 
-/** Faixa por infração: "advertência até R$ X", nunca "R$ 0 a R$ X". */
-export function textoFaixa(f: Faixa): string {
-  const teto = f.maximo_reais ? brl(f.maximo_reais.com_teto) : `${pct(f.maximo_pct.com_teto)} da base`
+// Simulador por porte: a mesma conta de athenix/impacto.py (multa e teto_legal), sem agravantes,
+// refeita no navegador com a base informada. Nada é enviado. O teste compara com os casos de
+// conferência que o exportador calcula com o motor Python (plano.simulador.conferencia).
+export interface Simulacao { base: number; faturamento: number | null }
+export const SIM_INICIAL: Simulacao = { base: plano.perfil.base_reais, faturamento: null }
+const REDUCAO_CENARIO = Object.fromEntries(
+  plano.reducao.medidas.filter((m) => m.cenario && m.percentual != null).map((m) => [m.cenario, m.percentual]),
+) as Partial<Record<Cenario, number>>
+
+/** Teto legal em % da base: % do faturamento convertido quando o faturamento é informado (D6). */
+export function tetoLegalPct(f: Faixa, s: Simulacao): number {
+  if (f.teto_legal_lei_pct == null) return Infinity
+  return s.faturamento != null && s.base ? (f.teto_legal_lei_pct * s.faturamento) / s.base : f.teto_legal_lei_pct
+}
+
+/** Máximo por infração em % da base: teto do grupo limitado pelo teto legal. */
+export const maximoPct = (f: Faixa, s: Simulacao) => Math.min(f.teto_grupo_pct, tetoLegalPct(f, s))
+
+/** Com atenuante (só se o motor calculou este cenário): teto do grupo menos o percentual do art. 24. */
+export function comAtenuantePct(f: Faixa, s: Simulacao, c: Cenario): number | null {
+  const r = REDUCAO_CENARIO[c]
+  if (f.com_atenuante_pct[c] == null || r == null) return null
+  return Math.min(f.teto_grupo_pct * (1 - r / 100), tetoLegalPct(f, s))
+}
+
+export const reaisDe = (pctBase: number, s: Simulacao) => (pctBase / 100) * s.base
+
+/** Valor em reais digitado: "7.500.000.000", "7500000000" ou "7.500.000.000,00". Inválido: null. */
+export function lerReais(texto: string): number | null {
+  let t = texto.replace(/R\$|\s/g, '')
+  if (!t) return null
+  t = t.includes(',') ? t.replaceAll('.', '').replace(',', '.') : t.replaceAll('.', '')
+  if (!/^\d+(\.\d+)?$/.test(t)) return null
+  const v = Number(t)
+  return Number.isFinite(v) && v > 0 && v <= 1e13 ? v : null
+}
+
+/** Faixa por infração: "advertência até R$ X", nunca "R$ 0 a R$ X". Sem base: em % da base. */
+export function textoFaixa(f: Faixa, s: Simulacao | null = SIM_INICIAL): string {
+  const teto = s ? brl(reaisDe(maximoPct(f, s), s)) : `${pct(maximoPct(f, SIM_INICIAL))} da base`
   return `De advertência (sem multa) até ${teto} por infração`
 }
 
@@ -165,10 +238,10 @@ export function celula(v: unknown): string {
   return `"${s.replaceAll('"', '""')}"`
 }
 
-export function csvPlano(diag: Diagnosticos): string {
+export function csvPlano(diag: Diagnosticos, s: Simulacao | null = SIM_INICIAL): string {
   const temas = ordenarTemas(plano.temas, diag)
   const linhas: unknown[][] = [
-    ['Plano de ação — ' + plano.norma.titulo + ' — ' + plano.perfil.rotulo],
+    ['Plano de ação — ' + plano.norma.titulo + ' — ' + plano.perfil.rotulo + (s ? ' — receita operacional líquida considerada: ' + brl(s.base) + ' (premissa informada ou ilustrativa)' : '')],
     ['ESTIMATIVA ILUSTRATIVA. ' + plano.perfil.aviso + ' ' + plano.aviso + ' Iniciativa em validação.'],
     ['Interpretações da IA aguardam revisão humana e não entram no cálculo. Diagnóstico informado só nesta planilha; nada foi enviado.'],
     [],
@@ -187,7 +260,7 @@ export function csvPlano(diag: Diagnosticos): string {
         o.prazo.data ? dataBR(o.prazo.data) + (o.prazo.provisorio ? ' (provisório)' : '') : o.prazo.texto,
         o.enquadramento.map((e) => e.dispositivo).join('; '),
         o.grupo ?? 'a confirmar',
-        o.faixa ? textoFaixa(o.faixa) : o.motivo_sem_calculo ?? 'Enquadramento a confirmar',
+        o.faixa ? textoFaixa(o.faixa, s) : o.motivo_sem_calculo ?? 'Enquadramento a confirmar',
         o.ia ? `${o.ia.dispositivo} (Grupo ${o.ia.grupo})${o.ia.duvida ? ' · depende da dúvida ' + o.ia.duvida : ''}` : '',
         o.evidencias.map((e) => plano.evidencias[e.id]).join('; '),
         o.trecho,
