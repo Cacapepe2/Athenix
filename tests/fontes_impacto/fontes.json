@@ -15,12 +15,13 @@
   {
    "id": "ren20261148",
    "arquivo": "ren20261148.pdf",
-   "sha256": "00f8c4a41605a697eddac3be1ec916e4017bf78f2f1480162749f52dd6f801cb",
+   "sha256": "c1bf6ff2da617d0699cc00e2abd774eabd6950bb4d7f2d76f5f86b6ee923697e",
    "ato": "Resolução Normativa ANEEL nº 1.148, de 27 de janeiro de 2026",
    "publicacao_original": "D.O. de 20.02.2026, seção 1, p. 84, v. 164, nº 34",
    "vigencia_declarada": "1º de janeiro de 2027 (Art. 10)",
-   "paginas": 15,
-   "fonte": "a confirmar com a fonte oficial da ANEEL",
+   "paginas": 12,
+   "fonte": "oficial (biblioteca da ANEEL, baixado em 17/11/2026 pelo fundador)",
+   "substitui": "cópia do Leis.org (sha256 00f8c4a4…, 15 págs.), que continua em .local/ se o fundador a mantiver",
    "ressalva": "Anexos (Submódulos 2.5 e 2.5-A do PRORET, versões 5.0 e 4.0) não estão no arquivo."
   },
   {
@@ -70,10 +71,36 @@
    "ressalva": "Art. 3º dá ao Art. 3º, X da Lei 9.427 a redação de 3%; Art. 24 traz a vigência. O inciso III do Art. 24 fica colado no II na extração (quebra de linha do HTML)."
   }
  ],
+ "oficiais_baixados_2026-11-17": {
+  "nota": "Baixados manualmente pelo fundador em 17/11/2026 (arquivos em C:/Users/.../Downloads, movidos para cá). Oficiais prevalecem sobre cópias do Leis.org. Os PDFs da biblioteca da ANEEL no nível de tests/fontes_impacto/ continuam ignorados pelo git (decisão de versionar é do fundador); os de dou/, parcela_variavel/ e dados_abertos/ não são ignorados.",
+  "biblioteca_aneel": [
+   {"arquivo": "atren2019846.pdf", "sha256": "efe4e35fb41aa1306846677ffc32a0c2a150ee6ac44aafe5f15e475e6ad05ad9", "ato": "REN 846/2019, rótulo 'Texto Integral', 38 págs.", "compilado_ate": "REN 1.137, de 21/10/2025 (redações 'dada pela REN 1.137' presentes)", "ressalva": "Compilado. Diferente em bytes de ren2019846.pdf (só o rótulo muda); decisão do fundador de 17/11/2026: registrar os dois como compilados até a RN 1.137/2025."},
+   {"arquivo": "ren2019846.pdf", "sha256": "a5b59a1e440161d06b481c0bbc1fda8eabc470ef4efd24d91d1dcea18aaea27d", "ato": "REN 846/2019, rótulo 'Texto Compilado', 38 págs.", "compilado_ate": "REN 1.137, de 21/10/2025", "ressalva": "NÃO é o texto original (apesar do nome). O original de 2019 virá do DOU de 18/06/2019 (par HTML + PDF certificado) em dou/, para a validação do Bloco 5."},
+   {"arquivo": "ren20261148.pdf", "sha256": "c1bf6ff2da617d0699cc00e2abd774eabd6950bb4d7f2d76f5f86b6ee923697e", "ato": "REN 1.148, de 27/01/2026 (D.O. 20.02.2026, seção 1, p. 84)", "paginas": 12},
+   {"arquivo": "parcela_variavel/atren2020905.pdf", "sha256": "92efa13555fec464fcbb5092b639482e8ae7d7be0b34f8d9c00ad9e7cdbb5720", "ato": "REN 905/2020 (compilada até a REN 1.068/2023 pelo rodapé), 3 págs.", "ressalva": "Só 3 páginas: capa/índice, sem os anexos (Módulos). Não incorpora a alteração da REN 1.162/2026."}
+  ],
+  "dados_abertos": [
+   {"arquivo": ".local/dados_aneel/auto-infracao.csv", "sha256": "453451f49641d1b73c73fb1b6d13cec8e0195da0b1f326943f25af095b26ee49", "ato": "Dados abertos ANEEL, Auto de Infração (CSV)", "origem": "dadosabertos.aneel.gov.br (arquivo baixado pelo fundador)"},
+   {"arquivo": ".local/dados_aneel/sigec-multa-de-fiscalizacao.csv", "sha256": "4724c4589e674c902190290badb568a2f4792e9e2a53bf732d5bbf26cacc2dcb", "ato": "Dados abertos ANEEL, SIGEC multa de fiscalização (CSV, arrecadação)"},
+   {"arquivo": "dados_abertos/dm-auto-de-infracao.pdf (cópia em .local/dados_aneel/)", "sha256": "8c13d4f72294db397eab45507bc3393cff4eb8c4cd403c826264ff71ff1c565a", "ato": "Dicionário de Metadados do Auto de Infração, versão 1.0, 03/05/2022, 4 págs."},
+   {"arquivo": ".local/dados_aneel/adsp20223244_1.pdf", "sha256": "58d5f4fa50e041d7668f88a71c8c9ca84625a74225cec110ec3f0d6f0d3cf5f1", "ato": "Voto, Despacho 3.244/2022, processo 48500.004507/2021-61 (recurso de distribuidora)"},
+   {"arquivo": ".local/dados_aneel/adsp20242090_1.pdf", "sha256": "3221e19dff612ed685d629915e5f4aa8e690dffa2a12dd8cfd1d8b2d0def0d44", "ato": "Voto, Despacho 2.090/2024, processo 48500.006992/2022-98 (recurso de transmissora)"}
+  ],
+  "dou": [
+   {"par": "dou_ren20261162", "ato": "REN 1.162, de 02/06/2026", "publicacao": "DOU 24/06/2026, edição 116, seção 1, p. 92 (HTML)", "html_sha256": "2e5e9962c8541a0732d4cf404b6270accb2e790654ea379a86d69105a7cb03f5", "pdf_sha256": "3524f9d7db043592a47277670a1cc150ff45660ebf86c817a489ae1a03207dce", "baixado_em": "2026-11-17", "orgao": "MME/ANEEL/Diretoria Colegiada", "par_completo": true, "nota": "O PDF certificado é a página do DOU (1 pág.); verificar se cobre o ato inteiro."},
+   {"par": "dou_dsp20261293", "ato": "Despacho 1.293, de 14/04/2026", "publicacao": "DOU 23/04/2026, edição 75, seção 1, p. 66", "html_sha256": "b0c0b78eaa991357e5c4a028449de96c4bd342fcaa970203680475eac6367b56", "pdf_sha256": "e9bf1077314f9a2317cfa3d906358f5b8a601b82e473f3e7320d98132ee34692", "baixado_em": "2026-11-17", "orgao": "MME/ANEEL/Diretoria Colegiada", "par_completo": true, "nota": "O PDF era 'despacho_1293.pdf'; a página traz também a RH 3.581 e o Despacho 1.337, que são ruído em relação ao ato."},
+   {"par": "dou_ren20261174", "ato": "REN 1.174, de 27/10/2026", "publicacao": "DOU 04/11/2026, edição 207, seção 1, p. 68", "html_sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507", "pdf_sha256": "4c9abde3e01892d7a90521b14497d4d1d901c34e8f5f4d5f622f4e2bfa6a13ce", "baixado_em": "2026-11-17", "orgao": "MME/ANEEL/Diretoria Colegiada", "par_completo": true, "nota": "A página do PDF traz também a Portaria SNTEP/MME 3.258/2026 (ruído em relação ao ato)."}
+  ],
+  "leisorg_local": [
+   {"arquivo": ".local/fontes_impacto/ren20261162_leisorg.pdf", "sha256": "83ff700f84f7d44359a4e9aa23256c6f45ed0dbb2e18481f4cd09b6c2314cf49", "ato": "REN 1.162/2026 (Leis.org, wkhtmltopdf, gerado em 27/08/2026, 24 págs.)", "uso": "só interno; a versão oficial (dou/) é a referência."}
+  ]
+ },
  "ausentes": [
-  "REN 1.162/2026 (altera arts. 9º, 10 e 21 § 11 da REN 846 segundo o compilado; arquivo não fornecido)",
-  "Despacho nº 1.293/2026 (citado no cabeçalho do compilado; arquivo não fornecido)",
-  "Norma de Parcela Variável (PVI/PVRO) das transmissoras (citada no Art. 13, XIII, da REN 846; arquivo não fornecido)"
+  "REN 846 em texto ORIGINAL (2019): ren2019846.pdf veio compilado (com a REN 1.137). Necessário para a validação do Bloco 5 (original + alteradoras x compilado).",
+  "REN 905/2020 em texto integral com anexos e REN 905 original (atren2020905.pdf tem só 3 páginas).",
+  "REN 1.174/2026 e REN 1.162/2026 e Despacho 1.293/2026 na biblioteca da ANEEL (há as versões do DOU).",
+  "Compilação oficial da REN 846 posterior à REN 1.137 (o 'compilado_ate: REN 1.174' acima refere-se à cópia do Leis.org local).",
+  "Norma de Parcela Variável (PVI/PVRO): REN 905 recebida só em 3 páginas, sem os módulos."
  ],
  "riscos_conhecidos": "Compilações marcam texto revogado riscado na mesma página (o texto extraído contém as duas redações) e o selo 'Art. N' pode ser lido fora de lugar pelo pypdfium2."
 }
