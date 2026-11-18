@@ -109,6 +109,10 @@ SPEC = {
     "atenuantes_nao_cumulativas": ("24", "Atenuantes não se acumulam"),
     "atenuante_espontanea": ("24 > I", "Atenuante: cessação espontânea antes da fiscalização"),
     "atenuante_tn": ("24 > II", "Atenuante: cessação até o prazo do TN"),
+    "atenuante_comprovacao": (
+        "24 > Parágrafo único",
+        "Atenuantes só contam se comprovadas à Fiscalização antes do AI",
+    ),
     "reducao_renuncia": ("38 > § 2º", "Redução por renúncia ao recurso"),
 }
 
