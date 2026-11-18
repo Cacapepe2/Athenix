@@ -97,14 +97,17 @@ def classificar_texto(texto, cfg=None):
     }
 
 
-def classificar(texto, contexto="", cfg=None):
-    """Classifica pelo texto do dispositivo; se não casar, tenta com o texto dos dispositivos-pai
-    (alíneas e incisos soltos só fazem sentido com o caput). `por` diz de onde veio."""
+def classificar(texto, contexto="", cfg=None, detalhe=False):
+    """Classifica pelo texto do PRÓPRIO dispositivo. O texto do dispositivo-pai (`contexto`) não é usado
+    para dar tipo: alínea ou inciso que só detalha o conteúdo do caput (sem verbo próprio) não herda o
+    tipo dele. Com `detalhe=True` (alínea, inciso ou item sob um pai), o resultado "outros" sai como
+    "detalhe do dispositivo-pai", para não se confundir com texto sem sinal."""
     r = classificar_texto(texto, cfg)
-    if r["tipo"] == "outros" and contexto:
-        r2 = classificar_texto(f"{contexto} {texto}", cfg)
-        if r2["tipo"] != "outros":
-            return r2 | {"por": "regra (com o texto do dispositivo-pai)"}
+    if r["tipo"] == "outros" and detalhe:
+        r = r | {
+            "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+            "pai": (contexto or "")[:200],
+        }
     return r
 
 

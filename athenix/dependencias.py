@@ -35,14 +35,32 @@ def carregar(path=DEPENDENCIAS):
     return cfg
 
 
+ABREVIACOES = {"art", "arts", "n", "no", "inc", "al", "fl", "p", "cap", "§", "ex"}
+
+
+def _fins(plano):
+    """Posições de fim de frase: [.;:], exceto o ponto de abreviação ("art.", "nº.", "inc.")."""
+    fins = []
+    for m in FIM_FRASE.finditer(plano):
+        if m.group() == "." and plano[m.end() : m.end() + 1].isdigit():
+            continue  # ponto de milhar ("12.068")
+        if m.group() == "." and re.search(
+            r"(?<![\w§])(" + "|".join(ABREVIACOES) + r")$", plano[: m.start()], re.I
+        ):
+            continue
+        fins.append(m)
+    return fins
+
+
 def _frase(texto, inicio, fim):
     """Frase (ou item) do original que contém [inicio, fim), no máximo LIMITE caracteres. As quebras
     de linha do PDF não encerram a frase (a busca usa o texto com as quebras trocadas por espaço, de
-    mesmo comprimento); o recorte de frase longa é em palavras inteiras."""
+    mesmo comprimento); o ponto de "art." não encerra; o recorte de frase longa é em palavras inteiras."""
     plano = texto.replace(chr(10), " ")
-    ini = max((m.end() for m in FIM_FRASE.finditer(plano, 0, inicio)), default=0)
-    m = FIM_FRASE.search(plano, fim)
-    fim_f = m.start() if m else len(plano)
+    fins = _fins(plano)
+    ini = max((m.end() for m in fins if m.end() <= inicio), default=0)
+    seguinte = next((m for m in fins if m.start() >= fim), None)
+    fim_f = seguinte.start() if seguinte else len(plano)
     if fim_f - ini > LIMITE:  # frase longa: recorta em torno do sinal, em palavras inteiras
         a, b = max(inicio - LIMITE // 2, 0), min(fim + LIMITE // 2, len(plano))
         a = plano.rfind(" ", 0, a + 1) + 1 if a > 0 else 0
@@ -51,7 +69,7 @@ def _frase(texto, inicio, fim):
     return texto[ini:fim_f].strip()
 
 
-def detectar(texto, tipo_obrigacao=None, verificar=None, cfg=None):
+def detectar(texto, tipo_obrigacao=None, verificar=None, cfg=None, incluir_inferidas=False):
     """Dependências da obrigação. `verificar(trecho)` (opcional) devolve o estado da citação
     ("verified"/"pending"/…); sem ele, o estado fica "nao_verificada"."""
     cfg = cfg or carregar()
@@ -75,7 +93,9 @@ def detectar(texto, tipo_obrigacao=None, verificar=None, cfg=None):
                 )
                 vistos.add(tipo["id"])
                 break
-    if tipo_obrigacao:
+    if (
+        tipo_obrigacao and incluir_inferidas
+    ):  # desligado por padrão: só se marca dependência de ATO no texto
         tipicas = next(
             (
                 t["dependencias_tipicas"]

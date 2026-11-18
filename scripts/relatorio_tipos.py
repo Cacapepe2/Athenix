@@ -60,7 +60,8 @@ def analisar(rows=None, extraction=None):
             continue
         texto = unit["text"]
         pais = contexto_dos_pais(unit, por_id)
-        classe = tipos.classificar(espacos(texto), pais)
+        detalhe = bool(unit["parent"]) and unit["kind"] in {"letter", "clause", "item", "paragraph"}
+        classe = tipos.classificar(espacos(texto), pais, detalhe=detalhe)
 
         def verificar(trecho, unit=unit):
             r = verify(
@@ -88,7 +89,7 @@ def resumo(itens):
     n = len(itens)
     por_tipo = Counter(i["tipo"] for i in itens)
     por_regra = sum(i["tipo"] != "outros" for i in itens)
-    do_pai = sum(i["por"].startswith("regra (com") for i in itens)
+    detalhe = sum(i["por"].startswith("detalhe do dispositivo-pai") for i in itens)
     dep_texto = Counter(d["id"] for i in itens for d in i["dependencias"] if d["origem"] == "texto")
     dep_tipo = Counter(d["id"] for i in itens for d in i["dependencias"] if d["origem"] != "texto")
     com_texto = sum(any(d["origem"] == "texto" for d in i["dependencias"]) for i in itens)
@@ -102,8 +103,9 @@ def resumo(itens):
         "por_tipo": dict(por_tipo.most_common()),
         "classificadas_por_regra": por_regra,
         "pct_por_regra": round(100 * por_regra / n, 1),
-        "classificadas_com_texto_do_pai": do_pai,
+        "detalhe_do_dispositivo_pai_sem_tipo_proprio": detalhe,
         "outros": por_tipo.get("outros", 0),
+        "outros_sem_sinal": por_tipo.get("outros", 0) - detalhe,
         "dependencia_no_texto": {"obrigacoes": com_texto, "por_tipo": dict(dep_texto)},
         "dependencia_so_inferida_pelo_tipo": {"obrigacoes": so_tipo, "por_tipo": dict(dep_tipo)},
         "citacoes_das_dependencias_no_texto": dict(cit),
@@ -113,29 +115,43 @@ def resumo(itens):
 def markdown(itens, r):
     cfg = tipos.carregar()
     nomes = {t["id"]: t["nome"] for t in cfg["tipos"]}
-    L = ["# Tipos de obrigação e dependências externas na RN 1.137/2025", "",
-         "Gerado por `python scripts/relatorio_tipos.py` (regras, sem IA). Manuais e dependências estão como",
-         "**rascunho — revisar**. Texto normativo = citação; tipo e dependência inferida = interpretação.", "",
-         "**Precisão:** classificar por regra não é o mesmo que classificar certo. Em revisão manual de duas",
-         "amostras (28 e 34 obrigações, de 3 em 3 e de 5 em 5) lidas pelo Claude em 18/11/2026 (não é conjunto rotulado por",
-         "especialista e pode ficar desatualizada se as regras mudarem), cerca de 65% a 75% dos tipos eram plausíveis.",
-         "Erros típicos: dispositivo que lista conteúdo (alínea) herda o tipo do caput; verbo genérico vence o",
-         "verbo principal. \"outros\" é o resultado honesto quando falta sinal. A revisão humana dos tipos é necessária.", "",
-         f"- Obrigações: **{r['obrigacoes']}**; classificadas por regra: **{r['classificadas_por_regra']} "
-         f"({r['pct_por_regra']}%)**, das quais {r['classificadas_com_texto_do_pai']} só com o texto do dispositivo-pai; "
-         f"em \"outros\": **{r['outros']}**.", "",
-         "| Tipo | Obrigações |", "|---|---|"]  # fmt: skip
+    d = r["dependencia_no_texto"]
+    L = [
+        "# Tipos de obrigação e dependências externas na RN 1.137/2025",
+        "",
+        "Gerado por `python scripts/relatorio_tipos.py` (regras, sem IA). Manuais e dependências estão como",
+        "**rascunho — revisar**. Texto normativo = citação; tipo e dependência = interpretação.",
+        "",
+        "**Regras desta versão:** o tipo vem só do texto do PRÓPRIO dispositivo. Alínea, inciso ou item que só",
+        'detalha o conteúdo do caput (sem verbo próprio) NÃO herda o tipo dele: fica como "detalhe do',
+        'dispositivo-pai". Dependência externa só é marcada quando o cumprimento depende de um ATO do terceiro',
+        "(autorizar, licenciar, aprovar, emitir, ordenar, disponibilizar sistema ou dado); definições e menções",
+        "sem esse ato não contam, e dependência que viria só do tipo não é marcada por obrigação.",
+        "A precisão do tipo ainda não foi medida de forma independente; a comparação com a IA (docs/tipos_obrigacao_ia.md,",
+        "quando houver autorização de custo) mostra onde regra e IA concordam.",
+        "",
+        f"- Obrigações: **{r['obrigacoes']}**; com tipo por regra: **{r['classificadas_por_regra']} ({r['pct_por_regra']}%)**.",
+        f"- Sem tipo próprio: **{r['outros']}**, sendo {r['detalhe_do_dispositivo_pai_sem_tipo_proprio']} detalhes do dispositivo-pai",
+        f"  e {r['outros_sem_sinal']} sem sinal.",
+        "",
+        "| Tipo | Obrigações |",
+        "|---|---|",
+    ]
     L += [f"| {nomes[t]} | {n} |" for t, n in r["por_tipo"].items()]
-    dt, di = r["dependencia_no_texto"], r["dependencia_so_inferida_pelo_tipo"]
-    L += ["", "## Dependências externas",
-          f"- Sinal **no próprio texto**: {dt['obrigacoes']} obrigações. Por dependência: {dt['por_tipo']}.",
-          f"- Só **inferida pelo tipo** (sem sinal no texto): {di['obrigacoes']} obrigações.",
-          f"- Citação do trecho que disparou (verificação literal): {r['citacoes_das_dependencias_no_texto']}.", "",
-          "## Obrigações em \"outros\" (com a citação)", ""]  # fmt: skip
+    L += [
+        "",
+        "## Dependências externas (só com ato do terceiro no texto)",
+        f"- Obrigações com dependência: **{d['obrigacoes']}**. Por dependência: {d['por_tipo']}.",
+        f"- Citação do trecho que disparou (verificação literal): {r['citacoes_das_dependencias_no_texto']}.",
+        "",
+        "## Obrigações sem tipo próprio (com a citação)",
+        "",
+    ]
     for i in itens:
         if i["tipo"] == "outros":
-            L.append(f'- **{i["dispositivo"]}**: "{i["texto"][:260]}"')
-    return "\n".join(L) + "\n"
+            marca = "detalhe do pai" if i["por"].startswith("detalhe") else "sem sinal"
+            L.append(f'- **{i["dispositivo"]}** ({marca}): "{i["texto"][:240]}"')
+    return chr(10).join(L) + chr(10)
 
 
 def main():

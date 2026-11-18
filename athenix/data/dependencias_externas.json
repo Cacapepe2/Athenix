@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "nota": "Quando o cumprimento depende do governo ou de terceiros: o que guardar desde já e qual caminho avaliar. Sinais em minúsculas e sem acento (o texto da norma não muda). Dependência marcada 'texto' vem de trecho literal da própria obrigação; 'inferida_pelo_tipo' vem só do tipo de obrigação e aparece com menos destaque. Os precedentes são REFERÊNCIAS fornecidas pelo fundador em 18/11/2026: a Athenix não leu essas fontes, descreve cada uma só pelo que foi informado e não copia texto. A análise da ANEEL é caso a caso e há pedidos negados (ver contraponto). Possível excludente não é garantia de afastamento de penalidade. Análise regulatória preliminar, não constitui parecer jurídico. Padrões de município só valem junto de poda, manejo ou vegetação; 'comitê de crise' não é sinal (as portarias de comitê de crise tratam de ato da ANEEL).",
+ "nota": "Quando o cumprimento depende do governo ou de terceiros: o que guardar desde já e qual caminho avaliar. Sinais em minúsculas e sem acento (o texto da norma não muda). Dependência marcada 'texto' vem de trecho literal da própria obrigação; 'inferida_pelo_tipo' vem só do tipo de obrigação e aparece com menos destaque. Os precedentes são REFERÊNCIAS PÚBLICAS (links em cada item): a Athenix não leu essas fontes, descreve cada uma só pelo que foi informado e não copia texto. A análise da ANEEL é caso a caso e há pedidos negados (ver contraponto). Possível excludente não é garantia de afastamento de penalidade. Análise regulatória preliminar, não constitui parecer jurídico. 'comitê de crise' não é sinal (as portarias de comitê de crise tratam de ato da ANEEL). Só se marca dependência quando o cumprimento depende de um ATO do terceiro (autorizar, licenciar, aprovar, emitir, ordenar, disponibilizar sistema ou dado). Definições, indicadores e menções ao terceiro sem esse ato (ex.: 'em coordenação com o Poder Público Municipal', 'Situação de Emergência' como termo de um indicador) não contam. Dependência que viria só do tipo da obrigação não é marcada por obrigação. Tipo 'ato_da_aneel': o cumprimento aguarda instrução, portaria ou especificação a ser emitida pela própria ANEEL.",
  "status_geral": "rascunho — revisar",
  "contraponto_obrigatorio": "contraponto_tcu",
  "precedentes": {
@@ -10,15 +10,15 @@
     "https://canalsolar.com.br/aneel-instabilidade-sistema-protocolo-digital/",
     "https://brasilenergia.com.br/energia/governo-regulacao/aneel-prorroga-prazos-devido-a-instabilidade-em-sistema"
    ],
-   "o_que_e": "Notícias sobre instabilidade do sistema de protocolo digital da ANEEL e a prorrogação de prazos.",
-   "a_confirmar": "Norma de Organização ANEEL nº 56/2024 (indisponibilidade técnica acima de 60 minutos), citada pelo fundador: o texto da norma não está no repositório; conferir artigo e redação antes de citar."
+   "o_que_e": "Notícias sobre instabilidade do sistema de protocolo digital da ANEEL e a prorrogação de prazos. Links: https://canalsolar.com.br/aneel-instabilidade-sistema-protocolo-digital/; https://brasilenergia.com.br/energia/governo-regulacao/aneel-prorroga-prazos-devido-a-instabilidade-em-sistema.",
+   "a_confirmar": "Casos concretos e prazos prorrogados: não lidos pela Athenix (ver os links)."
   },
   "taesa_pandemia": {
    "titulo": "Excludente de responsabilidade reconhecido (pandemia), concessões da Taesa",
    "urls": [
     "https://cenarioenergia.com.br/2025/03/18/aneel-prorroga-concessoes-da-taesa-apos-impactos-da-pandemia/"
    ],
-   "o_que_e": "Segundo o fundador: notícia sobre prorrogação de concessões de transmissão após os efeitos da pandemia, com excludente reconhecido.",
+   "o_que_e": "Referência pública: notícia sobre prorrogação de concessões de transmissão após os efeitos da pandemia, com excludente reconhecido. Links: https://cenarioenergia.com.br/2025/03/18/aneel-prorroga-concessoes-da-taesa-apos-impactos-da-pandemia/.",
    "a_confirmar": "Decisão e fundamentos da ANEEL: não lidos."
   },
   "gesel_terceiros": {
@@ -26,7 +26,7 @@
    "urls": [
     "https://gesel.ie.ufrj.br/wp-content/uploads/2022/08/Valle_2022_08_30.pdf"
    ],
-   "o_que_e": "Segundo o fundador: texto acadêmico (GESEL/UFRJ, 2022) sobre excludentes por ato de terceiros em transmissoras, com análise caso a caso.",
+   "o_que_e": "Referência pública: texto acadêmico (GESEL/UFRJ, 2022) sobre excludentes por ato de terceiros em transmissoras, com análise caso a caso. Links: https://gesel.ie.ufrj.br/wp-content/uploads/2022/08/Valle_2022_08_30.pdf.",
    "a_confirmar": "Casos e conclusões do texto: não lidos pela Athenix."
   },
   "licenciamento_atrasos": {
@@ -35,15 +35,15 @@
     "https://eixos.com.br/energia-eletrica/licenciamento-ambiental-e-responsavel-por-70-dos-atrasos-em-linhas-de-transmissao/",
     "https://brasilenergia.com.br/energia/o-atraso-no-licenciamento-ambiental-e-o-direito-na-transmissao"
    ],
-   "o_que_e": "Notícias e análise sobre atrasos por licenciamento ambiental em transmissão e o excludente do art. 19 da Lei 13.360/2016.",
-   "a_confirmar": "Redação do art. 19 da Lei 13.360/2016 e seus limites: a lei não está no repositório; conferir no texto oficial. O contexto das fontes é transmissão, não distribuição."
+   "o_que_e": "Notícias e análise sobre atrasos por licenciamento ambiental em transmissão e o excludente do art. 19 da Lei 13.360/2016. Links: https://eixos.com.br/energia-eletrica/licenciamento-ambiental-e-responsavel-por-70-dos-atrasos-em-linhas-de-transmissao/; https://brasilenergia.com.br/energia/o-atraso-no-licenciamento-ambiental-e-o-direito-na-transmissao.",
+   "a_confirmar": "Casos e limites descritos nas fontes: não lidos pela Athenix (ver os links). O contexto das fontes é transmissão, não distribuição."
   },
   "contraponto_tcu": {
    "titulo": "Pedidos de excludente negados (contraponto obrigatório)",
    "urls": [
     "https://portal.tcu.gov.br/imprensa/noticias/tcu-aprova-solucao-consensual-em-contratos-de-transmissao-de-energia-eletrica"
    ],
-   "o_que_e": "Notícia do TCU sobre solução consensual em contratos de transmissão; indicada pelo fundador como exemplo de pedidos de excludente negados.",
+   "o_que_e": "Referência pública (TCU) sobre pedidos de excludente negados; serve de contraponto. Links: https://portal.tcu.gov.br/imprensa/noticias/tcu-aprova-solucao-consensual-em-contratos-de-transmissao-de-energia-eletrica.",
    "a_confirmar": "Quais pedidos foram negados e por quê: não lido."
   },
   "poda_municipal": {
@@ -53,7 +53,7 @@
     "https://legislativo.palmas.to.gov.br/media/leis/decreto-2.876-2026-03-18-23-3-2026-14-53-1.pdf",
     "https://www.jornalopcao.com.br/goiania/apos-decisao-do-mpgo-equatorial-goias-afirma-que-responsabilidade-por-podas-regulares-e-da-prefeitura-765210/"
    ],
-   "o_que_e": "Duas normas municipais (São Paulo e Palmas) e uma notícia (Goiânia) sobre poda e a divisão de responsabilidade entre distribuidora e prefeitura.",
+   "o_que_e": "Duas normas municipais (São Paulo e Palmas) e uma notícia (Goiânia) sobre poda e a divisão de responsabilidade entre distribuidora e prefeitura. Links: https://www.saopaulo.sp.leg.br/iah/fulltext/leis/L17267.pdf; https://legislativo.palmas.to.gov.br/media/leis/decreto-2.876-2026-03-18-23-3-2026-14-53-1.pdf; https://www.jornalopcao.com.br/goiania/apos-decisao-do-mpgo-equatorial-goias-afirma-que-responsabilidade-por-podas-regulares-e-da-prefeitura-765210/.",
    "a_confirmar": "Teor de cada norma municipal e a decisão citada na notícia: não lidos. Normas municipais valem só no município."
   }
  },
@@ -62,9 +62,8 @@
    "id": "autorizacao_municipal",
    "nome": "Autorização municipal",
    "sinais": [
-    "(poda|podas|manejo|vegetac\\w*|arvore\\w*|supressao de (vegetacao|arvore\\w*)).{0,200}(poder publico municipal|prefeitura|autorizacao municipal)",
-    "(poder publico municipal|prefeitura|autorizacao municipal).{0,200}(poda|podas|manejo|vegetac\\w*|arvore\\w*)",
-    "autorizacao (da|do) (prefeitura|municipio|poder publico municipal)"
+    "(autoriza\\w*|licenc\\w*|alvara|anuenc\\w*|aprova\\w*|permiss\\w*|liberac\\w*).{0,150}(prefeitura|poder publico municipal|orgao municipal|municipio)",
+    "(prefeitura|poder publico municipal|orgao municipal|municipio).{0,150}(autoriza\\w*|licenc\\w*|alvara|anuenc\\w*|aprova\\w*|permiss\\w*|liberac\\w*)"
    ],
    "o_que_guardar": [
     "Protocolo do pedido de autorização com data e hora.",
@@ -85,12 +84,10 @@
    "nome": "Licenciamento ambiental",
    "sinais": [
     "licenc\\w* ambiental",
-    "orgao ambiental",
-    "ibama",
-    "funai",
-    "licenca (previa|de instalacao|de operacao)",
+    "licenca (previa|de instalacao|de operacao|ambiental)",
     "autorizacao ambiental",
-    "unidade de conservacao"
+    "(autoriza\\w*|licenc\\w*|alvara|anuenc\\w*|aprova\\w*|permiss\\w*|liberac\\w*).{0,150}(orgao ambiental|ibama|funai)",
+    "(orgao ambiental|ibama|funai).{0,150}(autoriza\\w*|licenc\\w*|alvara|anuenc\\w*|aprova\\w*|permiss\\w*|liberac\\w*)"
    ],
    "o_que_guardar": [
     "Protocolos de pedido de licença ou autorização, com data.",
@@ -110,12 +107,11 @@
    "id": "sistema_aneel_indisponivel",
    "nome": "Sistema da ANEEL indisponível",
    "sinais": [
-    "sistema (da|de) aneel",
+    "(sistema|plataforma|portal|ambiente)\\w* (eletronico )?(disponibilizad\\w*|fornecid\\w*|mantid\\w*|indicad\\w*) pel\\w* (aneel|agencia)",
+    "(enviar|encaminhar|protocolar|cadastrar|registrar|inserir|informar|submeter).{0,100}(sistema|plataforma|portal)\\w* (da|de) (aneel|agencia)",
     "\\bspd\\b",
     "\\bsei\\b",
-    "protocolo digital",
-    "sistema (eletronico )?(da agencia|de informac\\w* da aneel)",
-    "disponibilizado pela aneel"
+    "protocolo digital"
    ],
    "o_que_guardar": [
     "Captura de tela do erro ou da página fora do ar, com data e hora.",
@@ -135,11 +131,8 @@
    "id": "operador_sistema",
    "nome": "Dependência do operador do sistema (ONS)",
    "sinais": [
-    "\\bons\\b",
-    "operador nacional do sistema",
-    "operador do sistema",
-    "comando do operador",
-    "despacho do operador"
+    "(autoriza\\w*|aprova\\w*|liberac\\w*|anuenc\\w*|determina\\w*|comando|ordem|despacho|instruc\\w*).{0,100}(\\bons\\b|operador nacional do sistema|operador do sistema)",
+    "(\\bons\\b|operador nacional do sistema|operador do sistema).{0,100}(autoriza\\w*|aprova\\w*|liberac\\w*|anuenc\\w*|determina\\w*|comando|ordem|despacho|instruc\\w*)"
    ],
    "o_que_guardar": [
     "Registros de comando, ordem ou dado recebido do ONS, com data e hora.",
@@ -158,11 +151,9 @@
    "id": "dado_de_terceiro",
    "nome": "Dado ou ação de terceiro",
    "sinais": [
-    "(de|por|dos|com) terceiros?\\b",
-    "outros? agentes?",
-    "outras distribuidoras",
-    "agente (acessante|cedente|vizinho)",
-    "informac\\w* (de|do|da) (outro|terceiro)"
+    "(dados?|informac\\w*|document\\w*|laudos?|certidao|certidoes) (fornecid\\w*|disponibilizad\\w*|enviad\\w*|emitid\\w*|prestad\\w*) (por|pel\\w+) (terceiros?|outros? agentes?|outras distribuidoras|ccee|\\bons\\b|orgaos?)",
+    "dependen\\w* (de|do) (terceiros?|outro agente)",
+    "emitid\\w* por (terceiros?|orgao)"
    ],
    "o_que_guardar": [
     "Pedido do dado ou da ação ao terceiro, com data.",
@@ -182,13 +173,9 @@
    "id": "evento_extremo_defesa_civil",
    "nome": "Evento extremo e Defesa Civil",
    "sinais": [
-    "defesa civil",
-    "eventos? (climatic\\w*|extremo\\w*|severo\\w*|natura\\w*)",
-    "situacao de emergencia",
-    "calamidade",
-    "desastre",
-    "forca maior",
-    "caso fortuito"
+    "(decreto|reconhecimento|homologac\\w*|declarac\\w*) .{0,80}(situacao de emergencia|estado de calamidade|calamidade publica)",
+    "defesa civil.{0,100}(autoriza\\w*|libera\\w*|reconhec\\w*|decret\\w*|acion\\w*|determin\\w*)",
+    "(autoriza\\w*|libera\\w*|reconhec\\w*|decret\\w*|acion\\w*|determin\\w*).{0,100}defesa civil"
    ],
    "o_que_guardar": [
     "Decreto ou ato de situação de emergência ou calamidade, quando houver.",
@@ -203,13 +190,54 @@
    ],
    "cautela": "O precedente indicado é de pandemia em concessões de transmissão e não se transfere automaticamente a outros eventos. A análise é caso a caso.",
    "status": "rascunho — revisar"
+  },
+  {
+   "id": "ato_da_aneel",
+   "nome": "Ato da ANEEL que o cumprimento aguarda",
+   "sinais": [
+    "(instruc\\w* tecnic\\w*|instrucoes|portaria|regulamentac\\w*|especificac\\w*|manual).{0,80}(emitid\\w*|publicad\\w*|divulgad\\w*|disponibilizad\\w*) (pel\\w* )?aneel",
+    "publicacao d\\w+ (instruc\\w*|orientac\\w*|especificac\\w*) pela aneel",
+    "conforme (definid\\w*|estabelecid\\w*|indicad\\w*|orientac\\w*) pel\\w* aneel"
+   ],
+   "o_que_guardar": [
+    "Data em que o ato da ANEEL foi emitido ou publicado e o link ou protocolo do ato.",
+    "Registro de que o cumprimento só pôde começar depois do ato (cronograma interno com o marco do ato).",
+    "Pedidos de esclarecimento ou de definição enviados à ANEEL, com data, e as respostas.",
+    "O que foi feito antes do ato, para mostrar diligência."
+   ],
+   "caminho": "Avaliar com o jurídico se o prazo conta da publicação do ato (quando a norma disser assim) ou se há pedido de prorrogação ou de esclarecimento a apresentar, com a documentação acima.",
+   "precedentes": [
+    "spd_sei_indisponibilidade",
+    "contraponto_tcu"
+   ],
+   "cautela": "Quando a norma conta o prazo da publicação do ato, o marco é a data de publicação. Se o ato ainda não saiu, a análise da ANEEL é caso a caso; não há garantia de prorrogação.",
+   "status": "rascunho — revisar"
   }
  ],
  "a_confirmar": [
-  "Texto da Norma de Organização ANEEL nº 56/2024 (indisponibilidade técnica acima de 60 minutos).",
-  "Texto do art. 19 da Lei 13.360/2016 e seus limites.",
   "Teor das normas municipais de poda (São Paulo e Palmas) e da decisão citada na notícia de Goiânia.",
   "Existência de precedentes da ANEEL específicos para distribuição (as fontes fornecidas tratam de transmissão, do sistema da ANEEL e de poda).",
   "Se a ANEEL aceita, como excludente, a demora de autorização municipal em fiscalização da distribuição."
+ ],
+ "criterio": "Só se marca dependência quando o cumprimento depende de um ATO do terceiro (autorizar, licenciar, aprovar, emitir, ordenar, disponibilizar sistema ou dado). Definições, indicadores e menções ao terceiro sem esse ato (ex.: 'em coordenação com o Poder Público Municipal', 'Situação de Emergência' como termo de um indicador) não contam. Dependência que viria só do tipo da obrigação não é marcada por obrigação.",
+ "normas_referenciadas": [
+  {
+   "norma": "Norma de Organização ANEEL nº 56/2024",
+   "assunto": "indisponibilidade técnica de sistema da ANEEL acima de 60 minutos",
+   "referencia_publica": [
+    "https://canalsolar.com.br/aneel-instabilidade-sistema-protocolo-digital/",
+    "https://brasilenergia.com.br/energia/governo-regulacao/aneel-prorroga-prazos-devido-a-instabilidade-em-sistema"
+   ],
+   "nota": "Descrição conforme as referências públicas; o texto oficial não é reproduzido aqui. Citar o artigo só depois de conferir o texto oficial."
+  },
+  {
+   "norma": "Lei 13.360/2016, art. 19",
+   "assunto": "excludente de responsabilidade por licenciamento ambiental (com limites)",
+   "referencia_publica": [
+    "https://eixos.com.br/energia-eletrica/licenciamento-ambiental-e-responsavel-por-70-dos-atrasos-em-linhas-de-transmissao/",
+    "https://brasilenergia.com.br/energia/o-atraso-no-licenciamento-ambiental-e-o-direito-na-transmissao"
+   ],
+   "nota": "Descrição conforme as referências públicas; o texto oficial não é reproduzido aqui. Os limites estão nas fontes."
+  }
  ]
 }
