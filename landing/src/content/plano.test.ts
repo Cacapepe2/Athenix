@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { brlCurto, celula, comAtenuantePct, csvPlano, decisoesDaSemana, exposicaoTema, lacuna, lerReais, manchete, maximoPct, obrigacao, ordenarTemas, plano, reaisDe, SIM_INICIAL, situacaoPrazo, textoFaixa, type Cenario, type Simulacao } from './plano.ts'
+import { brlCurto, textoVencidas, celula, comAtenuantePct, csvPlano, decisoesDaSemana, exposicaoTema, lacuna, lerReais, manchete, maximoPct, obrigacao, ordenarTemas, plano, reaisDe, SIM_INICIAL, situacaoPrazo, textoFaixa, type Cenario, type Simulacao } from './plano.ts'
 
 test('plano vem do produto, com perfil ilustrativo e sem números soltos', () => {
   assert.equal(plano.gerado_por, 'scripts/exportar_plano_demo.py')
@@ -187,4 +187,23 @@ test('análise preliminar: só obrigações principais, dependência no texto co
   assert.ok(deps.every((d) => d.id === 'ato_da_aneel' && d.trecho_literal.length > 20))
   const manejo = plano.analise.dependencias[plano.analise.pratica_por_tema.manejo]
   assert.match(manejo.cautela, /disputada/)
+})
+
+test('empate de R$: confirmado antes de sugerido, depois mais obrigações vencidas; manchete e decisões usam o mesmo dado', () => {
+  const ordem = ordenarTemas(plano.temas, {}, SIM_INICIAL, 'preliminar')
+  const par = ordem.map((t) => {
+    const e = exposicaoTema(t, SIM_INICIAL, 'preliminar')
+    return [e ? e.pct : -1, e?.origem === 'sugerido' ? 1 : 0, t.contagem.vencida] as const
+  })
+  for (let i = 1; i < par.length; i++) {
+    const [a, b] = [par[i - 1], par[i]]
+    if (a[0] === b[0]) {
+      assert.ok(a[1] <= b[1], 'confirmado antes de sugerido')
+      if (a[1] === b[1]) assert.ok(a[2] >= b[2], 'mais obrigações vencidas primeiro')
+    }
+  }
+  const m = manchete(plano.temas, {}, SIM_INICIAL, 'preliminar')
+  assert.equal(m.obrigacoesVencidas, plano.resumo.por_situacao.vencida)
+  assert.equal(textoVencidas(1), '1 obrigação vencida')
+  assert.equal(textoVencidas(3), '3 obrigações vencidas')
 })

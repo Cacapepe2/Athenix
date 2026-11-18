@@ -236,7 +236,6 @@ def test_manual_da_dependencia_traz_precedentes_com_url_e_contraponto():
         "https://portal.tcu.gov.br/imprensa/noticias/tcu-aprova-solucao-consensual-em-contratos-de-transmissao-de-energia-eletrica",
         "https://www.saopaulo.sp.leg.br/iah/fulltext/leis/L17267.pdf",
         "https://legislativo.palmas.to.gov.br/media/leis/decreto-2.876-2026-03-18-23-3-2026-14-53-1.pdf",
-        "https://www.jornalopcao.com.br/goiania/apos-decisao-do-mpgo-equatorial-goias-afirma-que-responsabilidade-por-podas-regulares-e-da-prefeitura-765210/",
     }
     todas = {u for p in cfg["precedentes"].values() for u in p["urls"]}
     assert todas == urls_permitidas  # só as fontes fornecidas, nenhuma a mais

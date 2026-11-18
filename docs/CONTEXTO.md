@@ -7,8 +7,11 @@ Inteligência regulatória B2B para normas da ANEEL, começando por distribuiç�
 energia. Lê a norma, extrai obrigações **por regras** (não por IA), cita o dispositivo com trecho
 verificado na fonte, calcula prazos e o teto de multa (REN 846, grupos I–V, até 2% da ROL; teto legal
 3%). A IA só **sugere** (enquadramento, título curto). A sugestão aparece marcada como
-"Interpretação da IA · aguarda revisão humana" e fica fora do cálculo. É um MVP técnico, ainda não
-validado comercialmente.
+"Interpretação da IA · aguarda revisão humana" e fica fora do cálculo confirmado. Exceção decidida
+pelo fundador (18/11/2026): no **cenário preliminar** da `/demo` e do relatório-piloto, as sugestões
+entram no valor por tema, sempre marcadas ("sugerido", barra hachurada); no modo **só confirmados**
+vale a regra antiga (só o enquadramento que o texto da obrigação nomeia). No empate de R$, o
+confirmado vem antes do sugerido. É um MVP técnico, ainda não validado comercialmente.
 
 ## Estado (17/11/2026)
 - `main` em `87ba336`. CI verde em Ubuntu, Windows e macOS (284 testes + 4 pulados por falta dos

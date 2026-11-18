@@ -13,7 +13,7 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts"))
 import relatorio_tipos as rt  # noqa: E402
 
-from athenix import tipos_ia  # noqa: E402
+from athenix import enquadramento, tipos_ia  # noqa: E402
 from athenix.config import Settings  # noqa: E402
 
 PRECOS_ILUSTRATIVOS = [
@@ -28,28 +28,40 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--md")
     a = ap.parse_args()
-    itens = rt.analisar()
+    rows, extraction = rt.processar()
+    itens = rt.analisar(rows, extraction)
+    chave = {r["id"]: enquadramento.chave(r) for r in rows}
+    for i in itens:
+        i["chave"] = chave[i["id"]]
     entrada = [{"id": i["id"], "texto": i["texto"]} for i in itens]
     est = {t: tipos_ia.estimar(entrada, Settings(), tamanho=t) for t in (12, 1)}
     cache = tipos_ia.carregar_cache()
-    regras = {i["id"]: i["tipo"] for i in itens}
+    regras = {chave[i["id"]]: i["tipo"] for i in itens}
     comp = tipos_ia.comparar(regras, cache) if cache else None
+    uso = json.loads(tipos_ia.CACHE.read_text(encoding="utf-8")) | {} if cache else None
+    uso = {"gerado_em": uso["gerado_em"], "uso": uso["uso"]} if uso else None
     saida = {
         "estimativa": est,
         "comparacao": tipos_ia.resumo_comparacao(comp) if comp else "sem respostas de IA em cache",
     }
     print(json.dumps(saida, ensure_ascii=False, indent=1, default=str))
     if a.md:
-        Path(a.md).write_text(markdown(est, comp, itens), encoding="utf-8", newline="\n")
+        Path(a.md).write_text(markdown(est, comp, itens, uso), encoding="utf-8", newline="\n")
 
 
-def markdown(est, comp, itens):
+def markdown(est, comp, itens, uso=None):
     e12, e1 = est[12], est[1]
     L = [
         "# Classificação de tipos por IA: estimativa de custo e comparação com as regras",
         "",
-        '**Nenhuma chamada de IA foi feita.** Este arquivo traz a estimativa para o seu "ok" e, depois de uma',
-        "execução autorizada, a comparação regra × IA. Resposta da IA é interpretação",
+        (
+            f"**Uma execução autorizada foi feita em {uso['gerado_em']}**: {uso['uso']['chamadas']} chamadas em lotes de 12, "
+            f"{uso['uso']['tokens_entrada']:,} tokens de entrada e {uso['uso']['tokens_saida']:,} de saída; custo ao PREÇO TETO "
+            f"(US$ 2,50 / US$ 10 por milhão, autorizado pelo fundador, NÃO é o preço real do deployment): US$ {uso['uso']['custo_ao_preco_teto_usd']:.2f}, "
+            f"dentro do orçamento de US$ {uso['uso']['orcamento_usd']:.0f}. Resposta da IA é interpretação"
+        )
+        if uso
+        else '**Nenhuma chamada de IA foi feita.** Este arquivo traz a estimativa para o seu "ok". Resposta da IA é interpretação',
         f'("{tipos_ia.ROTULO}"), validada contra a lista de tipos.',
         "",
         "## Estimativa (168 obrigações da RN 1.137)",
@@ -59,9 +71,8 @@ def markdown(est, comp, itens):
         f"| Uma por obrigação | {e1['chamadas']} | {e1['tokens_entrada']:,} | {e1['tokens_saida_json']:,} | {e1['tokens_saida_teto_com_raciocinio']:,} |",
         "",
         "Método: 1 token ≈ 3 caracteres (heurística do projeto, `athenix/llm.py`); o teto de saída é de 3.000",
-        "tokens por chamada (modelo de raciocínio gasta tokens pensando). **Preço em US$: não calculado**, porque",
-        "este ambiente não tem modelo nem preço configurados (`ATHENIX_INPUT_PRICE`, `ATHENIX_OUTPUT_PRICE`, fonte e",
-        "data do preço). Fórmula: `custo = (entrada × preço_entrada + saída × preço_saída) / 1.000.000`.",
+        "tokens por chamada (modelo de raciocínio gasta tokens pensando). O preço real do deployment não está",
+        "configurado; a execução usou o preço TETO acima. Fórmula: `custo = (entrada × preço_entrada + saída × preço_saída) / 1.000.000`.",
         "",
         "Exemplos ILUSTRATIVOS de preço (não são os do seu deployment), plano de lotes de 12:",
         "| Preço (entrada / saída por 1 M) | Custo mínimo (saída JSON) | Custo máximo (teto de saída) |",
@@ -83,7 +94,7 @@ def markdown(est, comp, itens):
             f"- {r['por_situacao']}; **tipo a revisar: {r['tipo_a_revisar']}**.",
             "",
         ]
-        por_id = {i["id"]: i for i in itens}
+        por_id = {i["chave"]: i for i in itens}
         for x in comp:
             if x["tipo"] == tipos_ia.A_REVISAR:
                 i = por_id[x["id"]]

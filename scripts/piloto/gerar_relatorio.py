@@ -80,22 +80,22 @@ table.portes th, table.portes td { font-size: 8pt; padding: 2.5pt 4pt; }
  </div>
  <div class="manchete">
   <p class="small muted" style="margin:0">Cenário preliminar · faixa ilustrativa · valores por infração, nunca somados</p>
-  <p class="grande">{{ vencidos }} {{ 'tema' if vencidos == 1 else 'temas' }} com prazo vencido · exposição de até <b>{{ pct(top_pct) }} da ROL</b> por infração, no tema mais exposto</p>
+  <p class="grande">{{ vencidos }} {{ 'tema vencido' if vencidos == 1 else 'temas vencidos' }}, {{ n_vencidas }} {{ 'obrigação vencida' if n_vencidas == 1 else 'obrigações vencidas' }} · exposição de até <b>{{ pct(top_pct) }} da ROL</b> por infração, no tema mais exposto</p>
   <table class="portes"><tr><th>Porte (ROL anual, ilustrativo)</th>{% for f in portes %}<th>{{ f.rotulo }} ~{{ brl_curto(f.base) }}</th>{% endfor %}</tr>
   <tr><td>Até, por infração</td>{% for f in portes %}<td><b>{{ brl_curto(f.base * top_pct / 100) }}</b></td>{% endfor %}</tr></table>
   <p class="small muted" style="margin:3pt 0 0">Referência do setor: auto de infração típico em distribuição ≈ {{ brl_curto(esc.mediana_reais) }} (mediana de {{ esc.autos }} autos); maior registrado ≈ {{ brl_curto(esc.maximo_reais) }}. <i>{{ esc.rotulo }}.</i> É o valor do auto inteiro, que pode reunir várias infrações. Em reais, o valor da empresa é % × ROL informada.</p>
  </div>
  <p class="small muted" style="margin:6pt 0">{{ r.aplicaveis }} obrigações para distribuidoras · {{ r.por_situacao.vencida }} com prazo vencido · {{ r.por_situacao['90dias'] }} vencem em 90 dias · {{ r.por_situacao.recorrente }} recorrentes · {{ r.por_situacao.evento + r.por_situacao.sem_prazo }} sem data ({{ r.por_situacao.evento }} dependem de evento)</p>
  <h2>3 decisões para esta semana</h2>
- <ol class="dec">{% for d in p.decisoes.principais %}<li><b>{{ d.nome }}</b> · {% if d.exposicao_pct is not none %}até {{ pct(d.exposicao_pct) }} da ROL por infração{% if d.origem == 'sugerido' %} <span class="ia">(sugerido, aguarda confirmação)</span>{% endif %}{% else %}exposição a enquadrar{% endif %} · {{ prazo_txt(d.prazo) }}</li>{% endfor %}
+ <ol class="dec">{% for d in p.decisoes.principais %}<li><b>{{ d.nome }}</b> · {% if d.exposicao_pct is not none %}até {{ pct(d.exposicao_pct) }} da ROL por infração{% if d.origem == 'sugerido' %} <span class="ia">(sugerido, aguarda confirmação)</span>{% endif %}{% else %}exposição a enquadrar{% endif %} · {{ prazo_txt(d.prazo) }} · {{ d.obrigacoes_vencidas }} {{ 'obrigação vencida' if d.obrigacoes_vencidas == 1 else 'obrigações vencidas' }} (cada uma é uma infração possível; valores não se somam)</li>{% endfor %}
  </ol>
  <p class="small muted">Confirmar enquadramentos libera o cálculo de {{ p.decisoes.confirmar.temas_sem_calculo_confirmado }} temas (hoje só há sugestão). Quem confirma: a definir pela empresa.</p>
  <h2 style="margin-top:6pt">Temas em ordem de reais em risco</h2>
- <table class="resumo"><tr><th>#</th><th>Tema</th><th>Obrigações</th><th>Prazo mais urgente</th><th>Grupo</th><th>Exposição por infração</th></tr>
- {% for t in p.temas %}{% set e = expo(t) %}<tr><td>{{ loop.index }}</td><td><b>{{ t.nome }}</b></td><td>{{ t.n }}</td><td>{{ t.prazo_mais_urgente.texto if t.prazo_mais_urgente else 'Sem data no texto' }}</td>
+ <table class="resumo"><tr><th>#</th><th>Tema</th><th>Obrigações</th><th>Vencidas</th><th>Prazo mais urgente</th><th>Grupo</th><th>Exposição por infração</th></tr>
+ {% for t in p.temas %}{% set e = expo(t) %}<tr><td>{{ loop.index }}</td><td><b>{{ t.nome }}</b></td><td>{{ t.n }}</td><td>{{ t.contagem.vencida }}</td><td>{{ t.prazo_mais_urgente.texto if t.prazo_mais_urgente else 'Sem data no texto' }}</td>
  <td>{% if e[1] == 'confirmado' %}Grupo {{ t.grupos|join(', ') }} (confirmado){% elif e[1] == 'sugerido' %}Grupo {{ t.grupos_sugeridos|last }} <span class="ia">(sugerido)</span>{% else %}A confirmar{% endif %}</td>
  <td>{% if e[0] is not none %}até {{ pct(e[0]) }} da ROL{% if e[1] == 'sugerido' %} <span class="ia">cenário preliminar: inclui sugestão aguardando confirmação</span>{% endif %}{% else %}Exposição a enquadrar{% endif %}</td></tr>{% endfor %}</table>
- <p class="small muted" style="margin-top:3pt">Ordem: o que a empresa marcar como já atendido vai para o fim; depois, a exposição máxima por infração do tema (maior primeiro); prazo vencido antes de a vencer; número de obrigações. O valor provável não é estimável (sem histórico de multas). Exposições de infrações diferentes não se somam.</p>
+ <p class="small muted" style="margin-top:3pt">Ordem: o que a empresa marcar como já atendido vai para o fim; depois, a exposição máxima por infração do tema (maior primeiro); no empate, confirmado antes de sugerido; depois mais obrigações vencidas (cada uma é uma infração possível); depois o prazo. O valor provável não é estimável (sem histórico de multas). Exposições de infrações diferentes não se somam.</p>
  <div class="aviso">Iniciativa em validação. Estimativa ilustrativa com base nas premissas listadas; não indica descumprimento da empresa e não constitui parecer jurídico. Prazos são provisórios até confirmação da contagem. Interpretações da IA aguardam revisão humana; só entram no valor do cenário preliminar, sempre marcadas como sugestão. Exposições de obrigações diferentes não devem ser somadas.</div>
 </section>
 
@@ -233,6 +233,7 @@ def main():
             faixa=faixa,
             expo=plano.exposicao_pct,
             vencidos=len(vencidos),
+            n_vencidas=sum(t["contagem"]["vencida"] for t in vencidos),
             top_pct=top_pct,
             portes=portes,
             brl_curto=brl_curto,
@@ -259,7 +260,10 @@ def main():
         r'<div class="manchete">.*?</div>', "", html.split("Premissas da exposição")[0], flags=re.S
     )
     fora = fora.replace("ROL dos 12 meses anteriores (base da REN 846, Art. 21), R$", "").replace("Faturamento bruto dos 12 meses (teto legal, dúvida D6), R$", "").replace("Em R$", "")  # fmt: skip
-    assert "R$" not in fora, "valor em reais sem base informada"
+    assert "R$" not in fora, (
+        "valor em reais sem base informada: "
+        + fora[max(0, fora.index("R$") - 80) : fora.index("R$") + 60]
+    )
     (SAIDA.with_suffix(".html")).write_text(html, encoding="utf-8")
     with sync_playwright() as pw:
         b = pw.chromium.launch(channel="msedge")

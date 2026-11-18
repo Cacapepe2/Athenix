@@ -30,8 +30,9 @@ NOMES_SITUACAO = {
 ORDEM_PLANO = (
     "Sem histórico de multas, o valor provável não é estimável. Ordenamos por: 1) o que você marcou "
     "como já atendido vai para o fim; 2) exposição máxima por infração do tema, no porte escolhido "
-    "(a maior primeiro; tema sem enquadramento, nem sugerido, fica depois); 3) prazo vencido antes de "
-    "a vencer (o mais antigo primeiro), depois recorrente e sem data; 4) número de obrigações. "
+    "(a maior primeiro; tema sem enquadramento, nem sugerido, fica depois); 3) no empate do valor em reais, o "
+    "enquadramento confirmado antes do sugerido; 4) mais obrigações vencidas (cada uma é uma infração "
+    "possível); 5) prazo vencido antes de a vencer (o mais antigo primeiro), depois recorrente e sem data. "
     "Exposições de infrações diferentes não se somam: vale a maior de cada tema."
 )
 # Como reduzir a exposição. Trecho, dispositivo e percentual vêm do catálogo (fonte e hash); a
@@ -88,10 +89,14 @@ def ordenar_temas(temas, diagnostico=None, preliminar=True):
     def chave(t):
         degrau = min((DEGRAU[s] for s in SITUACOES if t["contagem"][s]), default=5)
         data = (t["prazo_mais_urgente"] or {}).get("data") or "9999-12-31"
-        valor = exposicao_pct(t, preliminar)[0]
+        valor, origem = exposicao_pct(t, preliminar)
         return (
             diag.get(t["id"]) == "sim",
             -(-1 if valor is None else valor),
+            origem == "sugerido",  # no empate de R$, confirmado antes de sugerido
+            -t["contagem"][
+                "vencida"
+            ],  # cada obrigação vencida é uma infração possível; R$ nunca soma
             degrau,
             data if degrau < 3 else "",
             -t["n"],
@@ -495,6 +500,7 @@ def decisoes(obrigacoes, temas, preliminar=True):
             "exposicao_pct": exposicao_pct(t, preliminar)[0],
             "origem": exposicao_pct(t, preliminar)[1],
             "prazo": t["prazo_mais_urgente"],
+            "obrigacoes_vencidas": t["contagem"]["vencida"],
         }
         for t in temas[:3]
     ]

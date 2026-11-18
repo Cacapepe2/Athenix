@@ -186,7 +186,8 @@ function chave(t: Tema, d: Diagnostico | undefined, s: Simulacao | null, modo: M
   const degrau = degraus.length ? Math.min(...degraus) : 5
   const data = t.prazo_mais_urgente?.data ?? '9999-12-31'
   const e = exposicaoTema(t, s, modo)
-  return [d === 'sim' ? 1 : 0, e ? -e.pct : 1, degrau, degrau < 3 ? data : '', -t.n]
+  // R$ por infração; empate: confirmado antes de sugerido; depois mais obrigações vencidas (cada uma é uma infração possível, o R$ nunca soma); depois o prazo.
+  return [d === 'sim' ? 1 : 0, e ? -e.pct : 1, e?.origem === 'sugerido' ? 1 : 0, -t.contagem.vencida, degrau, degrau < 3 ? data : '', -t.n]
 }
 
 export function ordenarTemas(temas: Tema[], diag: Diagnosticos = {}, sim: Simulacao | null = SIM_INICIAL, modo: Modo = 'preliminar'): Tema[] {
@@ -212,8 +213,12 @@ export function decisoesDaSemana(temas: Tema[], diag: Diagnosticos, sim: Simulac
   return ordenarTemas(temas, diag, sim, modo).filter((t) => diag[t.id] !== 'sim').slice(0, 3)
 }
 
+/** "3 obrigações vencidas": cada uma é uma infração possível; o R$ nunca é somado. */
+export const textoVencidas = (n: number) => `${n} ${n === 1 ? 'obrigação vencida' : 'obrigações vencidas'}`
+
 export interface Manchete {
   temasVencidos: number
+  obrigacoesVencidas: number
   maximo: Exposicao | null
   /** Temas vencidos cuja exposição vem só de sugestão (cenário preliminar). */
   sugeridos: number
@@ -224,7 +229,7 @@ export function manchete(temas: Tema[], diag: Diagnosticos, sim: Simulacao | nul
   const vencidos = temas.filter((t) => t.contagem.vencida && diag[t.id] !== 'sim')
   const exps = vencidos.map((t) => exposicaoTema(t, sim, modo)).filter((e): e is Exposicao => e != null)
   const maximo = exps.length ? exps.reduce((a, b) => (b.pct > a.pct ? b : a)) : null
-  return { temasVencidos: vencidos.length, maximo, sugeridos: exps.filter((e) => e.origem === 'sugerido').length }
+  return { temasVencidos: vencidos.length, obrigacoesVencidas: vencidos.reduce((n, t) => n + t.contagem.vencida, 0), maximo, sugeridos: exps.filter((e) => e.origem === 'sugerido').length }
 }
 
 /** Por que o tema está nesta posição, nas palavras da regra de ordem. */

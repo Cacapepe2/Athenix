@@ -50,11 +50,10 @@
    "titulo": "Poda: distribuidora depende de autorização municipal; disputa sobre a responsabilidade",
    "urls": [
     "https://www.saopaulo.sp.leg.br/iah/fulltext/leis/L17267.pdf",
-    "https://legislativo.palmas.to.gov.br/media/leis/decreto-2.876-2026-03-18-23-3-2026-14-53-1.pdf",
-    "https://www.jornalopcao.com.br/goiania/apos-decisao-do-mpgo-equatorial-goias-afirma-que-responsabilidade-por-podas-regulares-e-da-prefeitura-765210/"
+    "https://legislativo.palmas.to.gov.br/media/leis/decreto-2.876-2026-03-18-23-3-2026-14-53-1.pdf"
    ],
-   "o_que_e": "Duas normas municipais (São Paulo e Palmas) e uma notícia (Goiânia) sobre poda e a divisão de responsabilidade entre distribuidora e prefeitura. Links: https://www.saopaulo.sp.leg.br/iah/fulltext/leis/L17267.pdf; https://legislativo.palmas.to.gov.br/media/leis/decreto-2.876-2026-03-18-23-3-2026-14-53-1.pdf; https://www.jornalopcao.com.br/goiania/apos-decisao-do-mpgo-equatorial-goias-afirma-que-responsabilidade-por-podas-regulares-e-da-prefeitura-765210/.",
-   "a_confirmar": "Teor de cada norma municipal e a decisão citada na notícia: não lidos. Normas municipais valem só no município."
+   "o_que_e": "Duas normas municipais (São Paulo e Palmas) sobre poda e a divisão de responsabilidade entre distribuidora e prefeitura. Links: https://www.saopaulo.sp.leg.br/iah/fulltext/leis/L17267.pdf; https://legislativo.palmas.to.gov.br/media/leis/decreto-2.876-2026-03-18-23-3-2026-14-53-1.pdf.",
+   "a_confirmar": "Teor de cada norma municipal: não lido. Normas municipais valem só no município."
   }
  },
  "tipos": [
@@ -215,7 +214,7 @@
   }
  ],
  "a_confirmar": [
-  "Teor das normas municipais de poda (São Paulo e Palmas) e da decisão citada na notícia de Goiânia.",
+  "Teor das normas municipais de poda (São Paulo e Palmas).",
   "Existência de precedentes da ANEEL específicos para distribuição (as fontes fornecidas tratam de transmissão, do sistema da ANEEL e de poda).",
   "Se a ANEEL aceita, como excludente, a demora de autorização municipal em fiscalização da distribuição."
  ],

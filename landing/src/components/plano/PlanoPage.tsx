@@ -4,7 +4,7 @@ import { AlertTriangle, Download, Printer, Sparkles } from 'lucide-react'
 import { Logo } from '../ui/Logo'
 import { Tag } from '../product/Tag'
 import {
-  brl, brlCurto, comAtenuantePct, csvPlano, dataBR, decisoesDaSemana, exposicaoTema, lacuna, lerReais, manchete, NOTA_ADVERTENCIA, nomeDiag,
+  brl, brlCurto, comAtenuantePct, csvPlano, dataBR, decisoesDaSemana, exposicaoTema, lacuna, lerReais, manchete, NOTA_ADVERTENCIA, textoVencidas, nomeDiag,
   obrigacao, ordenarTemas, pct, plano, reaisDe, situacaoPrazo, SIM_INICIAL, textoFaixa,
   type Citacao, type Diagnostico, type Diagnosticos, type Exposicao, type Medida, type Modo, type Obrigacao, type Simulacao, type Situacao, type Tema,
 } from '../../content/plano'
@@ -59,7 +59,7 @@ export function PlanoPage() {
     return () => window.removeEventListener('beforeprint', antes)
   }, [])
   const marcar = (id: string, d: Diagnostico) => setDiag((atual) => ({ ...atual, [id]: d }))
-  const vencidos = m.temasVencidos === 0 ? 'Nenhum tema com prazo vencido em aberto' : `${m.temasVencidos} ${m.temasVencidos === 1 ? 'tema' : 'temas'} com prazo vencido (data provisória)`
+  const vencidos = m.temasVencidos === 0 ? 'Nenhum tema com prazo vencido em aberto' : `${m.temasVencidos} ${m.temasVencidos === 1 ? 'tema vencido' : 'temas vencidos'}, ${textoVencidas(m.obrigacoesVencidas)} (datas provisórias)`
   const esc = plano.referencia_escala
 
   return <Imprimindo.Provider value={imprimindo}><Cenario.Provider value={{ sim, modo }}>
@@ -81,6 +81,7 @@ export function PlanoPage() {
               ? <>exposição de até <span className="whitespace-nowrap text-slate-blue">{valorCurto(m.maximo)}</span> por infração, no tema vencido mais exposto</>
               : 'exposição a enquadrar'}
           </h1>
+          <p className="mt-2 text-sm text-ink-soft">Cada obrigação vencida é uma infração possível; os valores por infração não se somam.</p>
           <div className="mt-4 flex flex-wrap items-center gap-3">
             {modo === 'preliminar' && m.sugeridos > 0 && <Sugerido texto={PRELIMINAR} />}
             {modo === 'confirmados' && <span className="text-sm text-ink-soft">Só enquadramentos que o texto da obrigação nomeia.</span>}
@@ -103,7 +104,7 @@ export function PlanoPage() {
                 <div className="min-w-0">
                   <a href={`#tema-${t.id}`} className="font-semibold leading-snug text-slate-blue underline decoration-slate-blue/30 underline-offset-4 hover:decoration-slate-blue">{t.nome}</a>
                   <p className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
-                    <span>{e ? <>até <strong>{valor(e)}</strong> por infração</> : 'exposição a enquadrar'}</span>
+                    <span>{e ? <>até <strong>{valor(e)}</strong> por infração</> : 'exposição a enquadrar'}{t.contagem.vencida > 0 && <> · {textoVencidas(t.contagem.vencida)}</>}</span>
                     <span aria-hidden="true" className="text-ink-soft">·</span>
                     <span className="text-ink-soft">{situacaoPrazo(t)}</span>
                     {e?.origem === 'sugerido' && <Sugerido />}
@@ -244,7 +245,7 @@ function CartaoTema({ tema: t, posicao, diag, marcar, maiorPct }: { tema: Tema; 
 
     <div className="mt-5">
       {e ? <>
-        <p className="text-lg"><span className="font-display text-2xl font-semibold sm:text-3xl">até {valor(e)}</span> <span className="text-ink-soft">por infração</span></p>
+        <p className="text-lg"><span className="font-display text-2xl font-semibold sm:text-3xl">até {valor(e)}</span> <span className="text-ink-soft">por infração{t.contagem.vencida > 0 && <> · {textoVencidas(t.contagem.vencida)}</>}</span></p>
         <div className="mt-2 flex items-center gap-3">
           <div aria-hidden="true" className="h-3 flex-1 overflow-hidden rounded-full bg-stone print:border print:border-line">
             <div className={`h-full rounded-full ${e.origem === 'sugerido' ? 'hachura' : 'bg-slate-blue'}`} style={{ width: `${maiorPct ? Math.max(2, (e.pct / maiorPct) * 100) : 0}%` }} />

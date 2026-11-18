@@ -1,6 +1,8 @@
 """Classificação por IA: lotes, estimativa, validação da resposta e comparação com as regras. Sem chamada."""
 
-from athenix import tipos_ia
+import json
+
+from athenix import tipos, tipos_ia
 from athenix.config import Settings
 
 ITENS = [{"id": f"id{i}", "texto": f"Texto da obrigação {i}."} for i in range(25)]
@@ -71,3 +73,44 @@ def test_concordam_mostra_o_tipo_e_discordam_vira_tipo_a_revisar():
 
 def test_cache_ausente_nao_chama_nada():
     assert tipos_ia.carregar_cache("/caminho/que/nao/existe.json") == {}
+
+
+def _fake(tipo="comunicar_consumidores"):
+    chamadas = []
+
+    def chamar(corpo):
+        chamadas.append(corpo)
+        ids = [x.split('"')[1] for x in corpo["messages"][1]["content"].split("<obrigacao id=")[1:]]
+        conteudo = json.dumps({"itens": [{"id": i, "tipo": tipo} for i in ids]})
+        return {
+            "status": "ok",
+            "raw": {
+                "choices": [{"finish_reason": "stop", "message": {"content": conteudo}}],
+                "usage": {"prompt_tokens": 1000, "completion_tokens": 500},
+            },
+        }
+
+    return chamar, chamadas
+
+
+def test_rodar_respeita_o_orcamento_e_grava_so_o_tipo_validado():
+    from types import SimpleNamespace
+
+    cfg = tipos.carregar()
+    itens = [{"id": f"id{n:02d}", "texto": f"A distribuidora deve comunicar o consumidor {n}."} for n in range(30)]  # fmt: skip
+    lotes = tipos_ia.montar_lotes(itens, tamanho=12, cfg=cfg)
+    st = SimpleNamespace(model="m", reasoning_effort="low")
+    preco = {"entrada": 2.5, "saida": 10.0}
+    chamar, chamadas = _fake()
+    ok = tipos_ia.rodar(lotes, st, preco, 1.0, chamar, cfg)
+    assert len(chamadas) == 3 and len(ok["tipos"]) == 30 and not ok["falhas"]
+    assert ok["uso"]["custo_ao_preco_teto_usd"] == round(3 * (1000 * 2.5 + 500 * 10) / 1e6, 6)
+    assert "raw" not in json.dumps(ok)  # nenhuma resposta bruta guardada
+    # orçamento menor que o pior caso de uma chamada (3000 tokens de saída): nem chama
+    chamar, chamadas = _fake()
+    curto = tipos_ia.rodar(lotes, st, preco, 0.01, chamar, cfg)
+    assert chamadas == [] and curto["falhas"] and curto["tipos"] == {}
+    # tipo fora da lista não é aceito
+    chamar, _ = _fake(tipo="tipo_inventado")
+    ruim = tipos_ia.rodar(lotes[:1], st, preco, 1.0, chamar, cfg)
+    assert ruim["tipos"] == {} and ruim["falhas"]

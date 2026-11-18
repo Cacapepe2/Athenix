@@ -13,7 +13,7 @@ sai marcado "só pela regra · IA não consultada" e a pessoa decide. Não é pa
 import json
 from pathlib import Path
 
-from . import dependencias, tipos, tipos_ia
+from . import dependencias, enquadramento, tipos, tipos_ia
 from .evidence import verify
 from .normalizacao import espacos
 
@@ -53,6 +53,7 @@ def montar(out, rows, extraction, cache_ia=None):
     units = extraction["units"]
     por_unidade = {u["id"]: u for u in units}
     por_obrigacao = {o["id"]: o for o in out["obrigacoes"]}
+    por_linha = {r["id"]: r for r in rows}
     manuais, deps = {}, {}
 
     def verificar(trecho, unit_id):
@@ -83,7 +84,7 @@ def montar(out, rows, extraction, cache_ia=None):
                 continue
             texto = espacos(unit["text"])
             detalhe = bool(unit["parent"]) and unit["kind"] in TIPOS_DE_DETALHE
-            tipo = _tipo(texto, detalhe, cache_ia, oid, cfg_tipos)
+            tipo = _tipo(texto, detalhe, cache_ia, enquadramento.chave(por_linha[oid]), cfg_tipos)
             if tipo["id"] and tipo["id"] not in manuais:
                 m = tipos.manual(tipo["id"], cfg_tipos)
                 manuais[tipo["id"]] = {

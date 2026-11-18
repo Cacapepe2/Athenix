@@ -294,3 +294,23 @@ def test_o_que_guardar_e_sugestao_ligada_ao_texto_do_dever():
     assert "indisponibilidade" in m["guardar"]  # "sítio eletrônico"
     assert "versoes" in m["guardar"]  # "plano"
     assert "não são exigência da norma" in CFG["descricao_guardar"].lower()
+
+
+def test_empate_de_reais_confirmado_antes_de_sugerido_depois_mais_obrigacoes_vencidas():
+    def com_vencidas(tid, n, conf=None, sug=None, data="2026-04-28"):
+        t = tema(tid, "vencida", data, conf=conf, sug=sug)
+        t["contagem"]["vencida"] = n
+        return t
+
+    temas = [
+        com_vencidas("sugerido_5", 5, sug=1.0),
+        com_vencidas("confirmado_1", 1, conf=1.0),
+        com_vencidas("confirmado_3", 3, conf=1.0, data="2026-05-28"),
+        com_vencidas("menor_valor", 9, conf=0.5),
+    ]
+    assert ids(plano.ordenar_temas(temas)) == [
+        "confirmado_3",  # mais obrigações vencidas entre os confirmados
+        "confirmado_1",
+        "sugerido_5",  # confirmado vem antes de sugerido, mesmo com menos vencidas
+        "menor_valor",  # R$ menor vem depois, qualquer que seja o número de vencidas
+    ]
