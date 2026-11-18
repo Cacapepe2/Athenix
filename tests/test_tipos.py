@@ -231,7 +231,9 @@ def test_trecho_literal_e_a_frase_inteira_mesmo_com_quebra_de_linha_do_pdf():
     ]
     texto = chr(10).join(linhas)
     (d,) = [x for x in dependencias.detectar(texto) if x["id"] == "autorizacao_municipal"]
-    assert d["trecho_literal"] == texto.rstrip(".")  # não para na quebra de linha (o ponto final fica de fora)
+    assert d["trecho_literal"] == texto.rstrip(
+        "."
+    )  # não para na quebra de linha (o ponto final fica de fora)
 
 
 @pytest.mark.parametrize(
