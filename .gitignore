@@ -18,3 +18,4 @@ tests/fontes_impacto/*.pdf
 node_modules/
 dist/
 .vercel/
+.review/
