@@ -166,3 +166,66 @@ Dicionário x dados reais (a conferir no Bloco 4, afetam o cálculo):
 - `CodObjetoFiscalizado` (declarado 21): 56 valores maiores, até 561 (vários códigos concatenados).
   Os valores trazem espaço à esquerda; comparar sempre depois de `strip`.
 - Datas no CSV estão em `AAAA-MM-DD`.
+
+## Consistência HTML × PDF: atos do DOU (3.2)
+Pares em `tests/fontes_impacto/dou/` (HTML da matéria + "versão certificada" em PDF), baixados em
+17/11/2026. Pipeline do Athenix, sem IA. Reproduzir: `python scripts/comparar_dou.py`; regressão:
+`tests/test_dou.py`. Texto guardado intacto; normalização (`athenix.normalizacao`) só na comparação.
+
+**O PDF certificado é a página do DOU, não o ato.** Só o Despacho 1.293 cabe inteiro na página. As
+resoluções continuam nas páginas seguintes, então a comparação vale para a parte que o PDF cobre
+(o resto é "fora da cobertura", não diferença de leitura). Faltam as páginas seguintes para fechar os
+pares da REN 1.162 (cobertura 26%) e da REN 1.174 (9%).
+
+| Ato | Par completo? | Antes → depois | Status |
+|---|---|---|---|
+| Despacho 1.293/2026 (DOU 23/04, p. 66) | sim (100%) | palavras do PDF achadas em ordem no HTML 5,2% → 98,8%; unidades sem par 2 → 0; itens sem par 4 → 0 | 2 diferenças restantes: 1 de espaçamento (`36 a`/`36a`); órgão ausente no PDF |
+| REN 1.162/2026 (DOU 24/06, p. 92) | não (26%; falta pág. 93+) | 97,5% → 99,9%; unidades sem par 7 → 0; texto de unidade diferente 2 → 0; itens sem par 3 → 0 | 3 restantes: 2 de espaçamento (`n o`/`no`, `da`/`decorrentesda`); órgão ausente no PDF |
+| REN 1.174/2026 (DOU 04/11, p. 68) | não (9%; falta pág. 69+) | 45,2% → 100%; unidades sem par 14 → 0; texto diferente 13 → 0; itens sem par 34 → 0 | sem diferença na parte coberta |
+
+Na área coberta, estrutura (artigos, parágrafos, incisos, alíneas, caminhos), normas alteradas e
+citadas, obrigações/prazos extraídos e citações literais são iguais nos dois formatos. Cabeçalho:
+tipo, número, data, edição, página e ementa batem; o PDF omite o órgão em 2 dos 3 atos.
+
+**Causas gerais corrigidas (cada uma com teste de regressão no arquivo real):**
+1. *Layout em colunas (leitura do PDF).* A página do DOU tem 2 colunas e os atos se intercalavam
+   linha a linha. `structure.page_sides` detecta o corredor (faixa livre ≥ 8 pt, linhas largas dos
+   dois lados, nenhuma tabela cruzando) e lê coluna a coluna; coluna única, tabela e os PDFs do
+   acervo saem idênticos. Cada palavra fica na coluna do seu centro (o número da página fica no meio).
+2. *Ruído do DOU como conteúdo.* `athenix/dou.py` isola como ruído rotulado: cabeçalho
+   (`Seção 1 · ISSN · Nº/edição/data`), rodapé (verificação, assinatura ICP-Brasil, selo), número da
+   página, cabeçalho de órgão e, no HTML, navegação, botões e rodapé do portal (o extrator geral
+   punha "Caminho de Navegação…" no preâmbulo).
+3. *Vários atos na mesma página.* O ato pedido é conteúdo; os outros são "outros atos na página",
+   separados pelo título. Requisito para o INLABS (`docs/INLABS.md`). Título do DOU com o "DE"
+   omitido (`27 OUTUBRO DE 2026`, nas Resoluções Autorizativas 16.820 e 16.822) é aceito.
+4. *Texto invisível.* O PDF traz texto branco sobre branco (`W:0.0035cm H:0.0035cm` sob as linhas
+   de pontos; conferido por renderização): ruído "texto_invisivel".
+5. *Norma-alvo do bloco citado (`segment`).* A 1ª linha de um bloco citado que cita outra norma
+   ("…art. 2º da Resolução Normativa nº 1.029…") trocava a norma-alvo no HTML (linha inteira) mas
+   não no PDF (a linha quebra): o art. 35-A saía como da RN 1.029, e não da RN 875. A linha que abre
+   aspas não troca mais o alvo. Causa geral de qualquer norma com blocos de alteração.
+6. *Remissão a "Anexo" no início de linha quebrada (`segment`).* "Anexo I do Decreto nº 2.335…"
+   virava um anexo falso no PDF (e truncava o preâmbulo). A continuação em minúscula (`do`, `da`,
+   `ao`…) denuncia a remissão, como já se fazia para `§ … do art.`.
+
+**O que continua diferente (sem correção geral segura):**
+- *Espaços perdidos no PDF* (`36a`, `decorrentesda`): a camada de texto do DOU justifica o texto
+  sem emitir espaço entre algumas palavras. Causa: leitura do PDF/layout do DOU. A comparação trata
+  como equivalente depois de normalizar; o texto guardado do PDF mantém a leitura original.
+- *Órgão ausente no PDF* (REN 1.162 e Despacho 1.293): o órgão é título de seção na página, e
+  nesses dois a página não o traz junto do ato. Causa: layout do DOU. O órgão vem do HTML.
+- *Ementa da REN 1.162*: o PDF traz um glifo `q` solto antes da ementa; igual no HTML, então não
+  gera diferença entre os formatos (observado, não tratado).
+- Os pares só fecham com as páginas seguintes das resoluções (o botão "Diário Completo").
+
+## Decisão de penalidade (3.4)
+`athenix/penalidade.py` lê, por regras, voto/despacho de recurso contra auto de infração: agente
+(INTERESSADO), processo, auto de infração, efeito, valor decidido e dispositivos citados como
+infringidos, cada campo com trecho literal e página (`tests/test_penalidade.py`). Nenhum dos três
+atos do DOU do acervo decide multa: o Despacho 1.293 indefere uma súmula sobre os arts. 36 a 45 da
+REN 846, sem agente nem valor. Os dois votos da ANEEL em `.local/dados_aneel/` são decisões:
+- Proc. 48500.006992/2022-98, Taesa, AI 0018/2023-SFT: multa reformada para R$ 8.738.737,50.
+- Proc. 48500.004507/2021-61, Neoenergia Pernambuco, AI 002/2022-SFE: multa mantida em
+  R$ 32.949.775,22.
+Resultado "pendente de revisão humana". Ainda não conferido com o CSV (Bloco 4).

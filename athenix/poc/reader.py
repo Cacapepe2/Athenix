@@ -11,7 +11,7 @@ from pathlib import Path
 
 import pdfplumber
 
-from ..structure import from_pieces, independent_source, struck_runs
+from ..structure import from_pieces, independent_source, page_sides, struck_runs
 
 FAITHFUL, UNCERTAIN, MISSING, REVIEW = "faithful", "uncertain", "not_extracted", "needs_review"
 _RANK = {FAITHFUL: 0, UNCERTAIN: 1, REVIEW: 2, MISSING: 3}
@@ -59,7 +59,8 @@ def _page_lines(page, ocr_page):
         ]
     lines = [
         {"text": ln["text"], "bbox": [ln["x0"], ln["top"], ln["x1"], ln["bottom"]], "conf": None}
-        for ln in page.extract_text_lines()
+        for side in page_sides(page)
+        for ln in side.extract_text_lines()
         if ln["text"].strip()
     ]
     return "text_layer", lines
