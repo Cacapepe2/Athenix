@@ -183,3 +183,68 @@ def test_ordem_dos_temas_pelo_prazo_gravidade_e_diagnostico():
         "evento_sem_grupo",
         "vencida_antiga",
     ]
+
+
+def cenarios(base="5000000000"):
+    """Resultados do motor com cada atenuante e valor base no teto do grupo (como o exportador)."""
+    out = {}
+    for a in ("espontanea", "ate_tn"):
+        form = {"segmento": "distribuicao", "base": base, "data_referencia": "2026-11-17"}
+        p = impacto.perfil(form | {"atenuante": a, "fracao_valor_base": "100"})
+        out[a] = impacto.avaliar(PARAMS, ROWS, p)
+    return out
+
+
+def test_reducao_cita_o_catalogo_e_nao_inventa_percentual():
+    r = montar()["reducao"]
+    assert r["rotulo"] == "Análise regulatória preliminar · não constitui parecer jurídico"
+    por_id = {m["parametro"]: m for m in r["medidas"]} | {g["parametro"]: g for g in r["regras"]}
+    assert {"atenuante_espontanea", "atenuante_tn", "atenuantes_nao_cumulativas"} <= set(por_id)
+    assert "atenuante_comprovacao" in por_id
+    for pid, m in por_id.items():
+        par = PARAMS["parametros"][pid]
+        assert m["trecho"] == par["trecho"] and m["dispositivo"] == par["dispositivo"]
+        assert m["sha256"] == PARAMS["fontes"][par["fonte"]]["sha256"]
+        assert m["percentual"] == (par["percentuais"] or [None])[0]
+    assert por_id["atenuante_espontanea"]["percentual"] == 95.0
+    # Sem percentual no texto, o efeito diz isso em vez de inventar um número.
+    for pid in ("advertencia", "metodologia_afastavel"):
+        assert por_id[pid]["percentual"] is None
+        assert "não fixa percentual" in por_id[pid]["efeito"]
+
+
+def test_cenario_com_atenuante_vem_do_motor_e_nao_mexe_no_maximo():
+    sem, com = montar(), plano.montar(
+        impacto.avaliar(PARAMS, ROWS, impacto.perfil({"segmento": "distribuicao", "base": "5000000000", "data_referencia": "2026-11-17"})),
+        UNITS, PARAMS, impacto.perfil({"segmento": "distribuicao", "base": "5000000000", "data_referencia": "2026-11-17"}),
+        CFG_TESTE, chave=lambda r: r["id"], cenarios=cenarios(),
+    )  # fmt: skip
+    f_sem = next(o["faixa"] for o in sem["obrigacoes"] if o["faixa"])
+    f_com = next(o["faixa"] for o in com["obrigacoes"] if o["faixa"])
+    assert f_sem["com_atenuante_pct"] == {} and f_com["maximo_pct"] == f_sem["maximo_pct"]
+    teto = f_com["teto_grupo_pct"]
+    assert f_com["com_atenuante_pct"]["espontanea"] == pytest.approx(teto * 0.05)
+    assert f_com["com_atenuante_pct"]["ate_tn"] == pytest.approx(teto * 0.5)
+    assert f_com["com_atenuante_reais"]["ate_tn"] == pytest.approx(teto * 0.5 / 100 * 5e9)
+    assert f_com["teto_legal_lei_pct"] == PARAMS["parametros"]["teto_legal_lei"]["percentuais"][0]
+
+
+def test_causa_externa_sem_texto_fica_a_confirmar_com_advogado():
+    for t in montar()["temas"]:
+        assert t["excludentes"] == [] and t["causa_externa"] == "argumento a confirmar com advogado"
+    # Com excludente no texto da própria obrigação, o trecho literal é citado.
+    texto = "94. As distribuidoras devem publicar o plano, ressalvados os casos de força maior."
+    rows = [row("f", "u1", texto)]
+    p = impacto.perfil({"segmento": "distribuicao", "base": "", "data_referencia": "2026-11-17"})
+    out = plano.montar(impacto.avaliar(PARAMS, rows, p), UNITS, PARAMS, p, CFG_TESTE, chave=lambda r: r["id"])  # fmt: skip
+    t = next(t for t in out["temas"] if t["n"])
+    assert t["excludentes"] == [{"obrigacao": "f", "trecho": texto}] and t["causa_externa"] is None
+
+
+def test_o_que_guardar_e_sugestao_ligada_ao_texto_do_dever():
+    out = montar()
+    assert set(out["guardar"]) == {g["id"] for g in CFG["guardar"]}
+    m = next(o for o in out["obrigacoes"] if o["id"] == "m")
+    assert "indisponibilidade" in m["guardar"]  # "sítio eletrônico"
+    assert "versoes" in m["guardar"]  # "plano"
+    assert "não são exigência da norma" in CFG["descricao_guardar"].lower()

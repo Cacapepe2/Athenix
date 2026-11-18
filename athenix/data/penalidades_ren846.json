@@ -456,6 +456,17 @@
    ],
    "fonte": "846"
   },
+  "atenuante_comprovacao": {
+   "descricao": "Atenuantes só contam se comprovadas à Fiscalização antes do AI",
+   "dispositivo": "Art. 24, Parágrafo único",
+   "trecho": "Parágrafo único. Para consideração das circunstâncias atenuantes na definição do valor da multa, a cessação da infração e a reparação dos danos causados ao serviço e aos consumidores ou usuários devem ser comprovadas à Fiscalização previamente à lavratura do AI.",
+   "ancora": "verified",
+   "motivo": null,
+   "nota": null,
+   "revogado": null,
+   "percentuais": [],
+   "fonte": "846"
+  },
   "reducao_renuncia": {
    "descricao": "Redução por renúncia ao recurso",
    "dispositivo": "Art. 38, § 2º",

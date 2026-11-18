@@ -5,5 +5,12 @@
  "base": "5000000000",
  "origem_base": "Ordem de grandeza da Receita Operacional Líquida anual de distribuidoras de médio porte em demonstrações financeiras públicas de 2024 (cerca de R$ 4,5 bilhões a R$ 10,7 bilhões, segundo notícias sobre os balanços consultadas em 17/11/2026). Valor arredondado; não conferido nos balanços originais.",
  "nota_faturamento": "Faturamento bruto em branco de propósito: a demonstração mostra o aviso da dúvida D6 (teto legal possivelmente subestimado).",
- "data_referencia": "2026-11-17"
+ "data_referencia": "2026-11-17",
+ "faixas_porte": [
+  {"id": "pequena", "rotulo": "Pequena", "base": "1000000000"},
+  {"id": "media", "rotulo": "Média", "base": "5000000000"},
+  {"id": "grande", "rotulo": "Grande", "base": "10000000000"},
+  {"id": "muito_grande", "rotulo": "Muito grande", "base": "20000000000"}
+ ],
+ "origem_faixas": "Faixa ilustrativa, definida pela Athenix: ordens de grandeza arredondadas de receita operacional líquida anual, sem conferência em balanços de empresas."
 }

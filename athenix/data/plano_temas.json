@@ -23,5 +23,15 @@
   {"id": "relatorio", "texto": "Relatório elaborado, com data e destinatário", "padrao": "relatório"},
   {"id": "compensacao", "texto": "Memória de cálculo das compensações e crédito ao consumidor", "padrao": "compensaç"},
   {"id": "contrato", "texto": "Contrato ou instrumento assinado", "padrao": "contrato"}
+ ],
+ "descricao_guardar": "O que guardar desde já para sustentar um atenuante ou uma defesa: sugestões de boa prática da Athenix, ligadas ao tipo de obrigação pelas palavras do dever. Não são exigência da norma.",
+ "guardar": [
+  {"id": "indisponibilidade", "texto": "Registro de indisponibilidade de sistemas e canais (próprios ou de terceiros), com início, fim, causa e chamado aberto ao fornecedor", "padrao": "sistema|aplicativo|canais|sítio eletrônico|Internet|SMS|telefônic"},
+  {"id": "protocolos", "texto": "Protocolos de envio e de recebimento das comunicações, com data, hora e número", "padrao": "comunica|informa|notific|divulg|envi"},
+  {"id": "aneel", "texto": "Cópia das comunicações à ANEEL e dos protocolos de entrega", "padrao": "ANEEL|Agência"},
+  {"id": "poder_publico", "texto": "Atas, ofícios e registros de contato com o Poder Público, com data e interlocutor", "padrao": "Poder Público"},
+  {"id": "emergencia", "texto": "Registros externos do evento (alertas meteorológicos, decretos de emergência), com data", "padrao": "[Ee]mergência|climátic|eventos?\\b"},
+  {"id": "terceiros", "texto": "Contratos, ordens de serviço e comunicações com prestadores e outras distribuidoras", "padrao": "terceir|contrat|[Cc]essão|prestador"},
+  {"id": "versoes", "texto": "Versões datadas dos planos e procedimentos, com aprovação e histórico de mudanças", "padrao": "\\bplanos?\\b|procediment"}
  ]
 }
