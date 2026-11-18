@@ -1,0 +1,910 @@
+{
+ "aviso": "Sugestões da IA gravadas no ensaio de 17/11/2026. Aguardam revisão humana e não entram no cálculo.",
+ "modelo": "gpt-5-mini",
+ "reasoning": "medium",
+ "gerado_por": "scripts/exportar_plano_demo.py --importar-ia",
+ "fontes": [
+  {
+   "arquivo": "artifacts/revisao-ensaio/titulos/resultado.json",
+   "sha256": "0ec652685186150dd97221f5ca28cf2faf1a35c55bb1eb26e2480510ca03e4f0"
+  },
+  {
+   "arquivo": "artifacts/revisao-ensaio/enquadramento_proposta.json",
+   "sha256": "bc221d535dcb8dff0bcbc0372e54043235f25c00c6448ac70187bfe6ab543d7a"
+  }
+ ],
+ "criterio_titulos": "Título aplicado só sem alerta de sentido, com verbo no início, até 85 caracteres e citação literal presente no texto.",
+ "criterio_enquadramentos": "Só a sugestão principal com situação 'principal não condicional e não genérica'.",
+ "titulos": {
+  "f0ee215c5b31a957": {
+   "titulo": "Revisar e publicar planos de manejo, comunicação e contingência",
+   "citacao": "Até 90 (noventa) dias para revisar e publicar os planos",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "def2aafb6310db09": {
+   "titulo": "Estabelecer plano de manejo vegetal na área de atuação",
+   "citacao": "estabelecer um plano de manejo vegetal na sua área de atuação,",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "4e4622fc78c94514": {
+   "titulo": "Garantir rápida remoção de árvores ou galhos sobre a rede",
+   "citacao": "rápida remoção de árvores ou galhos caídos sobre a\nrede,",
+   "alerta": "Omissão de caídos amplia o alcance da remoção.",
+   "ajuste_proposto": "Remover rapidamente árvores ou galhos caídos sobre a rede"
+  },
+  "4bc7805026308769": {
+   "titulo": "Disponibilizar versão atualizada do plano de manejo vegetal",
+   "citacao": "versão mais atualizada de seu plano de manejo\nvegetal",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "7d0919bce4ef3fe9": {
+   "titulo": "Incluir estágio da operação conforme etapas do plano de contingência",
+   "citacao": "Estágio da operação (conforme etapas definidas no plano de contingência).",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "dd9e67e41aa4ea38": {
+   "titulo": "Solicitar indicação prévia de até dois representantes oficiais",
+   "citacao": "informem previamente até dois representantes oficiais de cada ente,",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "c730ffb2caee9101": {
+   "titulo": "Garantir canais de comunicação oficiais acessíveis e operacionais",
+   "citacao": "canais de comunicação oficiais estejam acessíveis\ne operacionais em situações de emergência",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "b7c2d81bf787af70": {
+   "titulo": "Elaborar plano de contingência para garantir continuidade e segurança",
+   "citacao": "garantir a continuidade do\nfornecimento de energia elétrica,",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "5a66534ae45af0c6": {
+   "titulo": "Incluir nomes e telefones de contato dos responsáveis",
+   "citacao": "deve conter os nomes e telefones de contato dos responsáveis.",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "db13351273cc2a40": {
+   "titulo": "Priorizar a segurança de colaboradores e da população",
+   "citacao": "Segurança: priorizar a segurança de todos os colaboradores e da população;",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "98f4753768bef99f": {
+   "titulo": "Minimizar o impacto das contingências nas operações",
+   "citacao": "Eficiência: minimizar o impacto das contingências nas operações e na prestação dos\nserviços;",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "085a6edc407f11ca": {
+   "titulo": "Cumprir as obrigações legais e regulamentares",
+   "citacao": "Responsabilidade: cumprir com as obrigações legais e regulamentares;",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "d6cf3c79ee1df588": {
+   "titulo": "Manter comunicação clara e aberta com setores afetados",
+   "citacao": "Transparência: manter uma comunicação clara e aberta com todos os setores afetados;",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "4ee63c29f094247c": {
+   "titulo": "Antecipar problemas e definir protocolos de atuação",
+   "citacao": "Prevenção: antecipar problemas e definir protocolos de atuação para o enfrentamento",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "0eb8c29f185ec200": {
+   "titulo": "Garantir adaptabilidade às mudanças climáticas e operacionais",
+   "citacao": "Adaptabilidade: garantir a capacidade de adaptação frente às mudanças nas condições\nclimáticas",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "b70cb23b9e1c10a8": {
+   "titulo": "Realizar monitoramento climático e meteorológico periódico",
+   "citacao": "Realizar monitoramento periódico das\ncondições climáticas e meteorológicas",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "73a1dd36bbb85c25": {
+   "titulo": "Implementar ações de gestão conforme níveis de contingência",
+   "citacao": "Implementar ações específicas conforme os níveis de contingência;",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "2bc3aa12a7581a25": {
+   "titulo": "Definir procedimentos para mobilização de equipes e recursos",
+   "citacao": "mobilização de equipes e recursos\nadicionais em diferentes níveis de contingência,",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "e9ca87b9dd7c9285": {
+   "titulo": "Estabelecer canais internos eficientes para coordenar ações",
+   "citacao": "Estabelecer canais eficientes de comunicação interna para informar\ne coordenar ações",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "cff191219a7655d2": {
+   "titulo": "Manter relatórios e documentação detalhada das contingências",
+   "citacao": "Manter registros detalhados das ações tomadas e dos\nresultados durante as contingências",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "0c957f4631794730": {
+   "titulo": "Realizar treinamentos e simulações periódicas",
+   "citacao": "Realizar treinamentos periódicos e simulações para preparar\nas equipes para situações de contingência;",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "748ad599f80e9086": {
+   "titulo": "Estabelecer procedimentos de atendimento ao consumidor em contingências",
+   "citacao": "procedimentos para a tratamento e resolução de\ndemandas extraordinárias durante contingências;",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "dceeebc43adca549": {
+   "titulo": "Definir ações para coordenação com autoridades públicas e reguladores",
+   "citacao": "comunicação e coordenação com\nautoridades públicas e órgãos reguladores;",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "1895f0f6fbc68d32": {
+   "titulo": "Estabelecer diretrizes de apoio interdepartamental",
+   "citacao": "colaboração entre diferentes\n\f\ndepartamentos e áreas da empresa durante situações de contingência;",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "44d737dea32bb948": {
+   "titulo": "Formalizar e divulgar o plano de contingência internamente",
+   "citacao": "formalizado e\ndocumentado de maneira clara e detalhada, sendo amplamente divulgado",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "4239f86c4b4d91d5": {
+   "titulo": "Estabelecer cadeia de governança nos níveis estratégico, tático e operacional",
+   "citacao": "Estabelecer comando nos níveis estratégico, tático e operacional\npara o gerenciamento de crises",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "5ecdf0d3f30f491b": {
+   "titulo": "Definir e atualizar níveis de contingência por critérios objetivos",
+   "citacao": "Definição de Níveis de Contingência: Definir níveis de contingência por critérios objetivos,",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "046ed88cf4374559": {
+   "titulo": "Desenvolver plano de ação específico para cada nível de contingência",
+   "citacao": "Plano de Ação para Cada Nível de Contingência: Desenvolver planos de ação específicos",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "a37f043943a39e11": {
+   "titulo": "Garantir infraestrutura e recursos para execução do plano",
+   "citacao": "Garantir a disponibilidade de recursos e infraestrutura necessários\npara a execução do plano de contingência,",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "151282e71a2cdaf5": {
+   "titulo": "Implementar programas de treinamento e capacitação contínuos",
+   "citacao": "Implementar programas de treinamento e capacitação\ncontínuos para todos os colaboradores envolvidos",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "d4aa10f3bb2b09db": {
+   "titulo": "Realizar simulações e testes periódicos com participação de Órgãos Públicos",
+   "citacao": "Realizar simulações ou testes periódicos para avaliar a\neficácia do plano de contingência e identificar áreas de melhoria,",
+   "alerta": "Trocou OU por E, ampliando o dever.",
+   "ajuste_proposto": "Realizar simulações ou testes periódicos com participação de órgãos públicos"
+  },
+  "11f1b97f51197a40": {
+   "titulo": "Manter o plano atualizado e disponível com data e versão",
+   "citacao": "Manter a documentação do plano de contingência atualizada e\ndisponível para todos os colaboradores,",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "059e791026821b38": {
+   "titulo": "Realizar avaliações regulares e implementar melhorias no plano",
+   "citacao": "Realizar avaliações regulares do plano de contingência e\nimplementar melhorias com base nos resultados",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "0b9113f77a4351b1": {
+   "titulo": "Possuir medidas para tratamento de unidades consumidoras específicas",
+   "citacao": "medidas relacionadas ao\n\f\ntratamento para unidades consumidoras cadastradas como usuários",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "8c54ec11a2e41126": {
+   "titulo": "Considerar última aplicação para contagem da periodicidade máxima",
+   "citacao": "a periodicidade máxima pode\nser contada da sua última aplicação.",
+   "alerta": "A norma permite uma forma de contagem; o título virou comando.",
+   "ajuste_proposto": "Poder contar o intervalo máximo desde a última aplicação do plano"
+  },
+  "9297bd2b368c09b7": {
+   "titulo": "Revisar o plano de contingência sempre que necessário e, no máximo, anualmente",
+   "citacao": "A revisão do plano de contingência deverá ser feita sempre que necessário e com\nperiodicidade máxima de um ano.",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "55d13ebfa6fe45cd": {
+   "titulo": "Disponibilizar versão do plano sem identificação dos responsáveis",
+   "citacao": "versão mais atualizada, sem a identificação e\ncontato dos seus responsáveis",
+   "alerta": "Omitiu a restrição de divulgar os contatos dos responsáveis.",
+   "ajuste_proposto": "Disponibilizar o plano sem identificar responsáveis nem seus contatos"
+  },
+  "09960ed39dc51125": {
+   "titulo": "Incluir versão, data de aprovação e assinatura dos responsáveis técnicos",
+   "citacao": "deve possuir versão do documento, data de aprovação e\nidentificação e assinatura do(s) responsável(is) técnico(s)",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "59a3e694522c005b": {
+   "titulo": "Disponibilizar o Plano de Manejo Vegetal em sítio eletrônico e postos",
+   "citacao": "disponibilizar em sítio eletrônico e nos postos de atendimento\npresencial, com uso de linguagem clara e adequada, o seu Plano de Manejo Vegetal.",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "0471327d7eda3834": {
+   "titulo": "Disponibilizar o Plano de Contingência em sítio eletrônico e postos",
+   "citacao": "disponibilizar em sítio eletrônico e nos postos de atendimento\npresencial, com uso de linguagem clara e adequada, o seu Plano de Contingência.",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "7f63a33087eca2b1": {
+   "titulo": "Enviar regularmente à ANEEL alertas meteorológicos que justifiquem acionamento",
+   "citacao": "enviar regularmente à ANEEL os alertas meteorológicos que\njustifiquem o acionamento de plano de contingência,",
+   "alerta": null,
+   "ajuste_proposto": null
+  },
+  "305699368059edf8": {
+   "titulo": "Publicar os planos de contingência em vigor no sítio eletrônico",
+   "citacao": "planos de contingência em vigor na data desta Resolução devem ser\npublicados em seu sítio eletrônico na Internet",
+   "alerta": null,
+   "ajuste_proposto": null
+  }
+ },
+ "enquadramentos": {
+  "868bbdfdd6ed7ce7": {
+   "dispositivo": "Art. 12, XXVII",
+   "grupo": "IV",
+   "justificativa": "A obrigação exige implementar, em 180 dias, o registro das interações com o Poder Público Municipal relativas ao manejo da vegetação que apresente risco às redes; o Art. 12, XXVII tipifica a ausência, inadequação ou descumprimento do Plano de Manejo Vegetal, abrangendo falhas em controles e registros vinculados ao manejo vegetacional.",
+   "duvida": null
+  },
+  "a002094347c42776": {
+   "dispositivo": "Art. 11, XXIII",
+   "grupo": "III",
+   "justificativa": "A obrigação exige implementar mecanismos de comunicação ao consumidor sobre a previsão de reestabelecimento do serviço e demais informações relacionadas a interrupções; o dispositivo descreve precisamente a infração de \"deixar de prestar informações decorrentes de interrupções no fornecimento... nos termos da regulação vigente\", o que corresponde diretamente à falha em implementar tais mecanismos.",
+   "duvida": "D1"
+  },
+  "b758c9c169c145ec": {
+   "dispositivo": "Art. 11, XXIII",
+   "grupo": "III",
+   "justificativa": "A obrigação determina disponibilizar em sítio eletrônico o número total de unidades consumidoras afetadas por interrupções (mapa) conforme regulação vigente; o dispositivo prevê como infração “deixar de prestar informações decorrentes de interrupções no fornecimento de energia elétrica aos consumidores”, que descreve a mesma conduta de omissão na divulgação das informações sobre interrupções.",
+   "duvida": "D1"
+  },
+  "d61df9955ff31362": {
+   "dispositivo": "Art. 9º, III",
+   "grupo": "I",
+   "justificativa": "A obrigação exige \"disponibilizar em sítio eletrônico as informações relacionadas às ocorrências abertas\" conforme prazos regulatórios; o dispositivo prevê como infração \"deixar de prestar informações aos consumidores... conforme determinado nas disposições legais, regulamentares ou contratuais\", cobrindo a omissão em fornecer informações exigidas por norma.",
+   "duvida": null
+  },
+  "6c0622d9f1615d32": {
+   "dispositivo": "Art. 10, II",
+   "grupo": "II",
+   "justificativa": "A obrigação exige iniciar as apurações do indicador DISE (Duração da Interrupção Individual), relacionadas à apuração de indicador de qualidade; o dispositivo descreve deixar de manter registro atualizado dos dados utilizados para apuração dos índices de qualidade, o que se relaciona à falha em apurar o DISE.",
+   "duvida": null
+  },
+  "5cd25d0b31930a88": {
+   "dispositivo": "Art. 12, XXVII",
+   "grupo": "IV",
+   "justificativa": "A obrigação determina que as distribuidoras celebrem convênios e definam 'protocolos de atuação coordenada para o manejo da vegetação' e 'as responsabilidades de cada parte quanto à inspeção, poda preventiva, remoção e substituição de árvores'; o Art. 12, XXVII tipifica a 'ausência, inadequação ou descumprimento do Plano de Manejo Vegetal', correspondendo diretamente ao objeto exigido.",
+   "duvida": null
+  },
+  "e85f635d48fa4eb0": {
+   "dispositivo": "Art. 12, XXVII",
+   "grupo": "IV",
+   "justificativa": "A obrigação exige que as distribuidoras considerem desafios específicos da vegetação e suas características de crescimento; o Plano de Manejo Vegetal é o instrumento previsto para gerir essa questão, logo sua ausência, inadequação ou descumprimento se enquadra diretamente.",
+   "duvida": null
+  },
+  "cea824cf4f1bfdb6": {
+   "dispositivo": "Art. 12, XXVII",
+   "grupo": "IV",
+   "justificativa": "A obrigação exige inspeções periódicas e ciclos de poda para identificar e mitigar riscos da vegetação sobre a rede de distribuição; o Art. 12, XXVII tipifica a ausência, inadequação ou descumprimento do Plano de Manejo Vegetal, enquadrando diretamente a falta dessas ações.",
+   "duvida": null
+  },
+  "78c1c664a404cd32": {
+   "dispositivo": "Art. 12, XXVII",
+   "grupo": "IV",
+   "justificativa": "A obrigação prevê poda preventiva e inspeções periódicas da vegetação e coordenação com órgãos públicos para manter distância de segurança da rede; o dispositivo trata da ausência, inadequação ou descumprimento do Plano de Manejo Vegetal, que abrange exatamente o dever de gerenciar e podar a vegetação.",
+   "duvida": null
+  },
+  "7e405a51e340f0da": {
+   "dispositivo": "Art. 12, XXVII",
+   "grupo": "IV",
+   "justificativa": "A obrigação trata expressamente da remoção de vegetação de risco e da articulação de ações entre distribuidora e Poder Público; o dispositivo pune a ausência, inadequação ou descumprimento do Plano de Manejo Vegetal, que abrange as medidas de identificação e eliminação dessa vegetação.",
+   "duvida": null
+  },
+  "a89b40289dcbd98a": {
+   "dispositivo": "Art. 12, XXVII",
+   "grupo": "IV",
+   "justificativa": "A obrigação determina programas de substituição e plantio de espécies adequadas ao convívio com redes elétricas em conformidade com planos municipais, que constitui elemento central do manejo da vegetação; o Art. 12, XXVII enquadra a ausência, inadequação ou descumprimento do Plano de Manejo Vegetal, correspondendo diretamente à omissão nessa obrigação.",
+   "duvida": null
+  },
+  "deb6f6ab42dd1b07": {
+   "dispositivo": "Art. 12, XXVII",
+   "grupo": "IV",
+   "justificativa": "A obrigação exige que as distribuidoras elaborem Relatório Anual de Gestão do Manejo Vegetal, documentando detalhadamente as ações de manejo vegetal. O Art. 12, XXVII tipifica a ausência, inadequação ou descumprimento do Plano de Manejo Vegetal, conduta que abrange a não elaboração ou a documentação inadequada prevista na obrigação.",
+   "duvida": null
+  },
+  "acccde8d107ef0a7": {
+   "dispositivo": "Art. 12, XXVII",
+   "grupo": "IV",
+   "justificativa": "A obrigação determina que o Relatório Anual de Gestão do Manejo Vegetal contenha descrição das inspeções visuais, extensão inspecionada e áreas de risco por conjunto elétrico; o Art. 12, XXVII trata da ausência, inadequação ou descumprimento do Plano de Manejo Vegetal, sendo a não apresentação ou a apresentação insuficiente dessas informações compatível com esse enquadramento.",
+   "duvida": null
+  },
+  "84ab75dfdb69de0f": {
+   "dispositivo": "Art. 12, XXVII",
+   "grupo": "IV",
+   "justificativa": "A obrigação exige que o Relatório Anual de Gestão do Manejo Vegetal contenha a descrição das podas preventivas e o número de árvores podadas por conjunto elétrico; o Art. 12, XXVII descreve a infração pela ausência, inadequação ou descumprimento do Plano de Manejo Vegetal, o que abrange relatórios ou informações obrigatórias do plano.",
+   "duvida": null
+  },
+  "44bd912ddc392e7e": {
+   "dispositivo": "Art. 12, XXVII",
+   "grupo": "IV",
+   "justificativa": "A obrigação exige que o Relatório Anual de Gestão do Manejo Vegetal contenha a descrição das podas corretivas, incluindo o número de árvores podadas por conjunto elétrico; a ausência ou inadequação dessa informação caracteriza a ausência/inadequação do Plano de Manejo Vegetal prevista no Art. 12, XXVII.",
+   "duvida": null
+  },
+  "e2ce14fe1ddd043b": {
+   "dispositivo": "Art. 12, XXVII",
+   "grupo": "IV",
+   "justificativa": "A obrigação exige que o Relatório Anual de Gestão do Manejo Vegetal descreva, no mínimo, os casos de remoção de árvores (localização, motivo por conjunto elétrico); omitir ou não descrever essas remoções caracteriza ausência, inadequação ou descumprimento do Plano de Manejo Vegetal previsto no Art. 12, XXVII.",
+   "duvida": null
+  },
+  "2bde82f330f7a375": {
+   "dispositivo": "Art. 12, XXVII",
+   "grupo": "IV",
+   "justificativa": "A obrigação exige que o Relatório Anual de Gestão do Manejo Vegetal inclua, entre outros, dados sobre a substituição de espécies por conjunto elétrico; a omissão desses dados implica ausência, inadequação ou descumprimento do Plano de Manejo Vegetal, nos termos do Art. 12, XXVII.",
+   "duvida": null
+  },
+  "ec71a30e02807a43": {
+   "dispositivo": "Art. 12, XXVII",
+   "grupo": "IV",
+   "justificativa": "O dispositivo refere-se à ausência, inadequação ou descumprimento do Plano de Manejo Vegetal; como o Relatório Anual de Gestão do Manejo Vegetal deve conter a descrição do 'aceiro de faixas de servidão', a omissão ou informação inadequada sobre esse aceiro configura inadequação/descumprimento do plano.",
+   "duvida": null
+  },
+  "afcbf345324a3e49": {
+   "dispositivo": "Art. 10, XX",
+   "grupo": "II",
+   "justificativa": "A obrigação determina ‘informar os convênios celebrados... bem como as tratativas...’ no Relatório Anual de Manejo Vegetal; omitir essas informações no relatório ou não encaminhá‑las à Agência se enquadra em ‘deixar de enviar ou disponibilizar à ANEEL informações ou documentos, nos prazos e nas condições estabelecidas na legislação’ (Art. 10, XX).",
+   "duvida": null
+  },
+  "e6a5fd13a95d9e25": {
+   "dispositivo": "Art. 9º, II",
+   "grupo": "I",
+   "justificativa": "A obrigação exige disponibilizar a versão mais atualizada do Relatório Anual de Gestão do Manejo Vegetal nos postos de atendimento presencial, ‘de forma acessível ao público’; o dispositivo pune quem ‘deixar de manter à disposição dos consumidores nos postos de atendimento presencial, em locais acessíveis, os documentos ou informações estabelecidas’.",
+   "duvida": null
+  },
+  "cde0648e7a44c0f1": {
+   "dispositivo": "Art. 12, XXVII",
+   "grupo": "IV",
+   "justificativa": "A obrigação impõe manter registro detalhado por 05 anos de todas as solicitações relativas ao manejo da vegetação; a ausência ou não manutenção desses registros indica descumprimento das exigências do Plano de Manejo Vegetal. O dispositivo descreve exatamente a hipótese de ausência, inadequação ou descumprimento do Plano de Manejo Vegetal.",
+   "duvida": null
+  },
+  "c3b421e728c88b65": {
+   "dispositivo": "Art. 11, XXIII",
+   "grupo": "III",
+   "justificativa": "A obrigação exige que a distribuidora comunique aos consumidores, em prazo (15 minutos/1 hora) a provável causa, a área afetada e o tempo previsto de normalização da interrupção; o art. 11, XXIII tipifica exatamente o ato de \"deixar de prestar informações decorrentes de interrupções no fornecimento de energia elétrica aos consumidores\", correspondente ao descumprimento dessa exigência regulatória.",
+   "duvida": "D1"
+  },
+  "8bf769e8049238bf": {
+   "dispositivo": "Art. 11, XXIII",
+   "grupo": "III",
+   "justificativa": "A obrigação exige que a distribuidora disponibilize em sítio eletrônico, com atualização a cada 30 minutos, o número de unidades consumidoras afetadas por interrupções (mapa por bairro). O Art. 11, XXIII descreve exatamente a conduta de \"deixar de prestar informações decorrentes de interrupções no fornecimento de energia elétrica aos consumidores\", enquadrando o não cumprimento dessa exigência.",
+   "duvida": "D1"
+  },
+  "03038d3317d5920c": {
+   "dispositivo": "Art. 9º, XIV",
+   "grupo": "I",
+   "justificativa": "A obrigação exige apresentar o número total de unidades consumidoras afetadas por faixas de tempo de interrupção, que constitui um indicador de qualidade do fornecimento; o dispositivo pune quem deixar de encaminhar à ANEEL os indicadores utilizados para apurar a qualidade do atendimento e do fornecimento de energia elétrica.",
+   "duvida": null
+  },
+  "f210b1cb4b18cd93": {
+   "dispositivo": "Art. 11, XXIII",
+   "grupo": "III",
+   "justificativa": "A obrigação exige que as distribuidoras disponibilizem em sítio eletrônico, com atualização a cada 30 minutos, informações sobre ocorrências abertas; o dispositivo pune quem \"deixar de prestar informações decorrentes de interrupções no fornecimento de energia elétrica aos consumidores ou usuários, nos termos da regulação vigente\", correspondendo diretamente à falta dessa divulgação.",
+   "duvida": "D1"
+  },
+  "454101d0c403c18d": {
+   "dispositivo": "Art. 11, XXIII",
+   "grupo": "III",
+   "justificativa": "A obrigação impõe disponibilizar em sítio eletrônico, com atualização a cada 30 minutos, informações sobre ocorrências (município/bairro), que são informações decorrentes de interrupções; o dispositivo tipifica deixar de prestar informações decorrentes de interrupções aos consumidores nos termos da regulação vigente.",
+   "duvida": "D1"
+  },
+  "2095e3040e47b7fe": {
+   "dispositivo": "Art. 11, XXIII",
+   "grupo": "III",
+   "justificativa": "A obrigação exige disponibilizar em sítio eletrônico, atualizado a cada 30 minutos, informações sobre ocorrências (data e hora de início), que são informações decorrentes de interrupções; o Art. 11, XXIII descreve deixar de prestar informações decorrentes de interrupções no fornecimento aos consumidores nos termos da regulação vigente.",
+   "duvida": "D1"
+  },
+  "7e175ea36f54d27d": {
+   "dispositivo": "Art. 11, XXIII",
+   "grupo": "III",
+   "justificativa": "A obrigação determina que as distribuidoras disponibilizem em sítio eletrônico, a cada 30 minutos, informações sobre ocorrências abertas (programadas e não programadas); o Art. 11, XXIII tipifica como infração deixar de prestar informações decorrentes de interrupções no fornecimento aos consumidores, correspondendo diretamente ao não fornecimento público dessas informações.",
+   "duvida": "D1"
+  },
+  "04807cfc5d8b19fd": {
+   "dispositivo": "Art. 11, XXIII",
+   "grupo": "III",
+   "justificativa": "A obrigação exige disponibilizar em sítio eletrônico, com atualização a cada 30 minutos, a sinalização do status das ocorrências abertas (Em preparação/Em Deslocamento/Em Execução); o dispositivo pune quem \"deixar de prestar informações decorrentes de interrupções no fornecimento de energia elétrica aos consumidores\", cobrindo a omissão em fornecer esse tipo de informação ao público.",
+   "duvida": "D1"
+  },
+  "145e90e0d6e92fa1": {
+   "dispositivo": "Art. 11, XXIII",
+   "grupo": "III",
+   "justificativa": "A obrigação exige disponibilizar em sítio eletrônico, com atualização a cada 30 minutos, informações sobre ocorrências e a quantidade de unidades consumidoras interrompidas; deixar de publicar esses dados constitui deixar de prestar informações decorrentes de interrupções ao consumidor, nos termos da regulação vigente.",
+   "duvida": "D1"
+  },
+  "bedd23cf7196cb9b": {
+   "dispositivo": "Art. 11, XXIII",
+   "grupo": "III",
+   "justificativa": "A obrigação exige que as distribuidoras disponibilizem em sítio eletrônico, com atualização a cada 30 minutos, informações sobre ocorrências abertas (incluindo duração), ou seja, informações decorrentes de interrupções. O Art. 11, XXIII tipifica como infração deixar de prestar informações decorrentes de interrupções no fornecimento aos consumidores nos termos da regulação vigente, descrevendo a mesma conduta de omissão informativa.",
+   "duvida": "D1"
+  },
+  "4530929b6c0a1c85": {
+   "dispositivo": "Art. 11, XXIII",
+   "grupo": "III",
+   "justificativa": "A obrigação exige que a distribuidora disponibilize em sítio eletrônico, com atualização a cada 30 minutos, informações relacionadas a ocorrências abertas, incluindo o CHI, que são informações decorrentes de interrupções; o Art. 11, XXIII descreve exatamente a infração de deixar de prestar informações decorrentes de interrupções aos consumidores, portanto é o enquadramento mais direto.",
+   "duvida": "D1"
+  },
+  "b5295bca7f3ea780": {
+   "dispositivo": "Art. 11, XXIII",
+   "grupo": "III",
+   "justificativa": "As ocorrências abertas informadas na obrigação costumam referir-se a interrupções no fornecimento e a obrigação impõe publicação regular desses dados aos consumidores; o art. 11, XXIII tipifica como infração “deixar de prestar informações decorrentes de interrupções no fornecimento de energia elétrica aos consumidores … nos termos da regulação vigente”, o que se aplica à omissão na divulgação prevista.",
+   "duvida": "D1"
+  },
+  "bf6d884740a66016": {
+   "dispositivo": "Art. 11, XXIII",
+   "grupo": "III",
+   "justificativa": "A obrigação exige disponibilizar em sítio eletrônico, a cada 30 minutos, informações relacionadas às ocorrências abertas (ex.: quantidade de equipes), que são informações decorrentes de interrupções; o dispositivo tipifica deixar de prestar informações decorrentes de interrupções aos consumidores nos termos da regulação.",
+   "duvida": "D1"
+  },
+  "d0d9b13f247409a5": {
+   "dispositivo": "Art. 9º, II",
+   "grupo": "I",
+   "justificativa": "A obrigação determina disponibilizar a versão mais atualizada do plano de comunicação nos postos de atendimento e no sítio eletrônico, de forma acessível ao público; o Art. 9º, II tipifica como infração ‘deixar de manter à disposição dos consumidores nos postos de atendimento presencial, em locais acessíveis, os documentos ou informações…’.",
+   "duvida": null
+  },
+  "6812a1cfa93391a2": {
+   "dispositivo": "Art. 11, XXIII",
+   "grupo": "III",
+   "justificativa": "A obrigação exige informar ao consumidor o 'Motivo da Interrupção' (causa da falha) decorrente de uma interrupção do fornecimento. O dispositivo tipifica como infração 'deixar de prestar informações decorrentes de interrupções no fornecimento de energia elétrica aos consumidores', correspondendo diretamente à omissão prevista.",
+   "duvida": "D1"
+  },
+  "091a033ee197530b": {
+   "dispositivo": "Art. 11, XXIII",
+   "grupo": "III",
+   "justificativa": "A obrigação exige que as informações prestadas ao consumidor incluam a delimitação geográfica da interrupção (\"Área Afetada\"). O Art. 11, XXIII tipifica deixar de prestar informações decorrentes de interrupções no fornecimento aos consumidores nos termos da regulação vigente, correspondendo diretamente ao dever descrito.",
+   "duvida": "D1"
+  },
+  "89f0cb5afdcb80cf": {
+   "dispositivo": "Art. 11, XXIII",
+   "grupo": "III",
+   "justificativa": "O trecho menciona especificação de 'Unidades Consumidoras Impactadas' entre as informações ao consumidor, indicando contexto de eventos/interrupções; Art. 11, XXIII descreve deixar de prestar informações decorrentes de interrupções, aplicando‑se se a informação for sobre consumidores afetados por interrupção.",
+   "duvida": "D1"
+  },
+  "4c34d39fc8c7c83c": {
+   "dispositivo": "Art. 11, XXIII",
+   "grupo": "III",
+   "justificativa": "A obrigação exige fornecer ao consumidor a 'Previsão de Restabelecimento: estimativa de retorno do fornecimento, com base na melhor informação disponível'; o dispositivo Art. 11, XXIII descreve exatamente a infração de 'deixar de prestar informações decorrentes de interrupções no fornecimento de energia elétrica aos consumidores', sendo o enquadramento mais direto.",
+   "duvida": "D1"
+  },
+  "73f0657fc5edfaa2": {
+   "dispositivo": "Art. 11, XXIII",
+   "grupo": "III",
+   "justificativa": "A obrigação impõe informar os consumidores afetados por meio de SMS/aplicativos sobre o evento referido no item 105; o Art. 11, XXIII pune deixar de prestar informações decorrentes de interrupções no fornecimento, assim enquadrando a omissão no envio das mensagens automáticas.",
+   "duvida": "D1"
+  },
+  "d0e8213e450b813b": {
+   "dispositivo": "Art. 11, XXIII",
+   "grupo": "III",
+   "justificativa": "A obrigação exige que a distribuidora atualize informações sobre interrupções, incluindo alterações no tempo estimado de restabelecimento e outras informações relevantes ao consumidor; o dispositivo pune justamente o ato de deixar de prestar informações decorrentes de interrupções aos consumidores nos termos da regulação vigente.",
+   "duvida": "D1"
+  },
+  "36d97e25c9c45652": {
+   "dispositivo": "Art. 9º, VI",
+   "grupo": "I",
+   "justificativa": "A obrigação exige disponibilizar uma API ou solução tecnológica segura para que a ANEEL extraia dados de interrupção diretamente da fonte; o dispositivo pune quem “deixar de enviar ou disponibilizar informações ou documentos solicitados pela ANEEL”, conduta que se enquadra se a interface exigida não for fornecida.",
+   "duvida": null
+  },
+  "8b31ab179c001654": {
+   "dispositivo": "Art. 12, XXVIII",
+   "grupo": "IV",
+   "justificativa": "A obrigação exige que a comunicação facilite a coordenação com órgãos governamentais para permitir resposta integrada a crises e eventos adversos; o Art. 12, XXVIII pune comunicar‑se de forma ineficiente com o Poder Público em Situações de Emergência, correspondendo diretamente à falha apontada.",
+   "duvida": null
+  },
+  "8927ba0ff3e8aeae": {
+   "dispositivo": "Art. 12, XXVIII",
+   "grupo": "IV",
+   "justificativa": "A obrigação exige que a distribuidora notifique o Poder Público imediatamente após identificar um evento crítico, por canais oficiais; Art. 12, XXVIII tipifica comunicar‑se de forma ineficiente com o Poder Público em Situações de Emergência, pelo que a não notificação imediata por canais oficiais poderia ser enquadrada nesse dispositivo.",
+   "duvida": null
+  },
+  "c5c8ba07ebe0b203": {
+   "dispositivo": "Art. 12, XXVIII",
+   "grupo": "IV",
+   "justificativa": "A obrigação exige “estabelecer protocolos de alertas para notificar rapidamente o Poder Público ... sobre interrupções ... e situações que demandem apoio imediato”; a infração descreve justamente a falha de comunicação com o Poder Público em Situações de Emergência (comunicar-se de forma ineficiente).",
+   "duvida": null
+  },
+  "e863a4cbf5a00dd2": {
+   "dispositivo": "Art. 12, XXVIII",
+   "grupo": "IV",
+   "justificativa": "A obrigação exige comunicações formais anuais aos representantes do Poder Público detalhando a execução de protocolos de comunicação; deixar de fazê‑lo pode configurar comunicação ineficiente com o Poder Público, principalmente se os protocolos tratam de procedimentos em situações de emergência, tal como descrito no dispositivo.",
+   "duvida": null
+  },
+  "cea10544cc62dbe7": {
+   "dispositivo": "Art. 12, V",
+   "grupo": "IV",
+   "justificativa": "A obrigação exige que a cessão não comprometa a segurança operacional; o Art. 12, V pune implantar, operar ou manter instalações e equipamentos de forma inadequada, conduta que pode resultar exatamente no comprometimento da segurança das operações.",
+   "duvida": null
+  },
+  "ef6845fb40369ad2": {
+   "dispositivo": "Art. 10, XII",
+   "grupo": "II",
+   "justificativa": "A obrigação determina que ‘os registros contábeis relacionados à Cessão Emergencial deverão evidenciar a proporção de cada distribuidora ou transmissora cedente’, o que implica apurar e registrar separadamente valores por agente; o Art. 10, XII descreve precisamente a conduta de deixar de apurar ou registrar separadamente investimentos, receitas e custos por geração/transmissão/distribuição.",
+   "duvida": null
+  },
+  "eeabcc619985bac4": {
+   "dispositivo": "Art. 11, V",
+   "grupo": "III",
+   "justificativa": "A obrigação exige o envio, em até 60 dias, de relatório com discrimeração de despesas, valor global da contratação e detalhamento por tipo de gasto — informação tipicamente econômico‑financeira; o Art. 11, V pune deixar de enviar à ANEEL, nos prazos e condições legais, documentos ou informações econômicas e financeiras.",
+   "duvida": null
+  },
+  "63d080f10ea001db": {
+   "dispositivo": "Art. 11, V",
+   "grupo": "III",
+   "justificativa": "O relatório exige discriminação de despesas e dados de remuneração (informações econômico‑financeiras) a serem reembolsados; o dispositivo descreve 'deixar de enviar ou disponibilizar à ANEEL, nos prazos e nas condições estabelecidas na legislação, documentos ou informações econômicas e financeiras', aplicável ao não envio desses dados.",
+   "duvida": null
+  },
+  "5f85b262f557ee25": {
+   "dispositivo": "Art. 11, V",
+   "grupo": "III",
+   "justificativa": "O relatório exige discriminação de despesas e custos (informações econômicas/financeiras) a serem reembolsados; deixar de enviar tais documentos ou informações à ANEEL nos prazos previstos se amolda ao dispositivo que pune a falta de envio de documentos ou informações econômicas e financeiras.",
+   "duvida": null
+  },
+  "deeab00be5f0f68f": {
+   "dispositivo": "Art. 11, V",
+   "grupo": "III",
+   "justificativa": "O relatório exigido contém discriminação de despesas e custos incorridos a serem reembolsados, tratándose de informações econômicas e financeiras; o Art. 11, V refere‑se especificamente a deixar de enviar ou disponibilizar à ANEEL, nos prazos e nas condições estabelecidas, documentos ou informações econômicas e financeiras.",
+   "duvida": null
+  },
+  "189be3218a0cbccf": {
+   "dispositivo": "Art. 11, V",
+   "grupo": "III",
+   "justificativa": "A obrigação exige o envio, em até 60 dias após a emergência, de relatório com discriminação de despesas e documentação comprobatória — trata-se de informação de natureza econômica/financeira; o dispositivo pune quem deixar de enviar à ANEEL documentos ou informações econômicas e financeiras nos prazos legais.",
+   "duvida": null
+  },
+  "4b62fdd082d510d6": {
+   "dispositivo": "Art. 11, V",
+   "grupo": "III",
+   "justificativa": "O relatório exigido discrimina despesas e custos a serem reembolsados, isto é, informação de natureza econômico‑financeira a ser remetida à ANEEL; o Art. 11, V prevê o enquadramento por \"deixar de enviar ou disponibilizar à ANEEL, nos prazos e nas condições estabelecidas na legislação, documentos ou informações econômicas e financeiras\".",
+   "duvida": null
+  },
+  "002b589ec9ac2f4f": {
+   "dispositivo": "Art. 11, V",
+   "grupo": "III",
+   "justificativa": "O relatório solicitado discrimina despesas e custos a serem reembolsados, caracterizando informação econômico‑financeira; o Art. 11, V prevê infração por ‘deixar de enviar ou disponibilizar à ANEEL, nos prazos e nas condições estabelecidas na legislação, documentos ou informações econômicas e financeiras’, compatível com esta obrigação.",
+   "duvida": null
+  },
+  "2be47277983ff641": {
+   "dispositivo": "Art. 11, V",
+   "grupo": "III",
+   "justificativa": "A obrigação exige o envio de relatório com discriminação das despesas ou custos a serem reembolsados (documento de natureza econômica/financeira); o dispositivo pune quem deixa de enviar à ANEEL, nos prazos e condições legais, documentos ou informações econômicas e financeiras.",
+   "duvida": null
+  },
+  "ca89c86c91fab439": {
+   "dispositivo": "Art. 11, V",
+   "grupo": "III",
+   "justificativa": "A obrigação exige que a distribuidora cessionária envie à ANEEL, em até 60 dias, relatório discriminando despesas ou custos a serem reembolsados (informações econômicas/financeiras); não enviar esse relatório se enquadra em 'deixar de enviar ou disponibilizar à ANEEL, nos prazos e nas condições estabelecidas na legislação, documentos ou informações econômicas e financeiras.'",
+   "duvida": null
+  },
+  "aacda5a99abb796e": {
+   "dispositivo": "Art. 11, V",
+   "grupo": "III",
+   "justificativa": "O relatório contém discriminação de despesas e custos a serem reembolsados (informação econômico‑financeira), e o Art. 11, V trata de \"deixar de enviar ou disponibilizar à ANEEL, nos prazos e nas condições estabelecidas na legislação, documentos ou informações econômicas e financeiras\".",
+   "duvida": null
+  },
+  "88b6fa7ef4189740": {
+   "dispositivo": "Art. 11, V",
+   "grupo": "III",
+   "justificativa": "O relatório mencionado contém discriminação de despesas e custos (informações econômicas e financeiras) a serem reembolsados; o dispositivo descreve a infração de deixar de enviar à ANEEL, nos prazos e condições, documentos ou informações econômicas e financeiras, correspondendo ao caso.",
+   "duvida": null
+  },
+  "768ca43e4161c231": {
+   "dispositivo": "Art. 11, V",
+   "grupo": "III",
+   "justificativa": "O relatório deve discriminar despesas e custos a serem reembolsados, caracterizando informação econômico‑financeira; o Art. 11, V descreve o descumprimento por deixar de enviar ou disponibilizar à ANEEL documentos ou informações econômicas e financeiras nos prazos e condições legais.",
+   "duvida": null
+  },
+  "a99fead68b4bd135": {
+   "dispositivo": "Art. 11, XIX",
+   "grupo": "III",
+   "justificativa": "A norma exige que as distribuidoras formalizem Acordo de Cessão Emergencial prévio contendo, entre outros itens, a previsão de duração; o Art. 11, XIX tipifica deixar de celebrar ou celebrar em desacordo com disposições legais ou regulamentares contratos exigidos na legislação — omissão do acordo ou ausência da cláusula exigida se enquadra neste dispositivo.",
+   "duvida": null
+  },
+  "7de834f7377be0f9": {
+   "dispositivo": "Art. 11, XIX",
+   "grupo": "III",
+   "justificativa": "A obrigação exige que “as distribuidoras envolvidas devem formalizar Acordo de Cessão Emergencial Prévio”, isto é, celebrar um acordo previsto pela norma; o dispositivo pune ‘‘deixar de celebrar … contrato … exigido na legislação’’, que descreve diretamente o não cumprimento dessa formalização contratual.",
+   "duvida": null
+  },
+  "75da33f12b23776b": {
+   "dispositivo": "Art. 12, III",
+   "grupo": "IV",
+   "justificativa": "O Acordo de Cessão Emergencial visa assegurar recursos para atendimento em situação de emergência; sua ausência pode impedir o atendimento de pedidos de serviços nos prazos legais, caracterizando “deixar de atender pedido de serviços nos prazos e nas condições estabelecidas na legislação ou no contrato”.",
+   "duvida": null
+  },
+  "3b0f6e7ae5d7a5cb": {
+   "dispositivo": "Art. 12, XXVI",
+   "grupo": "IV",
+   "justificativa": "A obrigação exige realização de testes regulares de Cessão Emergencial e formalização de Acordo de Cessão Emergencial Prévio, medidas típicas de um Plano de Contingência; o art. 12, XXVI tipifica como infração a ausência, inadequação ou descumprimento do Plano de Contingência, de modo que a falta desses testes ou do acordo se enquadraria nesse dispositivo.",
+   "duvida": null
+  },
+  "7a8218ee951a3605": {
+   "dispositivo": "Art. 10, VI",
+   "grupo": "II",
+   "justificativa": "A obrigação exige procedimentos e definição de treinamentos para integração de equipes externas, visando garantir que todos estejam alinhados às práticas de segurança e operação; o descumprimento dessa obrigação pode resultar em uso de pessoal não habilitado. O dispositivo tipifica como infração “deixar de utilizar pessoal técnico, próprio ou de terceiros, habilitado... para a operação e a manutenção das instalações elétricas”, conduta diretamente relacionada à falta de capacitação prevista na obrigação.",
+   "duvida": null
+  },
+  "7c1a7f748434daf2": {
+   "dispositivo": "Art. 11, V",
+   "grupo": "III",
+   "justificativa": "O reembolso está condicionado a comprovação \"conforme folha de pagamento da cedente\", o que envolve documentação econômico‑financeira; o dispositivo prevê \"deixar de enviar ou disponibilizar à ANEEL... documentos ou informações econômicas e financeiras\", abrangendo a omissão de prestar à Agência os comprovantes necessários.",
+   "duvida": null
+  },
+  "51d4035c89333aa8": {
+   "dispositivo": "Art. 11, XIX",
+   "grupo": "III",
+   "justificativa": "O texto da obrigação exige que “o acordo deve prever cláusulas sobre: Reembolso de despesas com equipamentos e materiais cedidos…”, logo a ausência dessa cláusula significa celebrar um contrato em desacordo com as disposições legais/regulatórias aplicáveis, enquadrando-se em 'deixar de celebrar ou celebrar em desacordo com as disposições legais ou regulamentares contrato...'. ",
+   "duvida": null
+  },
+  "9596972c305943ee": {
+   "dispositivo": "Art. 12, VIII",
+   "grupo": "IV",
+   "justificativa": "A obrigação exige cláusulas sobre “Seguros e indenizações em caso de acidentes durante a Cessão Emergencial”; o Art. 12, VIII descreve a conduta de “deixar de manter segurados, em valores e condições suficientes, ... os bens e as instalações ... essenciais à garantia da confiabilidade do sistema elétrico”, logo a ausência ou insuficiência das cláusulas de seguro/indenização do acordo pode ser enquadrada nesse dispositivo.",
+   "duvida": null
+  },
+  "921c74abaa653d5d": {
+   "dispositivo": "Art. 11, XIX",
+   "grupo": "III",
+   "justificativa": "A obrigação exige que o acordo preveja cláusulas sobre a neutralidade dos valores para reembolso; a omissão ou inclusão diversa dessa cláusula implica celebrar acordo em desacordo com disposições legais ou regulamentares, hipótese prevista no Art. 11, XIX.",
+   "duvida": null
+  },
+  "33981a4c29c4c4db": {
+   "dispositivo": "Art. 9º, IX",
+   "grupo": "I",
+   "justificativa": "A obrigação exige que “as equipes cedidas devem possuir capacitação e experiência compatíveis”, e o Art. 9º, IX descreve especificamente a conduta de prestar serviços de atendimento por pessoal sem a devida capacitação ou treinamento; assim, ceder equipes sem qualificação enquadra‑se nesta hipótese.",
+   "duvida": null
+  },
+  "c8fa6b48cf963d61": {
+   "dispositivo": "Art. 12, XXVI",
+   "grupo": "IV",
+   "justificativa": "A obrigação exige prover alimentação, transporte, hospedagem e segurança para equipes em Cessão Emergencial, medidas típicas previstas em um Plano de Contingência; o dispositivo pune a ausência, inadequação ou descumprimento desse Plano de Contingência, logo a falta desses providos integra potencial inadequação do plano.",
+   "duvida": null
+  },
+  "610cc5d8b942d8ac": {
+   "dispositivo": "Art. 11, XVIII",
+   "grupo": "III",
+   "justificativa": "A obrigação estabelece prazo máximo de ressarcimento (doze meses) para contratos de cessão emergencial entre partes relacionadas; o Art. 11, XVIII pune atos ou negócios jurídicos que não observem os critérios definidos na legislação entre concessionárias e suas partes relacionadas, correspondendo diretamente à hipótese de descumprimento desse prazo em contratos entre partes relacionadas.",
+   "duvida": null
+  },
+  "dace5661de038677": {
+   "dispositivo": "Art. 11, XVIII",
+   "grupo": "III",
+   "justificativa": "A obrigação exige que cessões entre distribuidoras/transmissoras e partes relacionadas observem reembolso, neutralidade e preservem a individualidade das concessões; o dispositivo prevê infração por implementar atos ou negócios jurídicos que não observem os critérios legais entre concessionárias e suas partes relacionadas, cobrindo justamente condutas de tratamento indevido dessas transferências.",
+   "duvida": null
+  },
+  "a03bb494e4666bc9": {
+   "dispositivo": "Art. 9º, XIV",
+   "grupo": "I",
+   "justificativa": "A obrigação exige que o plano permita a verificação da continuidade e da eficiência de execução; o dispositivo pune quem deixa de encaminhar à ANEEL os indicadores utilizados para apurar a qualidade, que são instrumentos diretos para verificar eficiência.",
+   "duvida": null
+  },
+  "87c61f480ef8ec6c": {
+   "dispositivo": "Art. 12, XXVI",
+   "grupo": "IV",
+   "justificativa": "A obrigação exige identificação e análise detalhada dos riscos (localização, natureza, frequência e impactos), informações essenciais para elaborar um Plano de Contingência eficaz; a ausência, inadequação ou descumprimento desse Plano (Art. 12, XXVI) decorre diretamente da não realização dessa identificação/analise.",
+   "duvida": null
+  },
+  "a1b6115028690bc1": {
+   "dispositivo": "Art. 9º, IX",
+   "grupo": "I",
+   "justificativa": "A obrigação exige realização de simulados/treinamentos atualizados anualmente; o art. 9º, IX descreve a infração de prestar serviços por pessoal sem a devida capacitação ou treinamento — a ausência dos treinamentos anuais pode deixar o atendimento a cargo de pessoal sem a capacitação exigida.",
+   "duvida": null
+  },
+  "9248ddd0d9436761": {
+   "dispositivo": "Art. 9º, IX",
+   "grupo": "I",
+   "justificativa": "A obrigação exige a disponibilização de treinamentos atualizados aos agentes designados pelo Poder Público; o Art. 9º, IX descreve a conduta de prestar serviços por meio de pessoal sem a devida capacitação ou treinamento, o que corresponde diretamente ao descumprimento dessa obrigação.",
+   "duvida": null
+  },
+  "1b3991405c9d043c": {
+   "dispositivo": "Art. 11, V",
+   "grupo": "III",
+   "justificativa": "A obrigação impõe o envio à ANEEL de relatório com discriminação de despesas/custos a serem reembolsados, que são informações de natureza econômico-financeira; o dispositivo tipifica deixar de enviar ou disponibilizar à ANEEL documentos ou informações econômicas e financeiras.",
+   "duvida": null
+  },
+  "f6f4a14d4a6ded86": {
+   "dispositivo": "Art. 11, XXIII",
+   "grupo": "III",
+   "justificativa": "A obrigação exige que a distribuidora comunique ao consumidor, após o reconhecimento de interrupções, informações sobre o evento; o dispositivo Art. 11, XXIII descreve exatamente o ato de \"deixar de prestar informações decorrentes de interrupções no fornecimento de energia elétrica aos consumidores\", correspondendo diretamente ao descumprimento.",
+   "duvida": "D1"
+  },
+  "002a92c57c58b27b": {
+   "dispositivo": "Art. 11, XXIII",
+   "grupo": "III",
+   "justificativa": "A obrigação exige que a distribuidora disponibilize aos consumidores o número total de unidades afetadas por interrupções; o dispositivo tipifica especificamente deixar de prestar informações decorrentes de interrupções no fornecimento aos consumidores, sendo correspondência direta com a obrigação.",
+   "duvida": "D1"
+  },
+  "2cab65c1fc58df50": {
+   "dispositivo": "Art. 10, I",
+   "grupo": "II",
+   "justificativa": "A obrigação exige que a distribuidora disponibilize em sítio eletrônico informações relacionadas às ocorrências abertas, o que é forma de manter registro público e atualizado das reclamações/ocorrências; não publicar tais informações pode equivaler a 'deixar de manter registro atualizado das reclamações e solicitações dos consumidores'.",
+   "duvida": null
+  },
+  "3a5135b149a7617f": {
+   "dispositivo": "Art. 9º, II",
+   "grupo": "I",
+   "justificativa": "A obrigação exige que a distribuidora disponibilize nos postos de atendimento presencial a versão mais atualizada do Relatório Anual de Gestão do Manejo Vegetal; o Art. 9º, II descreve exatamente a infração de deixar de manter à disposição dos consumidores, nos postos presenciais e em locais acessíveis, documentos ou informações exigidas.",
+   "duvida": null
+  },
+  "803c9683ab926f35": {
+   "dispositivo": "Art. 9º, II",
+   "grupo": "I",
+   "justificativa": "A obrigação exige disponibilizar o Plano de Comunicação em sítio eletrônico e nos postos de atendimento presencial; não fazê‑lo se encaixa em “deixar de manter à disposição dos consumidores nos postos de atendimento presencial, em locais acessíveis, os documentos ou informações estabelecidas…”.",
+   "duvida": null
+  },
+  "d562851a554d9830": {
+   "dispositivo": "Art. 10, XX",
+   "grupo": "II",
+   "justificativa": "A obrigação exige que a distribuidora disponibilize à ANEEL uma API para consulta de dados de interrupção do fornecimento; o dispositivo tipifica como infração o ato de \"deixar de enviar ou disponibilizar à ANEEL informações ou documentos, nos prazos e nas condições estabelecidas na legislação\", que cobre a não disponibilização da interface prevista na norma.",
+   "duvida": null
+  },
+  "1fe6934a9f4b19be": {
+   "dispositivo": "Art. 12, XXVIII",
+   "grupo": "IV",
+   "justificativa": "A obrigação exige que a distribuidora notifique o Poder Público imediatamente após identificar um evento crítico, usando canais oficiais previamente estabelecidos; o dispositivo Art. 12, XXVIII descreve a conduta de comunicar-se de forma ineficiente com o Poder Público em situações de emergência, enquadrando diretamente essa falha de comunicação.",
+   "duvida": null
+  },
+  "ef8c0e08544c2dc6": {
+   "dispositivo": "Art. 10, II",
+   "grupo": "II",
+   "justificativa": "A obrigação exige que \"os indicadores devem ser apurados mensalmente\", ou seja, que os dados para apuração sejam mantidos e atualizados periodicamente; o dispositivo pune quem \"deixar de manter, nas condições estabelecidas, registro atualizado dos dados utilizados para apuração dos índices de qualidade da energia elétrica\". Assim, a falta de apuração mensal se enquadra como ausência de manutenção/atualização dos registros necessários à apuração dos indicadores.",
+   "duvida": null
+  },
+  "d2970d662176d42f": {
+   "dispositivo": "Art. 11, VII",
+   "grupo": "III",
+   "justificativa": "A regra sobre quais interrupções devem ou não ser consideradas na apuração do DISE integra os critérios técnicos previstos nos Procedimentos de Distribuição; portanto, apurar o DISE em desacordo com esse critério corresponde a \"deixar de cumprir ao disposto nos Procedimentos de Distribuição\".",
+   "duvida": null
+  },
+  "48564c1b196d22fc": {
+   "dispositivo": "Art. 10, XVIII",
+   "grupo": "II",
+   "justificativa": "A obrigação determina que, em caso de violação dos limites dos indicadores (DIC, FIC, DMIC, DICRI, DISE), a distribuidora deve calcular a compensação e efetuar o crédito na fatura em até 2 meses; o dispositivo do Art. 10, XVIII tipifica como infração realizar leitura ou faturamento em desacordo com a legislação, o que abrange o não creditar ou creditar fora do prazo a compensação devida.",
+   "duvida": null
+  },
+  "3a84c724e35bc596": {
+   "dispositivo": "Art. 11, II",
+   "grupo": "III",
+   "justificativa": "A obrigação determina que a distribuidora deve efetuar compensação ao consumidor ou central geradora por interrupções em Situação de Emergência que excedam o limite do indicador DISE; o dispositivo Art. 11, II tipifica deixar de pagar indenizações, compensações ou ressarcimentos nos prazos ou condições estabelecidos, descrevendo exatamente a conduta de não efetuar compensações devidas.",
+   "duvida": null
+  },
+  "854007d952c8bb1b": {
+   "dispositivo": "Art. 11, II",
+   "grupo": "III",
+   "justificativa": "A obrigação exige que \"a distribuidora deve efetuar uma compensação ao consumidor ... para cada interrupção ... que superar o limite do indicador DISE\", o que corresponde diretamente a \"deixar de ... pagar indenizações, compensações, ressarcimentos ... nos prazos ou nas condições estabelecidas\" previsto no Art. 11, II.",
+   "duvida": null
+  },
+  "12c8dc53c25f41a2": {
+   "dispositivo": "Art. 11, XIX",
+   "grupo": "III",
+   "justificativa": "A obrigação determina que «as compensações ... devem ser estabelecidas nos respectivos contratos, obedecendo aos critérios deste Módulo»; o dispositivo pune quem «deixar de celebrar ou celebrar em desacordo com as disposições legais ou regulamentares contrato ... exigido na legislação», que cobre a ausência ou a redação contrária do previsto.",
+   "duvida": null
+  },
+  "09fc14322d39e994": {
+   "dispositivo": "Art. 10, XV",
+   "grupo": "II",
+   "justificativa": "A obrigação exige a realização e o pagamento das compensações referentes a violações dos indicadores DICRI/DISE; deixar de pagar ou atrasar essas compensações configura atraso na execução das etapas de contabilização e liquidação financeira das transações, tal como descrito no dispositivo.",
+   "duvida": null
+  },
+  "75085cea3e560534": {
+   "dispositivo": "Art. 12, XXVIII",
+   "grupo": "IV",
+   "justificativa": "Ao exigir canais exclusivos de comunicação com representantes dos poderes públicos, a obrigação visa garantir comunicação eficiente com o Poder Público; a ausência desses canais pode configurar comunicação ineficiente com o Poder Público em Situações de Emergência, nos termos do Art. 12, XXVIII.",
+   "duvida": null
+  },
+  "126360571edbf06f": {
+   "dispositivo": "Art. 9º, XIII",
+   "grupo": "I",
+   "justificativa": "A obrigação exige canais dedicados de atendimento telefônico (§1º) — o não funcionamento ou indisponibilidade desses canais caracteriza deixar de disponibilizar aos consumidores estrutura de atendimento adequada, que lhes possibilite fácil acesso ao agente setorial (Art. 9º, XIII).",
+   "duvida": null
+  },
+  "281df590db114e9c": {
+   "dispositivo": "Art. 9º, XIII",
+   "grupo": "I",
+   "justificativa": "A obrigação exige atendimento presencial com horário agendado e canais dedicados que garantam acesso; a infração prevê \"deixar de disponibilizar aos consumidores estrutura de atendimento adequada, que lhes possibilite fácil acesso ao agente setorial\", enquadrando a omissão em oferecer atendimento presencial acessível.",
+   "duvida": null
+  },
+  "998de9a8013d5d95": {
+   "dispositivo": "Art. 9º, XIII",
+   "grupo": "I",
+   "justificativa": "A obrigação exige canal de comunicação por texto com atendimento humano em horário comercial; a ausência desse canal caracteriza deixar de disponibilizar aos consumidores estrutura de atendimento adequada, que lhes possibilite fácil acesso ao agente setorial.",
+   "duvida": null
+  },
+  "77a522bdd6019b09": {
+   "dispositivo": "Art. 12, XXVIII",
+   "grupo": "IV",
+   "justificativa": "A obrigação impõe garantir comunicação direta e eficaz com os poderes públicos; o Art. 12, XXVIII tipifica comunicar-se de forma ineficiente com o Poder Público em Situações de Emergência, situação que pode ocorrer quando não há representantes institucionais designados para atendimento exclusivo.",
+   "duvida": null
+  },
+  "c2463cce63f5243a": {
+   "dispositivo": "Art. 12, XXVIII",
+   "grupo": "IV",
+   "justificativa": "Se a solicitação para a reunião ocorrer em contexto de emergência, o §4º impõe agendamento e realização imediata de comunicação com os poderes públicos; o Art. 12, XXVIII descreve comunicar-se de forma ineficiente com o Poder Público em Situações de Emergência — não agendar/realizar as videoconferências solicitadas nesse cenário poderá se enquadrar nessa infração.",
+   "duvida": null
+  },
+  "74974c33b8c6f524": {
+   "dispositivo": "Art. 9º, XIII",
+   "grupo": "I",
+   "justificativa": "A obrigação exige disponibilidade telefônica ininterrupta 24/7 com atendimento humano para casos de urgência/emergência, garantindo acesso imediato ao agente; a infração prevê ‘deixar de disponibilizar aos consumidores estrutura de atendimento adequada, que lhes possibilite fácil acesso ao agente setorial’, descrevendo a falta dessa estrutura de acesso.",
+   "duvida": null
+  },
+  "2d90cfedd6fa12bb": {
+   "dispositivo": "Art. 11, XXIII",
+   "grupo": "III",
+   "justificativa": "A obrigação impõe que, no tratamento de interrupções emergenciais, a distribuidora observe as disposições de atendimento do Módulo 4 do PRODIST, que incluem informações a consumidores sobre interrupções; o Art. 11, XXIII pune justamente o deixar de prestar informações decorrentes de interrupções aos consumidores nos termos da regulação.",
+   "duvida": "D1"
+  },
+  "94541d2019cf4f5c": {
+   "dispositivo": "Art. 9º, V",
+   "grupo": "I",
+   "justificativa": "A obrigação determina que a distribuidora entregue e mantenha atualizada a relação dos canais e informações de contato dos representantes institucionais junto aos poderes públicos; o Art. 9º, V descreve a conduta de “deixar de atualizar ... o nome do representante legal ... bem como os respectivos meios de comunicação”, ambos tratam da mesma obrigação de atualização de contatos institucionais.",
+   "duvida": null
+  },
+  "eadfd60af5f29b5e": {
+   "dispositivo": "Art. 12, XXVI",
+   "grupo": "IV",
+   "justificativa": "A obrigação exige que a Portaria que institui o Comitê de Crise atenda às disposições da Portaria nº 6.803/2023; se essa Portaria não incorporar as previsões sobre plano de contingência previstas na regulação aplicável, configura a ausência, inadequação ou descumprimento do Plano de Contingência previsto no dispositivo.",
+   "duvida": null
+  },
+  "d6664266cb6f2dc2": {
+   "dispositivo": "Art. 11, IV",
+   "grupo": "III",
+   "justificativa": "A obrigação exige que cessões emergenciais entre distribuidoras/transmissoras e partes relacionadas sejam reembolsadas, garantindo neutralidade e não caracterizando rateio; se os valores não forem reembolsados ou forem apropriados como rateio/serviço, implica não registrar separadamente os custos desses ajustes com partes relacionadas, enquadrando-se no dispositivo.",
+   "duvida": null
+  },
+  "aa970d563840ad15": {
+   "dispositivo": "Art. 12, XXVIII",
+   "grupo": "IV",
+   "justificativa": "A obrigação exige implantar processo de comunicação e acompanhamento da evolução de eventos climáticos severos a partir de instruções da ANEEL; a infração refere‑se precisamente a comunicar‑se de forma ineficiente com o Poder Público em Situações de Emergência, o que coincide com a omissão ou inadequação no processo exigido.",
+   "duvida": null
+  },
+  "49c69256fe352127": {
+   "dispositivo": "Art. 10, XX",
+   "grupo": "II",
+   "justificativa": "A obrigação impõe às distribuidoras disponibilizar a API no prazo de 60 dias conforme instruções da ANEEL; o dispositivo prevê 'deixar de enviar ou disponibilizar à ANEEL informações ou documentos, nos prazos e nas condições estabelecidas na legislação', aplicando‑se ao não cumprimento do prazo para disponibilização da API.",
+   "duvida": null
+  },
+  "6a75e130ecf1cdda": {
+   "dispositivo": "Art. 9º, VI",
+   "grupo": "I",
+   "justificativa": "A norma exige \"informar e manter ... em seu sítio eletrônico ... em até 30 dias\" os indicadores definidos por instruções da ANEEL; deixar de disponibilizar esses indicadores no prazo equivale a \"deixar de enviar ou disponibilizar informações ou documentos solicitados pela ANEEL, nos prazos e nas condições estabelecidas\".",
+   "duvida": null
+  }
+ }
+}

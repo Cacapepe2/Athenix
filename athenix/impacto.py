@@ -190,7 +190,8 @@ def titulo_obrigacao(texto):
     """Resumo derivado do texto; a citação literal continua no detalhe."""
     texto = espacos(texto)
     texto = re.sub(r"^(?:(?:[IVXLCDM]+\s*[-–]|\d+[.]|[a-z][)])\s*)+", "", texto)
-    texto = re.sub(r"^Até .*? dias para\s+", "", texto, flags=re.I)
+    # "dias mês para": redação literal do Art. 13, VI da RN 1.137/2025.
+    texto = re.sub(r"^Até .*? dias(?: mês)? para\s+", "", texto, flags=re.I)
     modal = re.match(r"^.*?\b(não\s+)?(?:devem|deverão|deve|deverá)\s+", texto, flags=re.I)
     if modal:
         texto = ("não " if modal[1] else "") + texto[modal.end() :]

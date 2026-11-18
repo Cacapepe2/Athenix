@@ -1,0 +1,27 @@
+{
+ "versao": "plano-temas-1",
+ "descricao": "Agrupamento do plano de ação (athenix/plano.py). Cada tema é uma ou mais seções da própria norma; o título da seção é conferido literalmente no texto na exportação. Itens das disposições finais e transitórias, ou sem seção, vão para o tema do primeiro assunto nomeado no texto (padrão), e o trecho que casou fica registrado. Evidências são sugestões da Athenix a partir de palavras do dever, sempre com o trecho que as motivou; não são exigência normativa nem lista completa.",
+ "norma": "RN ANEEL 1.137/2025",
+ "temas": [
+  {"id": "manejo", "nome": "Manejo da vegetação", "secoes": [{"rotulo": "Seção 4.7", "titulo": "Poda e manejo vegetal"}], "padrao": "manejo|vegeta"},
+  {"id": "consumidor", "nome": "Comunicação ao consumidor sobre interrupções", "secoes": [{"rotulo": "Seção 4.8", "titulo": "Comunicação entre Distribuidoras e Consumidores em casos de interrupção no fornecimento"}], "padrao": "consumidor|ocorrências abertas"},
+  {"id": "poder_publico", "nome": "Articulação com o Poder Público", "secoes": [{"rotulo": "Seção 4.9", "titulo": "Comunicação entre Distribuidoras e Poder Público em Situações de Emergência"}, {"rotulo": "Seção VI", "titulo": "Do Relacionamento com o Poder Público"}], "padrao": "Poder Público"},
+  {"id": "contingencia", "nome": "Plano de contingência", "secoes": [{"rotulo": "Seção 4.11", "titulo": "Planos de Contingência"}], "padrao": "contingência"},
+  {"id": "cessao", "nome": "Cessão emergencial entre distribuidoras", "secoes": [{"rotulo": "Seção 4.10", "titulo": "Cessão Emergencial de recursos humanos, equipamentos e materiais entre distribuidoras"}, {"rotulo": "Seção VIII", "titulo": "Das Medidas Administrativas e de Cessão Emergencial"}], "padrao": "[Cc]essão [Ee]mergencial"},
+  {"id": "dise", "nome": "Apuração do DISE e compensações", "secoes": [{"rotulo": "Seção IV", "titulo": "Da Qualidade do Fornecimento de Energia Elétrica"}], "padrao": "DISE|compensaç"},
+  {"id": "informacoes", "nome": "Informações à ANEEL", "secoes": [{"rotulo": "Seção III", "titulo": "Das Informações Requeridas e Obrigações"}], "padrao": null},
+  {"id": "outros", "nome": "Outras obrigações", "secoes": [], "padrao": null}
+ ],
+ "evidencias": [
+  {"id": "site", "texto": "Página publicada no sítio eletrônico, com data (captura ou registro de publicação)", "padrao": "sítio eletrônico|Internet"},
+  {"id": "postos", "texto": "Disponibilidade nos postos de atendimento presencial, por posto", "padrao": "postos de atendimento"},
+  {"id": "registro", "texto": "Registro mantido em sistema, com data e responsável por entrada", "padrao": "registr"},
+  {"id": "plano", "texto": "Versão vigente do plano, com data de aprovação e histórico de revisões", "padrao": "\\bplanos?\\b"},
+  {"id": "mensagens", "texto": "Registros de envio por SMS e aplicativos de mensagens", "padrao": "SMS|aplicativos de mensagens"},
+  {"id": "aneel", "texto": "Comprovante de envio da informação à ANEEL", "padrao": "à ANEEL|à Agência"},
+  {"id": "simulacao", "texto": "Relatório das simulações ou testes, com participantes e data", "padrao": "simulaç|testes"},
+  {"id": "relatorio", "texto": "Relatório elaborado, com data e destinatário", "padrao": "relatório"},
+  {"id": "compensacao", "texto": "Memória de cálculo das compensações e crédito ao consumidor", "padrao": "compensaç"},
+  {"id": "contrato", "texto": "Contrato ou instrumento assinado", "padrao": "contrato"}
+ ]
+}
