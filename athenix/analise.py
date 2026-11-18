@@ -20,6 +20,13 @@ from .normalizacao import espacos
 ROTULO = "Análise regulatória preliminar · não constitui parecer jurídico · revisar com o jurídico"
 # Prática conhecida: tema do plano -> dependência externa típica. Sem citação da norma da RN 1.137.
 PRATICA_POR_TEMA = {"manejo": "autorizacao_municipal"}
+# Causa externa conhecida por tema, fora do texto da norma e sem referência pública: só "a avaliar".
+CAUSAS_POR_TEMA = {
+    "consumidor": {
+        "nome": "Indisponibilidade de canais de terceiros",
+        "nota": "Prática conhecida, fora do texto da norma, sem citação nem referência pública. A avaliar com o jurídico, caso a caso.",
+    }
+}
 SO_REGRA = "só pela regra · segunda leitura da IA não feita"
 A_REVISAR = tipos_ia.A_REVISAR
 TIPOS_DE_DETALHE = {"letter", "clause", "item", "paragraph"}
@@ -105,6 +112,7 @@ def montar(out, rows, extraction, cache_ia=None):
         "manuais": manuais,
         "dependencias": deps,
         "pratica_por_tema": pratica,
+        "causas_por_tema": CAUSAS_POR_TEMA,
         "contraponto": _contraponto(cfg_dep),
     }
 

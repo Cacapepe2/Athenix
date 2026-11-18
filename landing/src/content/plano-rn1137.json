@@ -1,6 +1,6 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "9215373",
+ "commit_origem": "11c03b3",
  "gerado_em": "2026-11-18",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
@@ -62,7 +62,7 @@
    {
     "base": 1000000000.0,
     "faturamento": null,
-    "obrigacao": "6d851f0d0ece1e2210f827ab1a46429f",
+    "obrigacao": "ab5c6e7c2c8a2d52618ead6ccddcb01f",
     "maximo_reais": 10000000.0,
     "com_atenuante_reais": {
      "espontanea": 500000.00000000047,
@@ -72,7 +72,7 @@
    {
     "base": 5000000000.0,
     "faturamento": null,
-    "obrigacao": "6d851f0d0ece1e2210f827ab1a46429f",
+    "obrigacao": "ab5c6e7c2c8a2d52618ead6ccddcb01f",
     "maximo_reais": 50000000.0,
     "com_atenuante_reais": {
      "espontanea": 2500000.0000000023,
@@ -82,7 +82,7 @@
    {
     "base": 10000000000.0,
     "faturamento": null,
-    "obrigacao": "6d851f0d0ece1e2210f827ab1a46429f",
+    "obrigacao": "ab5c6e7c2c8a2d52618ead6ccddcb01f",
     "maximo_reais": 100000000.0,
     "com_atenuante_reais": {
      "espontanea": 5000000.000000005,
@@ -92,7 +92,7 @@
    {
     "base": 20000000000.0,
     "faturamento": null,
-    "obrigacao": "6d851f0d0ece1e2210f827ab1a46429f",
+    "obrigacao": "ab5c6e7c2c8a2d52618ead6ccddcb01f",
     "maximo_reais": 200000000.0,
     "com_atenuante_reais": {
      "espontanea": 10000000.00000001,
@@ -102,7 +102,7 @@
    {
     "base": 5000000000.0,
     "faturamento": 500000000.0,
-    "obrigacao": "6d851f0d0ece1e2210f827ab1a46429f",
+    "obrigacao": "ab5c6e7c2c8a2d52618ead6ccddcb01f",
     "maximo_reais": 15000000.0,
     "com_atenuante_reais": {
      "espontanea": 2500000.0000000023,
@@ -137,7 +137,7 @@
     "exposicao_pct": 1.0,
     "origem": "confirmado",
     "prazo": {
-     "obrigacao": "1aa40646345a582835aef850d1558d4e",
+     "obrigacao": "96f6b1d3463f2400278578fb6a6bda35",
      "data": "2026-04-28",
      "texto": "Vencido desde 28/04/2026 (203 dias)",
      "dias": -203,
@@ -152,7 +152,7 @@
     "exposicao_pct": 1.0,
     "origem": "confirmado",
     "prazo": {
-     "obrigacao": "6d851f0d0ece1e2210f827ab1a46429f",
+     "obrigacao": "ab5c6e7c2c8a2d52618ead6ccddcb01f",
      "data": "2026-01-28",
      "texto": "Vencido desde 28/01/2026 (293 dias)",
      "dias": -293,
@@ -167,7 +167,7 @@
     "exposicao_pct": 1.0,
     "origem": "confirmado",
     "prazo": {
-     "obrigacao": "e3789df3d28ddbb699c0896a8e2c344f",
+     "obrigacao": "8150c31afec83873d5dfca23c3f4af11",
      "data": "2026-04-28",
      "texto": "Vencido desde 28/04/2026 (203 dias)",
      "dias": -203,
@@ -203,7 +203,7 @@
     "sem_prazo": 27
    },
    "prazo_mais_urgente": {
-    "obrigacao": "1aa40646345a582835aef850d1558d4e",
+    "obrigacao": "96f6b1d3463f2400278578fb6a6bda35",
     "data": "2026-04-28",
     "texto": "Vencido desde 28/04/2026 (203 dias)",
     "dias": -203,
@@ -283,7 +283,7 @@
      "id": "site",
      "n": 18,
      "exemplo": {
-      "obrigacao": "45d6c098677f67a3513b4a598c16790c",
+      "obrigacao": "5e4bc20db6a9a9e82b1503f54cfda9b3",
       "trecho": "IV - Até 180 (cento e oitenta) dias para disponibilizar em sítio eletrônico o número total de unidades consumidoras afetadas por interr"
      }
     },
@@ -291,7 +291,7 @@
      "id": "mensagens",
      "n": 4,
      "exemplo": {
-      "obrigacao": "77fa82f2424e5b2490ab92433e3d0afe",
+      "obrigacao": "6bb84322365be30122d072f8930f759a",
       "trecho": "item 105 deve ser realizada, obrigatoriamente, por meio de SMS e aplicativos de mensagens, com envio de mensagens automáti"
      }
     },
@@ -299,7 +299,7 @@
      "id": "plano",
      "n": 2,
      "exemplo": {
-      "obrigacao": "fb5258aee595d4ccc063c7ed7e73447e",
+      "obrigacao": "e14ae76ef0c8061777b5b913de6d26ef",
       "trecho": "k) Estágio da operação (conforme etapas definidas no plano de contingência)."
      }
     }
@@ -321,42 +321,42 @@
    "excludentes": [],
    "causa_externa": "argumento a confirmar com advogado",
    "principais": [
-    "1aa40646345a582835aef850d1558d4e",
-    "45d6c098677f67a3513b4a598c16790c",
-    "c6573cbb1a193859d3abf084da6728b3",
-    "fb5258aee595d4ccc063c7ed7e73447e"
+    "96f6b1d3463f2400278578fb6a6bda35",
+    "5e4bc20db6a9a9e82b1503f54cfda9b3",
+    "48cc66e1d1300d6b55c3b99bc7fe4325",
+    "e14ae76ef0c8061777b5b913de6d26ef"
    ],
    "obrigacoes": [
-    "1aa40646345a582835aef850d1558d4e",
-    "45d6c098677f67a3513b4a598c16790c",
-    "c6573cbb1a193859d3abf084da6728b3",
-    "fb5258aee595d4ccc063c7ed7e73447e",
-    "9fb7c825def0ea0d517aaefe41391fef",
-    "24bb7ef828089dce7fd8c7c35f29658f",
-    "6b6e7f003573407a520c46a225e1dc94",
-    "e6b0caabe3bf2988ab37541fef1f5077",
-    "1f744ab9250eed257b359bdf7d2caac8",
-    "3e902de0f3ae29543f279677f7d12646",
-    "c73f32e00dd49ebd10b386f7c71f45ed",
-    "38822404600456bb5373170af8619bd9",
-    "1a9818163996a41eb83b5533493ab49b",
-    "7ce4fa671a9cc58ed0503d5291ae1141",
-    "f0c9d0501ff3dcf8d0f5748417687af2",
-    "5c02090d5ea81a809ad77208fc022959",
-    "f15492bc7bd8c827629342a35ed3b130",
-    "2461c56169908b771d708556d45f06f7",
-    "040c89d38c781ffea1f5a8b2f78171c1",
-    "e55b7c3bb21b3a1fcc525e1496fe78fe",
-    "a59255a5c8def0e7d7b439c111cca0e5",
-    "e99e6f477315cc72256df12870e2f5ec",
-    "18732431f029be01ab2eb0e1a054c201",
-    "77fa82f2424e5b2490ab92433e3d0afe",
-    "a2f1449332e59bc6c2a890b5b8e07935",
-    "97528cac2b053e77aa54645a02e39c11",
-    "bab82f986b319cd2394815df0b906c3f",
-    "c35aa32e87f251881fde2bf0ff30fcfd",
-    "4b4ad36f4e84168c823b10ff16b0a86b",
-    "38945dfa9d46bb9815358922910037c2"
+    "96f6b1d3463f2400278578fb6a6bda35",
+    "5e4bc20db6a9a9e82b1503f54cfda9b3",
+    "48cc66e1d1300d6b55c3b99bc7fe4325",
+    "e14ae76ef0c8061777b5b913de6d26ef",
+    "6ceb8113c9f37da271cfdc3e7ba0fe8d",
+    "96c3d43d7d6c748a1dfebb87438483cf",
+    "813a78b062720a383e2040b6d9ac4a9e",
+    "1fa9c0d6f01d4e8218b9f25fcd5cb79f",
+    "3011c060c5e459828b0cbd568f95ef80",
+    "e462c253f7dbb790502c86bf3335d2e6",
+    "91994236d614896870196f3b8c79663a",
+    "21589311ec8d3793c0164a5220177a4e",
+    "ed4c23b6dfddde5e0d83785062ac600a",
+    "adc734c24bbd2ea8e8cde9bacccb5c65",
+    "29f579e4e56f2e0f4d4edd4985cdd9f2",
+    "243cc2eac4a93736a5e38fad202ff5c8",
+    "b288f9d91f2c0ea795dabd2b469f325a",
+    "ce8a04b04791b0742bd092f8645e0634",
+    "fa1ea73c39c0a06267bbe930cc826634",
+    "25fe3b4d5c061217e27e345d7246cc68",
+    "b24b621208fe4f5a329e1abe07800c3e",
+    "98116e6c32696647a8c2202b924e3d99",
+    "161299f1c2f45a8ec9d59e2decf81acb",
+    "6bb84322365be30122d072f8930f759a",
+    "f39ea48dbee0a11d4d70d6edd78bf072",
+    "9409717f68071c13150b85a31425085b",
+    "0522e0e4048b9abb0010fc497a72c3b8",
+    "149aaafaf6be9a5a02aeba9291feaeb4",
+    "68605dfd1ee4af9d8b48699a577036bb",
+    "e4d867638ae140cb20de15242024a9dd"
    ],
    "dependencias_no_texto": []
   },
@@ -380,7 +380,7 @@
     "sem_prazo": 19
    },
    "prazo_mais_urgente": {
-    "obrigacao": "6d851f0d0ece1e2210f827ab1a46429f",
+    "obrigacao": "ab5c6e7c2c8a2d52618ead6ccddcb01f",
     "data": "2026-01-28",
     "texto": "Vencido desde 28/01/2026 (293 dias)",
     "dias": -293,
@@ -462,7 +462,7 @@
      "id": "plano",
      "n": 4,
      "exemplo": {
-      "obrigacao": "6d851f0d0ece1e2210f827ab1a46429f",
+      "obrigacao": "ab5c6e7c2c8a2d52618ead6ccddcb01f",
       "trecho": "I - Até 90 (noventa) dias para revisar e publicar os planos de manejo vegetal, de comunicação e de contingência de que"
      }
     },
@@ -470,7 +470,7 @@
      "id": "site",
      "n": 2,
      "exemplo": {
-      "obrigacao": "585460f21211f6b44ca7907e25b6e958",
+      "obrigacao": "371a0efb3d4c5a4e3ab873d8e771e516",
       "trecho": "ersão mais atualizada de seu plano de manejo vegetal em seu sítio eletrônico na Internet e nos postos de atendimento presencial, de form"
      }
     },
@@ -478,7 +478,7 @@
      "id": "postos",
      "n": 2,
      "exemplo": {
-      "obrigacao": "585460f21211f6b44ca7907e25b6e958",
+      "obrigacao": "371a0efb3d4c5a4e3ab873d8e771e516",
       "trecho": "de manejo vegetal em seu sítio eletrônico na Internet e nos postos de atendimento presencial, de forma acessível ao público, com uso de lingu"
      }
     }
@@ -500,32 +500,32 @@
    "excludentes": [],
    "causa_externa": "argumento a confirmar com advogado",
    "principais": [
-    "6d851f0d0ece1e2210f827ab1a46429f",
-    "958668f808c6b12cadd621d2123e1318",
-    "5ea14ae6d651a6529961d3bd57f7712a",
-    "585460f21211f6b44ca7907e25b6e958"
+    "ab5c6e7c2c8a2d52618ead6ccddcb01f",
+    "f3b14b4d06e787d331d32c6ae84c3104",
+    "1dbc3a9dbb51cfb8b63e824bd0650418",
+    "371a0efb3d4c5a4e3ab873d8e771e516"
    ],
    "obrigacoes": [
-    "6d851f0d0ece1e2210f827ab1a46429f",
-    "958668f808c6b12cadd621d2123e1318",
-    "5ea14ae6d651a6529961d3bd57f7712a",
-    "585460f21211f6b44ca7907e25b6e958",
-    "7fc3f7682615ccc8fa2fcff309c0716c",
-    "214f17db417e950d917dd79e4c04eca9",
-    "c12d1d6b3f315c1e87bae285e9adbeb0",
-    "7b5146941ec47dfe82ed35496e6b6276",
-    "c8cc8001bf9d7c0ca1de3e34bb59bcec",
-    "f52bd4b1f41ba7475447fc1d756031e9",
-    "c3af60d635a92e26eb81e23ccc4c03a6",
-    "512d94e840ba0dedb6704bdeeab7fdda",
-    "4513be7cb890d37c0ae7b6c4b3c6c823",
-    "d8211e7d5205f72904e8e840ae73c64e",
-    "1053b90c69cdbc309e348d449bd7991e",
-    "fc34757cf7dfe170202bd902025a6569",
-    "ec64dfb96e20d636d200b4bfb45c6547",
-    "4813f1c72e8cc5fcd306c09c6cbb1b67",
-    "d5141b46ea8763e492daa25f12145a83",
-    "fd6e9f5b9d5782f84d2f4b3627bedbd2"
+    "ab5c6e7c2c8a2d52618ead6ccddcb01f",
+    "f3b14b4d06e787d331d32c6ae84c3104",
+    "1dbc3a9dbb51cfb8b63e824bd0650418",
+    "371a0efb3d4c5a4e3ab873d8e771e516",
+    "24adc4d903c405c4709a6d6bfa3b992b",
+    "bf161429e5c4c339f4aaa4eeabfd9b19",
+    "9d45a9d273bc0dc3b41a979c972a34c1",
+    "436cc4c887f03c4341c7ac2b4508e530",
+    "0831da81fd8bdf388170b77367e66a7f",
+    "ebf622114d279278c1210c8abde5de32",
+    "711a85b2998cfacde446e2bc7d721817",
+    "20d1b5410f9213358e1254619c22fa73",
+    "ae50204c2421c949a8ed05f6ad306ce0",
+    "384d0e8ee2c23a5fc5bebdc2a6990ae6",
+    "2c66d5a873bfcc2110914e4fcc2cc139",
+    "d4115d5a15e77e168b45ab0b8e8fe710",
+    "67046bcfe835d19a15daceaf7e9aba40",
+    "e18918d81db932b28ecc9506b0d67f4d",
+    "4877a9b51e0e76a3f52f5943f07d6049",
+    "89edb2d377653934971636550cc12c62"
    ],
    "dependencias_no_texto": []
   },
@@ -554,7 +554,7 @@
     "sem_prazo": 16
    },
    "prazo_mais_urgente": {
-    "obrigacao": "e3789df3d28ddbb699c0896a8e2c344f",
+    "obrigacao": "8150c31afec83873d5dfca23c3f4af11",
     "data": "2026-04-28",
     "texto": "Vencido desde 28/04/2026 (203 dias)",
     "dias": -203,
@@ -635,7 +635,7 @@
      "id": "registro",
      "n": 1,
      "exemplo": {
-      "obrigacao": "e3789df3d28ddbb699c0896a8e2c344f",
+      "obrigacao": "8150c31afec83873d5dfca23c3f4af11",
       "trecho": "II - Até 180 (cento e oitenta) dias para implementar o registro das interações com o Poder Público Municipal em relação ao"
      }
     }
@@ -657,34 +657,34 @@
    "excludentes": [],
    "causa_externa": "argumento a confirmar com advogado",
    "principais": [
-    "e3789df3d28ddbb699c0896a8e2c344f",
-    "1d41d930436a3687ff79e52fec9a1a3d",
-    "579e23ead8da60d5b661e982e00c136f",
-    "42539b782c2da52c0df648913ed356b1"
+    "8150c31afec83873d5dfca23c3f4af11",
+    "4f49b400e22824f6be82fb14d1865fe6",
+    "e12216d40d33f381f90dfdde57d740dc",
+    "9d7730b3bbaef070d25078eec0fe388c"
    ],
    "obrigacoes": [
-    "e3789df3d28ddbb699c0896a8e2c344f",
-    "1d41d930436a3687ff79e52fec9a1a3d",
-    "579e23ead8da60d5b661e982e00c136f",
-    "42539b782c2da52c0df648913ed356b1",
-    "dc2817279caa770549594849bbe66e8c",
-    "3cfdddea591d21e1f76429091c8339e9",
-    "4068346e540a48ccc592c2a0da26d431",
-    "6c9f2d9820fc11b093d2beefaff3b826",
-    "55def10dbe8a1f68b7b01eb743abae2e",
-    "b4d313012446167b8f9101dc1c904b3c",
-    "d47c1a7a07114ee267aaec3c34ae3813",
-    "be471947a15c1e33ef32fbd1d898556d",
-    "791d2b8ee2ccbfa8203c7b66e1b0fe18",
-    "4e05912e7ea06c354c873c198ee46e1a",
-    "c397d692aa6bc601786ac529791b8e6a",
-    "caefc23a114b137e479ebfbc37dd5b92",
-    "56e499ec5bf6885484fd36e2a02310d9",
-    "a09ddaa70b009e3dfd4594a7912a6a19"
+    "8150c31afec83873d5dfca23c3f4af11",
+    "4f49b400e22824f6be82fb14d1865fe6",
+    "e12216d40d33f381f90dfdde57d740dc",
+    "9d7730b3bbaef070d25078eec0fe388c",
+    "1d53360e65da41174c8720569eda153e",
+    "151feb651964faeccd8d14dc23daa191",
+    "b446baf361e63f2d27f229c23d0c9904",
+    "0b72f8abe4c645056b68b08d3bc0ae02",
+    "cc2bead27b37396309ebae5ca965091a",
+    "e999916da34bacce3d80ca595298207e",
+    "2362d17ab7b609b9ca5c9690bb316bcd",
+    "dbb16787bed84cf8ce152c36f19f228d",
+    "2a04fb6c011327c6658587fa33808459",
+    "d89e779543b063dd9b28dba5b782fe35",
+    "e8f1a33a2198d77d9a0f69e40dbec07b",
+    "c9762e0971ff2fb5e0b2599a6baf622f",
+    "13344a3f00857f34577ba9758f70ecf7",
+    "b294f5d4a240e1275e365bdf61ff8177"
    ],
    "dependencias_no_texto": [
     {
-     "obrigacao": "dc2817279caa770549594849bbe66e8c",
+     "obrigacao": "1d53360e65da41174c8720569eda153e",
      "id": "ato_da_aneel",
      "trecho_literal": "As distribuidoras de energia devem disponibilizar uma API (Application Programming Interface) ou outra solução tecnológica segura, conforme instrução técnica emitida pela ANEEL, permitindo que a ANEEL extraia os dados de interrupção do fornecimento diretamente da fonte, com observância aos critérios de segurança cibernética, disponibilidade e integridade de sistemas"
     }
@@ -783,7 +783,7 @@
      "id": "plano",
      "n": 31,
      "exemplo": {
-      "obrigacao": "6cc2cfbb2e426547a18f29da56befa04",
+      "obrigacao": "a4b4a21889d9513e488d9753cf449e70",
       "trecho": "140. O plano de contingência deve ser elaborado de forma a garantir a co"
      }
     },
@@ -791,7 +791,7 @@
      "id": "simulacao",
      "n": 3,
      "exemplo": {
-      "obrigacao": "0265f642ed00125401e2508453364b8f",
+      "obrigacao": "c72c7c60add10e2736a41112393271ee",
       "trecho": "einamentos e Simulações: Realizar treinamentos periódicos e simulações para preparar as equipes para situações de contingência;"
      }
     },
@@ -799,7 +799,7 @@
      "id": "site",
      "n": 2,
      "exemplo": {
-      "obrigacao": "f0142282ab6aee66d9e2f821e0d4a5b3",
+      "obrigacao": "689d6d9c84090601576aafa5f630fb16",
       "trecho": "os seus responsáveis pelo seu plano de contingência, em seu sítio eletrônico na Internet e nos postos de atendimento presencial, de form"
      }
     }
@@ -821,48 +821,48 @@
    "excludentes": [],
    "causa_externa": "argumento a confirmar com advogado",
    "principais": [
-    "6cc2cfbb2e426547a18f29da56befa04",
-    "f5dc685e8eeb1fdb99b5423502a1e54a",
-    "a34ca8b7ec5d7b25d8e364b8667e472f",
-    "d2135cb5844ef0925a0f513ca8da3bda"
+    "a4b4a21889d9513e488d9753cf449e70",
+    "5ead5b02287ac05328fcc7e220c45453",
+    "7e6c7a01396d71596105cda455583915",
+    "0bc3c83a2325452a30fe83a816cfb467"
    ],
    "obrigacoes": [
-    "6cc2cfbb2e426547a18f29da56befa04",
-    "f5dc685e8eeb1fdb99b5423502a1e54a",
-    "a34ca8b7ec5d7b25d8e364b8667e472f",
-    "d2135cb5844ef0925a0f513ca8da3bda",
-    "99ecedcca0b695224adb79beab7c3429",
-    "ece3508293e65f539413ba61f9383c75",
-    "df84f5642c45dc9224923d5bec47612a",
-    "7694e76aa4b4d45724727848682ff58b",
-    "6d6537a9a86ff17f4d07fd93b7db63b1",
-    "0a1bdbd954f4adb42a1bb4dcd9620776",
-    "ff8ff5c29bbe92cf0ee4303386638231",
-    "93d25706071bd40a69f112109339eda9",
-    "f64e1eb05ddc437f019deb8dc411ea19",
-    "0265f642ed00125401e2508453364b8f",
-    "063010c4eac78333c5b90c7e03a86cb7",
-    "8fbc83695a241f375efc37c738810d42",
-    "daed3321e138ba5fef64f338bb28f284",
-    "e3b7997d17c45f96702b8c817de7b75d",
-    "5c7fba85754e6c715392f5dc5e6d53ed",
-    "6ecf7b0345f0d58f899ec1a6e5de1303",
-    "c831b770e06ad60552a526895a2e06a3",
-    "28d2f9372d789b3cbeaabe45f611b37b",
-    "983a7bd8616301c6424c860bdadf5e60",
-    "fb259fff086cc79656e123e352f7ec22",
-    "ecedce0e8af997b1e6fa64a694195e50",
-    "d37e10200bb5a08310fa86fd5d646d4f",
-    "111ac299150f6ec98427360df0eab1fc",
-    "c30eae0366547041c04706a19ff7ff65",
-    "2b9461a90a0334ff4e9c810d6abe9774",
-    "f0142282ab6aee66d9e2f821e0d4a5b3",
-    "49f8b730d434d0b433aa54e87b677d42",
-    "11d59871e8bfb7f9980ea6432fbde644",
-    "c89f7a0994ef0a0fdf4a7ee499b24036",
-    "53e8282189414ecb59b878b89f51821a",
-    "111dbed62b092261103f1e29dce9d989",
-    "bceebbc60b64f6bc3621f6c426ac122b"
+    "a4b4a21889d9513e488d9753cf449e70",
+    "5ead5b02287ac05328fcc7e220c45453",
+    "7e6c7a01396d71596105cda455583915",
+    "0bc3c83a2325452a30fe83a816cfb467",
+    "832410c0abc30fafadfb240efca7a5d7",
+    "44f9e08baf3ab4bfb0add2860194cd07",
+    "5c1fb715d80480a3893e7ed886f7c6ac",
+    "ab27d1747a628bb2e5a8bc6cc3a1cc12",
+    "42e6cedd1f9269de7a7a10346517f6f0",
+    "02cfab16e964379703e348e86e2b4c29",
+    "c6e68a24f0e691854c54138b3188263c",
+    "8a1bd75fbdaa7e4ae8a273eb580d0ebd",
+    "027a531a96fbcaf16fcf1976c0a8a047",
+    "c72c7c60add10e2736a41112393271ee",
+    "6284b385445903a7ac4851edd66e5d55",
+    "8eb0ad855d58e5f8fa7652eeba93993d",
+    "3437db5ca0fde9e5d911f8ed09e377be",
+    "c23145a214e90d1024e6266225422643",
+    "3475817306fac49f36f1595ed375e0d7",
+    "30895460982e7a166313c537d003d049",
+    "b60e7d727ebb623dab9a14cc2ed6ab9f",
+    "444a8fd79ad2aaa49dc4a501c1303972",
+    "e7f980c7ff0ce2b38515abb940f046f2",
+    "ff5fe97b7a12429b071ec42b85718280",
+    "80ef063d3a011cfcb4e2019fb35f62c6",
+    "734cb816a6c760a58698b3e34c80bed7",
+    "a58925605521b39521193a553b160597",
+    "900586becbf8cf9984b523330fb1d479",
+    "e368b42c3135df1a0e0cdd6f45eb468d",
+    "689d6d9c84090601576aafa5f630fb16",
+    "b21dba0c55f1a7984d849c985b67546d",
+    "68c500372760d09a2f6f5ba8ecf5b2df",
+    "893bf55f83ddb5d9d7c8daa47054106a",
+    "fcad0f54511db0dc162748d7a4d79efe",
+    "1f1dc4db92023e374f21362dc2800ae7",
+    "601ad405f6254ee2cdcbfd39ff4101d4"
    ],
    "dependencias_no_texto": []
   },
@@ -962,7 +962,7 @@
      "id": "site",
      "n": 5,
      "exemplo": {
-      "obrigacao": "56e9f4d782a67058781659e3b04f6ffe",
+      "obrigacao": "39aa5e7728d52724810d519d537cdca4",
       "trecho": "23-F. A distribuidora deve disponibilizar em sítio eletrônico e nos postos de atendimento presencial, com uso de linguage"
      }
     },
@@ -970,7 +970,7 @@
      "id": "postos",
      "n": 4,
      "exemplo": {
-      "obrigacao": "56e9f4d782a67058781659e3b04f6ffe",
+      "obrigacao": "39aa5e7728d52724810d519d537cdca4",
       "trecho": "distribuidora deve disponibilizar em sítio eletrônico e nos postos de atendimento presencial, com uso de linguagem clara e adequada, o seu Pl"
      }
     },
@@ -978,7 +978,7 @@
      "id": "aneel",
      "n": 2,
      "exemplo": {
-      "obrigacao": "87aa104da9c209694960af07523a6751",
+      "obrigacao": "3873dfdb6a482bfe1dbb8877d2a736aa",
       "trecho": "23-M. A distribuidora deve enviar regularmente à ANEEL os alertas meteorológicos que justifiquem o acionamento de"
      }
     }
@@ -1000,23 +1000,23 @@
    "excludentes": [],
    "causa_externa": "argumento a confirmar com advogado",
    "principais": [
-    "56e9f4d782a67058781659e3b04f6ffe",
-    "24c2f335011943e525c2c6cd4a89744e",
-    "87aa104da9c209694960af07523a6751",
-    "97f84ca79e998bc545999c9d6eb34af0"
+    "39aa5e7728d52724810d519d537cdca4",
+    "c0f010e2f417cd71ae85c18545b60e29",
+    "3873dfdb6a482bfe1dbb8877d2a736aa",
+    "acc8c2500fa7417c1a136819e828964e"
    ],
    "obrigacoes": [
-    "56e9f4d782a67058781659e3b04f6ffe",
-    "24c2f335011943e525c2c6cd4a89744e",
-    "87aa104da9c209694960af07523a6751",
-    "97f84ca79e998bc545999c9d6eb34af0",
-    "55e3fbe39387f0203ba5b94fb0873ab4",
-    "5611b4cd0306cd8016b39178d14cf9ba",
-    "f6a62edfc906e1d52a036bf55a2bc092",
-    "63c16a2d6cdb10a0d118dabfad1a5ead",
-    "7ee96dae8cfbb238fdd104ffeaba6e45",
-    "b6fdf24269b0251813329424cdf3df70",
-    "f15550bd7ac22b0e951a0422fbd0de23"
+    "39aa5e7728d52724810d519d537cdca4",
+    "c0f010e2f417cd71ae85c18545b60e29",
+    "3873dfdb6a482bfe1dbb8877d2a736aa",
+    "acc8c2500fa7417c1a136819e828964e",
+    "a86e6593242ad50a459b4265f12473e1",
+    "2a269e7fbaafb42182a858e4510d9dc0",
+    "70ca29958280b83d2c334f86ac3ea8de",
+    "85c8b71f588487ee7b25749880f1ab89",
+    "ffc6efeb032d6eb9fdc8cf44ffe0b421",
+    "ebc6646e793de4700afc4dbe33a60213",
+    "327128e104f97d70d88a52fe7c271f05"
    ],
    "dependencias_no_texto": []
   },
@@ -1092,7 +1092,7 @@
      "id": "relatorio",
      "n": 13,
      "exemplo": {
-      "obrigacao": "65c2c3de40927e0b5f1e8cb977b4a40b",
+      "obrigacao": "72b5b2e074a8ccdde1ca05dca7d11051",
       "trecho": "a ANEEL, em até 60 dias após o fim da situação emergencial, relatório contendo discriminação das despesas ou custos incorridos a"
      }
     },
@@ -1100,7 +1100,7 @@
      "id": "registro",
      "n": 2,
      "exemplo": {
-      "obrigacao": "215a830860da48745e243fdf7f56f22f",
+      "obrigacao": "5d85eb4e010a12c246e11b1718bacdc1",
       "trecho": "j) atividades desenvolvidas pelas equipes cedidas, registradas detalhadamente, por localidade;"
      }
     },
@@ -1108,7 +1108,7 @@
      "id": "simulacao",
      "n": 1,
      "exemplo": {
-      "obrigacao": "dc9c4a4c6d9e41bb36bc7cba13bf1a4d",
+      "obrigacao": "762818980a69d80bfca3f3fea09360f1",
       "trecho": "f) Realização de testes regulares de Cessão Emergencial, simulando cenários de cris"
      }
     }
@@ -1130,51 +1130,51 @@
    "excludentes": [],
    "causa_externa": "argumento a confirmar com advogado",
    "principais": [
-    "b04448a4c32e3dff1925f03b5fd44641",
-    "95d746ffd2734dbe9e812871eaef0893",
-    "1d53877acb96aad89a41ff26e52163c6",
-    "e88a9ac6888e25f705a09320a830e7f9"
+    "f6f02244a4becabf64757f85834c31ba",
+    "3676e9cc34ff86bf11ccfec1de18aacc",
+    "f7557788f50a12d5aa5a84970a89d7d7",
+    "48d07754cd34f240ab25b80e5d9a4893"
    ],
    "obrigacoes": [
-    "65c2c3de40927e0b5f1e8cb977b4a40b",
-    "573c9461cb72b08816fda6202bffdb18",
-    "a09a419e599cf2de3ff9d36a5ba53583",
-    "dd232265881dcc7783a0b5a65079c3c1",
-    "312a7f1ff183d9df0d1c0accf962517e",
-    "e59c31e337697a9e67a3f1a765282a32",
-    "be803cb8a0993679117c365ff6e3895e",
-    "c4a3dbf19d0e02a1d7335ca88892f239",
-    "4db8d42076ce47a83da27c94b24fd6af",
-    "215a830860da48745e243fdf7f56f22f",
-    "a4a09bbbe3784aa99e81023ab31b9f1c",
-    "5d42323753a48cf754d9b62acdbfae57",
-    "11e5b4f33803292e63d4eb7589f2e09b",
-    "faa2064240c149e5ca4f0d23d661bdc9",
-    "b04448a4c32e3dff1925f03b5fd44641",
-    "068bae36aaeae617c6af98f8de29c9af",
-    "04fa2ce2f09afecc75b05da48db51be2",
-    "43e7450e862d939e567a6203cef6ef28",
-    "95d746ffd2734dbe9e812871eaef0893",
-    "49c0e711c794d4360dba12a690f8e5f8",
-    "36589eee236054b844898e0adcbb8207",
-    "cf3dc26d3eccfe0c0461bc9f69494e33",
-    "65d915522557c70ee716ef363587b07d",
-    "b0c4d06439d263d14268a7ceb35da231",
-    "5ba29ee4d0e91a78be813c3c6ad70eb4",
-    "dc9c4a4c6d9e41bb36bc7cba13bf1a4d",
-    "2f064d325e45620c1f0ca08b959ff36e",
-    "d1c2b3af2792512dc17bc9616ff3c3fa",
-    "2c76b34427cd1c6e56e2d735fbc33f7e",
-    "597608ccc6df5937d1f76d2336068ad3",
-    "74a43853f0b430c52de65a68144dac52",
-    "1d53877acb96aad89a41ff26e52163c6",
-    "e88a9ac6888e25f705a09320a830e7f9",
-    "0b58e77d739c583efd96de198548ae1b",
-    "b0102ab827d8f6c85f10c2298c2229be",
-    "c2d051b27ea410e5264d6bf969deb231",
-    "bd4fd1a698e88aa66fdbb7eb14301109",
-    "e1089373c77bfc1b64928b1780e90b44",
-    "a035bfea295ab6fbe8b26ed52aaddc3c"
+    "72b5b2e074a8ccdde1ca05dca7d11051",
+    "749b875da470b67ecc244904db651d21",
+    "d3c11a5e61ab7c503612bf78e9baa665",
+    "8f45b5f596fe01114cb6b18e9a22da0a",
+    "e892ea20b5e26b59a5aa9743902cdac8",
+    "bfa3d0286f697c39155bba82e43a8f91",
+    "36c4ceeb27924644a8e6841370a0d43b",
+    "1b9bd281d78909b5a8f338fcec5ea63c",
+    "988d13a0424104250bc4a84c15b6b0c0",
+    "5d85eb4e010a12c246e11b1718bacdc1",
+    "a3bb9d8e50247f0e07f01e42372d0488",
+    "46eee4e31010d923b370bfda88be245c",
+    "ba6baff6066e9abd56dd65eaf94761f9",
+    "b43943a4199e27ac5181e73c320757ed",
+    "f6f02244a4becabf64757f85834c31ba",
+    "10f7aaf8bb57c7b5f0e0b101c81b2bf2",
+    "771095183d2796d66c03ffb55962e744",
+    "1749dd547ca3e7c4888c547e700b274a",
+    "3676e9cc34ff86bf11ccfec1de18aacc",
+    "b53c11d361afe76398c92c9640c0c0b4",
+    "6b1058060e8df69dfdad8926184d47a1",
+    "20ab10d3aaf772368a6d8b8997c15285",
+    "34b0b209a6553ea617de0eb8c3dbe5e7",
+    "9ddb8f25003d96c79f03adec1d5d847b",
+    "84ebe2d9b1cad773ee4e0a0e9b01d292",
+    "762818980a69d80bfca3f3fea09360f1",
+    "fe5488d1efd6e578a2c914f6b7a565c0",
+    "f42d226063125f63413004dd75d45e86",
+    "d460627e6217b75263f9812a44f27d6a",
+    "a57c2c771e1f3d6b550029bb352496ec",
+    "2f1d5ea29ab5f00ee5aacdcb3ecdeafa",
+    "f7557788f50a12d5aa5a84970a89d7d7",
+    "48d07754cd34f240ab25b80e5d9a4893",
+    "975fcd0465a5f4685ae37675cb0e4282",
+    "2ddf21481953856dc5f9d3716afc16f6",
+    "076378da013606f6a4b4a5ac6a71c2fa",
+    "5659371b99df2fbd42cca67e05a0f4ca",
+    "62bdbc7dbb3769548490313a26d46645",
+    "1167e17aaa85309a1b8b2a5e39492a41"
    ],
    "dependencias_no_texto": []
   },
@@ -1239,7 +1239,7 @@
      "id": "site",
      "n": 1,
      "exemplo": {
-      "obrigacao": "29dd7bd2a48dd69d58dd419a93592e39",
+      "obrigacao": "99b28778efc9d1f8db1e7a7acebd85ac",
       "trecho": "doras deverão informar e manter, por até cinco anos, em seu sítio eletrônico, os indicadores estabelecidos nos incisos V e VI do caput d"
      }
     }
@@ -1261,32 +1261,32 @@
    "excludentes": [],
    "causa_externa": "argumento a confirmar com advogado",
    "principais": [
-    "e0fb83e88a91d01611c0398d568b8c8e",
-    "d625a7ac8e93f1842b1239caf148cb7e",
-    "656b0e9b4c3bc7f386bfe57502303826",
-    "29dd7bd2a48dd69d58dd419a93592e39"
+    "f872e81a7858f14d9178df70455c9283",
+    "3c5ade389bf203c24f7e4c055e85b7ea",
+    "3072a0e59add8981372ba909b755833e",
+    "99b28778efc9d1f8db1e7a7acebd85ac"
    ],
    "obrigacoes": [
-    "e0fb83e88a91d01611c0398d568b8c8e",
-    "d625a7ac8e93f1842b1239caf148cb7e",
-    "656b0e9b4c3bc7f386bfe57502303826",
-    "29dd7bd2a48dd69d58dd419a93592e39",
-    "cead800c0202bb8b89107b6685dc9955",
-    "580a034ab6a606f00ee6d62f36e5b10e"
+    "f872e81a7858f14d9178df70455c9283",
+    "3c5ade389bf203c24f7e4c055e85b7ea",
+    "3072a0e59add8981372ba909b755833e",
+    "99b28778efc9d1f8db1e7a7acebd85ac",
+    "6c6e5e849f7e7efa5bcfa7721e6ad0ed",
+    "69353bb80ee6067a3407a0a1a9a075ad"
    ],
    "dependencias_no_texto": [
     {
-     "obrigacao": "d625a7ac8e93f1842b1239caf148cb7e",
+     "obrigacao": "3c5ade389bf203c24f7e4c055e85b7ea",
      "id": "ato_da_aneel",
      "trecho_literal": "As distribuidoras devem implantar processo de comunicação e acompanhamento da evolução dos eventos climáticos severos de que trata o item 114 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, em até 30 (trinta) dias, contados da publicação das instruções pela ANEEL"
     },
     {
-     "obrigacao": "656b0e9b4c3bc7f386bfe57502303826",
+     "obrigacao": "3072a0e59add8981372ba909b755833e",
      "id": "ato_da_aneel",
      "trecho_literal": "As distribuidoras devem disponibilizar a API de que trata item 113 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa em até 60 (sessenta) dias, contados da publicação das instruções pela ANEEL"
     },
     {
-     "obrigacao": "29dd7bd2a48dd69d58dd419a93592e39",
+     "obrigacao": "99b28778efc9d1f8db1e7a7acebd85ac",
      "id": "ato_da_aneel",
      "trecho_literal": "do Decreto 12.068, de 20 de julho de 2024, em até 30 dias, contados da publicação das instruções pela ANEEL"
     }
@@ -1312,7 +1312,7 @@
     "sem_prazo": 4
    },
    "prazo_mais_urgente": {
-    "obrigacao": "18437c6ede3e219450f3e6571beac09c",
+    "obrigacao": "d1a8016795301ddd8398a5a3983664c9",
     "data": "2026-04-28",
     "texto": "Vencido desde 28/04/2026 (203 dias)",
     "dias": -203,
@@ -1364,7 +1364,7 @@
      "id": "compensacao",
      "n": 5,
      "exemplo": {
-      "obrigacao": "18437c6ede3e219450f3e6571beac09c",
+      "obrigacao": "d1a8016795301ddd8398a5a3983664c9",
       "trecho": "o 8.2 do Módulo 8 do PRODIST com o corresponde pagamento de compensações por transgressão desse indicador, com efeitos retroativo"
      }
     },
@@ -1372,7 +1372,7 @@
      "id": "contrato",
      "n": 1,
      "exemplo": {
-      "obrigacao": "5af99e436270016b15a32eedbd1ec97f",
+      "obrigacao": "5c2764e66859f5de51340e4ad9446bba",
       "trecho": "or ponto de conexão devem ser estabelecidas nos respectivos contratos, obedecendo aos critérios deste Módulo."
      }
     }
@@ -1394,19 +1394,19 @@
    "excludentes": [],
    "causa_externa": "argumento a confirmar com advogado",
    "principais": [
-    "18437c6ede3e219450f3e6571beac09c",
-    "6be4cab74df1f04d82c710d1b8572b5e",
-    "0fc3621a053fd84b6f2ac949e7af9251",
-    "c476f7dcfb641614a9cc1eb1a3a57f68"
+    "d1a8016795301ddd8398a5a3983664c9",
+    "6a60ce68ff83e4197da35d84bf5af621",
+    "0494c10fedfe7529f3659d24e16c1acf",
+    "d46cd710a0545a2da611401e327dc8ae"
    ],
    "obrigacoes": [
-    "18437c6ede3e219450f3e6571beac09c",
-    "c476f7dcfb641614a9cc1eb1a3a57f68",
-    "6be4cab74df1f04d82c710d1b8572b5e",
-    "01b6af8694277560ade5807b98f624a8",
-    "0fc3621a053fd84b6f2ac949e7af9251",
-    "5af99e436270016b15a32eedbd1ec97f",
-    "481be1f3c6d404b8ad51957f8097129c"
+    "d1a8016795301ddd8398a5a3983664c9",
+    "d46cd710a0545a2da611401e327dc8ae",
+    "6a60ce68ff83e4197da35d84bf5af621",
+    "523b74d9c0bbb5995355b429827d330d",
+    "0494c10fedfe7529f3659d24e16c1acf",
+    "5c2764e66859f5de51340e4ad9446bba",
+    "9beb1664787c1f33722982b248387795"
    ],
    "dependencias_no_texto": []
   }
@@ -1423,7 +1423,7 @@
  ],
  "obrigacoes": [
   {
-   "id": "6d851f0d0ece1e2210f827ab1a46429f",
+   "id": "ab5c6e7c2c8a2d52618ead6ccddcb01f",
    "titulo": "Revisar e publicar planos de manejo, comunicação e contingência",
    "titulo_origem": "ia",
    "tema": "manejo",
@@ -1505,7 +1505,7 @@
    "dispositivo": "Art. 13, inciso I"
   },
   {
-   "id": "e3789df3d28ddbb699c0896a8e2c344f",
+   "id": "8150c31afec83873d5dfca23c3f4af11",
    "titulo": "Implementar o registro das interações com o Poder Público Municipal em relação ao…",
    "titulo_origem": "regra",
    "tema": "poder_publico",
@@ -1579,7 +1579,7 @@
    "dispositivo": "Art. 13, inciso II"
   },
   {
-   "id": "1aa40646345a582835aef850d1558d4e",
+   "id": "96f6b1d3463f2400278578fb6a6bda35",
    "titulo": "Implementar os mecanismos de comunicação ao consumidor sobre a previsão de…",
    "titulo_origem": "regra",
    "tema": "consumidor",
@@ -1648,7 +1648,7 @@
    "dispositivo": "Art. 13, inciso III"
   },
   {
-   "id": "45d6c098677f67a3513b4a598c16790c",
+   "id": "5e4bc20db6a9a9e82b1503f54cfda9b3",
    "titulo": "Disponibilizar em sítio eletrônico o número total de unidades consumidoras afetadas…",
    "titulo_origem": "regra",
    "tema": "consumidor",
@@ -1722,7 +1722,7 @@
    "dispositivo": "Art. 13, inciso IV"
   },
   {
-   "id": "c6573cbb1a193859d3abf084da6728b3",
+   "id": "48cc66e1d1300d6b55c3b99bc7fe4325",
    "titulo": "Disponibilizar em sítio eletrônico as informações relacionadas às ocorrências abertas",
    "titulo_origem": "regra",
    "tema": "consumidor",
@@ -1797,7 +1797,7 @@
    "dispositivo": "Art. 13, inciso V"
   },
   {
-   "id": "18437c6ede3e219450f3e6571beac09c",
+   "id": "d1a8016795301ddd8398a5a3983664c9",
    "titulo": "Iniciar as apurações do Duração da Interrupção Individual ocorrida em Situação de…",
    "titulo_origem": "regra",
    "tema": "dise",
@@ -1871,7 +1871,7 @@
    "dispositivo": "Art. 13, inciso VI"
   },
   {
-   "id": "1d41d930436a3687ff79e52fec9a1a3d",
+   "id": "4f49b400e22824f6be82fb14d1865fe6",
    "titulo": "Realizar comunicações formais, com periodicidade anual, aos representantes do Poder…",
    "titulo_origem": "regra",
    "tema": "poder_publico",
@@ -1942,7 +1942,7 @@
    "dispositivo": "item 120"
   },
   {
-   "id": "c476f7dcfb641614a9cc1eb1a3a57f68",
+   "id": "d46cd710a0545a2da611401e327dc8ae",
    "titulo": "Ser apurados mensalmente, considerando o mês civil, com exceção dos indicadores…",
    "titulo_origem": "regra",
    "tema": "dise",
@@ -2011,7 +2011,7 @@
    "dispositivo": "item 172"
   },
   {
-   "id": "65c2c3de40927e0b5f1e8cb977b4a40b",
+   "id": "72b5b2e074a8ccdde1ca05dca7d11051",
    "titulo": "Valor global da contratação com detalhamento dos recursos envolvidos, segregados por…",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -2078,7 +2078,7 @@
    "dispositivo": "item 132, alínea a"
   },
   {
-   "id": "573c9461cb72b08816fda6202bffdb18",
+   "id": "749b875da470b67ecc244904db651d21",
    "titulo": "Duração do Contrato de Cessão Emergencial para execução dos serviços realizados",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -2116,7 +2116,7 @@
    "dispositivo": "item 132, alínea b"
   },
   {
-   "id": "a09a419e599cf2de3ff9d36a5ba53583",
+   "id": "d3c11a5e61ab7c503612bf78e9baa665",
    "titulo": "Relação das matrículas dos profissionais que realizaram os atendimentos,…",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -2183,7 +2183,7 @@
    "dispositivo": "item 132, alínea c"
   },
   {
-   "id": "dd232265881dcc7783a0b5a65079c3c1",
+   "id": "8f45b5f596fe01114cb6b18e9a22da0a",
    "titulo": "Valor individualizado por frente de serviço e montante total dos serviços realizados",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -2250,7 +2250,7 @@
    "dispositivo": "item 132, alínea d"
   },
   {
-   "id": "312a7f1ff183d9df0d1c0accf962517e",
+   "id": "e892ea20b5e26b59a5aa9743902cdac8",
    "titulo": "Documentação comprobatória e discriminação detalhada de despesas com equipamentos e…",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -2317,7 +2317,7 @@
    "dispositivo": "item 132, alínea e"
   },
   {
-   "id": "e59c31e337697a9e67a3f1a765282a32",
+   "id": "bfa3d0286f697c39155bba82e43a8f91",
    "titulo": "Documentação comprobatória e discriminação detalhada de outras despesas realizadas…",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -2384,7 +2384,7 @@
    "dispositivo": "item 132, alínea f"
   },
   {
-   "id": "be803cb8a0993679117c365ff6e3895e",
+   "id": "36c4ceeb27924644a8e6841370a0d43b",
    "titulo": "Forma de pagamento, observando o que dispõe o item 138",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -2451,7 +2451,7 @@
    "dispositivo": "item 132, alínea g"
   },
   {
-   "id": "c4a3dbf19d0e02a1d7335ca88892f239",
+   "id": "1b9bd281d78909b5a8f338fcec5ea63c",
    "titulo": "Informações separadas por cedente, resguardando a respectiva proporcionalidade na…",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -2518,7 +2518,7 @@
    "dispositivo": "item 132, alínea h"
   },
   {
-   "id": "4db8d42076ce47a83da27c94b24fd6af",
+   "id": "988d13a0424104250bc4a84c15b6b0c0",
    "titulo": "Apresentação das razões da opção pela utilização de recursos humanos pertencentes a…",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -2585,7 +2585,7 @@
    "dispositivo": "item 132, alínea i"
   },
   {
-   "id": "215a830860da48745e243fdf7f56f22f",
+   "id": "5d85eb4e010a12c246e11b1718bacdc1",
    "titulo": "Atividades desenvolvidas pelas equipes cedidas, registradas detalhadamente, por…",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -2656,7 +2656,7 @@
    "dispositivo": "item 132, alínea j"
   },
   {
-   "id": "a4a09bbbe3784aa99e81023ab31b9f1c",
+   "id": "a3bb9d8e50247f0e07f01e42372d0488",
    "titulo": "Detalhamento das tarefas de campo, com dia, data e hora",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -2723,7 +2723,7 @@
    "dispositivo": "item 132, alínea k"
   },
   {
-   "id": "5d42323753a48cf754d9b62acdbfae57",
+   "id": "46eee4e31010d923b370bfda88be245c",
    "titulo": "Detalhamento dos tipos de estruturas utilizadas nos atendimentos, com quantidade de…",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -2790,7 +2790,7 @@
    "dispositivo": "item 132, alínea l"
   },
   {
-   "id": "11e5b4f33803292e63d4eb7589f2e09b",
+   "id": "ba6baff6066e9abd56dd65eaf94761f9",
    "titulo": "Outras informações que julgar relevante sobre a Cessão Emergencial. Acordo de Cessão…",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -2857,7 +2857,7 @@
    "dispositivo": "item 132, alínea m"
   },
   {
-   "id": "faa2064240c149e5ca4f0d23d661bdc9",
+   "id": "b43943a4199e27ac5181e73c320757ed",
    "titulo": "Não ultrapassar o prazo de doze meses contados do final da Cessão Emergencial.…",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -2917,7 +2917,7 @@
    "dispositivo": "item 138"
   },
   {
-   "id": "b04448a4c32e3dff1925f03b5fd44641",
+   "id": "f6f02244a4becabf64757f85834c31ba",
    "titulo": "Manter dossiê individualizado em sua sede contendo os documentos comprobatórios que…",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -2957,7 +2957,7 @@
    "dispositivo": "item 139, alínea b"
   },
   {
-   "id": "6be4cab74df1f04d82c710d1b8572b5e",
+   "id": "6a60ce68ff83e4197da35d84bf5af621",
    "titulo": "Calcular a compensação ao consumidor ou central geradora, inclusive aqueles…",
    "titulo_origem": "regra",
    "tema": "dise",
@@ -3000,7 +3000,7 @@
    "dispositivo": "item 219"
   },
   {
-   "id": "e0fb83e88a91d01611c0398d568b8c8e",
+   "id": "f872e81a7858f14d9178df70455c9283",
    "titulo": "Manter dossiê individualizado em sua sede contendo os documentos comprobatórios que…",
    "titulo_origem": "regra",
    "tema": "outros",
@@ -3040,7 +3040,7 @@
    "dispositivo": "Art. 19, inciso XIII, alínea b"
   },
   {
-   "id": "d625a7ac8e93f1842b1239caf148cb7e",
+   "id": "3c5ade389bf203c24f7e4c055e85b7ea",
    "titulo": "Implantar processo de comunicação e acompanhamento da evolução dos eventos…",
    "titulo_origem": "regra",
    "tema": "outros",
@@ -3116,7 +3116,7 @@
    "dispositivo": "Art. 14"
   },
   {
-   "id": "656b0e9b4c3bc7f386bfe57502303826",
+   "id": "3072a0e59add8981372ba909b755833e",
    "titulo": "Disponibilizar a API de que trata item 113 do Anexo IV da Resolução Normativa nº…",
    "titulo_origem": "regra",
    "tema": "outros",
@@ -3190,7 +3190,7 @@
    "dispositivo": "Art. 15"
   },
   {
-   "id": "29dd7bd2a48dd69d58dd419a93592e39",
+   "id": "99b28778efc9d1f8db1e7a7acebd85ac",
    "titulo": "Informar e manter, por até cinco anos, em seu sítio eletrônico, os indicadores…",
    "titulo_origem": "regra",
    "tema": "outros",
@@ -3271,7 +3271,7 @@
    "dispositivo": "Art. 16"
   },
   {
-   "id": "958668f808c6b12cadd621d2123e1318",
+   "id": "f3b14b4d06e787d331d32c6ae84c3104",
    "titulo": "Estabelecer plano de manejo vegetal na área de atuação",
    "titulo_origem": "ia",
    "tema": "manejo",
@@ -3353,7 +3353,7 @@
    "dispositivo": "item 94"
   },
   {
-   "id": "5ea14ae6d651a6529961d3bd57f7712a",
+   "id": "1dbc3a9dbb51cfb8b63e824bd0650418",
    "titulo": "Remover árvores ou galhos caídos sobre a rede",
    "titulo_origem": "regra",
    "tema": "manejo",
@@ -3430,7 +3430,7 @@
    "dispositivo": "item 96"
   },
   {
-   "id": "585460f21211f6b44ca7907e25b6e958",
+   "id": "371a0efb3d4c5a4e3ab873d8e771e516",
    "titulo": "Disponibilizar versão atualizada do plano de manejo vegetal",
    "titulo_origem": "ia",
    "tema": "manejo",
@@ -3520,7 +3520,7 @@
    "dispositivo": "item 103"
   },
   {
-   "id": "fb5258aee595d4ccc063c7ed7e73447e",
+   "id": "e14ae76ef0c8061777b5b913de6d26ef",
    "titulo": "Incluir estágio da operação conforme etapas do plano de contingência",
    "titulo_origem": "ia",
    "tema": "consumidor",
@@ -3607,7 +3607,7 @@
    "dispositivo": "item 107, alínea k"
   },
   {
-   "id": "579e23ead8da60d5b661e982e00c136f",
+   "id": "e12216d40d33f381f90dfdde57d740dc",
    "titulo": "Solicitar indicação prévia de até dois representantes oficiais",
    "titulo_origem": "ia",
    "tema": "poder_publico",
@@ -3685,7 +3685,7 @@
    "dispositivo": "item 115"
   },
   {
-   "id": "42539b782c2da52c0df648913ed356b1",
+   "id": "9d7730b3bbaef070d25078eec0fe388c",
    "titulo": "Garantir canais de comunicação oficiais acessíveis e operacionais",
    "titulo_origem": "ia",
    "tema": "poder_publico",
@@ -3764,7 +3764,7 @@
    "dispositivo": "item 118"
   },
   {
-   "id": "6cc2cfbb2e426547a18f29da56befa04",
+   "id": "a4b4a21889d9513e488d9753cf449e70",
    "titulo": "Elaborar plano de contingência para garantir continuidade e segurança",
    "titulo_origem": "ia",
    "tema": "contingencia",
@@ -3846,7 +3846,7 @@
    "dispositivo": "item 140"
   },
   {
-   "id": "f5dc685e8eeb1fdb99b5423502a1e54a",
+   "id": "5ead5b02287ac05328fcc7e220c45453",
    "titulo": "Incluir nomes e telefones de contato dos responsáveis",
    "titulo_origem": "ia",
    "tema": "contingencia",
@@ -3927,7 +3927,7 @@
    "dispositivo": "item 141"
   },
   {
-   "id": "a34ca8b7ec5d7b25d8e364b8667e472f",
+   "id": "7e6c7a01396d71596105cda455583915",
    "titulo": "Priorizar a segurança de colaboradores e da população",
    "titulo_origem": "ia",
    "tema": "contingencia",
@@ -4008,7 +4008,7 @@
    "dispositivo": "item 142, alínea a"
   },
   {
-   "id": "d2135cb5844ef0925a0f513ca8da3bda",
+   "id": "0bc3c83a2325452a30fe83a816cfb467",
    "titulo": "Minimizar o impacto das contingências nas operações",
    "titulo_origem": "ia",
    "tema": "contingencia",
@@ -4089,7 +4089,7 @@
    "dispositivo": "item 142, alínea b"
   },
   {
-   "id": "99ecedcca0b695224adb79beab7c3429",
+   "id": "832410c0abc30fafadfb240efca7a5d7",
    "titulo": "Cumprir as obrigações legais e regulamentares",
    "titulo_origem": "ia",
    "tema": "contingencia",
@@ -4161,7 +4161,7 @@
    "dispositivo": "item 142, alínea c"
   },
   {
-   "id": "ece3508293e65f539413ba61f9383c75",
+   "id": "44f9e08baf3ab4bfb0add2860194cd07",
    "titulo": "Manter comunicação clara e aberta com setores afetados",
    "titulo_origem": "ia",
    "tema": "contingencia",
@@ -4234,7 +4234,7 @@
    "dispositivo": "item 142, alínea d"
   },
   {
-   "id": "df84f5642c45dc9224923d5bec47612a",
+   "id": "5c1fb715d80480a3893e7ed886f7c6ac",
    "titulo": "Antecipar problemas e definir protocolos de atuação",
    "titulo_origem": "ia",
    "tema": "contingencia",
@@ -4306,7 +4306,7 @@
    "dispositivo": "item 142, alínea e"
   },
   {
-   "id": "7694e76aa4b4d45724727848682ff58b",
+   "id": "ab27d1747a628bb2e5a8bc6cc3a1cc12",
    "titulo": "Garantir adaptabilidade às mudanças climáticas e operacionais",
    "titulo_origem": "ia",
    "tema": "contingencia",
@@ -4379,7 +4379,7 @@
    "dispositivo": "item 142, alínea f"
   },
   {
-   "id": "6d6537a9a86ff17f4d07fd93b7db63b1",
+   "id": "42e6cedd1f9269de7a7a10346517f6f0",
    "titulo": "Realizar monitoramento climático e meteorológico periódico",
    "titulo_origem": "ia",
    "tema": "contingencia",
@@ -4453,7 +4453,7 @@
    "dispositivo": "item 143, alínea a"
   },
   {
-   "id": "0a1bdbd954f4adb42a1bb4dcd9620776",
+   "id": "02cfab16e964379703e348e86e2b4c29",
    "titulo": "Implementar ações de gestão conforme níveis de contingência",
    "titulo_origem": "ia",
    "tema": "contingencia",
@@ -4525,7 +4525,7 @@
    "dispositivo": "item 143, alínea b"
   },
   {
-   "id": "ff8ff5c29bbe92cf0ee4303386638231",
+   "id": "c6e68a24f0e691854c54138b3188263c",
    "titulo": "Definir procedimentos para mobilização de equipes e recursos",
    "titulo_origem": "ia",
    "tema": "contingencia",
@@ -4597,7 +4597,7 @@
    "dispositivo": "item 143, alínea c"
   },
   {
-   "id": "93d25706071bd40a69f112109339eda9",
+   "id": "8a1bd75fbdaa7e4ae8a273eb580d0ebd",
    "titulo": "Estabelecer canais internos eficientes para coordenar ações",
    "titulo_origem": "ia",
    "tema": "contingencia",
@@ -4671,7 +4671,7 @@
    "dispositivo": "item 143, alínea d"
   },
   {
-   "id": "f64e1eb05ddc437f019deb8dc411ea19",
+   "id": "027a531a96fbcaf16fcf1976c0a8a047",
    "titulo": "Manter relatórios e documentação detalhada das contingências",
    "titulo_origem": "ia",
    "tema": "contingencia",
@@ -4747,7 +4747,7 @@
    "dispositivo": "item 143, alínea e"
   },
   {
-   "id": "0265f642ed00125401e2508453364b8f",
+   "id": "c72c7c60add10e2736a41112393271ee",
    "titulo": "Realizar treinamentos e simulações periódicas",
    "titulo_origem": "ia",
    "tema": "contingencia",
@@ -4823,7 +4823,7 @@
    "dispositivo": "item 143, alínea f"
   },
   {
-   "id": "063010c4eac78333c5b90c7e03a86cb7",
+   "id": "6284b385445903a7ac4851edd66e5d55",
    "titulo": "Estabelecer procedimentos de atendimento ao consumidor em contingências",
    "titulo_origem": "ia",
    "tema": "contingencia",
@@ -4895,7 +4895,7 @@
    "dispositivo": "item 143, alínea g"
   },
   {
-   "id": "8fbc83695a241f375efc37c738810d42",
+   "id": "8eb0ad855d58e5f8fa7652eeba93993d",
    "titulo": "Definir ações para coordenação com autoridades públicas e reguladores",
    "titulo_origem": "ia",
    "tema": "contingencia",
@@ -4968,7 +4968,7 @@
    "dispositivo": "item 143, alínea h"
   },
   {
-   "id": "daed3321e138ba5fef64f338bb28f284",
+   "id": "3437db5ca0fde9e5d911f8ed09e377be",
    "titulo": "Estabelecer diretrizes de apoio interdepartamental",
    "titulo_origem": "ia",
    "tema": "contingencia",
@@ -5040,7 +5040,7 @@
    "dispositivo": "item 143, alínea i"
   },
   {
-   "id": "e3b7997d17c45f96702b8c817de7b75d",
+   "id": "c23145a214e90d1024e6266225422643",
    "titulo": "Formalizar e divulgar o plano de contingência internamente",
    "titulo_origem": "ia",
    "tema": "contingencia",
@@ -5108,7 +5108,7 @@
    "dispositivo": "item 143, alínea j"
   },
   {
-   "id": "5c7fba85754e6c715392f5dc5e6d53ed",
+   "id": "3475817306fac49f36f1595ed375e0d7",
    "titulo": "Estabelecer cadeia de governança nos níveis estratégico, tático e operacional",
    "titulo_origem": "ia",
    "tema": "contingencia",
@@ -5181,7 +5181,7 @@
    "dispositivo": "item 143, alínea k"
   },
   {
-   "id": "6ecf7b0345f0d58f899ec1a6e5de1303",
+   "id": "30895460982e7a166313c537d003d049",
    "titulo": "Definir e atualizar níveis de contingência por critérios objetivos",
    "titulo_origem": "ia",
    "tema": "contingencia",
@@ -5253,7 +5253,7 @@
    "dispositivo": "item 144, alínea b"
   },
   {
-   "id": "c831b770e06ad60552a526895a2e06a3",
+   "id": "b60e7d727ebb623dab9a14cc2ed6ab9f",
    "titulo": "Desenvolver plano de ação específico para cada nível de contingência",
    "titulo_origem": "ia",
    "tema": "contingencia",
@@ -5325,7 +5325,7 @@
    "dispositivo": "item 144, alínea c"
   },
   {
-   "id": "28d2f9372d789b3cbeaabe45f611b37b",
+   "id": "444a8fd79ad2aaa49dc4a501c1303972",
    "titulo": "Garantir infraestrutura e recursos para execução do plano",
    "titulo_origem": "ia",
    "tema": "contingencia",
@@ -5399,7 +5399,7 @@
    "dispositivo": "item 144, alínea d"
   },
   {
-   "id": "983a7bd8616301c6424c860bdadf5e60",
+   "id": "e7f980c7ff0ce2b38515abb940f046f2",
    "titulo": "Implementar programas de treinamento e capacitação contínuos",
    "titulo_origem": "ia",
    "tema": "contingencia",
@@ -5471,7 +5471,7 @@
    "dispositivo": "item 144, alínea e"
   },
   {
-   "id": "fb259fff086cc79656e123e352f7ec22",
+   "id": "ff5fe97b7a12429b071ec42b85718280",
    "titulo": "Simulações e Testes Regulares: Realizar simulações ou testes periódicos para avaliar…",
    "titulo_origem": "regra",
    "tema": "contingencia",
@@ -5547,7 +5547,7 @@
    "dispositivo": "item 144, alínea f"
   },
   {
-   "id": "ecedce0e8af997b1e6fa64a694195e50",
+   "id": "80ef063d3a011cfcb4e2019fb35f62c6",
    "titulo": "Manter o plano atualizado e disponível com data e versão",
    "titulo_origem": "ia",
    "tema": "contingencia",
@@ -5619,7 +5619,7 @@
    "dispositivo": "item 144, alínea g"
   },
   {
-   "id": "d37e10200bb5a08310fa86fd5d646d4f",
+   "id": "734cb816a6c760a58698b3e34c80bed7",
    "titulo": "Realizar avaliações regulares e implementar melhorias no plano",
    "titulo_origem": "ia",
    "tema": "contingencia",
@@ -5695,7 +5695,7 @@
    "dispositivo": "item 144, alínea h"
   },
   {
-   "id": "111ac299150f6ec98427360df0eab1fc",
+   "id": "a58925605521b39521193a553b160597",
    "titulo": "Possuir medidas para tratamento de unidades consumidoras específicas",
    "titulo_origem": "ia",
    "tema": "contingencia",
@@ -5768,7 +5768,7 @@
    "dispositivo": "item 144, alínea i"
   },
   {
-   "id": "c30eae0366547041c04706a19ff7ff65",
+   "id": "900586becbf8cf9984b523330fb1d479",
    "titulo": "Para o caso de ter havido aplicação do Plano de Contingência, a periodicidade máxima…",
    "titulo_origem": "regra",
    "tema": "contingencia",
@@ -5833,7 +5833,7 @@
    "dispositivo": "item 145, alínea a"
   },
   {
-   "id": "2b9461a90a0334ff4e9c810d6abe9774",
+   "id": "e368b42c3135df1a0e0cdd6f45eb468d",
    "titulo": "Revisar o plano de contingência sempre que necessário e, no máximo, anualmente",
    "titulo_origem": "ia",
    "tema": "contingencia",
@@ -5905,7 +5905,7 @@
    "dispositivo": "item 146"
   },
   {
-   "id": "f0142282ab6aee66d9e2f821e0d4a5b3",
+   "id": "689d6d9c84090601576aafa5f630fb16",
    "titulo": "Disponibilizar a versão mais atualizada, sem a identificação e contato dos seus…",
    "titulo_origem": "regra",
    "tema": "contingencia",
@@ -5986,7 +5986,7 @@
    "dispositivo": "item 147"
   },
   {
-   "id": "49f8b730d434d0b433aa54e87b677d42",
+   "id": "b21dba0c55f1a7984d849c985b67546d",
    "titulo": "Incluir versão, data de aprovação e assinatura dos responsáveis técnicos",
    "titulo_origem": "ia",
    "tema": "contingencia",
@@ -6058,7 +6058,7 @@
    "dispositivo": "item 148"
   },
   {
-   "id": "56e9f4d782a67058781659e3b04f6ffe",
+   "id": "39aa5e7728d52724810d519d537cdca4",
    "titulo": "Disponibilizar o Plano de Manejo Vegetal em sítio eletrônico e postos",
    "titulo_origem": "ia",
    "tema": "informacoes",
@@ -6143,7 +6143,7 @@
    "dispositivo": "item 23-F"
   },
   {
-   "id": "24c2f335011943e525c2c6cd4a89744e",
+   "id": "c0f010e2f417cd71ae85c18545b60e29",
    "titulo": "Disponibilizar o Plano de Contingência em sítio eletrônico e postos",
    "titulo_origem": "ia",
    "tema": "informacoes",
@@ -6228,7 +6228,7 @@
    "dispositivo": "item 23-J"
   },
   {
-   "id": "87aa104da9c209694960af07523a6751",
+   "id": "3873dfdb6a482bfe1dbb8877d2a736aa",
    "titulo": "Enviar regularmente à ANEEL alertas meteorológicos que justifiquem acionamento",
    "titulo_origem": "ia",
    "tema": "informacoes",
@@ -6315,7 +6315,7 @@
    "dispositivo": "item 23-M"
   },
   {
-   "id": "11d59871e8bfb7f9980ea6432fbde644",
+   "id": "68c500372760d09a2f6f5ba8ecf5b2df",
    "titulo": "Publicar os planos de contingência em vigor no sítio eletrônico",
    "titulo_origem": "ia",
    "tema": "contingencia",
@@ -6392,7 +6392,7 @@
    "dispositivo": "Art. 13, Parágrafo único"
   },
   {
-   "id": "7fc3f7682615ccc8fa2fcff309c0716c",
+   "id": "24adc4d903c405c4709a6d6bfa3b992b",
    "titulo": "Celebrar convênios, acordos de cooperação ou outros instrumentos formais com os…",
    "titulo_origem": "regra",
    "tema": "manejo",
@@ -6452,7 +6452,7 @@
    "dispositivo": "item 95"
   },
   {
-   "id": "214f17db417e950d917dd79e4c04eca9",
+   "id": "bf161429e5c4c339f4aaa4eeabfd9b19",
    "titulo": "Considerar os desafios específicos da vegetação local, incluindo aspectos como…",
    "titulo_origem": "regra",
    "tema": "manejo",
@@ -6510,7 +6510,7 @@
    "dispositivo": "item 97"
   },
   {
-   "id": "c12d1d6b3f315c1e87bae285e9adbeb0",
+   "id": "9d45a9d273bc0dc3b41a979c972a34c1",
    "titulo": "Inspeção regular: realizar a inspeção visual periódica das redes elétricas e da…",
    "titulo_origem": "regra",
    "tema": "manejo",
@@ -6571,7 +6571,7 @@
    "dispositivo": "item 99, alínea a"
   },
   {
-   "id": "7b5146941ec47dfe82ed35496e6b6276",
+   "id": "436cc4c887f03c4341c7ac2b4508e530",
    "titulo": "Poda preventiva: realizar, em articulação com o Poder Público Estadual, Distrital e…",
    "titulo_origem": "regra",
    "tema": "manejo",
@@ -6631,7 +6631,7 @@
    "dispositivo": "item 99, alínea b"
   },
   {
-   "id": "c8cc8001bf9d7c0ca1de3e34bb59bcec",
+   "id": "0831da81fd8bdf388170b77367e66a7f",
    "titulo": "Comunicar imediatamente a necessidade de eliminação do risco ao órgão competente do…",
    "titulo_origem": "regra",
    "tema": "manejo",
@@ -6692,7 +6692,7 @@
    "dispositivo": "item 99, alínea c"
   },
   {
-   "id": "f52bd4b1f41ba7475447fc1d756031e9",
+   "id": "ebf622114d279278c1210c8abde5de32",
    "titulo": "Por meio de programas estimular o plantio de novas espécies adequadas ao convívio…",
    "titulo_origem": "regra",
    "tema": "manejo",
@@ -6757,7 +6757,7 @@
    "dispositivo": "item 99, alínea d"
   },
   {
-   "id": "c3af60d635a92e26eb81e23ccc4c03a6",
+   "id": "711a85b2998cfacde446e2bc7d721817",
    "titulo": "Elaborar Relatório Anual de Gestão do Manejo Vegetal, documentando de forma…",
    "titulo_origem": "regra",
    "tema": "manejo",
@@ -6815,7 +6815,7 @@
    "dispositivo": "item 100"
   },
   {
-   "id": "512d94e840ba0dedb6704bdeeab7fdda",
+   "id": "20d1b5410f9213358e1254619c22fa73",
    "titulo": "Inspeções Visuais: relatar o número de inspeções realizadas nas redes elétricas e…",
    "titulo_origem": "regra",
    "tema": "manejo",
@@ -6873,7 +6873,7 @@
    "dispositivo": "item 101, alínea a"
   },
   {
-   "id": "4513be7cb890d37c0ae7b6c4b3c6c823",
+   "id": "ae50204c2421c949a8ed05f6ad306ce0",
    "titulo": "Podas Preventivas: descrever as ações de poda realizadas e as ações indicadas ao…",
    "titulo_origem": "regra",
    "tema": "manejo",
@@ -6933,7 +6933,7 @@
    "dispositivo": "item 101, alínea b"
   },
   {
-   "id": "d8211e7d5205f72904e8e840ae73c64e",
+   "id": "384d0e8ee2c23a5fc5bebdc2a6990ae6",
    "titulo": "Podas Corretivas: descrever as ações de poda realizadas, incluindo o número de…",
    "titulo_origem": "regra",
    "tema": "manejo",
@@ -6991,7 +6991,7 @@
    "dispositivo": "item 101, alínea c"
   },
   {
-   "id": "1053b90c69cdbc309e348d449bd7991e",
+   "id": "2c66d5a873bfcc2110914e4fcc2cc139",
    "titulo": "Remoção de Árvores: relatar os casos de remoção de árvores, detalhando a…",
    "titulo_origem": "regra",
    "tema": "manejo",
@@ -7049,7 +7049,7 @@
    "dispositivo": "item 101, alínea d"
   },
   {
-   "id": "fc34757cf7dfe170202bd902025a6569",
+   "id": "d4115d5a15e77e168b45ab0b8e8fe710",
    "titulo": "Programas de Substituição de Espécies: incluir dados sobre o número de substituição…",
    "titulo_origem": "regra",
    "tema": "manejo",
@@ -7107,7 +7107,7 @@
    "dispositivo": "item 101, alínea e"
   },
   {
-   "id": "ec64dfb96e20d636d200b4bfb45c6547",
+   "id": "67046bcfe835d19a15daceaf7e9aba40",
    "titulo": "Aceiro de faixas de servidão: relatar o aceiro da vegetação realizado em faixas de…",
    "titulo_origem": "regra",
    "tema": "manejo",
@@ -7165,7 +7165,7 @@
    "dispositivo": "item 101, alínea f"
   },
   {
-   "id": "4813f1c72e8cc5fcd306c09c6cbb1b67",
+   "id": "e18918d81db932b28ecc9506b0d67f4d",
    "titulo": "Convênios Celebrados: informar os convênios celebrados com o Poder Público Estadual,…",
    "titulo_origem": "regra",
    "tema": "manejo",
@@ -7226,7 +7226,7 @@
    "dispositivo": "item 101, alínea g"
   },
   {
-   "id": "d5141b46ea8763e492daa25f12145a83",
+   "id": "4877a9b51e0e76a3f52f5943f07d6049",
    "titulo": "Disponibilizar a versão mais atualizada de seu Relatório Anual de Gestão do Manejo…",
    "titulo_origem": "regra",
    "tema": "manejo",
@@ -7295,7 +7295,7 @@
    "dispositivo": "item 102"
   },
   {
-   "id": "fd6e9f5b9d5782f84d2f4b3627bedbd2",
+   "id": "89edb2d377653934971636550cc12c62",
    "titulo": "Manter registro detalhado durante o período de 05 anos de todas as solicitações…",
    "titulo_origem": "regra",
    "tema": "manejo",
@@ -7361,7 +7361,7 @@
    "dispositivo": "item 104"
   },
   {
-   "id": "9fb7c825def0ea0d517aaefe41391fef",
+   "id": "6ceb8113c9f37da271cfdc3e7ba0fe8d",
    "titulo": "Comunicar aos consumidores, por meio dos canais disponíveis, a provável causa da…",
    "titulo_origem": "regra",
    "tema": "consumidor",
@@ -7422,7 +7422,7 @@
    "dispositivo": "item 105"
   },
   {
-   "id": "24bb7ef828089dce7fd8c7c35f29658f",
+   "id": "96c3d43d7d6c748a1dfebb87438483cf",
    "titulo": "Disponibilizar em sítio eletrônico, com atualização a cada 30 minutos, o número…",
    "titulo_origem": "regra",
    "tema": "consumidor",
@@ -7487,7 +7487,7 @@
    "dispositivo": "item 106"
   },
   {
-   "id": "6b6e7f003573407a520c46a225e1dc94",
+   "id": "813a78b062720a383e2040b6d9ac4a9e",
    "titulo": "Alternativamente, podem oferecer uma visualização interativa da rede elétrica, com…",
    "titulo_origem": "regra",
    "tema": "consumidor",
@@ -7516,7 +7516,7 @@
    "dispositivo": "item 106"
   },
   {
-   "id": "e6b0caabe3bf2988ab37541fef1f5077",
+   "id": "1fa9c0d6f01d4e8218b9f25fcd5cb79f",
    "titulo": "Ser apresentado por tempo de interrupção, com as seguintes faixas de duração",
    "titulo_origem": "regra",
    "tema": "consumidor",
@@ -7574,7 +7574,7 @@
    "dispositivo": "item 106"
   },
   {
-   "id": "1f744ab9250eed257b359bdf7d2caac8",
+   "id": "3011c060c5e459828b0cbd568f95ef80",
    "titulo": "Número da ocorrência",
    "titulo_origem": "regra",
    "tema": "consumidor",
@@ -7640,7 +7640,7 @@
    "dispositivo": "item 107, alínea a"
   },
   {
-   "id": "3e902de0f3ae29543f279677f7d12646",
+   "id": "e462c253f7dbb790502c86bf3335d2e6",
    "titulo": "Município/bairro da ocorrência aberta",
    "titulo_origem": "regra",
    "tema": "consumidor",
@@ -7706,7 +7706,7 @@
    "dispositivo": "item 107, alínea b"
   },
   {
-   "id": "c73f32e00dd49ebd10b386f7c71f45ed",
+   "id": "91994236d614896870196f3b8c79663a",
    "titulo": "Data e hora de início da ocorrência aberta",
    "titulo_origem": "regra",
    "tema": "consumidor",
@@ -7772,7 +7772,7 @@
    "dispositivo": "item 107, alínea c"
   },
   {
-   "id": "38822404600456bb5373170af8619bd9",
+   "id": "21589311ec8d3793c0164a5220177a4e",
    "titulo": "Tipo de ocorrência aberta (programada e não programada)",
    "titulo_origem": "regra",
    "tema": "consumidor",
@@ -7838,7 +7838,7 @@
    "dispositivo": "item 107, alínea d"
   },
   {
-   "id": "1a9818163996a41eb83b5533493ab49b",
+   "id": "ed4c23b6dfddde5e0d83785062ac600a",
    "titulo": "Sinalização do status da ocorrência aberta (Em preparação/Em Deslocamento/Em Execução)",
    "titulo_origem": "regra",
    "tema": "consumidor",
@@ -7904,7 +7904,7 @@
    "dispositivo": "item 107, alínea e"
   },
   {
-   "id": "7ce4fa671a9cc58ed0503d5291ae1141",
+   "id": "adc734c24bbd2ea8e8cde9bacccb5c65",
    "titulo": "Quantidade de unidades consumidoras interrompidas da ocorrência aberta e o total da…",
    "titulo_origem": "regra",
    "tema": "consumidor",
@@ -7970,7 +7970,7 @@
    "dispositivo": "item 107, alínea f"
   },
   {
-   "id": "f0c9d0501ff3dcf8d0f5748417687af2",
+   "id": "29f579e4e56f2e0f4d4edd4985cdd9f2",
    "titulo": "Duração da ocorrência (hh:mm)",
    "titulo_origem": "regra",
    "tema": "consumidor",
@@ -8036,7 +8036,7 @@
    "dispositivo": "item 107, alínea g"
   },
   {
-   "id": "5c02090d5ea81a809ad77208fc022959",
+   "id": "243cc2eac4a93736a5e38fad202ff5c8",
    "titulo": "Consumidor Hora Interrompido (CHI) da ocorrência aberta e o total da área de atuação",
    "titulo_origem": "regra",
    "tema": "consumidor",
@@ -8102,7 +8102,7 @@
    "dispositivo": "item 107, alínea h"
   },
   {
-   "id": "f15492bc7bd8c827629342a35ed3b130",
+   "id": "b288f9d91f2c0ea795dabd2b469f325a",
    "titulo": "Quantidade de ocorrências abertas segregadas por município e o total na área de atuação",
    "titulo_origem": "regra",
    "tema": "consumidor",
@@ -8168,7 +8168,7 @@
    "dispositivo": "item 107, alínea i"
   },
   {
-   "id": "2461c56169908b771d708556d45f06f7",
+   "id": "ce8a04b04791b0742bd092f8645e0634",
    "titulo": "Quantidade de equipes em atividade, segregadas por município e o total na área de…",
    "titulo_origem": "regra",
    "tema": "consumidor",
@@ -8234,7 +8234,7 @@
    "dispositivo": "item 107, alínea j"
   },
   {
-   "id": "040c89d38c781ffea1f5a8b2f78171c1",
+   "id": "fa1ea73c39c0a06267bbe930cc826634",
    "titulo": "Disponibilizar a versão mais atualizada de seu plano de comunicação em seu sítio…",
    "titulo_origem": "regra",
    "tema": "consumidor",
@@ -8309,7 +8309,7 @@
    "dispositivo": "item 108"
   },
   {
-   "id": "e55b7c3bb21b3a1fcc525e1496fe78fe",
+   "id": "25fe3b4d5c061217e27e345d7246cc68",
    "titulo": "Motivo da Interrupção: informação sobre a causa da falha",
    "titulo_origem": "regra",
    "tema": "consumidor",
@@ -8369,7 +8369,7 @@
    "dispositivo": "item 109, alínea a"
   },
   {
-   "id": "a59255a5c8def0e7d7b439c111cca0e5",
+   "id": "b24b621208fe4f5a329e1abe07800c3e",
    "titulo": "Área Afetada: delimitação geográfica da interrupção",
    "titulo_origem": "regra",
    "tema": "consumidor",
@@ -8429,7 +8429,7 @@
    "dispositivo": "item 109, alínea b"
   },
   {
-   "id": "e99e6f477315cc72256df12870e2f5ec",
+   "id": "98116e6c32696647a8c2202b924e3d99",
    "titulo": "Unidades Consumidoras Impactadas: Número de unidades consumidoras afetadas; e",
    "titulo_origem": "regra",
    "tema": "consumidor",
@@ -8489,7 +8489,7 @@
    "dispositivo": "item 109, alínea c"
   },
   {
-   "id": "18732431f029be01ab2eb0e1a054c201",
+   "id": "161299f1c2f45a8ec9d59e2decf81acb",
    "titulo": "Previsão de Restabelecimento: estimativa de retorno do fornecimento, com base na…",
    "titulo_origem": "regra",
    "tema": "consumidor",
@@ -8549,7 +8549,7 @@
    "dispositivo": "item 109, alínea d"
   },
   {
-   "id": "77fa82f2424e5b2490ab92433e3d0afe",
+   "id": "6bb84322365be30122d072f8930f759a",
    "titulo": "Ser realizada, obrigatoriamente, por meio de SMS e aplicativos de mensagens, com…",
    "titulo_origem": "regra",
    "tema": "consumidor",
@@ -8615,7 +8615,7 @@
    "dispositivo": "item 110"
   },
   {
-   "id": "a2f1449332e59bc6c2a890b5b8e07935",
+   "id": "f39ea48dbee0a11d4d70d6edd78bf072",
    "titulo": "Aplicativos e sítio eletrônico na internet: com atualização em tempo real em…",
    "titulo_origem": "regra",
    "tema": "consumidor",
@@ -8656,7 +8656,7 @@
    "dispositivo": "item 110, alínea a"
   },
   {
-   "id": "97528cac2b053e77aa54645a02e39c11",
+   "id": "9409717f68071c13150b85a31425085b",
    "titulo": "Redes Sociais: com divulgação de informações via contas oficiais da distribuidora",
    "titulo_origem": "regra",
    "tema": "consumidor",
@@ -8693,7 +8693,7 @@
    "dispositivo": "item 110, alínea b"
   },
   {
-   "id": "bab82f986b319cd2394815df0b906c3f",
+   "id": "0522e0e4048b9abb0010fc497a72c3b8",
    "titulo": "O consumidor e demais usuários podem, a qualquer tempo, solicitar a suspensão do…",
    "titulo_origem": "regra",
    "tema": "consumidor",
@@ -8730,7 +8730,7 @@
    "dispositivo": "item 111"
   },
   {
-   "id": "c35aa32e87f251881fde2bf0ff30fcfd",
+   "id": "149aaafaf6be9a5a02aeba9291feaeb4",
    "titulo": "Atualizar as informações referentes à interrupção de que trata o item 105, incluindo…",
    "titulo_origem": "regra",
    "tema": "consumidor",
@@ -8790,7 +8790,7 @@
    "dispositivo": "item 112"
   },
   {
-   "id": "dc2817279caa770549594849bbe66e8c",
+   "id": "1d53360e65da41174c8720569eda153e",
    "titulo": "Disponibilizar uma API (Application Programming Interface) ou outra solução…",
    "titulo_origem": "regra",
    "tema": "poder_publico",
@@ -8865,7 +8865,7 @@
    "dispositivo": "item 113"
   },
   {
-   "id": "3cfdddea591d21e1f76429091c8339e9",
+   "id": "151feb651964faeccd8d14dc23daa191",
    "titulo": "Facilitar a coordenação entre as distribuidoras e os órgãos governamentais,…",
    "titulo_origem": "regra",
    "tema": "poder_publico",
@@ -8926,7 +8926,7 @@
    "dispositivo": "item 116"
   },
   {
-   "id": "4068346e540a48ccc592c2a0da26d431",
+   "id": "b446baf361e63f2d27f229c23d0c9904",
    "titulo": "Notificar o Poder Público imediatamente após a identificação de um evento crítico,…",
    "titulo_origem": "regra",
    "tema": "poder_publico",
@@ -8989,7 +8989,7 @@
    "dispositivo": "item 117"
   },
   {
-   "id": "6c9f2d9820fc11b093d2beefaff3b826",
+   "id": "0b72f8abe4c645056b68b08d3bc0ae02",
    "titulo": "Estabelecer protocolos de alertas para notificar rapidamente o Poder Público",
    "titulo_origem": "regra",
    "tema": "poder_publico",
@@ -9051,7 +9051,7 @@
    "dispositivo": "item 119"
   },
   {
-   "id": "068bae36aaeae617c6af98f8de29c9af",
+   "id": "10f7aaf8bb57c7b5f0e0b101c81b2bf2",
    "titulo": "Colaboração e Solidariedade: As distribuidoras ou transmissoras podem promover o…",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -9080,7 +9080,7 @@
    "dispositivo": "item 125"
   },
   {
-   "id": "04fa2ce2f09afecc75b05da48db51be2",
+   "id": "771095183d2796d66c03ffb55962e744",
    "titulo": "Não comprometer a segurança das operações das distribuidoras envolvidas",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -9140,7 +9140,7 @@
    "dispositivo": "item 126"
   },
   {
-   "id": "43e7450e862d939e567a6203cef6ef28",
+   "id": "1749dd547ca3e7c4888c547e700b274a",
    "titulo": "Ser limitada à necessidade demonstrada pela situação de crise e proporcional à…",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -9171,7 +9171,7 @@
    "dispositivo": "item 127"
   },
   {
-   "id": "95d746ffd2734dbe9e812871eaef0893",
+   "id": "3676e9cc34ff86bf11ccfec1de18aacc",
    "titulo": "Evidenciar a proporção de cada distribuidora ou transmissora cedente. Situações…",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -9246,7 +9246,7 @@
    "dispositivo": "item 129"
   },
   {
-   "id": "49c0e711c794d4360dba12a690f8e5f8",
+   "id": "b53c11d361afe76398c92c9640c0c0b4",
    "titulo": "A Cessão Emergencial de recursos somente poderá ser realizada em situações de crise…",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -9277,7 +9277,7 @@
    "dispositivo": "item 130"
   },
   {
-   "id": "36589eee236054b844898e0adcbb8207",
+   "id": "6b1058060e8df69dfdad8926184d47a1",
    "titulo": "As situações de crise em que a Cessão Emergencial poderá ser solicitada",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -9308,7 +9308,7 @@
    "dispositivo": "item 133, alínea a"
   },
   {
-   "id": "cf3dc26d3eccfe0c0461bc9f69494e33",
+   "id": "20ab10d3aaf772368a6d8b8997c15285",
    "titulo": "O número e as características das equipes (leves, pesadas, linha viva) que poderão…",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -9337,7 +9337,7 @@
    "dispositivo": "item 133, alínea b"
   },
   {
-   "id": "65d915522557c70ee716ef363587b07d",
+   "id": "34b0b209a6553ea617de0eb8c3dbe5e7",
    "titulo": "A previsão de duração da Cessão Emergencial",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -9397,7 +9397,7 @@
    "dispositivo": "item 133, alínea c"
   },
   {
-   "id": "b0c4d06439d263d14268a7ceb35da231",
+   "id": "9ddb8f25003d96c79f03adec1d5d847b",
    "titulo": "A responsabilidade pelas despesas operacionais",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -9457,7 +9457,7 @@
    "dispositivo": "item 133, alínea d"
   },
   {
-   "id": "5ba29ee4d0e91a78be813c3c6ad70eb4",
+   "id": "84ebe2d9b1cad773ee4e0a0e9b01d292",
    "titulo": "Previsão de Cessão Emergencial, mantendo-se neutralidade das partes em relação a…",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -9517,7 +9517,7 @@
    "dispositivo": "item 133, alínea e"
   },
   {
-   "id": "dc9c4a4c6d9e41bb36bc7cba13bf1a4d",
+   "id": "762818980a69d80bfca3f3fea09360f1",
    "titulo": "Realização de testes regulares de Cessão Emergencial, simulando cenários de crise…",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -9582,7 +9582,7 @@
    "dispositivo": "item 133, alínea f"
   },
   {
-   "id": "2f064d325e45620c1f0ca08b959ff36e",
+   "id": "fe5488d1efd6e578a2c914f6b7a565c0",
    "titulo": "Procedimentos claros para a integração de equipes externas, com definição de…",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -9642,7 +9642,7 @@
    "dispositivo": "item 133, alínea g"
   },
   {
-   "id": "d1c2b3af2792512dc17bc9616ff3c3fa",
+   "id": "f42d226063125f63413004dd75d45e86",
    "titulo": "Reembolso de despesas com horas de trabalho dos recursos humanos, proporcionais à…",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -9700,7 +9700,7 @@
    "dispositivo": "item 134, alínea a"
   },
   {
-   "id": "2c76b34427cd1c6e56e2d735fbc33f7e",
+   "id": "d460627e6217b75263f9812a44f27d6a",
    "titulo": "Reembolso de despesas com equipamentos e materiais cedidos, proporcionais ao valor…",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -9758,7 +9758,7 @@
    "dispositivo": "item 134, alínea b"
   },
   {
-   "id": "597608ccc6df5937d1f76d2336068ad3",
+   "id": "a57c2c771e1f3d6b550029bb352496ec",
    "titulo": "Seguros e indenizações em caso de acidentes durante a Cessão Emergencial; e",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -9818,7 +9818,7 @@
    "dispositivo": "item 134, alínea c"
   },
   {
-   "id": "74a43853f0b430c52de65a68144dac52",
+   "id": "2f1d5ea29ab5f00ee5aacdcb3ecdeafa",
    "titulo": "Neutralidade dos valores para o reembolso à(s) cedente(s) pela requisitante.…",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -9878,7 +9878,7 @@
    "dispositivo": "item 134, alínea d"
   },
   {
-   "id": "1d53877acb96aad89a41ff26e52163c6",
+   "id": "f7557788f50a12d5aa5a84970a89d7d7",
    "titulo": "Possuir capacitação e experiência compatíveis com as atividades a serem…",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -9945,7 +9945,7 @@
    "dispositivo": "item 135"
   },
   {
-   "id": "e88a9ac6888e25f705a09320a830e7f9",
+   "id": "48d07754cd34f240ab25b80e5d9a4893",
    "titulo": "Prover condições adequadas de trabalho, como alimentação, transporte, hospedagem e…",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -10014,7 +10014,7 @@
    "dispositivo": "item 136"
   },
   {
-   "id": "0b58e77d739c583efd96de198548ae1b",
+   "id": "975fcd0465a5f4685ae37675cb0e4282",
    "titulo": "Ser reembolsadas pela cessionária à cedente garantindo a neutralidade da operação,…",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -10072,7 +10072,7 @@
    "dispositivo": "item 139, alínea c"
   },
   {
-   "id": "c89f7a0994ef0a0fdf4a7ee499b24036",
+   "id": "893bf55f83ddb5d9d7c8daa47054106a",
    "titulo": "Ser estruturado de forma a permitir a verificação da sua continuidade e eficiência…",
    "titulo_origem": "regra",
    "tema": "contingencia",
@@ -10137,7 +10137,7 @@
    "dispositivo": "item 142, alínea g"
   },
   {
-   "id": "53e8282189414ecb59b878b89f51821a",
+   "id": "fcad0f54511db0dc162748d7a4d79efe",
    "titulo": "Incluir a localização, natureza do risco, frequência histórica de ocorrência e uma…",
    "titulo_origem": "regra",
    "tema": "contingencia",
@@ -10195,7 +10195,7 @@
    "dispositivo": "item 144, alínea a"
   },
   {
-   "id": "111dbed62b092261103f1e29dce9d989",
+   "id": "1f1dc4db92023e374f21362dc2800ae7",
    "titulo": "Ser feita com periodicidade máxima de um ano",
    "titulo_origem": "regra",
    "tema": "contingencia",
@@ -10253,7 +10253,7 @@
    "dispositivo": "item 145"
   },
   {
-   "id": "bceebbc60b64f6bc3621f6c426ac122b",
+   "id": "601ad405f6254ee2cdcbfd39ff4101d4",
    "titulo": "Ser fornecida na mesma periodicidade máxima para os agentes designados pelo Poder…",
    "titulo_origem": "regra",
    "tema": "contingencia",
@@ -10313,7 +10313,7 @@
    "dispositivo": "item 145, alínea b"
   },
   {
-   "id": "97f84ca79e998bc545999c9d6eb34af0",
+   "id": "acc8c2500fa7417c1a136819e828964e",
    "titulo": "Enviar às áreas de fiscalização da ANEEL relatório contendo discriminação das…",
    "titulo_origem": "regra",
    "tema": "informacoes",
@@ -10389,7 +10389,7 @@
    "dispositivo": "item 23-A"
   },
   {
-   "id": "55e3fbe39387f0203ba5b94fb0873ab4",
+   "id": "a86e6593242ad50a459b4265f12473e1",
    "titulo": "Comunicar ao consumidor, após o reconhecimento da ocorrência de interrupções no…",
    "titulo_origem": "regra",
    "tema": "informacoes",
@@ -10450,7 +10450,7 @@
    "dispositivo": "item 23-B"
   },
   {
-   "id": "5611b4cd0306cd8016b39178d14cf9ba",
+   "id": "2a269e7fbaafb42182a858e4510d9dc0",
    "titulo": "Disponibilizar aos consumidores o número total de unidades consumidoras afetadas por…",
    "titulo_origem": "regra",
    "tema": "informacoes",
@@ -10508,7 +10508,7 @@
    "dispositivo": "item 23-C"
   },
   {
-   "id": "f6a62edfc906e1d52a036bf55a2bc092",
+   "id": "70ca29958280b83d2c334f86ac3ea8de",
    "titulo": "Disponibilizar em sítio eletrônico informações relacionadas às ocorrências abertas",
    "titulo_origem": "regra",
    "tema": "informacoes",
@@ -10574,7 +10574,7 @@
    "dispositivo": "item 23-D"
   },
   {
-   "id": "63c16a2d6cdb10a0d118dabfad1a5ead",
+   "id": "85c8b71f588487ee7b25749880f1ab89",
    "titulo": "Disponibilizar em sítio eletrônico e nos postos de atendimento presencial, com uso…",
    "titulo_origem": "regra",
    "tema": "informacoes",
@@ -10643,7 +10643,7 @@
    "dispositivo": "item 23-E"
   },
   {
-   "id": "4b4ad36f4e84168c823b10ff16b0a86b",
+   "id": "68605dfd1ee4af9d8b48699a577036bb",
    "titulo": "Informar e manter, por até cinco anos, em seu sítio eletrônico, a qualidade na…",
    "titulo_origem": "regra",
    "tema": "consumidor",
@@ -10681,7 +10681,7 @@
    "dispositivo": null
   },
   {
-   "id": "38945dfa9d46bb9815358922910037c2",
+   "id": "e4d867638ae140cb20de15242024a9dd",
    "titulo": "Informar e manter, por até cinco anos, em seu sítio eletrônico, os indicadores de…",
    "titulo_origem": "regra",
    "tema": "consumidor",
@@ -10719,7 +10719,7 @@
    "dispositivo": null
   },
   {
-   "id": "7ee96dae8cfbb238fdd104ffeaba6e45",
+   "id": "ffc6efeb032d6eb9fdc8cf44ffe0b421",
    "titulo": "Disponibilizar em sítio eletrônico e nos postos de atendimento presencial, com uso…",
    "titulo_origem": "regra",
    "tema": "informacoes",
@@ -10788,7 +10788,7 @@
    "dispositivo": "item 23-I"
   },
   {
-   "id": "b6fdf24269b0251813329424cdf3df70",
+   "id": "ebc6646e793de4700afc4dbe33a60213",
    "titulo": "Disponibilizar à ANEEL uma API (Application Programming Interface) que possibilite a…",
    "titulo_origem": "regra",
    "tema": "informacoes",
@@ -10854,7 +10854,7 @@
    "dispositivo": "item 23-K"
   },
   {
-   "id": "f15550bd7ac22b0e951a0422fbd0de23",
+   "id": "327128e104f97d70d88a52fe7c271f05",
    "titulo": "Notificar o Poder Público imediatamente após a identificação de um evento crítico,…",
    "titulo_origem": "regra",
    "tema": "informacoes",
@@ -10917,7 +10917,7 @@
    "dispositivo": "item 23-L"
   },
   {
-   "id": "01b6af8694277560ade5807b98f624a8",
+   "id": "523b74d9c0bbb5995355b429827d330d",
    "titulo": "Não ser consideradas as interrupções previstas no item 178, com exceção da alínea “c”",
    "titulo_origem": "regra",
    "tema": "dise",
@@ -10975,7 +10975,7 @@
    "dispositivo": "item 180-A"
   },
   {
-   "id": "0fc3621a053fd84b6f2ac949e7af9251",
+   "id": "0494c10fedfe7529f3659d24e16c1acf",
    "titulo": "Efetuar uma compensação ao consumidor ou central geradora de média ou baixa tensão…",
    "titulo_origem": "regra",
    "tema": "dise",
@@ -11020,7 +11020,7 @@
    "dispositivo": "item 220-A"
   },
   {
-   "id": "5af99e436270016b15a32eedbd1ec97f",
+   "id": "5c2764e66859f5de51340e4ad9446bba",
    "titulo": "Ser estabelecidas nos respectivos contratos, obedecendo aos critérios deste Módulo",
    "titulo_origem": "regra",
    "tema": "dise",
@@ -11090,7 +11090,7 @@
    "dispositivo": "item 226"
   },
   {
-   "id": "481be1f3c6d404b8ad51957f8097129c",
+   "id": "9beb1664787c1f33722982b248387795",
    "titulo": "Ser realizada sem prejuízo das compensações por violação dos indicadores DIC, FIC e…",
    "titulo_origem": "regra",
    "tema": "dise",
@@ -11153,7 +11153,7 @@
    "dispositivo": "item 227, alínea d"
   },
   {
-   "id": "55def10dbe8a1f68b7b01eb743abae2e",
+   "id": "cc2bead27b37396309ebae5ca965091a",
    "titulo": "Estabelecer canais adicionais de comunicação exclusivos ao atendimento de órgão…",
    "titulo_origem": "regra",
    "tema": "poder_publico",
@@ -11214,7 +11214,7 @@
    "dispositivo": "Art. 371-A"
   },
   {
-   "id": "b4d313012446167b8f9101dc1c904b3c",
+   "id": "e999916da34bacce3d80ca595298207e",
    "titulo": "Atendimento telefônico",
    "titulo_origem": "regra",
    "tema": "poder_publico",
@@ -11274,7 +11274,7 @@
    "dispositivo": "Art. 371-A, § 1º, inciso I"
   },
   {
-   "id": "d47c1a7a07114ee267aaec3c34ae3813",
+   "id": "2362d17ab7b609b9ca5c9690bb316bcd",
    "titulo": "Atendimento presencial, com horário agendado; e",
    "titulo_origem": "regra",
    "tema": "poder_publico",
@@ -11334,7 +11334,7 @@
    "dispositivo": "Art. 371-A, § 1º, inciso II"
   },
   {
-   "id": "be471947a15c1e33ef32fbd1d898556d",
+   "id": "dbb16787bed84cf8ce152c36f19f228d",
    "titulo": "Canal de comunicação por texto (chat) com atendimento humano, durante horário comercial",
    "titulo_origem": "regra",
    "tema": "poder_publico",
@@ -11395,7 +11395,7 @@
    "dispositivo": "Art. 371-A, § 1º, inciso III"
   },
   {
-   "id": "791d2b8ee2ccbfa8203c7b66e1b0fe18",
+   "id": "2a04fb6c011327c6658587fa33808459",
    "titulo": "§ 2º Canais adicionais aos dispostos no §1º podem ser livremente pactuados entre a…",
    "titulo_origem": "regra",
    "tema": "poder_publico",
@@ -11424,7 +11424,7 @@
    "dispositivo": "Art. 371-A, § 2º"
   },
   {
-   "id": "4e05912e7ea06c354c873c198ee46e1a",
+   "id": "d89e779543b063dd9b28dba5b782fe35",
    "titulo": "Designar um ou mais representantes institucionais para atendimento exclusivo dos…",
    "titulo_origem": "regra",
    "tema": "poder_publico",
@@ -11484,7 +11484,7 @@
    "dispositivo": "Art. 371-A, § 3º"
   },
   {
-   "id": "c397d692aa6bc601786ac529791b8e6a",
+   "id": "e8f1a33a2198d77d9a0f69e40dbec07b",
    "titulo": "Agendar e realizar, sempre que solicitado pelos poderes públicos municipal,…",
    "titulo_origem": "regra",
    "tema": "poder_publico",
@@ -11542,7 +11542,7 @@
    "dispositivo": "Art. 371-A, § 4º"
   },
   {
-   "id": "caefc23a114b137e479ebfbc37dd5b92",
+   "id": "c9762e0971ff2fb5e0b2599a6baf622f",
    "titulo": "Ter, no caso de urgência/emergência, disponibilidade ininterrupta durante 24 horas…",
    "titulo_origem": "regra",
    "tema": "poder_publico",
@@ -11603,7 +11603,7 @@
    "dispositivo": "Art. 371-A, § 5º"
   },
   {
-   "id": "56e499ec5bf6885484fd36e2a02310d9",
+   "id": "13344a3f00857f34577ba9758f70ecf7",
    "titulo": "Observar as disposições relacionadas ao atendimento previstas no Módulo 4 do PRODIST",
    "titulo_origem": "regra",
    "tema": "poder_publico",
@@ -11661,7 +11661,7 @@
    "dispositivo": "Art. 371-A, § 6º"
   },
   {
-   "id": "a09ddaa70b009e3dfd4594a7912a6a19",
+   "id": "b294f5d4a240e1275e365bdf61ff8177",
    "titulo": "Entregar e manter atualizado junto aos poderes públicos municipal, distrital e…",
    "titulo_origem": "regra",
    "tema": "poder_publico",
@@ -11722,7 +11722,7 @@
    "dispositivo": "Art. 371-A, § 7º"
   },
   {
-   "id": "b0102ab827d8f6c85f10c2298c2229be",
+   "id": "2ddf21481953856dc5f9d3716afc16f6",
    "titulo": "Articular, coordenar, monitorar, orientar e supervisionar as providências e medidas…",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -11754,7 +11754,7 @@
    "dispositivo": "Art. 10, inciso I"
   },
   {
-   "id": "c2d051b27ea410e5264d6bf969deb231",
+   "id": "076378da013606f6a4b4a5ac6a71c2fa",
    "titulo": "Interagir com demais autoridades e instituições públicas e privadas no endereçamento…",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -11787,7 +11787,7 @@
    "dispositivo": "Art. 10, inciso II"
   },
   {
-   "id": "bd4fd1a698e88aa66fdbb7eb14301109",
+   "id": "5659371b99df2fbd42cca67e05a0f4ca",
    "titulo": "Ser estabelecido por Portaria emitida pelo Diretor-Geral",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -11816,7 +11816,7 @@
    "dispositivo": "Art. 10, § 2º"
   },
   {
-   "id": "e1089373c77bfc1b64928b1780e90b44",
+   "id": "62bdbc7dbb3769548490313a26d46645",
    "titulo": "Atender as demais disposições da Portaria nº 6.803, de 30 de janeiro de 2023, no que…",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -11874,7 +11874,7 @@
    "dispositivo": "Art. 10, §3º"
   },
   {
-   "id": "a035bfea295ab6fbe8b26ed52aaddc3c",
+   "id": "1167e17aaa85309a1b8b2a5e39492a41",
    "titulo": "Art 11. A Cessão Emergencial de recursos humanos, equipamentos e materiais poderá…",
    "titulo_origem": "regra",
    "tema": "cessao",
@@ -11905,7 +11905,7 @@
    "dispositivo": "Art. 11"
   },
   {
-   "id": "cead800c0202bb8b89107b6685dc9955",
+   "id": "6c6e5e849f7e7efa5bcfa7721e6ad0ed",
    "titulo": "Ser reembolsadas pela cessionária à cedente garantindo a neutralidade da operação,…",
    "titulo_origem": "regra",
    "tema": "outros",
@@ -11963,7 +11963,7 @@
    "dispositivo": "Art. 19, inciso XIII, alínea c"
   },
   {
-   "id": "580a034ab6a606f00ee6d62f36e5b10e",
+   "id": "69353bb80ee6067a3407a0a1a9a075ad",
    "titulo": "Ser implementadas na data de publicação desta Resolução Normativa",
    "titulo_origem": "regra",
    "tema": "outros",
@@ -12096,181 +12096,181 @@
  },
  "linha_do_tempo": {
   "vencida": [
-   "6d851f0d0ece1e2210f827ab1a46429f",
-   "e3789df3d28ddbb699c0896a8e2c344f",
-   "1aa40646345a582835aef850d1558d4e",
-   "45d6c098677f67a3513b4a598c16790c",
-   "c6573cbb1a193859d3abf084da6728b3",
-   "18437c6ede3e219450f3e6571beac09c"
+   "ab5c6e7c2c8a2d52618ead6ccddcb01f",
+   "8150c31afec83873d5dfca23c3f4af11",
+   "96f6b1d3463f2400278578fb6a6bda35",
+   "5e4bc20db6a9a9e82b1503f54cfda9b3",
+   "48cc66e1d1300d6b55c3b99bc7fe4325",
+   "d1a8016795301ddd8398a5a3983664c9"
   ],
   "90dias": [],
   "depois": [],
   "recorrente": [
-   "1d41d930436a3687ff79e52fec9a1a3d",
-   "c476f7dcfb641614a9cc1eb1a3a57f68"
+   "4f49b400e22824f6be82fb14d1865fe6",
+   "d46cd710a0545a2da611401e327dc8ae"
   ],
   "evento": [
-   "65c2c3de40927e0b5f1e8cb977b4a40b",
-   "573c9461cb72b08816fda6202bffdb18",
-   "a09a419e599cf2de3ff9d36a5ba53583",
-   "dd232265881dcc7783a0b5a65079c3c1",
-   "312a7f1ff183d9df0d1c0accf962517e",
-   "e59c31e337697a9e67a3f1a765282a32",
-   "be803cb8a0993679117c365ff6e3895e",
-   "c4a3dbf19d0e02a1d7335ca88892f239",
-   "4db8d42076ce47a83da27c94b24fd6af",
-   "215a830860da48745e243fdf7f56f22f",
-   "a4a09bbbe3784aa99e81023ab31b9f1c",
-   "5d42323753a48cf754d9b62acdbfae57",
-   "11e5b4f33803292e63d4eb7589f2e09b",
-   "faa2064240c149e5ca4f0d23d661bdc9",
-   "b04448a4c32e3dff1925f03b5fd44641",
-   "6be4cab74df1f04d82c710d1b8572b5e",
-   "e0fb83e88a91d01611c0398d568b8c8e",
-   "d625a7ac8e93f1842b1239caf148cb7e",
-   "656b0e9b4c3bc7f386bfe57502303826",
-   "29dd7bd2a48dd69d58dd419a93592e39"
+   "72b5b2e074a8ccdde1ca05dca7d11051",
+   "749b875da470b67ecc244904db651d21",
+   "d3c11a5e61ab7c503612bf78e9baa665",
+   "8f45b5f596fe01114cb6b18e9a22da0a",
+   "e892ea20b5e26b59a5aa9743902cdac8",
+   "bfa3d0286f697c39155bba82e43a8f91",
+   "36c4ceeb27924644a8e6841370a0d43b",
+   "1b9bd281d78909b5a8f338fcec5ea63c",
+   "988d13a0424104250bc4a84c15b6b0c0",
+   "5d85eb4e010a12c246e11b1718bacdc1",
+   "a3bb9d8e50247f0e07f01e42372d0488",
+   "46eee4e31010d923b370bfda88be245c",
+   "ba6baff6066e9abd56dd65eaf94761f9",
+   "b43943a4199e27ac5181e73c320757ed",
+   "f6f02244a4becabf64757f85834c31ba",
+   "6a60ce68ff83e4197da35d84bf5af621",
+   "f872e81a7858f14d9178df70455c9283",
+   "3c5ade389bf203c24f7e4c055e85b7ea",
+   "3072a0e59add8981372ba909b755833e",
+   "99b28778efc9d1f8db1e7a7acebd85ac"
   ],
   "sem_prazo": [
-   "958668f808c6b12cadd621d2123e1318",
-   "5ea14ae6d651a6529961d3bd57f7712a",
-   "585460f21211f6b44ca7907e25b6e958",
-   "fb5258aee595d4ccc063c7ed7e73447e",
-   "579e23ead8da60d5b661e982e00c136f",
-   "42539b782c2da52c0df648913ed356b1",
-   "6cc2cfbb2e426547a18f29da56befa04",
-   "f5dc685e8eeb1fdb99b5423502a1e54a",
-   "a34ca8b7ec5d7b25d8e364b8667e472f",
-   "d2135cb5844ef0925a0f513ca8da3bda",
-   "99ecedcca0b695224adb79beab7c3429",
-   "ece3508293e65f539413ba61f9383c75",
-   "df84f5642c45dc9224923d5bec47612a",
-   "7694e76aa4b4d45724727848682ff58b",
-   "6d6537a9a86ff17f4d07fd93b7db63b1",
-   "0a1bdbd954f4adb42a1bb4dcd9620776",
-   "ff8ff5c29bbe92cf0ee4303386638231",
-   "93d25706071bd40a69f112109339eda9",
-   "f64e1eb05ddc437f019deb8dc411ea19",
-   "0265f642ed00125401e2508453364b8f",
-   "063010c4eac78333c5b90c7e03a86cb7",
-   "8fbc83695a241f375efc37c738810d42",
-   "daed3321e138ba5fef64f338bb28f284",
-   "e3b7997d17c45f96702b8c817de7b75d",
-   "5c7fba85754e6c715392f5dc5e6d53ed",
-   "6ecf7b0345f0d58f899ec1a6e5de1303",
-   "c831b770e06ad60552a526895a2e06a3",
-   "28d2f9372d789b3cbeaabe45f611b37b",
-   "983a7bd8616301c6424c860bdadf5e60",
-   "fb259fff086cc79656e123e352f7ec22",
-   "ecedce0e8af997b1e6fa64a694195e50",
-   "d37e10200bb5a08310fa86fd5d646d4f",
-   "111ac299150f6ec98427360df0eab1fc",
-   "c30eae0366547041c04706a19ff7ff65",
-   "2b9461a90a0334ff4e9c810d6abe9774",
-   "f0142282ab6aee66d9e2f821e0d4a5b3",
-   "49f8b730d434d0b433aa54e87b677d42",
-   "56e9f4d782a67058781659e3b04f6ffe",
-   "24c2f335011943e525c2c6cd4a89744e",
-   "87aa104da9c209694960af07523a6751",
-   "11d59871e8bfb7f9980ea6432fbde644",
-   "7fc3f7682615ccc8fa2fcff309c0716c",
-   "214f17db417e950d917dd79e4c04eca9",
-   "c12d1d6b3f315c1e87bae285e9adbeb0",
-   "7b5146941ec47dfe82ed35496e6b6276",
-   "c8cc8001bf9d7c0ca1de3e34bb59bcec",
-   "f52bd4b1f41ba7475447fc1d756031e9",
-   "c3af60d635a92e26eb81e23ccc4c03a6",
-   "512d94e840ba0dedb6704bdeeab7fdda",
-   "4513be7cb890d37c0ae7b6c4b3c6c823",
-   "d8211e7d5205f72904e8e840ae73c64e",
-   "1053b90c69cdbc309e348d449bd7991e",
-   "fc34757cf7dfe170202bd902025a6569",
-   "ec64dfb96e20d636d200b4bfb45c6547",
-   "4813f1c72e8cc5fcd306c09c6cbb1b67",
-   "d5141b46ea8763e492daa25f12145a83",
-   "fd6e9f5b9d5782f84d2f4b3627bedbd2",
-   "9fb7c825def0ea0d517aaefe41391fef",
-   "24bb7ef828089dce7fd8c7c35f29658f",
-   "6b6e7f003573407a520c46a225e1dc94",
-   "e6b0caabe3bf2988ab37541fef1f5077",
-   "1f744ab9250eed257b359bdf7d2caac8",
-   "3e902de0f3ae29543f279677f7d12646",
-   "c73f32e00dd49ebd10b386f7c71f45ed",
-   "38822404600456bb5373170af8619bd9",
-   "1a9818163996a41eb83b5533493ab49b",
-   "7ce4fa671a9cc58ed0503d5291ae1141",
-   "f0c9d0501ff3dcf8d0f5748417687af2",
-   "5c02090d5ea81a809ad77208fc022959",
-   "f15492bc7bd8c827629342a35ed3b130",
-   "2461c56169908b771d708556d45f06f7",
-   "040c89d38c781ffea1f5a8b2f78171c1",
-   "e55b7c3bb21b3a1fcc525e1496fe78fe",
-   "a59255a5c8def0e7d7b439c111cca0e5",
-   "e99e6f477315cc72256df12870e2f5ec",
-   "18732431f029be01ab2eb0e1a054c201",
-   "77fa82f2424e5b2490ab92433e3d0afe",
-   "a2f1449332e59bc6c2a890b5b8e07935",
-   "97528cac2b053e77aa54645a02e39c11",
-   "bab82f986b319cd2394815df0b906c3f",
-   "c35aa32e87f251881fde2bf0ff30fcfd",
-   "dc2817279caa770549594849bbe66e8c",
-   "3cfdddea591d21e1f76429091c8339e9",
-   "4068346e540a48ccc592c2a0da26d431",
-   "6c9f2d9820fc11b093d2beefaff3b826",
-   "068bae36aaeae617c6af98f8de29c9af",
-   "04fa2ce2f09afecc75b05da48db51be2",
-   "43e7450e862d939e567a6203cef6ef28",
-   "95d746ffd2734dbe9e812871eaef0893",
-   "49c0e711c794d4360dba12a690f8e5f8",
-   "36589eee236054b844898e0adcbb8207",
-   "cf3dc26d3eccfe0c0461bc9f69494e33",
-   "65d915522557c70ee716ef363587b07d",
-   "b0c4d06439d263d14268a7ceb35da231",
-   "5ba29ee4d0e91a78be813c3c6ad70eb4",
-   "dc9c4a4c6d9e41bb36bc7cba13bf1a4d",
-   "2f064d325e45620c1f0ca08b959ff36e",
-   "d1c2b3af2792512dc17bc9616ff3c3fa",
-   "2c76b34427cd1c6e56e2d735fbc33f7e",
-   "597608ccc6df5937d1f76d2336068ad3",
-   "74a43853f0b430c52de65a68144dac52",
-   "1d53877acb96aad89a41ff26e52163c6",
-   "e88a9ac6888e25f705a09320a830e7f9",
-   "0b58e77d739c583efd96de198548ae1b",
-   "c89f7a0994ef0a0fdf4a7ee499b24036",
-   "53e8282189414ecb59b878b89f51821a",
-   "111dbed62b092261103f1e29dce9d989",
-   "bceebbc60b64f6bc3621f6c426ac122b",
-   "97f84ca79e998bc545999c9d6eb34af0",
-   "55e3fbe39387f0203ba5b94fb0873ab4",
-   "5611b4cd0306cd8016b39178d14cf9ba",
-   "f6a62edfc906e1d52a036bf55a2bc092",
-   "63c16a2d6cdb10a0d118dabfad1a5ead",
-   "4b4ad36f4e84168c823b10ff16b0a86b",
-   "38945dfa9d46bb9815358922910037c2",
-   "7ee96dae8cfbb238fdd104ffeaba6e45",
-   "b6fdf24269b0251813329424cdf3df70",
-   "f15550bd7ac22b0e951a0422fbd0de23",
-   "01b6af8694277560ade5807b98f624a8",
-   "0fc3621a053fd84b6f2ac949e7af9251",
-   "5af99e436270016b15a32eedbd1ec97f",
-   "481be1f3c6d404b8ad51957f8097129c",
-   "55def10dbe8a1f68b7b01eb743abae2e",
-   "b4d313012446167b8f9101dc1c904b3c",
-   "d47c1a7a07114ee267aaec3c34ae3813",
-   "be471947a15c1e33ef32fbd1d898556d",
-   "791d2b8ee2ccbfa8203c7b66e1b0fe18",
-   "4e05912e7ea06c354c873c198ee46e1a",
-   "c397d692aa6bc601786ac529791b8e6a",
-   "caefc23a114b137e479ebfbc37dd5b92",
-   "56e499ec5bf6885484fd36e2a02310d9",
-   "a09ddaa70b009e3dfd4594a7912a6a19",
-   "b0102ab827d8f6c85f10c2298c2229be",
-   "c2d051b27ea410e5264d6bf969deb231",
-   "bd4fd1a698e88aa66fdbb7eb14301109",
-   "e1089373c77bfc1b64928b1780e90b44",
-   "a035bfea295ab6fbe8b26ed52aaddc3c",
-   "cead800c0202bb8b89107b6685dc9955",
-   "580a034ab6a606f00ee6d62f36e5b10e"
+   "f3b14b4d06e787d331d32c6ae84c3104",
+   "1dbc3a9dbb51cfb8b63e824bd0650418",
+   "371a0efb3d4c5a4e3ab873d8e771e516",
+   "e14ae76ef0c8061777b5b913de6d26ef",
+   "e12216d40d33f381f90dfdde57d740dc",
+   "9d7730b3bbaef070d25078eec0fe388c",
+   "a4b4a21889d9513e488d9753cf449e70",
+   "5ead5b02287ac05328fcc7e220c45453",
+   "7e6c7a01396d71596105cda455583915",
+   "0bc3c83a2325452a30fe83a816cfb467",
+   "832410c0abc30fafadfb240efca7a5d7",
+   "44f9e08baf3ab4bfb0add2860194cd07",
+   "5c1fb715d80480a3893e7ed886f7c6ac",
+   "ab27d1747a628bb2e5a8bc6cc3a1cc12",
+   "42e6cedd1f9269de7a7a10346517f6f0",
+   "02cfab16e964379703e348e86e2b4c29",
+   "c6e68a24f0e691854c54138b3188263c",
+   "8a1bd75fbdaa7e4ae8a273eb580d0ebd",
+   "027a531a96fbcaf16fcf1976c0a8a047",
+   "c72c7c60add10e2736a41112393271ee",
+   "6284b385445903a7ac4851edd66e5d55",
+   "8eb0ad855d58e5f8fa7652eeba93993d",
+   "3437db5ca0fde9e5d911f8ed09e377be",
+   "c23145a214e90d1024e6266225422643",
+   "3475817306fac49f36f1595ed375e0d7",
+   "30895460982e7a166313c537d003d049",
+   "b60e7d727ebb623dab9a14cc2ed6ab9f",
+   "444a8fd79ad2aaa49dc4a501c1303972",
+   "e7f980c7ff0ce2b38515abb940f046f2",
+   "ff5fe97b7a12429b071ec42b85718280",
+   "80ef063d3a011cfcb4e2019fb35f62c6",
+   "734cb816a6c760a58698b3e34c80bed7",
+   "a58925605521b39521193a553b160597",
+   "900586becbf8cf9984b523330fb1d479",
+   "e368b42c3135df1a0e0cdd6f45eb468d",
+   "689d6d9c84090601576aafa5f630fb16",
+   "b21dba0c55f1a7984d849c985b67546d",
+   "39aa5e7728d52724810d519d537cdca4",
+   "c0f010e2f417cd71ae85c18545b60e29",
+   "3873dfdb6a482bfe1dbb8877d2a736aa",
+   "68c500372760d09a2f6f5ba8ecf5b2df",
+   "24adc4d903c405c4709a6d6bfa3b992b",
+   "bf161429e5c4c339f4aaa4eeabfd9b19",
+   "9d45a9d273bc0dc3b41a979c972a34c1",
+   "436cc4c887f03c4341c7ac2b4508e530",
+   "0831da81fd8bdf388170b77367e66a7f",
+   "ebf622114d279278c1210c8abde5de32",
+   "711a85b2998cfacde446e2bc7d721817",
+   "20d1b5410f9213358e1254619c22fa73",
+   "ae50204c2421c949a8ed05f6ad306ce0",
+   "384d0e8ee2c23a5fc5bebdc2a6990ae6",
+   "2c66d5a873bfcc2110914e4fcc2cc139",
+   "d4115d5a15e77e168b45ab0b8e8fe710",
+   "67046bcfe835d19a15daceaf7e9aba40",
+   "e18918d81db932b28ecc9506b0d67f4d",
+   "4877a9b51e0e76a3f52f5943f07d6049",
+   "89edb2d377653934971636550cc12c62",
+   "6ceb8113c9f37da271cfdc3e7ba0fe8d",
+   "96c3d43d7d6c748a1dfebb87438483cf",
+   "813a78b062720a383e2040b6d9ac4a9e",
+   "1fa9c0d6f01d4e8218b9f25fcd5cb79f",
+   "3011c060c5e459828b0cbd568f95ef80",
+   "e462c253f7dbb790502c86bf3335d2e6",
+   "91994236d614896870196f3b8c79663a",
+   "21589311ec8d3793c0164a5220177a4e",
+   "ed4c23b6dfddde5e0d83785062ac600a",
+   "adc734c24bbd2ea8e8cde9bacccb5c65",
+   "29f579e4e56f2e0f4d4edd4985cdd9f2",
+   "243cc2eac4a93736a5e38fad202ff5c8",
+   "b288f9d91f2c0ea795dabd2b469f325a",
+   "ce8a04b04791b0742bd092f8645e0634",
+   "fa1ea73c39c0a06267bbe930cc826634",
+   "25fe3b4d5c061217e27e345d7246cc68",
+   "b24b621208fe4f5a329e1abe07800c3e",
+   "98116e6c32696647a8c2202b924e3d99",
+   "161299f1c2f45a8ec9d59e2decf81acb",
+   "6bb84322365be30122d072f8930f759a",
+   "f39ea48dbee0a11d4d70d6edd78bf072",
+   "9409717f68071c13150b85a31425085b",
+   "0522e0e4048b9abb0010fc497a72c3b8",
+   "149aaafaf6be9a5a02aeba9291feaeb4",
+   "1d53360e65da41174c8720569eda153e",
+   "151feb651964faeccd8d14dc23daa191",
+   "b446baf361e63f2d27f229c23d0c9904",
+   "0b72f8abe4c645056b68b08d3bc0ae02",
+   "10f7aaf8bb57c7b5f0e0b101c81b2bf2",
+   "771095183d2796d66c03ffb55962e744",
+   "1749dd547ca3e7c4888c547e700b274a",
+   "3676e9cc34ff86bf11ccfec1de18aacc",
+   "b53c11d361afe76398c92c9640c0c0b4",
+   "6b1058060e8df69dfdad8926184d47a1",
+   "20ab10d3aaf772368a6d8b8997c15285",
+   "34b0b209a6553ea617de0eb8c3dbe5e7",
+   "9ddb8f25003d96c79f03adec1d5d847b",
+   "84ebe2d9b1cad773ee4e0a0e9b01d292",
+   "762818980a69d80bfca3f3fea09360f1",
+   "fe5488d1efd6e578a2c914f6b7a565c0",
+   "f42d226063125f63413004dd75d45e86",
+   "d460627e6217b75263f9812a44f27d6a",
+   "a57c2c771e1f3d6b550029bb352496ec",
+   "2f1d5ea29ab5f00ee5aacdcb3ecdeafa",
+   "f7557788f50a12d5aa5a84970a89d7d7",
+   "48d07754cd34f240ab25b80e5d9a4893",
+   "975fcd0465a5f4685ae37675cb0e4282",
+   "893bf55f83ddb5d9d7c8daa47054106a",
+   "fcad0f54511db0dc162748d7a4d79efe",
+   "1f1dc4db92023e374f21362dc2800ae7",
+   "601ad405f6254ee2cdcbfd39ff4101d4",
+   "acc8c2500fa7417c1a136819e828964e",
+   "a86e6593242ad50a459b4265f12473e1",
+   "2a269e7fbaafb42182a858e4510d9dc0",
+   "70ca29958280b83d2c334f86ac3ea8de",
+   "85c8b71f588487ee7b25749880f1ab89",
+   "68605dfd1ee4af9d8b48699a577036bb",
+   "e4d867638ae140cb20de15242024a9dd",
+   "ffc6efeb032d6eb9fdc8cf44ffe0b421",
+   "ebc6646e793de4700afc4dbe33a60213",
+   "327128e104f97d70d88a52fe7c271f05",
+   "523b74d9c0bbb5995355b429827d330d",
+   "0494c10fedfe7529f3659d24e16c1acf",
+   "5c2764e66859f5de51340e4ad9446bba",
+   "9beb1664787c1f33722982b248387795",
+   "cc2bead27b37396309ebae5ca965091a",
+   "e999916da34bacce3d80ca595298207e",
+   "2362d17ab7b609b9ca5c9690bb316bcd",
+   "dbb16787bed84cf8ce152c36f19f228d",
+   "2a04fb6c011327c6658587fa33808459",
+   "d89e779543b063dd9b28dba5b782fe35",
+   "e8f1a33a2198d77d9a0f69e40dbec07b",
+   "c9762e0971ff2fb5e0b2599a6baf622f",
+   "13344a3f00857f34577ba9758f70ecf7",
+   "b294f5d4a240e1275e365bdf61ff8177",
+   "2ddf21481953856dc5f9d3716afc16f6",
+   "076378da013606f6a4b4a5ac6a71c2fa",
+   "5659371b99df2fbd42cca67e05a0f4ca",
+   "62bdbc7dbb3769548490313a26d46645",
+   "1167e17aaa85309a1b8b2a5e39492a41",
+   "6c6e5e849f7e7efa5bcfa7721e6ad0ed",
+   "69353bb80ee6067a3407a0a1a9a075ad"
   ]
  },
  "nomes_situacao": {
@@ -12623,6 +12623,12 @@
   },
   "pratica_por_tema": {
    "manejo": "autorizacao_municipal"
+  },
+  "causas_por_tema": {
+   "consumidor": {
+    "nome": "Indisponibilidade de canais de terceiros",
+    "nota": "Prática conhecida, fora do texto da norma, sem citação nem referência pública. A avaliar com o jurídico, caso a caso."
+   }
   },
   "contraponto": {
    "titulo": "Pedidos de excludente negados (contraponto obrigatório)",

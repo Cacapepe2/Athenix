@@ -103,3 +103,13 @@ def test_manchete_usa_valor_por_infracao_e_nunca_soma():
             assert f["maximo_pct"]["com_teto"] <= max(
                 f["teto_grupo_pct"], f["teto_legal_lei_pct"] or 0
             )
+
+
+def test_causas_externas_por_tema_so_com_origem_declarada():
+    temas = {t["id"] for t in PLANO["temas"]}
+    a = PLANO["analise"]
+    assert set(a["causas_por_tema"]) <= temas and set(a["pratica_por_tema"]) <= temas
+    for causa in a["causas_por_tema"].values():
+        assert "sem citação" in causa["nota"] and "jurídico" in causa["nota"]
+    com_ato = {t["id"] for t in PLANO["temas"] if t["dependencias_no_texto"]}
+    assert com_ato == {"poder_publico", "outros"}  # os prazos dos arts. 14 a 16 estão nestes temas

@@ -1,5 +1,4 @@
-import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
-import { flushSync } from 'react-dom'
+import { createContext, useContext, useMemo, useState, type ReactNode } from 'react'
 import { AlertTriangle, Download, Printer, Sparkles } from 'lucide-react'
 import { Logo } from '../ui/Logo'
 import { Tag } from '../product/Tag'
@@ -14,8 +13,8 @@ const semData = r.por_situacao.evento + r.por_situacao.sem_prazo
 const kicker = 'text-xs font-semibold tracking-widest text-bronze-deep uppercase'
 const PRELIMINAR = 'cenário preliminar: inclui sugestões aguardando confirmação'
 const ATENUANTES = plano.reducao.medidas.filter((m) => m.cenario)
-// Impressão: todos os detalhes renderizados e abertos (fora dela, cada um renderiza só ao abrir).
-const Imprimindo = createContext(false)
+const ATEN_I = ATENUANTES.find((m) => m.cenario === 'espontanea')
+const ATEN_II = ATENUANTES.find((m) => m.cenario === 'ate_tn')
 // Receita simulada (null: valor digitado inválido, mostra só percentuais) e modo do cenário. Nada sai do navegador.
 const Cenario = createContext<{ sim: Simulacao | null; modo: Modo }>({ sim: SIM_INICIAL, modo: 'preliminar' })
 
@@ -39,7 +38,6 @@ function Sugerido({ texto = 'sugerido' }: { texto?: string }) {
 
 export function PlanoPage() {
   const [diag, setDiag] = useState<Diagnosticos>({})
-  const [imprimindo, setImprimindo] = useState(false)
   const [sim, setSim] = useState<Simulacao | null>(SIM_INICIAL)
   const [modo, setModo] = useState<Modo>('preliminar')
   const temas = useMemo(() => ordenarTemas(plano.temas, diag, sim, modo), [diag, sim, modo])
@@ -49,20 +47,11 @@ export function PlanoPage() {
   // Escala das barras: a maior exposição entre os temas visíveis vale 100%. Relativa (e não contra
   // os 3% do teto legal) para que as diferenças entre temas fiquem legíveis; o número vem escrito ao lado.
   const maiorPct = Math.max(0, ...temas.map((t) => exposicaoTema(t, sim, modo)?.pct ?? 0))
-  // Impressão/PDF: renderiza e abre todos os detalhes para o papel levar o fundamento.
-  useEffect(() => {
-    const antes = () => {
-      flushSync(() => setImprimindo(true))
-      document.querySelectorAll('#plano details').forEach((d) => d.setAttribute('open', ''))
-    }
-    window.addEventListener('beforeprint', antes)
-    return () => window.removeEventListener('beforeprint', antes)
-  }, [])
+  // Impressão: só o resumo (topo e temas). As análises e os detalhes ficam recolhidos; o que a pessoa abriu na tela sai aberto.
   const marcar = (id: string, d: Diagnostico) => setDiag((atual) => ({ ...atual, [id]: d }))
-  const vencidos = m.temasVencidos === 0 ? 'Nenhum tema com prazo vencido em aberto' : `${m.temasVencidos} ${m.temasVencidos === 1 ? 'tema vencido' : 'temas vencidos'}, ${textoVencidas(m.obrigacoesVencidas)} (datas provisórias)`
   const esc = plano.referencia_escala
 
-  return <Imprimindo.Provider value={imprimindo}><Cenario.Provider value={{ sim, modo }}>
+  return <Cenario.Provider value={{ sim, modo }}>
     <header className="border-b border-line bg-ivory print:hidden"><div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-8"><a href="/" aria-label="Athenix, voltar ao início"><Logo /></a><a href="/" className="text-sm font-semibold text-slate-blue">← Voltar ao site</a></div></header>
     <main id="plano" className="mx-auto max-w-7xl space-y-14 px-4 pt-6 pb-28 sm:px-8 sm:pt-10 print:pb-10">
       <section aria-labelledby="titulo-plano" className="space-y-6">
@@ -76,12 +65,12 @@ export function PlanoPage() {
             <Tag kind="pending" label="preliminar" />
             <span>Distribuidora de {sim ? brlCurto(sim.base) : 'receita a informar'} · RN 1.137/2025</span>
           </p>
-          <h1 id="titulo-plano" aria-live="polite" className="font-display mt-3 text-[1.75rem] leading-tight sm:text-[2.6rem] sm:leading-[1.12]">
-            {vencidos} · {m.maximo
-              ? <>exposição de até <span className="whitespace-nowrap text-slate-blue">{valorCurto(m.maximo)}</span> por infração, no tema vencido mais exposto</>
-              : 'exposição a enquadrar'}
+          <h1 id="titulo-plano" className="font-display mt-3 text-[1.75rem] leading-tight sm:text-[2.6rem] sm:leading-[1.12]">
+            {m.temasVencidos === 0 ? 'Nenhum tema vencido em aberto'
+              : m.maximo ? <>Até <span className="whitespace-nowrap text-slate-blue">{valorCurto(m.maximo)}</span> por infração em {m.temasVencidos} {m.temasVencidos === 1 ? 'tema já vencido' : 'temas já vencidos'}</>
+                : <>Exposição a enquadrar em {m.temasVencidos} {m.temasVencidos === 1 ? 'tema já vencido' : 'temas já vencidos'}</>}
           </h1>
-          <p className="mt-2 text-sm text-ink-soft">Cada obrigação vencida é uma infração possível; os valores por infração não se somam.</p>
+          <p className="mt-2 text-sm text-ink-soft">{textoVencidas(m.obrigacoesVencidas)} · datas provisórias · os valores não se somam</p>
           <div className="mt-4 flex flex-wrap items-center gap-3">
             {modo === 'preliminar' && m.sugeridos > 0 && <Sugerido texto={PRELIMINAR} />}
             {modo === 'confirmados' && <span className="text-sm text-ink-soft">Só enquadramentos que o texto da obrigação nomeia.</span>}
@@ -115,7 +104,7 @@ export function PlanoPage() {
             <p className="mt-5 border-t border-line pt-4 text-sm text-ink-soft">Designar quem confirma o enquadramento: confirmar enquadramentos libera o cálculo de {plano.decisoes.confirmar.temas_sem_calculo_confirmado} temas.</p>
           </section>
         </div>
-          <section aria-labelledby="diagnostico" className="grid gap-4 rounded-2xl border border-line bg-stone/40 p-5 sm:p-6 lg:grid-cols-[1fr_1fr_auto] lg:items-center">
+          <section aria-labelledby="diagnostico" className="print:hidden grid gap-4 rounded-2xl border border-line bg-stone/40 p-5 sm:p-6 lg:grid-cols-[1fr_1fr_auto] lg:items-center">
             <div><h2 id="diagnostico" className="font-display text-xl sm:text-2xl">Seu diagnóstico</h2>
               <p className="mt-1 text-sm">Em cada tema abaixo, marque se a empresa já atende. A ordem se recalcula na hora: o que já está atendido desce.</p></div>
             <div><p aria-live="polite" className="rounded-xl bg-white p-4 text-sm">
@@ -132,12 +121,14 @@ export function PlanoPage() {
       <section aria-labelledby="temas">
         <p className={kicker}>Plano por tema</p>
         <h2 id="temas" className="font-display mt-2 text-3xl sm:text-4xl">Temas por valor em risco</h2>
-        <p className="mt-3 max-w-3xl text-sm leading-relaxed text-ink-soft">{plano.regra_ordem}</p>
-        <p className="mt-2 max-w-3xl text-sm font-medium">Exposições de infrações diferentes não se somam: cada valor é o máximo de uma única infração.</p>
+        <details className="mt-3 max-w-3xl text-sm print:hidden">
+          <summary className="inline-flex min-h-11 cursor-pointer items-center font-medium text-slate-blue underline underline-offset-4">como ordenamos</summary>
+          <p className="mt-1 leading-relaxed text-ink-soft">{plano.regra_ordem}</p>
+        </details>
         <ol className="mt-6 space-y-5">{temas.map((t, n) => <CartaoTema key={t.id} tema={t} posicao={n + 1} diag={diag[t.id]} marcar={marcar} maiorPct={maiorPct} />)}</ol>
       </section>
 
-      <ComoReduzir temas={temas} />
+      <div className="space-y-14 print:hidden"><ComoReduzir temas={temas} />
 
       <LinhaDoTempo />
 
@@ -146,8 +137,8 @@ export function PlanoPage() {
         <div className="mt-5 max-w-3xl space-y-3 text-sm leading-relaxed">
           <p>A leitura automática da norma identificou {r.identificadas} itens. {r.fora_do_perfil} {r.fora_do_perfil === 1 ? 'vale' : 'valem'} só para transmissoras; os outros {r.aplicaveis} entram neste plano. Em {r.na_fila} o texto da obrigação nomeia o instrumento de uma infração da REN 846 e o grupo de multa é identificado; {r.a_confirmar} aguardam a confirmação do enquadramento por uma pessoa; {r.sem_multa} não têm multa estimável.</p>
           <p>Os temas seguem as seções da própria norma (por exemplo, “{plano.temas[0].fontes[0]?.titulo}”). Disposições transitórias vão para o tema do primeiro assunto que nomeiam.</p>
-          <p>Prazos: calculados pelo motor temporal a partir da publicação ({dataBR(plano.norma.vigencia)}). Ficam provisórios até uma pessoa confirmar a contagem. Nenhuma data é presumida.</p>
-          <p>Exposição: teto do grupo de infração (REN 846, Art. 8º) sobre a receita operacional líquida, limitado pelo teto legal. Sem simulação, a receita é a ilustrativa de {brl(plano.perfil.base_reais)}. {plano.perfil.origem_base} Sem faturamento bruto informado, o teto legal pode estar subestimado. Exposições de infrações diferentes não devem ser somadas. A manchete mostra a maior exposição por infração entre os temas com prazo vencido, nunca uma soma.</p>
+          <p>Prazos: calculados pelo motor temporal a partir da publicação ({dataBR(plano.norma.vigencia)}). Ficam provisórios até uma pessoa confirmar a contagem.</p>
+          <p>Exposição: teto do grupo de infração (REN 846, Art. 8º) sobre a receita operacional líquida, limitado pelo teto legal. Sem simulação, a receita é a ilustrativa de {brl(plano.perfil.base_reais)}. {plano.perfil.origem_base} Sem faturamento bruto informado, o teto legal pode estar subestimado. A manchete mostra a maior exposição por infração entre os temas já vencidos.</p>
           <p>Cenário preliminar e confirmados: no cenário preliminar (padrão), os enquadramentos sugeridos pela IA também contam, sempre marcados como “sugerido” e com barra hachurada; o cálculo continua sendo o do motor, só com o grupo sugerido. Em “Mostrar só confirmados” entram apenas os enquadramentos que o texto da obrigação nomeia. Nenhuma sugestão é confirmada em nome de uma pessoa.</p>
           <p>Porte, no topo da página: Pequena ~{brl(plano.simulador.faixas[0].base)}, Média ~{brl(plano.simulador.faixas[1].base)}, Grande ~{brl(plano.simulador.faixas[2].base)} e Muito grande ~{brl(plano.simulador.faixas[3].base)} de receita operacional líquida anual; em “Ajustar premissas” dá para informar a receita e o faturamento bruto. {plano.simulador.origem_faixas} A conta é a mesma do motor da Athenix (grupos I a V, percentuais da REN 846 e teto legal sobre o faturamento), refeita no seu navegador; um teste automático confere o resultado com o motor.</p>
           <p>Referência do setor: {esc.limites} Unidade: {esc.unidade}.</p>
@@ -156,13 +147,13 @@ export function PlanoPage() {
           {plano.ia && <p><Tag kind="ai" /> {plano.ia.aviso} Modelo {plano.ia.modelo}. {plano.ia.criterio_titulos} Títulos marcados com <Sparkles aria-label="ícone de IA" className="inline h-3 w-3" /> foram resumidos com IA. Enquadramentos: {plano.ia.criterio_enquadramentos.toLowerCase()}</p>}
           <p className="break-all text-xs text-ink-soft">Documento preservado · SHA-256 {plano.norma.sha256} · gerado por {plano.gerado_por} (commit {plano.commit_origem}).</p>
         </div>
-      </details></section>
+      </details></section></div>
       <footer className="border-t border-line pt-6 text-sm text-ink-soft">{plano.aviso} Iniciativa em validação. Valores ilustrativos, que não indicam descumprimento de uma empresa real. Não constitui parecer jurídico. <a className="ml-2 underline print:hidden" href="/">Voltar à Athenix</a></footer>
     </main>
     <div role="note" className="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-obsidian/95 px-4 py-2.5 text-center text-xs leading-snug text-ivory print:hidden">
       Iniciativa em validação · valores ilustrativos · não constitui parecer jurídico
     </div>
-  </Cenario.Provider></Imprimindo.Provider>
+  </Cenario.Provider>
 }
 
 const numeroBR = (v: number) => v.toLocaleString('pt-BR', { maximumFractionDigits: 2 })
@@ -246,12 +237,7 @@ function CartaoTema({ tema: t, posicao, diag, marcar, maiorPct }: { tema: Tema; 
     <div className="mt-5">
       {e ? <>
         <p className="text-lg"><span className="font-display text-2xl font-semibold sm:text-3xl">até {valor(e)}</span> <span className="text-ink-soft">por infração{t.contagem.vencida > 0 && <> · {textoVencidas(t.contagem.vencida)}</>}</span></p>
-        <div className="mt-2 flex items-center gap-3">
-          <div aria-hidden="true" className="h-3 flex-1 overflow-hidden rounded-full bg-stone print:border print:border-line">
-            <div className={`h-full rounded-full ${e.origem === 'sugerido' ? 'hachura' : 'bg-slate-blue'}`} style={{ width: `${maiorPct ? Math.max(2, (e.pct / maiorPct) * 100) : 0}%` }} />
-          </div>
-          <span className="shrink-0 text-sm tabular-nums">{pct(e.pct)} da receita</span>
-        </div>
+        <Escada e={e} maiorPct={maiorPct} />
         <p className="mt-1 text-xs text-ink-soft">{textoFaixa(e.faixa, sim)} ({NOTA_ADVERTENCIA}){e.origem === 'sugerido' ? ` · ${PRELIMINAR}` : ''}</p>
       </> : <p className="text-lg font-semibold">exposição a enquadrar <span className="block text-xs font-normal text-ink-soft">Sem enquadramento identificado nem sugerido: não há valor a mostrar.</span></p>}
     </div>
@@ -271,14 +257,39 @@ function CartaoTema({ tema: t, posicao, diag, marcar, maiorPct }: { tema: Tema; 
 
     <AnalisePreliminar t={t} />
 
-    <details className="mt-4 border-t border-line pt-4">
+    <details className="mt-4 border-t border-line pt-4 print:hidden">
       <summary className="flex min-h-11 cursor-pointer items-center font-semibold text-slate-blue">Ver as {t.n} obrigações e o porquê</summary>
       {e && <Atenuantes e={e} />}
-      <p className="mt-3 text-xs text-ink-soft">Valor provável: não estimável (sem histórico de multas). Não somar entre obrigações.</p>
+      <p className="mt-3 text-xs text-ink-soft">Valor provável: não estimável (sem histórico de multas).</p>
       <ul className="mt-4 space-y-3">{t.obrigacoes.map((id) => <ItemObrigacao key={id} o={obrigacao(id)} />)}</ul>
     </details>
     {t.fontes.length > 0 && <p className="mt-4 text-xs text-ink-soft">Tema pela norma: {t.fontes.map((f) => `${f.rotulo}, “${f.titulo}”`).join('; ')}.</p>}
   </li>
+}
+
+/** Do teto ao art. 24, II e ao art. 24, I, com os valores escritos. A barra é relativa ao maior valor entre os temas. */
+function Escada({ e, maiorPct }: { e: Exposicao; maiorPct: number }) {
+  const { sim } = useContext(Cenario)
+  const s = sim ?? SIM_INICIAL
+  const passo = (rotulo: string, p: number | null) => p == null ? null : { rotulo, p }
+  const passos = [
+    passo('teto do grupo', e.pct),
+    ATEN_II ? passo(ATEN_II.dispositivo.replace('Art.', 'art.'), comAtenuantePct(e.faixa, s, 'ate_tn')) : null,
+    ATEN_I ? passo(ATEN_I.dispositivo.replace('Art.', 'art.'), comAtenuantePct(e.faixa, s, 'espontanea')) : null,
+  ].filter((x): x is { rotulo: string; p: number } => x != null)
+  const menor = ATEN_I ? comAtenuantePct(e.faixa, s, 'espontanea') : null
+  return <>
+    {menor != null && <p className="mt-1 text-sm">pode cair para <strong>{emReais(menor, sim)}</strong> se regularizar antes da fiscalização ({ATEN_I!.dispositivo.replace('Art.', 'art.')})</p>}
+    <ul className="mt-3 space-y-1.5" aria-label="Do teto aos atenuantes do art. 24">
+      {passos.map((x) => <li key={x.rotulo} className="grid grid-cols-[6.5rem_1fr_auto] items-center gap-2 text-xs sm:grid-cols-[8rem_1fr_auto]">
+        <span className="text-ink-soft">{x.rotulo}</span>
+        <span aria-hidden="true" className="h-3 overflow-hidden rounded-full bg-stone print:border print:border-line">
+          <span className={`block h-full rounded-full ${e.origem === 'sugerido' ? 'hachura' : 'bg-slate-blue'}`} style={{ width: `${maiorPct ? Math.max(2, (x.p / maiorPct) * 100) : 0}%` }} />
+        </span>
+        <span className="tabular-nums font-medium text-obsidian">{emReais(x.p, sim)}</span>
+      </li>)}
+    </ul>
+  </>
 }
 
 /** Atenuantes do art. 24 sobre a faixa do tema (só no detalhe, nunca na manchete). */
@@ -296,10 +307,9 @@ function Titulo({ o }: { o: Obrigacao }) {
 
 function ItemObrigacao({ o }: { o: Obrigacao }) {
   const [aberto, setAberto] = useState(false)
-  const imprimindo = useContext(Imprimindo)
   return <li className="rounded-xl border border-line"><details className="p-4" onToggle={(e) => setAberto(e.currentTarget.open)}>
     <summary className="cursor-pointer"><Titulo o={o} /><span className="ml-2 text-xs text-ink-soft">{o.prazo.texto}{o.dispositivo ? ` · ${o.dispositivo}` : ''}</span></summary>
-    {(aberto || imprimindo) && <PorQue o={o} />}
+    {aberto && <PorQue o={o} />}
   </details></li>
 }
 
@@ -329,10 +339,9 @@ const SELO_ANALISE = plano.analise.rotulo.includes('revisar com o jurídico') ? 
 /** Análise regulatória preliminar do tema: recolhida; o conteúdo só é montado ao abrir (ou na impressão). */
 function AnalisePreliminar({ t }: { t: Tema }) {
   const [aberto, setAberto] = useState(false)
-  const imprimindo = useContext(Imprimindo)
   return <details className="mt-5 rounded-xl border border-line bg-ivory" onToggle={(e) => setAberto(e.currentTarget.open)}>
     <summary className="flex min-h-11 cursor-pointer flex-wrap items-center gap-x-3 gap-y-1 px-4 py-2 font-semibold text-slate-blue">Análise regulatória preliminar <span className="text-xs font-normal text-ink-soft">tipo de obrigação, como cumprir, o que provar</span></summary>
-    {(aberto || imprimindo) && <ConteudoAnalise t={t} />}
+    {aberto && <ConteudoAnalise t={t} />}
   </details>
 }
 
@@ -416,7 +425,7 @@ function LinhaDoTempo() {
   return <section aria-labelledby="linha">
     <p className={kicker}>Linha do tempo</p>
     <h2 id="linha" className="font-display mt-2 text-3xl sm:text-4xl">Quando cada coisa vence</h2>
-    <p className="mt-3 max-w-3xl text-sm text-ink-soft">Datas calculadas a partir do texto da norma; nenhuma é presumida. {plano.linha_do_tempo.depois.length > 0 && `${plano.linha_do_tempo.depois.length} vencem depois de 90 dias.`}</p>
+    <p className="mt-3 max-w-3xl text-sm text-ink-soft">Datas calculadas a partir do texto, a confirmar. {plano.linha_do_tempo.depois.length > 0 && `${plano.linha_do_tempo.depois.length} vencem depois de 90 dias.`}</p>
     <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
       {colunas.map((c) => <div key={c.titulo} className="rounded-2xl border border-line bg-white p-5">
         <h3 className="font-semibold">{c.titulo} <span className="text-ink-soft">({c.ids.length})</span></h3>
@@ -475,6 +484,24 @@ function CartaoMedida({ m }: { m: Medida }) {
   </article>
 }
 
+/** Causa externa concreta do tema: no texto (com citação), prática conhecida (fora do texto) ou nenhuma. */
+function CausasExternas({ t }: { t: Tema }) {
+  const a = plano.analise
+  const dep = a.pratica_por_tema[t.id] ? a.dependencias[a.pratica_por_tema[t.id]] : undefined
+  const outra = a.causas_por_tema[t.id]
+  const texto = t.dependencias_no_texto
+  if (!texto.length && !t.excludentes.length && !dep && !outra) return <dd className="mt-1 font-semibold">nenhuma identificada</dd>
+  return <dd className="space-y-3">
+    {texto.map((d) => <div key={d.obrigacao} className="mt-1">
+      <p className="font-semibold">Instruções da ANEEL ainda por publicar <span className="text-xs font-normal text-ink-soft">(no texto, com citação)</span></p>
+      <blockquote className="mt-1 border-l-2 border-bronze bg-ivory p-3 text-xs">“{d.trecho_literal}” <span className="block text-ink-soft">{obrigacao(d.obrigacao).dispositivo} · {plano.norma.titulo}</span></blockquote>
+    </div>)}
+    {t.excludentes.map((x) => <blockquote key={x.obrigacao} className="mt-1 border-l-2 border-bronze bg-ivory p-3 text-xs">“{x.trecho}” <span className="block text-ink-soft">{obrigacao(x.obrigacao).dispositivo} · {plano.norma.titulo}</span></blockquote>)}
+    {dep && <p className="mt-1"><span className="font-semibold">{dep.nome}</span> <span className="text-xs text-ink-soft">(prática conhecida, fora do texto da norma; veja a análise preliminar)</span></p>}
+    {outra && <p className="mt-1"><span className="font-semibold">{outra.nome}</span> <span className="block text-xs text-ink-soft">{outra.nota}</span></p>}
+  </dd>
+}
+
 function ReducaoTema({ t }: { t: Tema }) {
   const { sim, modo } = useContext(Cenario)
   const s = sim ?? SIM_INICIAL
@@ -490,10 +517,7 @@ function ReducaoTema({ t }: { t: Tema }) {
         </ul><p className="mt-1 text-xs text-ink-soft">Grupo {maisGrave(e.origem === 'confirmado' ? t.grupos : t.grupos_sugeridos)}{e.origem === 'sugerido' ? ` (${PRELIMINAR})` : ''}. Também pode caber advertência (art. 6º).</p></dd>
           : <dd className="mt-1">Exposição a enquadrar. Se houver multa, os atenuantes do art. 24 reduzem o valor calculado em {ATENUANTES.map((m) => pct(m.percentual!)).join(' ou ')}, conforme a condição.</dd>}
       </div>
-      <div><dt className="text-ink-soft">Causas externas (sistema de terceiro, caso fortuito, força maior)</dt>
-        {t.excludentes.length ? <dd>{t.excludentes.map((x) => <blockquote key={x.obrigacao} className="mt-2 border-l-2 border-bronze bg-ivory p-3">“{x.trecho}” <span className="block text-xs text-ink-soft">{obrigacao(x.obrigacao).dispositivo} · {plano.norma.titulo}</span></blockquote>)}</dd>
-          : <dd className="mt-1 font-semibold">{t.causa_externa}</dd>}
-      </div>
+      <div><dt className="text-ink-soft">Causas externas</dt><CausasExternas t={t} /></div>
       <div><dt className="text-ink-soft">O que guardar desde já <Tag kind="review" label="Sugestão" /></dt>
         {t.guardar.length ? <dd><ul className="mt-1 list-disc space-y-1 pl-4">{t.guardar.map((g) => <li key={g.id}>{plano.guardar[g.id]} <span className="text-xs text-ink-soft">({g.n} {g.n === 1 ? 'obrigação' : 'obrigações'})</span></li>)}</ul></dd>
           : <dd className="mt-1">Definir com a equipe responsável.</dd>}

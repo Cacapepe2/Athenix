@@ -142,6 +142,7 @@ export const plano = dados as unknown as {
     manuais: Record<string, { nome: string; ideias_cumprimento: string[]; evidencias: string[]; status: string }>
     dependencias: Record<string, ManualDependencia>
     pratica_por_tema: Record<string, string>
+    causas_por_tema: Record<string, { nome: string; nota: string }>
     contraponto: { titulo: string; urls: string[]; o_que_e: string; a_confirmar: string }
   }
   referencia_escala: { rotulo: string; segmento: string; unidade: string; autos: number; empresas: number; mediana_reais: number; maximo_reais: number; fonte: string; limites: string }
