@@ -1,7 +1,7 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "ed24988",
- "gerado_em": "2026-11-17",
+ "commit_origem": "263435a",
+ "gerado_em": "2026-11-18",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
   "titulo": "RN ANEEL 1.137/2025",
@@ -24,8 +24,8 @@
   "criterio_enquadramentos": "Só a sugestão principal com situação 'principal não condicional e não genérica'."
  },
  "resumo": {
-  "identificadas": 169,
-  "aplicaveis": 168,
+  "identificadas": 168,
+  "aplicaveis": 167,
   "fora_do_perfil": 1,
   "por_situacao": {
    "vencida": 6,
@@ -33,10 +33,10 @@
    "depois": 0,
    "recorrente": 2,
    "evento": 20,
-   "sem_prazo": 140
+   "sem_prazo": 139
   },
   "na_fila": 42,
-  "a_confirmar": 110,
+  "a_confirmar": 109,
   "sem_multa": 16,
   "grupo_mais_grave": "IV",
   "temas": 8
@@ -48,7 +48,7 @@
     "Revisar e publicar planos de manejo, comunicação e contingência"
    ],
    "obrigacoes": [
-    "8ec3f8703f4e021d80f22513fe3ed3ba"
+    "2caab9b77399589a4b33f0ec05bc8183"
    ],
    "temas": [
     "Manejo da vegetação"
@@ -65,11 +65,11 @@
     "Iniciar as apurações do Duração da Interrupção Individual ocorrida em Situação de…"
    ],
    "obrigacoes": [
-    "41d9c728c6f5556d1b13c58f5f361cc0",
-    "dd3d1f84150fd2b17cd8f26fa88a0410",
-    "f92d63e36eb3f21050ec0f9161f9a6bd",
-    "74c7ec6a850dace75eda3809be771cc3",
-    "2dd617796de78a9e6ec3920249dd8ddb"
+    "7837f33f44352ddb19403951f1997f57",
+    "b82d9d5afcaf604c1c22d9fd15cab20b",
+    "ca00a5a0a25840afacf411f72e8875fe",
+    "3d72161d7c18ec8fb6bc1f5fface61aa",
+    "39be4a66d3fbc00d7b93fd32484587aa"
    ],
    "temas": [
     "Apuração do DISE e compensações",
@@ -79,7 +79,7 @@
    "motivo": "Data calculada pelo motor temporal a partir da publicação da norma; continua provisória até uma pessoa confirmar a contagem."
   },
   {
-   "titulo": "Designar quem confirma o enquadramento de 110 obrigações na REN 846",
+   "titulo": "Designar quem confirma o enquadramento de 109 obrigações na REN 846",
    "itens": [
     "Sem essa confirmação, a exposição destes temas não é calculada: Apuração do DISE e compensações, Cessão emergencial entre distribuidoras, Outras obrigações."
    ],
@@ -100,7 +100,7 @@
     {
      "rotulo": "Seção 4.7",
      "titulo": "Poda e manejo vegetal",
-     "unidade": "u0023"
+     "unidade": "u0025"
     }
    ],
    "n": 20,
@@ -113,7 +113,7 @@
     "sem_prazo": 19
    },
    "prazo_mais_urgente": {
-    "obrigacao": "8ec3f8703f4e021d80f22513fe3ed3ba",
+    "obrigacao": "2caab9b77399589a4b33f0ec05bc8183",
     "data": "2026-01-28",
     "texto": "Vencido desde 28/01/2026 (293 dias)",
     "dias": -293,
@@ -156,7 +156,7 @@
      "id": "plano",
      "n": 4,
      "exemplo": {
-      "obrigacao": "8ec3f8703f4e021d80f22513fe3ed3ba",
+      "obrigacao": "2caab9b77399589a4b33f0ec05bc8183",
       "trecho": "I - Até 90 (noventa) dias para revisar e publicar os planos de manejo vegetal, de comunicação e de contingência de que"
      }
     },
@@ -164,7 +164,7 @@
      "id": "site",
      "n": 2,
      "exemplo": {
-      "obrigacao": "59ac07290cc1320200626ef1d428f484",
+      "obrigacao": "745328053284bbf521a22c65bd117704",
       "trecho": "ersão mais atualizada de seu plano de manejo vegetal em seu sítio eletrônico na Internet e nos postos de atendimento presencial, de form"
      }
     },
@@ -172,38 +172,38 @@
      "id": "postos",
      "n": 2,
      "exemplo": {
-      "obrigacao": "59ac07290cc1320200626ef1d428f484",
+      "obrigacao": "745328053284bbf521a22c65bd117704",
       "trecho": "de manejo vegetal em seu sítio eletrônico na Internet e nos postos de atendimento presencial, de forma acessível ao público, com uso de lingu"
      }
     }
    ],
    "principais": [
-    "8ec3f8703f4e021d80f22513fe3ed3ba",
-    "3121b08663db322b4ed33f4ae9a6e28b",
-    "08ce0fad3a590f7e7bb3266ef66d92d4",
-    "59ac07290cc1320200626ef1d428f484"
+    "2caab9b77399589a4b33f0ec05bc8183",
+    "3c8f005c1fbb9be784d0dd355755a08b",
+    "2e4349021812ce3d0fb1ed3b9c2d02e5",
+    "745328053284bbf521a22c65bd117704"
    ],
    "obrigacoes": [
-    "8ec3f8703f4e021d80f22513fe3ed3ba",
-    "3121b08663db322b4ed33f4ae9a6e28b",
-    "08ce0fad3a590f7e7bb3266ef66d92d4",
-    "59ac07290cc1320200626ef1d428f484",
-    "5f0eef8ec4b7e85c7481dfefef22d99b",
-    "b7ef9e99eedf794c95a1367f2e2ddcfe",
-    "a9dbbc16356e61645b023a295b4f4a0e",
-    "4a55d048a80c77ae9f1d65fe98893a11",
-    "79b7491a3a12332000c3716fdc5f95ae",
-    "8b24cc0f0c4cf52a67fad7d2e8833792",
-    "82abcf43611988ee44ccd3d1e7d62327",
-    "f9b7eac64186ea61454717cad2a980e0",
-    "a3339ce04e9670812751f6375f15519f",
-    "1a99e4956aa75d61fafb673090884132",
-    "e5892afa3bdeba10d469afba50fda809",
-    "099a83865bf81dabbd048fec3379c70d",
-    "32423d77d6450e7448103216be93fefb",
-    "535c3957cc7e65ed5521febb0f1effa3",
-    "341aadb7224c95a7a29aa10015b136b0",
-    "caee932848850762bf4cea488e90f133"
+    "2caab9b77399589a4b33f0ec05bc8183",
+    "3c8f005c1fbb9be784d0dd355755a08b",
+    "2e4349021812ce3d0fb1ed3b9c2d02e5",
+    "745328053284bbf521a22c65bd117704",
+    "e6c4f26668726d394b5b86feee032103",
+    "77cde4c19287ee17f8308e54fd164d6e",
+    "336d22ea978626289173c0ce9a064655",
+    "65a95d5a30c1a786977c80847669ebdc",
+    "5fd5147ef5e0d62ea812333d32f02ee0",
+    "f76ba02c3f87545a6cbe0ce936011752",
+    "a46737b0c179210264289f9fe0d18215",
+    "719ccb2d6fe2afe026c4b18c00edd071",
+    "836377abcbc024561e834db998aa6f30",
+    "e52741c7e79369f1c3b552a8428aec6a",
+    "2987c08865cb4c49fdeb365df9b4789a",
+    "6b7008a432726702b7e6b2d2ef1de88c",
+    "454be477eb4091bb9998f6c103ace807",
+    "05e0278f1c459759834046bac7eeab00",
+    "37a4a87f473ed795a33c539382fd0046",
+    "6d709a49e7090af27447f7d81ec3bd9c"
    ]
   },
   {
@@ -213,7 +213,7 @@
     {
      "rotulo": "Seção 4.8",
      "titulo": "Comunicação entre Distribuidoras e Consumidores em casos de interrupção no fornecimento",
-     "unidade": "u0047"
+     "unidade": "u0049"
     }
    ],
    "n": 30,
@@ -226,7 +226,7 @@
     "sem_prazo": 27
    },
    "prazo_mais_urgente": {
-    "obrigacao": "dd3d1f84150fd2b17cd8f26fa88a0410",
+    "obrigacao": "b82d9d5afcaf604c1c22d9fd15cab20b",
     "data": "2026-04-28",
     "texto": "Vencido desde 28/04/2026 (203 dias)",
     "dias": -203,
@@ -268,7 +268,7 @@
      "id": "site",
      "n": 18,
      "exemplo": {
-      "obrigacao": "f92d63e36eb3f21050ec0f9161f9a6bd",
+      "obrigacao": "ca00a5a0a25840afacf411f72e8875fe",
       "trecho": "IV - Até 180 (cento e oitenta) dias para disponibilizar em sítio eletrônico o número total de unidades consumidoras afetadas por interr"
      }
     },
@@ -276,7 +276,7 @@
      "id": "mensagens",
      "n": 4,
      "exemplo": {
-      "obrigacao": "d6ee90df6525d096e7305b667d33b8c1",
+      "obrigacao": "8b2ff2a86b0df7111c3e9178e9acd61e",
       "trecho": "item 105 deve ser realizada, obrigatoriamente, por meio de SMS e aplicativos de mensagens, com envio de mensagens automáti"
      }
     },
@@ -284,48 +284,48 @@
      "id": "plano",
      "n": 2,
      "exemplo": {
-      "obrigacao": "1bc87726eedb1e6743cbdf353d8f398c",
+      "obrigacao": "0d12847e77737f671b42a2c183916677",
       "trecho": "k) Estágio da operação (conforme etapas definidas no plano de contingência)."
      }
     }
    ],
    "principais": [
-    "dd3d1f84150fd2b17cd8f26fa88a0410",
-    "f92d63e36eb3f21050ec0f9161f9a6bd",
-    "74c7ec6a850dace75eda3809be771cc3",
-    "1bc87726eedb1e6743cbdf353d8f398c"
+    "b82d9d5afcaf604c1c22d9fd15cab20b",
+    "ca00a5a0a25840afacf411f72e8875fe",
+    "3d72161d7c18ec8fb6bc1f5fface61aa",
+    "0d12847e77737f671b42a2c183916677"
    ],
    "obrigacoes": [
-    "dd3d1f84150fd2b17cd8f26fa88a0410",
-    "f92d63e36eb3f21050ec0f9161f9a6bd",
-    "74c7ec6a850dace75eda3809be771cc3",
-    "1bc87726eedb1e6743cbdf353d8f398c",
-    "1239cb09536a0eb49ad5e5adf5a7de3c",
-    "d77893b85a4b980caa8f834f6743637d",
-    "92ddfacea80224bbcc6a859d305fd8d5",
-    "1c3f5a11be56b57ff8e2f7a91bdd0b38",
-    "85fa9162298b8537cb8a932c1eeca9fe",
-    "7a0540e5ef5051aaf70e77c202745e61",
-    "3d1a4dd79c4d0fd61ee54cb97c374020",
-    "6af320b0dc36cffecd821dd85337b577",
-    "fe2aceb6b92ec14cfe078c59bcaa9855",
-    "e19ef08cc6db2844b21f7ce9afb34f3a",
-    "21ce7376819b75e46fbcdc67b28eb3d6",
-    "978ee9b91ea554dcc5c955cc5827740d",
-    "17fd5d6b9e7f8adf26a327435e0718e5",
-    "16176d578e94071bf60673f139da203b",
-    "c8931689fff4b33e4e9876d2fa169b2c",
-    "bc93380e650c027ddc7bf8678ded17c2",
-    "e111576ece7cf5aa3a93208f43ddde02",
-    "ee0612afab1c0732c6fc4de0759236b6",
-    "ff8f91917676def1c9155cb45f7d73e3",
-    "d6ee90df6525d096e7305b667d33b8c1",
-    "d5925571df7c70284dbb3f6623620f51",
-    "c61fbc2a5f1b04aad489858fd1ec10a3",
-    "5d4b2e13e6387ecd55ddea2f2cab32fb",
-    "8d85586b4af8db239e9b183c35800445",
-    "ff3fa60845d85ce13298438b4f587f57",
-    "ea72c03cb42d22a043ac96c6b3d34871"
+    "b82d9d5afcaf604c1c22d9fd15cab20b",
+    "ca00a5a0a25840afacf411f72e8875fe",
+    "3d72161d7c18ec8fb6bc1f5fface61aa",
+    "0d12847e77737f671b42a2c183916677",
+    "d95be127d191284eda1393ee0e4f9856",
+    "1b506dcf3ec9a1c5114043a2680f1bcb",
+    "36abeb8d534f73b4c5b64cb19a490974",
+    "1f5fa75d0709f8a14e6c2bb8e247feb9",
+    "3d2429b0fc08baceb743b6a41ba0cf32",
+    "06adc0cb04a87636c507dda655017c8f",
+    "2cfc110af4fc34419dabc402bb09ae49",
+    "3bf5a31a382f1b622088b8a6513b1815",
+    "647ac653d9cbce19766d2efc5947def1",
+    "ccbcb620d4a8b105a1f04702da45a409",
+    "f6b68a2422ef7d286413b5fd6f6ad7e2",
+    "c38b3b0d0e686b95b5dffba414d03ce1",
+    "aeb629dd6395be0b7f98559188438937",
+    "d494be3287110ce8ca22653211323875",
+    "29979444ee54bf1fbacac8d0221e890d",
+    "aa1a99f772767fcd210dc0693a8e4ea5",
+    "004fdbdc8ddc98e1f87bf357c052940f",
+    "75876c711cbd8f2aea712c1d103b5452",
+    "22ff87c9e59069bd742440093c2cbfc4",
+    "8b2ff2a86b0df7111c3e9178e9acd61e",
+    "941039a62d97c990409780fe2441e7b5",
+    "175e8aa2b7ba1c4d7266e8823f2aee5e",
+    "8adaeefc53e42445934db91eed82efb4",
+    "f64a8bfb49d9ef9d7db41dc2ab3d826e",
+    "5e7a10c0b424c81a6378496118195283",
+    "cd40b60c66938ff49a39bb9772ffe517"
    ]
   },
   {
@@ -335,12 +335,12 @@
     {
      "rotulo": "Seção 4.9",
      "titulo": "Comunicação entre Distribuidoras e Poder Público em Situações de Emergência",
-     "unidade": "u0074"
+     "unidade": "u0076"
     },
     {
      "rotulo": "Seção VI",
      "titulo": "Do Relacionamento com o Poder Público",
-     "unidade": "u0247"
+     "unidade": "u0258"
     }
    ],
    "n": 18,
@@ -353,7 +353,7 @@
     "sem_prazo": 16
    },
    "prazo_mais_urgente": {
-    "obrigacao": "41d9c728c6f5556d1b13c58f5f361cc0",
+    "obrigacao": "7837f33f44352ddb19403951f1997f57",
     "data": "2026-04-28",
     "texto": "Vencido desde 28/04/2026 (203 dias)",
     "dias": -203,
@@ -395,36 +395,36 @@
      "id": "registro",
      "n": 1,
      "exemplo": {
-      "obrigacao": "41d9c728c6f5556d1b13c58f5f361cc0",
+      "obrigacao": "7837f33f44352ddb19403951f1997f57",
       "trecho": "II - Até 180 (cento e oitenta) dias para implementar o registro das interações com o Poder Público Municipal em relação ao"
      }
     }
    ],
    "principais": [
-    "41d9c728c6f5556d1b13c58f5f361cc0",
-    "26172d38465c698ecf1769273a855505",
-    "e60945f1a5ad2964c28f57c146ac46d1",
-    "b86d040461ec3084780d061b20d570a6"
+    "7837f33f44352ddb19403951f1997f57",
+    "34f44f71ef6a32c508e3e1688ae68fe5",
+    "5023efcb8b22cbab4574670e985e8dc9",
+    "dc345c9da4c31f3fc10b7b83df0cfe3b"
    ],
    "obrigacoes": [
-    "41d9c728c6f5556d1b13c58f5f361cc0",
-    "26172d38465c698ecf1769273a855505",
-    "e60945f1a5ad2964c28f57c146ac46d1",
-    "b86d040461ec3084780d061b20d570a6",
-    "2b77cdfd44dc6e7bcfd6ecb43fca8225",
-    "55d3953207672aa65729d83f53fe6ee4",
-    "43a8764f6c3f8d4af4b4325ac5b1aa0b",
-    "a1d3c68d3aedbf743b37e82484a2b5c5",
-    "f7bf564651287d54bde86511ad934d85",
-    "a697a205a0bb4fbd551d46328087d673",
-    "19af5c98409922c97eec964bc22bd807",
-    "261ea4a756ca2fb7d7bc6a997999f8c6",
-    "b76adce7fdd4b6c5f6e7ab5fd380e965",
-    "f577be87a5f731509fc302e2742c0421",
-    "3b12ce80688ccca1a521fd6862839886",
-    "0ed3da6c891e3aa8f49c5aebf992e72a",
-    "6fa92c8577308350b6a002703a0f5d2b",
-    "3e921b43431d7427ab95337c6be5fa4a"
+    "7837f33f44352ddb19403951f1997f57",
+    "34f44f71ef6a32c508e3e1688ae68fe5",
+    "5023efcb8b22cbab4574670e985e8dc9",
+    "dc345c9da4c31f3fc10b7b83df0cfe3b",
+    "890bbf12812923a6454e550c4a5efddb",
+    "e9bcf9594330f550e38ef39154bcc12d",
+    "d1cb8e2f7c2faccce4eba62a5cae4bdf",
+    "770c5ebe28843902df1fde8a47f5880f",
+    "5ef61d25ba8962271cecd05868848d2a",
+    "c890a798d61ce878718d78f1f7e4e499",
+    "8c0a85323b157de9aeb45f30ffd50720",
+    "aaa41579838cde07ab666ff8d8ac2a5d",
+    "a689cf1140edbd1a2ad02898372071a4",
+    "be356e0824376fb2714caec8a81e0d1f",
+    "874e93875e582ba0d26e9633cbcf09be",
+    "d499e0b2f1749344008f49a460300431",
+    "1949b7515e955aa0c7d19dd47943030e",
+    "755e2fad1758b9b2c94f180d236b7b69"
    ]
   },
   {
@@ -434,20 +434,20 @@
     {
      "rotulo": "Seção IV",
      "titulo": "Da Qualidade do Fornecimento de Energia Elétrica",
-     "unidade": "u0200"
+     "unidade": "u0206"
     }
    ],
-   "n": 8,
+   "n": 7,
    "contagem": {
     "vencida": 1,
     "90dias": 0,
     "depois": 0,
     "recorrente": 1,
     "evento": 1,
-    "sem_prazo": 5
+    "sem_prazo": 4
    },
    "prazo_mais_urgente": {
-    "obrigacao": "2dd617796de78a9e6ec3920249dd8ddb",
+    "obrigacao": "39be4a66d3fbc00d7b93fd32484587aa",
     "data": "2026-04-28",
     "texto": "Vencido desde 28/04/2026 (203 dias)",
     "dias": -203,
@@ -455,22 +455,22 @@
     "situacao": "vencida"
    },
    "na_fila": 0,
-   "a_confirmar": 8,
+   "a_confirmar": 7,
    "grupos": [],
    "grupo_mais_grave": null,
    "infracoes": [],
    "faixa": null,
    "ia": {
-    "dispositivo": "Art. 11, II",
+    "dispositivo": "Art. 10, II",
     "n": 2,
-    "de": 8
+    "de": 5
    },
    "evidencias": [
     {
      "id": "compensacao",
-     "n": 6,
+     "n": 5,
      "exemplo": {
-      "obrigacao": "2dd617796de78a9e6ec3920249dd8ddb",
+      "obrigacao": "39be4a66d3fbc00d7b93fd32484587aa",
       "trecho": "o 8.2 do Módulo 8 do PRODIST com o corresponde pagamento de compensações por transgressão desse indicador, com efeitos retroativo"
      }
     },
@@ -478,26 +478,25 @@
      "id": "contrato",
      "n": 1,
      "exemplo": {
-      "obrigacao": "33d98844e39e3f7820bf794d502ac3d2",
+      "obrigacao": "3c9a78edd263843716b2723f179a4540",
       "trecho": "or ponto de conexão devem ser estabelecidas nos respectivos contratos, obedecendo aos critérios deste Módulo."
      }
     }
    ],
    "principais": [
-    "2dd617796de78a9e6ec3920249dd8ddb",
-    "60113df2f45411c4b71822c27f44ec5f",
-    "48f99c28acdc6078430111817d1584f5",
-    "fb004f3bfedf6b59722af7488e2bc1c0"
+    "39be4a66d3fbc00d7b93fd32484587aa",
+    "7d48242ee80ef4b38cce9d34df53132b",
+    "7fa38c743fb9592347c938a1d8babcdb",
+    "2faa7af4dd5123314548d6104702de47"
    ],
    "obrigacoes": [
-    "2dd617796de78a9e6ec3920249dd8ddb",
-    "fb004f3bfedf6b59722af7488e2bc1c0",
-    "60113df2f45411c4b71822c27f44ec5f",
-    "939a9d00cd3f1ba354ee417f3aade773",
-    "48f99c28acdc6078430111817d1584f5",
-    "f4d94b5b68eadf1558c3d572447ea3e3",
-    "33d98844e39e3f7820bf794d502ac3d2",
-    "8a4a6823cfab3a207ba82c6c2085481e"
+    "39be4a66d3fbc00d7b93fd32484587aa",
+    "2faa7af4dd5123314548d6104702de47",
+    "7d48242ee80ef4b38cce9d34df53132b",
+    "00a6fd18ed5043a979ffbdca0a8090d4",
+    "7fa38c743fb9592347c938a1d8babcdb",
+    "3c9a78edd263843716b2723f179a4540",
+    "a5aa4d5918875c8e87f0dc8f7fb3b679"
    ]
   },
   {
@@ -507,7 +506,7 @@
     {
      "rotulo": "Seção 4.11",
      "titulo": "Planos de Contingência",
-     "unidade": "u0132"
+     "unidade": "u0134"
     }
    ],
    "n": 36,
@@ -555,7 +554,7 @@
      "id": "plano",
      "n": 31,
      "exemplo": {
-      "obrigacao": "e4fc66c9952031c99f0bdd3f7b9047fa",
+      "obrigacao": "442b00252d17748a46b3231be405a7fc",
       "trecho": "140. O plano de contingência deve ser elaborado de forma a garantir a co"
      }
     },
@@ -563,7 +562,7 @@
      "id": "simulacao",
      "n": 3,
      "exemplo": {
-      "obrigacao": "631c720f3984d36df1c9ee2c9a544d48",
+      "obrigacao": "6fb7f1de8ffdad602ff5729aaeb20975",
       "trecho": "einamentos e Simulações: Realizar treinamentos periódicos e simulações para preparar as equipes para situações de contingência;"
      }
     },
@@ -571,54 +570,54 @@
      "id": "site",
      "n": 2,
      "exemplo": {
-      "obrigacao": "7d5c4306553b231cd3236d32c6ea3a60",
+      "obrigacao": "31f50f44fe4f401497bc007dbea4231d",
       "trecho": "os seus responsáveis pelo seu plano de contingência, em seu sítio eletrônico na Internet e nos postos de atendimento presencial, de form"
      }
     }
    ],
    "principais": [
-    "e4fc66c9952031c99f0bdd3f7b9047fa",
-    "0f15eb612ecc635483c16ec2119ea246",
-    "b2006528fe4db2ceb107ebab23eb5634",
-    "57f356d436900f3953a8c7a53a1ab8a1"
+    "442b00252d17748a46b3231be405a7fc",
+    "803efa4041fdda63368a6bcf1a079cf2",
+    "5ae3860d7f2917102f6b6387d3736edc",
+    "433ce63e8b3be0c36ae9dd6e96a83664"
    ],
    "obrigacoes": [
-    "e4fc66c9952031c99f0bdd3f7b9047fa",
-    "0f15eb612ecc635483c16ec2119ea246",
-    "b2006528fe4db2ceb107ebab23eb5634",
-    "57f356d436900f3953a8c7a53a1ab8a1",
-    "e6d501e2e0b49e488d632029ccf3713c",
-    "cd4a05aca81a49f61d82f39afd624e66",
-    "7ab7bbfc40eca36925fd01339c9462e2",
-    "8bbbe8540f64adaf5bd1e6f15e2713d6",
-    "12d5587c77b7da5736cba2596e20f59e",
-    "24dee60f0a3c7d148563d9209891d5ed",
-    "83b516bd0be0c91800420656fb492a77",
-    "fb51b5348bbd1e9799d4912805f18cd9",
-    "195ea142438297fc3b2006dfff018b03",
-    "631c720f3984d36df1c9ee2c9a544d48",
-    "e66df2b7b97fd388af2563733d566d0e",
-    "58b35c243252afec6a303b9665867d61",
-    "ee058004eb6a4fad2f085d83230fe9cb",
-    "195c74dacdd8adf1e6dc5399095e1993",
-    "7ddecef9ada04fc00c098f262c3df3e4",
-    "dd4ebd3df3e10040f727da479c3f602a",
-    "a021cc659e5be0b9913d00cd919c3b22",
-    "07a7a9431af8a46662695ad1f0f3059a",
-    "5b3c86232fd82ae6cf6926f2489520ee",
-    "5bb5ce88d4078b6d650bdd99d8b2e54a",
-    "6b586cc21bff04a572bc38d69da16483",
-    "139273e97f0f641b7f28de8627281fc9",
-    "0fd0dcd90de8f009d33c43eaf5b341ec",
-    "b322c8b7a0ce3cab4604c516e42571fb",
-    "65e4a5fa4b57ea3bc4f587332fa282af",
-    "7d5c4306553b231cd3236d32c6ea3a60",
-    "8bf397c038cd226665afd7786b53c69d",
-    "32fcdd0a80916982093995435906938f",
-    "32e840ecfa0f2c96f0fcc2909dc09c01",
-    "5bc2969759dabc9cc2bf94e412231eb2",
-    "01ce77800a81e1777f12f994cb314dc3",
-    "f0dad194029c46c56ec39601c36fb230"
+    "442b00252d17748a46b3231be405a7fc",
+    "803efa4041fdda63368a6bcf1a079cf2",
+    "5ae3860d7f2917102f6b6387d3736edc",
+    "433ce63e8b3be0c36ae9dd6e96a83664",
+    "809bdf1e3579091bbf1229338b553266",
+    "4baecfc3024aaed0d67cc2f8dedb55a9",
+    "f73e6009515487abaa827567571464f5",
+    "48927f469615de3945a7525c782a0d5d",
+    "f0515893f47b465bc7e6aa869fc6cf69",
+    "c261b112687d7d0c674a65bdf1ec9fd1",
+    "efa579deaa250b0e594ec05590ee8ddb",
+    "d2968ad790b8f84fdb7f05f4e3f2fb71",
+    "42724ea5e472d99a9a55f65030cb5528",
+    "6fb7f1de8ffdad602ff5729aaeb20975",
+    "4127418f192d1f66e8ae34b2c4931ba1",
+    "10de56311134928ee271316d59688f3c",
+    "0abe9c2077ef0f779ae23fca41e8fa51",
+    "3fcb4b0bdeb5146bc8407aeeabb9f808",
+    "cc7ef8217e19f9852f0076e834cb2ef7",
+    "298d0ced288af9838ddd3949473a064b",
+    "49c7479296a2efa67a4b61fc468a1b4b",
+    "449748afd8d0242d3e36f5189abb11cd",
+    "29de9c5a09b4e4f54d75c3dfa2301d9a",
+    "0a0824c872755c7aa940e96dfabca805",
+    "4fb3f0612abb970d585a24c33d97ce25",
+    "f3229c89b7540ddcee95934ab3cb2854",
+    "e589b9c47a070d097ea3a27e8bcf9ff2",
+    "9f0ce6cc74c50c1a53a8c33658b67a32",
+    "184154d9ab2749e9e6feaad8e777a6aa",
+    "31f50f44fe4f401497bc007dbea4231d",
+    "a7e6bb5ba1e632f4fa3fd1821c0b6a61",
+    "0b76c0b75789ab2c01e15c6b8bba11c2",
+    "9f30dec9149343f0606edca2583b0d9d",
+    "3b503a328d5f1e82fbfaaf52c8cd0621",
+    "e5ab2c825238eb4f1f7c774a882d3d73",
+    "a67a82b58717bccd0a78784f0787c0ce"
    ]
   },
   {
@@ -628,7 +627,7 @@
     {
      "rotulo": "Seção III",
      "titulo": "Das Informações Requeridas e Obrigações",
-     "unidade": "u0171"
+     "unidade": "u0173"
     }
    ],
    "n": 11,
@@ -677,7 +676,7 @@
      "id": "site",
      "n": 5,
      "exemplo": {
-      "obrigacao": "1687da79e15349fba8d286172d53933d",
+      "obrigacao": "be4ab79405c8b34a0f4c2aa4dccdc558",
       "trecho": "23-F. A distribuidora deve disponibilizar em sítio eletrônico e nos postos de atendimento presencial, com uso de linguage"
      }
     },
@@ -685,7 +684,7 @@
      "id": "postos",
      "n": 4,
      "exemplo": {
-      "obrigacao": "1687da79e15349fba8d286172d53933d",
+      "obrigacao": "be4ab79405c8b34a0f4c2aa4dccdc558",
       "trecho": "distribuidora deve disponibilizar em sítio eletrônico e nos postos de atendimento presencial, com uso de linguagem clara e adequada, o seu Pl"
      }
     },
@@ -693,29 +692,29 @@
      "id": "aneel",
      "n": 2,
      "exemplo": {
-      "obrigacao": "9bacec7fd2afad23667d787e36208a57",
+      "obrigacao": "2e904d1423690c315753adc0274a6178",
       "trecho": "23-M. A distribuidora deve enviar regularmente à ANEEL os alertas meteorológicos que justifiquem o acionamento de"
      }
     }
    ],
    "principais": [
-    "1687da79e15349fba8d286172d53933d",
-    "8ec383c42876ee9d03b391ae58acf9e6",
-    "9bacec7fd2afad23667d787e36208a57",
-    "1eb98895389fb112ff1e14951397560e"
+    "be4ab79405c8b34a0f4c2aa4dccdc558",
+    "93f6b25cf1d1bdb677805904c2df87b8",
+    "2e904d1423690c315753adc0274a6178",
+    "820a331d4fd3b5e449f09719235af654"
    ],
    "obrigacoes": [
-    "1687da79e15349fba8d286172d53933d",
-    "8ec383c42876ee9d03b391ae58acf9e6",
-    "9bacec7fd2afad23667d787e36208a57",
-    "1eb98895389fb112ff1e14951397560e",
-    "25617585cb6e2adf03fc49b4b4e81d7f",
-    "e75c371ecf71dd342244ca25cabc60a6",
-    "1598da40fdc9ca3ebb44c5a6514429ec",
-    "8e29df693e0b8b0844170ce7c66881f4",
-    "2d0a828200cccdb9ffdf8aabf594f13c",
-    "c40eb8c465eed7626635a0efe95edf06",
-    "8efbf4d01019d3018c17c28095951959"
+    "be4ab79405c8b34a0f4c2aa4dccdc558",
+    "93f6b25cf1d1bdb677805904c2df87b8",
+    "2e904d1423690c315753adc0274a6178",
+    "820a331d4fd3b5e449f09719235af654",
+    "53c721f59a2f0fee69d44f12625c0a62",
+    "1286cfb74655c484e2d5ebf9a7e92f79",
+    "e4627fe8c7175cd51d0805beb822448e",
+    "fc28b9c3e9b1216b1483e7771a106809",
+    "d11f4509c1774ea8901c36fbf91071a5",
+    "3b7b3f3f558a570beecfb1f4991d1ca4",
+    "e102b8630e36ba107c8801808ddb8010"
    ]
   },
   {
@@ -725,12 +724,12 @@
     {
      "rotulo": "Seção 4.10",
      "titulo": "Cessão Emergencial de recursos humanos, equipamentos e materiais entre distribuidoras",
-     "unidade": "u0084"
+     "unidade": "u0086"
     },
     {
      "rotulo": "Seção VIII",
      "titulo": "Das Medidas Administrativas e de Cessão Emergencial",
-     "unidade": "u0272"
+     "unidade": "u0283"
     }
    ],
    "n": 39,
@@ -759,7 +758,7 @@
      "id": "relatorio",
      "n": 13,
      "exemplo": {
-      "obrigacao": "55ba918f9b1b6f950b9e6cc0512d88ea",
+      "obrigacao": "fb4a6987c8cbd3e0af3a13fefd9c143a",
       "trecho": "a ANEEL, em até 60 dias após o fim da situação emergencial, relatório contendo discriminação das despesas ou custos incorridos a"
      }
     },
@@ -767,7 +766,7 @@
      "id": "registro",
      "n": 2,
      "exemplo": {
-      "obrigacao": "b7cd41127aecfaad4ecc65ed37ec998e",
+      "obrigacao": "821d9fac947802d8e083bdfd64df1c2f",
       "trecho": "j) atividades desenvolvidas pelas equipes cedidas, registradas detalhadamente, por localidade;"
      }
     },
@@ -775,57 +774,57 @@
      "id": "simulacao",
      "n": 1,
      "exemplo": {
-      "obrigacao": "7c56a77f581fda61ba7c396e55b32774",
+      "obrigacao": "05e04493b5df9b6444ffcd98e2f88bc2",
       "trecho": "f) Realização de testes regulares de Cessão Emergencial, simulando cenários de cris"
      }
     }
    ],
    "principais": [
-    "c5c08d53ffd4c99a8ac85893fc995d1c",
-    "54e57ac7a3b0102f6321f4e17863f238",
-    "4a59339c8e6d12a471f0505d5a828004",
-    "3cd29414ff31bfda6da020fc79291bee"
+    "053bae02094926923067f641d7f78c58",
+    "b6f8747cb984ac11e302b5df13852cb2",
+    "844d40df255fdf3dcb27f3a9dda4455f",
+    "242ce5c21c26cd827d01117e9af42c81"
    ],
    "obrigacoes": [
-    "55ba918f9b1b6f950b9e6cc0512d88ea",
-    "825c6b3fbd9fe835cf7966b4e27f0f26",
-    "5b685bba7cd28d5c2987d8ac85e46e49",
-    "8262cc2bbad403894df0a039b3cdb767",
-    "f5e489cb2c98cd2f5689224e25eaa373",
-    "af85b6636f38459d01d79e8a8aabaf35",
-    "6b26e7393d53305cdcd39aa8bf3caefb",
-    "1c07cf19b65fde441f3332c2c4d1ae4c",
-    "ea2fe8f31dff79368c22501bbfb42c8d",
-    "b7cd41127aecfaad4ecc65ed37ec998e",
-    "39cff636d9c812d5ed48c05981330ae6",
-    "57b165f6ff815a4852659ee20d9e7e17",
-    "1a4ec87ec872e4b5efb8f5bdd4cd3a76",
-    "2224e03f39fcb9be5441adbe4a8d3f46",
-    "c5c08d53ffd4c99a8ac85893fc995d1c",
-    "e75044237994d3a14b94f68a086c5844",
-    "2c9deb25f41fa9134d95413482d82d88",
-    "323412d526864de6181fe23b9c1eef77",
-    "54e57ac7a3b0102f6321f4e17863f238",
-    "93978531c7adfb374bfeaad0a51f4cb4",
-    "3f933bdb37257156edef368f68d4a7d8",
-    "b54c69d3fab7aa15c217398582d23dd0",
-    "3c65d40b4878473da642456c776dcbb3",
-    "c417b9c5ec13fe55f5aa7191a1fa40dd",
-    "df753029777a885d038b2b323c02d756",
-    "7c56a77f581fda61ba7c396e55b32774",
-    "85e9ac9e9b5db8f54af51841e1e2b1dc",
-    "a4dc39d62650b980f94653b6f3ab46ae",
-    "386b19af6b8d50c89fa6303a0419d2a0",
-    "af092ac477748b18e87ff40e3d1117bf",
-    "0134e6ad7b4d33497282de5c53fc8ce0",
-    "4a59339c8e6d12a471f0505d5a828004",
-    "3cd29414ff31bfda6da020fc79291bee",
-    "e9d40947d6d5f65e27015ee6b4c8d7c1",
-    "a3aaab44c8faeb73e6389d70b9a6282b",
-    "16639cba55ba0469c8629ebd093ca6ca",
-    "9373d043b6355db8736c2b16feccc473",
-    "6a79234f9c4b1f3ce9fa33b035a30328",
-    "3508263d822232c6e93e66eda5aa31ea"
+    "fb4a6987c8cbd3e0af3a13fefd9c143a",
+    "dbb07719603c7f59139f8f065747afc4",
+    "5cd5f04340623a477247e4dfdfc60b55",
+    "809fab4cdf2e6eb0b1e037ade3725320",
+    "e27af8776924940ce36cf5283b6c594d",
+    "a89df268ca4025ffe984a5ed3f2e952f",
+    "547aa6ad44dbfcd61f444a9a65310f71",
+    "9279a6d991ab86f74ac98ca1ee30abb9",
+    "e4c6adf17c92760dae34bdf3bb6f466c",
+    "821d9fac947802d8e083bdfd64df1c2f",
+    "c8bc4adb10a07b22a5678e58cb4b2bc5",
+    "c02ce650b04f2ac7af01425b155f4a50",
+    "808afee6f9348bdee8cf9575b13060c4",
+    "8ac5850b5e23745be08f939c57a2c56a",
+    "053bae02094926923067f641d7f78c58",
+    "6ec4191ea7cd2734e9153f9e4dcfe6f0",
+    "682fcd4022d7b599caee64b679d2f81a",
+    "3a39e52d70d80532c29a8bde03469745",
+    "b6f8747cb984ac11e302b5df13852cb2",
+    "190d87fb5a42eb3164396e1cede97d6a",
+    "1b3786c19aa15c0da083e4f2691f7db2",
+    "c19549165031c18b48dca4c97e6740d2",
+    "4ff89614e49355334b4cf26180822cdb",
+    "16ec002155d074e8f990db89e9bd4b8a",
+    "6a493f245b7857a8a56794250e2b17be",
+    "05e04493b5df9b6444ffcd98e2f88bc2",
+    "b24a992ded3c9e578e7d1ddb173b1044",
+    "650dbbf6b6d610b6f5b8489d682fcd1a",
+    "f3eaad2117bd0f0616b1ad629a2dd1c7",
+    "136db198553c5627de6bd60f7ca2b93e",
+    "73024bb7d4f134c15f7db53a34c6a0ea",
+    "844d40df255fdf3dcb27f3a9dda4455f",
+    "242ce5c21c26cd827d01117e9af42c81",
+    "9b6fa141cecc4cf69c442b6651539213",
+    "15e9776cb923932208678d52e339fe41",
+    "1df6268024c684ea0742fd029b1c3e00",
+    "083eba4d2f5258180e4199e10d4c8068",
+    "6b77d0690165c456b7c830ea6fa82f67",
+    "0b79863f6b4d8f67ef8738bdb8af44d9"
    ]
   },
   {
@@ -858,24 +857,24 @@
      "id": "site",
      "n": 1,
      "exemplo": {
-      "obrigacao": "a379208bc4b81e1fe8aee190fa98df5f",
+      "obrigacao": "769882181d209542ede3e78f0f35310e",
       "trecho": "doras deverão informar e manter, por até cinco anos, em seu sítio eletrônico, os indicadores estabelecidos nos incisos V e VI do caput d"
      }
     }
    ],
    "principais": [
-    "a617e0c1efbaf17f0b7a6bf08d23b4cc",
-    "f3baf40189e23cc6a3b50ae92a02ac44",
-    "909d2033979e8c062009b887f7ed0e42",
-    "a379208bc4b81e1fe8aee190fa98df5f"
+    "b13ca2910a3347afb66fdb50be08a76b",
+    "27f9b0bad1c87a06754596bf221489c6",
+    "ed2fa75fe65116b1af6ba83559e50caa",
+    "769882181d209542ede3e78f0f35310e"
    ],
    "obrigacoes": [
-    "a617e0c1efbaf17f0b7a6bf08d23b4cc",
-    "f3baf40189e23cc6a3b50ae92a02ac44",
-    "909d2033979e8c062009b887f7ed0e42",
-    "a379208bc4b81e1fe8aee190fa98df5f",
-    "623cf1cc716988385cd7ab51dd2e790a",
-    "7270c0b6482e79f6937b27aa8c15c257"
+    "b13ca2910a3347afb66fdb50be08a76b",
+    "27f9b0bad1c87a06754596bf221489c6",
+    "ed2fa75fe65116b1af6ba83559e50caa",
+    "769882181d209542ede3e78f0f35310e",
+    "804153b3016d0de4821c41c6ae440bdb",
+    "311f3c106f0cfb6f15bc2d9336350d4a"
    ]
   }
  ],
@@ -891,12 +890,12 @@
  ],
  "obrigacoes": [
   {
-   "id": "8ec3f8703f4e021d80f22513fe3ed3ba",
+   "id": "2caab9b77399589a4b33f0ec05bc8183",
    "titulo": "Revisar e publicar planos de manejo, comunicação e contingência",
    "titulo_origem": "ia",
    "tema": "manejo",
    "motivo_tema": "O texto nomeia \"manejo\"",
-   "unidade": "u0289",
+   "unidade": "u0300",
    "trecho": "I - Até 90 (noventa) dias para revisar e publicar os planos de manejo vegetal, de comunicação e de contingência de que tratam os itens 103, 108 e 148 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa;",
    "situacao": "vencida",
    "prazo": {
@@ -949,12 +948,12 @@
    "dispositivo": "Art. 13, inciso I"
   },
   {
-   "id": "41d9c728c6f5556d1b13c58f5f361cc0",
+   "id": "7837f33f44352ddb19403951f1997f57",
    "titulo": "Implementar o registro das interações com o Poder Público Municipal em relação ao…",
    "titulo_origem": "regra",
    "tema": "poder_publico",
    "motivo_tema": "O texto nomeia \"Poder Público\"",
-   "unidade": "u0290",
+   "unidade": "u0301",
    "trecho": "II - Até 180 (cento e oitenta) dias para implementar o registro das interações com o Poder Público Municipal em relação ao serviço de manejo da vegetação que apresente risco à segurança das redes elétricas e a continuidade do fornecimento, conforme dispõe o item 104 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa;",
    "situacao": "vencida",
    "prazo": {
@@ -985,12 +984,12 @@
    "dispositivo": "Art. 13, inciso II"
   },
   {
-   "id": "dd3d1f84150fd2b17cd8f26fa88a0410",
+   "id": "b82d9d5afcaf604c1c22d9fd15cab20b",
    "titulo": "Implementar os mecanismos de comunicação ao consumidor sobre a previsão de…",
    "titulo_origem": "regra",
    "tema": "consumidor",
    "motivo_tema": "O texto nomeia \"consumidor\"",
-   "unidade": "u0291",
+   "unidade": "u0302",
    "trecho": "III - Até 180 (cento e oitenta) dias para implementar os mecanismos de comunicação ao consumidor sobre a previsão de reestabelecimento do serviço e demais informações de que trata o item 105 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa;",
    "situacao": "vencida",
    "prazo": {
@@ -1016,12 +1015,12 @@
    "dispositivo": "Art. 13, inciso III"
   },
   {
-   "id": "f92d63e36eb3f21050ec0f9161f9a6bd",
+   "id": "ca00a5a0a25840afacf411f72e8875fe",
    "titulo": "Disponibilizar em sítio eletrônico o número total de unidades consumidoras afetadas…",
    "titulo_origem": "regra",
    "tema": "consumidor",
    "motivo_tema": "O texto nomeia \"consumidor\"",
-   "unidade": "u0292",
+   "unidade": "u0303",
    "trecho": "IV - Até 180 (cento e oitenta) dias para disponibilizar em sítio eletrônico o número total de unidades consumidoras afetadas por interrupções em mapa, conforme dispõe o item 106 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa;",
    "situacao": "vencida",
    "prazo": {
@@ -1052,12 +1051,12 @@
    "dispositivo": "Art. 13, inciso IV"
   },
   {
-   "id": "74c7ec6a850dace75eda3809be771cc3",
+   "id": "3d72161d7c18ec8fb6bc1f5fface61aa",
    "titulo": "Disponibilizar em sítio eletrônico as informações relacionadas às ocorrências abertas",
    "titulo_origem": "regra",
    "tema": "consumidor",
    "motivo_tema": "O texto nomeia \"ocorrências abertas\"",
-   "unidade": "u0293",
+   "unidade": "u0304",
    "trecho": "V - Até 180 (cento e oitenta) dias para disponibilizar em sítio eletrônico as informações relacionadas às ocorrências abertas, conforme dispõe o item 107 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa;",
    "situacao": "vencida",
    "prazo": {
@@ -1088,12 +1087,12 @@
    "dispositivo": "Art. 13, inciso V"
   },
   {
-   "id": "2dd617796de78a9e6ec3920249dd8ddb",
+   "id": "39be4a66d3fbc00d7b93fd32484587aa",
    "titulo": "Iniciar as apurações do Duração da Interrupção Individual ocorrida em Situação de…",
    "titulo_origem": "regra",
    "tema": "dise",
    "motivo_tema": "O texto nomeia \"DISE\"",
-   "unidade": "u0294",
+   "unidade": "u0305",
    "trecho": "VI - Até 180 (cento e oitenta) dias mês para iniciar as apurações do Duração da Interrupção Individual ocorrida em Situação de Emergência por Unidade Consumidora ou por Ponto de Conexão – DISE e observar as disposições da Seção 8.2 do Módulo 8 do PRODIST com o corresponde pagamento de compensações por transgressão desse indicador, com efeitos retroativos a 2 meses após a publicação da norma;",
    "situacao": "vencida",
    "prazo": {
@@ -1124,12 +1123,12 @@
    "dispositivo": "Art. 13, inciso VI"
   },
   {
-   "id": "26172d38465c698ecf1769273a855505",
+   "id": "34f44f71ef6a32c508e3e1688ae68fe5",
    "titulo": "Realizar comunicações formais, com periodicidade anual, aos representantes do Poder…",
    "titulo_origem": "regra",
    "tema": "poder_publico",
    "motivo_tema": "Seção 4.9 da norma",
-   "unidade": "u0082",
+   "unidade": "u0084",
    "trecho": "120. As distribuidoras devem realizar comunicações formais, com periodicidade anual, aos representantes do Poder Público, detalhando a execução dos protocolos estabelecidos de modo a garantir que todos os envolvidos estejam familiarizados com os procedimentos de comunicação.",
    "situacao": "recorrente",
    "prazo": {
@@ -1155,12 +1154,12 @@
    "dispositivo": "item 120"
   },
   {
-   "id": "fb004f3bfedf6b59722af7488e2bc1c0",
+   "id": "2faa7af4dd5123314548d6104702de47",
    "titulo": "Ser apurados mensalmente, considerando o mês civil, com exceção dos indicadores…",
    "titulo_origem": "regra",
    "tema": "dise",
    "motivo_tema": "Seção IV da norma",
-   "unidade": "u0202",
+   "unidade": "u0209",
    "trecho": "172. Os indicadores devem ser apurados mensalmente, considerando o mês civil, com exceção dos indicadores DICRI e DISE, que devem ser apurados por interrupção ocorrida em Dia Crítico ou em Situação de Emergência, respectivamente.",
    "situacao": "recorrente",
    "prazo": {
@@ -1186,12 +1185,12 @@
    "dispositivo": "item 172"
   },
   {
-   "id": "55ba918f9b1b6f950b9e6cc0512d88ea",
+   "id": "fb4a6987c8cbd3e0af3a13fefd9c143a",
    "titulo": "Valor global da contratação com detalhamento dos recursos envolvidos, segregados por…",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0097",
+   "unidade": "u0099",
    "trecho": "a) valor global da contratação com detalhamento dos recursos envolvidos, segregados por tipo de gasto;",
    "situacao": "evento",
    "prazo": {
@@ -1222,12 +1221,12 @@
    "dispositivo": "item 132, alínea a"
   },
   {
-   "id": "825c6b3fbd9fe835cf7966b4e27f0f26",
+   "id": "dbb07719603c7f59139f8f065747afc4",
    "titulo": "Duração do Contrato de Cessão Emergencial para execução dos serviços realizados",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0098",
+   "unidade": "u0100",
    "trecho": "b) duração do Contrato de Cessão Emergencial para execução dos serviços realizados;",
    "situacao": "evento",
    "prazo": {
@@ -1253,12 +1252,12 @@
    "dispositivo": "item 132, alínea b"
   },
   {
-   "id": "5b685bba7cd28d5c2987d8ac85e46e49",
+   "id": "5cd5f04340623a477247e4dfdfc60b55",
    "titulo": "Relação das matrículas dos profissionais que realizaram os atendimentos,…",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0099",
+   "unidade": "u0101",
    "trecho": "c) relação das matrículas dos profissionais que realizaram os atendimentos, discriminando função, remuneração, cargos e encargos totais conforme folha de pagamento da cedente, horário do despacho, local do atendimento e o total de horas empregadas em serviço;",
    "situacao": "evento",
    "prazo": {
@@ -1289,12 +1288,12 @@
    "dispositivo": "item 132, alínea c"
   },
   {
-   "id": "8262cc2bbad403894df0a039b3cdb767",
+   "id": "809fab4cdf2e6eb0b1e037ade3725320",
    "titulo": "Valor individualizado por frente de serviço e montante total dos serviços realizados",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0100",
+   "unidade": "u0102",
    "trecho": "d) valor individualizado por frente de serviço e montante total dos serviços realizados;",
    "situacao": "evento",
    "prazo": {
@@ -1325,12 +1324,12 @@
    "dispositivo": "item 132, alínea d"
   },
   {
-   "id": "f5e489cb2c98cd2f5689224e25eaa373",
+   "id": "e27af8776924940ce36cf5283b6c594d",
    "titulo": "Documentação comprobatória e discriminação detalhada de despesas com equipamentos e…",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0101",
+   "unidade": "u0103",
    "trecho": "e) documentação comprobatória e discriminação detalhada de despesas com equipamentos e materiais;",
    "situacao": "evento",
    "prazo": {
@@ -1361,12 +1360,12 @@
    "dispositivo": "item 132, alínea e"
   },
   {
-   "id": "af85b6636f38459d01d79e8a8aabaf35",
+   "id": "a89df268ca4025ffe984a5ed3f2e952f",
    "titulo": "Documentação comprobatória e discriminação detalhada de outras despesas realizadas…",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0102",
+   "unidade": "u0104",
    "trecho": "f) documentação comprobatória e discriminação detalhada de outras despesas realizadas na operação emergencial;",
    "situacao": "evento",
    "prazo": {
@@ -1397,12 +1396,12 @@
    "dispositivo": "item 132, alínea f"
   },
   {
-   "id": "6b26e7393d53305cdcd39aa8bf3caefb",
+   "id": "547aa6ad44dbfcd61f444a9a65310f71",
    "titulo": "Forma de pagamento, observando o que dispõe o item 138",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0103",
+   "unidade": "u0105",
    "trecho": "g) forma de pagamento, observando o que dispõe o item 138;",
    "situacao": "evento",
    "prazo": {
@@ -1433,12 +1432,12 @@
    "dispositivo": "item 132, alínea g"
   },
   {
-   "id": "1c07cf19b65fde441f3332c2c4d1ae4c",
+   "id": "9279a6d991ab86f74ac98ca1ee30abb9",
    "titulo": "Informações separadas por cedente, resguardando a respectiva proporcionalidade na…",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0104",
+   "unidade": "u0106",
    "trecho": "h) informações separadas por cedente, resguardando a respectiva proporcionalidade na Cessão Emergencial e a individualidade das concessões;",
    "situacao": "evento",
    "prazo": {
@@ -1469,12 +1468,12 @@
    "dispositivo": "item 132, alínea h"
   },
   {
-   "id": "ea2fe8f31dff79368c22501bbfb42c8d",
+   "id": "e4c6adf17c92760dae34bdf3bb6f466c",
    "titulo": "Apresentação das razões da opção pela utilização de recursos humanos pertencentes a…",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0105",
+   "unidade": "u0107",
    "trecho": "i) apresentação das razões da opção pela utilização de recursos humanos pertencentes a outras empresas;",
    "situacao": "evento",
    "prazo": {
@@ -1505,12 +1504,12 @@
    "dispositivo": "item 132, alínea i"
   },
   {
-   "id": "b7cd41127aecfaad4ecc65ed37ec998e",
+   "id": "821d9fac947802d8e083bdfd64df1c2f",
    "titulo": "Atividades desenvolvidas pelas equipes cedidas, registradas detalhadamente, por…",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0106",
+   "unidade": "u0108",
    "trecho": "j) atividades desenvolvidas pelas equipes cedidas, registradas detalhadamente, por localidade;",
    "situacao": "evento",
    "prazo": {
@@ -1545,12 +1544,12 @@
    "dispositivo": "item 132, alínea j"
   },
   {
-   "id": "39cff636d9c812d5ed48c05981330ae6",
+   "id": "c8bc4adb10a07b22a5678e58cb4b2bc5",
    "titulo": "Detalhamento das tarefas de campo, com dia, data e hora",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0107",
+   "unidade": "u0109",
    "trecho": "k) detalhamento das tarefas de campo, com dia, data e hora;",
    "situacao": "evento",
    "prazo": {
@@ -1581,12 +1580,12 @@
    "dispositivo": "item 132, alínea k"
   },
   {
-   "id": "57b165f6ff815a4852659ee20d9e7e17",
+   "id": "c02ce650b04f2ac7af01425b155f4a50",
    "titulo": "Detalhamento dos tipos de estruturas utilizadas nos atendimentos, com quantidade de…",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0108",
+   "unidade": "u0110",
    "trecho": "l) detalhamento dos tipos de estruturas utilizadas nos atendimentos, com quantidade de turmas e veículos (leves e pesados); e",
    "situacao": "evento",
    "prazo": {
@@ -1617,12 +1616,12 @@
    "dispositivo": "item 132, alínea l"
   },
   {
-   "id": "1a4ec87ec872e4b5efb8f5bdd4cd3a76",
+   "id": "808afee6f9348bdee8cf9575b13060c4",
    "titulo": "Outras informações que julgar relevante sobre a Cessão Emergencial. Acordo de Cessão…",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0109",
+   "unidade": "u0111",
    "trecho": "m) outras informações que julgar relevante sobre a Cessão Emergencial. Acordo de Cessão Emergencial Prévio.",
    "situacao": "evento",
    "prazo": {
@@ -1653,12 +1652,12 @@
    "dispositivo": "item 132, alínea m"
   },
   {
-   "id": "2224e03f39fcb9be5441adbe4a8d3f46",
+   "id": "8ac5850b5e23745be08f939c57a2c56a",
    "titulo": "Não ultrapassar o prazo de doze meses contados do final da Cessão Emergencial.…",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0126",
+   "unidade": "u0128",
    "trecho": "138. O ressarcimento à cedente não deve ultrapassar o prazo de doze meses contados do final da Cessão Emergencial. Contratos de Cessão Emergencial de recursos humanos, equipamentos e materiais entre Partes Relacionadas",
    "situacao": "evento",
    "prazo": {
@@ -1684,12 +1683,12 @@
    "dispositivo": "item 138"
   },
   {
-   "id": "c5c08d53ffd4c99a8ac85893fc995d1c",
+   "id": "053bae02094926923067f641d7f78c58",
    "titulo": "Manter dossiê individualizado em sua sede contendo os documentos comprobatórios que…",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0129",
+   "unidade": "u0131",
    "trecho": "b) a cessionária deverá manter dossiê individualizado em sua sede contendo os documentos comprobatórios que evidenciem a neutralidade de custos e despesas reembolsados à cedente, os quais poderão ser requisitados pela fiscalização por até 5 (cinco) anos após fim do evento emergencial.",
    "situacao": "evento",
    "prazo": {
@@ -1710,13 +1709,13 @@
    "dispositivo": "item 139, alínea b"
   },
   {
-   "id": "60113df2f45411c4b71822c27f44ec5f",
+   "id": "7d48242ee80ef4b38cce9d34df53132b",
    "titulo": "Calcular a compensação ao consumidor ou central geradora, inclusive aqueles…",
    "titulo_origem": "regra",
    "tema": "dise",
    "motivo_tema": "Seção IV da norma",
-   "unidade": "u0218",
-   "trecho": "181. Os indicadores DICRI e DISE não se aplicam às unidades consumidoras e centrais geradoras atendidas em AT, nem aos pontos de conexão de DIT ou de distribuidoras acessados por outras distribuidoras. ..............................................................................................”(NR) “214. Os limites dos indicadores de continuidade individuais DIC, FIC, DMIC, DICRI e DISE para as unidades consumidoras e centrais geradoras são estabelecidos nas tabelas 1 a 5 do Anexo 8.B, de acordo com a localização e com a tensão contratada.”(NR) “216. Os limites dos indicadores DIC, DMIC, DICRI e DISE são vinculados ao limite anual do indicador DEC, enquanto os limites do indicador FIC são vinculados ao limite anual do indicador FEC.”(NR) “219. No caso de violação do limite de continuidade individual dos indicadores DIC, FIC, DMIC, DICRI e DISE a distribuidora deve calcular a compensação ao consumidor ou central geradora, inclusive aqueles conectados em DIT, e efetuar o crédito na fatura apresentada em até 2 meses após o período de apuração.",
+   "unidade": "u0229",
+   "trecho": "“219. No caso de violação do limite de continuidade individual dos indicadores DIC, FIC, DMIC, DICRI e DISE a distribuidora deve calcular a compensação ao consumidor ou central geradora, inclusive aqueles conectados em DIT, e efetuar o crédito na fatura apresentada em até 2 meses após o período de apuração.",
    "situacao": "evento",
    "prazo": {
     "data": null,
@@ -1727,12 +1726,7 @@
    "calculo": "verificar",
    "posicao_fila": null,
    "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 10, XVIII",
-    "grupo": "II",
-    "justificativa": "A obrigação determina que, em caso de violação dos limites dos indicadores (DIC, FIC, DMIC, DICRI, DISE), a distribuidora deve calcular a compensação e efetuar o crédito na fatura em até 2 meses; o dispositivo do Art. 10, XVIII tipifica como infração realizar leitura ou faturamento em desacordo com a legislação, o que abrange o não creditar ou creditar fora do prazo a compensação devida.",
-    "duvida": null
-   },
+   "ia": null,
    "grupo": null,
    "faixa": null,
    "premissas": [],
@@ -1743,15 +1737,15 @@
      "trecho": "IC, FIC, DMIC, DICRI e DISE a distribuidora deve calcular a compensação ao consumidor ou central geradora, inclusive aqueles cone"
     }
    ],
-   "dispositivo": "item 181"
+   "dispositivo": "item 219"
   },
   {
-   "id": "a617e0c1efbaf17f0b7a6bf08d23b4cc",
+   "id": "b13ca2910a3347afb66fdb50be08a76b",
    "titulo": "Manter dossiê individualizado em sua sede contendo os documentos comprobatórios que…",
    "titulo_origem": "regra",
    "tema": "outros",
    "motivo_tema": "Sem seção temática nem assunto reconhecido",
-   "unidade": "u0285",
+   "unidade": "u0296",
    "trecho": "b) a cessionária deverá manter dossiê individualizado em sua sede contendo os documentos comprobatórios que evidenciem a neutralidade de custos e despesas reembolsados à cedente, nos termos dos Procedimentos de Distribuição de Energia Elétrica no Sistema Elétrico Nacional – PRODIST e das Regras dos Serviços de Transmissão de Energia Elétrica, os quais poderão ser requisitados pela fiscalização por até 5 (cinco) anos após fim do evento emergencial.",
    "situacao": "evento",
    "prazo": {
@@ -1772,12 +1766,12 @@
    "dispositivo": "Art. 19, inciso XIII, alínea b"
   },
   {
-   "id": "f3baf40189e23cc6a3b50ae92a02ac44",
+   "id": "27f9b0bad1c87a06754596bf221489c6",
    "titulo": "Implantar processo de comunicação e acompanhamento da evolução dos eventos…",
    "titulo_origem": "regra",
    "tema": "outros",
    "motivo_tema": "Sem seção temática nem assunto reconhecido",
-   "unidade": "u0296",
+   "unidade": "u0307",
    "trecho": "Art. 14. As distribuidoras devem implantar processo de comunicação e acompanhamento da evolução dos eventos climáticos severos de que trata o item 114 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, em até 30 (trinta) dias, contados da publicação das instruções pela ANEEL.",
    "situacao": "evento",
    "prazo": {
@@ -1803,12 +1797,12 @@
    "dispositivo": "Art. 14"
   },
   {
-   "id": "909d2033979e8c062009b887f7ed0e42",
+   "id": "ed2fa75fe65116b1af6ba83559e50caa",
    "titulo": "Disponibilizar a API de que trata item 113 do Anexo IV da Resolução Normativa nº…",
    "titulo_origem": "regra",
    "tema": "outros",
    "motivo_tema": "Sem seção temática nem assunto reconhecido",
-   "unidade": "u0297",
+   "unidade": "u0308",
    "trecho": "Art. 15. As distribuidoras devem disponibilizar a API de que trata item 113 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa em até 60 (sessenta) dias, contados da publicação das instruções pela ANEEL.",
    "situacao": "evento",
    "prazo": {
@@ -1834,12 +1828,12 @@
    "dispositivo": "Art. 15"
   },
   {
-   "id": "a379208bc4b81e1fe8aee190fa98df5f",
+   "id": "769882181d209542ede3e78f0f35310e",
    "titulo": "Informar e manter, por até cinco anos, em seu sítio eletrônico, os indicadores…",
    "titulo_origem": "regra",
    "tema": "outros",
    "motivo_tema": "Sem seção temática nem assunto reconhecido",
-   "unidade": "u0298",
+   "unidade": "u0309",
    "trecho": "Art. 16 As distribuidoras deverão informar e manter, por até cinco anos, em seu sítio eletrônico, os indicadores estabelecidos nos incisos V e VI do caput do art. 4º; do Decreto 12.068, de 20 de julho de 2024, em até 30 dias, contados da publicação das instruções pela ANEEL.",
    "situacao": "evento",
    "prazo": {
@@ -1870,12 +1864,12 @@
    "dispositivo": "Art. 16"
   },
   {
-   "id": "3121b08663db322b4ed33f4ae9a6e28b",
+   "id": "3c8f005c1fbb9be784d0dd355755a08b",
    "titulo": "Estabelecer plano de manejo vegetal na área de atuação",
    "titulo_origem": "ia",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
-   "unidade": "u0024",
+   "unidade": "u0026",
    "trecho": "94. As distribuidoras devem estabelecer um plano de manejo vegetal na sua área de atuação, que contemple a vegetação que interfira em suas redes de distribuição, em coordenação com o Poder Público Municipal e em articulação com os órgãos competentes do Poder Público Estadual e Distrital, e com vistas a garantir a segurança da rede de distribuição, a qualidade, eficiência e a continuidade do fornecimento de energia elétrica.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -1928,12 +1922,12 @@
    "dispositivo": "item 94"
   },
   {
-   "id": "08ce0fad3a590f7e7bb3266ef66d92d4",
+   "id": "2e4349021812ce3d0fb1ed3b9c2d02e5",
    "titulo": "Remover árvores ou galhos caídos sobre a rede",
    "titulo_origem": "regra",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
-   "unidade": "u0026",
+   "unidade": "u0028",
    "trecho": "96. As distribuidoras devem garantir a rápida remoção de árvores ou galhos caídos sobre a rede, atuando de forma coordenada com o Poder Público Estadual, Distrital ou Municipal, dispondo de autonomia necessária para adotar medidas urgentes que assegurem a rápida recuperação do serviço em situações de emergência.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -1981,12 +1975,12 @@
    "dispositivo": "item 96"
   },
   {
-   "id": "59ac07290cc1320200626ef1d428f484",
+   "id": "745328053284bbf521a22c65bd117704",
    "titulo": "Disponibilizar versão atualizada do plano de manejo vegetal",
    "titulo_origem": "ia",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
-   "unidade": "u0044",
+   "unidade": "u0046",
    "trecho": "103. As distribuidoras devem disponibilizar a versão mais atualizada de seu plano de manejo vegetal em seu sítio eletrônico na Internet e nos postos de atendimento presencial, de forma acessível ao público, com uso de linguagem clara e adequada, conforme prazo constante do Módulo 6.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -2047,12 +2041,12 @@
    "dispositivo": "item 103"
   },
   {
-   "id": "1bc87726eedb1e6743cbdf353d8f398c",
+   "id": "0d12847e77737f671b42a2c183916677",
    "titulo": "Incluir estágio da operação conforme etapas do plano de contingência",
    "titulo_origem": "ia",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
-   "unidade": "u0061",
+   "unidade": "u0063",
    "trecho": "k) Estágio da operação (conforme etapas definidas no plano de contingência).",
    "situacao": "sem_prazo",
    "prazo": {
@@ -2109,12 +2103,12 @@
    "dispositivo": "item 107, alínea k"
   },
   {
-   "id": "e60945f1a5ad2964c28f57c146ac46d1",
+   "id": "5023efcb8b22cbab4574670e985e8dc9",
    "titulo": "Solicitar indicação prévia de até dois representantes oficiais",
    "titulo_origem": "ia",
    "tema": "poder_publico",
    "motivo_tema": "Seção 4.9 da norma",
-   "unidade": "u0077",
+   "unidade": "u0079",
    "trecho": "115. A comunicação deve ser clara e transparente com o intuito de gerar confiança no relacionamento entre as distribuidoras e o Poder Público, essencial para a efetividade das ações em conjunto. Para esse fim, a distribuidora deve solicitar aos Poderes Públicos municipal, estadual e distrital que informem previamente até dois representantes oficiais de cada ente, que serão os responsáveis pelo recebimento das comunicações em situações de emergência.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -2162,12 +2156,12 @@
    "dispositivo": "item 115"
   },
   {
-   "id": "b86d040461ec3084780d061b20d570a6",
+   "id": "dc345c9da4c31f3fc10b7b83df0cfe3b",
    "titulo": "Garantir canais de comunicação oficiais acessíveis e operacionais",
    "titulo_origem": "ia",
    "tema": "poder_publico",
    "motivo_tema": "Seção 4.9 da norma",
-   "unidade": "u0080",
+   "unidade": "u0082",
    "trecho": "118. As distribuidoras devem garantir que os canais de comunicação oficiais estejam acessíveis e operacionais em situações de emergência em comum acordo com o Poder Público.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -2215,12 +2209,12 @@
    "dispositivo": "item 118"
   },
   {
-   "id": "e4fc66c9952031c99f0bdd3f7b9047fa",
+   "id": "442b00252d17748a46b3231be405a7fc",
    "titulo": "Elaborar plano de contingência para garantir continuidade e segurança",
    "titulo_origem": "ia",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0133",
+   "unidade": "u0135",
    "trecho": "140. O plano de contingência deve ser elaborado de forma a garantir a continuidade do fornecimento de energia elétrica, minimizar os impactos das contingências e responder a eventos críticos de forma eficaz, sempre assegurando a segurança dos colaboradores e da população.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -2273,12 +2267,12 @@
    "dispositivo": "item 140"
   },
   {
-   "id": "0f15eb612ecc635483c16ec2119ea246",
+   "id": "803efa4041fdda63368a6bcf1a079cf2",
    "titulo": "Incluir nomes e telefones de contato dos responsáveis",
    "titulo_origem": "ia",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0134",
+   "unidade": "u0136",
    "trecho": "141. O plano de contingência deve conter os nomes e telefones de contato dos responsáveis. Princípios Norteadores",
    "situacao": "sem_prazo",
    "prazo": {
@@ -2331,12 +2325,12 @@
    "dispositivo": "item 141"
   },
   {
-   "id": "b2006528fe4db2ceb107ebab23eb5634",
+   "id": "5ae3860d7f2917102f6b6387d3736edc",
    "titulo": "Priorizar a segurança de colaboradores e da população",
    "titulo_origem": "ia",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0136",
+   "unidade": "u0138",
    "trecho": "a) Segurança: priorizar a segurança de todos os colaboradores e da população;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -2389,12 +2383,12 @@
    "dispositivo": "item 142, alínea a"
   },
   {
-   "id": "57f356d436900f3953a8c7a53a1ab8a1",
+   "id": "433ce63e8b3be0c36ae9dd6e96a83664",
    "titulo": "Minimizar o impacto das contingências nas operações",
    "titulo_origem": "ia",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0137",
+   "unidade": "u0139",
    "trecho": "b) Eficiência: minimizar o impacto das contingências nas operações e na prestação dos serviços;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -2447,12 +2441,12 @@
    "dispositivo": "item 142, alínea b"
   },
   {
-   "id": "e6d501e2e0b49e488d632029ccf3713c",
+   "id": "809bdf1e3579091bbf1229338b553266",
    "titulo": "Cumprir as obrigações legais e regulamentares",
    "titulo_origem": "ia",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0138",
+   "unidade": "u0140",
    "trecho": "c) Responsabilidade: cumprir com as obrigações legais e regulamentares;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -2505,12 +2499,12 @@
    "dispositivo": "item 142, alínea c"
   },
   {
-   "id": "cd4a05aca81a49f61d82f39afd624e66",
+   "id": "4baecfc3024aaed0d67cc2f8dedb55a9",
    "titulo": "Manter comunicação clara e aberta com setores afetados",
    "titulo_origem": "ia",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0139",
+   "unidade": "u0141",
    "trecho": "d) Transparência: manter uma comunicação clara e aberta com todos os setores afetados;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -2563,12 +2557,12 @@
    "dispositivo": "item 142, alínea d"
   },
   {
-   "id": "7ab7bbfc40eca36925fd01339c9462e2",
+   "id": "f73e6009515487abaa827567571464f5",
    "titulo": "Antecipar problemas e definir protocolos de atuação",
    "titulo_origem": "ia",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0140",
+   "unidade": "u0142",
    "trecho": "e) Prevenção: antecipar problemas e definir protocolos de atuação para o enfrentamento de situações críticas;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -2621,12 +2615,12 @@
    "dispositivo": "item 142, alínea e"
   },
   {
-   "id": "8bbbe8540f64adaf5bd1e6f15e2713d6",
+   "id": "48927f469615de3945a7525c782a0d5d",
    "titulo": "Garantir adaptabilidade às mudanças climáticas e operacionais",
    "titulo_origem": "ia",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0141",
+   "unidade": "u0143",
    "trecho": "f) Adaptabilidade: garantir a capacidade de adaptação frente às mudanças nas condições climáticas e operacionais, ajustando as estratégias conforme as circunstâncias específicas de cada evento; e",
    "situacao": "sem_prazo",
    "prazo": {
@@ -2679,12 +2673,12 @@
    "dispositivo": "item 142, alínea f"
   },
   {
-   "id": "12d5587c77b7da5736cba2596e20f59e",
+   "id": "f0515893f47b465bc7e6aa869fc6cf69",
    "titulo": "Realizar monitoramento climático e meteorológico periódico",
    "titulo_origem": "ia",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0144",
+   "unidade": "u0146",
    "trecho": "a) Monitoramento Climático e Meteorológico: Realizar monitoramento periódico das condições climáticas e meteorológicas informando as equipes internas sobre possíveis alertas de risco;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -2737,12 +2731,12 @@
    "dispositivo": "item 143, alínea a"
   },
   {
-   "id": "24dee60f0a3c7d148563d9209891d5ed",
+   "id": "c261b112687d7d0c674a65bdf1ec9fd1",
    "titulo": "Implementar ações de gestão conforme níveis de contingência",
    "titulo_origem": "ia",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0145",
+   "unidade": "u0147",
    "trecho": "b) Gestão de Ocorrências: Implementar ações específicas conforme os níveis de contingência;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -2795,12 +2789,12 @@
    "dispositivo": "item 143, alínea b"
   },
   {
-   "id": "83b516bd0be0c91800420656fb492a77",
+   "id": "efa579deaa250b0e594ec05590ee8ddb",
    "titulo": "Definir procedimentos para mobilização de equipes e recursos",
    "titulo_origem": "ia",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0146",
+   "unidade": "u0148",
    "trecho": "c) Mobilização de Recursos: Definir procedimentos para a mobilização de equipes e recursos adicionais em diferentes níveis de contingência, garantindo a atuação mesmo em feriados e dias não úteis, de forma a assegurar a continuidade e a eficiência nas ações de resposta;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -2853,12 +2847,12 @@
    "dispositivo": "item 143, alínea c"
   },
   {
-   "id": "fb51b5348bbd1e9799d4912805f18cd9",
+   "id": "d2968ad790b8f84fdb7f05f4e3f2fb71",
    "titulo": "Estabelecer canais internos eficientes para coordenar ações",
    "titulo_origem": "ia",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0147",
+   "unidade": "u0149",
    "trecho": "d) Comunicação Interna: Estabelecer canais eficientes de comunicação interna para informar e coordenar ações durante contingências;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -2911,12 +2905,12 @@
    "dispositivo": "item 143, alínea d"
   },
   {
-   "id": "195ea142438297fc3b2006dfff018b03",
+   "id": "42724ea5e472d99a9a55f65030cb5528",
    "titulo": "Manter relatórios e documentação detalhada das contingências",
    "titulo_origem": "ia",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0148",
+   "unidade": "u0150",
    "trecho": "e) Relatórios e Documentação: Manter registros detalhados das ações tomadas e dos resultados durante as contingências de modo a avaliar se as medidas tomadas estão aderentes ao planejado;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -2973,12 +2967,12 @@
    "dispositivo": "item 143, alínea e"
   },
   {
-   "id": "631c720f3984d36df1c9ee2c9a544d48",
+   "id": "6fb7f1de8ffdad602ff5729aaeb20975",
    "titulo": "Realizar treinamentos e simulações periódicas",
    "titulo_origem": "ia",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0149",
+   "unidade": "u0151",
    "trecho": "f) Treinamentos e Simulações: Realizar treinamentos periódicos e simulações para preparar as equipes para situações de contingência;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -3035,12 +3029,12 @@
    "dispositivo": "item 143, alínea f"
   },
   {
-   "id": "e66df2b7b97fd388af2563733d566d0e",
+   "id": "4127418f192d1f66e8ae34b2c4931ba1",
    "titulo": "Estabelecer procedimentos de atendimento ao consumidor em contingências",
    "titulo_origem": "ia",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0150",
+   "unidade": "u0152",
    "trecho": "g) Atendimento ao Consumidor: Estabelecer procedimentos para a tratamento e resolução de demandas extraordinárias durante contingências;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -3093,12 +3087,12 @@
    "dispositivo": "item 143, alínea g"
   },
   {
-   "id": "58b35c243252afec6a303b9665867d61",
+   "id": "10de56311134928ee271316d59688f3c",
    "titulo": "Definir ações para coordenação com autoridades públicas e reguladores",
    "titulo_origem": "ia",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0151",
+   "unidade": "u0153",
    "trecho": "h) Coordenação com Órgãos Externos: Definir ações para comunicação e coordenação com autoridades públicas e órgãos reguladores;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -3151,12 +3145,12 @@
    "dispositivo": "item 143, alínea h"
   },
   {
-   "id": "ee058004eb6a4fad2f085d83230fe9cb",
+   "id": "0abe9c2077ef0f779ae23fca41e8fa51",
    "titulo": "Estabelecer diretrizes de apoio interdepartamental",
    "titulo_origem": "ia",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0152",
+   "unidade": "u0154",
    "trecho": "i) Apoio Interdepartamental: Estabelecer diretrizes para a colaboração entre diferentes departamentos e áreas da empresa durante situações de contingência;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -3209,12 +3203,12 @@
    "dispositivo": "item 143, alínea i"
   },
   {
-   "id": "195c74dacdd8adf1e6dc5399095e1993",
+   "id": "3fcb4b0bdeb5146bc8407aeeabb9f808",
    "titulo": "Formalizar e divulgar o plano de contingência internamente",
    "titulo_origem": "ia",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0153",
+   "unidade": "u0155",
    "trecho": "j) Formalização e Divulgação do Plano: O Plano de Contingência deve ser formalizado e documentado de maneira clara e detalhada, sendo amplamente divulgado por meio de canais internos de modo a garantir sua acessibilidade a todos os colaboradores e partes interessadas; e",
    "situacao": "sem_prazo",
    "prazo": {
@@ -3262,12 +3256,12 @@
    "dispositivo": "item 143, alínea j"
   },
   {
-   "id": "7ddecef9ada04fc00c098f262c3df3e4",
+   "id": "cc7ef8217e19f9852f0076e834cb2ef7",
    "titulo": "Estabelecer cadeia de governança nos níveis estratégico, tático e operacional",
    "titulo_origem": "ia",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0154",
+   "unidade": "u0156",
    "trecho": "k) Cadeia de governança: Estabelecer comando nos níveis estratégico, tático e operacional para o gerenciamento de crises e contingências, definindo responsabilidades e fluxos de comunicação que garantam uma resposta coordenada, eficiente e segura, de forma que, em situações de crise, todos os níveis de comando estejam claramente definidos e operacionalmente disponíveis. Requisitos Mínimos",
    "situacao": "sem_prazo",
    "prazo": {
@@ -3320,12 +3314,12 @@
    "dispositivo": "item 143, alínea k"
   },
   {
-   "id": "dd4ebd3df3e10040f727da479c3f602a",
+   "id": "298d0ced288af9838ddd3949473a064b",
    "titulo": "Definir e atualizar níveis de contingência por critérios objetivos",
    "titulo_origem": "ia",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0157",
+   "unidade": "u0159",
    "trecho": "b) Definição de Níveis de Contingência: Definir níveis de contingência por critérios objetivos, devendo ser atualizados de acordo com a evolução das condições operativas e meteorológicas;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -3378,12 +3372,12 @@
    "dispositivo": "item 144, alínea b"
   },
   {
-   "id": "a021cc659e5be0b9913d00cd919c3b22",
+   "id": "49c7479296a2efa67a4b61fc468a1b4b",
    "titulo": "Desenvolver plano de ação específico para cada nível de contingência",
    "titulo_origem": "ia",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0158",
+   "unidade": "u0160",
    "trecho": "c) Plano de Ação para Cada Nível de Contingência: Desenvolver planos de ação específicos para cada nível de contingência, incluindo as responsabilidades e os procedimentos a serem seguidos;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -3436,12 +3430,12 @@
    "dispositivo": "item 144, alínea c"
   },
   {
-   "id": "07a7a9431af8a46662695ad1f0f3059a",
+   "id": "449748afd8d0242d3e36f5189abb11cd",
    "titulo": "Garantir infraestrutura e recursos para execução do plano",
    "titulo_origem": "ia",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0159",
+   "unidade": "u0161",
    "trecho": "d) Infraestrutura de Apoio: Garantir a disponibilidade de recursos e infraestrutura necessários para a execução do plano de contingência, em relação à equipamentos, sistemas de comunicação e transporte, incluindo inventário, especificação e localização de equipamentos disponíveis e sobressalentes, bem como veículos operacionais;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -3494,12 +3488,12 @@
    "dispositivo": "item 144, alínea d"
   },
   {
-   "id": "5b3c86232fd82ae6cf6926f2489520ee",
+   "id": "29de9c5a09b4e4f54d75c3dfa2301d9a",
    "titulo": "Implementar programas de treinamento e capacitação contínuos",
    "titulo_origem": "ia",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0160",
+   "unidade": "u0162",
    "trecho": "e) Treinamento e Capacitação: Implementar programas de treinamento e capacitação contínuos para todos os colaboradores envolvidos na execução do plano de contingência;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -3552,12 +3546,12 @@
    "dispositivo": "item 144, alínea e"
   },
   {
-   "id": "5bb5ce88d4078b6d650bdd99d8b2e54a",
+   "id": "0a0824c872755c7aa940e96dfabca805",
    "titulo": "Simulações e Testes Regulares: Realizar simulações ou testes periódicos para avaliar…",
    "titulo_origem": "regra",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0161",
+   "unidade": "u0163",
    "trecho": "f) Simulações e Testes Regulares: Realizar simulações ou testes periódicos para avaliar a eficácia do plano de contingência e identificar áreas de melhoria, inclusive com a participação de Órgãos Públicos;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -3614,12 +3608,12 @@
    "dispositivo": "item 144, alínea f"
   },
   {
-   "id": "6b586cc21bff04a572bc38d69da16483",
+   "id": "4fb3f0612abb970d585a24c33d97ce25",
    "titulo": "Manter o plano atualizado e disponível com data e versão",
    "titulo_origem": "ia",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0162",
+   "unidade": "u0164",
    "trecho": "g) Atualização do plano: Manter a documentação do plano de contingência atualizada e disponível para todos os colaboradores, devendo constar a data e o número da versão, bem como assinatura do responsável;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -3672,12 +3666,12 @@
    "dispositivo": "item 144, alínea g"
   },
   {
-   "id": "139273e97f0f641b7f28de8627281fc9",
+   "id": "f3229c89b7540ddcee95934ab3cb2854",
    "titulo": "Realizar avaliações regulares e implementar melhorias no plano",
    "titulo_origem": "ia",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0163",
+   "unidade": "u0165",
    "trecho": "h) Avaliação e Melhoria Contínua: Realizar avaliações regulares do plano de contingência e implementar melhorias com base nos resultados das simulações, testes e experiências reais de contingência, visando aperfeiçoar a efetividade do plano; e",
    "situacao": "sem_prazo",
    "prazo": {
@@ -3734,12 +3728,12 @@
    "dispositivo": "item 144, alínea h"
   },
   {
-   "id": "0fd0dcd90de8f009d33c43eaf5b341ec",
+   "id": "e589b9c47a070d097ea3a27e8bcf9ff2",
    "titulo": "Possuir medidas para tratamento de unidades consumidoras específicas",
    "titulo_origem": "ia",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0164",
+   "unidade": "u0166",
    "trecho": "i) Tratamento para unidades consumidoras específicas: Possuir medidas relacionadas ao tratamento para unidades consumidoras cadastradas como usuários de equipamentos de autonomia limitada (sobrevida) e para aquelas que prestem serviço essencial, incluindo aspectos referentes ao cadastro, comunicação e atendimento emergencial para mitigar os efeitos das interrupções do fornecimento de energia elétrica.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -3792,12 +3786,12 @@
    "dispositivo": "item 144, alínea i"
   },
   {
-   "id": "b322c8b7a0ce3cab4604c516e42571fb",
+   "id": "9f0ce6cc74c50c1a53a8c33658b67a32",
    "titulo": "Para o caso de ter havido aplicação do Plano de Contingência, a periodicidade máxima…",
    "titulo_origem": "regra",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0166",
+   "unidade": "u0168",
    "trecho": "a) Para o caso de ter havido aplicação do Plano de Contingência, a periodicidade máxima pode ser contada da sua última aplicação.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -3845,12 +3839,12 @@
    "dispositivo": "item 145, alínea a"
   },
   {
-   "id": "65e4a5fa4b57ea3bc4f587332fa282af",
+   "id": "184154d9ab2749e9e6feaad8e777a6aa",
    "titulo": "Revisar o plano de contingência sempre que necessário e, no máximo, anualmente",
    "titulo_origem": "ia",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0168",
+   "unidade": "u0170",
    "trecho": "146. A revisão do plano de contingência deverá ser feita sempre que necessário e com periodicidade máxima de um ano.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -3903,12 +3897,12 @@
    "dispositivo": "item 146"
   },
   {
-   "id": "7d5c4306553b231cd3236d32c6ea3a60",
+   "id": "31f50f44fe4f401497bc007dbea4231d",
    "titulo": "Disponibilizar a versão mais atualizada, sem a identificação e contato dos seus…",
    "titulo_origem": "regra",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0169",
+   "unidade": "u0171",
    "trecho": "147. As distribuidoras devem disponibilizar a versão mais atualizada, sem a identificação e contato dos seus responsáveis pelo seu plano de contingência, em seu sítio eletrônico na Internet e nos postos de atendimento presencial, de forma acessível ao público com uso de linguagem clara e adequada.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -3969,12 +3963,12 @@
    "dispositivo": "item 147"
   },
   {
-   "id": "8bf397c038cd226665afd7786b53c69d",
+   "id": "a7e6bb5ba1e632f4fa3fd1821c0b6a61",
    "titulo": "Incluir versão, data de aprovação e assinatura dos responsáveis técnicos",
    "titulo_origem": "ia",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0170",
+   "unidade": "u0172",
    "trecho": "148. O plano de contingência deve possuir versão do documento, data de aprovação e identificação e assinatura do(s) responsável(is) técnico(s), sendo passível de fiscalização.” (NR)",
    "situacao": "sem_prazo",
    "prazo": {
@@ -4027,12 +4021,12 @@
    "dispositivo": "item 148"
   },
   {
-   "id": "1687da79e15349fba8d286172d53933d",
+   "id": "be4ab79405c8b34a0f4c2aa4dccdc558",
    "titulo": "Disponibilizar o Plano de Manejo Vegetal em sítio eletrônico e postos",
    "titulo_origem": "ia",
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
-   "unidade": "u0183",
+   "unidade": "u0186",
    "trecho": "23-F. A distribuidora deve disponibilizar em sítio eletrônico e nos postos de atendimento presencial, com uso de linguagem clara e adequada, o seu Plano de Manejo Vegetal.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -4089,12 +4083,12 @@
    "dispositivo": "item 23-F"
   },
   {
-   "id": "8ec383c42876ee9d03b391ae58acf9e6",
+   "id": "93f6b25cf1d1bdb677805904c2df87b8",
    "titulo": "Disponibilizar o Plano de Contingência em sítio eletrônico e postos",
    "titulo_origem": "ia",
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
-   "unidade": "u0189",
+   "unidade": "u0192",
    "trecho": "23-J. A distribuidora deve disponibilizar em sítio eletrônico e nos postos de atendimento presencial, com uso de linguagem clara e adequada, o seu Plano de Contingência.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -4151,12 +4145,12 @@
    "dispositivo": "item 23-J"
   },
   {
-   "id": "9bacec7fd2afad23667d787e36208a57",
+   "id": "2e904d1423690c315753adc0274a6178",
    "titulo": "Enviar regularmente à ANEEL alertas meteorológicos que justifiquem acionamento",
    "titulo_origem": "ia",
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
-   "unidade": "u0195",
+   "unidade": "u0198",
    "trecho": "23-M. A distribuidora deve enviar regularmente à ANEEL os alertas meteorológicos que justifiquem o acionamento de plano de contingência, em qualquer nível.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -4213,12 +4207,12 @@
    "dispositivo": "item 23-M"
   },
   {
-   "id": "32fcdd0a80916982093995435906938f",
+   "id": "0b76c0b75789ab2c01e15c6b8bba11c2",
    "titulo": "Publicar os planos de contingência em vigor no sítio eletrônico",
    "titulo_origem": "ia",
    "tema": "contingencia",
    "motivo_tema": "O texto nomeia \"contingência\"",
-   "unidade": "u0295",
+   "unidade": "u0306",
    "trecho": "Parágrafo único. Os planos de contingência em vigor na data desta Resolução devem ser publicados em seu sítio eletrônico na Internet, respeitadas as disposições legais.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -4275,12 +4269,12 @@
    "dispositivo": "Art. 13, Parágrafo único"
   },
   {
-   "id": "5f0eef8ec4b7e85c7481dfefef22d99b",
+   "id": "e6c4f26668726d394b5b86feee032103",
    "titulo": "Celebrar convênios, acordos de cooperação ou outros instrumentos formais com os…",
    "titulo_origem": "regra",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
-   "unidade": "u0025",
+   "unidade": "u0027",
    "trecho": "95. As distribuidoras deverão celebrar convênios, acordos de cooperação ou outros instrumentos formais com os entes públicos municipais, distritais e estaduais, com vistas à definição de protocolos de atuação coordenada para o manejo da vegetação que interfira na segurança e continuidade do serviço público de distribuição de energia elétrica, devendo prever, de forma clara, as responsabilidades de cada parte quanto à inspeção, poda preventiva, remoção e substituição de árvores, respeitando as competências legais e ambientais de cada ente federativo, bem como os procedimentos técnicos e operacionais necessários à execução das ações.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -4306,12 +4300,12 @@
    "dispositivo": "item 95"
   },
   {
-   "id": "b7ef9e99eedf794c95a1367f2e2ddcfe",
+   "id": "77cde4c19287ee17f8308e54fd164d6e",
    "titulo": "Considerar os desafios específicos da vegetação local, incluindo aspectos como…",
    "titulo_origem": "regra",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
-   "unidade": "u0027",
+   "unidade": "u0029",
    "trecho": "97. A escolha de tecnologias, projetos e estratégias operacionais pelas distribuidoras deve considerar os desafios específicos da vegetação local, incluindo aspectos como espécies predominantes, sazonalidade e características de crescimento de forma a garantir a prestação do serviço adequado.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -4337,12 +4331,12 @@
    "dispositivo": "item 97"
   },
   {
-   "id": "a9dbbc16356e61645b023a295b4f4a0e",
+   "id": "336d22ea978626289173c0ce9a064655",
    "titulo": "Inspeção regular: realizar a inspeção visual periódica das redes elétricas e da…",
    "titulo_origem": "regra",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
-   "unidade": "u0030",
+   "unidade": "u0032",
    "trecho": "a) Inspeção regular: realizar a inspeção visual periódica das redes elétricas e da vegetação próxima ou utilizar de sistema de gestão que possibilite a criação de ciclos de podas reduzindo a necessidade de deslocamento de equipe, a fim de identificar árvores ou galhos que possam representar risco de queda sobre a rede de distribuição;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -4368,12 +4362,12 @@
    "dispositivo": "item 99, alínea a"
   },
   {
-   "id": "4a55d048a80c77ae9f1d65fe98893a11",
+   "id": "65a95d5a30c1a786977c80847669ebdc",
    "titulo": "Poda preventiva: realizar, em articulação com o Poder Público Estadual, Distrital e…",
    "titulo_origem": "regra",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
-   "unidade": "u0031",
+   "unidade": "u0033",
    "trecho": "b) Poda preventiva: realizar, em articulação com o Poder Público Estadual, Distrital e Municipal e em conformidade com as normas técnicas, podas preventivas para manter distância de segurança entre a vegetação e a rede elétrica, minimizando o risco de acidentes e interrupções no fornecimento de energia;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -4399,12 +4393,12 @@
    "dispositivo": "item 99, alínea b"
   },
   {
-   "id": "79b7491a3a12332000c3716fdc5f95ae",
+   "id": "5fd5147ef5e0d62ea812333d32f02ee0",
    "titulo": "Comunicar imediatamente a necessidade de eliminação do risco ao órgão competente do…",
    "titulo_origem": "regra",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
-   "unidade": "u0032",
+   "unidade": "u0034",
    "trecho": "c) Remoção de vegetação de risco: quando identificadas árvores ou partes da vegetação que, devido ao seu estado, porte ou localização, apresentem risco iminente à segurança das redes elétricas, as distribuidoras deverão comunicar imediatamente a necessidade de eliminação do risco ao órgão competente do Poder Público Estadual, Distrital ou Municipal, e articular as ações necessárias para eliminação do risco, prestando apoio técnico necessário, inclusive com o desligamento da rede elétrica, quando aplicável, observando os convênios de cooperação entre os entes envolvidos, respeitando as competências legais e a legislação pertinente;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -4430,12 +4424,12 @@
    "dispositivo": "item 99, alínea c"
   },
   {
-   "id": "8b24cc0f0c4cf52a67fad7d2e8833792",
+   "id": "f76ba02c3f87545a6cbe0ce936011752",
    "titulo": "Por meio de programas estimular o plantio de novas espécies adequadas ao convívio…",
    "titulo_origem": "regra",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
-   "unidade": "u0033",
+   "unidade": "u0035",
    "trecho": "d) Substituição de árvores: as distribuidoras devem por meio de programas estimular o plantio de novas espécies adequadas ao convívio com as redes elétricas, em conformidade com os planos municipais de arborização.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -4466,12 +4460,12 @@
    "dispositivo": "item 99, alínea d"
   },
   {
-   "id": "82abcf43611988ee44ccd3d1e7d62327",
+   "id": "a46737b0c179210264289f9fe0d18215",
    "titulo": "Elaborar Relatório Anual de Gestão do Manejo Vegetal, documentando de forma…",
    "titulo_origem": "regra",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
-   "unidade": "u0034",
+   "unidade": "u0036",
    "trecho": "100. As distribuidoras devem elaborar Relatório Anual de Gestão do Manejo Vegetal, documentando de forma detalhada todas as atividades relacionadas à gestão da vegetação que interfira na rede de distribuição de energia, que servirá como ferramenta de transparência e controle para assegurar que as ações de manejo vegetal sejam realizadas de forma eficaz, em conformidade com as normas técnicas e ambientais, e com o objetivo de garantir a segurança e a continuidade do fornecimento de energia elétrica.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -4497,12 +4491,12 @@
    "dispositivo": "item 100"
   },
   {
-   "id": "f9b7eac64186ea61454717cad2a980e0",
+   "id": "719ccb2d6fe2afe026c4b18c00edd071",
    "titulo": "Inspeções Visuais: relatar o número de inspeções realizadas nas redes elétricas e…",
    "titulo_origem": "regra",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
-   "unidade": "u0036",
+   "unidade": "u0038",
    "trecho": "a) Inspeções Visuais: relatar o número de inspeções realizadas nas redes elétricas e vegetação, bem como a extensão das redes inspecionadas, destacando as áreas de risco identificadas por conjunto elétrico;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -4528,12 +4522,12 @@
    "dispositivo": "item 101, alínea a"
   },
   {
-   "id": "a3339ce04e9670812751f6375f15519f",
+   "id": "836377abcbc024561e834db998aa6f30",
    "titulo": "Podas Preventivas: descrever as ações de poda realizadas e as ações indicadas ao…",
    "titulo_origem": "regra",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
-   "unidade": "u0037",
+   "unidade": "u0039",
    "trecho": "b) Podas Preventivas: descrever as ações de poda realizadas e as ações indicadas ao Poder Público Municipal, incluindo o número de árvores podadas por conjunto elétrico;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -4559,12 +4553,12 @@
    "dispositivo": "item 101, alínea b"
   },
   {
-   "id": "1a99e4956aa75d61fafb673090884132",
+   "id": "e52741c7e79369f1c3b552a8428aec6a",
    "titulo": "Podas Corretivas: descrever as ações de poda realizadas, incluindo o número de…",
    "titulo_origem": "regra",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
-   "unidade": "u0038",
+   "unidade": "u0040",
    "trecho": "c) Podas Corretivas: descrever as ações de poda realizadas, incluindo o número de árvores podadas por conjunto elétrico;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -4590,12 +4584,12 @@
    "dispositivo": "item 101, alínea c"
   },
   {
-   "id": "e5892afa3bdeba10d469afba50fda809",
+   "id": "2987c08865cb4c49fdeb365df9b4789a",
    "titulo": "Remoção de Árvores: relatar os casos de remoção de árvores, detalhando a…",
    "titulo_origem": "regra",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
-   "unidade": "u0039",
+   "unidade": "u0041",
    "trecho": "d) Remoção de Árvores: relatar os casos de remoção de árvores, detalhando a localização, o motivo da remoção (risco iminente, doenças, porte inadequado) por conjunto elétrico;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -4621,12 +4615,12 @@
    "dispositivo": "item 101, alínea d"
   },
   {
-   "id": "099a83865bf81dabbd048fec3379c70d",
+   "id": "6b7008a432726702b7e6b2d2ef1de88c",
    "titulo": "Programas de Substituição de Espécies: incluir dados sobre o número de substituição…",
    "titulo_origem": "regra",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
-   "unidade": "u0040",
+   "unidade": "u0042",
    "trecho": "e) Programas de Substituição de Espécies: incluir dados sobre o número de substituição de árvores inadequadas por espécies mais apropriadas por conjunto elétrico;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -4652,12 +4646,12 @@
    "dispositivo": "item 101, alínea e"
   },
   {
-   "id": "32423d77d6450e7448103216be93fefb",
+   "id": "454be477eb4091bb9998f6c103ace807",
    "titulo": "Aceiro de faixas de servidão: relatar o aceiro da vegetação realizado em faixas de…",
    "titulo_origem": "regra",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
-   "unidade": "u0041",
+   "unidade": "u0043",
    "trecho": "f) Aceiro de faixas de servidão: relatar o aceiro da vegetação realizado em faixas de servidão das redes e linhas de distribuição por conjunto elétrico; e",
    "situacao": "sem_prazo",
    "prazo": {
@@ -4683,12 +4677,12 @@
    "dispositivo": "item 101, alínea f"
   },
   {
-   "id": "535c3957cc7e65ed5521febb0f1effa3",
+   "id": "05e0278f1c459759834046bac7eeab00",
    "titulo": "Convênios Celebrados: informar os convênios celebrados com o Poder Público Estadual,…",
    "titulo_origem": "regra",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
-   "unidade": "u0042",
+   "unidade": "u0044",
    "trecho": "g) Convênios Celebrados: informar os convênios celebrados com o Poder Público Estadual, Distrital ou Municipal da sua área de atuação, bem como as tratativas com esses entes para a celebração de convênios.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -4714,12 +4708,12 @@
    "dispositivo": "item 101, alínea g"
   },
   {
-   "id": "341aadb7224c95a7a29aa10015b136b0",
+   "id": "37a4a87f473ed795a33c539382fd0046",
    "titulo": "Disponibilizar a versão mais atualizada de seu Relatório Anual de Gestão do Manejo…",
    "titulo_origem": "regra",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
-   "unidade": "u0043",
+   "unidade": "u0045",
    "trecho": "102. As distribuidoras devem disponibilizar a versão mais atualizada de seu Relatório Anual de Gestão do Manejo Vegetal em seu sítio eletrônico na Internet e nos postos de atendimento presencial, de forma acessível ao público, com uso de linguagem clara e adequada, conforme prazo constante do Módulo 6.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -4754,12 +4748,12 @@
    "dispositivo": "item 102"
   },
   {
-   "id": "caee932848850762bf4cea488e90f133",
+   "id": "6d709a49e7090af27447f7d81ec3bd9c",
    "titulo": "Manter registro detalhado durante o período de 05 anos de todas as solicitações…",
    "titulo_origem": "regra",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
-   "unidade": "u0045",
+   "unidade": "u0047",
    "trecho": "104. As distribuidoras devem manter registro detalhado durante o período de 05 anos de todas as solicitações relacionadas ao serviço de manejo da vegetação que ofereça risco à segurança das redes elétricas e à continuidade do fornecimento de energia elétrica, incluídas tanto as solicitações realizadas pelo Poder Público Municipal quanto aquelas registradas pelas próprias distribuidoras e enviadas ao Poder Público Municipal, devendo o compartilhamento de informações estar em conformidade com as disposições da Lei Geral de Proteção de Dados (LGPD).",
    "situacao": "sem_prazo",
    "prazo": {
@@ -4790,12 +4784,12 @@
    "dispositivo": "item 104"
   },
   {
-   "id": "1239cb09536a0eb49ad5e5adf5a7de3c",
+   "id": "d95be127d191284eda1393ee0e4f9856",
    "titulo": "Comunicar aos consumidores, por meio dos canais disponíveis, a provável causa da…",
    "titulo_origem": "regra",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
-   "unidade": "u0048",
+   "unidade": "u0050",
    "trecho": "105. As distribuidoras devem comunicar aos consumidores, por meio dos canais disponíveis, a provável causa da interrupção, a área afetada e o tempo previsto para a normalização do fornecimento em até 15 (quinze) minutos após o conhecimento da causa da interrupção. Independentemente do momento em que a causa for identificada, a comunicação contendo essas informações deve ser realizada em até 1 (uma) hora após o reconhecimento da ocorrência da interrupção no fornecimento de energia elétrica.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -4821,12 +4815,12 @@
    "dispositivo": "item 105"
   },
   {
-   "id": "d77893b85a4b980caa8f834f6743637d",
+   "id": "1b506dcf3ec9a1c5114043a2680f1bcb",
    "titulo": "Disponibilizar em sítio eletrônico, com atualização a cada 30 minutos, o número…",
    "titulo_origem": "regra",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
-   "unidade": "u0049",
+   "unidade": "u0051",
    "trecho": "106. As distribuidoras de energia devem disponibilizar em sítio eletrônico, com atualização a cada 30 minutos, o número total de unidades consumidoras afetadas por interrupções, discriminado em mapa por bairro, no mínimo.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -4857,12 +4851,12 @@
    "dispositivo": "item 106"
   },
   {
-   "id": "92ddfacea80224bbcc6a859d305fd8d5",
+   "id": "36abeb8d534f73b4c5b64cb19a490974",
    "titulo": "Alternativamente, podem oferecer uma visualização interativa da rede elétrica, com…",
    "titulo_origem": "regra",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
-   "unidade": "u0049",
+   "unidade": "u0051",
    "trecho": "Alternativamente, podem oferecer uma visualização interativa da rede elétrica, com mapa de arruamento, que permita aos consumidores identificarem a extensão e a duração das interrupções diretamente no mapa.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -4883,12 +4877,12 @@
    "dispositivo": "item 106"
   },
   {
-   "id": "1c3f5a11be56b57ff8e2f7a91bdd0b38",
+   "id": "1f5fa75d0709f8a14e6c2bb8e247feb9",
    "titulo": "Ser apresentado por tempo de interrupção, com as seguintes faixas de duração",
    "titulo_origem": "regra",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
-   "unidade": "u0049",
+   "unidade": "u0051",
    "trecho": "Além disso, o número total de unidades consumidoras afetadas deve ser apresentado por tempo de interrupção, com as seguintes faixas de duração:",
    "situacao": "sem_prazo",
    "prazo": {
@@ -4914,12 +4908,12 @@
    "dispositivo": "item 106"
   },
   {
-   "id": "85fa9162298b8537cb8a932c1eeca9fe",
+   "id": "3d2429b0fc08baceb743b6a41ba0cf32",
    "titulo": "Número da ocorrência",
    "titulo_origem": "regra",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
-   "unidade": "u0051",
+   "unidade": "u0053",
    "trecho": "a) Número da ocorrência;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -4950,12 +4944,12 @@
    "dispositivo": "item 107, alínea a"
   },
   {
-   "id": "7a0540e5ef5051aaf70e77c202745e61",
+   "id": "06adc0cb04a87636c507dda655017c8f",
    "titulo": "Município/bairro da ocorrência aberta",
    "titulo_origem": "regra",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
-   "unidade": "u0052",
+   "unidade": "u0054",
    "trecho": "b) Município/bairro da ocorrência aberta;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -4986,12 +4980,12 @@
    "dispositivo": "item 107, alínea b"
   },
   {
-   "id": "3d1a4dd79c4d0fd61ee54cb97c374020",
+   "id": "2cfc110af4fc34419dabc402bb09ae49",
    "titulo": "Data e hora de início da ocorrência aberta",
    "titulo_origem": "regra",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
-   "unidade": "u0053",
+   "unidade": "u0055",
    "trecho": "c) Data e hora de início da ocorrência aberta;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -5022,12 +5016,12 @@
    "dispositivo": "item 107, alínea c"
   },
   {
-   "id": "6af320b0dc36cffecd821dd85337b577",
+   "id": "3bf5a31a382f1b622088b8a6513b1815",
    "titulo": "Tipo de ocorrência aberta (programada e não programada)",
    "titulo_origem": "regra",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
-   "unidade": "u0054",
+   "unidade": "u0056",
    "trecho": "d) Tipo de ocorrência aberta (programada e não programada);",
    "situacao": "sem_prazo",
    "prazo": {
@@ -5058,12 +5052,12 @@
    "dispositivo": "item 107, alínea d"
   },
   {
-   "id": "fe2aceb6b92ec14cfe078c59bcaa9855",
+   "id": "647ac653d9cbce19766d2efc5947def1",
    "titulo": "Sinalização do status da ocorrência aberta (Em preparação/Em Deslocamento/Em Execução)",
    "titulo_origem": "regra",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
-   "unidade": "u0055",
+   "unidade": "u0057",
    "trecho": "e) Sinalização do status da ocorrência aberta (Em preparação/Em Deslocamento/Em Execução);",
    "situacao": "sem_prazo",
    "prazo": {
@@ -5094,12 +5088,12 @@
    "dispositivo": "item 107, alínea e"
   },
   {
-   "id": "e19ef08cc6db2844b21f7ce9afb34f3a",
+   "id": "ccbcb620d4a8b105a1f04702da45a409",
    "titulo": "Quantidade de unidades consumidoras interrompidas da ocorrência aberta e o total da…",
    "titulo_origem": "regra",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
-   "unidade": "u0056",
+   "unidade": "u0058",
    "trecho": "f) Quantidade de unidades consumidoras interrompidas da ocorrência aberta e o total da área de atuação;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -5130,12 +5124,12 @@
    "dispositivo": "item 107, alínea f"
   },
   {
-   "id": "21ce7376819b75e46fbcdc67b28eb3d6",
+   "id": "f6b68a2422ef7d286413b5fd6f6ad7e2",
    "titulo": "Duração da ocorrência (hh:mm)",
    "titulo_origem": "regra",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
-   "unidade": "u0057",
+   "unidade": "u0059",
    "trecho": "g) Duração da ocorrência (hh:mm);",
    "situacao": "sem_prazo",
    "prazo": {
@@ -5166,12 +5160,12 @@
    "dispositivo": "item 107, alínea g"
   },
   {
-   "id": "978ee9b91ea554dcc5c955cc5827740d",
+   "id": "c38b3b0d0e686b95b5dffba414d03ce1",
    "titulo": "Consumidor Hora Interrompido (CHI) da ocorrência aberta e o total da área de atuação",
    "titulo_origem": "regra",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
-   "unidade": "u0058",
+   "unidade": "u0060",
    "trecho": "h) Consumidor Hora Interrompido (CHI) da ocorrência aberta e o total da área de atuação;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -5202,12 +5196,12 @@
    "dispositivo": "item 107, alínea h"
   },
   {
-   "id": "17fd5d6b9e7f8adf26a327435e0718e5",
+   "id": "aeb629dd6395be0b7f98559188438937",
    "titulo": "Quantidade de ocorrências abertas segregadas por município e o total na área de atuação",
    "titulo_origem": "regra",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
-   "unidade": "u0059",
+   "unidade": "u0061",
    "trecho": "i) Quantidade de ocorrências abertas segregadas por município e o total na área de atuação;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -5238,12 +5232,12 @@
    "dispositivo": "item 107, alínea i"
   },
   {
-   "id": "16176d578e94071bf60673f139da203b",
+   "id": "d494be3287110ce8ca22653211323875",
    "titulo": "Quantidade de equipes em atividade, segregadas por município e o total na área de…",
    "titulo_origem": "regra",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
-   "unidade": "u0060",
+   "unidade": "u0062",
    "trecho": "j) Quantidade de equipes em atividade, segregadas por município e o total na área de atuação; e",
    "situacao": "sem_prazo",
    "prazo": {
@@ -5274,12 +5268,12 @@
    "dispositivo": "item 107, alínea j"
   },
   {
-   "id": "c8931689fff4b33e4e9876d2fa169b2c",
+   "id": "29979444ee54bf1fbacac8d0221e890d",
    "titulo": "Disponibilizar a versão mais atualizada de seu plano de comunicação em seu sítio…",
    "titulo_origem": "regra",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
-   "unidade": "u0062",
+   "unidade": "u0064",
    "trecho": "108. As distribuidoras devem disponibilizar a versão mais atualizada de seu plano de comunicação em seu sítio eletrônico na Internet e nos postos de atendimento presencial, de forma acessível ao público, com uso de linguagem clara e adequada. Informações Detalhadas",
    "situacao": "sem_prazo",
    "prazo": {
@@ -5318,12 +5312,12 @@
    "dispositivo": "item 108"
   },
   {
-   "id": "bc93380e650c027ddc7bf8678ded17c2",
+   "id": "aa1a99f772767fcd210dc0693a8e4ea5",
    "titulo": "Motivo da Interrupção: informação sobre a causa da falha",
    "titulo_origem": "regra",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
-   "unidade": "u0064",
+   "unidade": "u0066",
    "trecho": "a) Motivo da Interrupção: informação sobre a causa da falha, conforme “ANEXO 8.C: Lista de fatos geradores para classificação de interrupções do fornecimento de energia elétrica” do Módulo 8 (se disponível);",
    "situacao": "sem_prazo",
    "prazo": {
@@ -5349,12 +5343,12 @@
    "dispositivo": "item 109, alínea a"
   },
   {
-   "id": "e111576ece7cf5aa3a93208f43ddde02",
+   "id": "004fdbdc8ddc98e1f87bf357c052940f",
    "titulo": "Área Afetada: delimitação geográfica da interrupção",
    "titulo_origem": "regra",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
-   "unidade": "u0065",
+   "unidade": "u0067",
    "trecho": "b) Área Afetada: delimitação geográfica da interrupção;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -5380,12 +5374,12 @@
    "dispositivo": "item 109, alínea b"
   },
   {
-   "id": "ee0612afab1c0732c6fc4de0759236b6",
+   "id": "75876c711cbd8f2aea712c1d103b5452",
    "titulo": "Unidades Consumidoras Impactadas: Número de unidades consumidoras afetadas; e",
    "titulo_origem": "regra",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
-   "unidade": "u0066",
+   "unidade": "u0068",
    "trecho": "c) Unidades Consumidoras Impactadas: Número de unidades consumidoras afetadas; e",
    "situacao": "sem_prazo",
    "prazo": {
@@ -5411,12 +5405,12 @@
    "dispositivo": "item 109, alínea c"
   },
   {
-   "id": "ff8f91917676def1c9155cb45f7d73e3",
+   "id": "22ff87c9e59069bd742440093c2cbfc4",
    "titulo": "Previsão de Restabelecimento: estimativa de retorno do fornecimento, com base na…",
    "titulo_origem": "regra",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
-   "unidade": "u0067",
+   "unidade": "u0069",
    "trecho": "d) Previsão de Restabelecimento: estimativa de retorno do fornecimento, com base na melhor informação disponível. Canais de Comunicação",
    "situacao": "sem_prazo",
    "prazo": {
@@ -5442,12 +5436,12 @@
    "dispositivo": "item 109, alínea d"
   },
   {
-   "id": "d6ee90df6525d096e7305b667d33b8c1",
+   "id": "8b2ff2a86b0df7111c3e9178e9acd61e",
    "titulo": "Ser realizada, obrigatoriamente, por meio de SMS e aplicativos de mensagens, com…",
    "titulo_origem": "regra",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
-   "unidade": "u0068",
+   "unidade": "u0070",
    "trecho": "110. A comunicação de que trata o item 105 deve ser realizada, obrigatoriamente, por meio de SMS e aplicativos de mensagens, com envio de mensagens automáticas aos consumidores afetados.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -5478,12 +5472,12 @@
    "dispositivo": "item 110"
   },
   {
-   "id": "d5925571df7c70284dbb3f6623620f51",
+   "id": "941039a62d97c990409780fe2441e7b5",
    "titulo": "Aplicativos e sítio eletrônico na internet: com atualização em tempo real em…",
    "titulo_origem": "regra",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
-   "unidade": "u0069",
+   "unidade": "u0071",
    "trecho": "a) Aplicativos e sítio eletrônico na internet: com atualização em tempo real em plataformas digitais mantidas pela distribuidora;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -5513,12 +5507,12 @@
    "dispositivo": "item 110, alínea a"
   },
   {
-   "id": "c61fbc2a5f1b04aad489858fd1ec10a3",
+   "id": "175e8aa2b7ba1c4d7266e8823f2aee5e",
    "titulo": "Redes Sociais: com divulgação de informações via contas oficiais da distribuidora",
    "titulo_origem": "regra",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
-   "unidade": "u0070",
+   "unidade": "u0072",
    "trecho": "b) Redes Sociais: com divulgação de informações via contas oficiais da distribuidora.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -5544,12 +5538,12 @@
    "dispositivo": "item 110, alínea b"
   },
   {
-   "id": "5d4b2e13e6387ecd55ddea2f2cab32fb",
+   "id": "8adaeefc53e42445934db91eed82efb4",
    "titulo": "O consumidor e demais usuários podem, a qualquer tempo, solicitar a suspensão do…",
    "titulo_origem": "regra",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
-   "unidade": "u0071",
+   "unidade": "u0073",
    "trecho": "111. O consumidor e demais usuários podem, a qualquer tempo, solicitar a suspensão do envio da comunicação por meio de SMS e aplicativos de mensagens. Atualizações Periódicas",
    "situacao": "sem_prazo",
    "prazo": {
@@ -5575,12 +5569,12 @@
    "dispositivo": "item 111"
   },
   {
-   "id": "8d85586b4af8db239e9b183c35800445",
+   "id": "f64a8bfb49d9ef9d7db41dc2ab3d826e",
    "titulo": "Atualizar as informações referentes à interrupção de que trata o item 105, incluindo…",
    "titulo_origem": "regra",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
-   "unidade": "u0072",
+   "unidade": "u0074",
    "trecho": "112. A distribuidora deve atualizar as informações referentes à interrupção de que trata o item 105, incluindo alterações no tempo estimado de restabelecimento e outras informações relevantes para o consumidor.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -5606,12 +5600,12 @@
    "dispositivo": "item 112"
   },
   {
-   "id": "2b77cdfd44dc6e7bcfd6ecb43fca8225",
+   "id": "890bbf12812923a6454e550c4a5efddb",
    "titulo": "Disponibilizar uma API (Application Programming Interface) ou outra solução…",
    "titulo_origem": "regra",
    "tema": "poder_publico",
    "motivo_tema": "Seção 4.9 da norma",
-   "unidade": "u0075",
+   "unidade": "u0077",
    "trecho": "113. As distribuidoras de energia devem disponibilizar uma API (Application Programming Interface) ou outra solução tecnológica segura, conforme instrução técnica emitida pela ANEEL, permitindo que a ANEEL extraia os dados de interrupção do fornecimento diretamente da fonte, com observância aos critérios de segurança cibernética, disponibilidade e integridade de sistemas.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -5637,12 +5631,12 @@
    "dispositivo": "item 113"
   },
   {
-   "id": "55d3953207672aa65729d83f53fe6ee4",
+   "id": "e9bcf9594330f550e38ef39154bcc12d",
    "titulo": "Facilitar a coordenação entre as distribuidoras e os órgãos governamentais,…",
    "titulo_origem": "regra",
    "tema": "poder_publico",
    "motivo_tema": "Seção 4.9 da norma",
-   "unidade": "u0078",
+   "unidade": "u0080",
    "trecho": "116. A comunicação deve facilitar a coordenação entre as distribuidoras e os órgãos governamentais, permitindo uma resposta integrada a crises e eventos adversos. Critérios de Comunicação",
    "situacao": "sem_prazo",
    "prazo": {
@@ -5668,12 +5662,12 @@
    "dispositivo": "item 116"
   },
   {
-   "id": "43a8764f6c3f8d4af4b4325ac5b1aa0b",
+   "id": "d1cb8e2f7c2faccce4eba62a5cae4bdf",
    "titulo": "Notificar o Poder Público imediatamente após a identificação de um evento crítico,…",
    "titulo_origem": "regra",
    "tema": "poder_publico",
    "motivo_tema": "Seção 4.9 da norma",
-   "unidade": "u0079",
+   "unidade": "u0081",
    "trecho": "117. As distribuidoras devem notificar o Poder Público imediatamente após a identificação de um evento crítico, utilizando canais de comunicação oficiais previamente estabelecidos.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -5699,12 +5693,12 @@
    "dispositivo": "item 117"
   },
   {
-   "id": "a1d3c68d3aedbf743b37e82484a2b5c5",
+   "id": "770c5ebe28843902df1fde8a47f5880f",
    "titulo": "Estabelecer protocolos de alertas para notificar rapidamente o Poder Público",
    "titulo_origem": "regra",
    "tema": "poder_publico",
    "motivo_tema": "Seção 4.9 da norma",
-   "unidade": "u0081",
+   "unidade": "u0083",
    "trecho": "119. As distribuidoras devem estabelecer protocolos de alertas para notificar rapidamente o Poder Público, conforme previsto no item 115, sobre interrupções de energia e situações que demandem apoio imediato para a atuação em cenários de emergência.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -5730,12 +5724,12 @@
    "dispositivo": "item 119"
   },
   {
-   "id": "e75044237994d3a14b94f68a086c5844",
+   "id": "6ec4191ea7cd2734e9153f9e4dcfe6f0",
    "titulo": "Colaboração e Solidariedade: As distribuidoras ou transmissoras podem promover o…",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0089",
+   "unidade": "u0091",
    "trecho": "125. Colaboração e Solidariedade: As distribuidoras ou transmissoras podem promover o auxílio à distribuidora, somente em situações de crise, visando a minimização dos impactos e a retomada do fornecimento de energia no menor tempo possível.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -5756,12 +5750,12 @@
    "dispositivo": "item 125"
   },
   {
-   "id": "2c9deb25f41fa9134d95413482d82d88",
+   "id": "682fcd4022d7b599caee64b679d2f81a",
    "titulo": "Não comprometer a segurança das operações das distribuidoras envolvidas",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0090",
+   "unidade": "u0092",
    "trecho": "126. Segurança Operacional: A Cessão Emergencial de recursos não deve comprometer a segurança das operações das distribuidoras envolvidas.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -5787,12 +5781,12 @@
    "dispositivo": "item 126"
   },
   {
-   "id": "323412d526864de6181fe23b9c1eef77",
+   "id": "3a39e52d70d80532c29a8bde03469745",
    "titulo": "Ser limitada à necessidade demonstrada pela situação de crise e proporcional à…",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0091",
+   "unidade": "u0093",
    "trecho": "127. Proporcionalidade e Necessidade: A Cessão Emergencial deve ser limitada à necessidade demonstrada pela situação de crise e proporcional à capacidade operacional disponível de cada distribuidora.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -5813,12 +5807,12 @@
    "dispositivo": "item 127"
   },
   {
-   "id": "54e57ac7a3b0102f6321f4e17863f238",
+   "id": "b6f8747cb984ac11e302b5df13852cb2",
    "titulo": "Evidenciar a proporção de cada distribuidora ou transmissora cedente. Situações…",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0093",
+   "unidade": "u0095",
    "trecho": "129. Individualidade das concessionárias: todas as informações, documentações, arquivos e registros contábeis relacionados à Cessão Emergencial deverão evidenciar a proporção de cada distribuidora ou transmissora cedente. Situações Aplicáveis",
    "situacao": "sem_prazo",
    "prazo": {
@@ -5849,12 +5843,12 @@
    "dispositivo": "item 129"
   },
   {
-   "id": "93978531c7adfb374bfeaad0a51f4cb4",
+   "id": "190d87fb5a42eb3164396e1cede97d6a",
    "titulo": "A Cessão Emergencial de recursos somente poderá ser realizada em situações de crise…",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0094",
+   "unidade": "u0096",
    "trecho": "130. A Cessão Emergencial de recursos somente poderá ser realizada em situações de crise em que seja atingido o nível de severidade mais elevado, objetivamente definido no Plano de Contingência.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -5875,12 +5869,12 @@
    "dispositivo": "item 130"
   },
   {
-   "id": "3f933bdb37257156edef368f68d4a7d8",
+   "id": "1b3786c19aa15c0da083e4f2691f7db2",
    "titulo": "As situações de crise em que a Cessão Emergencial poderá ser solicitada",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0111",
+   "unidade": "u0113",
    "trecho": "a) As situações de crise em que a Cessão Emergencial poderá ser solicitada;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -5901,12 +5895,12 @@
    "dispositivo": "item 133, alínea a"
   },
   {
-   "id": "b54c69d3fab7aa15c217398582d23dd0",
+   "id": "c19549165031c18b48dca4c97e6740d2",
    "titulo": "O número e as características das equipes (leves, pesadas, linha viva) que poderão…",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0112",
+   "unidade": "u0114",
    "trecho": "b) O número e as características das equipes (leves, pesadas, linha viva) que poderão ser cedidas;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -5927,12 +5921,12 @@
    "dispositivo": "item 133, alínea b"
   },
   {
-   "id": "3c65d40b4878473da642456c776dcbb3",
+   "id": "4ff89614e49355334b4cf26180822cdb",
    "titulo": "A previsão de duração da Cessão Emergencial",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0113",
+   "unidade": "u0115",
    "trecho": "c) A previsão de duração da Cessão Emergencial;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -5958,12 +5952,12 @@
    "dispositivo": "item 133, alínea c"
   },
   {
-   "id": "c417b9c5ec13fe55f5aa7191a1fa40dd",
+   "id": "16ec002155d074e8f990db89e9bd4b8a",
    "titulo": "A responsabilidade pelas despesas operacionais",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0114",
+   "unidade": "u0116",
    "trecho": "d) A responsabilidade pelas despesas operacionais;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -5989,12 +5983,12 @@
    "dispositivo": "item 133, alínea d"
   },
   {
-   "id": "df753029777a885d038b2b323c02d756",
+   "id": "6a493f245b7857a8a56794250e2b17be",
    "titulo": "Previsão de Cessão Emergencial, mantendo-se neutralidade das partes em relação a…",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0115",
+   "unidade": "u0117",
    "trecho": "e) Previsão de Cessão Emergencial, mantendo-se neutralidade das partes em relação a recursos humanos, equipamentos e materiais;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -6020,12 +6014,12 @@
    "dispositivo": "item 133, alínea e"
   },
   {
-   "id": "7c56a77f581fda61ba7c396e55b32774",
+   "id": "05e04493b5df9b6444ffcd98e2f88bc2",
    "titulo": "Realização de testes regulares de Cessão Emergencial, simulando cenários de crise…",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0116",
+   "unidade": "u0118",
    "trecho": "f) Realização de testes regulares de Cessão Emergencial, simulando cenários de crise para validar a eficácia do processo e identificar melhorias operacionais no intercâmbio de recursos humanos, equipamentos e materiais; e",
    "situacao": "sem_prazo",
    "prazo": {
@@ -6056,12 +6050,12 @@
    "dispositivo": "item 133, alínea f"
   },
   {
-   "id": "85e9ac9e9b5db8f54af51841e1e2b1dc",
+   "id": "b24a992ded3c9e578e7d1ddb173b1044",
    "titulo": "Procedimentos claros para a integração de equipes externas, com definição de…",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0117",
+   "unidade": "u0119",
    "trecho": "g) Procedimentos claros para a integração de equipes externas, com definição de treinamentos, capacitações e preparação prévia adequada para garantir que todos os envolvidos estejam alinhados com as práticas de segurança e operação da distribuidora requisitante.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -6087,12 +6081,12 @@
    "dispositivo": "item 133, alínea g"
   },
   {
-   "id": "a4dc39d62650b980f94653b6f3ab46ae",
+   "id": "650dbbf6b6d610b6f5b8489d682fcd1a",
    "titulo": "Reembolso de despesas com horas de trabalho dos recursos humanos, proporcionais à…",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0119",
+   "unidade": "u0121",
    "trecho": "a) Reembolso de despesas com horas de trabalho dos recursos humanos, proporcionais à remuneração, cargos e encargos, conforme folha de pagamento da cedente;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -6118,12 +6112,12 @@
    "dispositivo": "item 134, alínea a"
   },
   {
-   "id": "386b19af6b8d50c89fa6303a0419d2a0",
+   "id": "f3eaad2117bd0f0616b1ad629a2dd1c7",
    "titulo": "Reembolso de despesas com equipamentos e materiais cedidos, proporcionais ao valor…",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0120",
+   "unidade": "u0122",
    "trecho": "b) Reembolso de despesas com equipamentos e materiais cedidos, proporcionais ao valor original para a cedente;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -6149,12 +6143,12 @@
    "dispositivo": "item 134, alínea b"
   },
   {
-   "id": "af092ac477748b18e87ff40e3d1117bf",
+   "id": "136db198553c5627de6bd60f7ca2b93e",
    "titulo": "Seguros e indenizações em caso de acidentes durante a Cessão Emergencial; e",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0121",
+   "unidade": "u0123",
    "trecho": "c) Seguros e indenizações em caso de acidentes durante a Cessão Emergencial; e",
    "situacao": "sem_prazo",
    "prazo": {
@@ -6180,12 +6174,12 @@
    "dispositivo": "item 134, alínea c"
   },
   {
-   "id": "0134e6ad7b4d33497282de5c53fc8ce0",
+   "id": "73024bb7d4f134c15f7db53a34c6a0ea",
    "titulo": "Neutralidade dos valores para o reembolso à(s) cedente(s) pela requisitante.…",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0122",
+   "unidade": "u0124",
    "trecho": "d) Neutralidade dos valores para o reembolso à(s) cedente(s) pela requisitante. Critérios de Cessão de Equipes",
    "situacao": "sem_prazo",
    "prazo": {
@@ -6211,12 +6205,12 @@
    "dispositivo": "item 134, alínea d"
   },
   {
-   "id": "4a59339c8e6d12a471f0505d5a828004",
+   "id": "844d40df255fdf3dcb27f3a9dda4455f",
    "titulo": "Possuir capacitação e experiência compatíveis com as atividades a serem…",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0123",
+   "unidade": "u0125",
    "trecho": "135. As equipes cedidas devem possuir capacitação e experiência compatíveis com as atividades a serem desenvolvidas na distribuidora cedente.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -6242,12 +6236,12 @@
    "dispositivo": "item 135"
   },
   {
-   "id": "3cd29414ff31bfda6da020fc79291bee",
+   "id": "242ce5c21c26cd827d01117e9af42c81",
    "titulo": "Prover condições adequadas de trabalho, como alimentação, transporte, hospedagem e…",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0124",
+   "unidade": "u0126",
    "trecho": "136. A distribuidora cessionária deve prover condições adequadas de trabalho, como alimentação, transporte, hospedagem e segurança para as equipes objeto da Cessão Emergencial.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -6273,12 +6267,12 @@
    "dispositivo": "item 136"
   },
   {
-   "id": "e9d40947d6d5f65e27015ee6b4c8d7c1",
+   "id": "9b6fa141cecc4cf69c442b6651539213",
    "titulo": "Ser reembolsadas pela cessionária à cedente garantindo a neutralidade da operação,…",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
-   "unidade": "u0130",
+   "unidade": "u0132",
    "trecho": "c) As cessões emergenciais de recursos humanos, equipamentos e materiais entre distribuidoras e transmissoras e suas partes relacionadas devem ser reembolsadas pela cessionária à cedente garantindo a neutralidade da operação, não se tratando de rateio ou prestação de serviços, e preservando a individualidade das concessões.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -6304,12 +6298,12 @@
    "dispositivo": "item 139, alínea c"
   },
   {
-   "id": "32e840ecfa0f2c96f0fcc2909dc09c01",
+   "id": "9f30dec9149343f0606edca2583b0d9d",
    "titulo": "Ser estruturado de forma a permitir a verificação da sua continuidade e eficiência…",
    "titulo_origem": "regra",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0142",
+   "unidade": "u0144",
    "trecho": "g) Verificabilidade: o plano deve ser estruturado de forma a permitir a verificação da sua continuidade e eficiência de execução. Diretrizes",
    "situacao": "sem_prazo",
    "prazo": {
@@ -6340,12 +6334,12 @@
    "dispositivo": "item 142, alínea g"
   },
   {
-   "id": "5bc2969759dabc9cc2bf94e412231eb2",
+   "id": "3b503a328d5f1e82fbfaaf52c8cd0621",
    "titulo": "Incluir a localização, natureza do risco, frequência histórica de ocorrência e uma…",
    "titulo_origem": "regra",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0156",
+   "unidade": "u0158",
    "trecho": "a) Identificação e Análise de Riscos: Identificar os fatores de risco potenciais, tanto internos quanto externos, com o maior nível de detalhamento possível. A identificação deve incluir a localização, natureza do risco, frequência histórica de ocorrência e uma análise completa dos impactos potenciais associados a cada risco;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -6371,12 +6365,12 @@
    "dispositivo": "item 144, alínea a"
   },
   {
-   "id": "01ce77800a81e1777f12f994cb314dc3",
+   "id": "e5ab2c825238eb4f1f7c774a882d3d73",
    "titulo": "Ser feita com periodicidade máxima de um ano",
    "titulo_origem": "regra",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0165",
+   "unidade": "u0167",
    "trecho": "145. A realização de simulados ou disponibilização de treinamentos atualizados deve ser feita com periodicidade máxima de um ano.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -6402,12 +6396,12 @@
    "dispositivo": "item 145"
   },
   {
-   "id": "f0dad194029c46c56ec39601c36fb230",
+   "id": "a67a82b58717bccd0a78784f0787c0ce",
    "titulo": "Ser fornecida na mesma periodicidade máxima para os agentes designados pelo Poder…",
    "titulo_origem": "regra",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0167",
+   "unidade": "u0169",
    "trecho": "b) A disponibilização de treinamentos atualizados, também deve ser fornecida na mesma periodicidade máxima para os agentes designados pelo Poder Público.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -6433,12 +6427,12 @@
    "dispositivo": "item 145, alínea b"
   },
   {
-   "id": "1eb98895389fb112ff1e14951397560e",
+   "id": "820a331d4fd3b5e449f09719235af654",
    "titulo": "Enviar às áreas de fiscalização da ANEEL relatório contendo discriminação das…",
    "titulo_origem": "regra",
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
-   "unidade": "u0173",
+   "unidade": "u0176",
    "trecho": "23-A. A distribuidora deve enviar às áreas de fiscalização da ANEEL relatório contendo discriminação das despesas ou custos incorridos a serem reembolsados à cedente relativos à Cessão Emergencial de recursos humanos, equipamentos e materiais utilizados, além de outras informações pertinentes.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -6469,12 +6463,12 @@
    "dispositivo": "item 23-A"
   },
   {
-   "id": "25617585cb6e2adf03fc49b4b4e81d7f",
+   "id": "53c721f59a2f0fee69d44f12625c0a62",
    "titulo": "Comunicar ao consumidor, após o reconhecimento da ocorrência de interrupções no…",
    "titulo_origem": "regra",
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
-   "unidade": "u0175",
+   "unidade": "u0178",
    "trecho": "23-B. A distribuidora deve comunicar ao consumidor, após o reconhecimento da ocorrência de interrupções no fornecimento de energia elétrica, informações sobre o evento.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -6500,12 +6494,12 @@
    "dispositivo": "item 23-B"
   },
   {
-   "id": "e75c371ecf71dd342244ca25cabc60a6",
+   "id": "1286cfb74655c484e2d5ebf9a7e92f79",
    "titulo": "Disponibilizar aos consumidores o número total de unidades consumidoras afetadas por…",
    "titulo_origem": "regra",
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
-   "unidade": "u0177",
+   "unidade": "u0180",
    "trecho": "23-C. A distribuidora deve disponibilizar aos consumidores o número total de unidades consumidoras afetadas por interrupções.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -6531,12 +6525,12 @@
    "dispositivo": "item 23-C"
   },
   {
-   "id": "1598da40fdc9ca3ebb44c5a6514429ec",
+   "id": "e4627fe8c7175cd51d0805beb822448e",
    "titulo": "Disponibilizar em sítio eletrônico informações relacionadas às ocorrências abertas",
    "titulo_origem": "regra",
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
-   "unidade": "u0179",
+   "unidade": "u0182",
    "trecho": "23-D. A distribuidora deve disponibilizar em sítio eletrônico informações relacionadas às ocorrências abertas.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -6567,12 +6561,12 @@
    "dispositivo": "item 23-D"
   },
   {
-   "id": "8e29df693e0b8b0844170ce7c66881f4",
+   "id": "fc28b9c3e9b1216b1483e7771a106809",
    "titulo": "Disponibilizar em sítio eletrônico e nos postos de atendimento presencial, com uso…",
    "titulo_origem": "regra",
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
-   "unidade": "u0181",
+   "unidade": "u0184",
    "trecho": "23-E. A distribuidora deve disponibilizar em sítio eletrônico e nos postos de atendimento presencial, com uso de linguagem clara e adequada, a versão mais atualizada de seu Relatório Anual de Gestão do Manejo Vegetal.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -6607,7 +6601,7 @@
    "dispositivo": "item 23-E"
   },
   {
-   "id": "ff3fa60845d85ce13298438b4f587f57",
+   "id": "5e7a10c0b424c81a6378496118195283",
    "titulo": "Informar e manter, por até cinco anos, em seu sítio eletrônico, a qualidade na…",
    "titulo_origem": "regra",
    "tema": "consumidor",
@@ -6638,7 +6632,7 @@
    "dispositivo": null
   },
   {
-   "id": "ea72c03cb42d22a043ac96c6b3d34871",
+   "id": "cd40b60c66938ff49a39bb9772ffe517",
    "titulo": "Informar e manter, por até cinco anos, em seu sítio eletrônico, os indicadores de…",
    "titulo_origem": "regra",
    "tema": "consumidor",
@@ -6669,12 +6663,12 @@
    "dispositivo": null
   },
   {
-   "id": "2d0a828200cccdb9ffdf8aabf594f13c",
+   "id": "d11f4509c1774ea8901c36fbf91071a5",
    "titulo": "Disponibilizar em sítio eletrônico e nos postos de atendimento presencial, com uso…",
    "titulo_origem": "regra",
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
-   "unidade": "u0187",
+   "unidade": "u0190",
    "trecho": "23-I. A distribuidora deve disponibilizar em sítio eletrônico e nos postos de atendimento presencial, com uso de linguagem clara e adequada, o seu Plano de Comunicação.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -6709,12 +6703,12 @@
    "dispositivo": "item 23-I"
   },
   {
-   "id": "c40eb8c465eed7626635a0efe95edf06",
+   "id": "3b7b3f3f558a570beecfb1f4991d1ca4",
    "titulo": "Disponibilizar à ANEEL uma API (Application Programming Interface) que possibilite a…",
    "titulo_origem": "regra",
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
-   "unidade": "u0191",
+   "unidade": "u0194",
    "trecho": "23-K. A distribuidora deve disponibilizar à ANEEL uma API (Application Programming Interface) que possibilite a consulta de dados de interrupção do fornecimento diretamente dos sistemas das distribuidoras.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -6745,12 +6739,12 @@
    "dispositivo": "item 23-K"
   },
   {
-   "id": "8efbf4d01019d3018c17c28095951959",
+   "id": "e102b8630e36ba107c8801808ddb8010",
    "titulo": "Notificar o Poder Público imediatamente após a identificação de um evento crítico,…",
    "titulo_origem": "regra",
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
-   "unidade": "u0193",
+   "unidade": "u0196",
    "trecho": "23-L. A distribuidora deve notificar o Poder Público imediatamente após a identificação de um evento crítico, utilizando canais de comunicação oficiais previamente estabelecidos.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -6776,12 +6770,12 @@
    "dispositivo": "item 23-L"
   },
   {
-   "id": "939a9d00cd3f1ba354ee417f3aade773",
+   "id": "00a6fd18ed5043a979ffbdca0a8090d4",
    "titulo": "Não ser consideradas as interrupções previstas no item 178, com exceção da alínea “c”",
    "titulo_origem": "regra",
    "tema": "dise",
    "motivo_tema": "Seção IV da norma",
-   "unidade": "u0217",
+   "unidade": "u0225",
    "trecho": "180-A. Na apuração do indicador DISE não devem ser consideradas as interrupções previstas no item 178, com exceção da alínea “c”.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -6807,13 +6801,13 @@
    "dispositivo": "item 180-A"
   },
   {
-   "id": "48f99c28acdc6078430111817d1584f5",
+   "id": "7fa38c743fb9592347c938a1d8babcdb",
    "titulo": "Efetuar uma compensação ao consumidor ou central geradora de média ou baixa tensão…",
    "titulo_origem": "regra",
    "tema": "dise",
    "motivo_tema": "Seção IV da norma",
-   "unidade": "u0220",
-   "trecho": "220-A. A distribuidora deve efetuar uma compensação ao consumidor ou central geradora de média ou baixa tensão para cada interrupção ocorrida em Situação de Emergência que superar o limite do indicador DISE.”(NR) “225. .............................................................................................. ..............................................................................................",
+   "unidade": "u0231",
+   "trecho": "220-A. A distribuidora deve efetuar uma compensação ao consumidor ou central geradora de média ou baixa tensão para cada interrupção ocorrida em Situação de Emergência que superar o limite do indicador DISE.”(NR)",
    "situacao": "sem_prazo",
    "prazo": {
     "data": null,
@@ -6824,12 +6818,7 @@
    "calculo": "verificar",
    "posicao_fila": null,
    "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 11, II",
-    "grupo": "III",
-    "justificativa": "A obrigação determina que a distribuidora deve efetuar compensação ao consumidor ou central geradora por interrupções em Situação de Emergência que excedam o limite do indicador DISE; o dispositivo Art. 11, II tipifica deixar de pagar indenizações, compensações ou ressarcimentos nos prazos ou condições estabelecidos, descrevendo exatamente a conduta de não efetuar compensações devidas.",
-    "duvida": null
-   },
+   "ia": null,
    "grupo": null,
    "faixa": null,
    "premissas": [],
@@ -6843,48 +6832,12 @@
    "dispositivo": "item 220-A"
   },
   {
-   "id": "f4d94b5b68eadf1558c3d572447ea3e3",
-   "titulo": "Para o DISE: 𝑉𝑅𝐶",
-   "titulo_origem": "regra",
-   "tema": "dise",
-   "motivo_tema": "Seção IV da norma",
-   "unidade": "u0220",
-   "trecho": "220-A. A distribuidora deve efetuar uma compensação ao consumidor ou central geradora de média ou baixa tensão para cada interrupção ocorrida em Situação de Emergência que superar o limite do indicador DISE.”(NR) “225. .............................................................................................. ..............................................................................................",
-   "situacao": "sem_prazo",
-   "prazo": {
-    "data": null,
-    "texto": "Sem prazo identificado no texto",
-    "dias": null,
-    "provisorio": false
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 11, II",
-    "grupo": "III",
-    "justificativa": "A obrigação exige que \"a distribuidora deve efetuar uma compensação ao consumidor ... para cada interrupção ... que superar o limite do indicador DISE\", o que corresponde diretamente a \"deixar de ... pagar indenizações, compensações, ressarcimentos ... nos prazos ou nas condições estabelecidas\" previsto no Art. 11, II.",
-    "duvida": null
-   },
-   "grupo": null,
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [
-    {
-     "id": "compensacao",
-     "trecho": "220-A. A distribuidora deve efetuar uma compensação ao consumidor ou central geradora de média ou baixa tensã"
-    }
-   ],
-   "dispositivo": "item 220-A"
-  },
-  {
-   "id": "33d98844e39e3f7820bf794d502ac3d2",
+   "id": "3c9a78edd263843716b2723f179a4540",
    "titulo": "Ser estabelecidas nos respectivos contratos, obedecendo aos critérios deste Módulo",
    "titulo_origem": "regra",
    "tema": "dise",
    "motivo_tema": "Seção IV da norma",
-   "unidade": "u0235",
+   "unidade": "u0247",
    "trecho": "226. Para unidades consumidoras com CCD e distribuidoras conectadas ao sistema de distribuição, as compensações associadas às violações dos limites de continuidade DIC, FIC, DMIC, DICRI e DISE por ponto de conexão devem ser estabelecidas nos respectivos contratos, obedecendo aos critérios deste Módulo.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -6919,12 +6872,12 @@
    "dispositivo": "item 226"
   },
   {
-   "id": "8a4a6823cfab3a207ba82c6c2085481e",
+   "id": "a5aa4d5918875c8e87f0dc8f7fb3b679",
    "titulo": "Ser realizada sem prejuízo das compensações por violação dos indicadores DIC, FIC e…",
    "titulo_origem": "regra",
    "tema": "dise",
    "motivo_tema": "Seção IV da norma",
-   "unidade": "u0237",
+   "unidade": "u0249",
    "trecho": "d) quando ocorrer violação dos indicadores DICRI ou DISE, a compensação deve ser realizada sem prejuízo das compensações por violação dos indicadores DIC, FIC e DMIC, podendo inclusive haver compensações referentes a mais de uma violação do limite dos indicadores DICRI e DISE no mesmo mês, hipótese em que deve ser paga a soma das compensações calculadas para cada violação.”(NR)",
    "situacao": "sem_prazo",
    "prazo": {
@@ -6955,12 +6908,12 @@
    "dispositivo": "item 227, alínea d"
   },
   {
-   "id": "f7bf564651287d54bde86511ad934d85",
+   "id": "5ef61d25ba8962271cecd05868848d2a",
    "titulo": "Estabelecer canais adicionais de comunicação exclusivos ao atendimento de órgão…",
    "titulo_origem": "regra",
    "tema": "poder_publico",
    "motivo_tema": "Seção VI da norma",
-   "unidade": "u0250",
+   "unidade": "u0261",
    "trecho": "Art. 371-A A distribuidora deve estabelecer canais adicionais de comunicação exclusivos ao atendimento de órgão central e representantes designados dos poderes públicos municipal, distrital e estadual.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -6986,12 +6939,12 @@
    "dispositivo": "Art. 371-A"
   },
   {
-   "id": "a697a205a0bb4fbd551d46328087d673",
+   "id": "c890a798d61ce878718d78f1f7e4e499",
    "titulo": "Atendimento telefônico",
    "titulo_origem": "regra",
    "tema": "poder_publico",
    "motivo_tema": "Seção VI da norma",
-   "unidade": "u0252",
+   "unidade": "u0263",
    "trecho": "I - atendimento telefônico;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -7017,12 +6970,12 @@
    "dispositivo": "Art. 371-A, § 1º, inciso I"
   },
   {
-   "id": "19af5c98409922c97eec964bc22bd807",
+   "id": "8c0a85323b157de9aeb45f30ffd50720",
    "titulo": "Atendimento presencial, com horário agendado; e",
    "titulo_origem": "regra",
    "tema": "poder_publico",
    "motivo_tema": "Seção VI da norma",
-   "unidade": "u0253",
+   "unidade": "u0264",
    "trecho": "II - atendimento presencial, com horário agendado; e",
    "situacao": "sem_prazo",
    "prazo": {
@@ -7048,12 +7001,12 @@
    "dispositivo": "Art. 371-A, § 1º, inciso II"
   },
   {
-   "id": "261ea4a756ca2fb7d7bc6a997999f8c6",
+   "id": "aaa41579838cde07ab666ff8d8ac2a5d",
    "titulo": "Canal de comunicação por texto (chat) com atendimento humano, durante horário comercial",
    "titulo_origem": "regra",
    "tema": "poder_publico",
    "motivo_tema": "Seção VI da norma",
-   "unidade": "u0254",
+   "unidade": "u0265",
    "trecho": "III - canal de comunicação por texto (chat) com atendimento humano, durante horário comercial.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -7079,12 +7032,12 @@
    "dispositivo": "Art. 371-A, § 1º, inciso III"
   },
   {
-   "id": "b76adce7fdd4b6c5f6e7ab5fd380e965",
+   "id": "a689cf1140edbd1a2ad02898372071a4",
    "titulo": "§ 2º Canais adicionais aos dispostos no §1º podem ser livremente pactuados entre a…",
    "titulo_origem": "regra",
    "tema": "poder_publico",
    "motivo_tema": "Seção VI da norma",
-   "unidade": "u0255",
+   "unidade": "u0266",
    "trecho": "§ 2º Canais adicionais aos dispostos no §1º podem ser livremente pactuados entre a distribuidora e os poderes públicos municipal, distrital e estadual.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -7105,12 +7058,12 @@
    "dispositivo": "Art. 371-A, § 2º"
   },
   {
-   "id": "f577be87a5f731509fc302e2742c0421",
+   "id": "be356e0824376fb2714caec8a81e0d1f",
    "titulo": "Designar um ou mais representantes institucionais para atendimento exclusivo dos…",
    "titulo_origem": "regra",
    "tema": "poder_publico",
    "motivo_tema": "Seção VI da norma",
-   "unidade": "u0256",
+   "unidade": "u0267",
    "trecho": "§ 3º A distribuidora deve designar um ou mais representantes institucionais para atendimento exclusivo dos poderes públicos municipal, distrital e estadual, garantindo comunicação direta e eficaz.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -7136,12 +7089,12 @@
    "dispositivo": "Art. 371-A, § 3º"
   },
   {
-   "id": "3b12ce80688ccca1a521fd6862839886",
+   "id": "874e93875e582ba0d26e9633cbcf09be",
    "titulo": "Agendar e realizar, sempre que solicitado pelos poderes públicos municipal,…",
    "titulo_origem": "regra",
    "tema": "poder_publico",
    "motivo_tema": "Seção VI da norma",
-   "unidade": "u0257",
+   "unidade": "u0268",
    "trecho": "§ 4º A distribuidora deve agendar e realizar, sempre que solicitado pelos poderes públicos municipal, distrital e estadual, reuniões via plataforma de videoconferência com os seus representantes institucionais.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -7167,12 +7120,12 @@
    "dispositivo": "Art. 371-A, § 4º"
   },
   {
-   "id": "0ed3da6c891e3aa8f49c5aebf992e72a",
+   "id": "d499e0b2f1749344008f49a460300431",
    "titulo": "Ter, no caso de urgência/emergência, disponibilidade ininterrupta durante 24 horas…",
    "titulo_origem": "regra",
    "tema": "poder_publico",
    "motivo_tema": "Seção VI da norma",
-   "unidade": "u0258",
+   "unidade": "u0269",
    "trecho": "§ 5º O atendimento telefônico exclusivo previsto no §1º deve ter, no caso de urgência/emergência, disponibilidade ininterrupta durante 24 horas por dia e 7 dias por semana, com atendimento humano durante todo o período de funcionamento.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -7198,12 +7151,12 @@
    "dispositivo": "Art. 371-A, § 5º"
   },
   {
-   "id": "6fa92c8577308350b6a002703a0f5d2b",
+   "id": "1949b7515e955aa0c7d19dd47943030e",
    "titulo": "Observar as disposições relacionadas ao atendimento previstas no Módulo 4 do PRODIST",
    "titulo_origem": "regra",
    "tema": "poder_publico",
    "motivo_tema": "Seção VI da norma",
-   "unidade": "u0259",
+   "unidade": "u0270",
    "trecho": "§ 6º No tratamento de interrupções emergenciais, a distribuidora deve observar as disposições relacionadas ao atendimento previstas no Módulo 4 do PRODIST.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -7229,12 +7182,12 @@
    "dispositivo": "Art. 371-A, § 6º"
   },
   {
-   "id": "3e921b43431d7427ab95337c6be5fa4a",
+   "id": "755e2fad1758b9b2c94f180d236b7b69",
    "titulo": "Entregar e manter atualizado junto aos poderes públicos municipal, distrital e…",
    "titulo_origem": "regra",
    "tema": "poder_publico",
    "motivo_tema": "Seção VI da norma",
-   "unidade": "u0260",
+   "unidade": "u0271",
    "trecho": "§ 7º A distribuidora deve entregar e manter atualizado junto aos poderes públicos municipal, distrital e estadual a relação dos canais exclusivos e as informações de contato dos representantes institucionais estabelecidos com os horários de atendimento. ....................................................................................................”(NR)",
    "situacao": "sem_prazo",
    "prazo": {
@@ -7260,12 +7213,12 @@
    "dispositivo": "Art. 371-A, § 7º"
   },
   {
-   "id": "a3aaab44c8faeb73e6389d70b9a6282b",
+   "id": "15e9776cb923932208678d52e339fe41",
    "titulo": "Articular, coordenar, monitorar, orientar e supervisionar as providências e medidas…",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção VIII da norma",
-   "unidade": "u0274",
+   "unidade": "u0285",
    "trecho": "I - articular, coordenar, monitorar, orientar e supervisionar as providências e medidas a serem adotadas pela ANEEL com vistas a mitigar os impactos dos eventos climáticos severos nos segmentos de transmissão e distribuição de energia elétrica;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -7286,12 +7239,12 @@
    "dispositivo": "Art. 10, inciso I"
   },
   {
-   "id": "16639cba55ba0469c8629ebd093ca6ca",
+   "id": "1df6268024c684ea0742fd029b1c3e00",
    "titulo": "Interagir com demais autoridades e instituições públicas e privadas no endereçamento…",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção VIII da norma",
-   "unidade": "u0275",
+   "unidade": "u0286",
    "trecho": "II - interagir com demais autoridades e instituições públicas e privadas no endereçamento de ações e no compartilhamento de informações;",
    "situacao": "sem_prazo",
    "prazo": {
@@ -7312,12 +7265,12 @@
    "dispositivo": "Art. 10, inciso II"
   },
   {
-   "id": "9373d043b6355db8736c2b16feccc473",
+   "id": "083eba4d2f5258180e4199e10d4c8068",
    "titulo": "Ser estabelecido por Portaria emitida pelo Diretor-Geral",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção VIII da norma",
-   "unidade": "u0277",
+   "unidade": "u0288",
    "trecho": "§ 2º O Comitê de Crise deverá ser estabelecido por Portaria emitida pelo Diretor-Geral.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -7338,12 +7291,12 @@
    "dispositivo": "Art. 10, § 2º"
   },
   {
-   "id": "6a79234f9c4b1f3ce9fa33b035a30328",
+   "id": "6b77d0690165c456b7c830ea6fa82f67",
    "titulo": "Atender as demais disposições da Portaria nº 6.803, de 30 de janeiro de 2023, no que…",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção VIII da norma",
-   "unidade": "u0278",
+   "unidade": "u0289",
    "trecho": "§3º A Portaria que instituir Comitê de Crise deverá atender as demais disposições da Portaria nº 6.803, de 30 de janeiro de 2023, no que couber.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -7369,12 +7322,12 @@
    "dispositivo": "Art. 10, §3º"
   },
   {
-   "id": "3508263d822232c6e93e66eda5aa31ea",
+   "id": "0b79863f6b4d8f67ef8738bdb8af44d9",
    "titulo": "Art 11. A Cessão Emergencial de recursos humanos, equipamentos e materiais poderá…",
    "titulo_origem": "regra",
    "tema": "cessao",
    "motivo_tema": "Seção VIII da norma",
-   "unidade": "u0279",
+   "unidade": "u0290",
    "trecho": "Art 11. A Cessão Emergencial de recursos humanos, equipamentos e materiais poderá ser realizada também entre distribuidoras e transmissoras, visando garantir a continuidade do serviço em situações de crise, sem comprometer a segurança operacional do cedente.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -7395,12 +7348,12 @@
    "dispositivo": "Art. 11"
   },
   {
-   "id": "623cf1cc716988385cd7ab51dd2e790a",
+   "id": "804153b3016d0de4821c41c6ae440bdb",
    "titulo": "Ser reembolsadas pela cessionária à cedente garantindo a neutralidade da operação,…",
    "titulo_origem": "regra",
    "tema": "outros",
    "motivo_tema": "Sem seção temática nem assunto reconhecido",
-   "unidade": "u0286",
+   "unidade": "u0297",
    "trecho": "c) As cessões emergenciais de recursos humanos, equipamentos e materiais entre distribuidoras e transmissoras e suas partes relacionadas devem ser reembolsadas pela cessionária à cedente garantindo a neutralidade da operação, não se tratando de rateio ou prestação de serviços, e preservando a individualidade das concessões. ....................................................................................................”(NR)",
    "situacao": "sem_prazo",
    "prazo": {
@@ -7426,12 +7379,12 @@
    "dispositivo": "Art. 19, inciso XIII, alínea c"
   },
   {
-   "id": "7270c0b6482e79f6937b27aa8c15c257",
+   "id": "311f3c106f0cfb6f15bc2d9336350d4a",
    "titulo": "Ser implementadas na data de publicação desta Resolução Normativa",
    "titulo_origem": "regra",
    "tema": "outros",
    "motivo_tema": "Sem seção temática nem assunto reconhecido",
-   "unidade": "u0300",
+   "unidade": "u0311",
    "trecho": "Art. 18. As disposições não listadas nos artigos 13, 14, 15 e 16 devem ser implementadas na data de publicação desta Resolução Normativa.",
    "situacao": "sem_prazo",
    "prazo": {
@@ -7455,11 +7408,11 @@
  "infracoes": {
   "Art. 12, XXVII": {
    "grupo": "IV",
-   "trecho": "XXVII - a ausência, inadequação ou descumprimento do Plano de Manejo Vegetal, nos termos da regulação vigente; e"
+   "trecho": "XXVII – a ausência, inadequação ou descumprimento do Plano de Manejo Vegetal, nos termos da regulação vigente; e"
   },
   "Art. 12, XXVIII": {
    "grupo": "IV",
-   "trecho": "XXVIII - comunicar-se de forma ineficiente com o Poder Público em Situações de Emergência, nos termos da regulação vigente."
+   "trecho": "XXVIII – comunicar-se de forma ineficiente com o Poder Público em Situações de Emergência, nos termos da regulação vigente."
   },
   "Art. 10, XX": {
    "grupo": "II",
@@ -7475,7 +7428,7 @@
   },
   "Art. 9º, XIV": {
    "grupo": "I",
-   "trecho": "XIV - deixar de encaminhar à ANEEL, nos prazos e nas condições estabelecidas, indicadores utilizados para apurar a qualidade do atendimento e do fornecimento de energia elétrica;"
+   "trecho": "XIV – deixar de encaminhar à ANEEL, nos prazos e nas condições estabelecidas, indicadores utilizados para apurar a qualidade do atendimento e do fornecimento de energia elétrica;"
   },
   "Art. 12, XXVI": {
    "grupo": "IV",
@@ -7533,14 +7486,6 @@
    "grupo": "III",
    "trecho": "VII - deixar de cumprir ao disposto nos Procedimentos de Distribuição;"
   },
-  "Art. 10, XVIII": {
-   "grupo": "II",
-   "trecho": "XVIII - realizar leitura ou faturamento em desacordo com a legislação;"
-  },
-  "Art. 11, II": {
-   "grupo": "III",
-   "trecho": "II - deixar de restituir ou restituir incorretamente aos consumidores e usuários os valores recebidos indevidamente, os aportes realizados a título de antecipação do atendimento ou de pagar indenizações, compensações, ressarcimentos ou de devolver bônus, nos prazos ou nas condições estabelecidas em contrato ou na legislação;"
-  },
   "Art. 10, XV": {
    "grupo": "II",
    "trecho": "XV - causar atraso na execução das etapas do cronograma de contabilização e liquidação financeira das transações efetuadas;"
@@ -7564,182 +7509,181 @@
  },
  "linha_do_tempo": {
   "vencida": [
-   "8ec3f8703f4e021d80f22513fe3ed3ba",
-   "41d9c728c6f5556d1b13c58f5f361cc0",
-   "dd3d1f84150fd2b17cd8f26fa88a0410",
-   "f92d63e36eb3f21050ec0f9161f9a6bd",
-   "74c7ec6a850dace75eda3809be771cc3",
-   "2dd617796de78a9e6ec3920249dd8ddb"
+   "2caab9b77399589a4b33f0ec05bc8183",
+   "7837f33f44352ddb19403951f1997f57",
+   "b82d9d5afcaf604c1c22d9fd15cab20b",
+   "ca00a5a0a25840afacf411f72e8875fe",
+   "3d72161d7c18ec8fb6bc1f5fface61aa",
+   "39be4a66d3fbc00d7b93fd32484587aa"
   ],
   "90dias": [],
   "depois": [],
   "recorrente": [
-   "26172d38465c698ecf1769273a855505",
-   "fb004f3bfedf6b59722af7488e2bc1c0"
+   "34f44f71ef6a32c508e3e1688ae68fe5",
+   "2faa7af4dd5123314548d6104702de47"
   ],
   "evento": [
-   "55ba918f9b1b6f950b9e6cc0512d88ea",
-   "825c6b3fbd9fe835cf7966b4e27f0f26",
-   "5b685bba7cd28d5c2987d8ac85e46e49",
-   "8262cc2bbad403894df0a039b3cdb767",
-   "f5e489cb2c98cd2f5689224e25eaa373",
-   "af85b6636f38459d01d79e8a8aabaf35",
-   "6b26e7393d53305cdcd39aa8bf3caefb",
-   "1c07cf19b65fde441f3332c2c4d1ae4c",
-   "ea2fe8f31dff79368c22501bbfb42c8d",
-   "b7cd41127aecfaad4ecc65ed37ec998e",
-   "39cff636d9c812d5ed48c05981330ae6",
-   "57b165f6ff815a4852659ee20d9e7e17",
-   "1a4ec87ec872e4b5efb8f5bdd4cd3a76",
-   "2224e03f39fcb9be5441adbe4a8d3f46",
-   "c5c08d53ffd4c99a8ac85893fc995d1c",
-   "60113df2f45411c4b71822c27f44ec5f",
-   "a617e0c1efbaf17f0b7a6bf08d23b4cc",
-   "f3baf40189e23cc6a3b50ae92a02ac44",
-   "909d2033979e8c062009b887f7ed0e42",
-   "a379208bc4b81e1fe8aee190fa98df5f"
+   "fb4a6987c8cbd3e0af3a13fefd9c143a",
+   "dbb07719603c7f59139f8f065747afc4",
+   "5cd5f04340623a477247e4dfdfc60b55",
+   "809fab4cdf2e6eb0b1e037ade3725320",
+   "e27af8776924940ce36cf5283b6c594d",
+   "a89df268ca4025ffe984a5ed3f2e952f",
+   "547aa6ad44dbfcd61f444a9a65310f71",
+   "9279a6d991ab86f74ac98ca1ee30abb9",
+   "e4c6adf17c92760dae34bdf3bb6f466c",
+   "821d9fac947802d8e083bdfd64df1c2f",
+   "c8bc4adb10a07b22a5678e58cb4b2bc5",
+   "c02ce650b04f2ac7af01425b155f4a50",
+   "808afee6f9348bdee8cf9575b13060c4",
+   "8ac5850b5e23745be08f939c57a2c56a",
+   "053bae02094926923067f641d7f78c58",
+   "7d48242ee80ef4b38cce9d34df53132b",
+   "b13ca2910a3347afb66fdb50be08a76b",
+   "27f9b0bad1c87a06754596bf221489c6",
+   "ed2fa75fe65116b1af6ba83559e50caa",
+   "769882181d209542ede3e78f0f35310e"
   ],
   "sem_prazo": [
-   "3121b08663db322b4ed33f4ae9a6e28b",
-   "08ce0fad3a590f7e7bb3266ef66d92d4",
-   "59ac07290cc1320200626ef1d428f484",
-   "1bc87726eedb1e6743cbdf353d8f398c",
-   "e60945f1a5ad2964c28f57c146ac46d1",
-   "b86d040461ec3084780d061b20d570a6",
-   "e4fc66c9952031c99f0bdd3f7b9047fa",
-   "0f15eb612ecc635483c16ec2119ea246",
-   "b2006528fe4db2ceb107ebab23eb5634",
-   "57f356d436900f3953a8c7a53a1ab8a1",
-   "e6d501e2e0b49e488d632029ccf3713c",
-   "cd4a05aca81a49f61d82f39afd624e66",
-   "7ab7bbfc40eca36925fd01339c9462e2",
-   "8bbbe8540f64adaf5bd1e6f15e2713d6",
-   "12d5587c77b7da5736cba2596e20f59e",
-   "24dee60f0a3c7d148563d9209891d5ed",
-   "83b516bd0be0c91800420656fb492a77",
-   "fb51b5348bbd1e9799d4912805f18cd9",
-   "195ea142438297fc3b2006dfff018b03",
-   "631c720f3984d36df1c9ee2c9a544d48",
-   "e66df2b7b97fd388af2563733d566d0e",
-   "58b35c243252afec6a303b9665867d61",
-   "ee058004eb6a4fad2f085d83230fe9cb",
-   "195c74dacdd8adf1e6dc5399095e1993",
-   "7ddecef9ada04fc00c098f262c3df3e4",
-   "dd4ebd3df3e10040f727da479c3f602a",
-   "a021cc659e5be0b9913d00cd919c3b22",
-   "07a7a9431af8a46662695ad1f0f3059a",
-   "5b3c86232fd82ae6cf6926f2489520ee",
-   "5bb5ce88d4078b6d650bdd99d8b2e54a",
-   "6b586cc21bff04a572bc38d69da16483",
-   "139273e97f0f641b7f28de8627281fc9",
-   "0fd0dcd90de8f009d33c43eaf5b341ec",
-   "b322c8b7a0ce3cab4604c516e42571fb",
-   "65e4a5fa4b57ea3bc4f587332fa282af",
-   "7d5c4306553b231cd3236d32c6ea3a60",
-   "8bf397c038cd226665afd7786b53c69d",
-   "1687da79e15349fba8d286172d53933d",
-   "8ec383c42876ee9d03b391ae58acf9e6",
-   "9bacec7fd2afad23667d787e36208a57",
-   "32fcdd0a80916982093995435906938f",
-   "5f0eef8ec4b7e85c7481dfefef22d99b",
-   "b7ef9e99eedf794c95a1367f2e2ddcfe",
-   "a9dbbc16356e61645b023a295b4f4a0e",
-   "4a55d048a80c77ae9f1d65fe98893a11",
-   "79b7491a3a12332000c3716fdc5f95ae",
-   "8b24cc0f0c4cf52a67fad7d2e8833792",
-   "82abcf43611988ee44ccd3d1e7d62327",
-   "f9b7eac64186ea61454717cad2a980e0",
-   "a3339ce04e9670812751f6375f15519f",
-   "1a99e4956aa75d61fafb673090884132",
-   "e5892afa3bdeba10d469afba50fda809",
-   "099a83865bf81dabbd048fec3379c70d",
-   "32423d77d6450e7448103216be93fefb",
-   "535c3957cc7e65ed5521febb0f1effa3",
-   "341aadb7224c95a7a29aa10015b136b0",
-   "caee932848850762bf4cea488e90f133",
-   "1239cb09536a0eb49ad5e5adf5a7de3c",
-   "d77893b85a4b980caa8f834f6743637d",
-   "92ddfacea80224bbcc6a859d305fd8d5",
-   "1c3f5a11be56b57ff8e2f7a91bdd0b38",
-   "85fa9162298b8537cb8a932c1eeca9fe",
-   "7a0540e5ef5051aaf70e77c202745e61",
-   "3d1a4dd79c4d0fd61ee54cb97c374020",
-   "6af320b0dc36cffecd821dd85337b577",
-   "fe2aceb6b92ec14cfe078c59bcaa9855",
-   "e19ef08cc6db2844b21f7ce9afb34f3a",
-   "21ce7376819b75e46fbcdc67b28eb3d6",
-   "978ee9b91ea554dcc5c955cc5827740d",
-   "17fd5d6b9e7f8adf26a327435e0718e5",
-   "16176d578e94071bf60673f139da203b",
-   "c8931689fff4b33e4e9876d2fa169b2c",
-   "bc93380e650c027ddc7bf8678ded17c2",
-   "e111576ece7cf5aa3a93208f43ddde02",
-   "ee0612afab1c0732c6fc4de0759236b6",
-   "ff8f91917676def1c9155cb45f7d73e3",
-   "d6ee90df6525d096e7305b667d33b8c1",
-   "d5925571df7c70284dbb3f6623620f51",
-   "c61fbc2a5f1b04aad489858fd1ec10a3",
-   "5d4b2e13e6387ecd55ddea2f2cab32fb",
-   "8d85586b4af8db239e9b183c35800445",
-   "2b77cdfd44dc6e7bcfd6ecb43fca8225",
-   "55d3953207672aa65729d83f53fe6ee4",
-   "43a8764f6c3f8d4af4b4325ac5b1aa0b",
-   "a1d3c68d3aedbf743b37e82484a2b5c5",
-   "e75044237994d3a14b94f68a086c5844",
-   "2c9deb25f41fa9134d95413482d82d88",
-   "323412d526864de6181fe23b9c1eef77",
-   "54e57ac7a3b0102f6321f4e17863f238",
-   "93978531c7adfb374bfeaad0a51f4cb4",
-   "3f933bdb37257156edef368f68d4a7d8",
-   "b54c69d3fab7aa15c217398582d23dd0",
-   "3c65d40b4878473da642456c776dcbb3",
-   "c417b9c5ec13fe55f5aa7191a1fa40dd",
-   "df753029777a885d038b2b323c02d756",
-   "7c56a77f581fda61ba7c396e55b32774",
-   "85e9ac9e9b5db8f54af51841e1e2b1dc",
-   "a4dc39d62650b980f94653b6f3ab46ae",
-   "386b19af6b8d50c89fa6303a0419d2a0",
-   "af092ac477748b18e87ff40e3d1117bf",
-   "0134e6ad7b4d33497282de5c53fc8ce0",
-   "4a59339c8e6d12a471f0505d5a828004",
-   "3cd29414ff31bfda6da020fc79291bee",
-   "e9d40947d6d5f65e27015ee6b4c8d7c1",
-   "32e840ecfa0f2c96f0fcc2909dc09c01",
-   "5bc2969759dabc9cc2bf94e412231eb2",
-   "01ce77800a81e1777f12f994cb314dc3",
-   "f0dad194029c46c56ec39601c36fb230",
-   "1eb98895389fb112ff1e14951397560e",
-   "25617585cb6e2adf03fc49b4b4e81d7f",
-   "e75c371ecf71dd342244ca25cabc60a6",
-   "1598da40fdc9ca3ebb44c5a6514429ec",
-   "8e29df693e0b8b0844170ce7c66881f4",
-   "ff3fa60845d85ce13298438b4f587f57",
-   "ea72c03cb42d22a043ac96c6b3d34871",
-   "2d0a828200cccdb9ffdf8aabf594f13c",
-   "c40eb8c465eed7626635a0efe95edf06",
-   "8efbf4d01019d3018c17c28095951959",
-   "939a9d00cd3f1ba354ee417f3aade773",
-   "48f99c28acdc6078430111817d1584f5",
-   "f4d94b5b68eadf1558c3d572447ea3e3",
-   "33d98844e39e3f7820bf794d502ac3d2",
-   "8a4a6823cfab3a207ba82c6c2085481e",
-   "f7bf564651287d54bde86511ad934d85",
-   "a697a205a0bb4fbd551d46328087d673",
-   "19af5c98409922c97eec964bc22bd807",
-   "261ea4a756ca2fb7d7bc6a997999f8c6",
-   "b76adce7fdd4b6c5f6e7ab5fd380e965",
-   "f577be87a5f731509fc302e2742c0421",
-   "3b12ce80688ccca1a521fd6862839886",
-   "0ed3da6c891e3aa8f49c5aebf992e72a",
-   "6fa92c8577308350b6a002703a0f5d2b",
-   "3e921b43431d7427ab95337c6be5fa4a",
-   "a3aaab44c8faeb73e6389d70b9a6282b",
-   "16639cba55ba0469c8629ebd093ca6ca",
-   "9373d043b6355db8736c2b16feccc473",
-   "6a79234f9c4b1f3ce9fa33b035a30328",
-   "3508263d822232c6e93e66eda5aa31ea",
-   "623cf1cc716988385cd7ab51dd2e790a",
-   "7270c0b6482e79f6937b27aa8c15c257"
+   "3c8f005c1fbb9be784d0dd355755a08b",
+   "2e4349021812ce3d0fb1ed3b9c2d02e5",
+   "745328053284bbf521a22c65bd117704",
+   "0d12847e77737f671b42a2c183916677",
+   "5023efcb8b22cbab4574670e985e8dc9",
+   "dc345c9da4c31f3fc10b7b83df0cfe3b",
+   "442b00252d17748a46b3231be405a7fc",
+   "803efa4041fdda63368a6bcf1a079cf2",
+   "5ae3860d7f2917102f6b6387d3736edc",
+   "433ce63e8b3be0c36ae9dd6e96a83664",
+   "809bdf1e3579091bbf1229338b553266",
+   "4baecfc3024aaed0d67cc2f8dedb55a9",
+   "f73e6009515487abaa827567571464f5",
+   "48927f469615de3945a7525c782a0d5d",
+   "f0515893f47b465bc7e6aa869fc6cf69",
+   "c261b112687d7d0c674a65bdf1ec9fd1",
+   "efa579deaa250b0e594ec05590ee8ddb",
+   "d2968ad790b8f84fdb7f05f4e3f2fb71",
+   "42724ea5e472d99a9a55f65030cb5528",
+   "6fb7f1de8ffdad602ff5729aaeb20975",
+   "4127418f192d1f66e8ae34b2c4931ba1",
+   "10de56311134928ee271316d59688f3c",
+   "0abe9c2077ef0f779ae23fca41e8fa51",
+   "3fcb4b0bdeb5146bc8407aeeabb9f808",
+   "cc7ef8217e19f9852f0076e834cb2ef7",
+   "298d0ced288af9838ddd3949473a064b",
+   "49c7479296a2efa67a4b61fc468a1b4b",
+   "449748afd8d0242d3e36f5189abb11cd",
+   "29de9c5a09b4e4f54d75c3dfa2301d9a",
+   "0a0824c872755c7aa940e96dfabca805",
+   "4fb3f0612abb970d585a24c33d97ce25",
+   "f3229c89b7540ddcee95934ab3cb2854",
+   "e589b9c47a070d097ea3a27e8bcf9ff2",
+   "9f0ce6cc74c50c1a53a8c33658b67a32",
+   "184154d9ab2749e9e6feaad8e777a6aa",
+   "31f50f44fe4f401497bc007dbea4231d",
+   "a7e6bb5ba1e632f4fa3fd1821c0b6a61",
+   "be4ab79405c8b34a0f4c2aa4dccdc558",
+   "93f6b25cf1d1bdb677805904c2df87b8",
+   "2e904d1423690c315753adc0274a6178",
+   "0b76c0b75789ab2c01e15c6b8bba11c2",
+   "e6c4f26668726d394b5b86feee032103",
+   "77cde4c19287ee17f8308e54fd164d6e",
+   "336d22ea978626289173c0ce9a064655",
+   "65a95d5a30c1a786977c80847669ebdc",
+   "5fd5147ef5e0d62ea812333d32f02ee0",
+   "f76ba02c3f87545a6cbe0ce936011752",
+   "a46737b0c179210264289f9fe0d18215",
+   "719ccb2d6fe2afe026c4b18c00edd071",
+   "836377abcbc024561e834db998aa6f30",
+   "e52741c7e79369f1c3b552a8428aec6a",
+   "2987c08865cb4c49fdeb365df9b4789a",
+   "6b7008a432726702b7e6b2d2ef1de88c",
+   "454be477eb4091bb9998f6c103ace807",
+   "05e0278f1c459759834046bac7eeab00",
+   "37a4a87f473ed795a33c539382fd0046",
+   "6d709a49e7090af27447f7d81ec3bd9c",
+   "d95be127d191284eda1393ee0e4f9856",
+   "1b506dcf3ec9a1c5114043a2680f1bcb",
+   "36abeb8d534f73b4c5b64cb19a490974",
+   "1f5fa75d0709f8a14e6c2bb8e247feb9",
+   "3d2429b0fc08baceb743b6a41ba0cf32",
+   "06adc0cb04a87636c507dda655017c8f",
+   "2cfc110af4fc34419dabc402bb09ae49",
+   "3bf5a31a382f1b622088b8a6513b1815",
+   "647ac653d9cbce19766d2efc5947def1",
+   "ccbcb620d4a8b105a1f04702da45a409",
+   "f6b68a2422ef7d286413b5fd6f6ad7e2",
+   "c38b3b0d0e686b95b5dffba414d03ce1",
+   "aeb629dd6395be0b7f98559188438937",
+   "d494be3287110ce8ca22653211323875",
+   "29979444ee54bf1fbacac8d0221e890d",
+   "aa1a99f772767fcd210dc0693a8e4ea5",
+   "004fdbdc8ddc98e1f87bf357c052940f",
+   "75876c711cbd8f2aea712c1d103b5452",
+   "22ff87c9e59069bd742440093c2cbfc4",
+   "8b2ff2a86b0df7111c3e9178e9acd61e",
+   "941039a62d97c990409780fe2441e7b5",
+   "175e8aa2b7ba1c4d7266e8823f2aee5e",
+   "8adaeefc53e42445934db91eed82efb4",
+   "f64a8bfb49d9ef9d7db41dc2ab3d826e",
+   "890bbf12812923a6454e550c4a5efddb",
+   "e9bcf9594330f550e38ef39154bcc12d",
+   "d1cb8e2f7c2faccce4eba62a5cae4bdf",
+   "770c5ebe28843902df1fde8a47f5880f",
+   "6ec4191ea7cd2734e9153f9e4dcfe6f0",
+   "682fcd4022d7b599caee64b679d2f81a",
+   "3a39e52d70d80532c29a8bde03469745",
+   "b6f8747cb984ac11e302b5df13852cb2",
+   "190d87fb5a42eb3164396e1cede97d6a",
+   "1b3786c19aa15c0da083e4f2691f7db2",
+   "c19549165031c18b48dca4c97e6740d2",
+   "4ff89614e49355334b4cf26180822cdb",
+   "16ec002155d074e8f990db89e9bd4b8a",
+   "6a493f245b7857a8a56794250e2b17be",
+   "05e04493b5df9b6444ffcd98e2f88bc2",
+   "b24a992ded3c9e578e7d1ddb173b1044",
+   "650dbbf6b6d610b6f5b8489d682fcd1a",
+   "f3eaad2117bd0f0616b1ad629a2dd1c7",
+   "136db198553c5627de6bd60f7ca2b93e",
+   "73024bb7d4f134c15f7db53a34c6a0ea",
+   "844d40df255fdf3dcb27f3a9dda4455f",
+   "242ce5c21c26cd827d01117e9af42c81",
+   "9b6fa141cecc4cf69c442b6651539213",
+   "9f30dec9149343f0606edca2583b0d9d",
+   "3b503a328d5f1e82fbfaaf52c8cd0621",
+   "e5ab2c825238eb4f1f7c774a882d3d73",
+   "a67a82b58717bccd0a78784f0787c0ce",
+   "820a331d4fd3b5e449f09719235af654",
+   "53c721f59a2f0fee69d44f12625c0a62",
+   "1286cfb74655c484e2d5ebf9a7e92f79",
+   "e4627fe8c7175cd51d0805beb822448e",
+   "fc28b9c3e9b1216b1483e7771a106809",
+   "5e7a10c0b424c81a6378496118195283",
+   "cd40b60c66938ff49a39bb9772ffe517",
+   "d11f4509c1774ea8901c36fbf91071a5",
+   "3b7b3f3f558a570beecfb1f4991d1ca4",
+   "e102b8630e36ba107c8801808ddb8010",
+   "00a6fd18ed5043a979ffbdca0a8090d4",
+   "7fa38c743fb9592347c938a1d8babcdb",
+   "3c9a78edd263843716b2723f179a4540",
+   "a5aa4d5918875c8e87f0dc8f7fb3b679",
+   "5ef61d25ba8962271cecd05868848d2a",
+   "c890a798d61ce878718d78f1f7e4e499",
+   "8c0a85323b157de9aeb45f30ffd50720",
+   "aaa41579838cde07ab666ff8d8ac2a5d",
+   "a689cf1140edbd1a2ad02898372071a4",
+   "be356e0824376fb2714caec8a81e0d1f",
+   "874e93875e582ba0d26e9633cbcf09be",
+   "d499e0b2f1749344008f49a460300431",
+   "1949b7515e955aa0c7d19dd47943030e",
+   "755e2fad1758b9b2c94f180d236b7b69",
+   "15e9776cb923932208678d52e339fe41",
+   "1df6268024c684ea0742fd029b1c3e00",
+   "083eba4d2f5258180e4199e10d4c8068",
+   "6b77d0690165c456b7c830ea6fa82f67",
+   "0b79863f6b4d8f67ef8738bdb8af44d9",
+   "804153b3016d0de4821c41c6ae440bdb",
+   "311f3c106f0cfb6f15bc2d9336350d4a"
   ]
  },
  "nomes_situacao": {
