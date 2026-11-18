@@ -35,6 +35,31 @@ ORDEM_PLANO = (
     "(na REN 846, o Grupo V é o mais grave; enquadramento a confirmar vem depois); 4) a lacuna "
     "informada (não temos antes de parcial); 5) número de obrigações."
 )
+# Como reduzir a exposição. Trecho, dispositivo e percentual vêm do catálogo (fonte e hash); a
+# condição e o efeito em linguagem simples são interpretação da Athenix e aguardam revisão humana.
+ROTULO_REDUCAO = "Análise regulatória preliminar · não constitui parecer jurídico"
+CAUSA_EXTERNA = "argumento a confirmar com advogado"
+# Excludente de responsabilidade só com texto da própria obrigação: caso fortuito, força maior.
+EXCLUDENTE = re.compile(r"caso fortuito|força maior|calamidade pública", re.IGNORECASE)
+# (parâmetro, nome, condição, efeito, cenário do motor com este atenuante ou None)
+REDUCOES = (
+    ("advertencia", "Advertência no lugar da multa",
+     "Sem reincidência específica e com infração de baixa ofensividade, nas infrações dos arts. 9º a 13.",
+     "A penalidade passa a ser advertência, sem multa. O texto não fixa percentual.", None),
+    ("atenuante_espontanea", "Cessar e reparar antes da fiscalização",
+     "Parar a infração e reparar todo o dano ao serviço e aos consumidores antes de a ANEEL comunicar a fiscalização ou lavrar Termo de Notificação.",
+     "Reduz o valor calculado da multa (art. 23) no percentual do texto.", "espontanea"),
+    ("atenuante_tn", "Cessar e reparar até o prazo do Termo de Notificação",
+     "Parar a infração e reparar todo o dano até o fim do prazo para se manifestar sobre o Termo de Notificação.",
+     "Reduz o valor calculado da multa (art. 23) no percentual do texto.", "ate_tn"),
+    ("reducao_renuncia", "Renunciar ao recurso e pagar no prazo",
+     "Depois da multa aplicada: renunciar expressamente ao recurso em dez dias e pagar no prazo do caput do art. 38, sem parcelar.",
+     "Reduz o valor da multa aplicada no percentual do texto. Não é atenuante do art. 24; a combinação com um atenuante não foi calculada.", None),
+    ("metodologia_afastavel", "Afastamento da metodologia do valor base",
+     "Decisão excepcional e fundamentada da ANEEL quando o valor não atende à razoabilidade e à proporcionalidade.",
+     "O texto não fixa percentual.", None),
+)  # fmt: skip
+REGRAS_REDUCAO = ("atenuantes_nao_cumulativas", "atenuante_comprovacao", "ordem_calculo")
 # Degraus de prazo da ordem: evento sem data e sem prazo no texto ficam juntos ("sem data").
 DEGRAU = {"vencida": 0, "90dias": 1, "depois": 2, "recorrente": 3, "evento": 4, "sem_prazo": 4}
 LACUNA = {"nao": 0, "parcial": 1}
@@ -164,23 +189,77 @@ def _ia_enquadramento(item, ia, validas):
     return {k: s.get(k) for k in ("dispositivo", "grupo", "justificativa", "duvida")}
 
 
-def _faixa(item, base):
+def _faixa(item, base, com_atenuante=None):
+    """`com_atenuante`: {atenuante: % da base}, o valor do motor com valor base no teto do grupo
+    (pior caso, sem agravantes) e o atenuante aplicado (REN 846, art. 24)."""
     m = item["multa"]
+    com_atenuante = com_atenuante or {}
     out = {
         "grupos": m["grupos"],
         "teto_grupo_pct": m["teto_pct"],
         "maximo_pct": m["maximo"],
         "teto_legal_pct": m["teto_legal_pct"],
+        "teto_legal_lei_pct": (m["teto_legal"] or {}).get("pct_lei"),
         "teto_legal_subestimado": (m["teto_legal"] or {}).get("subestimado"),
+        "com_atenuante_pct": com_atenuante,
     }
     if base is not None:
         out["maximo_reais"] = {k: v / 100 * base for k, v in m["maximo"].items()}
+        out["com_atenuante_reais"] = {k: v / 100 * base for k, v in com_atenuante.items()}
     return out
 
 
-def montar(resultado, units, params, p, cfg, ia=None, chave=None):
-    """Plano para o perfil `p`. `chave(row)` identifica a obrigação no cache da IA."""
+def _com_atenuante(cenarios, row_id):
+    """% da base em cada cenário do motor (fração do valor base 100%, atenuante aplicado)."""
+    out = {}
+    for nome, itens in cenarios.items():
+        m = (itens.get(row_id) or {}).get("multa") or {}
+        if m.get("provavel"):
+            out[nome] = m["provavel"]["com_teto"]
+    return out
+
+
+def _ids_por_padrao(pedacos, lista):
+    return [e["id"] for e in lista if any(re.search(e["padrao"], t) for t in pedacos)]
+
+
+def reducao(params):
+    """Bloco geral de "Como reduzir a exposição": regras e medidas da REN 846 com citação."""
+
+    def citar(pid):
+        par = impacto.parametro(params, pid)
+        if not par:
+            return None
+        fonte = params["fontes"][par["fonte"]]
+        return {
+            "parametro": pid,
+            "dispositivo": par["dispositivo"],
+            "trecho": par["trecho"],
+            "percentual": par["percentuais"][0] if par["percentuais"] else None,
+            "fonte": fonte["titulo"],
+            "sha256": fonte["sha256"],
+        }
+
+    medidas = []
+    for pid, nome, condicao, efeito, cenario in REDUCOES:
+        c = citar(pid)
+        if c:
+            medidas.append(c | {"nome": nome, "condicao": condicao, "efeito": efeito, "cenario": cenario})  # fmt: skip
+    return {
+        "rotulo": ROTULO_REDUCAO,
+        "regras": [c for c in map(citar, REGRAS_REDUCAO) if c],
+        "medidas": medidas,
+        "causa_externa": CAUSA_EXTERNA,
+    }
+
+
+def montar(resultado, units, params, p, cfg, ia=None, chave=None, cenarios=None):
+    """Plano para o perfil `p`. `chave(row)` identifica a obrigação no cache da IA. `cenarios`:
+    {atenuante: resultado de impacto.avaliar com esse atenuante e fração do valor base 100%}."""
     chave = chave or chave_texto
+    cenarios = {
+        nome: {i["row"]["id"]: i for i in r["itens"]} for nome, r in (cenarios or {}).items()
+    }
     by_id = {u["id"]: u for u in units}
     secoes = secao_por_unidade(units)
     fontes_temas = conferir_secoes(cfg, units)
@@ -236,12 +315,14 @@ def montar(resultado, units, params, p, cfg, ia=None, chave=None):
             "enquadramento": regra,
             "ia": sugestao,
             "grupo": max((e["grupo"] for e in regra), key=impacto.GRUPOS.index, default=None),
-            "faixa": _faixa(item, p["base"]) if calculo == "fila" else None,
+            "faixa": _faixa(item, p["base"], _com_atenuante(cenarios, row["id"])) if calculo == "fila" else None,
             "premissas": [pr["texto"] for pr in item["multa"]["premissas"]] if calculo == "fila" else [],
             "motivo_sem_calculo": None
             if calculo != "sem_multa"
             else (item["multa"] or {}).get("motivo") or "Sem consequência financeira estimável.",
             "evidencias": evidencias(pedacos, cfg),
+            "guardar": _ids_por_padrao(pedacos, cfg.get("guardar", [])),
+            "excludente": next((t for t in pedacos if EXCLUDENTE.search(t)), None),
         })  # fmt: skip
 
     ordem_sit = {s: n for n, s in enumerate(SITUACOES)}
@@ -268,6 +349,8 @@ def montar(resultado, units, params, p, cfg, ia=None, chave=None):
         "nomes_situacao": NOMES_SITUACAO,
         "regra_ordem": ORDEM_PLANO,
         "evidencias": {e["id"]: e["texto"] for e in cfg["evidencias"]},
+        "reducao": reducao(params),
+        "guardar": {e["id"]: e["texto"] for e in cfg.get("guardar", [])},
     }
 
 
@@ -290,6 +373,13 @@ def _tema(cfg_tema, obrigacoes, fontes, cfg):
             ev.setdefault(e["id"], {"id": e["id"], "n": 0, "exemplo": None})
             ev[e["id"]]["n"] += 1
             ev[e["id"]]["exemplo"] = ev[e["id"]]["exemplo"] or {"obrigacao": o["id"], "trecho": e["trecho"]}  # fmt: skip
+    guardar = {}
+    for o in obs:
+        for g in o["guardar"]:
+            guardar[g] = guardar.get(g, 0) + 1
+    excludentes = [
+        {"obrigacao": o["id"], "trecho": o["excludente"]} for o in obs if o["excludente"]
+    ]
     principais = sorted(
         obs,
         key=lambda o: (
@@ -320,6 +410,9 @@ def _tema(cfg_tema, obrigacoes, fontes, cfg):
         "faixa": faixa,
         "ia": {"dispositivo": ia_top, "n": ia.count(ia_top), "de": len(ia)} if ia_top else None,
         "evidencias": sorted(ev.values(), key=lambda e: -e["n"])[:3],
+        "guardar": [{"id": g, "n": n} for g, n in sorted(guardar.items(), key=lambda x: -x[1])[:3]],
+        "excludentes": excludentes,
+        "causa_externa": None if excludentes else CAUSA_EXTERNA,
         "principais": [o["id"] for o in principais],
         "obrigacoes": [o["id"] for o in obs],
     }

@@ -47,14 +47,35 @@ def processar():
     return rows, doc["extraction"]["units"], impacto.carregar()
 
 
-def montar(base, data_referencia, faturamento=None):
-    """Plano para uma distribuidora com a base informada (None = em branco)."""
-    rows, units, params = processar()
+def avaliar(rows, params, base, data_referencia, faturamento=None, atenuante="nenhuma"):
+    """impacto.avaliar para uma distribuidora. Com atenuante, o valor base vai ao teto do grupo
+    (fração 100%, pior caso) para o motor aplicar o atenuante sobre ele."""
     form = {"segmento": "distribuicao", "base": "" if base is None else str(base)}
     form |= {"data_referencia": data_referencia, "faturamento": faturamento or ""}
+    if atenuante != "nenhuma":
+        form |= {"atenuante": atenuante, "fracao_valor_base": "100"}
     p = impacto.perfil(form)
-    resultado = impacto.avaliar(params, rows, p)
-    out = plano.montar(resultado, units, params, p, plano.carregar_temas(), plano.carregar_ia())
+    return impacto.avaliar(params, rows, p), p
+
+
+def montar(base, data_referencia, faturamento=None, processado=None):
+    """Plano para uma distribuidora com a base informada (None = em branco)."""
+    rows, units, params = processado or processar()
+    resultado, p = avaliar(rows, params, base, data_referencia, faturamento)
+    cenarios = {
+        a: avaliar(rows, params, base, data_referencia, faturamento, a)[0]
+        for a in impacto.ATENUANTES
+        if a != "nenhuma"
+    }
+    out = plano.montar(
+        resultado,
+        units,
+        params,
+        p,
+        plano.carregar_temas(),
+        plano.carregar_ia(),
+        cenarios=cenarios,
+    )
     by_id = {u["id"]: u for u in units}
     for o in out["obrigacoes"]:
         o["dispositivo"] = rotulo(by_id[o["unidade"]], by_id) if o["unidade"] else None
@@ -104,9 +125,31 @@ def importar_ia(pasta):
     )
 
 
+def simulador(demo, processado):
+    """Faixas de porte do perfil ilustrativo e casos de conferência do motor Python: o simulador do
+    site (landing/src/content/plano.ts) refaz a conta no navegador e o teste compara com estes."""
+    casos = []
+    for base, fat in [(f["base"], None) for f in demo["faixas_porte"]] + [
+        (demo["base"], str(int(demo["base"]) // 10))
+    ]:
+        # O último caso (faturamento menor que a base) é artificial: força o teto legal a limitar.
+        out, _, _ = montar(base, demo["data_referencia"], fat, processado)
+        o = next(o for o in out["obrigacoes"] if o["faixa"])
+        casos.append({
+            "base": float(base),
+            "faturamento": float(fat) if fat else None,
+            "obrigacao": o["id"],
+            "maximo_reais": o["faixa"]["maximo_reais"]["com_teto"],
+            "com_atenuante_reais": o["faixa"]["com_atenuante_reais"],
+        })  # fmt: skip
+    faixas = [f | {"base": float(f["base"])} for f in demo["faixas_porte"]]
+    return {"faixas": faixas, "origem_faixas": demo["origem_faixas"], "conferencia": casos}
+
+
 def main(saida):
     demo = impacto.perfil_ilustrativo()
-    out, params, p = montar(demo["base"], demo["data_referencia"])
+    processado = processar()
+    out, params, p = montar(demo["base"], demo["data_referencia"], processado=processado)
     ia = plano.carregar_ia()
     commit = subprocess.run(
         ["git", "rev-parse", "--short", "HEAD"], cwd=ROOT, capture_output=True, text=True
@@ -136,6 +179,7 @@ def main(saida):
         }
         if ia
         else None,  # fmt: skip
+        "simulador": simulador(demo, processado),
         **out,
     }
     Path(saida).write_text(
