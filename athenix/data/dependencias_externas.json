@@ -1,0 +1,152 @@
+{
+ "versao": 1,
+ "nota": "Quando o cumprimento depende do governo ou de terceiros: o que guardar desde já e qual caminho avaliar. Sinais em minúsculas e sem acento (o texto da norma não muda). Dependência marcada 'texto' vem de trecho literal da própria obrigação; 'inferida_pelo_tipo' vem só do tipo de obrigação e aparece com menos destaque. Os precedentes são REFERÊNCIAS fornecidas pelo fundador em 18/11/2026: a Athenix não leu essas fontes, descreve cada uma só pelo que foi informado e não copia texto. A análise da ANEEL é caso a caso e há pedidos negados (ver contraponto). Possível excludente não é garantia de afastamento de penalidade. Análise regulatória preliminar, não constitui parecer jurídico.",
+ "status_geral": "rascunho — revisar",
+ "contraponto_obrigatorio": "contraponto_tcu",
+ "precedentes": {
+  "spd_sei_indisponibilidade": {
+   "titulo": "Indisponibilidade do SPD/SEI da ANEEL e prorrogação de prazos",
+   "urls": [
+    "https://canalsolar.com.br/aneel-instabilidade-sistema-protocolo-digital/",
+    "https://brasilenergia.com.br/energia/governo-regulacao/aneel-prorroga-prazos-devido-a-instabilidade-em-sistema"
+   ],
+   "o_que_e": "Notícias sobre instabilidade do sistema de protocolo digital da ANEEL e a prorrogação de prazos.",
+   "a_confirmar": "Norma de Organização ANEEL nº 56/2024 (indisponibilidade técnica acima de 60 minutos), citada pelo fundador: o texto da norma não está no repositório; conferir artigo e redação antes de citar."
+  },
+  "taesa_pandemia": {
+   "titulo": "Excludente de responsabilidade reconhecido (pandemia), concessões da Taesa",
+   "urls": ["https://cenarioenergia.com.br/2025/03/18/aneel-prorroga-concessoes-da-taesa-apos-impactos-da-pandemia/"],
+   "o_que_e": "Notícia sobre prorrogação de concessões de transmissão após os efeitos da pandemia, com excludente reconhecido.",
+   "a_confirmar": "Decisão e fundamentos da ANEEL: não lidos."
+  },
+  "gesel_terceiros": {
+   "titulo": "Excludente por ato de terceiros em transmissoras, análise casuística",
+   "urls": ["https://gesel.ie.ufrj.br/wp-content/uploads/2022/08/Valle_2022_08_30.pdf"],
+   "o_que_e": "Texto acadêmico (GESEL/UFRJ, 2022) sobre excludentes por ato de terceiros em transmissoras; a análise é caso a caso.",
+   "a_confirmar": "Casos e conclusões do texto: não lidos pela Athenix."
+  },
+  "licenciamento_atrasos": {
+   "titulo": "Licenciamento ambiental como causa de atraso e excludente (art. 19 da Lei 13.360/2016), com limites",
+   "urls": [
+    "https://eixos.com.br/energia-eletrica/licenciamento-ambiental-e-responsavel-por-70-dos-atrasos-em-linhas-de-transmissao/",
+    "https://brasilenergia.com.br/energia/o-atraso-no-licenciamento-ambiental-e-o-direito-na-transmissao"
+   ],
+   "o_que_e": "Notícias e análise sobre atrasos por licenciamento ambiental em transmissão e o excludente do art. 19 da Lei 13.360/2016.",
+   "a_confirmar": "Redação do art. 19 da Lei 13.360/2016 e seus limites: a lei não está no repositório; conferir no texto oficial. O contexto das fontes é transmissão, não distribuição."
+  },
+  "contraponto_tcu": {
+   "titulo": "Pedidos de excludente negados (contraponto obrigatório)",
+   "urls": ["https://portal.tcu.gov.br/imprensa/noticias/tcu-aprova-solucao-consensual-em-contratos-de-transmissao-de-energia-eletrica"],
+   "o_que_e": "Notícia do TCU sobre solução consensual em contratos de transmissão; indicada pelo fundador como exemplo de pedidos de excludente negados.",
+   "a_confirmar": "Quais pedidos foram negados e por quê: não lido."
+  },
+  "poda_municipal": {
+   "titulo": "Poda: distribuidora depende de autorização municipal; disputa sobre a responsabilidade",
+   "urls": [
+    "https://www.saopaulo.sp.leg.br/iah/fulltext/leis/L17267.pdf",
+    "https://legislativo.palmas.to.gov.br/media/leis/decreto-2.876-2026-03-18-23-3-2026-14-53-1.pdf",
+    "https://www.jornalopcao.com.br/goiania/apos-decisao-do-mpgo-equatorial-goias-afirma-que-responsabilidade-por-podas-regulares-e-da-prefeitura-765210/"
+   ],
+   "o_que_e": "Duas normas municipais (São Paulo e Palmas) e uma notícia (Goiânia) sobre poda e a divisão de responsabilidade entre distribuidora e prefeitura.",
+   "a_confirmar": "Teor de cada norma municipal e a decisão citada na notícia: não lidos. Normas municipais valem só no município."
+  }
+ },
+ "tipos": [
+  {
+   "id": "autorizacao_municipal",
+   "nome": "Autorização municipal",
+   "sinais": ["poder publico municipal", "prefeitura", "municip", "autorizacao (da|do) (prefeitura|municipio|poder publico)", "\\bpoda\\b", "manejo (da )?vegetacao", "supressao"],
+   "o_que_guardar": [
+    "Protocolo do pedido de autorização com data e hora.",
+    "Resposta da prefeitura ou registro de que não houve resposta no prazo.",
+    "Cobranças e reiterações enviadas, com datas.",
+    "Registro de que o serviço não pôde ser feito sem a autorização (local, data, risco)."
+   ],
+   "caminho": "Avaliar com o jurídico, caso a caso: pedido de reconhecimento de que a demora ou a negativa da prefeitura é causa externa, apresentado à ANEEL com a documentação acima; e articulação formal com o município.",
+   "precedentes": ["poda_municipal"],
+   "cautela": "A divisão de responsabilidade entre distribuidora e prefeitura é disputada e varia por município. A análise da ANEEL é caso a caso e há pedidos negados.",
+   "status": "rascunho — revisar"
+  },
+  {
+   "id": "licenciamento_ambiental",
+   "nome": "Licenciamento ambiental",
+   "sinais": ["licenc\\w* ambiental", "orgao ambiental", "ibama", "funai", "licenca (previa|de instalacao|de operacao)", "autorizacao ambiental", "unidade de conservacao"],
+   "o_que_guardar": [
+    "Protocolos de pedido de licença ou autorização, com data.",
+    "Exigências do órgão ambiental e respostas dentro do prazo.",
+    "Cronograma da obra ou serviço mostrando o efeito do atraso da licença.",
+    "Comunicações à ANEEL sobre o atraso, com data."
+   ],
+   "caminho": "Avaliar com o jurídico o pedido de reconhecimento de excludente com base em atraso de licenciamento, demonstrando que o pedido foi feito a tempo e que o atraso não decorre de falha do agente.",
+   "precedentes": ["licenciamento_atrasos", "contraponto_tcu"],
+   "cautela": "As fontes tratam de transmissão. O excludente tem limites e há pedidos negados; a análise é caso a caso.",
+   "status": "rascunho — revisar"
+  },
+  {
+   "id": "sistema_aneel_indisponivel",
+   "nome": "Sistema da ANEEL indisponível",
+   "sinais": ["sistema (da|de) aneel", "\\bspd\\b", "\\bsei\\b", "protocolo digital", "sistema (eletronico )?(da agencia|de informac\\w* da aneel)", "disponibilizado pela aneel"],
+   "o_que_guardar": [
+    "Captura de tela do erro ou da página fora do ar, com data e hora.",
+    "Tentativas de envio ao longo do prazo, com horários.",
+    "Comunicado da ANEEL sobre a indisponibilidade, se houver.",
+    "Contato formal feito à ANEEL e envio por canal alternativo, se existir."
+   ],
+   "caminho": "Avaliar com o jurídico o pedido de reconhecimento da indisponibilidade ou de prorrogação do prazo, com a prova das tentativas.",
+   "precedentes": ["spd_sei_indisponibilidade"],
+   "cautela": "As fontes indicam prorrogações de prazo por instabilidade; não há garantia para cada caso. A regra de indisponibilidade acima de 60 minutos citada deve ser conferida na norma (a confirmar).",
+   "status": "rascunho — revisar"
+  },
+  {
+   "id": "operador_sistema",
+   "nome": "Dependência do operador do sistema (ONS)",
+   "sinais": ["\\bons\\b", "operador nacional do sistema", "operador do sistema", "comando do operador", "despacho do operador"],
+   "o_que_guardar": [
+    "Registros de comando, ordem ou dado recebido do ONS, com data e hora.",
+    "Registros da operação que mostrem a ação seguida.",
+    "Comunicações trocadas com o ONS sobre o evento."
+   ],
+   "caminho": "Avaliar com o jurídico se a conduta decorreu de determinação do operador e, nesse caso, apresentar o registro à ANEEL.",
+   "precedentes": ["gesel_terceiros"],
+   "cautela": "A relação entre ordem do operador e responsabilidade é caso a caso; a fonte é sobre transmissoras e não foi lida.",
+   "status": "rascunho — revisar"
+  },
+  {
+   "id": "dado_de_terceiro",
+   "nome": "Dado ou ação de terceiro",
+   "sinais": ["terceiros?", "outros? agentes?", "outras distribuidoras", "agente (acessante|cedente|vizinho)", "fornecid\\w* por", "informac\\w* (de|do|da) (outro|terceiro)"],
+   "o_que_guardar": [
+    "Pedido do dado ou da ação ao terceiro, com data.",
+    "Resposta do terceiro, ou ausência de resposta, com data.",
+    "Cobranças e reiterações.",
+    "Registro do que a empresa fez com o que tinha disponível."
+   ],
+   "caminho": "Avaliar com o jurídico o pedido de reconhecimento de que o descumprimento decorreu de ato de terceiro, mostrando as providências tomadas.",
+   "precedentes": ["gesel_terceiros", "contraponto_tcu"],
+   "cautela": "A análise de ato de terceiros é casuística e há pedidos negados.",
+   "status": "rascunho — revisar"
+  },
+  {
+   "id": "evento_extremo_defesa_civil",
+   "nome": "Evento extremo e Defesa Civil",
+   "sinais": ["defesa civil", "eventos? (climatic\\w*|extremo\\w*|severo\\w*|natura\\w*)", "situacao de emergencia", "calamidade", "desastre", "comite de crise", "forca maior", "caso fortuito"],
+   "o_que_guardar": [
+    "Decreto ou ato de situação de emergência ou calamidade, quando houver.",
+    "Boletins meteorológicos e da Defesa Civil do período.",
+    "Registros de acionamento e de articulação com a Defesa Civil.",
+    "Registros de acesso impedido, com data, local e fotos."
+   ],
+   "caminho": "Avaliar com o jurídico o pedido de reconhecimento de excludente por evento extraordinário, com a prova de que a empresa estava preparada e agiu.",
+   "precedentes": ["taesa_pandemia", "contraponto_tcu"],
+   "cautela": "O precedente indicado é de pandemia em concessões de transmissão e não se transfere automaticamente a outros eventos. A análise é caso a caso.",
+   "status": "rascunho — revisar"
+  }
+ ],
+ "a_confirmar": [
+  "Texto da Norma de Organização ANEEL nº 56/2024 (indisponibilidade técnica acima de 60 minutos).",
+  "Texto do art. 19 da Lei 13.360/2016 e seus limites.",
+  "Teor das normas municipais de poda (São Paulo e Palmas) e da decisão citada na notícia de Goiânia.",
+  "Existência de precedentes da ANEEL específicos para distribuição (as fontes fornecidas tratam de transmissão, do sistema da ANEEL e de poda).",
+  "Se a ANEEL aceita, como excludente, a demora de autorização municipal em fiscalização da distribuição."
+ ]
+}
