@@ -60,7 +60,7 @@ export function valorGeral(p: PlanoDados, s: Simulacao | null, modo: Modo): Valo
 
 export interface Queda { de: number | null; para: number | null; reducaoPct: number; dispositivo: string; trecho: string; fonte: string; sha256: string }
 
-/** Cartão 2: quanto cai se regularizar antes da fiscalização (atenuante do art. 24, I da REN 846). */
+/** Cartão 2: quanto cai se cessar a infração e reparar o dano antes da fiscalização (atenuante do art. 24, I da REN 846). */
 export function queda(p: PlanoDados, s: Simulacao | null, modo: Modo): Queda | null {
   const v = valorGeral(p, s, modo)
   const m = p.reducao.medidas.find((x) => x.cenario === 'espontanea')
@@ -89,6 +89,7 @@ const SIGLAS: [RegExp, string][] = [
   [/\bCCER\b/, 'contrato de energia do consumidor (CCER)'],
   [/\bROL\b/, 'receita operacional líquida'],
   [/\bTN\b/, 'Termo de Notificação'],
+  [/subgrupo AS ou A4/i, 'subgrupo AS ou A4 (alta tensão)'],
   [/\bREN 846\b/, 'REN 846 (regulamento de multas da ANEEL)'],
 ]
 
@@ -111,16 +112,19 @@ const FINAIS_FRACOS = /\s+(?:de|da|do|das|dos|e|em|no|na|nos|nas|que|para|por|co
 /** Frase curta (até `max` caracteres), sem reticências nem palavra cortada; o texto inteiro está no detalhe. */
 export function frase(o: Obrigacao, max = 110): string {
   const completo = simplificar(o.titulo_completo)
-  if (completo.length <= max) return completo
-  let corte = completo.slice(0, max).replace(/\s+\S*$/, '').replace(/[,;:\s]+$/, '')
+  let corte = completo.length <= max ? completo : completo.slice(0, max).replace(/\s+\S*$/, '')
+  corte = corte.replace(/[,;:\s]+$/, '').replace(/[;,]\s+(?:e|ou)$/i, '')
   while (FINAIS_FRACOS.test(corte)) corte = corte.replace(FINAIS_FRACOS, '')
-  return corte
+  return corte.replace(/[,;:\s]+$/, '')
 }
+
+/** "contada de 12/08/2026": de onde vem a data provisória (o marco que o motor leu no texto). */
+const contada = (o: Obrigacao) => (o.prazo.provisorio && o.prazo.base ? ` (provisória, contada de ${dataBR(o.prazo.base)})` : '')
 
 export function prazoTexto(o: Obrigacao): string {
   const d = o.prazo.dias
-  if (o.situacao === 'vencida' && d != null) return `vencida há ${Math.abs(d)} dias`
-  if ((o.situacao === '90dias' || o.situacao === 'depois') && d != null) return `vence em ${d} dias`
+  if (o.situacao === 'vencida' && d != null) return `vencida há ${Math.abs(d)} dias${contada(o)}`
+  if ((o.situacao === '90dias' || o.situacao === 'depois') && d != null) return `vence em ${d} dias${contada(o)}`
   if (o.situacao === 'recorrente') return 'recorrente'
   if (o.situacao === 'evento') return 'depende de um evento'
   return 'sem prazo no texto'
@@ -175,7 +179,7 @@ export interface LinhaTop5 {
   link: string
 }
 
-const VERBO = /^[A-ZÀ-Ú][a-zà-úç]+(?:ar|er|ir)/
+const VERBO = /^[A-ZÀ-Ú][a-zà-úç]+(?:ar|er|ir)\s/
 const GRAU: Record<Obrigacao['situacao'], number> = { vencida: 0, '90dias': 1, depois: 2, recorrente: 3, evento: 4, sem_prazo: 4 }
 
 /** As 5 obrigações para olhar primeiro: vencidas (a mais antiga antes), depois maior valor por infração,

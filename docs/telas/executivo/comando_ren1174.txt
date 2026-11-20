@@ -1,9 +1,9 @@
 $ python -m athenix processar tests/fontes_impacto/dou/dou_ren20261174.html --agente distribuidora --saida landing/src/content/plano-ren1174.json
 Athenix · processar dou_ren20261174.html para distribuidora
-  Norma: REN ANEEL 1.174/2026 (sem IA, sem rede, só regras)
+  Norma: REN ANEEL 1.174/2026 (sem chamada de IA nem rede; sugestões de IA só do cache versionado, marcadas)
   1. Obrigações extraídas: 153 dispositivos lidos
   2. Deveres da distribuidora: 91 · outros dispositivos (faculdades, direitos, outros agentes): 62 · fora do perfil: 0
   3. Prazos: 1 vencidas · 1 nos próximos 90 dias · 1 recorrentes · 87 sem data
   4. Enquadramento na REN 846: 0 identificados no texto · 91 a confirmar (90 com sugestão da IA em cache, marcadas) · 0 sem multa
   5. Temas: 5 · plano gravado em landing/src/content/plano-ren1174.json
-Tempo total: 10.3 s
+Tempo total: 10.4 s

@@ -1,6 +1,6 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "45d990b",
+ "commit_origem": "a54b4bd",
  "gerado_em": "2026-11-20",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
@@ -18,11 +18,11 @@
   "data_referencia": "2026-11-17"
  },
  "ia": {
-  "aviso": "Sugestões da IA gravadas no ensaio de 17/11/2026. Aguardam revisão humana. No modo só identificados no texto não entram no cálculo; no cenário preliminar entram no valor do tema, sempre marcadas como sugeridas.",
+  "aviso": "Sugestões da IA. Aguardam revisão humana. No modo só identificados no texto não entram no cálculo; no cenário preliminar entram no valor do tema, sempre marcadas como sugeridas.",
   "modelo": "gpt-5-mini",
   "reasoning": "medium",
-  "criterio_titulos": "Título aplicado só sem alerta de sentido, com verbo no início, até 85 caracteres e citação literal presente no texto.",
-  "criterio_enquadramentos": "Só a sugestão principal com situação 'principal não condicional e não genérica'."
+  "criterio_titulos": "Sem títulos de IA para esta norma.",
+  "criterio_enquadramentos": "Só a primeira sugestão (a mais provável) de cada obrigação, com dispositivo da lista e justificativa não vazia; nada é confirmado."
  },
  "referencia_escala": {
   "rotulo": "Referência de escala, não estimativa por obrigação",
@@ -152,6 +152,7 @@
      "texto": "Vencido desde 10/11/2026 (7 dias)",
      "dias": -7,
      "provisorio": true,
+     "base": "2026-08-12",
      "situacao": "vencida"
     },
     "obrigacoes_vencidas": 1
@@ -198,6 +199,7 @@
     "texto": "Vencido desde 10/11/2026 (7 dias)",
     "dias": -7,
     "provisorio": true,
+    "base": "2026-08-12",
     "situacao": "vencida"
    },
    "na_fila": 0,
@@ -732,7 +734,8 @@
     "data": "2026-11-10",
     "texto": "Vencido desde 10/11/2026 (7 dias)",
     "dias": -7,
-    "provisorio": true
+    "provisorio": true,
+    "base": "2026-08-12"
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -803,7 +806,8 @@
     "data": "2027-02-08",
     "texto": "Vence em 08/02/2027",
     "dias": 83,
-    "provisorio": true
+    "provisorio": true,
+    "base": "2026-08-12"
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -874,7 +878,8 @@
     "data": "2027-08-12",
     "texto": "Vence em 12/08/2027",
     "dias": 268,
-    "provisorio": true
+    "provisorio": true,
+    "base": "2026-08-12"
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -950,7 +955,8 @@
     "data": null,
     "texto": "Obrigação recorrente: próxima ocorrência não calculada",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -1031,7 +1037,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -1102,7 +1109,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -1178,7 +1186,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -1247,7 +1256,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -1323,7 +1333,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -1405,7 +1416,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -1476,7 +1488,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -1545,7 +1558,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -1614,7 +1628,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -1690,7 +1705,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -1762,7 +1778,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -1833,7 +1850,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -1904,7 +1922,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -1975,7 +1994,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -2047,7 +2067,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -2120,7 +2141,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -2191,7 +2213,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -2262,7 +2285,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -2331,7 +2355,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -2400,7 +2425,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -2469,7 +2495,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -2540,7 +2567,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -2614,7 +2642,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -2688,7 +2717,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -2759,7 +2789,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -2828,7 +2859,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -2897,7 +2929,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -2966,7 +2999,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -3037,7 +3071,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -3106,7 +3141,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -3177,7 +3213,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -3248,7 +3285,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -3290,7 +3328,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -3361,7 +3400,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -3430,7 +3470,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -3501,7 +3542,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -3572,7 +3614,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -3643,7 +3686,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -3712,7 +3756,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -3781,7 +3826,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -3850,7 +3896,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -3919,7 +3966,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -3988,7 +4036,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -4057,7 +4106,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -4126,7 +4176,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -4195,7 +4246,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -4266,7 +4318,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -4335,7 +4388,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -4404,7 +4458,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -4475,7 +4530,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -4547,7 +4603,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -4618,7 +4675,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -4690,7 +4748,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -4759,7 +4818,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -4830,7 +4890,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -4899,7 +4960,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -4968,7 +5030,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -5039,7 +5102,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -5110,7 +5174,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -5181,7 +5246,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -5253,7 +5319,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -5329,7 +5396,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -5405,7 +5473,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -5481,7 +5550,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -5557,7 +5627,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -5639,7 +5710,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -5715,7 +5787,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -5796,7 +5869,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -5868,7 +5942,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -5939,7 +6014,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -6008,7 +6084,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -6077,7 +6154,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -6146,7 +6224,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -6222,7 +6301,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -6296,7 +6376,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -6367,7 +6448,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -6436,7 +6518,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -6512,7 +6595,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -6581,7 +6665,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -6652,7 +6737,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -6721,7 +6807,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -6790,7 +6877,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -6859,7 +6947,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -6928,7 +7017,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -6997,7 +7087,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -7066,7 +7157,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -7135,7 +7227,8 @@
     "data": null,
     "texto": "Sem prazo identificado no texto",
     "dias": null,
-    "provisorio": false
+    "provisorio": false,
+    "base": null
    },
    "calculo": "verificar",
    "posicao_fila": null,

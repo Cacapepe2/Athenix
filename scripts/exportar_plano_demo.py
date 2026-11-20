@@ -300,7 +300,7 @@ def gerar(data=None, commit=None, arquivo=None, segmento="distribuicao"):
     )
     cache = proveniencia(out, params)
     out["sucessao_no_tempo"] = [sucessao_no_tempo(params, cache)]
-    ia = plano.carregar_ia()
+    ia = plano.carregar_ia(DATA / cfg_norma["ia"]) if cfg_norma.get("ia") else None
     commit = (
         commit
         or subprocess.run(
@@ -423,7 +423,9 @@ def processar_norma(arquivo, agente, saida, data=None, commit=None):
     segmento = SEGMENTOS[agente]
     cfg = config_da_norma(arquivo)
     print(f"Athenix · processar {arquivo.name} para {agente}")
-    print(f"  Norma: {cfg['titulo']} (sem IA, sem rede, só regras)")
+    print(
+        f"  Norma: {cfg['titulo']} (sem chamada de IA nem rede; sugestões de IA só do cache versionado, marcadas)"
+    )
     dados, out = gerar(data, commit, arquivo, segmento)
     Path(saida).parent.mkdir(parents=True, exist_ok=True)
     Path(saida).write_text(

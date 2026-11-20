@@ -115,7 +115,7 @@ export function ExecutivoPage() {
           <h2 id="cartao-queda" className={ROTULO_CARTAO}>Quanto pode cair agindo agora</h2>
           {q && v ? <>
             <p className={NUMERO}>até {pct(q.reducaoPct)} menos</p>
-            <p className="mt-2 text-sm text-ink-soft">{q.de != null ? brlCurto(q.de) : '—'} → {q.para != null ? brlCurto(q.para) : '—'} por infração se regularizar antes da fiscalização{v.origem !== 'identificado' && <> {preliminar}</>}</p>
+            <p className="mt-2 text-sm text-ink-soft">{q.de != null ? brlCurto(q.de) : '—'} → {q.para != null ? brlCurto(q.para) : '—'} por infração se cessar a infração e reparar todo o dano antes da fiscalização{v.origem !== 'identificado' && <> {preliminar}</>}</p>
             <details className="mt-1 text-sm">
               <summary className={`inline-flex min-h-11 cursor-pointer items-center gap-1 ${LINK} print:hidden`}>ver a norma: {art(q.dispositivo)} da REN 846<Chevron className="h-4 w-4" /></summary>
               <blockquote className="border-l-2 border-bronze bg-ivory p-2 text-xs">“{q.trecho.trim()}”</blockquote>
@@ -127,8 +127,8 @@ export function ExecutivoPage() {
         <article className={CARTAO} aria-labelledby="cartao-prazos">
           <h2 id="cartao-prazos" className={ROTULO_CARTAO}>Prazos</h2>
           <p className={NUMERO}>{pz.vencidas} {pz.vencidas === 1 ? 'vencida' : 'vencidas'}</p>
-          <p className="mt-2 text-sm text-ink-soft">{pz.vencidas === 1 ? 'obrigação com prazo já vencido' : 'obrigações com prazo já vencido'}; {pz.proxima ? `próxima vence em ${pz.proxima.dias} dias (${dataBR(pz.proxima.data)})` : 'nenhuma a vencer nos próximos 90 dias'}</p>
-          <p className="mt-1 text-xs text-ink-soft">datas provisórias, a confirmar</p>
+          <p className="mt-2 text-sm text-ink-soft">{pz.vencidas === 1 ? 'obrigação com prazo já vencido' : 'obrigações com prazo já vencido'}; {pz.proxima ? `próxima vence em ${pz.proxima.dias} dias (${dataBR(pz.proxima.data)})` : 'nenhuma com data a vencer'}</p>
+          <p className="mt-1 text-xs text-ink-soft">datas provisórias, a confirmar; dias contados até {dataBR(p.perfil.data_referencia)}</p>
         </article>
       </section>
 
@@ -225,7 +225,7 @@ function ComoCalculamos({ ref, p }: { ref: Ref<HTMLDetailsElement>; p: PlanoDado
         </li>)}
       </ul>
       {t.tetoLegal && <p>Por infração, nunca somadas. Acima de todos, o limite legal de {t.tetoLegal.pct != null ? pct(t.tetoLegal.pct) : '—'} do faturamento ({t.tetoLegal.dispositivo}). O valor de cada obrigação é o teto do grupo sobre a receita operacional líquida do porte escolhido, sem agravantes. “Preliminar”: enquadramento sugerido pela IA (<Tag kind="ai" label={IA} />), ainda sem revisão humana. Sem enquadramento, não há valor.</p>}
-      {espontanea?.percentual != null && <p>Atenuantes da própria norma reduzem o valor: até {pct(espontanea.percentual)} se regularizar antes da fiscalização ({espontanea.dispositivo}){ateTn?.percentual != null && <>; {pct(ateTn.percentual)} até o prazo do Termo de Notificação, a notificação que a ANEEL envia antes do auto ({ateTn.dispositivo})</>}. Vale um atenuante só.</p>}
+      {espontanea?.percentual != null && <p>Atenuantes da própria norma reduzem o valor: até {pct(espontanea.percentual)} se cessar a infração e reparar todo o dano antes de a ANEEL comunicar a fiscalização ou lavrar o Termo de Notificação ({espontanea.dispositivo}){ateTn?.percentual != null && <>; {pct(ateTn.percentual)} até o prazo do Termo de Notificação, a notificação que a ANEEL envia antes do auto ({ateTn.dispositivo})</>}. Vale um atenuante só.</p>}
     </div>
   </details>
 }

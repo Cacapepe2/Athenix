@@ -468,6 +468,11 @@ def montar(
                 "texto": urg["principal"],
                 "dias": urg["dias"],
                 "provisorio": "provisório" in urg["detalhe"],
+                # Data de referência da contagem (marco do prazo), para a tela dizer de onde ele vem.
+                "base": next(
+                    (d.get("base") for d in row.get("deadlines", []) if d.get("date") == urg["data"]),
+                    None,
+                ),
             },
             "calculo": calculo,
             "posicao_fila": fila.get(id(item)),

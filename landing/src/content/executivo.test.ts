@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { MIN_AUTOS_REFERENCIA, NORMAS, defesa, destaqueDaNorma, frase, idDaObrigacao, norma, prazos, queda, referenciaDoSetor, simplificar, tabelaDeGrupos, top5, urlDetalhe, urlPlanoCompleto, valorDaObrigacao, valorGeral } from './executivo.ts'
+import { MIN_AUTOS_REFERENCIA, NORMAS, defesa, destaqueDaNorma, frase, prazoTexto, idDaObrigacao, norma, prazos, queda, referenciaDoSetor, simplificar, tabelaDeGrupos, top5, urlDetalhe, urlPlanoCompleto, valorDaObrigacao, valorGeral } from './executivo.ts'
 import { GRUPOS, NOME_DA_GRAVIDADE, nomeDaGravidade, rotuloDoGrupo } from './gravidade.ts'
 import { SIM_INICIAL, planos, type Simulacao } from './plano.ts'
 
@@ -159,4 +159,18 @@ test('nenhum nome de empresa real nos JSONs exportados', () => {
     else if (v && typeof v === 'object') Object.entries(v).forEach(([k, x]) => varre(x, `${caminho}.${k}`))
   }
   for (const [id, p] of Object.entries(planos)) varre(p, id)
+})
+
+test('frase não termina em "; e", "; ou" nem em vírgula; "subgrupo AS ou A4" é explicado', () => {
+  const o = { ...planos.ren1174.obrigacoes[0], titulo_completo: 'Ser realizada no caso de migração na modalidade regular; e' }
+  assert.equal(frase(o), 'Ser realizada no caso de migração na modalidade regular')
+  assert.equal(frase({ ...o, titulo_completo: 'Ser feita para o consumidor,' }), 'Ser feita para o consumidor')
+  assert.ok(simplificar('90 dias: para o consumidor do subgrupo AS ou A4').includes('subgrupo AS ou A4 (alta tensão)'))
+  for (const n of NORMAS) for (const x of n.dados.obrigacoes) assert.doesNotMatch(frase(x), /[;,:]$|;\s+(?:e|ou)$/i, x.id)
+})
+
+test('prazo provisório diz de onde a data é contada; dias contados até a data de referência', () => {
+  const v = planos.ren1174.obrigacoes.find((o) => o.situacao === 'vencida')!
+  assert.match(prazoTexto(v), /^vencida há \d+ dias \(provisória, contada de \d{2}\/\d{2}\/\d{4}\)$/)
+  assert.equal(prazoTexto({ ...v, prazo: { ...v.prazo, base: null } }), prazoTexto(v).replace(/ \(provisória.*\)$/, ''))
 })

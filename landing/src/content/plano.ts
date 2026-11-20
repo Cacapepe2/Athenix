@@ -51,7 +51,7 @@ export interface Obrigacao {
   dispositivo: string | null
   trecho: string | null
   situacao: Situacao
-  prazo: { data: string | null; texto: string; dias: number | null; provisorio: boolean }
+  prazo: { data: string | null; texto: string; dias: number | null; provisorio: boolean; base?: string | null }
   calculo: 'fila' | 'verificar' | 'sem_multa'
   posicao_fila: number | null
   enquadramento: { dispositivo: string; grupo: string }[]
@@ -197,7 +197,7 @@ export type NormaId = keyof typeof planos
 export function normaDaUrl(): NormaId {
   try {
     const n = typeof location !== 'undefined' ? new URLSearchParams(location.search).get('norma') : null
-    return n && n in planos ? (n as NormaId) : 'rn1137'
+    return n && Object.hasOwn(planos, n) ? (n as NormaId) : 'rn1137'
   } catch {
     return 'rn1137'
   }

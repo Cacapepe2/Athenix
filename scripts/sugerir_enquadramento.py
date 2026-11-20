@@ -210,13 +210,18 @@ def executar_arquivo(settings, params, rows, confirmo, saida, parcial):
     )  # reserva inicial de US$ 0,10 por chamadas de uma 1ª tentativa interrompida por timeout (custo não registrado)
     estado = json.loads(parcial.read_text(encoding="utf-8")) if parcial.exists() else {"sugestoes": {}, "falhas": {}, "gasto": "0.10"}  # fmt: skip
     gasto = Decimal(estado["gasto"])
-    feitas = set(estado["sugestoes"])
+    feitas = set(estado["sugestoes"]) | set(
+        estado["falhas"]
+    )  # falha pode ter sido cobrada: não repete
     for n, row in enumerate(rows, start=1):
         chave = enquadramento.chave(row)
         if chave in feitas:
             continue
-        if gasto >= teto:
-            print(f"Teto de US$ {teto} atingido (gasto US$ {gasto:.4f}); parando.")
+        por_chamada = maximo / max(len(rows), 1)  # custo máximo estimado de UMA chamada
+        if gasto + por_chamada > teto:
+            print(
+                f"Teto de US$ {teto} no limite (gasto US$ {gasto:.4f} + US$ {por_chamada:.4f} da próxima); parando."
+            )
             break
         payload = enquadramento.payload_ia(settings.model, params, row, enquadramento.raciocinio(settings))  # fmt: skip
         record = chamar_com_tempo_longo(settings, payload)
