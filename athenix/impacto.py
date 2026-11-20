@@ -186,8 +186,9 @@ def reais(valor):
     return "R$ " + inteiro.replace(",", ".") + "," + frac
 
 
-def titulo_obrigacao(texto):
-    """Resumo derivado do texto; a citação literal continua no detalhe."""
+def titulo_obrigacao(texto, limite=88):
+    """Resumo derivado do texto; a citação literal continua no detalhe. `limite=None` não corta o
+    título (PDF, diagnóstico e planilha mostram a frase inteira)."""
     texto = espacos(texto)
     texto = re.sub(r"^(?:(?:[IVXLCDM]+\s*[-–]|\d+[.]|[a-z][)])\s*)+", "", texto)
     # "dias mês para": redação literal do Art. 13, VI da RN 1.137/2025.
@@ -210,8 +211,8 @@ def titulo_obrigacao(texto):
         flags=re.I,
     )[0]
     texto = texto.rstrip(" :;.")
-    if len(texto) > 88:
-        texto = texto[:85].rsplit(" ", 1)[0] + "…"
+    if limite and len(texto) > limite:
+        texto = texto[: limite - 3].rsplit(" ", 1)[0] + "…"
     return texto[:1].upper() + texto[1:] if texto else "Revisar obrigação na fonte"
 
 

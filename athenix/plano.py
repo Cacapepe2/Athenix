@@ -207,6 +207,13 @@ def _titulo(item, ia, units_texto):
     return regra, "regra"
 
 
+def _titulo_completo(item, titulo, origem):
+    """Título sem corte (o título curto termina em "…" quando passa de 88 caracteres)."""
+    if origem == "ia":
+        return titulo
+    return impacto.titulo_obrigacao(item["row"].get("action", ""), limite=None)
+
+
 def _ia_enquadramento(item, ia, validas):
     s = (ia or {}).get("enquadramentos", {}).get(item["chave"])
     if not s or s["dispositivo"] not in validas:
@@ -346,6 +353,7 @@ def montar(resultado, units, params, p, cfg, ia=None, chave=None, cenarios=None)
             "id": row["id"],
             "titulo": titulo,
             "titulo_origem": origem_titulo,
+            "titulo_completo": _titulo_completo(item, titulo, origem_titulo),
             "tema": tema,
             "motivo_tema": motivo_tema,
             "unidade": unidade["id"] if unidade else None,

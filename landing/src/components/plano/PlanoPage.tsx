@@ -1,11 +1,11 @@
-import { createContext, useContext, useMemo, useState, type ReactNode } from 'react'
-import { AlertTriangle, Download, Printer, Sparkles } from 'lucide-react'
+import { createContext, useContext, useEffect, useMemo, useRef, useState, type ReactNode, type Ref } from 'react'
+import { AlertTriangle, ChevronDown, Download, FileText, Printer, Sparkles } from 'lucide-react'
 import { Logo } from '../ui/Logo'
 import { Tag } from '../product/Tag'
 import {
   brl, brlCurto, comAtenuantePct, csvPlano, dataBR, decisoesDaSemana, exposicaoTema, lacuna, lerReais, manchete, NOTA_ADVERTENCIA, textoVencidas, nomeDiag,
-  obrigacao, ordenarTemas, pct, plano, reaisDe, situacaoPrazo, SIM_INICIAL, textoFaixa,
-  type Citacao, type Diagnostico, type Diagnosticos, type Exposicao, type Medida, type Modo, type Obrigacao, type Simulacao, type Situacao, type Tema,
+  obrigacao, ordenarTemas, pct, plano, reaisDe, resumoDiagnostico, situacaoPrazo, SIM_INICIAL, textoFaixa,
+  type Citacao, type Diagnostico, type Diagnosticos, type Exposicao, type Manchete, type Medida, type Modo, type Obrigacao, type Simulacao, type Situacao, type Tema,
 } from '../../content/plano'
 
 const r = plano.resumo
@@ -15,6 +15,9 @@ const PRELIMINAR = 'cenário preliminar: inclui sugestões aguardando confirmaç
 const ATENUANTES = plano.reducao.medidas.filter((m) => m.cenario)
 const ATEN_I = ATENUANTES.find((m) => m.cenario === 'espontanea')
 const ATEN_II = ATENUANTES.find((m) => m.cenario === 'ate_tn')
+// Acento terracota só no que é clicável e no mais importante (contrastes em index.css).
+const BOTAO_ACENTO = 'inline-flex min-h-11 items-center gap-2 rounded-full bg-acento-escuro px-5 text-sm font-medium text-white hover:bg-obsidian'
+const BOTAO_SEC = 'inline-flex min-h-11 items-center gap-2 rounded-full border border-obsidian/20 bg-white px-5 text-sm font-medium hover:border-acento-escuro'
 // Receita simulada (null: valor digitado inválido, mostra só percentuais) e modo do cenário. Nada sai do navegador.
 const Cenario = createContext<{ sim: Simulacao | null; modo: Modo }>({ sim: SIM_INICIAL, modo: 'preliminar' })
 
@@ -30,16 +33,32 @@ const valor = (e: Exposicao) => (e.reais != null ? brl(e.reais) : `${pct(e.pct)}
 const valorCurto = (e: Exposicao) => (e.reais != null ? brlCurto(e.reais) : `${pct(e.pct)} da receita`)
 const GRAVIDADE = ['I', 'II', 'III', 'IV', 'V']
 const maisGrave = (gs: string[]) => [...gs].sort((a, b) => GRAVIDADE.indexOf(b) - GRAVIDADE.indexOf(a))[0]
+/** Porte escolhido em palavras: faixa do topo ou receita informada. */
+const nomePorte = (s: Simulacao | null) => {
+  const f = s && plano.simulador.faixas.find((x) => x.base === s.base)
+  return f ? `${f.rotulo} (~${brlCurto(f.base)} de receita)` : s ? `receita informada de ${brlCurto(s.base)}` : 'receita a informar'
+}
 
 /** Marca de valor que vem de sugestão (hachurada; o texto diz o mesmo, sem depender de cor). */
 function Sugerido({ texto = 'sugerido' }: { texto?: string }) {
   return <span className="hachura-leve inline-flex items-center rounded-md border border-slate-blue/50 px-2 py-0.5 text-xs font-medium text-obsidian">{texto}</span>
 }
 
+/** Manchete: a maior exposição por infração entre os temas vencidos (nunca soma). */
+function TextoManchete({ m }: { m: Manchete }) {
+  const temas = `${m.temasVencidos} ${m.temasVencidos === 1 ? 'tema já vencido' : 'temas já vencidos'}`
+  if (m.temasVencidos === 0) return <>Nenhum tema vencido em aberto</>
+  return m.maximo ? <>Até <span className="whitespace-nowrap text-slate-blue">{valorCurto(m.maximo)}</span> por infração em {temas}</> : <>Exposição a enquadrar em {temas}</>
+}
+
 export function PlanoPage() {
   const [diag, setDiag] = useState<Diagnosticos>({})
   const [sim, setSim] = useState<Simulacao | null>(SIM_INICIAL)
   const [modo, setModo] = useState<Modo>('preliminar')
+  // Diagnóstico gerado na própria página (contagem de cliques: cada clique rola até ele de novo).
+  const [geracao, setGeracao] = useState(0)
+  const [soDiagnostico, setSoDiagnostico] = useState(false)
+  const refDiag = useRef<HTMLElement>(null)
   const temas = useMemo(() => ordenarTemas(plano.temas, diag, sim, modo), [diag, sim, modo])
   const decisoes = decisoesDaSemana(plano.temas, diag, sim, modo)
   const m = manchete(plano.temas, diag, sim, modo)
@@ -47,43 +66,52 @@ export function PlanoPage() {
   // Escala das barras: a maior exposição entre os temas visíveis vale 100%. Relativa (e não contra
   // os 3% do teto legal) para que as diferenças entre temas fiquem legíveis; o número vem escrito ao lado.
   const maiorPct = Math.max(0, ...temas.map((t) => exposicaoTema(t, sim, modo)?.pct ?? 0))
-  // Impressão: só o resumo (topo e temas). As análises e os detalhes ficam recolhidos; o que a pessoa abriu na tela sai aberto.
+  // Impressão: só o resumo (topo e temas; com diagnóstico gerado, topo e diagnóstico). Análises e detalhes ficam recolhidos.
   const marcar = (id: string, d: Diagnostico) => setDiag((atual) => ({ ...atual, [id]: d }))
-  const esc = plano.referencia_escala
+  const gerado = geracao > 0
+  useEffect(() => {
+    if (!geracao) return
+    refDiag.current?.scrollIntoView({ block: 'start' })
+    refDiag.current?.focus({ preventScroll: true })
+  }, [geracao])
+  useEffect(() => {
+    if (!soDiagnostico) return
+    const fim = () => setSoDiagnostico(false)
+    window.addEventListener('afterprint', fim)
+    window.print()
+    return () => window.removeEventListener('afterprint', fim)
+  }, [soDiagnostico])
 
   return <Cenario.Provider value={{ sim, modo }}>
     <header className="border-b border-line bg-ivory print:hidden"><div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-8"><a href="/" aria-label="Athenix, voltar ao início"><Logo /></a><a href="/" className="text-sm font-semibold text-slate-blue">← Voltar ao site</a></div></header>
-    <main id="plano" className="mx-auto max-w-7xl space-y-14 px-4 pt-6 pb-8 sm:px-8 sm:pt-10 md:pb-28 print:pb-10">
+    <main id="plano" className={`mx-auto max-w-7xl space-y-14 px-4 pt-6 pb-8 sm:px-8 sm:pt-10 md:pb-28 print:pb-10 ${soDiagnostico ? 'so-diagnostico' : ''}`}>
       <section aria-labelledby="titulo-plano" className="space-y-6">
         <p className={kicker}>Plano de ação · RN 1.137/2025 · {plano.perfil.rotulo.toLowerCase()} (não é empresa real)</p>
         <Porte setSim={setSim} />
+        <p className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-2xl border border-acento/60 border-l-4 border-l-acento bg-acento-claro py-2 pr-4 pl-4 text-sm print:hidden">
+          <span className="rounded-full bg-acento-escuro px-2.5 py-0.5 text-xs font-bold tracking-wide text-white uppercase">Novo</span>
+          <span className="font-semibold text-obsidian">Gere o diagnóstico da sua empresa aqui mesmo, sem baixar nada.</span>
+          <span className="text-ink-soft">Marque a situação em cada tema e clique em “Gerar diagnóstico”, depois da lista.</span>
+          <a href="#seu-diagnostico" className="inline-flex min-h-11 items-center font-semibold text-acento-escuro underline decoration-acento underline-offset-4">Ir para o diagnóstico ↓</a>
+        </p>
+        <Metricas m={m} />
 
         <div className="grid items-start gap-5 lg:grid-cols-[1.45fr_1fr]">
-        <div className="space-y-3">
-        <div className="rounded-2xl border border-line bg-white p-5 shadow-soft sm:p-7">
-          <p className="flex flex-wrap items-center gap-2 text-sm text-ink-soft">
-            <Tag kind="pending" label="preliminar" />
-            <span>Distribuidora de {sim ? brlCurto(sim.base) : 'receita a informar'} · RN 1.137/2025</span>
-          </p>
-          <h1 id="titulo-plano" className="font-display mt-3 text-[1.75rem] leading-tight sm:text-[2.6rem] sm:leading-[1.12]">
-            {m.temasVencidos === 0 ? 'Nenhum tema vencido em aberto'
-              : m.maximo ? <>Até <span className="whitespace-nowrap text-slate-blue">{valorCurto(m.maximo)}</span> por infração em {m.temasVencidos} {m.temasVencidos === 1 ? 'tema já vencido' : 'temas já vencidos'}</>
-                : <>Exposição a enquadrar em {m.temasVencidos} {m.temasVencidos === 1 ? 'tema já vencido' : 'temas já vencidos'}</>}
-          </h1>
-          <p className="mt-2 text-sm text-ink-soft">{textoVencidas(m.obrigacoesVencidas)} · datas provisórias · os valores não se somam</p>
-          <div className="mt-4 flex flex-wrap items-center gap-3">
-            {modo === 'preliminar' && m.sugeridos > 0 && <Sugerido texto={PRELIMINAR} />}
-            {modo === 'confirmados' && <span className="text-sm text-ink-soft">Só enquadramentos que o texto da obrigação nomeia.</span>}
-            <button type="button" aria-pressed={modo === 'confirmados'} onClick={() => setModo(modo === 'preliminar' ? 'confirmados' : 'preliminar')}
-              className="inline-flex min-h-11 items-center rounded-full border border-obsidian/20 bg-white px-4 text-sm font-medium hover:border-obsidian/40 print:hidden">
-              {modo === 'preliminar' ? 'Mostrar só confirmados' : 'Voltar ao cenário preliminar'}
-            </button>
+          <div className="rounded-2xl border border-line bg-white p-5 shadow-soft sm:p-7">
+            <p className="flex flex-wrap items-center gap-2 text-sm text-ink-soft">
+              <Tag kind="pending" label="preliminar" />
+              <span>Distribuidora de {sim ? brlCurto(sim.base) : 'receita a informar'} · RN 1.137/2025</span>
+            </p>
+            <h1 id="titulo-plano" className="font-display mt-3 text-[1.75rem] leading-tight sm:text-[2.6rem] sm:leading-[1.12]"><TextoManchete m={m} /></h1>
+            <p className="mt-2 text-sm text-ink-soft">{textoVencidas(m.obrigacoesVencidas)} · datas provisórias · os valores não se somam</p>
+            <div className="mt-4 flex flex-wrap items-center gap-3">
+              {modo === 'preliminar' && m.sugeridos > 0 && <Sugerido texto={PRELIMINAR} />}
+              {modo === 'confirmados' && <span className="text-sm text-ink-soft">Só enquadramentos que o texto da obrigação nomeia.</span>}
+              <button type="button" aria-pressed={modo === 'confirmados'} onClick={() => setModo(modo === 'preliminar' ? 'confirmados' : 'preliminar')} className={`${BOTAO_ACENTO} print:hidden`}>
+                {modo === 'preliminar' ? 'Mostrar só confirmados' : 'Voltar ao cenário preliminar'}
+              </button>
+            </div>
           </div>
-          <p className="mt-5 border-t border-line pt-4 text-sm">Referência do setor: mediana de {esc.autos} autos de infração publicados em distribuição (amostra pequena) ≈ <strong>{brlCurto(esc.mediana_reais)}</strong>; maior na amostra ≈ <strong>{brlCurto(esc.maximo_reais)}</strong>.</p>
-          <p className="mt-1 text-xs text-ink-soft">{esc.rotulo}. É valor do auto inteiro, que pode reunir várias infrações. Detalhes em “Como chegamos aqui”.</p>
-        </div>
-        <p className="px-1 text-sm text-ink-soft">{r.aplicaveis} obrigações para distribuidoras · {r.por_situacao.vencida} com prazo vencido · {r.por_situacao['90dias']} vencem em 90 dias · {r.por_situacao.recorrente} recorrentes · {semData} sem data ({r.por_situacao.evento} dependem de evento)</p>
-        </div>
 
           <section aria-labelledby="decisoes" className="rounded-2xl border border-line bg-white p-5 sm:p-7">
             <h2 id="decisoes" className="font-display text-2xl sm:text-3xl">{`${decisoes.length} ${decisoes.length === 1 ? 'decisão' : 'decisões'} para esta semana`}</h2>
@@ -91,7 +119,7 @@ export function PlanoPage() {
               {decisoes.map((t, n) => { const e = exposicaoTema(t, sim, modo); return <li key={t.id} className="flex gap-3">
                 <span aria-hidden="true" className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-slate-blue font-semibold text-ivory">{n + 1}</span>
                 <div className="min-w-0">
-                  <a href={`#tema-${t.id}`} className="font-semibold leading-snug text-slate-blue underline decoration-slate-blue/30 underline-offset-4 hover:decoration-slate-blue">{t.nome}</a>
+                  <a href={`#tema-${t.id}`} className="font-semibold leading-snug text-acento-escuro underline decoration-acento/50 underline-offset-4 hover:decoration-acento-escuro">{t.nome}</a>
                   <p className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
                     <span>{e ? <>até <strong>{valor(e)}</strong> por infração</> : 'exposição a enquadrar'}{t.contagem.vencida > 0 && <> · {textoVencidas(t.contagem.vencida)}</>}</span>
                     <span aria-hidden="true" className="text-ink-soft">·</span>
@@ -104,56 +132,159 @@ export function PlanoPage() {
             <p className="mt-5 border-t border-line pt-4 text-sm text-ink-soft">Designar quem confirma o enquadramento: confirmar enquadramentos libera o cálculo de {plano.decisoes.confirmar.temas_sem_calculo_confirmado} temas.</p>
           </section>
         </div>
-          <section aria-labelledby="diagnostico" className="print:hidden grid gap-4 rounded-2xl border border-line bg-stone/40 p-5 sm:p-6 lg:grid-cols-[1fr_1fr_auto] lg:items-center">
-            <div><h2 id="diagnostico" className="font-display text-xl sm:text-2xl">Seu diagnóstico</h2>
-              <p className="mt-1 text-sm">Em cada tema abaixo, marque se a empresa já atende. A ordem se recalcula na hora: o que já está atendido desce.</p></div>
-            <div><p aria-live="polite" className="rounded-xl bg-white p-4 text-sm">
-              {gap.semResposta === plano.temas.length ? <>Nenhum tema marcado ainda.</> : <>Lacuna informada: <strong>{gap.nao} obrigações</strong> em temas que vocês não atendem e <strong>{gap.parcial}</strong> em temas parciais. {gap.semResposta} {gap.semResposta === 1 ? 'tema' : 'temas'} sem resposta.</>}
-            </p>
-            <p className="mt-2 text-xs text-ink-soft">As marcações ficam só nesta aba do navegador: nada é salvo nem enviado.</p></div>
-            <div className="flex flex-wrap gap-3 lg:flex-col print:hidden">
-              <button type="button" onClick={() => baixarCsv(diag, sim)} className="inline-flex min-h-11 items-center gap-2 rounded-full bg-slate-blue px-5 text-sm font-medium text-ivory hover:bg-obsidian"><Download aria-hidden="true" className="h-4 w-4" />Baixar planilha (CSV)</button>
-              <button type="button" onClick={() => window.print()} className="inline-flex min-h-11 items-center gap-2 rounded-full border border-obsidian/20 bg-white px-5 text-sm font-medium hover:border-obsidian/40"><Printer aria-hidden="true" className="h-4 w-4" />Imprimir ou salvar PDF</button>
-            </div>
-          </section>
       </section>
 
-      <section aria-labelledby="temas">
+      <section aria-labelledby="temas" className={gerado ? 'print:hidden' : ''}>
         <p className={kicker}>Plano por tema</p>
         <h2 id="temas" className="font-display mt-2 text-3xl sm:text-4xl">Temas por valor em risco</h2>
         <details className="mt-3 max-w-3xl text-sm print:hidden">
-          <summary className="inline-flex min-h-11 cursor-pointer items-center font-medium text-slate-blue underline underline-offset-4">como ordenamos</summary>
+          <summary className="inline-flex min-h-11 cursor-pointer items-center font-medium text-acento-escuro underline underline-offset-4">como ordenamos</summary>
           <p className="mt-1 leading-relaxed text-ink-soft">{plano.regra_ordem}</p>
         </details>
-        <ol className="mt-6 space-y-5">{temas.map((t, n) => <CartaoTema key={t.id} tema={t} posicao={n + 1} diag={diag[t.id]} marcar={marcar} maiorPct={maiorPct} />)}</ol>
+        <div className="mt-6 grid grid-cols-[minmax(0,1fr)] items-start gap-6 lg:grid-cols-[minmax(0,1fr)_20rem]">
+          <ol className="space-y-5">{temas.map((t, n) => <CartaoTema key={t.id} tema={t} posicao={n + 1} diag={diag[t.id]} marcar={marcar} maiorPct={maiorPct} />)}</ol>
+          <SeuDiagnostico diag={diag} gap={gap} gerar={() => setGeracao((g) => g + 1)} />
+        </div>
       </section>
 
-      <div className="space-y-14 print:hidden"><ComoReduzir temas={temas} />
+      {gerado && <DiagnosticoGerado ref={refDiag} diag={diag} temas={temas} decisoes={decisoes} m={m} imprimir={() => setSoDiagnostico(true)} fechar={() => { setGeracao(0); document.getElementById('seu-diagnostico')?.scrollIntoView({ block: 'start' }) }} />}
 
-      <LinhaDoTempo />
-
-      <section aria-labelledby="metodo"><details className="rounded-2xl border border-line bg-white p-5 sm:p-7">
-        <summary className="font-display cursor-pointer text-2xl sm:text-3xl" id="metodo">Como chegamos aqui</summary>
-        <div className="mt-5 max-w-3xl space-y-3 text-sm leading-relaxed">
-          <p>A leitura automática da norma identificou {r.identificadas} itens. {r.fora_do_perfil} {r.fora_do_perfil === 1 ? 'vale' : 'valem'} só para transmissoras; os outros {r.aplicaveis} entram neste plano. Em {r.na_fila} o texto da obrigação nomeia o instrumento de uma infração da REN 846 e o grupo de multa é identificado; {r.a_confirmar} aguardam a confirmação do enquadramento por uma pessoa; {r.sem_multa} não têm multa estimável.</p>
-          <p>Os temas seguem as seções da própria norma (por exemplo, “{plano.temas[0].fontes[0]?.titulo}”). Disposições transitórias vão para o tema do primeiro assunto que nomeiam.</p>
-          <p>Prazos: calculados pelo motor temporal a partir da publicação ({dataBR(plano.norma.vigencia)}). Ficam provisórios até uma pessoa confirmar a contagem.</p>
-          <p>Exposição: teto do grupo de infração (REN 846, Art. 8º) sobre a receita operacional líquida, limitado pelo teto legal. Sem simulação, a receita é a ilustrativa de {brl(plano.perfil.base_reais)}. {plano.perfil.origem_base} Sem faturamento bruto informado, o teto legal pode estar subestimado. A manchete mostra a maior exposição por infração entre os temas já vencidos.</p>
-          <p>Cenário preliminar e confirmados: no cenário preliminar (padrão), os enquadramentos sugeridos pela IA também contam, sempre marcados como “sugerido” e com barra hachurada; o cálculo continua sendo o do motor, só com o grupo sugerido. Em “Mostrar só confirmados” entram apenas os enquadramentos que o texto da obrigação nomeia. Nenhuma sugestão é confirmada em nome de uma pessoa.</p>
-          <p>Porte, no topo da página: Pequena ~{brl(plano.simulador.faixas[0].base)}, Média ~{brl(plano.simulador.faixas[1].base)}, Grande ~{brl(plano.simulador.faixas[2].base)} e Muito grande ~{brl(plano.simulador.faixas[3].base)} de receita operacional líquida anual; em “Ajustar premissas” dá para informar a receita e o faturamento bruto. {plano.simulador.origem_faixas} A conta é a mesma do motor da Athenix (grupos I a V, percentuais da REN 846 e teto legal sobre o faturamento), refeita no seu navegador; um teste automático confere o resultado com o motor.</p>
-          <p>Referência do setor: {esc.limites} Unidade: {esc.unidade}.</p>
-          <p>Como reduzir a exposição: os textos citados vêm do catálogo de multas extraído do compilado oficial da REN 846 (SHA-256 indicado em cada citação). Os cenários com atenuante são do motor, com o valor base no teto do grupo (pior caso) e sem agravantes. Condição e efeito em linguagem simples são nossa interpretação e aguardam revisão humana. Causas externas só são citadas quando o texto da própria obrigação as prevê.</p>
-          <p>Análise regulatória preliminar (em cada tema): tipo da obrigação por regras, com ideias de cumprimento e de evidência em rascunho, e dependências de terceiros só quando o trecho literal da norma as nomeia. Prática conhecida fora do texto da norma aparece separada, com referências públicas e o contraponto.</p>
-          {plano.ia && <p><Tag kind="ai" /> {plano.ia.aviso} Modelo {plano.ia.modelo}. {plano.ia.criterio_titulos} Títulos marcados com <Sparkles aria-label="ícone de IA" className="inline h-3 w-3" /> foram resumidos com IA. Enquadramentos: {plano.ia.criterio_enquadramentos.toLowerCase()}</p>}
-          <p className="break-all text-xs text-ink-soft">Documento preservado · SHA-256 {plano.norma.sha256} · gerado por {plano.gerado_por} (commit {plano.commit_origem}).</p>
-        </div>
-      </details></section></div>
+      <div className="space-y-4 print:hidden">
+        <Expansivel id="reduzir" titulo="Como reduzir a exposição" resumo="atenuantes do art. 24 da REN 846, regras comuns e valores por tema">{() => <ComoReduzir temas={temas} />}</Expansivel>
+        <Expansivel id="linha" titulo="Quando cada coisa vence" resumo={`${r.por_situacao.vencida} vencidas, ${r.por_situacao['90dias']} em 90 dias, ${r.por_situacao.recorrente} recorrentes, ${semData} sem data`}>{() => <LinhaDoTempo />}</Expansivel>
+        <Expansivel id="metodo" titulo="Como chegamos aqui" resumo="contagens, prazos, cálculo da exposição, premissas e fontes">{() => <Metodo />}</Expansivel>
+        <Expansivel id="referencia" titulo="Referência do setor" resumo={`autos de infração publicados em distribuição (${plano.referencia_escala.autos}, amostra pequena)`}>{() => <ReferenciaSetor />}</Expansivel>
+      </div>
       <footer className="border-t border-line pt-6 text-sm text-ink-soft">{plano.aviso} Iniciativa em validação. Valores ilustrativos, que não indicam descumprimento de uma empresa real. Não constitui parecer jurídico. <a className="ml-2 underline print:hidden" href="/">Voltar à Athenix</a></footer>
     </main>
     <div role="note" className="z-30 border-t md:fixed md:inset-x-0 md:bottom-0 border-line bg-obsidian/95 px-4 py-2.5 text-center text-xs leading-snug text-ivory print:hidden">
       Iniciativa em validação · valores ilustrativos · não constitui parecer jurídico
     </div>
   </Cenario.Provider>
+}
+
+/** Faixa de métricas do topo: tudo calculado dos dados (nenhum número digitado). */
+function Metricas({ m }: { m: Manchete }) {
+  const conf = plano.decisoes.confirmar.temas_sem_calculo_confirmado
+  const itens: { valor: ReactNode; rotulo: string; dica: ReactNode }[] = [
+    { valor: m.maximo ? valorCurto(m.maximo) : 'a enquadrar', rotulo: 'maior exposição por infração', dica: <>entre os temas vencidos; não se soma{m.maximo?.origem === 'sugerido' && <> <Sugerido /></>}</> },
+    { valor: m.temasVencidos, rotulo: 'temas já vencidos', dica: `de ${plano.temas.length} temas da norma` },
+    { valor: m.obrigacoesVencidas, rotulo: 'obrigações vencidas', dica: 'cada uma pode ser uma infração' },
+    { valor: r.aplicaveis, rotulo: 'obrigações no plano', dica: 'aplicáveis a distribuidoras' },
+    { valor: conf, rotulo: 'temas sem enquadramento confirmado', dica: 'confirmar libera o cálculo' },
+  ]
+  return <dl aria-label="Números do plano" className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+    {itens.map((x, i) => <div key={x.rotulo} className={`flex flex-col rounded-2xl border border-line bg-white p-4 ${i === itens.length - 1 ? 'col-span-2 sm:col-span-1' : ''}`}>
+      <dt className="order-2 mt-2 text-sm leading-snug font-semibold">{x.rotulo}</dt>
+      <dd className="font-display order-1 text-[1.9rem] leading-none tabular-nums [overflow-wrap:anywhere] sm:text-4xl">{x.valor}</dd>
+      <dd className="order-3 mt-1 text-xs leading-snug text-ink-soft">{x.dica}</dd>
+    </div>)}
+  </dl>
+}
+
+/** Card "Seu diagnóstico": ao lado dos temas (fixo ao rolar em tela grande); no celular, depois da lista. */
+function SeuDiagnostico({ diag, gap, gerar }: { diag: Diagnosticos; gap: ReturnType<typeof lacuna>; gerar: () => void }) {
+  const { sim } = useContext(Cenario)
+  const marcados = plano.temas.length - gap.semResposta
+  return <aside id="seu-diagnostico" aria-labelledby="titulo-seu-diagnostico" className="rounded-2xl border-2 border-acento bg-white p-5 shadow-soft lg:sticky lg:top-6 print:hidden">
+    <p className="text-xs font-bold tracking-widest text-acento-escuro uppercase">Gere aqui mesmo</p>
+    <h2 id="titulo-seu-diagnostico" className="font-display mt-1 text-2xl">Seu diagnóstico</h2>
+    <dl className="mt-3 space-y-3 text-sm">
+      <div><dt className="text-ink-soft">Porte</dt><dd className="font-semibold">{nomePorte(sim)} <a href="#porte" className="inline-flex min-h-11 items-center font-normal text-acento-escuro underline underline-offset-4">alterar no topo</a></dd></div>
+      <div><dt className="text-ink-soft">Situação por tema</dt>
+        <dd aria-live="polite">{marcados === 0 ? <>Nenhum tema marcado ainda.</> : <>{marcados} de {plano.temas.length} temas marcados. Lacuna: <strong>{gap.nao} obrigações</strong> em temas que vocês não atendem e <strong>{gap.parcial}</strong> em temas parciais.</>}</dd></div>
+    </dl>
+    <p className="mt-3 text-xs text-ink-soft">Marque “Já temos”, “Parcial” ou “Não temos” em cada tema. As marcações ficam só nesta aba: nada é salvo nem enviado.</p>
+    <button type="button" onClick={gerar} aria-controls="diagnostico-gerado" className="mt-4 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-acento px-5 text-[1.1875rem] font-bold text-white hover:bg-acento-escuro"><FileText aria-hidden="true" className="h-5 w-5" />Gerar diagnóstico</button>
+    <div className="mt-3 grid gap-2">
+      <button type="button" onClick={() => baixarCsv(diag, sim)} className={`${BOTAO_SEC} justify-center`}><Download aria-hidden="true" className="h-4 w-4" />Baixar planilha (CSV)</button>
+      <button type="button" onClick={() => window.print()} className={`${BOTAO_SEC} justify-center`}><Printer aria-hidden="true" className="h-4 w-4" />Imprimir ou salvar PDF</button>
+    </div>
+  </aside>
+}
+
+/** Diagnóstico gerado no navegador, em forma de boletim. Nada é enviado. */
+function DiagnosticoGerado({ ref, diag, temas, decisoes, m, imprimir, fechar }: { ref: Ref<HTMLElement>; diag: Diagnosticos; temas: Tema[]; decisoes: Tema[]; m: Manchete; imprimir: () => void; fechar: () => void }) {
+  const { sim, modo } = useContext(Cenario)
+  const gap = lacuna(plano.temas, diag)
+  const algumSugerido = temas.some((t) => exposicaoTema(t, sim, modo)?.origem === 'sugerido')
+  return <section ref={ref} id="diagnostico-gerado" tabIndex={-1} aria-labelledby="titulo-diagnostico" className="rounded-2xl border-2 border-acento bg-white p-5 shadow-soft sm:p-8 print:border-0 print:p-0 print:shadow-none">
+    <div className="flex flex-wrap items-start justify-between gap-3">
+      <p className="text-xs font-bold tracking-[0.2em] text-acento-escuro uppercase">Diagnóstico da regulação</p>
+      <div className="flex flex-wrap gap-2 print:hidden">
+        <button type="button" onClick={imprimir} className={BOTAO_ACENTO}><Printer aria-hidden="true" className="h-4 w-4" />Imprimir este diagnóstico</button>
+        <button type="button" onClick={() => baixarCsv(diag, sim)} className={BOTAO_SEC}><Download aria-hidden="true" className="h-4 w-4" />Planilha (CSV)</button>
+        <button type="button" onClick={fechar} className={BOTAO_SEC}>Fechar</button>
+      </div>
+    </div>
+    <h2 id="titulo-diagnostico" className="font-display mt-3 text-[2rem] leading-tight sm:text-5xl sm:leading-[1.08]"><TextoManchete m={m} /></h2>
+    <p className="mt-3 text-sm text-ink-soft">Data de referência {dataBR(plano.perfil.data_referencia)} · Porte: {nomePorte(sim)} · RN 1.137/2025 · {modo === 'preliminar' ? 'cenário preliminar' : 'só enquadramentos confirmados'} · {plano.perfil.rotulo.toLowerCase()} (não é empresa real)</p>
+    <p className="mt-5 max-w-4xl text-lg leading-relaxed">{resumoDiagnostico(plano.temas, diag, sim, modo)}</p>
+    {algumSugerido && <p className="mt-3 flex flex-wrap items-center gap-2 text-sm"><Tag kind="ai" label="Interpretação da IA · aguarda revisão humana" /><span className="text-ink-soft">Valores marcados “sugerido” usam o enquadramento sugerido pela IA ({PRELIMINAR}).</span></p>}
+
+    <div className="mt-8 grid items-start gap-6 lg:grid-cols-[1.3fr_1fr]">
+      <div><h3 className="font-display text-2xl">{`${decisoes.length} ${decisoes.length === 1 ? 'decisão' : 'decisões'} para esta semana`}</h3>
+        <ol className="mt-3 list-decimal space-y-2 pl-5">{decisoes.map((t) => { const e = exposicaoTema(t, sim, modo); return <li key={t.id}><a href={`#tema-${t.id}`} className="font-semibold text-acento-escuro underline decoration-acento/50 underline-offset-4 print:no-underline">{t.nome}</a>
+          <span className="block text-sm">{e ? <>até <strong>{valor(e)}</strong> por infração</> : 'exposição a enquadrar'} · {situacaoPrazo(t)} {e?.origem === 'sugerido' && <Sugerido />}</span></li> })}</ol></div>
+      <div className="rounded-xl bg-stone/50 p-4 text-sm"><h3 className="font-semibold">Lacuna informada</h3>
+        {gap.semResposta === plano.temas.length ? <p className="mt-1">Nenhum tema marcado: o diagnóstico mostra a exposição sem a situação da empresa. Marque cada tema e gere de novo.</p>
+          : <p className="mt-1"><strong>{gap.nao}</strong> obrigações em temas que vocês não atendem, <strong>{gap.parcial}</strong> em temas parciais e <strong>{gap.atendido}</strong> em temas atendidos. {gap.semResposta} {gap.semResposta === 1 ? 'tema' : 'temas'} sem resposta.</p>}
+      </div>
+    </div>
+
+    <h3 className="font-display mt-10 text-2xl">Temas na ordem de prioridade</h3>
+    <ol className="mt-3 space-y-5">{temas.map((t, n) => { const e = exposicaoTema(t, sim, modo); return <li key={t.id} className="border-t border-line pt-4">
+      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+        <p className="font-semibold">{n + 1}. {t.nome}</p>
+        <p className="flex flex-wrap items-center gap-2 text-sm">{e ? <span>até <strong>{valor(e)}</strong> por infração</span> : <span>exposição a enquadrar</span>}{e?.origem === 'sugerido' && <Sugerido />}</p>
+      </div>
+      <p className="mt-1 text-sm text-ink-soft">{situacaoPrazo(t)}{t.contagem.vencida > 0 && <> · {textoVencidas(t.contagem.vencida)}</>} · {t.n} {t.n === 1 ? 'obrigação' : 'obrigações'} · Situação informada: <strong className="text-obsidian">{nomeDiag(diag[t.id])}</strong></p>
+      <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">{t.principais.map((id) => { const o = obrigacao(id); return <li key={id}><Titulo o={o} /> <span className="text-xs text-ink-soft">· {o.dispositivo ?? 'dispositivo a confirmar'} · {o.prazo.texto}</span></li> })}</ul>
+    </li> })}</ol>
+    <p className="mt-8 border-t border-line pt-4 text-xs leading-relaxed text-ink-soft">Valores por infração, que não se somam; {NOTA_ADVERTENCIA}. Pior caso, sem agravantes; datas provisórias. Calculado no seu navegador com os dados deste plano: nada foi enviado nem salvo. {plano.aviso} Iniciativa em validação. Não constitui parecer jurídico.</p>
+  </section>
+}
+
+/** Bloco recolhido: título claro e resumo de uma linha; o conteúdo só é montado ao abrir. */
+function Expansivel({ id, titulo, resumo, children }: { id: string; titulo: string; resumo: string; children: () => ReactNode }) {
+  const [aberto, setAberto] = useState(false)
+  return <section aria-labelledby={id}><details className="group rounded-2xl border border-line bg-white" onToggle={(e) => setAberto(e.currentTarget.open)}>
+    <summary className="flex min-h-11 cursor-pointer items-start gap-3 p-5 sm:px-7">
+      <span className="flex min-w-0 flex-1 flex-wrap items-baseline gap-x-3 gap-y-1">
+        <h2 id={id} className="font-display text-2xl text-acento-escuro sm:text-3xl">{titulo}</h2>
+        <span className="text-sm text-ink-soft">{resumo}</span>
+      </span>
+      <span className="mt-1 inline-flex shrink-0 items-center gap-1 text-sm font-semibold text-acento-escuro"><span className="group-open:hidden">Abrir</span><span className="hidden group-open:inline">Fechar</span><ChevronDown aria-hidden="true" className="h-5 w-5 transition-transform group-open:rotate-180" /></span>
+    </summary>
+    {aberto && <div className="px-5 pb-6 sm:px-7">{children()}</div>}
+  </details></section>
+}
+
+function Metodo() {
+  const esc = plano.referencia_escala
+  return <div className="max-w-3xl space-y-3 text-sm leading-relaxed">
+    <p>Contagens: {r.aplicaveis} obrigações para distribuidoras · {r.por_situacao.vencida} com prazo vencido · {r.por_situacao['90dias']} vencem em 90 dias · {r.por_situacao.recorrente} recorrentes · {semData} sem data ({r.por_situacao.evento} dependem de evento).</p>
+    <p>A leitura automática da norma identificou {r.identificadas} itens. {r.fora_do_perfil} {r.fora_do_perfil === 1 ? 'vale' : 'valem'} só para transmissoras; os outros {r.aplicaveis} entram neste plano. Em {r.na_fila} o texto da obrigação nomeia o instrumento de uma infração da REN 846 e o grupo de multa é identificado; {r.a_confirmar} aguardam a confirmação do enquadramento por uma pessoa; {r.sem_multa} não têm multa estimável.</p>
+    <p>Os temas seguem as seções da própria norma (por exemplo, “{plano.temas[0].fontes[0]?.titulo}”). Disposições transitórias vão para o tema do primeiro assunto que nomeiam.</p>
+    <p>Prazos: calculados pelo motor temporal a partir da publicação ({dataBR(plano.norma.vigencia)}). Ficam provisórios até uma pessoa confirmar a contagem.</p>
+    <p>Exposição: teto do grupo de infração (REN 846, Art. 8º) sobre a receita operacional líquida, limitado pelo teto legal. Sem simulação, a receita é a ilustrativa de {brl(plano.perfil.base_reais)}. {plano.perfil.origem_base} Sem faturamento bruto informado, o teto legal pode estar subestimado. A manchete mostra a maior exposição por infração entre os temas já vencidos.</p>
+    <p>Cenário preliminar e confirmados: no cenário preliminar (padrão), os enquadramentos sugeridos pela IA também contam, sempre marcados como “sugerido” e com barra hachurada; o cálculo continua sendo o do motor, só com o grupo sugerido. Em “Mostrar só confirmados” entram apenas os enquadramentos que o texto da obrigação nomeia. Nenhuma sugestão é confirmada em nome de uma pessoa.</p>
+    <p>Porte, no topo da página: Pequena ~{brl(plano.simulador.faixas[0].base)}, Média ~{brl(plano.simulador.faixas[1].base)}, Grande ~{brl(plano.simulador.faixas[2].base)} e Muito grande ~{brl(plano.simulador.faixas[3].base)} de receita operacional líquida anual; em “Ajustar premissas” dá para informar a receita e o faturamento bruto. {plano.simulador.origem_faixas} A conta é a mesma do motor da Athenix (grupos I a V, percentuais da REN 846 e teto legal sobre o faturamento), refeita no seu navegador; um teste automático confere o resultado com o motor.</p>
+    <p>Diagnóstico gerado: montado no seu navegador com as mesmas funções da página (ordem dos temas, decisões, manchete, lacuna). Nada é enviado nem salvo.</p>
+    <p>Referência do setor: {esc.limites} Unidade: {esc.unidade}.</p>
+    <p>Como reduzir a exposição: os textos citados vêm do catálogo de multas extraído do compilado oficial da REN 846 (SHA-256 indicado em cada citação). Os cenários com atenuante são do motor, com o valor base no teto do grupo (pior caso) e sem agravantes. Condição e efeito em linguagem simples são nossa interpretação e aguardam revisão humana. Causas externas só são citadas quando o texto da própria obrigação as prevê.</p>
+    <p>Análise regulatória preliminar (em cada tema): tipo da obrigação por regras, com ideias de cumprimento e de evidência em rascunho, e dependências de terceiros só quando o trecho literal da norma as nomeia. Prática conhecida fora do texto da norma aparece separada, com referências públicas e o contraponto.</p>
+    {plano.ia && <p><Tag kind="ai" /> {plano.ia.aviso} Modelo {plano.ia.modelo}. {plano.ia.criterio_titulos} Títulos marcados com <Sparkles aria-label="ícone de IA" className="inline h-3 w-3" /> foram resumidos com IA. Enquadramentos: {plano.ia.criterio_enquadramentos.toLowerCase()}</p>}
+    <p className="break-all text-xs text-ink-soft">Documento preservado · SHA-256 {plano.norma.sha256} · gerado por {plano.gerado_por} (commit {plano.commit_origem}).</p>
+  </div>
+}
+
+function ReferenciaSetor() {
+  const esc = plano.referencia_escala
+  return <div className="max-w-3xl text-sm">
+    <p>Mediana de {esc.autos} autos de infração publicados em distribuição (amostra pequena) ≈ <strong>{brlCurto(esc.mediana_reais)}</strong>; maior na amostra ≈ <strong>{brlCurto(esc.maximo_reais)}</strong>.</p>
+    <p className="mt-1 text-xs text-ink-soft">{esc.rotulo}. É valor do auto inteiro, que pode reunir várias infrações; não é comparável ao valor por infração. Limites da amostra em “Como chegamos aqui”.</p>
+  </div>
 }
 
 const numeroBR = (v: number) => v.toLocaleString('pt-BR', { maximumFractionDigits: 2 })
@@ -174,17 +305,17 @@ function Porte({ setSim }: { setSim: (s: Simulacao | null) => void }) {
   const fatInvalido = fat.trim() !== '' && lerReais(fat) == null
   const campo = 'mt-1 min-h-11 w-full rounded-xl border bg-white px-3 text-base tabular-nums'
   return <div className="space-y-3">
-    <fieldset>
+    <fieldset id="porte">
       <legend className="flex flex-wrap items-center gap-2 text-sm font-semibold">Porte da distribuidora (receita operacional líquida anual) <Tag kind="estimate" label="Faixa ilustrativa" /></legend>
       <div className="mt-2 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
-        {faixas.map((x) => <label key={x.id} className="inline-flex min-h-11 cursor-pointer flex-col items-center justify-center rounded-2xl border border-line bg-white px-3 py-1 text-center text-sm leading-tight sm:flex-row sm:gap-1 sm:rounded-full sm:px-4 has-checked:border-slate-blue has-checked:bg-slate-blue has-checked:text-ivory has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-slate-blue">
+        {faixas.map((x) => <label key={x.id} className="inline-flex min-h-11 cursor-pointer flex-col items-center justify-center rounded-2xl border border-line bg-white px-3 py-1 text-center text-sm leading-tight sm:flex-row sm:gap-1 sm:rounded-full sm:px-4 has-checked:border-acento has-checked:bg-acento-escuro has-checked:font-semibold has-checked:text-white has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-acento">
           <input type="radio" className="sr-only" name="porte" value={x.id} checked={porte === x.id} onChange={() => { setPorte(x.id); const t = numeroBR(x.base); setRol(t); aplicar(t, fat) }} />
           <span className="font-medium sm:font-normal">{x.rotulo}</span> <span className="text-xs whitespace-nowrap sm:text-sm">~{brlCurto(x.base)}</span>
         </label>)}
       </div>
     </fieldset>
     <details className="rounded-xl border border-line bg-white/60 print:hidden">
-      <summary className="flex min-h-11 cursor-pointer items-center px-4 text-sm font-semibold text-slate-blue">Ajustar premissas{porte === 'livre' && sim ? ` · receita informada: ${brl(sim.base)}` : ''}</summary>
+      <summary className="flex min-h-11 cursor-pointer items-center px-4 text-sm font-semibold text-acento-escuro">Ajustar premissas{porte === 'livre' && sim ? ` · receita informada: ${brl(sim.base)}` : ''}</summary>
       <div className="grid gap-4 px-4 pb-4 sm:grid-cols-2">
         <label className="block text-sm"><span className="font-semibold">Receita operacional líquida, 12 meses (R$)</span> <Tag kind="review" label="Premissa do usuário" />
           <input inputMode="decimal" autoComplete="off" className={`${campo} ${rolInvalido ? 'border-pending' : 'border-line'}`} value={rol} aria-invalid={rolInvalido} aria-describedby="rol-ajuda"
@@ -226,7 +357,7 @@ function CartaoTema({ tema: t, posicao, diag, marcar, maiorPct }: { tema: Tema; 
       <fieldset className="print:hidden">
         <legend className="mb-1 text-xs text-ink-soft">Sua situação hoje</legend>
         <div className="inline-flex rounded-full border border-line bg-ivory p-1">
-          {OPCOES.map(([v, rotulo]) => <label key={v} className="inline-flex min-h-11 cursor-pointer items-center rounded-full px-3 text-sm has-checked:bg-slate-blue has-checked:text-ivory has-focus-visible:outline-2 has-focus-visible:outline-slate-blue">
+          {OPCOES.map(([v, rotulo]) => <label key={v} className="inline-flex min-h-11 cursor-pointer items-center rounded-full px-3 text-sm has-checked:bg-acento-escuro has-checked:text-white has-focus-visible:outline-2 has-focus-visible:outline-acento">
             <input type="radio" className="sr-only" name={`diag-${t.id}`} value={v} checked={diag === v} onChange={() => marcar(t.id, v)} />{rotulo}
           </label>)}
         </div>
@@ -258,7 +389,7 @@ function CartaoTema({ tema: t, posicao, diag, marcar, maiorPct }: { tema: Tema; 
     <AnalisePreliminar t={t} />
 
     <details className="mt-4 border-t border-line pt-4 print:hidden">
-      <summary className="flex min-h-11 cursor-pointer items-center font-semibold text-slate-blue">Ver as {t.n} obrigações e o porquê</summary>
+      <summary className="flex min-h-11 cursor-pointer items-center font-semibold text-acento-escuro">Ver as {t.n} obrigações e o porquê</summary>
       {e && <Atenuantes e={e} />}
       <p className="mt-3 text-xs text-ink-soft">Valor provável: não estimável (sem histórico de multas).</p>
       <ul className="mt-4 space-y-3">{t.obrigacoes.map((id) => <ItemObrigacao key={id} o={obrigacao(id)} />)}</ul>
@@ -302,7 +433,7 @@ function Atenuantes({ e }: { e: Exposicao }) {
 }
 
 function Titulo({ o }: { o: Obrigacao }) {
-  return <span className="font-medium">{o.titulo}{o.titulo_origem === 'ia' && <Sparkles role="img" aria-label="título resumido com IA, a revisar" className="ml-1 inline h-3 w-3 text-slate-blue" />}</span>
+  return <span className="font-medium [overflow-wrap:anywhere]">{o.titulo_completo}{o.titulo_origem === 'ia' && <Sparkles role="img" aria-label="título resumido com IA, a revisar" className="ml-1 inline h-3 w-3 text-slate-blue" />}</span>
 }
 
 function ItemObrigacao({ o }: { o: Obrigacao }) {
@@ -340,7 +471,7 @@ const SELO_ANALISE = plano.analise.rotulo.includes('revisar com o jurídico') ? 
 function AnalisePreliminar({ t }: { t: Tema }) {
   const [aberto, setAberto] = useState(false)
   return <details className="mt-5 rounded-xl border border-line bg-ivory" onToggle={(e) => setAberto(e.currentTarget.open)}>
-    <summary className="flex min-h-11 cursor-pointer flex-wrap items-center gap-x-3 gap-y-1 px-4 py-2 font-semibold text-slate-blue">Análise regulatória preliminar <span className="text-xs font-normal text-ink-soft">tipo de obrigação, como cumprir, o que provar</span></summary>
+    <summary className="flex min-h-11 cursor-pointer flex-wrap items-center gap-x-3 gap-y-1 px-4 py-2 font-semibold text-acento-escuro">Análise regulatória preliminar <span className="text-xs font-normal text-ink-soft">tipo de obrigação, como cumprir, o que provar</span></summary>
     {aberto && <ConteudoAnalise t={t} />}
   </details>
 }
@@ -422,10 +553,8 @@ function LinhaDoTempo() {
   const nomeTema = new Map(plano.temas.map((t) => [t.id, t.nome]))
   const semData = [...plano.linha_do_tempo.evento, ...plano.linha_do_tempo.sem_prazo]
   const porTema = plano.temas.map((t) => [t.nome, semData.filter((id) => obrigacao(id).tema === t.id).length] as const).filter(([, n]) => n)
-  return <section aria-labelledby="linha">
-    <p className={kicker}>Linha do tempo</p>
-    <h2 id="linha" className="font-display mt-2 text-3xl sm:text-4xl">Quando cada coisa vence</h2>
-    <p className="mt-3 max-w-3xl text-sm text-ink-soft">Datas calculadas a partir do texto, a confirmar. {plano.linha_do_tempo.depois.length > 0 && `${plano.linha_do_tempo.depois.length} vencem depois de 90 dias.`}</p>
+  return <div>
+    <p className="max-w-3xl text-sm text-ink-soft">Datas calculadas a partir do texto, a confirmar. {plano.linha_do_tempo.depois.length > 0 && `${plano.linha_do_tempo.depois.length} vencem depois de 90 dias.`}</p>
     <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
       {colunas.map((c) => <div key={c.titulo} className="rounded-2xl border border-line bg-white p-5">
         <h3 className="font-semibold">{c.titulo} <span className="text-ink-soft">({c.ids.length})</span></h3>
@@ -437,7 +566,7 @@ function LinhaDoTempo() {
         <ul className="mt-3 space-y-1 text-sm">{porTema.map(([nome, n]) => <li key={nome} className="flex justify-between gap-3"><span>{nome}</span><span className="text-ink-soft">{n}</span></li>)}</ul>
       </div>
     </div>
-  </section>
+  </div>
 }
 
 const emReais = (v: number, s: Simulacao | null) => (s ? brl(reaisDe(v, s)) : `${pct(v)} da receita`)
@@ -455,21 +584,19 @@ function Interpretacao({ children }: { children: ReactNode }) {
 
 function ComoReduzir({ temas }: { temas: Tema[] }) {
   const red = plano.reducao
-  return <section aria-labelledby="reduzir">
-    <p className={kicker}>Defesa e atenuantes</p>
-    <h2 id="reduzir" className="font-display mt-2 text-3xl sm:text-4xl">Como reduzir a exposição</h2>
-    <p className="mt-3 inline-block rounded-full border border-bronze/50 bg-stone/60 px-3 py-1 text-xs font-semibold">{red.rotulo}</p>
+  return <div>
+    <p className="inline-block rounded-full border border-bronze/50 bg-stone/60 px-3 py-1 text-xs font-semibold">{red.rotulo}</p>
     <p className="mt-3 max-w-3xl text-sm leading-relaxed text-ink-soft">O que a REN 846 prevê para reduzir ou trocar a multa. Cada medida traz o texto da norma e, separada em caixa tracejada, a nossa leitura da condição e do efeito.</p>
     <div className="mt-6 grid gap-4 lg:grid-cols-2">{red.medidas.map((m) => <CartaoMedida key={m.parametro} m={m} />)}</div>
     <details className="mt-4 rounded-2xl border border-line bg-white p-5 sm:p-6">
-      <summary className="cursor-pointer font-semibold text-slate-blue">Regras que valem para todos os atenuantes ({red.regras.map((c) => c.dispositivo).join('; ')})</summary>
+      <summary className="flex min-h-11 cursor-pointer items-center font-semibold text-acento-escuro">Regras que valem para todos os atenuantes ({red.regras.map((c) => c.dispositivo).join('; ')})</summary>
       <div className="mt-3 space-y-3">{red.regras.map((c) => <Citado key={c.parametro} c={c} />)}</div>
       <Interpretacao><p>Os atenuantes não se somam: vale um só. E só contam se a cessação e a reparação forem comprovadas à Fiscalização antes do Auto de Infração. Por isso a prova datada precisa existir desde já.</p></Interpretacao>
     </details>
     <h3 className="font-display mt-10 text-2xl">Por tema</h3>
     <p className="mt-2 max-w-3xl text-sm text-ink-soft">Valores com a receita escolhida no topo, por infração. Pior caso: valor base no teto do grupo, sem agravantes; cada cenário usa um único atenuante.</p>
     <ol className="mt-4 space-y-4">{temas.map((t) => <ReducaoTema key={t.id} t={t} />)}</ol>
-  </section>
+  </div>
 }
 
 function CartaoMedida({ m }: { m: Medida }) {
