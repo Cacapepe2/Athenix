@@ -97,15 +97,15 @@ export function PlanoPage() {
       <section aria-labelledby="titulo-plano" className="space-y-6">
         <p className={kicker}>Plano de ação · RN 1.137/2025 · {plano.perfil.rotulo.toLowerCase()} (não é empresa real)</p>
         <Porte setSim={setSim} />
-        <p className="flex flex-wrap items-center gap-x-3 rounded-2xl border border-slate-blue/40 border-l-4 border-l-slate-blue bg-acento-claro py-1 pr-4 pl-4 text-sm text-obsidian print:hidden">
-          <span data-acento="etiqueta" className="rounded-full bg-acento-escuro px-2.5 py-0.5 text-xs font-bold tracking-wide text-white uppercase">Novo</span>
-          <span className="lg:hidden">Marque os temas e gere o diagnóstico.</span>
-          <span className="hidden lg:inline">Abaixo dos temas há um card de diagnóstico com o resultado ao lado: marque a situação de cada tema e gere aqui mesmo.</span>
-          <a href="#seu-diagnostico" className={`inline-flex min-h-11 items-center ${LINK}`}>Ir para o diagnóstico ↓</a>
+        <p className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-2xl border border-slate-blue/40 border-l-4 border-l-slate-blue bg-acento-claro py-2 pr-4 pl-3 text-sm text-obsidian print:hidden">
+          <span data-acento="etiqueta" className="inline-flex shrink-0 items-center rounded-full bg-acento-escuro px-3 py-1 text-xs leading-none font-bold tracking-wide text-white uppercase">Novo</span>
+          <span className="min-w-0 lg:hidden">Marque os temas e gere o diagnóstico.</span>
+          <span className="hidden min-w-0 lg:inline">Abaixo dos temas há um card de diagnóstico com o resultado ao lado: marque a situação de cada tema e gere aqui mesmo.</span>
+          <a href="#seu-diagnostico" className={`inline-flex min-h-11 items-center gap-1.5 whitespace-nowrap ${LINK}`}>Ir para o diagnóstico<ArrowDown aria-hidden="true" className="h-4 w-4 shrink-0" /></a>
         </p>
-        <Metricas m={m} />
 
         <div className="grid items-start gap-5 lg:grid-cols-[1.45fr_1fr]">
+          <div className="space-y-3">
           <div className="rounded-2xl border border-line bg-white p-5 shadow-soft sm:p-7">
             <p className="flex flex-wrap items-center gap-2 text-sm text-ink-soft">
               <Tag kind="pending" label="preliminar" />
@@ -117,9 +117,11 @@ export function PlanoPage() {
               {modo === 'preliminar' && m.sugeridos > 0 && <Sugerido texto={PRELIMINAR} />}
               {modo === 'confirmados' && <span className="text-sm text-ink-soft">Só enquadramentos que o texto da obrigação nomeia.</span>}
               <button type="button" aria-pressed={modo === 'confirmados'} onClick={() => setModo(modo === 'preliminar' ? 'confirmados' : 'preliminar')} className={`${BOTAO_SEC} print:hidden`}>
-                {modo === 'preliminar' ? 'Mostrar só confirmados' : 'Voltar ao cenário preliminar'}
+                {modo === 'preliminar' ? 'Mostrar só identificados no texto' : 'Voltar ao cenário preliminar'}
               </button>
             </div>
+          </div>
+          <p className="px-1 text-sm text-ink-soft">{r.aplicaveis} obrigações para distribuidoras · {r.por_situacao.vencida} com prazo vencido · {r.por_situacao['90dias']} vencem em 90 dias · {r.por_situacao.recorrente} recorrentes · {semData} sem data ({r.por_situacao.evento} dependem de evento)</p>
           </div>
 
           <section aria-labelledby="decisoes" className="rounded-2xl border border-line bg-white p-5 sm:p-7">
@@ -181,25 +183,6 @@ export function PlanoPage() {
   </Cenario.Provider>
 }
 
-/** Faixa de métricas do topo: tudo calculado dos dados (nenhum número digitado). */
-function Metricas({ m }: { m: Manchete }) {
-  const conf = plano.decisoes.confirmar.temas_sem_calculo_confirmado
-  const itens: { valor: ReactNode; rotulo: string; dica: ReactNode }[] = [
-    { valor: m.maximo ? valorCurto(m.maximo) : 'a enquadrar', rotulo: 'maior exposição por infração', dica: <>entre os temas vencidos; não se soma{m.maximo?.origem === 'sugerido' && <> <Sugerido /></>}</> },
-    { valor: m.temasVencidos, rotulo: 'temas já vencidos', dica: `de ${plano.temas.length} temas da norma` },
-    { valor: m.obrigacoesVencidas, rotulo: 'obrigações vencidas', dica: 'cada uma pode ser uma infração' },
-    { valor: r.aplicaveis, rotulo: 'obrigações no plano', dica: 'aplicáveis a distribuidoras' },
-    { valor: conf, rotulo: 'temas sem enquadramento confirmado', dica: 'confirmar libera o cálculo' },
-  ]
-  return <dl aria-label="Números do plano" className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-    {itens.map((x, i) => <div key={x.rotulo} className={`flex flex-col rounded-2xl border border-line bg-white p-4 ${i === itens.length - 1 ? 'col-span-2 sm:col-span-1' : ''}`}>
-      <dt className="order-2 mt-2 text-sm leading-snug font-semibold">{x.rotulo}</dt>
-      <dd className="font-display order-1 text-[1.9rem] leading-none tabular-nums [overflow-wrap:anywhere] sm:text-4xl">{x.valor}</dd>
-      <dd className="order-3 mt-1 text-xs leading-snug text-ink-soft">{x.dica}</dd>
-    </div>)}
-  </dl>
-}
-
 /** Card de controles do diagnóstico (à esquerda do painel de resultado; no celular, acima dele). Não acompanha a rolagem. */
 function ControlesDiagnostico({ diag, gap, gerar }: { diag: Diagnosticos; gap: ReturnType<typeof lacuna>; gerar: () => void }) {
   const { sim } = useContext(Cenario)
@@ -239,7 +222,7 @@ function DiagnosticoGerado({ ref, diag, temas, decisoes, m, imprimir, fechar }: 
       </div>
     </div>
     <h2 id="titulo-diagnostico" className="font-display mt-3 text-[2rem] text-obsidian leading-tight sm:text-[2.6rem] sm:leading-[1.1]"><TextoManchete m={m} /></h2>
-    <p className="mt-3 text-sm text-ink-soft">Data de referência {dataBR(plano.perfil.data_referencia)} · Porte: {nomePorte(sim)} · RN 1.137/2025 · {modo === 'preliminar' ? 'cenário preliminar' : 'só enquadramentos confirmados'} · {plano.perfil.rotulo.toLowerCase()} (não é empresa real)</p>
+    <p className="mt-3 text-sm text-ink-soft">Data de referência {dataBR(plano.perfil.data_referencia)} · Porte: {nomePorte(sim)} · RN 1.137/2025 · {modo === 'preliminar' ? 'cenário preliminar' : 'só enquadramentos identificados no texto'} · {plano.perfil.rotulo.toLowerCase()} (não é empresa real)</p>
     <p className="mt-5 max-w-4xl text-lg leading-relaxed">{resumoDiagnostico(plano.temas, diag, sim, modo)}</p>
     {algumSugerido && <p className="mt-3 flex flex-wrap items-center gap-2 text-sm"><Tag kind="ai" label="Interpretação da IA · aguarda revisão humana" /><span className="text-ink-soft">Valores marcados “sugerido” usam o enquadramento sugerido pela IA ({PRELIMINAR}).</span></p>}
 
@@ -291,7 +274,7 @@ function Metodo() {
     <p>Os temas seguem as seções da própria norma (por exemplo, “{plano.temas[0].fontes[0]?.titulo}”). Disposições transitórias vão para o tema do primeiro assunto que nomeiam.</p>
     <p>Prazos: calculados pelo motor temporal a partir da publicação ({dataBR(plano.norma.vigencia)}). Ficam provisórios até uma pessoa confirmar a contagem.</p>
     <p>Exposição: teto do grupo de infração (REN 846, Art. 8º) sobre a receita operacional líquida, limitado pelo teto legal. Sem simulação, a receita é a ilustrativa de {brl(plano.perfil.base_reais)}. {plano.perfil.origem_base} Sem faturamento bruto informado, o teto legal pode estar subestimado. A manchete mostra a maior exposição por infração entre os temas já vencidos.</p>
-    <p>Cenário preliminar e confirmados: no cenário preliminar (padrão), os enquadramentos sugeridos pela IA também contam, sempre marcados como “sugerido” e com barra hachurada; o cálculo continua sendo o do motor, só com o grupo sugerido. Em “Mostrar só confirmados” entram apenas os enquadramentos que o texto da obrigação nomeia. Nenhuma sugestão é confirmada em nome de uma pessoa.</p>
+    <p>Cenário preliminar e só identificados no texto: no cenário preliminar (padrão), os enquadramentos sugeridos pela IA também contam, sempre marcados como “sugerido” e com barra hachurada; o cálculo continua sendo o do motor, só com o grupo sugerido. Em “Mostrar só identificados no texto” entram apenas os enquadramentos que o texto da obrigação nomeia. Nenhuma sugestão é confirmada em nome de uma pessoa.</p>
     <p>Porte, no topo da página: Pequena ~{brl(plano.simulador.faixas[0].base)}, Média ~{brl(plano.simulador.faixas[1].base)}, Grande ~{brl(plano.simulador.faixas[2].base)} e Muito grande ~{brl(plano.simulador.faixas[3].base)} de receita operacional líquida anual; em “Ajustar premissas” dá para informar a receita e o faturamento bruto. {plano.simulador.origem_faixas} A conta é a mesma do motor da Athenix (grupos I a V, percentuais da REN 846 e teto legal sobre o faturamento), refeita no seu navegador; um teste automático confere o resultado com o motor.</p>
     <p>Diagnóstico gerado: montado no seu navegador com as mesmas funções da página (ordem dos temas, decisões, manchete, lacuna). Nada é enviado nem salvo.</p>
     <p>Referência do setor: {esc.limites} Unidade: {esc.unidade}.</p>
@@ -372,7 +355,7 @@ function CartaoTema({ tema: t, posicao, diag, marcar, maiorPct }: { tema: Tema; 
           <p className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-ink-soft">
             <span>{situacaoPrazo(t)}</span><span aria-hidden="true">·</span>
             <span>{t.n} {t.n === 1 ? 'obrigação' : 'obrigações'}</span>
-            {grupo && <><span aria-hidden="true">·</span><span>Grupo {grupo}</span>{e!.origem === 'confirmado' ? <span className="rounded-full bg-slate-blue px-2 py-0.5 text-xs font-medium text-ivory">confirmado</span> : <Sugerido />}</>}
+            {grupo && <><span aria-hidden="true">·</span><span>Grupo {grupo}</span>{e!.origem === 'confirmado' ? <span className="rounded-full bg-slate-blue px-2 py-0.5 text-xs font-medium text-ivory">identificado no texto ({t.na_fila} de {t.n} {t.n === 1 ? 'obrigação' : 'obrigações'})</span> : <Sugerido />}</>}
             {diag === 'sim' && <><span aria-hidden="true">·</span><span>você marcou como já atendido</span></>}
           </p>
         </div>
@@ -414,7 +397,7 @@ function CartaoTema({ tema: t, posicao, diag, marcar, maiorPct }: { tema: Tema; 
     <details className="mt-4 print:hidden">
       <summary className={SUMARIO}>Ver as {t.n} obrigações e o porquê<Chevron /></summary>
       {e && <Atenuantes e={e} />}
-      <p className="mt-3 text-xs text-ink-soft">Valor provável: não estimável (sem histórico de multas).</p>
+      <p className="mt-3 text-xs text-ink-soft">Valor provável: sem histórico de multas para este tema.</p>
       <ul className="mt-4 space-y-3">{t.obrigacoes.map((id) => <ItemObrigacao key={id} o={obrigacao(id)} />)}</ul>
     </details>
     {t.fontes.length > 0 && <p className="mt-4 text-xs text-ink-soft">Tema pela norma: {t.fontes.map((f) => `${f.rotulo}, “${f.titulo}”`).join('; ')}.</p>}

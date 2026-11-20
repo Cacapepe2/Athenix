@@ -96,9 +96,9 @@ table.portes th, table.portes td { font-size: 8pt; padding: 2.5pt 4pt; }
  <h2 style="margin-top:6pt">Temas em ordem de reais em risco</h2>
  <table class="resumo"><tr><th>#</th><th>Tema</th><th>Obrigações</th><th>Vencidas</th><th>Prazo mais urgente</th><th>Grupo</th><th>Exposição por infração</th></tr>
  {% for t in p.temas %}{% set e = expo(t) %}<tr><td>{{ loop.index }}</td><td><b>{{ t.nome }}</b></td><td>{{ t.n }}</td><td>{{ t.contagem.vencida }}</td><td>{{ t.prazo_mais_urgente.texto if t.prazo_mais_urgente else 'Sem data no texto' }}</td>
- <td>{% if e[1] == 'confirmado' %}Grupo {{ t.grupos|join(', ') }} (confirmado){% elif e[1] == 'sugerido' %}Grupo {{ t.grupos_sugeridos|last }} <span class="ia">(sugerido)</span>{% else %}A confirmar{% endif %}</td>
+ <td>{% if e[1] == 'confirmado' %}Grupo {{ t.grupos|join(', ') }} (identificado no texto: {{ t.na_fila }} de {{ t.n }} obrigações){% elif e[1] == 'sugerido' %}Grupo {{ t.grupos_sugeridos|last }} <span class="ia">(sugerido)</span>{% else %}A confirmar{% endif %}</td>
  <td>{% if e[0] is not none %}até {{ pct(e[0]) }} da ROL{% if e[1] == 'sugerido' %} <span class="ia">cenário preliminar: inclui sugestão aguardando confirmação</span>{% endif %}{% else %}Exposição a enquadrar{% endif %}</td></tr>{% endfor %}</table>
- <p class="small muted" style="margin-top:3pt">Ordem: o que a empresa marcar como já atendido vai para o fim; depois, a exposição máxima por infração do tema (maior primeiro); no empate, confirmado antes de sugerido; depois mais obrigações vencidas (cada uma é uma infração possível); depois o prazo. O valor provável não é estimável (sem histórico de multas). Exposições de infrações diferentes não se somam.</p>
+ <p class="small muted" style="margin-top:3pt">Ordem: o que a empresa marcar como já atendido vai para o fim; depois, a exposição máxima por infração do tema (maior primeiro); no empate, identificado no texto antes de sugerido; depois mais obrigações vencidas (cada uma é uma infração possível); depois o prazo. Valor provável: sem histórico de multas para este tema. Exposições de infrações diferentes não se somam.</p>
  <div class="aviso">Iniciativa em validação. Estimativa ilustrativa com base nas premissas listadas; não indica descumprimento da empresa e não constitui parecer jurídico. Prazos são provisórios até confirmação da contagem. Interpretações da IA aguardam revisão humana; só entram no valor do cenário preliminar, sempre marcadas como sugestão. Exposições de obrigações diferentes não devem ser somadas.</div>
 </section>
 
@@ -113,7 +113,7 @@ table.portes th, table.portes td { font-size: 8pt; padding: 2.5pt 4pt; }
    <div><dt>Prazo mais urgente</dt><dd>{{ t.prazo_mais_urgente.texto if t.prazo_mais_urgente else 'Sem data no texto' }}</dd><dd class="n">{{ contagem(t) }}</dd></div>
    <div><dt>Enquadramento na REN 846</dt><dd>{% if t.grupos %}Grupo {{ t.grupos|join(', ') }} · {{ t.infracoes|join('; ') }}{% else %}A confirmar{% endif %}</dd>
     <dd class="n">{% if t.grupos %}Identificado pelo texto em {{ t.na_fila }} de {{ t.n }}; {{ t.a_confirmar }} a confirmar.{% endif %}{% if t.ia %} <span class="ia">Interpretação da IA</span>: {{ t.ia.dispositivo }} em {{ t.ia.n }} de {{ t.ia.de }} (aguarda revisão; só no cenário preliminar).{% endif %}</dd></div>
-   <div><dt>Exposição por infração</dt>{% set e = expo(t) %}<dd>{% if e[0] is not none %}até {{ pct(e[0]) }} da ROL (pode ser só advertência){% else %}Exposição a enquadrar{% endif %}</dd>{% set at = aten(t) %}{% if at.espontanea is not none %}<dd class="n">pode cair para {{ pct(at.espontanea) }} da ROL se regularizar antes da fiscalização (art. 24, I){% if at.ate_tn is not none %}; {{ pct(at.ate_tn) }} até o prazo do Termo de Notificação (art. 24, II){% endif %}</dd>{% endif %}<dd class="n">{% if e[1] == 'sugerido' %}Cenário preliminar: inclui sugestões aguardando confirmação. {% endif %}Em R$: % × ROL informada. Provável não estimável (sem histórico de multas).</dd></div>
+   <div><dt>Exposição por infração</dt>{% set e = expo(t) %}<dd>{% if e[0] is not none %}até {{ pct(e[0]) }} da ROL (pode ser só advertência){% else %}Exposição a enquadrar{% endif %}</dd>{% set at = aten(t) %}{% if at.espontanea is not none %}<dd class="n">pode cair para {{ pct(at.espontanea) }} da ROL se regularizar antes da fiscalização (art. 24, I){% if at.ate_tn is not none %}; {{ pct(at.ate_tn) }} até o prazo do Termo de Notificação (art. 24, II){% endif %}</dd>{% endif %}<dd class="n">{% if e[1] == 'sugerido' %}Cenário preliminar: inclui sugestões aguardando confirmação. {% endif %}Em R$: % × ROL informada. Valor provável: sem histórico de multas para este tema.</dd></div>
    <div><dt>Como provar que cumpriu (sugestão)</dt>{% for e in t.evidencias %}<dd class="n">• {{ p.evidencias[e.id] }} ({{ e.n }})</dd>{% else %}<dd class="n">Definir com a equipe.</dd>{% endfor %}</div>
   </dl>
   <p class="small"><b>Obrigações principais:</b> {% for id in t.principais %}{{ ob[id].titulo_completo }}{% if ob[id].titulo_origem == 'ia' %}*{% endif %} <span class="muted">({{ ob[id].prazo.texto }})</span>{% if not loop.last %}; {% endif %}{% endfor %}</p>
@@ -235,6 +235,8 @@ def main():
 
     def brl_curto(v):
         n, u = (v / 1e9, "bi") if v >= 1e9 else (v / 1e6, "mi")
+        if u == "mi" and v < 10e6:  # abaixo de R$ 10 mi, duas casas (R$ 1,25 mi)
+            return f"R$ {n:.2f}".replace(".", ",") + " mi"
         return f"R$ {n:.1f}".replace(".0", "").replace(".", ",") + f" {u}"
 
     def prazo_txt(u):
