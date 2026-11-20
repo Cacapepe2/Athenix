@@ -231,14 +231,26 @@ export function referenciaDoSetor(p: PlanoDados, grupo?: string | null): Referen
   }
 }
 
-export interface DestaqueDaNorma { texto: string; rotuloData: string; data: string; deveres: number; comPrazo: number }
+export interface DestaqueDaNorma { texto: string; rotuloData: string; data: string; deveres: number; comPrazo: number; recorrentes: number }
 
-/** Destaque da norma: "publicada em 04/11/2026 · 91 deveres identificados · 3 com prazo". Tudo dos dados. */
+/** Destaque da norma: "publicada em 04/11/2026 · 86 deveres identificados · 5 com prazo · 2 recorrentes". Tudo dos dados. */
 export function destaqueDaNorma(p: PlanoDados): DestaqueDaNorma {
   const deveres = p.resumo.aplicaveis
   const comPrazo = p.obrigacoes.filter((o) => o.prazo.data).length
+  const recorrentes = p.obrigacoes.filter((o) => o.situacao === 'recorrente').length
   const rotuloData = p.norma.data_rotulo
-  return { texto: `${rotuloData} ${dataBR(p.norma.vigencia)} · ${deveres} deveres identificados · ${comPrazo} com prazo`, rotuloData, data: p.norma.vigencia, deveres, comPrazo }
+  const rec = `${recorrentes} ${recorrentes === 1 ? 'recorrente' : 'recorrentes'}`
+  return { texto: `${rotuloData} ${dataBR(p.norma.vigencia)} · ${deveres} deveres identificados · ${comPrazo} com prazo · ${rec}`, rotuloData, data: p.norma.vigencia, deveres, comPrazo, recorrentes }
+}
+
+export interface ContagemEnquadramentos { identificados: number; sugeridos: number; texto: string }
+
+/** "X enquadramentos identificados no texto · Y sugeridos pela IA, aguardando revisão": contagem por obrigação. */
+export function contagemDeEnquadramentos(p: PlanoDados): ContagemEnquadramentos {
+  const identificados = p.obrigacoes.filter((o) => o.faixa).length
+  const sugeridos = p.obrigacoes.filter((o) => !o.faixa && o.faixa_preliminar).length
+  const plural = (n: number, um: string, varios: string) => `${n} ${n === 1 ? um : varios}`
+  return { identificados, sugeridos, texto: `${plural(identificados, 'enquadramento identificado', 'enquadramentos identificados')} no texto · ${plural(sugeridos, 'sugerido', 'sugeridos')} pela IA, aguardando revisão` }
 }
 
 export interface LinhaGrupo { grupo: Grupo; nome: string; rotulo: string; pct: number | null; dispositivo: string | null; trecho: string | null }

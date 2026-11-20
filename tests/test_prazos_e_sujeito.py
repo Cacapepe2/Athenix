@@ -167,3 +167,28 @@ def test_toda_obrigacao_do_plano_tem_dispositivo_e_citacao_verificada():
     # as duas que ficavam sem citação (itens 23-G e 23-H da RN 1.137) agora citam a 1ª frase do dispositivo
     g = [o for o in P1137["obrigacoes"] if (o["dispositivo"] or "").endswith(("23-G", "23-H"))]
     assert len(g) == 2 and all("informar e manter, por até cinco anos" in o["trecho"] for o in g)
+
+
+def test_revisao_a_cada_periodo_de_12_meses_e_recorrencia_nao_prazo_unico():
+    # REN 1.174, art. 13, § 3º (texto real): "maior que 12 meses" é limite de comparação e
+    # "a cada período de 12 meses" é a periodicidade; nenhum dos dois é prazo para cumprir.
+    from athenix import temporal
+
+    texto = (
+        "§ 3º No caso de período do CCER ser maior que 12 meses, deve ser permitida a revisão dos valores "
+        "mensais de energia elétrica contratada a cada período de 12 meses."
+    )
+    regras = temporal.rules(texto, "u1", [{"kind": "publication", "date": "2026-11-04"}, {"kind": "effective", "date": "2026-11-04"}])  # fmt: skip
+    assert regras and all(r["state"] == "recurring" for r in regras)
+    assert not any(r.get("date") for r in regras)
+    # prazo comum continua prazo: "em até 60 dias da publicação"
+    comum = temporal.rules("A primeira reunião deverá ocorrer em até 60 dias da publicação desta Resolução.", "u2", [{"kind": "publication", "date": "2026-11-04"}])  # fmt: skip
+    assert comum and comum[0]["date"] == "2027-01-03"
+
+
+def test_art_13_par_3_da_ren_1174_e_recorrente_no_plano():
+    o = next(x for x in P1174["obrigacoes"] if x["dispositivo"] == "Art. 13, § 3º")
+    assert o["situacao"] == "recorrente" and o["prazo"]["data"] is None
+    r = P1174["resumo"]["por_situacao"]
+    assert r["recorrente"] == 2  # art. 11, VIII (semestral) e art. 13, § 3º (12 meses)
+    assert sum(1 for x in P1174["obrigacoes"] if x["prazo"]["data"]) == 5

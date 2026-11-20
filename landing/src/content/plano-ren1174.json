@@ -1,6 +1,6 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "0e512d1",
+ "commit_origem": "bf7a5b8",
  "gerado_em": "2026-11-20",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
@@ -128,8 +128,8 @@
   "por_situacao": {
    "vencida": 0,
    "90dias": 1,
-   "depois": 5,
-   "recorrente": 1,
+   "depois": 4,
+   "recorrente": 2,
    "evento": 0,
    "sem_prazo": 79
   },
@@ -196,8 +196,8 @@
    "contagem": {
     "vencida": 0,
     "90dias": 1,
-    "depois": 3,
-    "recorrente": 1,
+    "depois": 2,
+    "recorrente": 2,
     "evento": 0,
     "sem_prazo": 20
    },
@@ -284,11 +284,11 @@
      "n": 9
     },
     {
-     "id": "terceiros",
+     "id": "protocolos",
      "n": 4
     },
     {
-     "id": "protocolos",
+     "id": "terceiros",
      "n": 4
     }
    ],
@@ -303,9 +303,9 @@
    "obrigacoes": [
     "44e6f2493416fd04",
     "5f2cad17305d09c9",
-    "de259c2eb695201e",
     "59c5496d841c8794",
     "be6a76133085cee8",
+    "de259c2eb695201e",
     "667bcae318ad50c6",
     "fef01f4eb3d5d88c",
     "6cb749b8189058af",
@@ -938,83 +938,6 @@
    "dispositivo": "Art. 12, § 1º"
   },
   {
-   "id": "de259c2eb695201e",
-   "titulo": "Ser permitida a revisão dos valores mensais de energia elétrica contratada a cada…",
-   "titulo_origem": "regra",
-   "titulo_completo": "Ser permitida a revisão dos valores mensais de energia elétrica contratada a cada período de 12 meses, observadas as Regras e Procedimentos de Comercialização aplicáveis ao registro desses valores",
-   "tema": "capítulo_iv_4",
-   "motivo_tema": "Capítulo da norma",
-   "unidade": "u0329",
-   "trecho": "§ 3º No caso de período do CCER ser maior que 12 meses, deve ser permitida a revisão dos valores mensais de energia elétrica contratada a cada período de 12 meses, observadas as Regras e Procedimentos de Comercialização aplicáveis ao registro desses valores.",
-   "situacao": "depois",
-   "prazo": {
-    "data": "2027-11-04",
-    "texto": "Vence em 04/11/2027",
-    "dias": 352,
-    "provisorio": true,
-    "base": "2026-11-04"
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 11, XI",
-    "grupo": "III",
-    "justificativa": "A obrigação determina que a revisão e o registro dos valores sejam feitos “observadas as Regras e Procedimentos de Comercialização”; deixar de permitir a revisão ou de registrar os valores conforme esses Procedimentos configura descumprimento de normas e Procedimentos de Comercialização, enquadrando-se no dispositivo que trata do não cumprimento dessas Regras/Procedimentos.",
-    "duvida": null
-   },
-   "grupo": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "III"
-    ],
-    "teto_grupo_pct": 0.5,
-    "maximo_pct": {
-     "com_teto": 0.5,
-     "sem_teto": 0.5
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.025000000000000022,
-     "ate_tn": 0.25
-    },
-    "maximo_reais": {
-     "com_teto": 25000000.0,
-     "sem_teto": 25000000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 1250000.0000000012,
-     "ate_tn": 12500000.0
-    }
-   },
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [
-    {
-     "id": "registro",
-     "trecho": "as Regras e Procedimentos de Comercialização aplicáveis ao registro desses valores."
-    }
-   ],
-   "guardar": [
-    "terceiros"
-   ],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": null,
-     "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
-     "regra_id": null
-    },
-    "dependencias_no_texto": []
-   },
-   "dispositivo": "Art. 13, § 3º"
-  },
-  {
    "id": "59c5496d841c8794",
    "titulo": "Ser realizada até o maior prazo entre o prazo de doze meses da publicação desta…",
    "titulo_origem": "regra",
@@ -1237,6 +1160,83 @@
     "dependencias_no_texto": []
    },
    "dispositivo": "Art. 11, inciso VIII"
+  },
+  {
+   "id": "de259c2eb695201e",
+   "titulo": "Ser permitida a revisão dos valores mensais de energia elétrica contratada a cada…",
+   "titulo_origem": "regra",
+   "titulo_completo": "Ser permitida a revisão dos valores mensais de energia elétrica contratada a cada período de 12 meses, observadas as Regras e Procedimentos de Comercialização aplicáveis ao registro desses valores",
+   "tema": "capítulo_iv_4",
+   "motivo_tema": "Capítulo da norma",
+   "unidade": "u0329",
+   "trecho": "§ 3º No caso de período do CCER ser maior que 12 meses, deve ser permitida a revisão dos valores mensais de energia elétrica contratada a cada período de 12 meses, observadas as Regras e Procedimentos de Comercialização aplicáveis ao registro desses valores.",
+   "situacao": "recorrente",
+   "prazo": {
+    "data": null,
+    "texto": "Obrigação recorrente: próxima ocorrência não calculada",
+    "dias": null,
+    "provisorio": false,
+    "base": null
+   },
+   "calculo": "verificar",
+   "posicao_fila": null,
+   "enquadramento": [],
+   "ia": {
+    "dispositivo": "Art. 11, XI",
+    "grupo": "III",
+    "justificativa": "A obrigação determina que a revisão e o registro dos valores sejam feitos “observadas as Regras e Procedimentos de Comercialização”; deixar de permitir a revisão ou de registrar os valores conforme esses Procedimentos configura descumprimento de normas e Procedimentos de Comercialização, enquadrando-se no dispositivo que trata do não cumprimento dessas Regras/Procedimentos.",
+    "duvida": null
+   },
+   "grupo": null,
+   "faixa_preliminar": {
+    "grupos": [
+     "III"
+    ],
+    "teto_grupo_pct": 0.5,
+    "maximo_pct": {
+     "com_teto": 0.5,
+     "sem_teto": 0.5
+    },
+    "teto_legal_pct": 3.0,
+    "teto_legal_lei_pct": 3.0,
+    "teto_legal_subestimado": true,
+    "com_atenuante_pct": {
+     "espontanea": 0.025000000000000022,
+     "ate_tn": 0.25
+    },
+    "maximo_reais": {
+     "com_teto": 25000000.0,
+     "sem_teto": 25000000.0
+    },
+    "com_atenuante_reais": {
+     "espontanea": 1250000.0000000012,
+     "ate_tn": 12500000.0
+    }
+   },
+   "faixa": null,
+   "premissas": [],
+   "motivo_sem_calculo": null,
+   "evidencias": [
+    {
+     "id": "registro",
+     "trecho": "as Regras e Procedimentos de Comercialização aplicáveis ao registro desses valores."
+    }
+   ],
+   "guardar": [
+    "terceiros"
+   ],
+   "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "sem_tipo",
+     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
+   "dispositivo": "Art. 13, § 3º"
   },
   {
    "id": "62b27f9320f5f56e",
@@ -7934,12 +7934,12 @@
   "depois": [
    "485b9126b959bcd7",
    "5f2cad17305d09c9",
-   "de259c2eb695201e",
    "59c5496d841c8794",
    "a7588cff2b247082"
   ],
   "recorrente": [
-   "be6a76133085cee8"
+   "be6a76133085cee8",
+   "de259c2eb695201e"
   ],
   "evento": [],
   "sem_prazo": [

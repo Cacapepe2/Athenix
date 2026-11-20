@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { MIN_AUTOS_REFERENCIA, NORMAS, defesa, destaqueDaNorma, frase, prazoTexto, idDaObrigacao, norma, prazos, queda, referenciaDoSetor, simplificar, tabelaDeGrupos, top5, urlDetalhe, urlPlanoCompleto, valorDaObrigacao, valorGeral } from './executivo.ts'
+import { MIN_AUTOS_REFERENCIA, NORMAS, contagemDeEnquadramentos, defesa, destaqueDaNorma, frase, prazoTexto, idDaObrigacao, norma, prazos, queda, referenciaDoSetor, simplificar, tabelaDeGrupos, top5, urlDetalhe, urlPlanoCompleto, valorDaObrigacao, valorGeral } from './executivo.ts'
 import { GRUPOS, NOME_DA_GRAVIDADE, nomeDaGravidade, rotuloDoGrupo } from './gravidade.ts'
 import { SIM_INICIAL, planos, type Simulacao } from './plano.ts'
 
@@ -144,10 +144,10 @@ test('referência do setor: infração grave (Grupo IV, n = 10) quando o valor �
 
 test('destaque da norma: data, deveres identificados e quantos têm prazo, tudo dos dados', () => {
   const d = destaqueDaNorma(planos.ren1174)
-  assert.equal(d.texto, 'publicada em 04/11/2026 · 86 deveres identificados · 6 com prazo')  // dados reprocessados: 86 deveres e 6 com data
+  assert.equal(d.texto, 'publicada em 04/11/2026 · 86 deveres identificados · 5 com prazo · 2 recorrentes')  // dados reprocessados: 86 deveres e 6 com data
   assert.equal(d.deveres, planos.ren1174.resumo.aplicaveis)
   assert.equal(d.comPrazo, planos.ren1174.obrigacoes.filter((o) => o.prazo.data).length)
-  assert.match(destaqueDaNorma(planos.rn1137).texto, /^em vigor desde 30\/10\/2025 · 155 deveres identificados · \d+ com prazo$/)
+  assert.match(destaqueDaNorma(planos.rn1137).texto, /^em vigor desde 30\/10\/2025 · 155 deveres identificados · \d+ com prazo · \d+ recorrentes?$/)
 })
 
 test('nenhum nome de empresa real nos JSONs exportados', () => {
@@ -175,4 +175,20 @@ test('prazo provisório diz de onde a data é contada; dias contados até a data
   const f = planos.ren1174.obrigacoes.find((o) => o.prazo.data)!
   assert.match(prazoTexto(f), /contada de 04\/11\/2026\)$/)  // base = publicação da REN 1.174
   assert.equal(prazoTexto({ ...v, prazo: { ...v.prazo, base: null } }), prazoTexto(v).replace(/ \(provisória.*\)$/, ''))
+})
+
+test('linha de enquadramentos: identificados no texto e sugeridos pela IA, contados por obrigação', () => {
+  const c = contagemDeEnquadramentos(planos.rn1137)
+  assert.equal(c.identificados, planos.rn1137.obrigacoes.filter((o) => o.faixa).length)
+  assert.equal(c.sugeridos, planos.rn1137.obrigacoes.filter((o) => !o.faixa && o.faixa_preliminar).length)
+  assert.equal(c.texto, `${c.identificados} enquadramentos identificados no texto · ${c.sugeridos} sugeridos pela IA, aguardando revisão`)
+  const d = contagemDeEnquadramentos(planos.ren1174)
+  assert.equal(d.identificados, 0)
+  assert.ok(d.sugeridos > 0 && d.sugeridos <= planos.ren1174.resumo.aplicaveis)
+})
+
+test('Art. 13, § 3º da REN 1.174 é recorrente, não prazo único', () => {
+  const o = planos.ren1174.obrigacoes.find((x) => x.dispositivo === 'Art. 13, § 3º')!
+  assert.equal(o.situacao, 'recorrente')
+  assert.equal(o.prazo.data, null)
 })

@@ -4,7 +4,7 @@ import { Chevron } from '../ui/Chevron'
 import { Tag } from '../product/Tag'
 import { BOTAO_AJUDA } from '../plano/AjudaGrupos'
 import {
-  NORMA_PADRAO, NORMAS, destaqueDaNorma, norma as dadosDa, prazos, queda, referenciaDoSetor, tabelaDeGrupos, top5, urlPlanoCompleto, valorGeral,
+  NORMA_PADRAO, NORMAS, contagemDeEnquadramentos, destaqueDaNorma, norma as dadosDa, prazos, queda, referenciaDoSetor, tabelaDeGrupos, top5, urlPlanoCompleto, valorGeral,
   type LinhaTop5,
 } from '../../content/executivo'
 import { rotuloDoGrupo } from '../../content/gravidade'
@@ -43,6 +43,7 @@ export function ExecutivoPage() {
   const linhas = top5(normaId, sim, MODO)
   const ref = referenciaDoSetor(p, v?.grupo)
   const destaque = destaqueDaNorma(p)
+  const enq = contagemDeEnquadramentos(p)
 
   const trocarNorma = (id: NormaId) => {
     setNormaId(id)
@@ -153,6 +154,7 @@ export function ExecutivoPage() {
           </table>
         </div>
         <Legenda linhas={linhas} preliminar={preliminar} />
+        <p className="mt-2 text-sm text-slate-blue">{enq.texto}</p>
       </section>
 
       <p className="text-sm"><span className="font-semibold">Referência do setor:</span> {ref.texto}. <span className="text-xs text-ink-soft">{ref.nota[0].toUpperCase() + ref.nota.slice(1)}.</span></p>
