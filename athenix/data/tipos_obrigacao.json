@@ -125,7 +125,10 @@
     "guardar",
     "base de dados",
     "rastre",
-    "manter .{0,20}(dados|registro|informac)"
+    "manter .{0,20}(dados|registro|informac)",
+    "(implement|instituir|cri)\\w* (o |um )?registro",
+    "registro d[aoe]s? (interac|atendiment|ocorrenc|comunicac|contato)",
+    "registro d[aoe]s? .{0,40}(poder publico|prefeitura|municip)"
    ],
    "contexto": [],
    "exige_contexto": false,

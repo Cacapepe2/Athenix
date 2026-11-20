@@ -327,7 +327,7 @@ function SucessaoNoTempo({ dispositivo }: { dispositivo: string }) {
 /** Faculdades, direitos de terceiros e competências da ANEEL: não entram na contagem de deveres. */
 function OutrosDispositivos() {
   const por = (n: OutroDispositivo['natureza']) => plano.outros_dispositivos.filter((o) => o.natureza === n)
-  const grupos: [OutroDispositivo['natureza'], string][] = [['faculdade', 'Faculdades (a norma diz que pode, não que deve)'], ['direito_de_terceiro', 'Direitos de consumidores e usuários'], ['competencia_aneel', 'Competências da ANEEL'], ['dever_de_outro_agente', 'Deveres de outros agentes (não são da distribuidora)']]
+  const grupos: [OutroDispositivo['natureza'], string][] = [['faculdade', 'Faculdades (a norma diz que pode, não que deve)'], ['direito_de_terceiro', 'Direitos de consumidores e usuários'], ['competencia_aneel', 'Competências da ANEEL'], ['dever_de_outro_agente', 'Deveres de outros agentes (não são da distribuidora)'], ['regra_de_transicao', 'Regras de transição (prazo de adequação a outros dispositivos)']]
   return <div className="space-y-5 text-sm">
     <p className="text-ink-soft">Dispositivos lidos pela mesma extração que não são deveres da distribuidora. Ficam fora da contagem do plano e do cálculo de multa. Cada um mostra o trecho literal e o dispositivo.</p>
     {grupos.map(([n, titulo]) => por(n).length > 0 && <div key={n}>

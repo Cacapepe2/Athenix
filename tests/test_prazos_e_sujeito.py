@@ -191,4 +191,6 @@ def test_art_13_par_3_da_ren_1174_e_recorrente_no_plano():
     assert o["situacao"] == "recorrente" and o["prazo"]["data"] is None
     r = P1174["resumo"]["por_situacao"]
     assert r["recorrente"] == 2  # art. 11, VIII (semestral) e art. 13, § 3º (12 meses)
-    assert sum(1 for x in P1174["obrigacoes"] if x["prazo"]["data"]) == 5
+    assert (
+        sum(1 for x in P1174["obrigacoes"] if x["prazo"]["data"]) == 3
+    )  # as 2 de adequação (art. 16) viraram transição

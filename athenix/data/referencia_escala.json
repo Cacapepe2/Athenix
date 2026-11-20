@@ -15,5 +15,12 @@
   "maximo_reais": 48654893,
   "fonte": "scripts/autos_por_dispositivo.py (docs/historico_multas_por_dispositivo.md): autos de distribuição que contam (quitado, parcelado, encerrado ou decidido, com valor em reais) e citam o art. 12 da REN 846 (Grupo IV). Mediana e máximo do auto inteiro; arredondados ao real.",
   "limites": "n = 10 (pequena). O campo do auto traz só o grupo e o artigo, sem o inciso: não separa XXVI, XXVII ou XXVIII."
+ },
+ "maior_multa": {
+  "rotulo": "maior multa já aplicada a uma distribuidora",
+  "valor_reais": 165800000,
+  "ano": 2024,
+  "motivo": "falhas no restabelecimento após evento climático",
+  "fonte": "Informado pelo fundador em 21/11/2026; a confirmar (decisão e processo não conferidos pelo Athenix). Sem nome de empresa."
  }
 }

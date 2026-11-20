@@ -73,6 +73,7 @@ NOMES_NATUREZA = {
     "direito_de_terceiro": "Direito de terceiro (consumidor ou usuário)",
     "competencia_aneel": "Competência da ANEEL",
     "dever_de_outro_agente": "Dever de outro agente (não é da distribuidora)",
+    "regra_de_transicao": "Regra de transição: prazo de adequação a outro dispositivo",
 }
 SUJEITO_ANEEL = re.compile(r"^\W*(?:a\s+)?(?:ag[êe]ncia|aneel)\b", re.I)
 # Sujeito que é OUTRO agente do setor (CCEE, Sandbox, comercializador, consumidor...): o dever não é da
@@ -84,6 +85,9 @@ SUJEITO_OUTRO_AGENTE = re.compile(
     r"consumidor|interessado)",
     re.I,
 )
+# "A adequação às alterações promovidas por esta Resolução deve ser realizada nos seguintes prazos": o
+# prazo é de OUTROS dispositivos (as alterações), não um dever próprio; vira regra de transição.
+TRANSICAO = re.compile(r"^\W*(?:Art\.?\s*\d+\w*\.?\s*)?A\s+adequa[çc][ãa]o\b", re.I)
 SUJEITO_DISTRIBUIDORA = re.compile(
     r"distribuidor|concession[áa]ri|permission[áa]ri|cession[áa]ri", re.I
 )
@@ -163,6 +167,8 @@ def natureza(row, caput=""):
         )  # começa por verbo ("celebrar o Contrato...")
     ):
         sujeito = proposals.subject_of(caput)
+    if TRANSICAO.search(sujeito) or TRANSICAO.search(caput[:140]):
+        return "regra_de_transicao"
     if SUJEITO_ANEEL.match(sujeito):
         return "competencia_aneel"
     if row.get("modality") == "permission":
@@ -350,6 +356,37 @@ def _titulo(item, ia, units_texto):
     return regra, "regra"
 
 
+FRAGMENTO = re.compile(
+    r"^(?:Ser|Estar|Ocorrer|Até|Em\s+até|Em\s+caso|No\s+caso|Caso|\d)\b|^[a-zà-ú]"
+)
+
+
+def titulo_com_contexto(completo, row, caput):
+    """Inciso ou parágrafo sem sujeito próprio ganha o sujeito (e o "deve") do caput:
+    "Ser realizada até o maior prazo..." vira "A aplicação do benefício tarifário deve ser realizada até...";
+    "Até doze meses da publicação..." vira "<caput sem rótulo>: até doze meses...". Título de IA não muda."""
+    if not FRAGMENTO.match(completo):
+        return completo
+    sujeito = (row.get("subject") or "").strip()
+    if not sujeito or sujeito == "não identificado" or not re.search(r"[A-Za-zÀ-ú]{4}", sujeito):
+        sujeito = proposals.subject_of(caput) if caput else ""
+    if not sujeito or sujeito == "não identificado":
+        # Sujeito longo demais para o extrator ("Para unidades..., as condições comerciais devem ser..."):
+        # usa o último sintagma "o/a/os/as ..." antes do verbo modal do próprio texto.
+        acao = row.get("action", "")
+        modal = re.search(r"\b(?:deve|devem|deverá|deverão)\b", acao, re.I)
+        antes = acao[: modal.start()] if modal else ""
+        inicios = list(re.finditer(r",\s*((?:o|a|os|as)\s+)", antes, re.I))
+        sujeito = espacos(antes[inicios[0].start(1) :]) if inicios and len(antes) - inicios[0].start(1) <= 200 else ""  # fmt: skip
+    if re.match(r"(?:Ser|Estar|Ocorrer)\b", completo) and sujeito and sujeito != "não identificado":
+        plural = re.search(r"\b(?:devem|deverão)\b", row.get("action", ""), re.I)
+        return f"{sujeito[:1].upper()}{sujeito[1:]} {'devem' if plural else 'deve'} {completo[:1].lower()}{completo[1:]}"
+    base = proposals.LEADING_LABEL.sub("", caput).strip().rstrip(":").strip() if caput else ""
+    if base and len(base) <= 200:
+        return f"{base[:1].upper()}{base[1:]}: {completo[:1].lower()}{completo[1:]}"
+    return completo
+
+
 def _titulo_completo(item, titulo, origem):
     """Título sem corte (o título curto termina em "…" quando passa de 88 caracteres)."""
     if origem == "ia":
@@ -471,7 +508,16 @@ def reducao(params):
 
 
 def montar(
-    resultado, units, params, p, cfg, ia=None, chave=None, cenarios=None, tema_por_unidade=None
+    resultado,
+    units,
+    params,
+    p,
+    cfg,
+    ia=None,
+    chave=None,
+    cenarios=None,
+    tema_por_unidade=None,
+    recomendacoes=None,
 ):
     """Plano para o perfil `p`. `chave(row)` identifica a obrigação no cache da IA. `cenarios`:
     {atenuante: resultado de impacto.avaliar com esse atenuante e fração do valor base 100%}."""
@@ -515,6 +561,14 @@ def montar(
                 item, secoes.get(ancora["unit_id"]) if ancora else None, cfg
             )
         titulo, origem_titulo = _titulo(item, ia, units_texto)
+        completo = _titulo_completo(item, titulo, origem_titulo)
+        if origem_titulo != "ia":
+            contextual = titulo_com_contexto(completo, row, caput_do_dispositivo(unidade, by_id))
+            if contextual != completo:
+                completo = contextual
+                titulo = (
+                    contextual if len(contextual) <= 88 else contextual[:85].rsplit(" ", 1)[0] + "…"
+                )
         pedacos = [espacos(row.get("action", ""))] + [
             espacos(e.get("quote", "")) for e in row.get("evidence", [])
         ]
@@ -540,7 +594,10 @@ def montar(
             "id": item["chave"],  # estável entre execuções (o id do banco é aleatório)
             "titulo": titulo,
             "titulo_origem": origem_titulo,
-            "titulo_completo": _titulo_completo(item, titulo, origem_titulo),
+            "titulo_completo": completo,
+            # Ações específicas sugeridas pela IA para ESTE dispositivo (validadas: citam o próprio texto).
+            "recomendacoes": (recomendacoes or {}).get(item["chave"], []),
+            "contexto": caput_do_dispositivo(unidade, by_id)[:300],  # caput do inciso/parágrafo, para o leitor e a IA
             "tema": tema,
             "motivo_tema": motivo_tema,
             "unidade": unidade["id"] if unidade else None,

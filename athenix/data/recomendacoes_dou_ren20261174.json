@@ -1,0 +1,237 @@
+{
+ "aviso": "Sugestões da IA (Sugestão · aguarda revisão humana). Cada ação cita uma expressão literal do dispositivo.",
+ "modelo": "gpt-5-mini",
+ "versao_do_prompt": "recomendacoes-1",
+ "prompt_hash": "8901521064d3a9c584fa6fae8b2ccb36a3b9fb44e1feb252ef9ad69b267f9dc7",
+ "gerado_em": "2026-11-20",
+ "preco_usd_por_milhao": {
+  "input": "0.25",
+  "output": "2",
+  "source": "https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/",
+  "date": "2026-11-20",
+  "currency": "USD"
+ },
+ "nota_preco": "Preço informado pelo fundador (tabela de preço do Azure para gpt-5-mini); a confirmar no portal.",
+ "custo_total_da_execucao_usd": "0.1057",
+ "recomendacoes": {
+  "44e6f2493416fd04": [
+   {
+    "acao": "Realizar a primeira reunião presencial, registrar ata eletrônica com data, lista de presença e decisões, em até 60 dias da publicação desta Resolução.",
+    "trecho_citado": "em até 60 dias da publicação desta Resolução"
+   }
+  ],
+  "5f2cad17305d09c9": [
+   {
+    "acao": "Preparar proposta de aprimoramento regulatório em PDF e submeter à ANEEL pelo protocolo eletrônico.",
+    "trecho_citado": "apresentar a ANEEL proposta de aprimoramento regulatório"
+   },
+   {
+    "acao": "Elaborar manual de instruções com o detalhamento operacional em DOCX e anexar ao protocolo de submissão à ANEEL.",
+    "trecho_citado": "manual de instruções com o detalhamento operacional"
+   },
+   {
+    "acao": "Protocolar submissões no sistema eletrônico indicando versão e data, observando prazo de até 1 ano da publicação desta Resolução.",
+    "trecho_citado": "no prazo de até 1 ano da publicação desta Resolução"
+   }
+  ],
+  "91c26ed1a77c413a": [
+   {
+    "acao": "Remover no sistema de faturamento a aplicação do benefício tarifário do art. 186, garantindo ausência de desconto no próximo ciclo.",
+    "trecho_citado": "cessar a aplicação do benefício tarifário do art. 186"
+   },
+   {
+    "acao": "Atualizar cadastro tarifário e emitir fatura do ciclo de faturamento subsequente sem o benefício, registrando em nota de ajuste.",
+    "trecho_citado": "no ciclo de faturamento subsequente"
+   }
+  ],
+  "6a16e3400ab43199": [
+   {
+    "acao": "Atualize configurações do sistema comercial para cumprir prazos do art. 166-A e do Submódulo 1.8 em ocorrências de migração e alteração contratual.",
+    "trecho_citado": "art. 166-A e no Submódulo 1.8"
+   }
+  ],
+  "dc7870cacd7cc071": [
+   {
+    "acao": "Valide e sincronize titularidade no sistema CUSD para registrar a mesma titularidade no ACL antes da emissão de novo contrato.",
+    "trecho_citado": "mesma titularidade no CUSD e nos contratos no ACL"
+   }
+  ],
+  "1cc27f2c34dd3d5f": [
+   {
+    "acao": "Altere cadastro e emita fatura-teste com aplicação de tarifa do grupo A e registre contratação de demanda no contrato antes da migração.",
+    "trecho_citado": "retornar ao faturamento com aplicação de tarifa do grupo A"
+   }
+  ],
+  "17605232023781dd": [
+   {
+    "acao": "Inserir nos logotipos e cabeçalhos o termo 'Distribuição de Energia Elétrica' em propostas, folders e páginas web.",
+    "trecho_citado": "inclusão visível do termo relativo à atividade de distribuição"
+   },
+   {
+    "acao": "Atualize perfis em mídias sociais colocando 'Distribuição de Energia Elétrica' como atividade visível na bio e na capa.",
+    "trecho_citado": "inclusão visível do termo relativo à atividade de distribuição"
+   }
+  ],
+  "728895c11bbe26d8": [
+   {
+    "acao": "Enviar à SFF da ANEEL, na concretização da operação, relatório PDF com quadro societário indicando controladores e participações diretas e indiretas.",
+    "trecho_citado": "na concretização da operação de transferência acionária"
+   },
+   {
+    "acao": "Enviar à SFF da ANEEL até o último dia de cada trimestre civil planilha Excel com composição societária atualizada e percentuais das participações.",
+    "trecho_citado": "último dia de cada trimestre civil"
+   }
+  ],
+  "5601d7cf3867bf32": [
+   {
+    "acao": "Submeta a controvérsia inicialmente ao representante da comercialização varejista por petição escrita, anexando documentos comprobatórios e prova de consumo.",
+    "trecho_citado": "inicialmente submetidas ao representante da comercialização varejista"
+   }
+  ],
+  "48facbbb1cb1cce4": [
+   {
+    "acao": "Responder ao consumidor por escrito em até 5 dias úteis, informando a decisão e seus fundamentos legais e técnicos.",
+    "trecho_citado": "indicar os fundamentos da decisão adotada"
+   },
+   {
+    "acao": "Incluir na resposta referência a documentos, medições e cálculos que suportem os fundamentos da decisão adotada.",
+    "trecho_citado": "indicar os fundamentos da decisão adotada"
+   }
+  ],
+  "59c5496d841c8794": [
+   {
+    "acao": "Aplicar benefício tarifário até o prazo de doze meses da publicação desta Resolução ou até o prazo reduzido informado pela distribuidora.",
+    "trecho_citado": "prazo de doze meses da publicação desta Resolução"
+   },
+   {
+    "acao": "Manter o benefício mesmo que o CCER celebrado possua prazo de retorno posterior ao período aplicável.",
+    "trecho_citado": "ainda que o CCER celebrado possua prazo de retorno posterior"
+   }
+  ],
+  "93230d4b3dad607f": [
+   {
+    "acao": "Não incluir qualquer cobrança na fatura ao registrar migração na modalidade regular no sistema comercial do cliente.",
+    "trecho_citado": "migração na modalidade regular"
+   }
+  ],
+  "5f1e90f07a781a9f": [
+   {
+    "acao": "Aplicar redução do prazo com isonomia, ajustando simultaneamente todos os contratos elegíveis no sistema comercial, sem tratamento individual.",
+    "trecho_citado": "redução do prazo deve ser realizada com isonomia"
+   },
+   {
+    "acao": "Impedir concessões de redução a clientes isoladamente, rejeitando alterações que configurem aplicação individual ou por grupo.",
+    "trecho_citado": "vedada a aplicação individual"
+   }
+  ],
+  "a18cdd2d9ab0da66": [
+   {
+    "acao": "No sistema de faturamento, cobrar encerramento do CCER apenas quando o mês da efetiva migração for anterior ao mês previsto.",
+    "trecho_citado": "mês da efetiva migração"
+   },
+   {
+    "acao": "Validar automaticamente os campos 'mês efetivo' e 'mês previsto' ao processar migração; bloquear cobrança se mês_efetivo não for inferior.",
+    "trecho_citado": "mês em que a migração se daria"
+   }
+  ],
+  "0d4598afde5c12e3": [
+   {
+    "acao": "Enviar o CCER ao consumidor por e‑mail com confirmação de recebimento quando houver antecedência mínima de 5 anos.",
+    "trecho_citado": "encaminhar ao consumidor o CCER"
+   }
+  ],
+  "4a15738dfbb6bcee": [
+   {
+    "acao": "Bloquear no sistema de faturamento quaisquer códigos de cobrança relacionados às opções previstas, evitando inclusão na fatura.",
+    "trecho_citado": "não podendo representar custo adicional no faturamento"
+   }
+  ],
+  "d82397fc3b81b89e": [
+   {
+    "acao": "Aceitar arrecadação de todos os comercializadores homologados e incluir seus valores na fatura da distribuidora sem cobrança adicional.",
+    "trecho_citado": "deve ser realizada para todos os comercializadores"
+   }
+  ],
+  "667bcae318ad50c6": [
+   {
+    "acao": "Submeter à ANEEL, pelo sistema de peticionamento eletrônico, a proposta completa do Sandbox antes do início do projeto.",
+    "trecho_citado": "apresentar à ANEEL, previamente ao início, a proposta"
+   }
+  ],
+  "6cb749b8189058af": [
+   {
+    "acao": "Anexar à proposta a metodologia escrita de escolha dos participantes, detalhando critérios para consumidores e agentes de comercialização.",
+    "trecho_citado": "metodologia de escolha dos participantes"
+   }
+  ],
+  "d6e372fb4b797bf0": [
+   {
+    "acao": "Anexe à proposta do Sandbox um documento público com requisitos, passos e modelos de formulários de adesão e desistência.",
+    "trecho_citado": "critérios de adesão e de desistência dos participantes"
+   },
+   {
+    "acao": "Publique formulário eletrônico de adesão e de desistência no portal da distribuidora com checklist automático de validação.",
+    "trecho_citado": "critérios de adesão e de desistência dos participantes"
+   }
+  ],
+  "3c31e7c6948c4d3e": [
+   {
+    "acao": "Implemente validação no sistema comercial que rejeite qualquer acréscimo de energia ao registro CCER para consumidores parcialmente livres em migração.",
+    "trecho_citado": "o CCER não poderá ter acréscimo do montante de energia elétrica"
+   },
+   {
+    "acao": "Execute rotina de conciliação mensal que compare montantes faturados e gere alerta quando houver alteração no montante CCER.",
+    "trecho_citado": "o CCER não poderá ter acréscimo do montante de energia elétrica"
+   }
+  ],
+  "ad1cd6d7bc9bb42b": [
+   {
+    "acao": "Configure o sistema de faturamento para, ao identificar benefícios 186 e 195 simultâneos, aplicar exclusivamente o benefício do art.195.",
+    "trecho_citado": "aplicar exclusivamente o benefício tarifário do art. 195"
+   },
+   {
+    "acao": "Ao receber manifestação formal ou após prazo, emita aviso eletrônico e atualize faturas subsequentes para refletir somente o benefício do art.195.",
+    "trecho_citado": "aplicar exclusivamente o benefício tarifário do art. 195"
+   }
+  ],
+  "33f462f47b99eeab": [
+   {
+    "acao": "Remova automaticamente o desconto do art.186 no módulo tarifário após ausência de manifestação, gravando comprovante no histórico do cliente.",
+    "trecho_citado": "cessar a aplicação do benefício tarifário do art. 186"
+   },
+   {
+    "acao": "Verifique elegibilidade e, se aplicável, ative o benefício tarifário do art. 195 no cadastro tarifário e gere registro de alteração.",
+    "trecho_citado": "benefício tarifário do art. 195"
+   },
+   {
+    "acao": "Notifique o consumidor via e-mail e SMS sobre a cessação do benefício e eventual aplicação do benefício alternativo.",
+    "trecho_citado": "Em caso de não manifestação do consumidor"
+   }
+  ],
+  "144816bda2da3a17": [
+   {
+    "acao": "Registre no portal eletrônico da CCEE a alteração de titularidade de unidade consumidora, anexando documento assinado e número do processo de migração.",
+    "trecho_citado": "alteração de titularidade de unidade consumidora"
+   },
+   {
+    "acao": "Envie e-mail com protocolo ao endereço eletrônico da CCEE, anexando comprovante da alteração no processo de migração para o ACL.",
+    "trecho_citado": "processo de migração para o ACL"
+   }
+  ],
+  "1829ab6332d473ce": [
+   {
+    "acao": "Exiba o nome jurídico e CNPJ no cabeçalho de propostas comerciais e páginas na internet para assegurar clareza e distinção em suas comunicações.",
+    "trecho_citado": "clareza e distinção em suas comunicações"
+   },
+   {
+    "acao": "Inclua rodapé em folders, materiais de marketing com logotipo e razão social distinta para evitar ambiguidade na apresentação de informações.",
+    "trecho_citado": "folders, materiais de marketing"
+   },
+   {
+    "acao": "Publique no topo de cada página na internet a designação 'Comercializadora' ou 'Distribuidora' seguida do nome legal para eliminar ambiguidade.",
+    "trecho_citado": "páginas na internet"
+   }
+  ]
+ },
+ "nota_custo": "Soma das duas execuções (completa US$ 0,0887 + complemento das obrigações sem recomendação US$ 0,0170); preço informado, a confirmar no portal."
+}

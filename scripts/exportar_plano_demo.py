@@ -122,6 +122,11 @@ def montar(
     else:  # norma sem arquivo de temas: um tema por capítulo
         cfg_temas, tema_por_unidade = plano.temas_automaticos(units, plano.carregar_temas())
     ia = plano.carregar_ia(DATA / cfg_norma["ia"]) if cfg_norma.get("ia") else None
+    recomendacoes = None
+    if cfg_norma.get("recomendacoes"):
+        recomendacoes = json.loads((DATA / cfg_norma["recomendacoes"]).read_text(encoding="utf-8"))[
+            "recomendacoes"
+        ]
     out = plano.montar(
         resultado,
         units,
@@ -131,6 +136,7 @@ def montar(
         ia,
         cenarios=cenarios,
         tema_por_unidade=tema_por_unidade,
+        recomendacoes=recomendacoes,
     )
     out["analise"] = analise.montar(out, rows, extraction)
     by_id = {u["id"]: u for u in units}

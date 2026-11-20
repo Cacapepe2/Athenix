@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { MIN_AUTOS_REFERENCIA, NORMAS, contagemDeEnquadramentos, defesa, destaqueDaNorma, frase, prazoTexto, idDaObrigacao, norma, prazos, queda, referenciaDoSetor, simplificar, tabelaDeGrupos, top5, urlDetalhe, urlPlanoCompleto, valorDaObrigacao, valorGeral } from './executivo.ts'
+import { MIN_AUTOS_REFERENCIA, NORMAS, textoMaiorMulta, contagemDeEnquadramentos, defesa, destaqueDaNorma, frase, prazoTexto, idDaObrigacao, norma, prazos, queda, referenciaDoSetor, simplificar, tabelaDeGrupos, top5, urlDetalhe, urlPlanoCompleto, valorDaObrigacao, valorGeral } from './executivo.ts'
 import { GRUPOS, NOME_DA_GRAVIDADE, nomeDaGravidade, rotuloDoGrupo } from './gravidade.ts'
 import { SIM_INICIAL, planos, type Simulacao } from './plano.ts'
 
@@ -35,9 +35,12 @@ test('top 5: vencidas primeiro (a mais antiga antes), depois maior valor por inf
     // se sobrou vencida fora do top 5, o top 5 é todo de vencidas
     const ids = new Set(linhas.map((l) => l.id))
     if (p.obrigacoes.some((o) => o.situacao === 'vencida' && !ids.has(o.id))) assert.ok(linhas.every((l) => l.situacao === 'vencida'))
-    // entre as não vencidas, o valor por infração não cresce ao descer a lista
-    const naoVenc = linhas.filter((l) => l.situacao !== 'vencida').map((l) => l.valor?.pct ?? -1)
-    assert.deepEqual(naoVenc, [...naoVenc].sort((a, b) => b - a))
+    // depois das vencidas vêm as a vencer COM DATA (a mais próxima antes); o resto, por maior valor
+    const aVencer = linhas.filter((l) => l.situacao !== 'vencida' && por.get(l.id)!.prazo.data)
+    const datasAVencer = aVencer.map((l) => por.get(l.id)!.prazo.data!)
+    assert.deepEqual(datasAVencer, [...datasAVencer].sort(), `${id}: a vencer, a mais próxima primeiro`)
+    const resto = linhas.filter((l) => l.situacao !== 'vencida' && !por.get(l.id)!.prazo.data).map((l) => l.valor?.pct ?? -1)
+    assert.deepEqual(resto, [...resto].sort((a, b) => b - a))
   }
   // mesmo prazo e mesmo valor: identificado no texto vem antes de sugerido
   const rank = { identificado: 0, sugerido: 1 }
@@ -144,7 +147,7 @@ test('referência do setor: infração grave (Grupo IV, n = 10) quando o valor �
 
 test('destaque da norma: data, deveres identificados e quantos têm prazo, tudo dos dados', () => {
   const d = destaqueDaNorma(planos.ren1174)
-  assert.equal(d.texto, 'publicada em 04/11/2026 · 86 deveres identificados · 5 com prazo · 2 recorrentes')  // dados reprocessados: 86 deveres e 6 com data
+  assert.equal(d.texto, 'publicada em 04/11/2026 · 83 deveres identificados · 3 com prazo · 2 recorrentes')  // dados reprocessados
   assert.equal(d.deveres, planos.ren1174.resumo.aplicaveis)
   assert.equal(d.comPrazo, planos.ren1174.obrigacoes.filter((o) => o.prazo.data).length)
   assert.match(destaqueDaNorma(planos.rn1137).texto, /^em vigor desde 30\/10\/2025 · 155 deveres identificados · \d+ com prazo · \d+ recorrentes?$/)
@@ -191,4 +194,38 @@ test('Art. 13, § 3º da REN 1.174 é recorrente, não prazo único', () => {
   const o = planos.ren1174.obrigacoes.find((x) => x.dispositivo === 'Art. 13, § 3º')!
   assert.equal(o.situacao, 'recorrente')
   assert.equal(o.prazo.data, null)
+})
+
+test('REN 1.174: o prazo de 03/01/2027 aparece no top 5, em primeiro entre as a vencer', () => {
+  const l = top5('ren1174', SIM_INICIAL, 'preliminar')
+  const por = new Map(planos.ren1174.obrigacoes.map((o) => [o.id, o]))
+  assert.equal(por.get(l[0].id)!.prazo.data, '2027-01-03')
+  assert.match(l[0].frase, /^A primeira reunião deve ocorrer/)
+})
+
+test('títulos com contexto: nada de título que comece por "Ser ", "Até " ou "Em até " no top 5', () => {
+  for (const n of NORMAS) for (const l of top5(n.id, SIM_INICIAL, 'preliminar')) assert.doesNotMatch(l.frase, /^(?:Ser|Até|Em até)/, l.frase)
+  const o = planos.ren1174.obrigacoes.find((x) => x.dispositivo === 'Art. 14, § 1º, inciso II')!
+  assert.match(o.titulo_completo, /^A aplicação do benefício tarifário deve ser realizada/)
+})
+
+test('recomendação em revisão quando a IA não deu ação específica; nunca frase genérica no top 5', () => {
+  const generica = /definir (?:um |o |uma )?respons|designar (?:um |o |uma )?respons|com a equipe|prazo interno/i
+  for (const n of NORMAS) {
+    for (const l of top5(n.id, SIM_INICIAL, 'preliminar')) {
+      if (l.fazer) for (const a of l.fazer.todas) assert.doesNotMatch(a, generica, a)
+    }
+    for (const o of n.dados.obrigacoes) for (const r of o.recomendacoes) assert.ok(r.trecho_citado.length >= 8 && !generica.test(r.acao))
+  }
+})
+
+test('defesa possível coerente: obrigação que envolve a prefeitura mostra a autorização municipal', () => {
+  const o = planos.rn1137.obrigacoes.find((x) => x.dispositivo === 'Art. 13, inciso II')!
+  assert.match(defesa(planos.rn1137, o).texto, /autoriza/)
+  assert.equal(defesa(planos.rn1137, o).origem, 'prática conhecida')
+})
+
+test('maior multa já aplicada a uma distribuidora, sem nome de empresa', () => {
+  assert.equal(textoMaiorMulta(planos.rn1137), 'maior multa já aplicada a uma distribuidora: R$ 165,8 mi (2024), por falhas no restabelecimento após evento climático')
+  assert.match(planos.rn1137.referencia_escala.maior_multa.fonte, /a confirmar/)
 })

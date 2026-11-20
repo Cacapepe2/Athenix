@@ -43,6 +43,10 @@ export interface Obrigacao {
   id: string
   titulo: string
   titulo_origem: 'regra' | 'ia'
+  /** Ações específicas sugeridas pela IA para este dispositivo (cada uma cita uma expressão literal dele). */
+  recomendacoes: { acao: string; trecho_citado: string }[]
+  /** Caput do inciso ou parágrafo (até 300 caracteres); vazio quando o dispositivo é o próprio caput. */
+  contexto: string
   /** Título sem corte (o curto termina em "…" quando passa de 88 caracteres). */
   titulo_completo: string
   tema: string
@@ -79,7 +83,7 @@ export interface Infracao {
 }
 export interface OutroDispositivo {
   id: string
-  natureza: 'faculdade' | 'direito_de_terceiro' | 'competencia_aneel' | 'dever_de_outro_agente'
+  natureza: 'faculdade' | 'direito_de_terceiro' | 'competencia_aneel' | 'dever_de_outro_agente' | 'regra_de_transicao'
   rotulo: string
   sujeito: string
   unidade: string | null
@@ -182,7 +186,7 @@ export interface PlanoDados {
     causas_por_tema: Record<string, { nome: string; nota: string }>
     contraponto: { titulo: string; urls: string[]; o_que_e: string; a_confirmar: string }
   }
-  referencia_escala: { infracao_grave: { rotulo: string; autos: number; mediana_reais: number; maximo_reais: number; fonte: string; limites: string }; rotulo: string; segmento: string; unidade: string; autos: number; empresas: number; mediana_reais: number; maximo_reais: number; fonte: string; limites: string }
+  referencia_escala: { maior_multa: { rotulo: string; valor_reais: number; ano: number; motivo: string; fonte: string }; infracao_grave: { rotulo: string; autos: number; mediana_reais: number; maximo_reais: number; fonte: string; limites: string }; rotulo: string; segmento: string; unidade: string; autos: number; empresas: number; mediana_reais: number; maximo_reais: number; fonte: string; limites: string }
   simulador: {
     faixas: { id: string; rotulo: string; base: number }[]
     origem_faixas: string

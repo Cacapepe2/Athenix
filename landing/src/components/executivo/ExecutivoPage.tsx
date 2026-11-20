@@ -136,7 +136,7 @@ export function ExecutivoPage() {
       <section aria-labelledby="top5">
         <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
           <h2 id="top5" className="font-display text-2xl leading-tight">{linhas.length} obrigações para olhar primeiro</h2>
-          <p className="text-xs text-ink-soft">vencidas primeiro, depois o maior valor por infração</p>
+          <p className="text-xs text-ink-soft">vencidas primeiro, depois as que vencem logo, depois o maior valor por infração</p>
         </div>
         <div className="mt-2 md:rounded-2xl md:border md:border-slate-blue/30 md:bg-white md:px-4">
           <table className="w-full border-collapse text-left text-sm max-md:block md:table-fixed">
@@ -158,6 +158,7 @@ export function ExecutivoPage() {
       </section>
 
       <p className="text-sm"><span className="font-semibold">Referência do setor:</span> {ref.texto}. <span className="text-xs text-ink-soft">{ref.nota[0].toUpperCase() + ref.nota.slice(1)}.</span></p>
+      <p className="text-sm"><span className="font-semibold">Referência do setor:</span> {ref.maiorMulta} <span className="text-xs text-ink-soft">(informado; a confirmar)</span></p>
 
       <ComoCalculamos ref={como} p={p} />
 
@@ -185,7 +186,7 @@ function Linha({ l, preliminar }: { l: LinhaTop5; preliminar: ReactNode }) {
     <td className={CELULA}><span className={ROTULO_MOBILE}>Gravidade e valor por infração</span>
       <span title={grupo}>{l.gravidade} · {l.textoValor}</span>{l.preliminar && <> {preliminar}</>}</td>
     <td className={CELULA}><span className={ROTULO_MOBILE}>O que fazer</span>
-      {l.fazer ? <>{l.fazer.texto}{l.fazer.preliminar && <> {preliminar}</>}</> : <span className="text-ink-soft">definir com a equipe responsável</span>}</td>
+      {l.fazer ? <>{l.fazer.texto} <Tag kind="review" label="Sugestão" /></> : <span className="text-ink-soft">recomendação em revisão</span>}</td>
     <td className={CELULA}><span className={ROTULO_MOBILE}>Defesa possível</span>
       {l.defesa.texto}{l.defesa.origem && <> <Tag kind={l.defesa.origem === 'no texto' ? 'source' : 'review'} label={l.defesa.origem} /></>}</td>
     <td className="align-top max-md:block md:py-1.5">
