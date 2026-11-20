@@ -31,7 +31,7 @@ ORDEM_PLANO = (
     "Sem histórico de multas, o valor provável não é estimável. Ordenamos por: 1) o que você marcou "
     "como já atendido vai para o fim; 2) exposição máxima por infração do tema, no porte escolhido "
     "(a maior primeiro; tema sem enquadramento, nem sugerido, fica depois); 3) no empate do valor em reais, o "
-    "enquadramento confirmado antes do sugerido; 4) mais obrigações vencidas (cada uma é uma infração "
+    "enquadramento identificado no texto antes do sugerido; 4) mais obrigações vencidas (cada uma é uma infração "
     "possível); 5) prazo vencido antes de a vencer (o mais antigo primeiro), depois recorrente e sem data. "
     "Exposições de infrações diferentes não se somam: vale a maior de cada tema."
 )
@@ -93,7 +93,7 @@ def ordenar_temas(temas, diagnostico=None, preliminar=True):
         return (
             diag.get(t["id"]) == "sim",
             -(-1 if valor is None else valor),
-            origem == "sugerido",  # no empate de R$, confirmado antes de sugerido
+            origem == "sugerido",  # no empate de R$, identificado no texto antes de sugerido
             -t["contagem"][
                 "vencida"
             ],  # cada obrigação vencida é uma infração possível; R$ nunca soma
@@ -247,7 +247,7 @@ def _faixa_de(m, base, com_atenuante=None):
 def _faixa_preliminar(params, row, p, grupo):
     """Faixa do cenário preliminar: o grupo SUGERIDO pela IA (aguarda confirmação) passado pelo mesmo
     motor (impacto.multa), com os atenuantes do art. 24 calculados como nos enquadramentos do texto.
-    Fora do cálculo confirmado; só o cenário preliminar (demo e relatório-piloto) a usa, marcada."""
+    Fora do cálculo do que o texto identifica; só o cenário preliminar (demo e relatório-piloto) a usa, marcada."""
     m = impacto.multa(params, row, p, [grupo], False)
     if not m.get("estimavel"):
         return None

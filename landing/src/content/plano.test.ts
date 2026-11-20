@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { brlCurto, textoVencidas, celula, comAtenuantePct, csvPlano, decisoesDaSemana, exposicaoTema, lacuna, lerReais, manchete, maximoPct, resumoDiagnostico, obrigacao, ordenarTemas, plano, reaisDe, SIM_INICIAL, situacaoPrazo, textoFaixa, type Cenario, type Simulacao } from './plano.ts'
+import { brl, brlCurto, textoVencidas, celula, comAtenuantePct, csvPlano, decisoesDaSemana, exposicaoTema, lacuna, lerReais, manchete, maximoPct, resumoDiagnostico, obrigacao, ordenarTemas, plano, reaisDe, SIM_INICIAL, situacaoPrazo, textoFaixa, type Cenario, type Simulacao } from './plano.ts'
 
 test('plano vem do produto, com perfil ilustrativo e sem números soltos', () => {
   assert.equal(plano.gerado_por, 'scripts/exportar_plano_demo.py')
@@ -166,6 +166,14 @@ test('manchete: temas vencidos, maior exposição por infração e os 4 portes',
   assert.deepEqual(valores, [...valores].sort((a, b) => a - b))
   assert.equal(brlCurto(50e6), 'R$ 50 mi')
   assert.equal(brlCurto(48654893), 'R$ 48,7 mi')
+  // abaixo de R$ 10 mi, duas casas fixas
+  assert.equal(brlCurto(1250000), 'R$ 1,25 mi')
+  assert.equal(brlCurto(2500000), 'R$ 2,50 mi')
+  assert.equal(brlCurto(9990000), 'R$ 9,99 mi')
+  assert.equal(brl(2500000), 'R$ 2,50 milhões')
+  assert.equal(brl(1500000), 'R$ 1,50 milhão')
+  assert.equal(brl(48654893), 'R$ 48,7 milhões')
+  assert.equal(brl(50e6), 'R$ 50 milhões')
   // em "só confirmados", sem enquadramento confirmado não se inventa valor
   const nenhum = manchete(plano.temas.map((t) => ({ ...t, faixa: null })), {}, SIM_INICIAL, 'confirmados')
   assert.equal(nenhum.maximo, null)

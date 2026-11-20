@@ -279,9 +279,13 @@ export function resumoDiagnostico(temas: Tema[], diag: Diagnosticos, sim: Simula
 
 export const dataBR = (iso: string) => iso.split('-').reverse().join('/')
 
+/** Número da escala: abaixo de R$ 10 mi, duas casas fixas ("2,50"); de R$ 10 mi para cima, até uma casa ("48,7", "50"). */
+const numEscala = (valor: number, n: number) =>
+  n.toLocaleString('pt-BR', valor < 1e7 ? { minimumFractionDigits: 2, maximumFractionDigits: 2 } : { maximumFractionDigits: 1 })
+
 export function brl(valor: number): string {
-  // Singular abaixo de 2: "R$ 1 bilhão", "R$ 1,5 milhão".
-  const escala = (n: number, um: string, varios: string) => `R$ ${n.toLocaleString('pt-BR', { maximumFractionDigits: 1 })} ${n < 2 ? um : varios}`
+  // Singular abaixo de 2: "R$ 1 bilhão", "R$ 1,50 milhão".
+  const escala = (n: number, um: string, varios: string) => `R$ ${numEscala(valor, n)} ${n < 2 ? um : varios}`
   if (valor >= 1e9) return escala(valor / 1e9, 'bilhão', 'bilhões')
   if (valor >= 1e6) return escala(valor / 1e6, 'milhão', 'milhões')
   return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
@@ -333,9 +337,9 @@ export function textoFaixa(f: Faixa, s: Simulacao | null = SIM_INICIAL): string 
 }
 export const NOTA_ADVERTENCIA = 'pode ser só advertência'
 
-/** "R$ 50 mi", "R$ 48,7 mi", "R$ 1 bi": para a manchete. */
+/** "R$ 2,50 mi", "R$ 50 mi", "R$ 48,7 mi", "R$ 1 bi": para a manchete. */
 export function brlCurto(v: number): string {
-  const f = (n: number, u: string) => `R$ ${n.toLocaleString('pt-BR', { maximumFractionDigits: 1 })} ${u}`
+  const f = (n: number, u: string) => `R$ ${numEscala(v, n)} ${u}`
   return v >= 1e9 ? f(v / 1e9, 'bi') : v >= 1e6 ? f(v / 1e6, 'mi') : brl(v)
 }
 
