@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useMemo, useRef, useState, type ReactNode, type Ref } from 'react'
-import { AlertTriangle, ChevronDown, Download, FileText, Printer, Sparkles } from 'lucide-react'
+import { AlertTriangle, ArrowDown, ArrowUp, ChevronDown, ClipboardList, Download, FileText, Printer, Sparkles } from 'lucide-react'
 import { Logo } from '../ui/Logo'
 import { Tag } from '../product/Tag'
 import {
@@ -15,9 +15,18 @@ const PRELIMINAR = 'cenário preliminar: inclui sugestões aguardando confirmaç
 const ATENUANTES = plano.reducao.medidas.filter((m) => m.cenario)
 const ATEN_I = ATENUANTES.find((m) => m.cenario === 'espontanea')
 const ATEN_II = ATENUANTES.find((m) => m.cenario === 'ate_tn')
-// Acento terracota só no que é clicável e no mais importante (contrastes em index.css).
-const BOTAO_ACENTO = 'inline-flex min-h-11 items-center gap-2 rounded-full bg-acento-escuro px-5 text-sm font-medium text-white hover:bg-obsidian'
-const BOTAO_SEC = 'inline-flex min-h-11 items-center gap-2 rounded-full border border-obsidian/20 bg-white px-5 text-sm font-medium hover:border-acento-escuro'
+// Terracota só no fundo das ações principais, no porte escolhido e em etiquetas muito relevantes
+// (data-acento). Texto, bordas, links e foco ficam no azul escuro do site (contrastes em index.css).
+// No diagnóstico tudo é azul, menos os clicáveis: botões em terracota (principal preenchido, secundário claro).
+const BOTAO_ACENTO = 'inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-full bg-acento-escuro px-5 text-sm font-semibold text-white shadow-sm hover:bg-acento-hover'
+const BOTAO_DIAG_SEC = 'inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-full border border-acento-escuro bg-acento-claro px-5 text-sm font-semibold text-acento-escuro hover:bg-acento-escuro hover:text-white print:hidden'
+const BOTAO_SEC = 'inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-full border border-slate-blue/40 bg-white px-5 text-sm font-medium text-slate-blue hover:border-slate-blue hover:bg-slate-blue/5'
+const LINK = 'font-semibold text-slate-blue underline decoration-slate-blue/40 underline-offset-4 hover:decoration-slate-blue'
+// Linha clicável de um <details>: borda, fundo ao passar o mouse e chevron que gira (index.css).
+const SUMARIO = 'flex min-h-11 cursor-pointer items-center gap-3 rounded-xl border border-slate-blue/30 bg-white px-4 py-2 font-semibold text-slate-blue hover:border-slate-blue hover:bg-slate-blue/5'
+
+/** Chevron do <summary>: gira quando o <details> está aberto (regra em index.css). */
+const Chevron = () => <ChevronDown aria-hidden="true" className="chevron ml-auto h-5 w-5 shrink-0 text-slate-blue transition-transform" />
 // Receita simulada (null: valor digitado inválido, mostra só percentuais) e modo do cenário. Nada sai do navegador.
 const Cenario = createContext<{ sim: Simulacao | null; modo: Modo }>({ sim: SIM_INICIAL, modo: 'preliminar' })
 
@@ -83,16 +92,16 @@ export function PlanoPage() {
   }, [soDiagnostico])
 
   return <Cenario.Provider value={{ sim, modo }}>
-    <header className="border-b border-line bg-ivory print:hidden"><div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-8"><a href="/" aria-label="Athenix, voltar ao início"><Logo /></a><a href="/" className="text-sm font-semibold text-slate-blue">← Voltar ao site</a></div></header>
+    <header className="border-b border-line bg-ivory print:hidden"><div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-8"><a href="/" aria-label="Athenix, voltar ao início"><Logo /></a><a href="/" className={`inline-flex min-h-11 items-center text-sm ${LINK}`}>← Voltar ao site</a></div></header>
     <main id="plano" className={`mx-auto max-w-7xl space-y-14 px-4 pt-6 pb-8 sm:px-8 sm:pt-10 md:pb-28 print:pb-10 ${soDiagnostico ? 'so-diagnostico' : ''}`}>
       <section aria-labelledby="titulo-plano" className="space-y-6">
         <p className={kicker}>Plano de ação · RN 1.137/2025 · {plano.perfil.rotulo.toLowerCase()} (não é empresa real)</p>
         <Porte setSim={setSim} />
-        <p className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-2xl border border-acento/60 border-l-4 border-l-acento bg-acento-claro py-2 pr-4 pl-4 text-sm print:hidden">
-          <span className="rounded-full bg-acento-escuro px-2.5 py-0.5 text-xs font-bold tracking-wide text-white uppercase">Novo</span>
-          <span className="font-semibold text-obsidian">Gere o diagnóstico da sua empresa aqui mesmo, sem baixar nada.</span>
-          <span className="text-ink-soft">Marque a situação em cada tema e clique em “Gerar diagnóstico”, depois da lista.</span>
-          <a href="#seu-diagnostico" className="inline-flex min-h-11 items-center font-semibold text-acento-escuro underline decoration-acento underline-offset-4">Ir para o diagnóstico ↓</a>
+        <p className="flex flex-wrap items-center gap-x-3 rounded-2xl border border-slate-blue/40 border-l-4 border-l-slate-blue bg-acento-claro py-1 pr-4 pl-4 text-sm text-obsidian print:hidden">
+          <span data-acento="etiqueta" className="rounded-full bg-acento-escuro px-2.5 py-0.5 text-xs font-bold tracking-wide text-white uppercase">Novo</span>
+          <span className="lg:hidden">Marque os temas e gere o diagnóstico.</span>
+          <span className="hidden lg:inline">Abaixo dos temas há um card de diagnóstico com o resultado ao lado: marque a situação de cada tema e gere aqui mesmo.</span>
+          <a href="#seu-diagnostico" className={`inline-flex min-h-11 items-center ${LINK}`}>Ir para o diagnóstico ↓</a>
         </p>
         <Metricas m={m} />
 
@@ -107,7 +116,7 @@ export function PlanoPage() {
             <div className="mt-4 flex flex-wrap items-center gap-3">
               {modo === 'preliminar' && m.sugeridos > 0 && <Sugerido texto={PRELIMINAR} />}
               {modo === 'confirmados' && <span className="text-sm text-ink-soft">Só enquadramentos que o texto da obrigação nomeia.</span>}
-              <button type="button" aria-pressed={modo === 'confirmados'} onClick={() => setModo(modo === 'preliminar' ? 'confirmados' : 'preliminar')} className={`${BOTAO_ACENTO} print:hidden`}>
+              <button type="button" aria-pressed={modo === 'confirmados'} onClick={() => setModo(modo === 'preliminar' ? 'confirmados' : 'preliminar')} className={`${BOTAO_SEC} print:hidden`}>
                 {modo === 'preliminar' ? 'Mostrar só confirmados' : 'Voltar ao cenário preliminar'}
               </button>
             </div>
@@ -118,8 +127,8 @@ export function PlanoPage() {
             <ol className="mt-5 space-y-4">
               {decisoes.map((t, n) => { const e = exposicaoTema(t, sim, modo); return <li key={t.id} className="flex gap-3">
                 <span aria-hidden="true" className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-slate-blue font-semibold text-ivory">{n + 1}</span>
-                <div className="min-w-0">
-                  <a href={`#tema-${t.id}`} className="font-semibold leading-snug text-acento-escuro underline decoration-acento/50 underline-offset-4 hover:decoration-acento-escuro">{t.nome}</a>
+                <div className="-mt-1.5 min-w-0">
+                  <a href={`#tema-${t.id}`} className={`inline-block py-3 leading-snug ${LINK}`}>{t.nome}<ArrowDown aria-hidden="true" className="ml-1 inline h-4 w-4 align-[-0.15em]" /></a>
                   <p className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
                     <span>{e ? <>até <strong>{valor(e)}</strong> por infração</> : 'exposição a enquadrar'}{t.contagem.vencida > 0 && <> · {textoVencidas(t.contagem.vencida)}</>}</span>
                     <span aria-hidden="true" className="text-ink-soft">·</span>
@@ -138,16 +147,25 @@ export function PlanoPage() {
         <p className={kicker}>Plano por tema</p>
         <h2 id="temas" className="font-display mt-2 text-3xl sm:text-4xl">Temas por valor em risco</h2>
         <details className="mt-3 max-w-3xl text-sm print:hidden">
-          <summary className="inline-flex min-h-11 cursor-pointer items-center font-medium text-acento-escuro underline underline-offset-4">como ordenamos</summary>
-          <p className="mt-1 leading-relaxed text-ink-soft">{plano.regra_ordem}</p>
+          <summary className={`${SUMARIO} inline-flex rounded-full text-sm`}>Como ordenamos<Chevron /></summary>
+          <p className="mt-2 leading-relaxed text-ink-soft">{plano.regra_ordem}</p>
         </details>
-        <div className="mt-6 grid grid-cols-[minmax(0,1fr)] items-start gap-6 lg:grid-cols-[minmax(0,1fr)_20rem]">
-          <ol className="space-y-5">{temas.map((t, n) => <CartaoTema key={t.id} tema={t} posicao={n + 1} diag={diag[t.id]} marcar={marcar} maiorPct={maiorPct} />)}</ol>
-          <SeuDiagnostico diag={diag} gap={gap} gerar={() => setGeracao((g) => g + 1)} />
-        </div>
+        <ol className="mt-6 space-y-5">{temas.map((t, n) => <CartaoTema key={t.id} tema={t} posicao={n + 1} diag={diag[t.id]} marcar={marcar} maiorPct={maiorPct} />)}</ol>
       </section>
 
-      {gerado && <DiagnosticoGerado ref={refDiag} diag={diag} temas={temas} decisoes={decisoes} m={m} imprimir={() => setSoDiagnostico(true)} fechar={() => { setGeracao(0); document.getElementById('seu-diagnostico')?.scrollIntoView({ block: 'start' }) }} />}
+      {/* Diagnóstico: card de controles à esquerda e painel de resultado à direita (empilhados abaixo de 1024 px).
+          Na impressão sai só o resultado gerado; sem resultado, a seção inteira fica fora do papel. */}
+      <section id="seu-diagnostico" aria-labelledby="titulo-seu-diagnostico" className={`grid scroll-mt-6 grid-cols-[minmax(0,1fr)] items-start gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] print:block ${gerado ? '' : 'print:hidden'}`}>
+        <ControlesDiagnostico diag={diag} gap={gap} gerar={() => setGeracao((g) => g + 1)} />
+        <div id="painel-diagnostico" className="min-w-0">
+          {gerado
+            ? <DiagnosticoGerado ref={refDiag} diag={diag} temas={temas} decisoes={decisoes} m={m} imprimir={() => setSoDiagnostico(true)} fechar={() => { setGeracao(0); document.getElementById('seu-diagnostico')?.scrollIntoView({ block: 'start' }) }} />
+            : <div className="flex min-h-64 flex-col items-center justify-center gap-3 rounded-2xl border-2 border-slate-blue bg-diag-fundo p-6 text-center text-slate-blue print:hidden">
+              <FileText aria-hidden="true" className="h-8 w-8" />
+              <p className="max-w-md text-base">O resultado aparece aqui: manchete, {decisoes.length} {decisoes.length === 1 ? 'decisão' : 'decisões'} e os temas em ordem.</p>
+            </div>}
+        </div>
+      </section>
 
       <div className="space-y-4 print:hidden">
         <Expansivel id="reduzir" titulo="Como reduzir a exposição" resumo="atenuantes do art. 24 da REN 846, regras comuns e valores por tema">{() => <ComoReduzir temas={temas} />}</Expansivel>
@@ -155,7 +173,7 @@ export function PlanoPage() {
         <Expansivel id="metodo" titulo="Como chegamos aqui" resumo="contagens, prazos, cálculo da exposição, premissas e fontes">{() => <Metodo />}</Expansivel>
         <Expansivel id="referencia" titulo="Referência do setor" resumo={`autos de infração publicados em distribuição (${plano.referencia_escala.autos}, amostra pequena)`}>{() => <ReferenciaSetor />}</Expansivel>
       </div>
-      <footer className="border-t border-line pt-6 text-sm text-ink-soft">{plano.aviso} Iniciativa em validação. Valores ilustrativos, que não indicam descumprimento de uma empresa real. Não constitui parecer jurídico. <a className="ml-2 underline print:hidden" href="/">Voltar à Athenix</a></footer>
+      <footer className="border-t border-line pt-6 text-sm text-ink-soft">{plano.aviso} Iniciativa em validação. Valores ilustrativos, que não indicam descumprimento de uma empresa real. Não constitui parecer jurídico. <a className={`ml-2 inline-flex min-h-11 items-center ${LINK} print:hidden`} href="/">Voltar à Athenix</a></footer>
     </main>
     <div role="note" className="z-30 border-t md:fixed md:inset-x-0 md:bottom-0 border-line bg-obsidian/95 px-4 py-2.5 text-center text-xs leading-snug text-ivory print:hidden">
       Iniciativa em validação · valores ilustrativos · não constitui parecer jurídico
@@ -182,25 +200,28 @@ function Metricas({ m }: { m: Manchete }) {
   </dl>
 }
 
-/** Card "Seu diagnóstico": ao lado dos temas (fixo ao rolar em tela grande); no celular, depois da lista. */
-function SeuDiagnostico({ diag, gap, gerar }: { diag: Diagnosticos; gap: ReturnType<typeof lacuna>; gerar: () => void }) {
+/** Card de controles do diagnóstico (à esquerda do painel de resultado; no celular, acima dele). Não acompanha a rolagem. */
+function ControlesDiagnostico({ diag, gap, gerar }: { diag: Diagnosticos; gap: ReturnType<typeof lacuna>; gerar: () => void }) {
   const { sim } = useContext(Cenario)
   const marcados = plano.temas.length - gap.semResposta
-  return <aside id="seu-diagnostico" aria-labelledby="titulo-seu-diagnostico" className="rounded-2xl border-2 border-acento bg-white p-5 shadow-soft lg:sticky lg:top-6 print:hidden">
-    <p className="text-xs font-bold tracking-widest text-acento-escuro uppercase">Gere aqui mesmo</p>
-    <h2 id="titulo-seu-diagnostico" className="font-display mt-1 text-2xl">Seu diagnóstico</h2>
-    <dl className="mt-3 space-y-3 text-sm">
-      <div><dt className="text-ink-soft">Porte</dt><dd className="font-semibold">{nomePorte(sim)} <a href="#porte" className="inline-flex min-h-11 items-center font-normal text-acento-escuro underline underline-offset-4">alterar no topo</a></dd></div>
+  return <div className="rounded-2xl border-2 border-slate-blue bg-diag-fundo p-5 text-obsidian shadow-soft sm:p-6 print:hidden">
+    <h2 id="titulo-seu-diagnostico" className="font-display flex items-center gap-3 text-2xl text-slate-blue">
+      <span aria-hidden="true" className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-slate-blue text-white"><ClipboardList className="h-5 w-5" /></span>
+      Diagnóstico da regulação
+    </h2>
+    <p className="mt-3 text-sm">Marque a situação em cada tema acima e gere o resultado aqui, na própria página. Nada é enviado.</p>
+    <dl className="mt-4 space-y-3 text-sm">
+      <div><dt className="text-ink-soft">Porte</dt><dd className="font-semibold">{nomePorte(sim)} <a href="#porte" className={`inline-flex min-h-11 items-center ${LINK}`}>alterar no topo</a></dd></div>
       <div><dt className="text-ink-soft">Situação por tema</dt>
         <dd aria-live="polite">{marcados === 0 ? <>Nenhum tema marcado ainda.</> : <>{marcados} de {plano.temas.length} temas marcados. Lacuna: <strong>{gap.nao} obrigações</strong> em temas que vocês não atendem e <strong>{gap.parcial}</strong> em temas parciais.</>}</dd></div>
     </dl>
-    <p className="mt-3 text-xs text-ink-soft">Marque “Já temos”, “Parcial” ou “Não temos” em cada tema. As marcações ficam só nesta aba: nada é salvo nem enviado.</p>
-    <button type="button" onClick={gerar} aria-controls="diagnostico-gerado" className="mt-4 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-acento px-5 text-[1.1875rem] font-bold text-white hover:bg-acento-escuro"><FileText aria-hidden="true" className="h-5 w-5" />Gerar diagnóstico</button>
+    <p className="mt-3 text-xs text-ink-soft">“Já temos”, “Parcial” ou “Não temos” em cada tema. As marcações ficam só nesta aba: nada é salvo.</p>
+    <button type="button" onClick={gerar} aria-controls="painel-diagnostico" className="mt-4 inline-flex min-h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-acento px-5 text-[1.1875rem] font-bold text-white shadow-sm hover:bg-acento-hover"><FileText aria-hidden="true" className="h-5 w-5" />Gerar diagnóstico</button>
     <div className="mt-3 grid gap-2">
-      <button type="button" onClick={() => baixarCsv(diag, sim)} className={`${BOTAO_SEC} justify-center`}><Download aria-hidden="true" className="h-4 w-4" />Baixar planilha (CSV)</button>
-      <button type="button" onClick={() => window.print()} className={`${BOTAO_SEC} justify-center`}><Printer aria-hidden="true" className="h-4 w-4" />Imprimir ou salvar PDF</button>
+      <button type="button" onClick={() => baixarCsv(diag, sim)} className={`${BOTAO_DIAG_SEC} justify-center`}><Download aria-hidden="true" className="h-4 w-4" />Baixar planilha (CSV)</button>
+      <button type="button" onClick={() => window.print()} className={`${BOTAO_DIAG_SEC} justify-center`}><Printer aria-hidden="true" className="h-4 w-4" />Imprimir ou salvar PDF</button>
     </div>
-  </aside>
+  </div>
 }
 
 /** Diagnóstico gerado no navegador, em forma de boletim. Nada é enviado. */
@@ -208,31 +229,33 @@ function DiagnosticoGerado({ ref, diag, temas, decisoes, m, imprimir, fechar }: 
   const { sim, modo } = useContext(Cenario)
   const gap = lacuna(plano.temas, diag)
   const algumSugerido = temas.some((t) => exposicaoTema(t, sim, modo)?.origem === 'sugerido')
-  return <section ref={ref} id="diagnostico-gerado" tabIndex={-1} aria-labelledby="titulo-diagnostico" className="rounded-2xl border-2 border-acento bg-white p-5 shadow-soft sm:p-8 print:border-0 print:p-0 print:shadow-none">
+  return <section ref={ref} id="diagnostico-gerado" tabIndex={-1} aria-labelledby="titulo-diagnostico" className="rounded-2xl border-2 border-slate-blue bg-diag-fundo p-5 text-obsidian shadow-soft sm:p-8 print:border-0 print:bg-white print:p-0 print:shadow-none">
     <div className="flex flex-wrap items-start justify-between gap-3">
-      <p className="text-xs font-bold tracking-[0.2em] text-acento-escuro uppercase">Diagnóstico da regulação</p>
+      <p className="text-xs font-bold tracking-[0.2em] text-slate-blue uppercase">Diagnóstico da regulação</p>
       <div className="flex flex-wrap gap-2 print:hidden">
         <button type="button" onClick={imprimir} className={BOTAO_ACENTO}><Printer aria-hidden="true" className="h-4 w-4" />Imprimir este diagnóstico</button>
-        <button type="button" onClick={() => baixarCsv(diag, sim)} className={BOTAO_SEC}><Download aria-hidden="true" className="h-4 w-4" />Planilha (CSV)</button>
-        <button type="button" onClick={fechar} className={BOTAO_SEC}>Fechar</button>
+        <button type="button" onClick={() => baixarCsv(diag, sim)} className={BOTAO_DIAG_SEC}><Download aria-hidden="true" className="h-4 w-4" />Planilha (CSV)</button>
+        <button type="button" onClick={fechar} className={BOTAO_DIAG_SEC}>Fechar</button>
       </div>
     </div>
-    <h2 id="titulo-diagnostico" className="font-display mt-3 text-[2rem] leading-tight sm:text-5xl sm:leading-[1.08]"><TextoManchete m={m} /></h2>
+    <h2 id="titulo-diagnostico" className="font-display mt-3 text-[2rem] text-obsidian leading-tight sm:text-[2.6rem] sm:leading-[1.1]"><TextoManchete m={m} /></h2>
     <p className="mt-3 text-sm text-ink-soft">Data de referência {dataBR(plano.perfil.data_referencia)} · Porte: {nomePorte(sim)} · RN 1.137/2025 · {modo === 'preliminar' ? 'cenário preliminar' : 'só enquadramentos confirmados'} · {plano.perfil.rotulo.toLowerCase()} (não é empresa real)</p>
     <p className="mt-5 max-w-4xl text-lg leading-relaxed">{resumoDiagnostico(plano.temas, diag, sim, modo)}</p>
     {algumSugerido && <p className="mt-3 flex flex-wrap items-center gap-2 text-sm"><Tag kind="ai" label="Interpretação da IA · aguarda revisão humana" /><span className="text-ink-soft">Valores marcados “sugerido” usam o enquadramento sugerido pela IA ({PRELIMINAR}).</span></p>}
 
-    <div className="mt-8 grid items-start gap-6 lg:grid-cols-[1.3fr_1fr]">
-      <div><h3 className="font-display text-2xl">{`${decisoes.length} ${decisoes.length === 1 ? 'decisão' : 'decisões'} para esta semana`}</h3>
-        <ol className="mt-3 list-decimal space-y-2 pl-5">{decisoes.map((t) => { const e = exposicaoTema(t, sim, modo); return <li key={t.id}><a href={`#tema-${t.id}`} className="font-semibold text-acento-escuro underline decoration-acento/50 underline-offset-4 print:no-underline">{t.nome}</a>
+    <div className="mt-8 grid items-start gap-6 xl:grid-cols-[1.3fr_1fr]">
+      <div><h3 className="font-display text-2xl text-slate-blue">{`${decisoes.length} ${decisoes.length === 1 ? 'decisão' : 'decisões'} para esta semana`}</h3>
+        <ol className="mt-3 list-decimal space-y-2 pl-5">{decisoes.map((t) => { const e = exposicaoTema(t, sim, modo); return <li key={t.id}><a href={`#tema-${t.id}`} className={`inline-block py-2.5 ${LINK} print:py-0 print:no-underline`}>{t.nome}<ArrowDown aria-hidden="true" className="ml-1 inline h-4 w-4 align-[-0.15em] print:hidden" /></a>
           <span className="block text-sm">{e ? <>até <strong>{valor(e)}</strong> por infração</> : 'exposição a enquadrar'} · {situacaoPrazo(t)} {e?.origem === 'sugerido' && <Sugerido />}</span></li> })}</ol></div>
-      <div className="rounded-xl bg-stone/50 p-4 text-sm"><h3 className="font-semibold">Lacuna informada</h3>
-        {gap.semResposta === plano.temas.length ? <p className="mt-1">Nenhum tema marcado: o diagnóstico mostra a exposição sem a situação da empresa. Marque cada tema e gere de novo.</p>
+      <div className="rounded-xl border border-slate-blue/30 bg-diag-caixa p-4 text-sm print:bg-white"><h3 className="font-semibold text-slate-blue">Lacuna informada</h3>
+        {gap.semResposta === plano.temas.length ? <><p className="mt-1 font-semibold">Nenhum tema marcado ainda; marque a situação de cada tema para ver a lacuna.</p>
+          <p className="mt-1">Por enquanto, o diagnóstico mostra só a exposição, sem a situação da empresa. Depois de marcar, gere de novo.</p>
+          <a href="#temas" className={`mt-2 ${BOTAO_ACENTO} print:hidden`}>Marcar os temas<ArrowUp aria-hidden="true" className="h-4 w-4" /></a></>
           : <p className="mt-1"><strong>{gap.nao}</strong> obrigações em temas que vocês não atendem, <strong>{gap.parcial}</strong> em temas parciais e <strong>{gap.atendido}</strong> em temas atendidos. {gap.semResposta} {gap.semResposta === 1 ? 'tema' : 'temas'} sem resposta.</p>}
       </div>
     </div>
 
-    <h3 className="font-display mt-10 text-2xl">Temas na ordem de prioridade</h3>
+    <h3 className="font-display mt-10 text-2xl text-slate-blue">Temas na ordem de prioridade</h3>
     <ol className="mt-3 space-y-5">{temas.map((t, n) => { const e = exposicaoTema(t, sim, modo); return <li key={t.id} className="border-t border-line pt-4">
       <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
         <p className="font-semibold">{n + 1}. {t.nome}</p>
@@ -248,13 +271,13 @@ function DiagnosticoGerado({ ref, diag, temas, decisoes, m, imprimir, fechar }: 
 /** Bloco recolhido: título claro e resumo de uma linha; o conteúdo só é montado ao abrir. */
 function Expansivel({ id, titulo, resumo, children }: { id: string; titulo: string; resumo: string; children: () => ReactNode }) {
   const [aberto, setAberto] = useState(false)
-  return <section aria-labelledby={id}><details className="group rounded-2xl border border-line bg-white" onToggle={(e) => setAberto(e.currentTarget.open)}>
-    <summary className="flex min-h-11 cursor-pointer items-start gap-3 p-5 sm:px-7">
+  return <section aria-labelledby={id}><details className="group rounded-2xl border border-slate-blue/30 bg-white hover:border-slate-blue open:border-line" onToggle={(e) => setAberto(e.currentTarget.open)}>
+    <summary className="flex min-h-11 cursor-pointer items-center gap-3 rounded-2xl p-5 hover:bg-slate-blue/5 sm:px-7">
       <span className="flex min-w-0 flex-1 flex-wrap items-baseline gap-x-3 gap-y-1">
-        <h2 id={id} className="font-display text-2xl text-acento-escuro sm:text-3xl">{titulo}</h2>
+        <h2 id={id} className="font-display text-2xl text-obsidian sm:text-3xl">{titulo}</h2>
         <span className="text-sm text-ink-soft">{resumo}</span>
       </span>
-      <span className="mt-1 inline-flex shrink-0 items-center gap-1 text-sm font-semibold text-acento-escuro"><span className="group-open:hidden">Abrir</span><span className="hidden group-open:inline">Fechar</span><ChevronDown aria-hidden="true" className="h-5 w-5 transition-transform group-open:rotate-180" /></span>
+      <span className="inline-flex min-h-11 shrink-0 items-center gap-1 rounded-full border border-slate-blue/40 bg-white px-3 text-sm font-semibold text-slate-blue group-hover:border-slate-blue"><span className="group-open:hidden">Abrir</span><span className="hidden group-open:inline">Fechar</span><ChevronDown aria-hidden="true" className="h-5 w-5 transition-transform group-open:rotate-180" /></span>
     </summary>
     {aberto && <div className="px-5 pb-6 sm:px-7">{children()}</div>}
   </details></section>
@@ -308,15 +331,15 @@ function Porte({ setSim }: { setSim: (s: Simulacao | null) => void }) {
     <fieldset id="porte">
       <legend className="flex flex-wrap items-center gap-2 text-sm font-semibold">Porte da distribuidora (receita operacional líquida anual) <Tag kind="estimate" label="Faixa ilustrativa" /></legend>
       <div className="mt-2 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
-        {faixas.map((x) => <label key={x.id} className="inline-flex min-h-11 cursor-pointer flex-col items-center justify-center rounded-2xl border border-line bg-white px-3 py-1 text-center text-sm leading-tight sm:flex-row sm:gap-1 sm:rounded-full sm:px-4 has-checked:border-acento has-checked:bg-acento-escuro has-checked:font-semibold has-checked:text-white has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-acento">
+        {faixas.map((x) => <label key={x.id} className="inline-flex min-h-11 cursor-pointer flex-col items-center justify-center rounded-2xl border border-slate-blue/40 bg-white px-3 py-1 text-center text-sm leading-tight text-obsidian hover:border-slate-blue hover:bg-slate-blue/5 sm:flex-row sm:gap-1 sm:rounded-full sm:px-4 has-checked:border-transparent has-checked:bg-acento-escuro has-checked:font-semibold has-checked:text-white has-checked:shadow-sm has-checked:hover:bg-acento-escuro has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-slate-blue">
           <input type="radio" className="sr-only" name="porte" value={x.id} checked={porte === x.id} onChange={() => { setPorte(x.id); const t = numeroBR(x.base); setRol(t); aplicar(t, fat) }} />
           <span className="font-medium sm:font-normal">{x.rotulo}</span> <span className="text-xs whitespace-nowrap sm:text-sm">~{brlCurto(x.base)}</span>
         </label>)}
       </div>
     </fieldset>
-    <details className="rounded-xl border border-line bg-white/60 print:hidden">
-      <summary className="flex min-h-11 cursor-pointer items-center px-4 text-sm font-semibold text-acento-escuro">Ajustar premissas{porte === 'livre' && sim ? ` · receita informada: ${brl(sim.base)}` : ''}</summary>
-      <div className="grid gap-4 px-4 pb-4 sm:grid-cols-2">
+    <details className="max-w-3xl print:hidden">
+      <summary className={`${SUMARIO} text-sm`}><span className="min-w-0">Ajustar premissas{porte === 'livre' && sim ? ` · receita informada: ${brl(sim.base)}` : ''}</span><Chevron /></summary>
+      <div className="mt-2 grid gap-4 rounded-xl border border-line bg-white p-4 sm:grid-cols-2">
         <label className="block text-sm"><span className="font-semibold">Receita operacional líquida, 12 meses (R$)</span> <Tag kind="review" label="Premissa do usuário" />
           <input inputMode="decimal" autoComplete="off" className={`${campo} ${rolInvalido ? 'border-pending' : 'border-line'}`} value={rol} aria-invalid={rolInvalido} aria-describedby="rol-ajuda"
             onChange={(e) => { setRol(e.target.value); setPorte('livre'); aplicar(e.target.value, fat) }} />
@@ -356,8 +379,8 @@ function CartaoTema({ tema: t, posicao, diag, marcar, maiorPct }: { tema: Tema; 
       </div>
       <fieldset className="print:hidden">
         <legend className="mb-1 text-xs text-ink-soft">Sua situação hoje</legend>
-        <div className="inline-flex rounded-full border border-line bg-ivory p-1">
-          {OPCOES.map(([v, rotulo]) => <label key={v} className="inline-flex min-h-11 cursor-pointer items-center rounded-full px-3 text-sm has-checked:bg-acento-escuro has-checked:text-white has-focus-visible:outline-2 has-focus-visible:outline-acento">
+        <div className="inline-flex gap-1 rounded-full border border-line bg-ivory p-1">
+          {OPCOES.map(([v, rotulo]) => <label key={v} className="inline-flex min-h-11 cursor-pointer items-center rounded-full border border-slate-blue/40 bg-white px-3 text-sm text-obsidian hover:border-slate-blue hover:bg-slate-blue/5 has-checked:border-slate-blue has-checked:bg-slate-blue has-checked:font-semibold has-checked:text-white has-checked:hover:bg-slate-blue has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-slate-blue">
             <input type="radio" className="sr-only" name={`diag-${t.id}`} value={v} checked={diag === v} onChange={() => marcar(t.id, v)} />{rotulo}
           </label>)}
         </div>
@@ -388,8 +411,8 @@ function CartaoTema({ tema: t, posicao, diag, marcar, maiorPct }: { tema: Tema; 
 
     <AnalisePreliminar t={t} />
 
-    <details className="mt-4 border-t border-line pt-4 print:hidden">
-      <summary className="flex min-h-11 cursor-pointer items-center font-semibold text-acento-escuro">Ver as {t.n} obrigações e o porquê</summary>
+    <details className="mt-4 print:hidden">
+      <summary className={SUMARIO}>Ver as {t.n} obrigações e o porquê<Chevron /></summary>
       {e && <Atenuantes e={e} />}
       <p className="mt-3 text-xs text-ink-soft">Valor provável: não estimável (sem histórico de multas).</p>
       <ul className="mt-4 space-y-3">{t.obrigacoes.map((id) => <ItemObrigacao key={id} o={obrigacao(id)} />)}</ul>
@@ -439,7 +462,7 @@ function Titulo({ o }: { o: Obrigacao }) {
 function ItemObrigacao({ o }: { o: Obrigacao }) {
   const [aberto, setAberto] = useState(false)
   return <li className="rounded-xl border border-line"><details className="p-4" onToggle={(e) => setAberto(e.currentTarget.open)}>
-    <summary className="cursor-pointer"><Titulo o={o} /><span className="ml-2 text-xs text-ink-soft">{o.prazo.texto}{o.dispositivo ? ` · ${o.dispositivo}` : ''}</span></summary>
+    <summary className="-m-2 flex min-h-11 cursor-pointer items-center gap-3 rounded-lg p-2 hover:bg-slate-blue/5"><span className="min-w-0"><Titulo o={o} /><span className="ml-2 text-xs text-ink-soft">{o.prazo.texto}{o.dispositivo ? ` · ${o.dispositivo}` : ''}</span></span><Chevron /></summary>
     {aberto && <PorQue o={o} />}
   </details></li>
 }
@@ -447,7 +470,7 @@ function ItemObrigacao({ o }: { o: Obrigacao }) {
 function PorQue({ o }: { o: Obrigacao }) {
   return <div className="mt-4 space-y-4 text-sm leading-relaxed">
       <div><h5 className="font-semibold">O que a norma diz <Tag kind="source" /></h5>
-        {o.trecho ? <><blockquote className="mt-2 border-l-2 border-bronze bg-ivory p-3">“{o.trecho}”</blockquote><p className="mt-1 text-xs text-ink-soft">{o.dispositivo} · trecho literal conferido na fonte · <a className="underline" href={plano.norma.url}>{plano.norma.titulo}</a></p></>
+        {o.trecho ? <><blockquote className="mt-2 border-l-2 border-bronze bg-ivory p-3">“{o.trecho}”</blockquote><p className="mt-1 text-xs text-ink-soft">{o.dispositivo} · trecho literal conferido na fonte · <a className={LINK} href={plano.norma.url}>{plano.norma.titulo}</a></p></>
           : <p className="mt-1">Sem citação verificada: confira o dispositivo na fonte. {o.motivo_sem_calculo}</p>}</div>
       <div><h5 className="font-semibold">Infração da REN 846</h5>
         {o.enquadramento.map((e) => <blockquote key={e.dispositivo} className="mt-2 border-l-2 border-slate-blue bg-ivory p-3"><strong>{e.dispositivo} · Grupo {e.grupo}</strong> <span className="text-xs text-ink-soft">(o texto da obrigação nomeia o instrumento desta infração)</span><p>“{plano.infracoes[e.dispositivo].trecho}”</p></blockquote>)}
@@ -470,8 +493,8 @@ const SELO_ANALISE = plano.analise.rotulo.includes('revisar com o jurídico') ? 
 /** Análise regulatória preliminar do tema: recolhida; o conteúdo só é montado ao abrir (ou na impressão). */
 function AnalisePreliminar({ t }: { t: Tema }) {
   const [aberto, setAberto] = useState(false)
-  return <details className="mt-5 rounded-xl border border-line bg-ivory" onToggle={(e) => setAberto(e.currentTarget.open)}>
-    <summary className="flex min-h-11 cursor-pointer flex-wrap items-center gap-x-3 gap-y-1 px-4 py-2 font-semibold text-acento-escuro">Análise regulatória preliminar <span className="text-xs font-normal text-ink-soft">tipo de obrigação, como cumprir, o que provar</span></summary>
+  return <details className="mt-5 rounded-xl border border-slate-blue/30 bg-ivory open:border-line" onToggle={(e) => setAberto(e.currentTarget.open)}>
+    <summary className="flex min-h-11 cursor-pointer items-center gap-3 rounded-xl px-4 py-2 font-semibold text-slate-blue hover:bg-slate-blue/5"><span className="flex min-w-0 flex-wrap items-baseline gap-x-3 gap-y-1">Análise regulatória preliminar <span className="text-xs font-normal text-ink-soft">tipo de obrigação, como cumprir, o que provar</span></span><Chevron /></summary>
     {aberto && <ConteudoAnalise t={t} />}
   </details>
 }
@@ -588,8 +611,8 @@ function ComoReduzir({ temas }: { temas: Tema[] }) {
     <p className="inline-block rounded-full border border-bronze/50 bg-stone/60 px-3 py-1 text-xs font-semibold">{red.rotulo}</p>
     <p className="mt-3 max-w-3xl text-sm leading-relaxed text-ink-soft">O que a REN 846 prevê para reduzir ou trocar a multa. Cada medida traz o texto da norma e, separada em caixa tracejada, a nossa leitura da condição e do efeito.</p>
     <div className="mt-6 grid gap-4 lg:grid-cols-2">{red.medidas.map((m) => <CartaoMedida key={m.parametro} m={m} />)}</div>
-    <details className="mt-4 rounded-2xl border border-line bg-white p-5 sm:p-6">
-      <summary className="flex min-h-11 cursor-pointer items-center font-semibold text-acento-escuro">Regras que valem para todos os atenuantes ({red.regras.map((c) => c.dispositivo).join('; ')})</summary>
+    <details className="mt-4">
+      <summary className={SUMARIO}><span className="min-w-0">Regras que valem para todos os atenuantes ({red.regras.map((c) => c.dispositivo).join('; ')})</span><Chevron /></summary>
       <div className="mt-3 space-y-3">{red.regras.map((c) => <Citado key={c.parametro} c={c} />)}</div>
       <Interpretacao><p>Os atenuantes não se somam: vale um só. E só contam se a cessação e a reparação forem comprovadas à Fiscalização antes do Auto de Infração. Por isso a prova datada precisa existir desde já.</p></Interpretacao>
     </details>
