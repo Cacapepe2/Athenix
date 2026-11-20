@@ -23,6 +23,15 @@
   --color-acento: #c56a45;
   --color-acento-escuro: #9a4a2b;
   --color-acento-claro: #f4e8e1;
+  /* Hover dos botões terracota: branco sobre #7a3a21 = 8,56:1. */
+  --color-acento-hover: #7a3a21;
+  /* Diagnóstico (card "Seu diagnóstico" e boletim gerado): tudo azul, só os clicáveis em terracota.
+     --color-diag-fundo (#f2f4f6 = 6% de slate-blue sobre branco): #284b63 8,36:1, #111c2f 15,5:1.
+     --color-diag-caixa (#e5e9ec = 12% de slate-blue sobre branco, caixa de lacuna): #284b63 7,55:1,
+     #111c2f 14,0:1. Botões: branco sobre #c56a45 3,80:1 (só "Gerar diagnóstico", 19 px negrito);
+     branco sobre #9a4a2b 6,20:1; #9a4a2b sobre #f4e8e1 (botões secundários) 5,16:1. */
+  --color-diag-fundo: #f2f4f6;
+  --color-diag-caixa: #e5e9ec;
 
   --font-serif: "Newsreader Variable", "Iowan Old Style", Georgia, serif;
   --font-sans: "Inter Tight Variable", ui-sans-serif, system-ui, sans-serif;
@@ -106,6 +115,14 @@
 #plano {
   --color-pending: #855a17;
   --color-bronze-deep: #6e5b46;
+}
+/* Dentro do diagnóstico, texto secundário, linhas e fundos neutros viram azul (nada cinza-pedra ou
+   bege): ink-soft vira slate-blue (8,36:1 sobre diag-fundo), linha e pedra viram azul claro. */
+#seu-diagnostico,
+#diagnostico-gerado {
+  --color-ink-soft: var(--color-slate-blue);
+  --color-line: color-mix(in srgb, var(--color-slate-blue) 30%, white);
+  --color-stone: var(--color-diag-caixa);
 }
 /* Foco visível da demo: o anel azul escuro padrão do site (:focus-visible acima). */
 /* Expansíveis: sem o triângulo nativo; o chevron (.chevron) gira quando o <details> abre. */

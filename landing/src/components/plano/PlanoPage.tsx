@@ -17,7 +17,9 @@ const ATEN_I = ATENUANTES.find((m) => m.cenario === 'espontanea')
 const ATEN_II = ATENUANTES.find((m) => m.cenario === 'ate_tn')
 // Terracota só no fundo das ações principais, no porte escolhido e em etiquetas muito relevantes
 // (data-acento). Texto, bordas, links e foco ficam no azul escuro do site (contrastes em index.css).
-const BOTAO_ACENTO = 'inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-full bg-acento-escuro px-5 text-sm font-semibold text-white shadow-sm hover:bg-obsidian'
+// No diagnóstico tudo é azul, menos os clicáveis: botões em terracota (principal preenchido, secundário claro).
+const BOTAO_ACENTO = 'inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-full bg-acento-escuro px-5 text-sm font-semibold text-white shadow-sm hover:bg-acento-hover'
+const BOTAO_DIAG_SEC = 'inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-full border border-acento-escuro bg-acento-claro px-5 text-sm font-semibold text-acento-escuro hover:bg-acento-escuro hover:text-white print:hidden'
 const BOTAO_SEC = 'inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-full border border-slate-blue/40 bg-white px-5 text-sm font-medium text-slate-blue hover:border-slate-blue hover:bg-slate-blue/5'
 const LINK = 'font-semibold text-slate-blue underline decoration-slate-blue/40 underline-offset-4 hover:decoration-slate-blue'
 // Linha clicável de um <details>: borda, fundo ao passar o mouse e chevron que gira (index.css).
@@ -193,19 +195,19 @@ function Metricas({ m }: { m: Manchete }) {
 function SeuDiagnostico({ diag, gap, gerar }: { diag: Diagnosticos; gap: ReturnType<typeof lacuna>; gerar: () => void }) {
   const { sim } = useContext(Cenario)
   const marcados = plano.temas.length - gap.semResposta
-  return <aside id="seu-diagnostico" aria-labelledby="titulo-seu-diagnostico" className="rounded-2xl border-2 border-slate-blue bg-white p-5 shadow-soft lg:sticky lg:top-6 print:hidden">
+  return <aside id="seu-diagnostico" aria-labelledby="titulo-seu-diagnostico" className="rounded-2xl border-2 border-slate-blue bg-diag-fundo p-5 text-obsidian shadow-soft lg:sticky lg:top-6 print:hidden">
     <p className="text-xs font-bold tracking-widest text-slate-blue uppercase">Gere aqui mesmo</p>
-    <h2 id="titulo-seu-diagnostico" className="font-display mt-1 text-2xl">Seu diagnóstico</h2>
+    <h2 id="titulo-seu-diagnostico" className="font-display mt-1 text-2xl text-slate-blue">Seu diagnóstico</h2>
     <dl className="mt-3 space-y-3 text-sm">
       <div><dt className="text-ink-soft">Porte</dt><dd className="font-semibold">{nomePorte(sim)} <a href="#porte" className={`inline-flex min-h-11 items-center ${LINK}`}>alterar no topo</a></dd></div>
       <div><dt className="text-ink-soft">Situação por tema</dt>
         <dd aria-live="polite">{marcados === 0 ? <>Nenhum tema marcado ainda.</> : <>{marcados} de {plano.temas.length} temas marcados. Lacuna: <strong>{gap.nao} obrigações</strong> em temas que vocês não atendem e <strong>{gap.parcial}</strong> em temas parciais.</>}</dd></div>
     </dl>
     <p className="mt-3 text-xs text-ink-soft">Marque “Já temos”, “Parcial” ou “Não temos” em cada tema. As marcações ficam só nesta aba: nada é salvo nem enviado.</p>
-    <button type="button" onClick={gerar} aria-controls="diagnostico-gerado" className="mt-4 inline-flex min-h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-acento px-5 text-[1.1875rem] font-bold text-white shadow-sm hover:bg-acento-escuro"><FileText aria-hidden="true" className="h-5 w-5" />Gerar diagnóstico</button>
+    <button type="button" onClick={gerar} aria-controls="diagnostico-gerado" className="mt-4 inline-flex min-h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-acento px-5 text-[1.1875rem] font-bold text-white shadow-sm hover:bg-acento-hover"><FileText aria-hidden="true" className="h-5 w-5" />Gerar diagnóstico</button>
     <div className="mt-3 grid gap-2">
-      <button type="button" onClick={() => baixarCsv(diag, sim)} className={`${BOTAO_SEC} justify-center`}><Download aria-hidden="true" className="h-4 w-4" />Baixar planilha (CSV)</button>
-      <button type="button" onClick={() => window.print()} className={`${BOTAO_SEC} justify-center`}><Printer aria-hidden="true" className="h-4 w-4" />Imprimir ou salvar PDF</button>
+      <button type="button" onClick={() => baixarCsv(diag, sim)} className={`${BOTAO_DIAG_SEC} justify-center`}><Download aria-hidden="true" className="h-4 w-4" />Baixar planilha (CSV)</button>
+      <button type="button" onClick={() => window.print()} className={`${BOTAO_DIAG_SEC} justify-center`}><Printer aria-hidden="true" className="h-4 w-4" />Imprimir ou salvar PDF</button>
     </div>
   </aside>
 }
@@ -215,33 +217,33 @@ function DiagnosticoGerado({ ref, diag, temas, decisoes, m, imprimir, fechar }: 
   const { sim, modo } = useContext(Cenario)
   const gap = lacuna(plano.temas, diag)
   const algumSugerido = temas.some((t) => exposicaoTema(t, sim, modo)?.origem === 'sugerido')
-  return <section ref={ref} id="diagnostico-gerado" tabIndex={-1} aria-labelledby="titulo-diagnostico" className="rounded-2xl border-2 border-slate-blue bg-white p-5 shadow-soft sm:p-8 print:border-0 print:p-0 print:shadow-none">
+  return <section ref={ref} id="diagnostico-gerado" tabIndex={-1} aria-labelledby="titulo-diagnostico" className="rounded-2xl border-2 border-slate-blue bg-diag-fundo p-5 text-obsidian shadow-soft sm:p-8 print:border-0 print:bg-white print:p-0 print:shadow-none">
     <div className="flex flex-wrap items-start justify-between gap-3">
       <p className="text-xs font-bold tracking-[0.2em] text-slate-blue uppercase">Diagnóstico da regulação</p>
       <div className="flex flex-wrap gap-2 print:hidden">
         <button type="button" onClick={imprimir} className={BOTAO_ACENTO}><Printer aria-hidden="true" className="h-4 w-4" />Imprimir este diagnóstico</button>
-        <button type="button" onClick={() => baixarCsv(diag, sim)} className={BOTAO_SEC}><Download aria-hidden="true" className="h-4 w-4" />Planilha (CSV)</button>
-        <button type="button" onClick={fechar} className={BOTAO_SEC}>Fechar</button>
+        <button type="button" onClick={() => baixarCsv(diag, sim)} className={BOTAO_DIAG_SEC}><Download aria-hidden="true" className="h-4 w-4" />Planilha (CSV)</button>
+        <button type="button" onClick={fechar} className={BOTAO_DIAG_SEC}>Fechar</button>
       </div>
     </div>
-    <h2 id="titulo-diagnostico" className="font-display mt-3 text-[2rem] leading-tight sm:text-5xl sm:leading-[1.08]"><TextoManchete m={m} /></h2>
+    <h2 id="titulo-diagnostico" className="font-display mt-3 text-[2rem] text-obsidian leading-tight sm:text-5xl sm:leading-[1.08]"><TextoManchete m={m} /></h2>
     <p className="mt-3 text-sm text-ink-soft">Data de referência {dataBR(plano.perfil.data_referencia)} · Porte: {nomePorte(sim)} · RN 1.137/2025 · {modo === 'preliminar' ? 'cenário preliminar' : 'só enquadramentos confirmados'} · {plano.perfil.rotulo.toLowerCase()} (não é empresa real)</p>
     <p className="mt-5 max-w-4xl text-lg leading-relaxed">{resumoDiagnostico(plano.temas, diag, sim, modo)}</p>
     {algumSugerido && <p className="mt-3 flex flex-wrap items-center gap-2 text-sm"><Tag kind="ai" label="Interpretação da IA · aguarda revisão humana" /><span className="text-ink-soft">Valores marcados “sugerido” usam o enquadramento sugerido pela IA ({PRELIMINAR}).</span></p>}
 
     <div className="mt-8 grid items-start gap-6 lg:grid-cols-[1.3fr_1fr]">
-      <div><h3 className="font-display text-2xl">{`${decisoes.length} ${decisoes.length === 1 ? 'decisão' : 'decisões'} para esta semana`}</h3>
+      <div><h3 className="font-display text-2xl text-slate-blue">{`${decisoes.length} ${decisoes.length === 1 ? 'decisão' : 'decisões'} para esta semana`}</h3>
         <ol className="mt-3 list-decimal space-y-2 pl-5">{decisoes.map((t) => { const e = exposicaoTema(t, sim, modo); return <li key={t.id}><a href={`#tema-${t.id}`} className={`inline-block py-2.5 ${LINK} print:py-0 print:no-underline`}>{t.nome}<ArrowDown aria-hidden="true" className="ml-1 inline h-4 w-4 align-[-0.15em] print:hidden" /></a>
           <span className="block text-sm">{e ? <>até <strong>{valor(e)}</strong> por infração</> : 'exposição a enquadrar'} · {situacaoPrazo(t)} {e?.origem === 'sugerido' && <Sugerido />}</span></li> })}</ol></div>
-      <div className="rounded-xl bg-stone/50 p-4 text-sm"><h3 className="font-semibold">Lacuna informada</h3>
+      <div className="rounded-xl border border-slate-blue/30 bg-diag-caixa p-4 text-sm print:bg-white"><h3 className="font-semibold text-slate-blue">Lacuna informada</h3>
         {gap.semResposta === plano.temas.length ? <><p className="mt-1 font-semibold">Nenhum tema marcado ainda; marque a situação de cada tema para ver a lacuna.</p>
           <p className="mt-1">Por enquanto, o diagnóstico mostra só a exposição, sem a situação da empresa. Depois de marcar, gere de novo.</p>
-          <a href="#temas" className={`mt-1 inline-flex min-h-11 items-center gap-1 ${LINK} print:hidden`}>Marcar os temas<ArrowUp aria-hidden="true" className="h-4 w-4" /></a></>
+          <a href="#temas" className={`mt-2 ${BOTAO_ACENTO} print:hidden`}>Marcar os temas<ArrowUp aria-hidden="true" className="h-4 w-4" /></a></>
           : <p className="mt-1"><strong>{gap.nao}</strong> obrigações em temas que vocês não atendem, <strong>{gap.parcial}</strong> em temas parciais e <strong>{gap.atendido}</strong> em temas atendidos. {gap.semResposta} {gap.semResposta === 1 ? 'tema' : 'temas'} sem resposta.</p>}
       </div>
     </div>
 
-    <h3 className="font-display mt-10 text-2xl">Temas na ordem de prioridade</h3>
+    <h3 className="font-display mt-10 text-2xl text-slate-blue">Temas na ordem de prioridade</h3>
     <ol className="mt-3 space-y-5">{temas.map((t, n) => { const e = exposicaoTema(t, sim, modo); return <li key={t.id} className="border-t border-line pt-4">
       <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
         <p className="font-semibold">{n + 1}. {t.nome}</p>
