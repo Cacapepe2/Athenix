@@ -77,7 +77,11 @@ def processar(arquivo=None):
             client.post("/api/login", json={"username": USUARIO, "password": senha})
             rows = client.get("/api/obligations").json()["items"]
             doc = client.get(f"/api/documents/{rows[0]['document_id']}").json()
-    return rows, doc["extraction"], impacto.carregar()
+    extraction = doc["extraction"]
+    plano.validar_bases_dos_prazos(
+        rows, extraction
+    )  # trava: data-base anterior à publicação é erro
+    return plano.ancorar_pendentes(rows, extraction), extraction, impacto.carregar()
 
 
 def avaliar(

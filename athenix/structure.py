@@ -174,6 +174,14 @@ def parse_date(match):
         return None
 
 
+# Palavra-chave de publicação/vigência seguida, antes da data, da referência a OUTRO ato ("do Decreto nº").
+OUTRO_ATO = re.compile(
+    r"(?:publica(?:d[ao]|ção)|vig[êe]ncia|entra(?:r[áa])? em vigor)[^.\n]{0,80}?"
+    r"\b(?:decreto|lei|portaria|resolu[çc][ãa]o|despacho|instru[çc][ãa]o)\b[^.\n]{0,60}?n[ºo°]",
+    re.I,
+)
+
+
 def act_dates(text):
     found = []
     for match in DATE.finditer(text):
@@ -183,6 +191,14 @@ def act_dates(text):
         # "entra em vigor na data de sua publicação" na linha de cima.
         if re.search(r"(?:brasília|assinad[oa] em)\s*,?\s*$", context):
             kind = "signature"
+        elif re.search(r"resolu[çc][ãa]o[^\n]{0,60}\bn[ºo°]\s*[\d.]+\s*,\s*de\s*$", context):
+            # Título "RESOLUÇÃO NORMATIVA Nº 1.174, DE 27 DE OUTUBRO DE 2026": data de ASSINATURA, mesmo
+            # com "Diário Oficial da União" do cabeçalho do portal logo antes.
+            kind = "signature"
+        elif OUTRO_ATO.search(context):
+            # "antes da vigência do Decreto nº 13.097, de 12 de agosto de 2026": data de OUTRO ato; não é
+            # a publicação nem a vigência desta norma.
+            kind = None
         elif re.search(r"publica(?:d[ao]|ção)|diário oficial|\bdou\b", context):
             kind = "publication"
         elif re.search(r"vig[êe]ncia|entra em vigor", context):

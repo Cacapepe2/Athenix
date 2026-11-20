@@ -13,7 +13,8 @@ import json
 import re
 from pathlib import Path
 
-from . import impacto
+from . import impacto, proposals
+from .evidence import verify
 from .enquadramento import chave as chave_texto
 from .enquadramento import infracoes_validas
 from .normalizacao import espacos
@@ -83,21 +84,103 @@ SUJEITO_OUTRO_AGENTE = re.compile(
     r"consumidor|interessado)",
     re.I,
 )
+SUJEITO_DISTRIBUIDORA = re.compile(
+    r"distribuidor|concession[áa]ri|permission[áa]ri|cession[áa]ri", re.I
+)
 SUJEITO_TERCEIRO = re.compile(r"\b(?:consumidor(?:es)?|usu[áa]rios?)\b", re.I)
 
 
-def natureza(row):
+# Complemento agentivo: "deve ser realizada por consumidor", "pela CCEE": quem age é OUTRO agente.
+AGENTE_NO_CAPUT = re.compile(
+    r"\b(?:por|pel[oa]s?)\s+(?:o\s+|a\s+|os\s+|as\s+)?(?:consumidor(?:es)?|ccee\b|"
+    r"c[âa]mara de comercializa|sandbox|comercializador(?:es)?|representante da comercializa)",
+    re.I,
+)
+
+
+def ancorar_pendentes(rows, extraction):
+    """Obrigação cuja âncora ficou "pending" (o trecho do dispositivo traz tabela ou quebra de linha junto)
+    ganha a PRIMEIRA FRASE do próprio dispositivo como citação, se o verificador a confirmar literalmente
+    na fonte. O que continuar sem citação verificada sai do plano (nada de obrigação sem dispositivo)."""
+    por_id = {u["id"]: u for u in extraction["units"]}
+    for row in rows:
+        if any(a.get("state") == "verified" for a in row.get("anchors", [])):
+            continue
+        for ev in row.get("evidence", []):
+            unit = por_id.get(ev.get("unit_id"))
+            if not unit:
+                continue
+            frase = next(iter(proposals.sentences(unit["text"])), "")
+            if len(frase) < 16:
+                continue
+            r = verify(frase, unit["id"], extraction["units"], extraction["text_hash"], source=extraction.get("source"))  # fmt: skip
+            if r["state"] == "verified":
+                row["anchors"] = [{"unit_id": unit["id"], "quote": frase, "state": "verified"}]
+                break
+    return rows
+
+
+def validar_bases_dos_prazos(rows, extraction):
+    """Trava: prazo contado da publicação ou da vigência da PRÓPRIA norma com data-base anterior à
+    publicação é erro de leitura (por exemplo, a data de outro ato lida como vigência). Interrompe."""
+    publicacoes = {d["date"] for d in extraction["dates"] if d["kind"] == "publication"}
+    if len(publicacoes) != 1:
+        return
+    publicacao = next(iter(publicacoes))
+    for row in rows:
+        for d in row.get("deadlines", []):
+            if d.get("date") and d.get("event") in ("Publicação da norma", "Vigência da norma") and (d.get("base") or "") < publicacao:  # fmt: skip
+                raise ValueError(
+                    f"Prazo com data-base {d.get('base')} anterior à publicação da norma ({publicacao}): "
+                    f"{d.get('quote', '')[:80]!r}. Corrija a leitura da data (athenix/structure.py)."
+                )
+
+
+def caput_do_dispositivo(unit, by_id):
+    """Texto do caput: o ancestral mais próximo que traz marcador deôntico (deve, poderá...)."""
+    atual = by_id.get(unit.get("parent")) if unit else None
+    while atual:
+        if proposals.DUTY.search(atual["text"]):
+            return espacos(atual["text"])
+        atual = by_id.get(atual.get("parent"))
+    return ""
+
+
+def natureza(row, caput=""):
     """Natureza do dispositivo pelo SUJEITO e pela MODALIDADE da oração principal (modality vem de
     proposals.modality): "dever" da distribuidora; "competencia_aneel" quando o sujeito é a Agência;
     "direito_de_terceiro" quando consumidor ou usuário é o sujeito de uma permissão; "faculdade" para
     qualquer outra permissão; "dever_de_outro_agente" quando o sujeito é outro agente (CCEE, Sandbox,
     comercializador, consumidor). Só "dever" entra na contagem principal."""
     sujeito = row.get("subject", "") or ""
+    # Inciso sem sujeito próprio ("não identificado", fragmento sem substantivo) HERDA o sujeito do caput.
+    if caput and (
+        not sujeito
+        or sujeito == "não identificado"
+        or not re.search(r"[A-Za-zÀ-ú]{4}", sujeito)  # sem substantivo ("-A.", "a)")
+        or re.match(
+            r"\s*[a-zà-ú]+(?:ar|er|ir)\b", sujeito
+        )  # começa por verbo ("celebrar o Contrato...")
+    ):
+        sujeito = proposals.subject_of(caput)
     if SUJEITO_ANEEL.match(sujeito):
         return "competencia_aneel"
     if row.get("modality") == "permission":
         return "direito_de_terceiro" if SUJEITO_TERCEIRO.search(sujeito) else "faculdade"
     if SUJEITO_OUTRO_AGENTE.match(sujeito):
+        return "dever_de_outro_agente"
+    # Sujeito impessoal ("A solicitação de redução...") mas o caput diz quem age: "por consumidor livre".
+    texto = f"{caput} {row.get('action', '')}"
+    distribuidora_age = re.search(
+        r"\bpel[oa]s?\s+(?:distribuidor|concession)|\b(?:a|as)\s+distribuidor\w*\s+(?:dever|deve|poder|pode|fica)",
+        texto,
+        re.I,
+    )
+    if (
+        not SUJEITO_DISTRIBUIDORA.search(sujeito)
+        and not distribuidora_age
+        and AGENTE_NO_CAPUT.search(texto)
+    ):
         return "dever_de_outro_agente"
     return "dever"
 
@@ -412,7 +495,7 @@ def montar(
         item["chave"] = chave(row)
         ancora = next((a for a in row.get("anchors", []) if a.get("state") == "verified"), None)
         unidade = by_id.get(ancora["unit_id"]) if ancora else None
-        nat = natureza(row)
+        nat = natureza(row, caput_do_dispositivo(unidade, by_id))
         if nat != "dever":
             outros.append({
                 "id": item["chave"],

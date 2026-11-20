@@ -1,6 +1,6 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "a54b4bd",
+ "commit_origem": "0e512d1",
  "gerado_em": "2026-11-20",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
@@ -71,17 +71,27 @@
    {
     "base": 1000000000.0,
     "faturamento": null,
-    "obrigacao": "9b1cc6151482bc3c",
-    "maximo_reais": 10000000.0,
+    "obrigacao": "44e6f2493416fd04",
+    "maximo_reais": 5000000.0,
     "com_atenuante_reais": {
-     "espontanea": 500000.00000000047,
-     "ate_tn": 5000000.0
+     "espontanea": 250000.00000000023,
+     "ate_tn": 2500000.0
     }
    },
    {
     "base": 5000000000.0,
     "faturamento": null,
-    "obrigacao": "9b1cc6151482bc3c",
+    "obrigacao": "44e6f2493416fd04",
+    "maximo_reais": 25000000.0,
+    "com_atenuante_reais": {
+     "espontanea": 1250000.0000000012,
+     "ate_tn": 12500000.0
+    }
+   },
+   {
+    "base": 10000000000.0,
+    "faturamento": null,
+    "obrigacao": "44e6f2493416fd04",
     "maximo_reais": 50000000.0,
     "com_atenuante_reais": {
      "espontanea": 2500000.0000000023,
@@ -89,9 +99,9 @@
     }
    },
    {
-    "base": 10000000000.0,
+    "base": 20000000000.0,
     "faturamento": null,
-    "obrigacao": "9b1cc6151482bc3c",
+    "obrigacao": "44e6f2493416fd04",
     "maximo_reais": 100000000.0,
     "com_atenuante_reais": {
      "espontanea": 5000000.000000005,
@@ -99,42 +109,32 @@
     }
    },
    {
-    "base": 20000000000.0,
-    "faturamento": null,
-    "obrigacao": "9b1cc6151482bc3c",
-    "maximo_reais": 200000000.0,
-    "com_atenuante_reais": {
-     "espontanea": 10000000.00000001,
-     "ate_tn": 100000000.0
-    }
-   },
-   {
     "base": 5000000000.0,
     "faturamento": 500000000.0,
-    "obrigacao": "9b1cc6151482bc3c",
+    "obrigacao": "44e6f2493416fd04",
     "maximo_reais": 15000000.0,
     "com_atenuante_reais": {
-     "espontanea": 2500000.0000000023,
-     "ate_tn": 15000000.0
+     "espontanea": 1250000.0000000012,
+     "ate_tn": 12500000.0
     }
    }
   ]
  },
  "resumo": {
   "identificadas": 153,
-  "aplicaveis": 91,
-  "outros_dispositivos": 62,
+  "aplicaveis": 86,
+  "outros_dispositivos": 67,
   "fora_do_perfil": 0,
   "por_situacao": {
-   "vencida": 1,
+   "vencida": 0,
    "90dias": 1,
-   "depois": 1,
+   "depois": 5,
    "recorrente": 1,
    "evento": 0,
-   "sem_prazo": 87
+   "sem_prazo": 79
   },
   "na_fila": 0,
-  "a_confirmar": 91,
+  "a_confirmar": 86,
   "sem_multa": 0,
   "grupo_mais_grave": null,
   "temas": 5
@@ -147,15 +147,31 @@
     "exposicao_pct": 1.0,
     "origem": "sugerido",
     "prazo": {
-     "obrigacao": "9b1cc6151482bc3c",
-     "data": "2026-11-10",
-     "texto": "Vencido desde 10/11/2026 (7 dias)",
-     "dias": -7,
+     "obrigacao": "44e6f2493416fd04",
+     "data": "2027-01-03",
+     "texto": "Vence em 03/01/2027",
+     "dias": 47,
      "provisorio": true,
-     "base": "2026-08-12",
-     "situacao": "vencida"
+     "base": "2026-11-04",
+     "situacao": "90dias"
     },
-    "obrigacoes_vencidas": 1
+    "obrigacoes_vencidas": 0
+   },
+   {
+    "tema": "capítulo_v_5",
+    "nome": "Capítulo V: Das disposições finais",
+    "exposicao_pct": 1.0,
+    "origem": "sugerido",
+    "prazo": {
+     "obrigacao": "485b9126b959bcd7",
+     "data": "2027-05-03",
+     "texto": "Vence em 03/05/2027",
+     "dias": 167,
+     "provisorio": true,
+     "base": "2026-11-04",
+     "situacao": "depois"
+    },
+    "obrigacoes_vencidas": 0
    },
    {
     "tema": "capítulo_ii_1",
@@ -164,18 +180,10 @@
     "origem": "sugerido",
     "prazo": null,
     "obrigacoes_vencidas": 0
-   },
-   {
-    "tema": "capítulo_v_5",
-    "nome": "Capítulo V: Das disposições finais",
-    "exposicao_pct": 1.0,
-    "origem": "sugerido",
-    "prazo": null,
-    "obrigacoes_vencidas": 0
    }
   ],
   "confirmar": {
-   "obrigacoes": 91,
+   "obrigacoes": 86,
    "temas_sem_calculo_confirmado": 5
   }
  },
@@ -184,26 +192,26 @@
    "id": "capítulo_iv_4",
    "nome": "Capítulo IV: Das disposições transitórias",
    "fontes": [],
-   "n": 28,
+   "n": 25,
    "contagem": {
-    "vencida": 1,
+    "vencida": 0,
     "90dias": 1,
-    "depois": 1,
+    "depois": 3,
     "recorrente": 1,
     "evento": 0,
-    "sem_prazo": 24
+    "sem_prazo": 20
    },
    "prazo_mais_urgente": {
-    "obrigacao": "9b1cc6151482bc3c",
-    "data": "2026-11-10",
-    "texto": "Vencido desde 10/11/2026 (7 dias)",
-    "dias": -7,
+    "obrigacao": "44e6f2493416fd04",
+    "data": "2027-01-03",
+    "texto": "Vence em 03/01/2027",
+    "dias": 47,
     "provisorio": true,
-    "base": "2026-08-12",
-    "situacao": "vencida"
+    "base": "2026-11-04",
+    "situacao": "90dias"
    },
    "na_fila": 0,
-   "a_confirmar": 28,
+   "a_confirmar": 25,
    "grupos": [],
    "grupo_mais_grave": null,
    "infracoes": [],
@@ -242,7 +250,7 @@
    "ia": {
     "dispositivo": "Art. 11, XIV",
     "n": 4,
-    "de": 28
+    "de": 25
    },
    "evidencias": [
     {
@@ -277,7 +285,7 @@
     },
     {
      "id": "terceiros",
-     "n": 6
+     "n": 4
     },
     {
      "id": "protocolos",
@@ -287,15 +295,16 @@
    "excludentes": [],
    "causa_externa": "argumento a confirmar com advogado",
    "principais": [
+    "44e6f2493416fd04",
     "5f2cad17305d09c9",
     "b9ec4a3959208f38",
-    "44e6f2493416fd04",
     "91c26ed1a77c413a"
    ],
    "obrigacoes": [
-    "9b1cc6151482bc3c",
-    "aaf89df0fa2f9873",
+    "44e6f2493416fd04",
+    "5f2cad17305d09c9",
     "de259c2eb695201e",
+    "59c5496d841c8794",
     "be6a76133085cee8",
     "667bcae318ad50c6",
     "fef01f4eb3d5d88c",
@@ -305,17 +314,13 @@
     "5609080c03fdcb67",
     "acc78339ce7532ff",
     "0ebb4ed9ace89a7e",
-    "5f2cad17305d09c9",
     "b9ec4a3959208f38",
-    "44e6f2493416fd04",
     "3c31e7c6948c4d3e",
     "6e56e83f4405c837",
     "e9484bb6aff3edc1",
     "18bb6a68bf909f20",
-    "1025c9f72102008c",
     "26c6fa3441f9a408",
     "ed224db7755f6815",
-    "59c5496d841c8794",
     "f1b6ba520d519463",
     "91c26ed1a77c413a",
     "ad1cd6d7bc9bb42b",
@@ -325,21 +330,99 @@
    "dependencias_no_texto": []
   },
   {
+   "id": "capítulo_v_5",
+   "nome": "Capítulo V: Das disposições finais",
+   "fontes": [],
+   "n": 3,
+   "contagem": {
+    "vencida": 0,
+    "90dias": 0,
+    "depois": 2,
+    "recorrente": 0,
+    "evento": 0,
+    "sem_prazo": 1
+   },
+   "prazo_mais_urgente": {
+    "obrigacao": "485b9126b959bcd7",
+    "data": "2027-05-03",
+    "texto": "Vence em 03/05/2027",
+    "dias": 167,
+    "provisorio": true,
+    "base": "2026-11-04",
+    "situacao": "depois"
+   },
+   "na_fila": 0,
+   "a_confirmar": 3,
+   "grupos": [],
+   "grupo_mais_grave": null,
+   "infracoes": [],
+   "faixa": null,
+   "faixa_preliminar": {
+    "grupos": [
+     "IV"
+    ],
+    "teto_grupo_pct": 1.0,
+    "maximo_pct": {
+     "com_teto": 1.0,
+     "sem_teto": 1.0
+    },
+    "teto_legal_pct": 3.0,
+    "teto_legal_lei_pct": 3.0,
+    "teto_legal_subestimado": true,
+    "com_atenuante_pct": {
+     "espontanea": 0.050000000000000044,
+     "ate_tn": 0.5
+    },
+    "maximo_reais": {
+     "com_teto": 50000000.0,
+     "sem_teto": 50000000.0
+    },
+    "com_atenuante_reais": {
+     "espontanea": 2500000.0000000023,
+     "ate_tn": 25000000.0
+    }
+   },
+   "grupos_sugeridos": [
+    "III",
+    "IV"
+   ],
+   "ia": {
+    "dispositivo": "Art. 12, XVI",
+    "n": 1,
+    "de": 3
+   },
+   "evidencias": [],
+   "guardar": [],
+   "excludentes": [],
+   "causa_externa": "argumento a confirmar com advogado",
+   "principais": [
+    "485b9126b959bcd7",
+    "a7588cff2b247082",
+    "c17096cc06163ed7"
+   ],
+   "obrigacoes": [
+    "485b9126b959bcd7",
+    "a7588cff2b247082",
+    "c17096cc06163ed7"
+   ],
+   "dependencias_no_texto": []
+  },
+  {
    "id": "capítulo_ii_1",
    "nome": "Capítulo II: Da abertura de mercado",
    "fontes": [],
-   "n": 54,
+   "n": 53,
    "contagem": {
     "vencida": 0,
     "90dias": 0,
     "depois": 0,
     "recorrente": 0,
     "evento": 0,
-    "sem_prazo": 54
+    "sem_prazo": 53
    },
    "prazo_mais_urgente": null,
    "na_fila": 0,
-   "a_confirmar": 54,
+   "a_confirmar": 53,
    "grupos": [],
    "grupo_mais_grave": null,
    "infracoes": [],
@@ -378,7 +461,7 @@
    "ia": {
     "dispositivo": "Art. 9º, III",
     "n": 11,
-    "de": 53
+    "de": 52
    },
    "evidencias": [
     {
@@ -457,7 +540,6 @@
     "fd91bb7aa7e0a252",
     "8a0223ac7c168448",
     "32bb87c4bbe606c4",
-    "66c61d4e91686d77",
     "256d3b52eb869bf7",
     "feb344531c216efe",
     "e7bbeed0a84f40bd",
@@ -483,151 +565,6 @@
     "17328d915cd7dc29",
     "58ea67abc3ec2971",
     "de74db97765787be"
-   ],
-   "dependencias_no_texto": []
-  },
-  {
-   "id": "capítulo_v_5",
-   "nome": "Capítulo V: Das disposições finais",
-   "fontes": [],
-   "n": 3,
-   "contagem": {
-    "vencida": 0,
-    "90dias": 0,
-    "depois": 0,
-    "recorrente": 0,
-    "evento": 0,
-    "sem_prazo": 3
-   },
-   "prazo_mais_urgente": null,
-   "na_fila": 0,
-   "a_confirmar": 3,
-   "grupos": [],
-   "grupo_mais_grave": null,
-   "infracoes": [],
-   "faixa": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "IV"
-    ],
-    "teto_grupo_pct": 1.0,
-    "maximo_pct": {
-     "com_teto": 1.0,
-     "sem_teto": 1.0
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.050000000000000044,
-     "ate_tn": 0.5
-    },
-    "maximo_reais": {
-     "com_teto": 50000000.0,
-     "sem_teto": 50000000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 2500000.0000000023,
-     "ate_tn": 25000000.0
-    }
-   },
-   "grupos_sugeridos": [
-    "III",
-    "IV"
-   ],
-   "ia": {
-    "dispositivo": "Art. 12, XVI",
-    "n": 1,
-    "de": 3
-   },
-   "evidencias": [],
-   "guardar": [],
-   "excludentes": [],
-   "causa_externa": "argumento a confirmar com advogado",
-   "principais": [
-    "a7588cff2b247082",
-    "485b9126b959bcd7",
-    "c17096cc06163ed7"
-   ],
-   "obrigacoes": [
-    "a7588cff2b247082",
-    "485b9126b959bcd7",
-    "c17096cc06163ed7"
-   ],
-   "dependencias_no_texto": []
-  },
-  {
-   "id": "capítulo_iv_a_2",
-   "nome": "Capítulo IV-A: Da solução de controvérsias entre representante e representado da comercialização varejista",
-   "fontes": [],
-   "n": 3,
-   "contagem": {
-    "vencida": 0,
-    "90dias": 0,
-    "depois": 0,
-    "recorrente": 0,
-    "evento": 0,
-    "sem_prazo": 3
-   },
-   "prazo_mais_urgente": null,
-   "na_fila": 0,
-   "a_confirmar": 3,
-   "grupos": [],
-   "grupo_mais_grave": null,
-   "infracoes": [],
-   "faixa": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "III"
-    ],
-    "teto_grupo_pct": 0.5,
-    "maximo_pct": {
-     "com_teto": 0.5,
-     "sem_teto": 0.5
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.025000000000000022,
-     "ate_tn": 0.25
-    },
-    "maximo_reais": {
-     "com_teto": 25000000.0,
-     "sem_teto": 25000000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 1250000.0000000012,
-     "ate_tn": 12500000.0
-    }
-   },
-   "grupos_sugeridos": [
-    "I",
-    "III"
-   ],
-   "ia": {
-    "dispositivo": "Art. 9º, XVII",
-    "n": 2,
-    "de": 3
-   },
-   "evidencias": [],
-   "guardar": [
-    {
-     "id": "terceiros",
-     "n": 1
-    }
-   ],
-   "excludentes": [],
-   "causa_externa": "argumento a confirmar com advogado",
-   "principais": [
-    "5601d7cf3867bf32",
-    "48facbbb1cb1cce4",
-    "1d177cb6c2eebf9a"
-   ],
-   "obrigacoes": [
-    "5601d7cf3867bf32",
-    "48facbbb1cb1cce4",
-    "1d177cb6c2eebf9a"
    ],
    "dependencias_no_texto": []
   },
@@ -710,147 +647,141 @@
     "728895c11bbe26d8"
    ],
    "dependencias_no_texto": []
+  },
+  {
+   "id": "capítulo_iv_a_2",
+   "nome": "Capítulo IV-A: Da solução de controvérsias entre representante e representado da comercialização varejista",
+   "fontes": [],
+   "n": 2,
+   "contagem": {
+    "vencida": 0,
+    "90dias": 0,
+    "depois": 0,
+    "recorrente": 0,
+    "evento": 0,
+    "sem_prazo": 2
+   },
+   "prazo_mais_urgente": null,
+   "na_fila": 0,
+   "a_confirmar": 2,
+   "grupos": [],
+   "grupo_mais_grave": null,
+   "infracoes": [],
+   "faixa": null,
+   "faixa_preliminar": {
+    "grupos": [
+     "III"
+    ],
+    "teto_grupo_pct": 0.5,
+    "maximo_pct": {
+     "com_teto": 0.5,
+     "sem_teto": 0.5
+    },
+    "teto_legal_pct": 3.0,
+    "teto_legal_lei_pct": 3.0,
+    "teto_legal_subestimado": true,
+    "com_atenuante_pct": {
+     "espontanea": 0.025000000000000022,
+     "ate_tn": 0.25
+    },
+    "maximo_reais": {
+     "com_teto": 25000000.0,
+     "sem_teto": 25000000.0
+    },
+    "com_atenuante_reais": {
+     "espontanea": 1250000.0000000012,
+     "ate_tn": 12500000.0
+    }
+   },
+   "grupos_sugeridos": [
+    "I",
+    "III"
+   ],
+   "ia": {
+    "dispositivo": "Art. 9º, XVII",
+    "n": 1,
+    "de": 2
+   },
+   "evidencias": [],
+   "guardar": [],
+   "excludentes": [],
+   "causa_externa": "argumento a confirmar com advogado",
+   "principais": [
+    "5601d7cf3867bf32",
+    "48facbbb1cb1cce4"
+   ],
+   "obrigacoes": [
+    "5601d7cf3867bf32",
+    "48facbbb1cb1cce4"
+   ],
+   "dependencias_no_texto": []
   }
  ],
  "ordem_inicial": [
   "capítulo_iv_4",
-  "capítulo_ii_1",
   "capítulo_v_5",
-  "capítulo_iv_a_2",
-  "capítulo_iii_3"
+  "capítulo_ii_1",
+  "capítulo_iii_3",
+  "capítulo_iv_a_2"
  ],
  "obrigacoes": [
   {
-   "id": "9b1cc6151482bc3c",
-   "titulo": "90 dias: para o consumidor do subgrupo AS ou A4; ou",
+   "id": "44e6f2493416fd04",
+   "titulo": "Ocorrer em até 60 dias da publicação desta Resolução",
    "titulo_origem": "regra",
-   "titulo_completo": "90 dias: para o consumidor do subgrupo AS ou A4; ou",
+   "titulo_completo": "Ocorrer em até 60 dias da publicação desta Resolução",
    "tema": "capítulo_iv_4",
    "motivo_tema": "Capítulo da norma",
-   "unidade": "u0327",
-   "trecho": "I - 90 dias: para o consumidor do subgrupo AS ou A4; ou",
-   "situacao": "vencida",
-   "prazo": {
-    "data": "2026-11-10",
-    "texto": "Vencido desde 10/11/2026 (7 dias)",
-    "dias": -7,
-    "provisorio": true,
-    "base": "2026-08-12"
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 12, III",
-    "grupo": "IV",
-    "justificativa": "A obrigação exige que a solicitação de redução do montante contratado seja feita com antecedência determinada (ex.: 90 dias); o dispositivo descreve a conduta de deixar de atender pedido de serviços nos prazos e nas condições estabelecidas na legislação ou no contrato, o que coincide com o não cumprimento desse prazo de antecedência.",
-    "duvida": null
-   },
-   "grupo": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "IV"
-    ],
-    "teto_grupo_pct": 1.0,
-    "maximo_pct": {
-     "com_teto": 1.0,
-     "sem_teto": 1.0
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.050000000000000044,
-     "ate_tn": 0.5
-    },
-    "maximo_reais": {
-     "com_teto": 50000000.0,
-     "sem_teto": 50000000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 2500000.0000000023,
-     "ate_tn": 25000000.0
-    }
-   },
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [],
-   "guardar": [
-    "terceiros"
-   ],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": null,
-     "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
-     "regra_id": null
-    },
-    "dependencias_no_texto": []
-   },
-   "dispositivo": "Art. 13, § 2º, inciso I"
-  },
-  {
-   "id": "aaf89df0fa2f9873",
-   "titulo": "180 dias: para os consumidores dos demais subgrupos",
-   "titulo_origem": "regra",
-   "titulo_completo": "180 dias: para os consumidores dos demais subgrupos",
-   "tema": "capítulo_iv_4",
-   "motivo_tema": "Capítulo da norma",
-   "unidade": "u0328",
-   "trecho": "II - 180 dias: para os consumidores dos demais subgrupos.",
+   "unidade": "u0321",
+   "trecho": "§ 11. A primeira reunião deverá ocorrer em até 60 dias da publicação desta Resolução.",
    "situacao": "90dias",
    "prazo": {
-    "data": "2027-02-08",
-    "texto": "Vence em 08/02/2027",
-    "dias": 83,
+    "data": "2027-01-03",
+    "texto": "Vence em 03/01/2027",
+    "dias": 47,
     "provisorio": true,
-    "base": "2026-08-12"
+    "base": "2026-11-04"
    },
    "calculo": "verificar",
    "posicao_fila": null,
    "enquadramento": [],
    "ia": {
-    "dispositivo": "Art. 9º, VI",
-    "grupo": "I",
-    "justificativa": "A obrigação determina prazo mínimo para a solicitação de redução («deve ser realizada com a antecedência...»); o não encaminhamento dessa solicitação dentro do prazo configuraria a conduta prevista em Art. 9º, VI de «deixar de enviar ou disponibilizar informações ou documentos [...] nos prazos e nas condições estabelecidas».",
+    "dispositivo": "Art. 11, I",
+    "grupo": "III",
+    "justificativa": "A obrigação impõe realização da primeira reunião em prazo fixo ('em até 60 dias da publicação desta Resolução'); se tal reunião se refere à Ouvidoria ou ao Conselho de Consumidores, a sua não realização configura deixar de instituir ou prover condições para o adequado funcionamento desses órgãos.",
     "duvida": null
    },
    "grupo": null,
    "faixa_preliminar": {
     "grupos": [
-     "I"
+     "III"
     ],
-    "teto_grupo_pct": 0.125,
+    "teto_grupo_pct": 0.5,
     "maximo_pct": {
-     "com_teto": 0.125,
-     "sem_teto": 0.125
+     "com_teto": 0.5,
+     "sem_teto": 0.5
     },
     "teto_legal_pct": 3.0,
     "teto_legal_lei_pct": 3.0,
     "teto_legal_subestimado": true,
     "com_atenuante_pct": {
-     "espontanea": 0.0062500000000000056,
-     "ate_tn": 0.0625
+     "espontanea": 0.025000000000000022,
+     "ate_tn": 0.25
     },
     "maximo_reais": {
-     "com_teto": 6250000.0,
-     "sem_teto": 6250000.0
+     "com_teto": 25000000.0,
+     "sem_teto": 25000000.0
     },
     "com_atenuante_reais": {
-     "espontanea": 312500.0000000003,
-     "ate_tn": 3125000.0
+     "espontanea": 1250000.0000000012,
+     "ate_tn": 12500000.0
     }
    },
    "faixa": null,
    "premissas": [],
    "motivo_sem_calculo": null,
    "evidencias": [],
-   "guardar": [
-    "terceiros"
-   ],
+   "guardar": [],
    "excludente": null,
    "analise": {
     "tipo": {
@@ -862,7 +793,149 @@
     },
     "dependencias_no_texto": []
    },
-   "dispositivo": "Art. 13, § 2º, inciso II"
+   "dispositivo": "Art. 12, § 11"
+  },
+  {
+   "id": "485b9126b959bcd7",
+   "titulo": "Em até 180 (cento e oitenta) dias da data de sua publicação, quanto ao",
+   "titulo_origem": "regra",
+   "titulo_completo": "Em até 180 (cento e oitenta) dias da data de sua publicação, quanto ao",
+   "tema": "capítulo_v_5",
+   "motivo_tema": "Capítulo da norma",
+   "unidade": "u0354",
+   "trecho": "II - em até 180 (cento e oitenta) dias da data de sua publicação, quanto ao:",
+   "situacao": "depois",
+   "prazo": {
+    "data": "2027-05-03",
+    "texto": "Vence em 03/05/2027",
+    "dias": 167,
+    "provisorio": true,
+    "base": "2026-11-04"
+   },
+   "calculo": "verificar",
+   "posicao_fila": null,
+   "enquadramento": [],
+   "ia": {
+    "dispositivo": "Art. 11, XXI",
+    "grupo": "III",
+    "justificativa": "A obrigação determina a ‘‘adequação às alterações promovidas por esta Resolução… em até 180 dias’’ (Art. 16), ou seja, cumprimento de determinação da ANEEL dentro de prazo estabelecido; não realizar essa adequação no prazo enquadra‑se em ‘‘deixar de cumprir determinação da Diretoria Colegiada da ANEEL, no prazo estabelecido’’.",
+    "duvida": null
+   },
+   "grupo": null,
+   "faixa_preliminar": {
+    "grupos": [
+     "III"
+    ],
+    "teto_grupo_pct": 0.5,
+    "maximo_pct": {
+     "com_teto": 0.5,
+     "sem_teto": 0.5
+    },
+    "teto_legal_pct": 3.0,
+    "teto_legal_lei_pct": 3.0,
+    "teto_legal_subestimado": true,
+    "com_atenuante_pct": {
+     "espontanea": 0.025000000000000022,
+     "ate_tn": 0.25
+    },
+    "maximo_reais": {
+     "com_teto": 25000000.0,
+     "sem_teto": 25000000.0
+    },
+    "com_atenuante_reais": {
+     "espontanea": 1250000.0000000012,
+     "ate_tn": 12500000.0
+    }
+   },
+   "faixa": null,
+   "premissas": [],
+   "motivo_sem_calculo": null,
+   "evidencias": [],
+   "guardar": [],
+   "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "sem_tipo",
+     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
+   "dispositivo": "Art. 16, inciso II"
+  },
+  {
+   "id": "5f2cad17305d09c9",
+   "titulo": "Apresentar a ANEEL proposta de aprimoramento regulatório e, caso necessário, manual…",
+   "titulo_origem": "regra",
+   "titulo_completo": "Apresentar a ANEEL proposta de aprimoramento regulatório e, caso necessário, manual de instruções com o detalhamento operacional",
+   "tema": "capítulo_iv_4",
+   "motivo_tema": "Capítulo da norma",
+   "unidade": "u0300",
+   "trecho": "§ 1º O grupo de trabalho deverá apresentar a ANEEL proposta de aprimoramento regulatório e, caso necessário, manual de instruções com o detalhamento operacional, com vistas a contemplar o objetivo disposto no caput, no prazo de até 1 ano da publicação desta Resolução.",
+   "situacao": "depois",
+   "prazo": {
+    "data": "2027-11-04",
+    "texto": "Vence em 04/11/2027",
+    "dias": 352,
+    "provisorio": true,
+    "base": "2026-11-04"
+   },
+   "calculo": "verificar",
+   "posicao_fila": null,
+   "enquadramento": [],
+   "ia": {
+    "dispositivo": "Art. 10, XX",
+    "grupo": "II",
+    "justificativa": "A obrigação impõe apresentar à ANEEL proposta e, se necessário, manual com detalhamento operacional \"no prazo de até 1 ano\"; o Art. 10, XX tipifica \"deixar de enviar ou disponibilizar à ANEEL informações ou documentos, nos prazos e nas condições estabelecidas na legislação\", sendo o não encaminhamento dentro do prazo compatível com esse dispositivo.",
+    "duvida": null
+   },
+   "grupo": null,
+   "faixa_preliminar": {
+    "grupos": [
+     "II"
+    ],
+    "teto_grupo_pct": 0.25,
+    "maximo_pct": {
+     "com_teto": 0.25,
+     "sem_teto": 0.25
+    },
+    "teto_legal_pct": 3.0,
+    "teto_legal_lei_pct": 3.0,
+    "teto_legal_subestimado": true,
+    "com_atenuante_pct": {
+     "espontanea": 0.012500000000000011,
+     "ate_tn": 0.125
+    },
+    "maximo_reais": {
+     "com_teto": 12500000.0,
+     "sem_teto": 12500000.0
+    },
+    "com_atenuante_reais": {
+     "espontanea": 625000.0000000006,
+     "ate_tn": 6250000.0
+    }
+   },
+   "faixa": null,
+   "premissas": [],
+   "motivo_sem_calculo": null,
+   "evidencias": [],
+   "guardar": [
+    "aneel"
+   ],
+   "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Enviar informação à ANEEL; IA: sem resposta válida",
+     "regra_id": "enviar_informacao_aneel"
+    },
+    "dependencias_no_texto": []
+   },
+   "dispositivo": "Art. 12, § 1º"
   },
   {
    "id": "de259c2eb695201e",
@@ -875,11 +948,11 @@
    "trecho": "§ 3º No caso de período do CCER ser maior que 12 meses, deve ser permitida a revisão dos valores mensais de energia elétrica contratada a cada período de 12 meses, observadas as Regras e Procedimentos de Comercialização aplicáveis ao registro desses valores.",
    "situacao": "depois",
    "prazo": {
-    "data": "2027-08-12",
-    "texto": "Vence em 12/08/2027",
-    "dias": 268,
+    "data": "2027-11-04",
+    "texto": "Vence em 04/11/2027",
+    "dias": 352,
     "provisorio": true,
-    "base": "2026-08-12"
+    "base": "2026-11-04"
    },
    "calculo": "verificar",
    "posicao_fila": null,
@@ -940,6 +1013,148 @@
     "dependencias_no_texto": []
    },
    "dispositivo": "Art. 13, § 3º"
+  },
+  {
+   "id": "59c5496d841c8794",
+   "titulo": "Ser realizada até o maior prazo entre o prazo de doze meses da publicação desta…",
+   "titulo_origem": "regra",
+   "titulo_completo": "Ser realizada até o maior prazo entre o prazo de doze meses da publicação desta Resolução e o prazo reduzido informado pela distribuidora, ainda que o CCER celebrado possua prazo de retorno posterior; e",
+   "tema": "capítulo_iv_4",
+   "motivo_tema": "Capítulo da norma",
+   "unidade": "u0340",
+   "trecho": "II - caso a distribuidora reduza o prazo de retorno ao ACR em relação ao prazo de 5 anos disposto no art. 170 da Resolução Normativa nº 1.000, de 2021, a aplicação do benefício tarifário deve ser realizada até o maior prazo entre o prazo de doze meses da publicação desta Resolução e o prazo reduzido informado pela distribuidora, ainda que o CCER celebrado possua prazo de retorno posterior; e",
+   "situacao": "depois",
+   "prazo": {
+    "data": "2027-11-04",
+    "texto": "Vence em 04/11/2027",
+    "dias": 352,
+    "provisorio": true,
+    "base": "2026-11-04"
+   },
+   "calculo": "verificar",
+   "posicao_fila": null,
+   "enquadramento": [],
+   "ia": {
+    "dispositivo": "Art. 11, XIV",
+    "grupo": "III",
+    "justificativa": "A obrigação impõe atuação conforme o prazo e forma definidos em uma Resolução da ANEEL (“a aplicação do benefício tarifário deve ser realizada... até o prazo de doze meses da publicação desta Resolução”), logo o não cumprimento configura deixar de cumprir disposições constantes em resoluções da ANEEL.",
+    "duvida": null
+   },
+   "grupo": null,
+   "faixa_preliminar": {
+    "grupos": [
+     "III"
+    ],
+    "teto_grupo_pct": 0.5,
+    "maximo_pct": {
+     "com_teto": 0.5,
+     "sem_teto": 0.5
+    },
+    "teto_legal_pct": 3.0,
+    "teto_legal_lei_pct": 3.0,
+    "teto_legal_subestimado": true,
+    "com_atenuante_pct": {
+     "espontanea": 0.025000000000000022,
+     "ate_tn": 0.25
+    },
+    "maximo_reais": {
+     "com_teto": 25000000.0,
+     "sem_teto": 25000000.0
+    },
+    "com_atenuante_reais": {
+     "espontanea": 1250000.0000000012,
+     "ate_tn": 12500000.0
+    }
+   },
+   "faixa": null,
+   "premissas": [],
+   "motivo_sem_calculo": null,
+   "evidencias": [],
+   "guardar": [
+    "protocolos"
+   ],
+   "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "sem_tipo",
+     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
+   "dispositivo": "Art. 14, § 1º, inciso II"
+  },
+  {
+   "id": "a7588cff2b247082",
+   "titulo": "Até doze meses da data de sua publicação, quanto ao art. 2º, na parte que inclui o §…",
+   "titulo_origem": "regra",
+   "titulo_completo": "Até doze meses da data de sua publicação, quanto ao art. 2º, na parte que inclui o § 1º no art. 166, o § 4º no art. 333 e o inciso XVIII no art. 396 da Resolução Normativa nº 1.000, de 7 de dezembro de 2021",
+   "tema": "capítulo_v_5",
+   "motivo_tema": "Capítulo da norma",
+   "unidade": "u0353",
+   "trecho": "I - até doze meses da data de sua publicação, quanto ao art. 2º, na parte que inclui o § 1º no art. 166, o § 4º no art. 333 e o inciso XVIII no art. 396 da Resolução Normativa nº 1.000, de 7 de dezembro de 2021;",
+   "situacao": "depois",
+   "prazo": {
+    "data": "2027-11-04",
+    "texto": "Vence em 04/11/2027",
+    "dias": 352,
+    "provisorio": true,
+    "base": "2026-11-04"
+   },
+   "calculo": "verificar",
+   "posicao_fila": null,
+   "enquadramento": [],
+   "ia": {
+    "dispositivo": "Art. 12, I",
+    "grupo": "IV",
+    "justificativa": "A obrigação impõe a “adequação às alterações promovidas por esta Resolução” dentro de prazos definidos, logo o não cumprimento dessa adequação no prazo constitui descumprimento de disposições regulamentares; o dispositivo tipifica exatamente o descumprimento de disposições legais, regulamentares ou contratuais.",
+    "duvida": null
+   },
+   "grupo": null,
+   "faixa_preliminar": {
+    "grupos": [
+     "IV"
+    ],
+    "teto_grupo_pct": 1.0,
+    "maximo_pct": {
+     "com_teto": 1.0,
+     "sem_teto": 1.0
+    },
+    "teto_legal_pct": 3.0,
+    "teto_legal_lei_pct": 3.0,
+    "teto_legal_subestimado": true,
+    "com_atenuante_pct": {
+     "espontanea": 0.050000000000000044,
+     "ate_tn": 0.5
+    },
+    "maximo_reais": {
+     "com_teto": 50000000.0,
+     "sem_teto": 50000000.0
+    },
+    "com_atenuante_reais": {
+     "espontanea": 2500000.0000000023,
+     "ate_tn": 25000000.0
+    }
+   },
+   "faixa": null,
+   "premissas": [],
+   "motivo_sem_calculo": null,
+   "evidencias": [],
+   "guardar": [],
+   "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "sem_tipo",
+     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
+   "dispositivo": "Art. 16, inciso I"
   },
   {
    "id": "be6a76133085cee8",
@@ -3058,76 +3273,6 @@
    "dispositivo": "Art. 167-C, § 2º, inciso I"
   },
   {
-   "id": "66c61d4e91686d77",
-   "titulo": "Em caso de ausência de manifestação da distribuidora sobre a migração",
-   "titulo_origem": "regra",
-   "titulo_completo": "Em caso de ausência de manifestação da distribuidora sobre a migração",
-   "tema": "capítulo_ii_1",
-   "motivo_tema": "Capítulo da norma",
-   "unidade": "u0118",
-   "trecho": "II - em caso de ausência de manifestação da distribuidora sobre a migração, conforme art. 166-A: o prazo de migração requerido pelo consumidor.\"",
-   "situacao": "sem_prazo",
-   "prazo": {
-    "data": null,
-    "texto": "Sem prazo identificado no texto",
-    "dias": null,
-    "provisorio": false,
-    "base": null
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 12, III",
-    "grupo": "IV",
-    "justificativa": "A obrigação trata do prazo de migração a ser considerado quando houver ausência de manifestação da distribuidora (“o prazo de migração requerido pelo consumidor”), logo o não atendimento desse pedido ou o não cumprimento do prazo configuraria deixar de atender pedido de serviços nos prazos e nas condições estabelecidas na legislação ou no contrato.",
-    "duvida": null
-   },
-   "grupo": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "IV"
-    ],
-    "teto_grupo_pct": 1.0,
-    "maximo_pct": {
-     "com_teto": 1.0,
-     "sem_teto": 1.0
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.050000000000000044,
-     "ate_tn": 0.5
-    },
-    "maximo_reais": {
-     "com_teto": 50000000.0,
-     "sem_teto": 50000000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 2500000.0000000023,
-     "ate_tn": 25000000.0
-    }
-   },
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [],
-   "guardar": [],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": null,
-     "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
-     "regra_id": null
-    },
-    "dependencias_no_texto": []
-   },
-   "dispositivo": "Art. 167-C, § 2º, inciso II"
-  },
-  {
    "id": "256d3b52eb869bf7",
    "titulo": "A distribuidora, em substituição à suspensão do fornecimento, fica autorizada a…",
    "titulo_origem": "regra",
@@ -5017,78 +5162,6 @@
    "dispositivo": "Art. 21-B, § 1º"
   },
   {
-   "id": "1d177cb6c2eebf9a",
-   "titulo": "§ 1º A parcela controversa não poderá constituir fundamento exclusivo para a adoção…",
-   "titulo_origem": "regra",
-   "titulo_completo": "§ 1º A parcela controversa não poderá constituir fundamento exclusivo para a adoção das medidas, pelo representante, decorrentes de inadimplência do consumidor, previstas contratualmente, antes da apresentação de resposta fundamentada à reclamação",
-   "tema": "capítulo_iv_a_2",
-   "motivo_tema": "Capítulo da norma",
-   "unidade": "u0225",
-   "trecho": "§ 1º A parcela controversa não poderá constituir fundamento exclusivo para a adoção das medidas, pelo representante, decorrentes de inadimplência do consumidor, previstas contratualmente, antes da apresentação de resposta fundamentada à reclamação.",
-   "situacao": "sem_prazo",
-   "prazo": {
-    "data": null,
-    "texto": "Sem prazo identificado no texto",
-    "dias": null,
-    "provisorio": false,
-    "base": null
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 9º, XVII",
-    "grupo": "I",
-    "justificativa": "A obrigação exige apresentação de “resposta fundamentada à reclamação” antes de adotar medidas por inadimplência; agir com base exclusiva na parcela controversa contraria diretamente as disposições relativas ao tratamento das reclamações dos consumidores, caracterizando o não atendimento a tais disposições.",
-    "duvida": null
-   },
-   "grupo": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "I"
-    ],
-    "teto_grupo_pct": 0.125,
-    "maximo_pct": {
-     "com_teto": 0.125,
-     "sem_teto": 0.125
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.0062500000000000056,
-     "ate_tn": 0.0625
-    },
-    "maximo_reais": {
-     "com_teto": 6250000.0,
-     "sem_teto": 6250000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 312500.0000000003,
-     "ate_tn": 3125000.0
-    }
-   },
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [],
-   "guardar": [
-    "terceiros"
-   ],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": null,
-     "nome": null,
-     "situacao": "a_revisar",
-     "por": "regra: Responder em prazo a solicitação; IA: sem resposta válida",
-     "regra_id": "responder_prazo_solicitacao"
-    },
-    "dependencias_no_texto": []
-   },
-   "dispositivo": "Art. 21-C, § 1º"
-  },
-  {
    "id": "17605232023781dd",
    "titulo": "Identificar de forma nítida e inequívoca seu segmento de atuação com a inclusão…",
    "titulo_origem": "regra",
@@ -5929,78 +6002,6 @@
    "dispositivo": "Art. 11, inciso III"
   },
   {
-   "id": "5f2cad17305d09c9",
-   "titulo": "Apresentar a ANEEL proposta de aprimoramento regulatório e, caso necessário, manual…",
-   "titulo_origem": "regra",
-   "titulo_completo": "Apresentar a ANEEL proposta de aprimoramento regulatório e, caso necessário, manual de instruções com o detalhamento operacional",
-   "tema": "capítulo_iv_4",
-   "motivo_tema": "Capítulo da norma",
-   "unidade": "u0300",
-   "trecho": "§ 1º O grupo de trabalho deverá apresentar a ANEEL proposta de aprimoramento regulatório e, caso necessário, manual de instruções com o detalhamento operacional, com vistas a contemplar o objetivo disposto no caput, no prazo de até 1 ano da publicação desta Resolução.",
-   "situacao": "sem_prazo",
-   "prazo": {
-    "data": null,
-    "texto": "Sem prazo identificado no texto",
-    "dias": null,
-    "provisorio": false,
-    "base": null
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 10, XX",
-    "grupo": "II",
-    "justificativa": "A obrigação impõe apresentar à ANEEL proposta e, se necessário, manual com detalhamento operacional \"no prazo de até 1 ano\"; o Art. 10, XX tipifica \"deixar de enviar ou disponibilizar à ANEEL informações ou documentos, nos prazos e nas condições estabelecidas na legislação\", sendo o não encaminhamento dentro do prazo compatível com esse dispositivo.",
-    "duvida": null
-   },
-   "grupo": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "II"
-    ],
-    "teto_grupo_pct": 0.25,
-    "maximo_pct": {
-     "com_teto": 0.25,
-     "sem_teto": 0.25
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.012500000000000011,
-     "ate_tn": 0.125
-    },
-    "maximo_reais": {
-     "com_teto": 12500000.0,
-     "sem_teto": 12500000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 625000.0000000006,
-     "ate_tn": 6250000.0
-    }
-   },
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [],
-   "guardar": [
-    "aneel"
-   ],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": null,
-     "nome": null,
-     "situacao": "a_revisar",
-     "por": "regra: Enviar informação à ANEEL; IA: sem resposta válida",
-     "regra_id": "enviar_informacao_aneel"
-    },
-    "dependencias_no_texto": []
-   },
-   "dispositivo": "Art. 12, § 1º"
-  },
-  {
    "id": "b9ec4a3959208f38",
    "titulo": "Definir a coordenação do grupo e demais aspectos relacionados à elaboração do trabalho",
    "titulo_origem": "regra",
@@ -6069,76 +6070,6 @@
     "dependencias_no_texto": []
    },
    "dispositivo": "Art. 12, § 5º"
-  },
-  {
-   "id": "44e6f2493416fd04",
-   "titulo": "Ocorrer em até 60 dias da publicação desta Resolução",
-   "titulo_origem": "regra",
-   "titulo_completo": "Ocorrer em até 60 dias da publicação desta Resolução",
-   "tema": "capítulo_iv_4",
-   "motivo_tema": "Capítulo da norma",
-   "unidade": "u0321",
-   "trecho": "§ 11. A primeira reunião deverá ocorrer em até 60 dias da publicação desta Resolução.",
-   "situacao": "sem_prazo",
-   "prazo": {
-    "data": null,
-    "texto": "Sem prazo identificado no texto",
-    "dias": null,
-    "provisorio": false,
-    "base": null
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 11, I",
-    "grupo": "III",
-    "justificativa": "A obrigação impõe realização da primeira reunião em prazo fixo ('em até 60 dias da publicação desta Resolução'); se tal reunião se refere à Ouvidoria ou ao Conselho de Consumidores, a sua não realização configura deixar de instituir ou prover condições para o adequado funcionamento desses órgãos.",
-    "duvida": null
-   },
-   "grupo": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "III"
-    ],
-    "teto_grupo_pct": 0.5,
-    "maximo_pct": {
-     "com_teto": 0.5,
-     "sem_teto": 0.5
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.025000000000000022,
-     "ate_tn": 0.25
-    },
-    "maximo_reais": {
-     "com_teto": 25000000.0,
-     "sem_teto": 25000000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 1250000.0000000012,
-     "ate_tn": 12500000.0
-    }
-   },
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [],
-   "guardar": [],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": null,
-     "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
-     "regra_id": null
-    },
-    "dependencias_no_texto": []
-   },
-   "dispositivo": "Art. 12, § 11"
   },
   {
    "id": "3c31e7c6948c4d3e",
@@ -6435,76 +6366,6 @@
    "dispositivo": "Art. 13, § 5º"
   },
   {
-   "id": "1025c9f72102008c",
-   "titulo": "Ter prazos para atendimento e demais condições semelhantes aos casos de migração de…",
-   "titulo_origem": "regra",
-   "titulo_completo": "Ter prazos para atendimento e demais condições semelhantes aos casos de migração de consumidor potencialmente livre para o ACL",
-   "tema": "capítulo_iv_4",
-   "motivo_tema": "Capítulo da norma",
-   "unidade": "u0332",
-   "trecho": "§ 6º A solicitação de redução do montante de energia elétrica associado ao CCER por consumidor parcialmente livre deve ter prazos para atendimento e demais condições semelhantes aos casos de migração de consumidor potencialmente livre para o ACL.",
-   "situacao": "sem_prazo",
-   "prazo": {
-    "data": null,
-    "texto": "Sem prazo identificado no texto",
-    "dias": null,
-    "provisorio": false,
-    "base": null
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 12, III",
-    "grupo": "IV",
-    "justificativa": "O §6 exige que a solicitação de redução tenha prazos para atendimento e condições específicas; Art. 12, III pune quem deixa de atender pedido de serviços nos prazos e nas condições estabelecidas, correspondendo diretamente ao descumprimento desta obrigação.",
-    "duvida": null
-   },
-   "grupo": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "IV"
-    ],
-    "teto_grupo_pct": 1.0,
-    "maximo_pct": {
-     "com_teto": 1.0,
-     "sem_teto": 1.0
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.050000000000000044,
-     "ate_tn": 0.5
-    },
-    "maximo_reais": {
-     "com_teto": 50000000.0,
-     "sem_teto": 50000000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 2500000.0000000023,
-     "ate_tn": 25000000.0
-    }
-   },
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [],
-   "guardar": [],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": null,
-     "nome": null,
-     "situacao": "a_revisar",
-     "por": "regra: Manter estrutura de atendimento ou contingência; IA: sem resposta válida",
-     "regra_id": "estrutura_atendimento_contingencia"
-    },
-    "dependencias_no_texto": []
-   },
-   "dispositivo": "Art. 13, § 6º"
-  },
-  {
    "id": "26c6fa3441f9a408",
    "titulo": "Ser registrados na CCEE",
    "titulo_origem": "regra",
@@ -6650,78 +6511,6 @@
     "dependencias_no_texto": []
    },
    "dispositivo": "Art. 14, § 1º, inciso I"
-  },
-  {
-   "id": "59c5496d841c8794",
-   "titulo": "Ser realizada até o maior prazo entre o prazo de doze meses da publicação desta…",
-   "titulo_origem": "regra",
-   "titulo_completo": "Ser realizada até o maior prazo entre o prazo de doze meses da publicação desta Resolução e o prazo reduzido informado pela distribuidora, ainda que o CCER celebrado possua prazo de retorno posterior; e",
-   "tema": "capítulo_iv_4",
-   "motivo_tema": "Capítulo da norma",
-   "unidade": "u0340",
-   "trecho": "II - caso a distribuidora reduza o prazo de retorno ao ACR em relação ao prazo de 5 anos disposto no art. 170 da Resolução Normativa nº 1.000, de 2021, a aplicação do benefício tarifário deve ser realizada até o maior prazo entre o prazo de doze meses da publicação desta Resolução e o prazo reduzido informado pela distribuidora, ainda que o CCER celebrado possua prazo de retorno posterior; e",
-   "situacao": "sem_prazo",
-   "prazo": {
-    "data": null,
-    "texto": "Sem prazo identificado no texto",
-    "dias": null,
-    "provisorio": false,
-    "base": null
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 11, XIV",
-    "grupo": "III",
-    "justificativa": "A obrigação impõe atuação conforme o prazo e forma definidos em uma Resolução da ANEEL (“a aplicação do benefício tarifário deve ser realizada... até o prazo de doze meses da publicação desta Resolução”), logo o não cumprimento configura deixar de cumprir disposições constantes em resoluções da ANEEL.",
-    "duvida": null
-   },
-   "grupo": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "III"
-    ],
-    "teto_grupo_pct": 0.5,
-    "maximo_pct": {
-     "com_teto": 0.5,
-     "sem_teto": 0.5
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.025000000000000022,
-     "ate_tn": 0.25
-    },
-    "maximo_reais": {
-     "com_teto": 25000000.0,
-     "sem_teto": 25000000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 1250000.0000000012,
-     "ate_tn": 12500000.0
-    }
-   },
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [],
-   "guardar": [
-    "protocolos"
-   ],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": null,
-     "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
-     "regra_id": null
-    },
-    "dependencias_no_texto": []
-   },
-   "dispositivo": "Art. 14, § 1º, inciso II"
   },
   {
    "id": "f1b6ba520d519463",
@@ -7074,146 +6863,6 @@
    "dispositivo": "Art. 14, § 4º"
   },
   {
-   "id": "a7588cff2b247082",
-   "titulo": "Até doze meses da data de sua publicação, quanto ao art. 2º, na parte que inclui o §…",
-   "titulo_origem": "regra",
-   "titulo_completo": "Até doze meses da data de sua publicação, quanto ao art. 2º, na parte que inclui o § 1º no art. 166, o § 4º no art. 333 e o inciso XVIII no art. 396 da Resolução Normativa nº 1.000, de 7 de dezembro de 2021",
-   "tema": "capítulo_v_5",
-   "motivo_tema": "Capítulo da norma",
-   "unidade": "u0353",
-   "trecho": "I - até doze meses da data de sua publicação, quanto ao art. 2º, na parte que inclui o § 1º no art. 166, o § 4º no art. 333 e o inciso XVIII no art. 396 da Resolução Normativa nº 1.000, de 7 de dezembro de 2021;",
-   "situacao": "sem_prazo",
-   "prazo": {
-    "data": null,
-    "texto": "Sem prazo identificado no texto",
-    "dias": null,
-    "provisorio": false,
-    "base": null
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 12, I",
-    "grupo": "IV",
-    "justificativa": "A obrigação impõe a “adequação às alterações promovidas por esta Resolução” dentro de prazos definidos, logo o não cumprimento dessa adequação no prazo constitui descumprimento de disposições regulamentares; o dispositivo tipifica exatamente o descumprimento de disposições legais, regulamentares ou contratuais.",
-    "duvida": null
-   },
-   "grupo": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "IV"
-    ],
-    "teto_grupo_pct": 1.0,
-    "maximo_pct": {
-     "com_teto": 1.0,
-     "sem_teto": 1.0
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.050000000000000044,
-     "ate_tn": 0.5
-    },
-    "maximo_reais": {
-     "com_teto": 50000000.0,
-     "sem_teto": 50000000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 2500000.0000000023,
-     "ate_tn": 25000000.0
-    }
-   },
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [],
-   "guardar": [],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": null,
-     "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
-     "regra_id": null
-    },
-    "dependencias_no_texto": []
-   },
-   "dispositivo": "Art. 16, inciso I"
-  },
-  {
-   "id": "485b9126b959bcd7",
-   "titulo": "Em até 180 (cento e oitenta) dias da data de sua publicação, quanto ao",
-   "titulo_origem": "regra",
-   "titulo_completo": "Em até 180 (cento e oitenta) dias da data de sua publicação, quanto ao",
-   "tema": "capítulo_v_5",
-   "motivo_tema": "Capítulo da norma",
-   "unidade": "u0354",
-   "trecho": "II - em até 180 (cento e oitenta) dias da data de sua publicação, quanto ao:",
-   "situacao": "sem_prazo",
-   "prazo": {
-    "data": null,
-    "texto": "Sem prazo identificado no texto",
-    "dias": null,
-    "provisorio": false,
-    "base": null
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 11, XXI",
-    "grupo": "III",
-    "justificativa": "A obrigação determina a ‘‘adequação às alterações promovidas por esta Resolução… em até 180 dias’’ (Art. 16), ou seja, cumprimento de determinação da ANEEL dentro de prazo estabelecido; não realizar essa adequação no prazo enquadra‑se em ‘‘deixar de cumprir determinação da Diretoria Colegiada da ANEEL, no prazo estabelecido’’.",
-    "duvida": null
-   },
-   "grupo": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "III"
-    ],
-    "teto_grupo_pct": 0.5,
-    "maximo_pct": {
-     "com_teto": 0.5,
-     "sem_teto": 0.5
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.025000000000000022,
-     "ate_tn": 0.25
-    },
-    "maximo_reais": {
-     "com_teto": 25000000.0,
-     "sem_teto": 25000000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 1250000.0000000012,
-     "ate_tn": 12500000.0
-    }
-   },
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [],
-   "guardar": [],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": null,
-     "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
-     "regra_id": null
-    },
-    "dependencias_no_texto": []
-   },
-   "dispositivo": "Art. 16, inciso II"
-  },
-  {
    "id": "c17096cc06163ed7",
    "titulo": "Ser realizada com isonomia, aplicando-se à todas as situações a partir da…",
    "titulo_origem": "regra",
@@ -7414,6 +7063,16 @@
    "trecho": "\"Art. 167. Após o deferimento da migração pela distribuidora, o consumidor potencialmente livre deve solicitar a adesão à CCEE ou a representação por agente varejista nos termos da regulamentação vigente, observados os prazos e as condições estabelecidos nos Procedimentos de Comercialização.",
    "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
    "dispositivo": "Art. 167"
+  },
+  {
+   "id": "66c61d4e91686d77",
+   "natureza": "dever_de_outro_agente",
+   "rotulo": "Dever de outro agente (não é da distribuidora)",
+   "sujeito": "o período previsto para migração",
+   "unidade": "u0118",
+   "trecho": "II - em caso de ausência de manifestação da distribuidora sobre a migração, conforme art. 166-A: o prazo de migração requerido pelo consumidor.\"",
+   "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
+   "dispositivo": "Art. 167-C, § 2º, inciso II"
   },
   {
    "id": "fb142b034a603d34",
@@ -7634,6 +7293,16 @@
    "trecho": "Art. 21-C. O consumidor poderá contestar valores cobrados indevidamente pelo representante da comercialização varejista.",
    "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
    "dispositivo": "Art. 21-C"
+  },
+  {
+   "id": "1d177cb6c2eebf9a",
+   "natureza": "dever_de_outro_agente",
+   "rotulo": "Dever de outro agente (não é da distribuidora)",
+   "sujeito": "A parcela controversa",
+   "unidade": "u0225",
+   "trecho": "§ 1º A parcela controversa não poderá constituir fundamento exclusivo para a adoção das medidas, pelo representante, decorrentes de inadimplência do consumidor, previstas contratualmente, antes da apresentação de resposta fundamentada à reclamação.",
+   "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
+   "dispositivo": "Art. 21-C, § 1º"
   },
   {
    "id": "99481e5c29880121",
@@ -7886,6 +7555,36 @@
    "dispositivo": "Art. 13, inciso I"
   },
   {
+   "id": "9b1cc6151482bc3c",
+   "natureza": "dever_de_outro_agente",
+   "rotulo": "Dever de outro agente (não é da distribuidora)",
+   "sujeito": "A solicitação de redução do montante de energia elétrica contratado por consumidor livre e especial no CCER, com aplicação a partir do início da vigência subsequente,",
+   "unidade": "u0327",
+   "trecho": "I - 90 dias: para o consumidor do subgrupo AS ou A4; ou",
+   "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
+   "dispositivo": "Art. 13, § 2º, inciso I"
+  },
+  {
+   "id": "aaf89df0fa2f9873",
+   "natureza": "dever_de_outro_agente",
+   "rotulo": "Dever de outro agente (não é da distribuidora)",
+   "sujeito": "A solicitação de redução do montante de energia elétrica contratado por consumidor livre e especial no CCER, com aplicação a partir do início da vigência subsequente,",
+   "unidade": "u0328",
+   "trecho": "II - 180 dias: para os consumidores dos demais subgrupos.",
+   "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
+   "dispositivo": "Art. 13, § 2º, inciso II"
+  },
+  {
+   "id": "1025c9f72102008c",
+   "natureza": "dever_de_outro_agente",
+   "rotulo": "Dever de outro agente (não é da distribuidora)",
+   "sujeito": "A solicitação de redução do montante de energia elétrica associado ao CCER por consumidor parcialmente livre",
+   "unidade": "u0332",
+   "trecho": "§ 6º A solicitação de redução do montante de energia elétrica associado ao CCER por consumidor parcialmente livre deve ter prazos para atendimento e demais condições semelhantes aos casos de migração de consumidor potencialmente livre para o ACL.",
+   "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
+   "dispositivo": "Art. 13, § 6º"
+  },
+  {
    "id": "d594152d5e7d4164",
    "natureza": "dever_de_outro_agente",
    "rotulo": "Dever de outro agente (não é da distribuidora)",
@@ -8039,9 +7738,9 @@
    },
    "conferido_na_fonte": true
   },
-  "Art. 12, III": {
-   "grupo": "IV",
-   "trecho": "III - deixar de atender pedido de serviços nos prazos e nas condições estabelecidas na legislação ou no contrato;",
+  "Art. 10, III": {
+   "grupo": "II",
+   "trecho": "III - descumprir as determinações da legislação relacionadas ao prévio aviso para a suspensão ou a interrupção programada do fornecimento;",
    "origem_da_redacao": "redação original",
    "fonte": {
     "titulo": "REN 846/2019 (texto compilado oficial até a RN 1.137/2025)",
@@ -8050,9 +7749,9 @@
    },
    "conferido_na_fonte": true
   },
-  "Art. 10, III": {
-   "grupo": "II",
-   "trecho": "III - descumprir as determinações da legislação relacionadas ao prévio aviso para a suspensão ou a interrupção programada do fornecimento;",
+  "Art. 12, III": {
+   "grupo": "IV",
+   "trecho": "III - deixar de atender pedido de serviços nos prazos e nas condições estabelecidas na legislação ou no contrato;",
    "origem_da_redacao": "redação original",
    "fonte": {
     "titulo": "REN 846/2019 (texto compilado oficial até a RN 1.137/2025)",
@@ -8228,14 +7927,16 @@
   }
  },
  "linha_do_tempo": {
-  "vencida": [
-   "9b1cc6151482bc3c"
-  ],
+  "vencida": [],
   "90dias": [
-   "aaf89df0fa2f9873"
+   "44e6f2493416fd04"
   ],
   "depois": [
-   "de259c2eb695201e"
+   "485b9126b959bcd7",
+   "5f2cad17305d09c9",
+   "de259c2eb695201e",
+   "59c5496d841c8794",
+   "a7588cff2b247082"
   ],
   "recorrente": [
    "be6a76133085cee8"
@@ -8270,7 +7971,6 @@
    "fd91bb7aa7e0a252",
    "8a0223ac7c168448",
    "32bb87c4bbe606c4",
-   "66c61d4e91686d77",
    "256d3b52eb869bf7",
    "feb344531c216efe",
    "e7bbeed0a84f40bd",
@@ -8298,7 +7998,6 @@
    "de74db97765787be",
    "5601d7cf3867bf32",
    "48facbbb1cb1cce4",
-   "1d177cb6c2eebf9a",
    "17605232023781dd",
    "1829ab6332d473ce",
    "728895c11bbe26d8",
@@ -8310,24 +8009,18 @@
    "5609080c03fdcb67",
    "acc78339ce7532ff",
    "0ebb4ed9ace89a7e",
-   "5f2cad17305d09c9",
    "b9ec4a3959208f38",
-   "44e6f2493416fd04",
    "3c31e7c6948c4d3e",
    "6e56e83f4405c837",
    "e9484bb6aff3edc1",
    "18bb6a68bf909f20",
-   "1025c9f72102008c",
    "26c6fa3441f9a408",
    "ed224db7755f6815",
-   "59c5496d841c8794",
    "f1b6ba520d519463",
    "91c26ed1a77c413a",
    "ad1cd6d7bc9bb42b",
    "33f462f47b99eeab",
    "86b151000f2548bd",
-   "a7588cff2b247082",
-   "485b9126b959bcd7",
    "c17096cc06163ed7"
   ]
  },
@@ -8574,21 +8267,6 @@
      "Norma interna aprovada, com data e versão.",
      "Registro de ciência das áreas.",
      "Registro das exceções aprovadas."
-    ],
-    "status": "rascunho — revisar"
-   },
-   "estrutura_atendimento_contingencia": {
-    "nome": "Manter estrutura de atendimento ou contingência",
-    "ideias_cumprimento": [
-     "Dimensionar equipes, equipamentos e canais para o pior cenário que a norma prevê.",
-     "Definir escalas de plantão e regras de mobilização.",
-     "Manter inventário de recursos e contratos de apoio.",
-     "Revisar o dimensionamento após cada evento real."
-    ],
-    "evidencias": [
-     "Escalas e registros de mobilização.",
-     "Inventário de recursos e contratos de apoio vigentes.",
-     "Relatório pós-evento com o que foi acionado."
     ],
     "status": "rascunho — revisar"
    },

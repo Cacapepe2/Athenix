@@ -144,7 +144,7 @@ test('referência do setor: infração grave (Grupo IV, n = 10) quando o valor �
 
 test('destaque da norma: data, deveres identificados e quantos têm prazo, tudo dos dados', () => {
   const d = destaqueDaNorma(planos.ren1174)
-  assert.equal(d.texto, 'publicada em 04/11/2026 · 91 deveres identificados · 3 com prazo')
+  assert.equal(d.texto, 'publicada em 04/11/2026 · 86 deveres identificados · 6 com prazo')  // dados reprocessados: 86 deveres e 6 com data
   assert.equal(d.deveres, planos.ren1174.resumo.aplicaveis)
   assert.equal(d.comPrazo, planos.ren1174.obrigacoes.filter((o) => o.prazo.data).length)
   assert.match(destaqueDaNorma(planos.rn1137).texto, /^em vigor desde 30\/10\/2025 · 155 deveres identificados · \d+ com prazo$/)
@@ -170,7 +170,9 @@ test('frase não termina em "; e", "; ou" nem em vírgula; "subgrupo AS ou A4" �
 })
 
 test('prazo provisório diz de onde a data é contada; dias contados até a data de referência', () => {
-  const v = planos.ren1174.obrigacoes.find((o) => o.situacao === 'vencida')!
+  const v = planos.rn1137.obrigacoes.find((o) => o.situacao === 'vencida')!
   assert.match(prazoTexto(v), /^vencida há \d+ dias \(provisória, contada de \d{2}\/\d{2}\/\d{4}\)$/)
+  const f = planos.ren1174.obrigacoes.find((o) => o.prazo.data)!
+  assert.match(prazoTexto(f), /contada de 04\/11\/2026\)$/)  // base = publicação da REN 1.174
   assert.equal(prazoTexto({ ...v, prazo: { ...v.prazo, base: null } }), prazoTexto(v).replace(/ \(provisória.*\)$/, ''))
 })

@@ -1,6 +1,6 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "a54b4bd",
+ "commit_origem": "0e512d1",
  "gerado_em": "2026-11-20",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
@@ -134,8 +134,8 @@
    "sem_prazo": 127
   },
   "na_fila": 43,
-  "a_confirmar": 110,
-  "sem_multa": 2,
+  "a_confirmar": 112,
+  "sem_multa": 0,
   "grupo_mais_grave": "IV",
   "temas": 8
  },
@@ -191,7 +191,7 @@
    }
   ],
   "confirmar": {
-   "obrigacoes": 110,
+   "obrigacoes": 112,
    "temas_sem_calculo_confirmado": 2
   }
  },
@@ -206,14 +206,14 @@
      "unidade": "u0049"
     }
    ],
-   "n": 26,
+   "n": 24,
    "contagem": {
     "vencida": 3,
     "90dias": 0,
     "depois": 0,
     "recorrente": 0,
     "evento": 0,
-    "sem_prazo": 23
+    "sem_prazo": 21
    },
    "prazo_mais_urgente": {
     "obrigacao": "a002094347c42776",
@@ -295,7 +295,7 @@
    "evidencias": [
     {
      "id": "site",
-     "n": 17,
+     "n": 15,
      "exemplo": {
       "obrigacao": "b758c9c169c145ec",
       "trecho": "IV - Até 180 (cento e oitenta) dias para disponibilizar em sítio eletrônico o número total de unidades consumidoras afetadas por interr"
@@ -321,11 +321,11 @@
    "guardar": [
     {
      "id": "protocolos",
-     "n": 23
+     "n": 21
     },
     {
      "id": "indisponibilidade",
-     "n": 19
+     "n": 17
     },
     {
      "id": "versoes",
@@ -364,9 +364,7 @@
     "89f0cb5afdcb80cf",
     "4c34d39fc8c7c83c",
     "73f0657fc5edfaa2",
-    "d0e8213e450b813b",
-    "33074e8a1fe3ae59",
-    "dac445af2c7897a3"
+    "d0e8213e450b813b"
    ],
    "dependencias_no_texto": []
   },
@@ -887,18 +885,18 @@
      "unidade": "u0173"
     }
    ],
-   "n": 11,
+   "n": 13,
    "contagem": {
     "vencida": 0,
     "90dias": 0,
     "depois": 0,
     "recorrente": 0,
     "evento": 0,
-    "sem_prazo": 11
+    "sem_prazo": 13
    },
    "prazo_mais_urgente": null,
    "na_fila": 3,
-   "a_confirmar": 8,
+   "a_confirmar": 10,
    "grupos": [
     "IV"
    ],
@@ -971,7 +969,7 @@
    "evidencias": [
     {
      "id": "site",
-     "n": 5,
+     "n": 7,
      "exemplo": {
       "obrigacao": "59a3e694522c005b",
       "trecho": "23-F. A distribuidora deve disponibilizar em sítio eletrônico e nos postos de atendimento presencial, com uso de linguage"
@@ -997,15 +995,15 @@
    "guardar": [
     {
      "id": "indisponibilidade",
-     "n": 7
+     "n": 9
     },
     {
      "id": "protocolos",
-     "n": 5
+     "n": 7
     },
     {
      "id": "aneel",
-     "n": 3
+     "n": 4
     }
    ],
    "excludentes": [],
@@ -1025,6 +1023,8 @@
     "002a92c57c58b27b",
     "2cab65c1fc58df50",
     "3a5135b149a7617f",
+    "33074e8a1fe3ae59",
+    "dac445af2c7897a3",
     "803c9683ab926f35",
     "d562851a554d9830",
     "1fe6934a9f4b19be"
@@ -11760,10 +11760,10 @@
    "titulo": "Informar e manter, por até cinco anos, em seu sítio eletrônico, a qualidade na…",
    "titulo_origem": "regra",
    "titulo_completo": "Informar e manter, por até cinco anos, em seu sítio eletrônico, a qualidade na prestação do serviço de distribuição de energia elétrica, por meio da apuração de indicadores de continuidade do fornecimento, permitindo a avaliação do percentual de cumprimento dos limites de conjuntos elétricos, além do valor global da distribuidora. Informação Especificação Unidade Periodicidade Observação Percentual de Comparação Percentual de Disponibilização atendimentos entre o conjuntos de unidades até o último dia A apuração do indicador dos limites indicador consumidoras que útil do mês deve corresponder à média regulatórios DEC e o atendem aos limites subsequente ao móvel dos últimos 12 dos conjuntos limite regulatórios de DEC período de meses. de unidades regulatório anualizado. apuração consumidoras Informação Especificação Unidade Periodicidade Observação Comparação Indicador coletivo de Disponibilização entre o continuidade DEC até o último dia A apuração do indicador Hora e indicador global anualizado em útil do mês deve corresponder à média centésimos DEC e o comparação com os subsequente ao móvel dos últimos 12 de hora limite respectivos limites período de meses. regulatório definidos pela ANEEL. apuração Percentual de conjuntos de Percentual de Comparação Disponibilização unidades atendimentos entre o até o último dia A apuração do indicador consumidoras que dos limites indicador útil do mês deve corresponder à média atendem aos regulatórios FEC e o subsequente ao móvel dos últimos 12 limites dos conjuntos limite período de meses. regulatórios de de unidades regulatório apuração FEC anualizado. consumidoras Comparação Indicador coletivo de Disponibilização Número de entre o continuidade FEC até o último dia A apuração do indicador interrupções indicador global anualizado em útil do mês deve corresponder à média e centésimos FEC e o comparação com os subsequente ao móvel dos últimos 12 do número de limite respectivos limites período de meses. interrupções regulatório definidos pela ANEEL. apuração",
-   "tema": "consumidor",
-   "motivo_tema": "O texto nomeia \"consumidor\"",
-   "unidade": null,
-   "trecho": null,
+   "tema": "informacoes",
+   "motivo_tema": "Seção III da norma",
+   "unidade": "u0188",
+   "trecho": "23-G. As distribuidoras deverão informar e manter, por até cinco anos, em seu sítio eletrônico, a qualidade na prestação do serviço de distribuição de energia elétrica, por meio da apuração de indicadores de continuidade do fornecimento, permitindo a avaliação do percentual de cumprimento dos limites de conjuntos elétricos, além do valor global da distribuidora.",
    "situacao": "sem_prazo",
    "prazo": {
     "data": null,
@@ -11772,7 +11772,7 @@
     "provisorio": false,
     "base": null
    },
-   "calculo": "sem_multa",
+   "calculo": "verificar",
    "posicao_fila": null,
    "enquadramento": [],
    "ia": null,
@@ -11780,7 +11780,7 @@
    "faixa_preliminar": null,
    "faixa": null,
    "premissas": [],
-   "motivo_sem_calculo": "Obrigação sem citação verificada: fora do cálculo.",
+   "motivo_sem_calculo": null,
    "evidencias": [
     {
      "id": "site",
@@ -11793,17 +11793,27 @@
     "aneel"
    ],
    "excludente": null,
-   "dispositivo": null
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Apurar ou calcular indicador; IA: manter_registro_historico",
+     "regra_id": "apurar_calcular_indicador"
+    },
+    "dependencias_no_texto": []
+   },
+   "dispositivo": "item 23-G"
   },
   {
    "id": "dac445af2c7897a3",
    "titulo": "Informar e manter, por até cinco anos, em seu sítio eletrônico, os indicadores de…",
    "titulo_origem": "regra",
    "titulo_completo": "Informar e manter, por até cinco anos, em seu sítio eletrônico, os indicadores de duração e frequência de interrupções (DEC e FEC) efetivamente percebidas pelos usuários, sem aplicação de expurgos. Informação Especificação Unidade Periodicidade Observação Indicador coletivo de continuidade DEC anual apurado por Disponibilização conjunto de unidades até o último dia A apuração do indicador DEC Hora e consumidoras útil do mês deve corresponder à média apurado centésimos considerando todas as subsequente ao móvel dos últimos 12 sem expurgo de hora interrupções ocorridas período de meses. no sistema elétrico apuração que afetem os consumidores. Indicador coletivo de continuidade FEC anual apurado por Envio até o Número de conjunto de unidades último dia útil A apuração do indicador interrupções FEC apurado consumidoras do mês deve corresponder à média e centésimos sem expurgo considerando todas as subsequente ao móvel dos últimos 12 do número de interrupções ocorridas período de meses. interrupções no sistema elétrico apuração que afetem os consumidores. Fluxo de informações da distribuidora para o consumidor, Poder Público e mídia",
-   "tema": "consumidor",
-   "motivo_tema": "O texto nomeia \"consumidor\"",
-   "unidade": null,
-   "trecho": null,
+   "tema": "informacoes",
+   "motivo_tema": "Seção III da norma",
+   "unidade": "u0189",
+   "trecho": "23-H. As distribuidoras deverão informar e manter, por até cinco anos, em seu sítio eletrônico, os indicadores de duração e frequência de interrupções (DEC e FEC) efetivamente percebidas pelos usuários, sem aplicação de expurgos.",
    "situacao": "sem_prazo",
    "prazo": {
     "data": null,
@@ -11812,7 +11822,7 @@
     "provisorio": false,
     "base": null
    },
-   "calculo": "sem_multa",
+   "calculo": "verificar",
    "posicao_fila": null,
    "enquadramento": [],
    "ia": null,
@@ -11820,7 +11830,7 @@
    "faixa_preliminar": null,
    "faixa": null,
    "premissas": [],
-   "motivo_sem_calculo": "Obrigação sem citação verificada: fora do cálculo.",
+   "motivo_sem_calculo": null,
    "evidencias": [
     {
      "id": "site",
@@ -11833,7 +11843,17 @@
     "poder_publico"
    ],
    "excludente": null,
-   "dispositivo": null
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Comunicar consumidores; IA: manter_registro_historico",
+     "regra_id": "comunicar_consumidores"
+    },
+    "dependencias_no_texto": []
+   },
+   "dispositivo": "item 23-H"
   },
   {
    "id": "803c9683ab926f35",
@@ -14117,6 +14137,21 @@
     ],
     "status": "rascunho — revisar"
    },
+   "apurar_calcular_indicador": {
+    "nome": "Apurar ou calcular indicador",
+    "ideias_cumprimento": [
+     "Documentar a fórmula, as fontes de dado e o período de apuração.",
+     "Reproduzir o cálculo de forma independente antes de enviar.",
+     "Automatizar a coleta e guardar os dados brutos do período.",
+     "Definir regra para dado faltante ou corrigido depois."
+    ],
+    "evidencias": [
+     "Memória de cálculo e dados brutos do período.",
+     "Versão da fórmula e quem a validou.",
+     "Comparação com a apuração anterior e justificativa de variações."
+    ],
+    "status": "rascunho — revisar"
+   },
    "adequar_contrato_documento": {
     "nome": "Adequar contrato ou documento",
     "ideias_cumprimento": [
@@ -14144,21 +14179,6 @@
      "Cronograma com marcos e entregas.",
      "Registro dos testes e da homologação.",
      "Manual do processo e lista de treinados."
-    ],
-    "status": "rascunho — revisar"
-   },
-   "apurar_calcular_indicador": {
-    "nome": "Apurar ou calcular indicador",
-    "ideias_cumprimento": [
-     "Documentar a fórmula, as fontes de dado e o período de apuração.",
-     "Reproduzir o cálculo de forma independente antes de enviar.",
-     "Automatizar a coleta e guardar os dados brutos do período.",
-     "Definir regra para dado faltante ou corrigido depois."
-    ],
-    "evidencias": [
-     "Memória de cálculo e dados brutos do período.",
-     "Versão da fórmula e quem a validou.",
-     "Comparação com a apuração anterior e justificativa de variações."
     ],
     "status": "rascunho — revisar"
    },
