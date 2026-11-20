@@ -14,9 +14,9 @@ BANCO = ROOT / ".local" / "demo.db"
 USUARIO = "demo"
 
 
-def preparar(settings, banco=BANCO):
+def preparar(settings, banco=BANCO, norma=NORMA, titulo="RN ANEEL 1.137/2025", origem=None):
     """Recria o banco da demo (só `banco`, por padrão .local/demo.db), cria o usuário e processa
-    a RN 1.137.
+    a norma (por padrão, a RN 1.137; `norma` aceita outro PDF ou HTML versionado).
 
     Devolve a senha, gerada a cada execução: nenhuma credencial fica no repositório.
     """
@@ -32,9 +32,9 @@ def preparar(settings, banco=BANCO):
         document, _ = receive(
             session,
             settings,
-            NORMA.read_bytes(),
-            "RN ANEEL 1.137/2025",
-            "tests/norma_poc/ren20251137.pdf (PDF da norma publicado pela ANEEL)",
+            Path(norma).read_bytes(),
+            titulo,
+            origem or "tests/norma_poc/ren20251137.pdf (PDF da norma publicado pela ANEEL)",
             "norm",
             "",
             user.id,

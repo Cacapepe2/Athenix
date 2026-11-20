@@ -71,8 +71,18 @@ NOMES_NATUREZA = {
     "faculdade": "Faculdade (pode, não deve)",
     "direito_de_terceiro": "Direito de terceiro (consumidor ou usuário)",
     "competencia_aneel": "Competência da ANEEL",
+    "dever_de_outro_agente": "Dever de outro agente (não é da distribuidora)",
 }
 SUJEITO_ANEEL = re.compile(r"^\W*(?:a\s+)?(?:ag[êe]ncia|aneel)\b", re.I)
+# Sujeito que é OUTRO agente do setor (CCEE, Sandbox, comercializador, consumidor...): o dever não é da
+# distribuidora. Só vale quando o sujeito COMEÇA por ele; sujeito impessoal ("O plano de contingência")
+# continua na contagem da distribuidora.
+SUJEITO_OUTRO_AGENTE = re.compile(
+    r"^\W*(?:[oa]s?\s+)?(?:ccee\b|c[âa]mara de comercializa|ons\b|operador nacional|sandbox|"
+    r"representante da comercializa|(?:agente\s+)?comercializador|gerador|autoprodutor|"
+    r"consumidor|interessado)",
+    re.I,
+)
 SUJEITO_TERCEIRO = re.compile(r"\b(?:consumidor(?:es)?|usu[áa]rios?)\b", re.I)
 
 
@@ -80,12 +90,15 @@ def natureza(row):
     """Natureza do dispositivo pelo SUJEITO e pela MODALIDADE da oração principal (modality vem de
     proposals.modality): "dever" da distribuidora; "competencia_aneel" quando o sujeito é a Agência;
     "direito_de_terceiro" quando consumidor ou usuário é o sujeito de uma permissão; "faculdade" para
-    qualquer outra permissão. Só "dever" entra na contagem principal."""
+    qualquer outra permissão; "dever_de_outro_agente" quando o sujeito é outro agente (CCEE, Sandbox,
+    comercializador, consumidor). Só "dever" entra na contagem principal."""
     sujeito = row.get("subject", "") or ""
     if SUJEITO_ANEEL.match(sujeito):
         return "competencia_aneel"
     if row.get("modality") == "permission":
         return "direito_de_terceiro" if SUJEITO_TERCEIRO.search(sujeito) else "faculdade"
+    if SUJEITO_OUTRO_AGENTE.match(sujeito):
+        return "dever_de_outro_agente"
     return "dever"
 
 
@@ -152,6 +165,28 @@ def secao_por_unidade(units):
             atual = u["label"]
         out[u["id"]] = atual
     return out
+
+
+def temas_automaticos(units, base):
+    """Temas de uma norma sem arquivo de temas: um por CAPÍTULO (título do próprio texto). `base` é o
+    arquivo de temas padrão, de onde vêm só os catálogos de evidência e de "o que guardar". Devolve
+    (cfg, {unidade: tema}). Unidades antes do primeiro capítulo e sem capítulo vão para "outros"."""
+    cap = re.compile(r"^\W*(CAP[ÍI]TULO\s+[IVXLC]+(?:-[A-Z])?)\s*(.*)$", re.I | re.S)
+    temas, por_unidade, atual = [], {}, "outros"
+    for u in sorted(units, key=lambda u: u["start"]):
+        if u["kind"] == "heading":
+            m = cap.match(espacos(u["text"]))
+            if m:
+                titulo = m.group(2).strip(' "”.') or m.group(1)
+                rotulo_cap = "Capítulo " + m.group(1).split(None, 1)[1].upper()
+                nome = f"{rotulo_cap}: {titulo.lower().capitalize()}"
+                atual = re.sub(r"\W+", "_", m.group(1).lower()).strip("_") + f"_{len(temas)}"
+                temas.append({"id": atual, "nome": nome, "secoes": [], "padrao": None})
+        por_unidade[u["id"]] = atual
+    temas.append(
+        {"id": "outros", "nome": "Disposições gerais e outras", "secoes": [], "padrao": None}
+    )
+    return base | {"temas": temas}, por_unidade
 
 
 def conferir_secoes(cfg, units):
@@ -302,6 +337,26 @@ def _ids_por_padrao(pedacos, lista):
     return [e["id"] for e in lista if any(re.search(e["padrao"], t) for t in pedacos)]
 
 
+def escala_de_gravidade(params):
+    """Teto de multa de cada grupo (REN 846, art. 8º) e o teto legal (Lei 9.427/1996, art. 3º, X), cada um
+    com dispositivo, trecho literal, fonte e SHA-256. O nome de negócio de cada grupo (leve, média...)
+    fica no site (landing/src/content/gravidade.ts), num único lugar."""
+    saida = {}
+    for pid in [f"limite_grupo_{g}" for g in impacto.GRUPOS] + ["teto_legal_lei"]:
+        par = impacto.parametro(params, pid)
+        if not par:
+            continue
+        fonte = params["fontes"][par["fonte"]]
+        saida[pid] = {
+            "dispositivo": par["dispositivo"],
+            "trecho": espacos(par["trecho"]),
+            "percentual": par["percentuais"][0] if par["percentuais"] else None,
+            "fonte": fonte["titulo"],
+            "sha256": fonte["sha256"],
+        }
+    return saida
+
+
 def reducao(params):
     """Bloco geral de "Como reduzir a exposição": regras e medidas da REN 846 com citação."""
 
@@ -332,7 +387,9 @@ def reducao(params):
     }
 
 
-def montar(resultado, units, params, p, cfg, ia=None, chave=None, cenarios=None):
+def montar(
+    resultado, units, params, p, cfg, ia=None, chave=None, cenarios=None, tema_por_unidade=None
+):
     """Plano para o perfil `p`. `chave(row)` identifica a obrigação no cache da IA. `cenarios`:
     {atenuante: resultado de impacto.avaliar com esse atenuante e fração do valor base 100%}."""
     chave = chave or chave_texto
@@ -367,7 +424,13 @@ def montar(resultado, units, params, p, cfg, ia=None, chave=None, cenarios=None)
                 "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
             })  # fmt: skip
             continue
-        tema, motivo_tema = tema_de(item, secoes.get(ancora["unit_id"]) if ancora else None, cfg)
+        if tema_por_unidade is not None:  # norma sem arquivo de temas: tema = capítulo
+            tema = tema_por_unidade.get(ancora["unit_id"], "outros") if ancora else "outros"
+            motivo_tema = "Capítulo da norma" if tema != "outros" else "Sem capítulo identificado"
+        else:
+            tema, motivo_tema = tema_de(
+                item, secoes.get(ancora["unit_id"]) if ancora else None, cfg
+            )
         titulo, origem_titulo = _titulo(item, ia, units_texto)
         pedacos = [espacos(row.get("action", ""))] + [
             espacos(e.get("quote", "")) for e in row.get("evidence", [])
@@ -450,6 +513,7 @@ def montar(resultado, units, params, p, cfg, ia=None, chave=None, cenarios=None)
         "regra_ordem": ORDEM_PLANO,
         "evidencias": {e["id"]: e["texto"] for e in cfg["evidencias"]},
         "reducao": reducao(params),
+        "escala_de_gravidade": escala_de_gravidade(params),
         "guardar": {e["id"]: e["texto"] for e in cfg.get("guardar", [])},
     }
 

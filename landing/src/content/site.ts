@@ -27,7 +27,7 @@ export const hero = {
   titleLines: ['Quanto cada mudança regulatória', 'pode custar à sua empresa,', 'e o que priorizar.'],
   subtitle:
     'A Athenix estima, para cada obrigação de uma norma da ANEEL, a faixa de impacto em reais e o prazo, com premissas visíveis, nível de confiança e o trecho exato da fonte. Assim, quem decide sabe o que fazer primeiro.',
-  primary: { href: '/demo', label: 'Ver demonstração completa' },
+  primary: { href: '/demo/executivo', label: 'Ver demonstração' },
   secondary: { href: '#contato', label: 'Conversar sobre um piloto' },
   status: 'Iniciativa em validação · MVP em desenvolvimento',
   principles: [

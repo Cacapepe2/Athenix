@@ -30,6 +30,17 @@ def main():
     )
     user.add_argument("username")
     user.add_argument("--role", choices=["operator", "technical", "legal"], default="technical")
+    proc = sub.add_parser(
+        "processar",
+        help="Do arquivo oficial da norma (PDF ou HTML do DOU) ao JSON do plano, sem IA",
+    )
+    proc.add_argument("arquivo")
+    proc.add_argument(
+        "--agente", choices=["distribuidora", "transmissora"], default="distribuidora"
+    )
+    proc.add_argument("--saida", required=True)
+    proc.add_argument("--data", help="data de geração no JSON (AAAA-MM-DD); padrão: hoje")
+    proc.add_argument("--commit", help="commit de origem no JSON; padrão: HEAD do git")
     poc = sub.add_parser("poc", help="Extração, comparação e estruturação da norma de PoC")
     poc.add_argument("--a", default="tests/norma_poc/ren20251137.pdf")
     poc.add_argument("--b", default="tests/norma_poc/dou.pdf")
@@ -37,6 +48,17 @@ def main():
     poc.add_argument("--ocr", choices=["none", "docling"], default="none")
     poc.add_argument("--ai", action="store_true", help="Usa o modelo configurado (Azure), com teto")
     args = parser.parse_args()
+    if args.command == "processar":  # sem banco, sem IA, sem rede: só regras sobre o arquivo
+        import sys as _sys
+        from pathlib import Path as _Path
+
+        scripts = str(_Path(__file__).resolve().parents[1] / "scripts")
+        _sys.path.insert(0, scripts)
+        from exportar_plano_demo import processar_norma
+
+        raise SystemExit(
+            processar_norma(args.arquivo, args.agente, args.saida, args.data, args.commit)
+        )
     carregar_env()  # .env local (fora do git); variáveis já definidas no ambiente prevalecem
     # Console do Windows (cp1252/cp850) ou saída redirecionada: caractere sem mapa vira "?", não erro.
     for stream in (sys.stdout, sys.stderr):

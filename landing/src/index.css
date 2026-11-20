@@ -112,7 +112,8 @@
 }
 
 /* Demo: etiquetas pequenas sobre fundo creme/pedra precisam de contraste AA (4,5:1). */
-#plano {
+#plano,
+#executivo {
   --color-pending: #855a17;
   --color-bronze-deep: #6e5b46;
 }
@@ -126,18 +127,28 @@
 }
 /* Foco visível da demo: o anel azul escuro padrão do site (:focus-visible acima). */
 /* Expansíveis: sem o triângulo nativo; o chevron (.chevron) gira quando o <details> abre. */
-#plano summary {
+#plano summary,
+#executivo summary {
   list-style: none;
 }
-#plano summary::-webkit-details-marker {
+#plano summary::-webkit-details-marker,
+#executivo summary::-webkit-details-marker {
   display: none;
 }
-#plano details[open] > summary .chevron {
+#plano details[open] > summary .chevron,
+#executivo details[open] > summary .chevron {
   transform: rotate(180deg);
 }
 #plano summary,
-#plano blockquote {
+#plano blockquote,
+#executivo summary,
+#executivo blockquote {
   overflow-wrap: anywhere;
+}
+/* Obrigação aberta por âncora (#obrigacao-<id>, vinda da visão executiva): realce discreto em azul. */
+#plano [data-realce] {
+  border-color: var(--color-slate-blue);
+  box-shadow: 0 0 0 1px var(--color-slate-blue);
 }
 
 /* Impressão: com o diagnóstico aberto pelo botão "Imprimir este diagnóstico", sai só ele (a seção

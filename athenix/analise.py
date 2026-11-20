@@ -34,6 +34,14 @@ TIPOS_DE_DETALHE = {"letter", "clause", "item", "paragraph"}
 
 
 def _tipo(texto, detalhe, cache_ia, oid, cfg):
+    """Tipo da obrigação. `regra_id` é sempre o tipo da REGRA (ou None): a página executiva o usa, com a
+    etiqueta "preliminar", quando regra e IA ainda não concordam."""
+    r = _tipo_final(texto, detalhe, cache_ia, oid, cfg)
+    regra = tipos.classificar(texto, detalhe=detalhe, cfg=cfg)["tipo"]
+    return r | {"regra_id": None if regra == "outros" else regra}
+
+
+def _tipo_final(texto, detalhe, cache_ia, oid, cfg):
     regra = tipos.classificar(texto, detalhe=detalhe, cfg=cfg)
     tipo = regra["tipo"]
     if tipo == "outros":
@@ -77,7 +85,6 @@ def montar(out, rows, extraction, cache_ia=None):
         )["state"]
 
     for t in out["temas"]:
-        principais = set(t["principais"])
         t["dependencias_no_texto"] = []
         for oid in t["obrigacoes"]:
             o = por_obrigacao[oid]
@@ -95,19 +102,18 @@ def montar(out, rows, extraction, cache_ia=None):
             for d in no_texto:
                 deps.setdefault(d["id"], dependencias.manual_da_dependencia(d["id"], cfg_dep))
                 t["dependencias_no_texto"].append({"obrigacao": oid, **d})
-            if oid not in principais and not no_texto:
-                continue
             texto = espacos(unit["text"])
             detalhe = bool(unit["parent"]) and unit["kind"] in TIPOS_DE_DETALHE
             tipo = _tipo(texto, detalhe, cache_ia, oid, cfg_tipos)
-            if tipo["id"] and tipo["id"] not in manuais:
-                m = tipos.manual(tipo["id"], cfg_tipos)
-                manuais[tipo["id"]] = {
-                    "nome": m["nome"],
-                    "ideias_cumprimento": m["ideias_cumprimento"],
-                    "evidencias": m["evidencias"],
-                    "status": m["status"],
-                }
+            for tid in {tipo["id"], tipo["regra_id"]} - {None}:
+                if tid not in manuais:
+                    m = tipos.manual(tid, cfg_tipos)
+                    manuais[tid] = {
+                        "nome": m["nome"],
+                        "ideias_cumprimento": m["ideias_cumprimento"],
+                        "evidencias": m["evidencias"],
+                        "status": m["status"],
+                    }
             o["analise"] = {"tipo": tipo, "dependencias_no_texto": no_texto}
     pratica = {}
     for tema, dep in PRATICA_POR_TEMA.items():

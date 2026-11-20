@@ -10,7 +10,7 @@ export function ProductDemo() {
         <h2 className="font-display mt-5 text-4xl leading-tight sm:text-5xl">Uma obrigação. O prazo. O impacto.</h2>
         <p className="mt-5 max-w-lg leading-relaxed text-ink-soft">Veja o que uma mudança da ANEEL pede à empresa e o que merece atenção primeiro. Cada estimativa mostra confiança e fonte.</p>
         <p className="mt-4 text-sm leading-relaxed text-ink-soft">Exemplo da RN 1.137/2025 com uma distribuidora ilustrativa. Iniciativa em validação; estimativas e enquadramentos ainda sem revisão de especialista. Não constitui parecer jurídico.</p>
-        <ButtonLink href="/demo" className="mt-7">Ver demonstração completa</ButtonLink>
+        <ButtonLink href="/demo/executivo" className="mt-7">Ver demonstração</ButtonLink>
       </div>
       <ImpactExample item={priorities[0]} />
     </div>

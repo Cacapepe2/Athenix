@@ -25,6 +25,15 @@ identificado no texto vem antes do sugerido. "Confirmado" fica reservado à revi
 - Reprodutibilidade: o JSON da demo tem ids estáveis (chave do texto) e
   `python scripts/exportar_plano_demo.py --verificar` (também no CI) compara o export regenerado com o
   versionado, exceto `commit_origem` e `gerado_em` (`--data` e `--commit` os tornam controláveis).
+- **Página executiva** `/demo/executivo` (a landing leva a ela): três números (exposição por infração,
+  quanto cai se regularizar antes da fiscalização, prazos), as 5 obrigações para olhar primeiro e a
+  referência do setor, em linguagem de negócio ("infração grave (Grupo IV)"; mapeamento em
+  `landing/src/content/gravidade.ts`). Abre duas normas, ambas pelo mesmo motor: RN 1.137/2025 e
+  **REN 1.174/2026** (abertura do mercado livre; 91 deveres da distribuidora, 3 com prazo; enquadramento
+  só por sugestão de IA, marcada, `docs/enquadramento_ia_ren1174.md`). Sem enquadramento não há valor:
+  nada de teto da escala como "pior caso". A página completa `/demo?norma=ren1174` mostra a segunda norma.
+- **Comando único:** `python -m athenix processar <arquivo> --agente distribuidora --saida <json>` (do
+  PDF/HTML oficial ao JSON do plano, sem IA nem rede; saídas em `docs/telas/executivo/comando_*.txt`).
 - Renúncia ao recurso: REN 846, **art. 38, § 2º** (redução de 25%; não é atenuante do art. 24).
 - Progresso do sprint em curso: `.review/PROGRESSO.md` (fora do git). Pendências do fundador:
   `docs/SPRINT_2026-11-17.md` §5 (histórico).

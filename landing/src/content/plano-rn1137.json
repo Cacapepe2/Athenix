@@ -1,11 +1,12 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "73ff049",
+ "commit_origem": "45d990b",
  "gerado_em": "2026-11-20",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
   "titulo": "RN ANEEL 1.137/2025",
   "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+  "data_rotulo": "em vigor desde",
   "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887",
   "vigencia": "2025-10-30"
  },
@@ -32,7 +33,15 @@
   "mediana_reais": 10349703,
   "maximo_reais": 48654893,
   "fonte": "Dados abertos da ANEEL, CSV de Auto de Infração (sha256 453451f4…, 1.635 linhas, 06/2018 a 11/2026), análise por auto em docs/valor_provavel_csv.md (reproduzir com scripts/analisar_autos.py). Mediana e máximo do VlrPenalidade; valores do CSV, sem decisões posteriores da Diretoria. Nenhuma empresa é identificada.",
-  "limites": "Mediana de 21 autos de distribuição (11 da ANEEL e 10 de agências estaduais conveniadas), de qualquer combinação de grupos. Não é valor por infração, não é previsão de multa e não vale para uma empresa em particular."
+  "limites": "Mediana de 21 autos de distribuição (11 da ANEEL e 10 de agências estaduais conveniadas), de qualquer combinação de grupos. Não é valor por infração, não é previsão de multa e não vale para uma empresa em particular.",
+  "infracao_grave": {
+   "rotulo": "Autos de distribuição com infração grave (Grupo IV da REN 846)",
+   "autos": 10,
+   "mediana_reais": 22496979,
+   "maximo_reais": 48654893,
+   "fonte": "scripts/autos_por_dispositivo.py (docs/historico_multas_por_dispositivo.md): autos de distribuição que contam (quitado, parcelado, encerrado ou decidido, com valor em reais) e citam o art. 12 da REN 846 (Grupo IV). Mediana e máximo do auto inteiro; arredondados ao real.",
+   "limites": "n = 10 (pequena). O campo do auto traz só o grupo e o artigo, sem o inciso: não separa XXVI, XXVII ou XXVIII."
+  }
  },
  "simulador": {
   "faixas": [
@@ -1516,7 +1525,8 @@
      "id": "elaborar_ou_revisar_plano",
      "nome": "Elaborar ou revisar plano",
      "situacao": "concordam",
-     "por": "regra e IA concordam"
+     "por": "regra e IA concordam",
+     "regra_id": "elaborar_ou_revisar_plano"
     },
     "dependencias_no_texto": []
    },
@@ -1591,7 +1601,8 @@
      "id": null,
      "nome": null,
      "situacao": "a_revisar",
-     "por": "regra: Inspecionar ou executar manutenção; IA: implantar_sistema_processo"
+     "por": "regra: Inspecionar ou executar manutenção; IA: implantar_sistema_processo",
+     "regra_id": "inspecionar_executar_manutencao"
     },
     "dependencias_no_texto": []
    },
@@ -1661,7 +1672,8 @@
      "id": "comunicar_consumidores",
      "nome": "Comunicar consumidores",
      "situacao": "concordam",
-     "por": "regra e IA concordam"
+     "por": "regra e IA concordam",
+     "regra_id": "comunicar_consumidores"
     },
     "dependencias_no_texto": []
    },
@@ -1736,7 +1748,8 @@
      "id": "publicar_no_site",
      "nome": "Publicar no site",
      "situacao": "concordam",
-     "por": "regra e IA concordam"
+     "por": "regra e IA concordam",
+     "regra_id": "publicar_no_site"
     },
     "dependencias_no_texto": []
    },
@@ -1812,7 +1825,8 @@
      "id": "publicar_no_site",
      "nome": "Publicar no site",
      "situacao": "concordam",
-     "por": "regra e IA concordam"
+     "por": "regra e IA concordam",
+     "regra_id": "publicar_no_site"
     },
     "dependencias_no_texto": []
    },
@@ -1887,7 +1901,8 @@
      "id": "apurar_calcular_indicador",
      "nome": "Apurar ou calcular indicador",
      "situacao": "concordam",
-     "por": "regra e IA concordam"
+     "por": "regra e IA concordam",
+     "regra_id": "apurar_calcular_indicador"
     },
     "dependencias_no_texto": []
    },
@@ -1959,7 +1974,8 @@
      "id": "comunicar_poder_publico_terceiros",
      "nome": "Comunicar Poder Público e terceiros",
      "situacao": "concordam",
-     "por": "regra e IA concordam"
+     "por": "regra e IA concordam",
+     "regra_id": "comunicar_poder_publico_terceiros"
     },
     "dependencias_no_texto": []
    },
@@ -2029,7 +2045,8 @@
      "id": "apurar_calcular_indicador",
      "nome": "Apurar ou calcular indicador",
      "situacao": "concordam",
-     "por": "regra e IA concordam"
+     "por": "regra e IA concordam",
+     "regra_id": "apurar_calcular_indicador"
     },
     "dependencias_no_texto": []
    },
@@ -2106,7 +2123,8 @@
      "id": null,
      "nome": null,
      "situacao": "a_revisar",
-     "por": "regra: sem tipo próprio; IA: Manter registro ou histórico"
+     "por": "regra: sem tipo próprio; IA: Manter registro ou histórico",
+     "regra_id": null
     },
     "dependencias_no_texto": []
    },
@@ -2178,6 +2196,16 @@
     "terceiros"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "sem_tipo",
+     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 132, alínea a"
   },
   {
@@ -2217,6 +2245,16 @@
     "terceiros"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Adequar contrato ou documento; IA: outros",
+     "regra_id": "adequar_contrato_documento"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 132, alínea b"
   },
   {
@@ -2285,6 +2323,16 @@
     "terceiros"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "sem_tipo",
+     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 132, alínea c"
   },
   {
@@ -2353,6 +2401,16 @@
     "terceiros"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "sem_tipo",
+     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 132, alínea d"
   },
   {
@@ -2421,6 +2479,16 @@
     "terceiros"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Manter registro ou histórico",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 132, alínea e"
   },
   {
@@ -2489,6 +2557,16 @@
     "terceiros"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Manter registro ou histórico",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 132, alínea f"
   },
   {
@@ -2557,6 +2635,16 @@
     "terceiros"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Manter registro ou histórico",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 132, alínea g"
   },
   {
@@ -2625,6 +2713,16 @@
     "terceiros"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Manter registro ou histórico",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 132, alínea h"
   },
   {
@@ -2693,6 +2791,16 @@
     "terceiros"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Manter registro ou histórico",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 132, alínea i"
   },
   {
@@ -2765,6 +2873,16 @@
     "terceiros"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Manter registro ou histórico",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 132, alínea j"
   },
   {
@@ -2833,6 +2951,16 @@
     "terceiros"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Manter registro ou histórico",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 132, alínea k"
   },
   {
@@ -2901,6 +3029,16 @@
     "terceiros"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Manter estrutura de atendimento ou contingência; IA: manter_registro_historico",
+     "regra_id": "estrutura_atendimento_contingencia"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 132, alínea l"
   },
   {
@@ -2969,6 +3107,16 @@
     "terceiros"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Articular e coordenar com terceiros; IA: manter_registro_historico",
+     "regra_id": "articular_coordenar_terceiros"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 132, alínea m"
   },
   {
@@ -3030,6 +3178,16 @@
     "terceiros"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Manter estrutura de atendimento ou contingência; IA: estabelecer_criterios_e_papeis",
+     "regra_id": "estrutura_atendimento_contingencia"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 138"
   },
   {
@@ -3067,7 +3225,8 @@
      "id": null,
      "nome": null,
      "situacao": "a_revisar",
-     "por": "regra: sem tipo próprio; IA: Manter registro ou histórico"
+     "por": "regra: sem tipo próprio; IA: Manter registro ou histórico",
+     "regra_id": null
     },
     "dependencias_no_texto": []
    },
@@ -3111,7 +3270,8 @@
      "id": null,
      "nome": null,
      "situacao": "a_revisar",
-     "por": "regra: Apurar ou calcular indicador; IA: restabelecer_ou_compensar"
+     "por": "regra: Apurar ou calcular indicador; IA: restabelecer_ou_compensar",
+     "regra_id": "apurar_calcular_indicador"
     },
     "dependencias_no_texto": []
    },
@@ -3183,7 +3343,8 @@
      "id": "implantar_sistema_processo",
      "nome": "Implantar sistema ou processo",
      "situacao": "concordam",
-     "por": "regra e IA concordam"
+     "por": "regra e IA concordam",
+     "regra_id": "implantar_sistema_processo"
     },
     "dependencias_no_texto": [
      {
@@ -3258,7 +3419,8 @@
      "id": null,
      "nome": null,
      "situacao": "a_revisar",
-     "por": "regra: sem tipo próprio; IA: Implantar sistema ou processo"
+     "por": "regra: sem tipo próprio; IA: Implantar sistema ou processo",
+     "regra_id": null
     },
     "dependencias_no_texto": [
      {
@@ -3340,7 +3502,8 @@
      "id": null,
      "nome": null,
      "situacao": "a_revisar",
-     "por": "regra: Enviar informação à ANEEL; IA: manter_registro_historico"
+     "por": "regra: Enviar informação à ANEEL; IA: manter_registro_historico",
+     "regra_id": "enviar_informacao_aneel"
     },
     "dependencias_no_texto": [
      {
@@ -3428,7 +3591,8 @@
      "id": "elaborar_ou_revisar_plano",
      "nome": "Elaborar ou revisar plano",
      "situacao": "concordam",
-     "por": "regra e IA concordam"
+     "por": "regra e IA concordam",
+     "regra_id": "elaborar_ou_revisar_plano"
     },
     "dependencias_no_texto": []
    },
@@ -3506,7 +3670,8 @@
      "id": null,
      "nome": null,
      "situacao": "a_revisar",
-     "por": "regra: sem tipo próprio; IA: Manter estrutura de atendimento ou contingência"
+     "por": "regra: sem tipo próprio; IA: Manter estrutura de atendimento ou contingência",
+     "regra_id": null
     },
     "dependencias_no_texto": []
    },
@@ -3597,7 +3762,8 @@
      "id": null,
      "nome": null,
      "situacao": "a_revisar",
-     "por": "regra: Elaborar ou revisar plano; IA: publicar_no_site"
+     "por": "regra: Elaborar ou revisar plano; IA: publicar_no_site",
+     "regra_id": "elaborar_ou_revisar_plano"
     },
     "dependencias_no_texto": []
    },
@@ -3685,7 +3851,8 @@
      "id": null,
      "nome": null,
      "situacao": "a_revisar",
-     "por": "regra: Elaborar ou revisar plano; IA: outros"
+     "por": "regra: Elaborar ou revisar plano; IA: outros",
+     "regra_id": "elaborar_ou_revisar_plano"
     },
     "dependencias_no_texto": []
    },
@@ -3764,7 +3931,8 @@
      "id": null,
      "nome": null,
      "situacao": "a_revisar",
-     "por": "regra: Comunicar Poder Público e terceiros; IA: estabelecer_criterios_e_papeis"
+     "por": "regra: Comunicar Poder Público e terceiros; IA: estabelecer_criterios_e_papeis",
+     "regra_id": "comunicar_poder_publico_terceiros"
     },
     "dependencias_no_texto": []
    },
@@ -3844,7 +4012,8 @@
      "id": null,
      "nome": null,
      "situacao": "a_revisar",
-     "por": "regra: Comunicar Poder Público e terceiros; IA: estrutura_atendimento_contingencia"
+     "por": "regra: Comunicar Poder Público e terceiros; IA: estrutura_atendimento_contingencia",
+     "regra_id": "comunicar_poder_publico_terceiros"
     },
     "dependencias_no_texto": []
    },
@@ -3927,7 +4096,8 @@
      "id": "elaborar_ou_revisar_plano",
      "nome": "Elaborar ou revisar plano",
      "situacao": "concordam",
-     "por": "regra e IA concordam"
+     "por": "regra e IA concordam",
+     "regra_id": "elaborar_ou_revisar_plano"
     },
     "dependencias_no_texto": []
    },
@@ -4009,7 +4179,8 @@
      "id": "elaborar_ou_revisar_plano",
      "nome": "Elaborar ou revisar plano",
      "situacao": "concordam",
-     "por": "regra e IA concordam"
+     "por": "regra e IA concordam",
+     "regra_id": "elaborar_ou_revisar_plano"
     },
     "dependencias_no_texto": []
    },
@@ -4091,7 +4262,8 @@
      "id": null,
      "nome": null,
      "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)"
+     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "regra_id": null
     },
     "dependencias_no_texto": []
    },
@@ -4173,7 +4345,8 @@
      "id": null,
      "nome": null,
      "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)"
+     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "regra_id": null
     },
     "dependencias_no_texto": []
    },
@@ -4250,6 +4423,16 @@
     "versoes"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "sem_tipo",
+     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 142, alínea c"
   },
   {
@@ -4324,6 +4507,16 @@
     "versoes"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "sem_tipo",
+     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 142, alínea d"
   },
   {
@@ -4397,6 +4590,16 @@
     "versoes"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Estabelecer critérios, regras ou responsáveis; IA: outros",
+     "regra_id": "estabelecer_criterios_e_papeis"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 142, alínea e"
   },
   {
@@ -4471,6 +4674,16 @@
     "versoes"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "sem_tipo",
+     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 142, alínea f"
   },
   {
@@ -4546,6 +4759,16 @@
     "versoes"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Implantar sistema ou processo",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 143, alínea a"
   },
   {
@@ -4619,6 +4842,16 @@
     "versoes"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Manter estrutura de atendimento ou contingência",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 143, alínea b"
   },
   {
@@ -4692,6 +4925,16 @@
     "versoes"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "estrutura_atendimento_contingencia",
+     "nome": "Manter estrutura de atendimento ou contingência",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "estrutura_atendimento_contingencia"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 143, alínea c"
   },
   {
@@ -4767,6 +5010,16 @@
     "versoes"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Estabelecer critérios, regras ou responsáveis",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 143, alínea d"
   },
   {
@@ -4844,6 +5097,16 @@
     "versoes"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "manter_registro_historico",
+     "nome": "Manter registro ou histórico",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "manter_registro_historico"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 143, alínea e"
   },
   {
@@ -4921,6 +5184,16 @@
     "versoes"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Manter estrutura de atendimento ou contingência; IA: capacitar_equipe",
+     "regra_id": "estrutura_atendimento_contingencia"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 143, alínea f"
   },
   {
@@ -4994,6 +5267,16 @@
     "versoes"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "estrutura_atendimento_contingencia",
+     "nome": "Manter estrutura de atendimento ou contingência",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "estrutura_atendimento_contingencia"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 143, alínea g"
   },
   {
@@ -5068,6 +5351,16 @@
     "versoes"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Estabelecer critérios, regras ou responsáveis; IA: comunicar_poder_publico_terceiros",
+     "regra_id": "estabelecer_criterios_e_papeis"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 143, alínea h"
   },
   {
@@ -5141,6 +5434,16 @@
     "versoes"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "estabelecer_criterios_e_papeis",
+     "nome": "Estabelecer critérios, regras ou responsáveis",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "estabelecer_criterios_e_papeis"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 143, alínea i"
   },
   {
@@ -5210,6 +5513,16 @@
     "protocolos"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Elaborar ou revisar plano; IA: manter_registro_historico",
+     "regra_id": "elaborar_ou_revisar_plano"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 143, alínea j"
   },
   {
@@ -5284,6 +5597,16 @@
     "versoes"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "estabelecer_criterios_e_papeis",
+     "nome": "Estabelecer critérios, regras ou responsáveis",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "estabelecer_criterios_e_papeis"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 143, alínea k"
   },
   {
@@ -5357,6 +5680,16 @@
     "versoes"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Estabelecer critérios, regras ou responsáveis; IA: elaborar_ou_revisar_plano",
+     "regra_id": "estabelecer_criterios_e_papeis"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 144, alínea b"
   },
   {
@@ -5430,6 +5763,16 @@
     "versoes"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "elaborar_ou_revisar_plano",
+     "nome": "Elaborar ou revisar plano",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "elaborar_ou_revisar_plano"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 144, alínea c"
   },
   {
@@ -5505,6 +5848,16 @@
     "versoes"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "estrutura_atendimento_contingencia",
+     "nome": "Manter estrutura de atendimento ou contingência",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "estrutura_atendimento_contingencia"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 144, alínea d"
   },
   {
@@ -5578,6 +5931,16 @@
     "versoes"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "capacitar_equipe",
+     "nome": "Capacitar equipe",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "capacitar_equipe"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 144, alínea e"
   },
   {
@@ -5655,6 +6018,16 @@
     "versoes"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Elaborar ou revisar plano; IA: estrutura_atendimento_contingencia",
+     "regra_id": "elaborar_ou_revisar_plano"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 144, alínea f"
   },
   {
@@ -5728,6 +6101,16 @@
     "versoes"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Elaborar ou revisar plano; IA: manter_registro_historico",
+     "regra_id": "elaborar_ou_revisar_plano"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 144, alínea g"
   },
   {
@@ -5805,6 +6188,16 @@
     "versoes"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "elaborar_ou_revisar_plano",
+     "nome": "Elaborar ou revisar plano",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "elaborar_ou_revisar_plano"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 144, alínea h"
   },
   {
@@ -5879,6 +6272,16 @@
     "versoes"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Manter estrutura de atendimento ou contingência; IA: comunicar_consumidores",
+     "regra_id": "estrutura_atendimento_contingencia"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 144, alínea i"
   },
   {
@@ -5945,6 +6348,16 @@
    "evidencias": [],
    "guardar": [],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Elaborar ou revisar plano; IA: outros",
+     "regra_id": "elaborar_ou_revisar_plano"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 145, alínea a"
   },
   {
@@ -6018,6 +6431,16 @@
     "versoes"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "elaborar_ou_revisar_plano",
+     "nome": "Elaborar ou revisar plano",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "elaborar_ou_revisar_plano"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 146"
   },
   {
@@ -6100,6 +6523,16 @@
     "versoes"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Elaborar ou revisar plano; IA: publicar_no_site",
+     "regra_id": "elaborar_ou_revisar_plano"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 147"
   },
   {
@@ -6173,6 +6606,16 @@
     "versoes"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Elaborar ou revisar plano; IA: manter_registro_historico",
+     "regra_id": "elaborar_ou_revisar_plano"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 148"
   },
   {
@@ -6255,7 +6698,8 @@
      "id": "publicar_no_site",
      "nome": "Publicar no site",
      "situacao": "concordam",
-     "por": "regra e IA concordam"
+     "por": "regra e IA concordam",
+     "regra_id": "publicar_no_site"
     },
     "dependencias_no_texto": []
    },
@@ -6341,7 +6785,8 @@
      "id": "publicar_no_site",
      "nome": "Publicar no site",
      "situacao": "concordam",
-     "por": "regra e IA concordam"
+     "por": "regra e IA concordam",
+     "regra_id": "publicar_no_site"
     },
     "dependencias_no_texto": []
    },
@@ -6429,7 +6874,8 @@
      "id": "enviar_informacao_aneel",
      "nome": "Enviar informação à ANEEL",
      "situacao": "concordam",
-     "por": "regra e IA concordam"
+     "por": "regra e IA concordam",
+     "regra_id": "enviar_informacao_aneel"
     },
     "dependencias_no_texto": []
    },
@@ -6511,6 +6957,16 @@
     "versoes"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "publicar_no_site",
+     "nome": "Publicar no site",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "publicar_no_site"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "Art. 13, Parágrafo único"
   },
   {
@@ -6572,6 +7028,16 @@
     "versoes"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Articular e coordenar com terceiros; IA: adequar_contrato_documento",
+     "regra_id": "articular_coordenar_terceiros"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 95"
   },
   {
@@ -6631,6 +7097,16 @@
    "evidencias": [],
    "guardar": [],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Estabelecer critérios, regras ou responsáveis",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 97"
   },
   {
@@ -6693,6 +7169,16 @@
     "poder_publico"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "inspecionar_executar_manutencao",
+     "nome": "Inspecionar ou executar manutenção",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "inspecionar_executar_manutencao"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 99, alínea a"
   },
   {
@@ -6754,6 +7240,16 @@
     "poder_publico"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "inspecionar_executar_manutencao",
+     "nome": "Inspecionar ou executar manutenção",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "inspecionar_executar_manutencao"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 99, alínea b"
   },
   {
@@ -6816,6 +7312,16 @@
     "poder_publico"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "comunicar_poder_publico_terceiros",
+     "nome": "Comunicar Poder Público e terceiros",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "comunicar_poder_publico_terceiros"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 99, alínea c"
   },
   {
@@ -6882,6 +7388,16 @@
     "versoes"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Articular e coordenar com terceiros",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 99, alínea d"
   },
   {
@@ -6941,6 +7457,16 @@
    "evidencias": [],
    "guardar": [],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Inspecionar ou executar manutenção; IA: manter_registro_historico",
+     "regra_id": "inspecionar_executar_manutencao"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 100"
   },
   {
@@ -7000,6 +7526,16 @@
    "evidencias": [],
    "guardar": [],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Inspecionar ou executar manutenção; IA: manter_registro_historico",
+     "regra_id": "inspecionar_executar_manutencao"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 101, alínea a"
   },
   {
@@ -7061,6 +7597,16 @@
     "poder_publico"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Manter registro ou histórico",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 101, alínea b"
   },
   {
@@ -7120,6 +7666,16 @@
    "evidencias": [],
    "guardar": [],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Manter registro ou histórico",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 101, alínea c"
   },
   {
@@ -7179,6 +7735,16 @@
    "evidencias": [],
    "guardar": [],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "sem_tipo",
+     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 101, alínea d"
   },
   {
@@ -7238,6 +7804,16 @@
    "evidencias": [],
    "guardar": [],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "sem_tipo",
+     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 101, alínea e"
   },
   {
@@ -7297,6 +7873,16 @@
    "evidencias": [],
    "guardar": [],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "sem_tipo",
+     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 101, alínea f"
   },
   {
@@ -7359,6 +7945,16 @@
     "poder_publico"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Comunicar Poder Público e terceiros; IA: outros",
+     "regra_id": "comunicar_poder_publico_terceiros"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 101, alínea g"
   },
   {
@@ -7429,6 +8025,16 @@
     "indisponibilidade"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Publicar no site",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 102"
   },
   {
@@ -7496,6 +8102,16 @@
     "poder_publico"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "manter_registro_historico",
+     "nome": "Manter registro ou histórico",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "manter_registro_historico"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 104"
   },
   {
@@ -7558,6 +8174,16 @@
     "protocolos"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "comunicar_consumidores",
+     "nome": "Comunicar consumidores",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "comunicar_consumidores"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 105"
   },
   {
@@ -7624,6 +8250,16 @@
     "indisponibilidade"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "publicar_no_site",
+     "nome": "Publicar no site",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "publicar_no_site"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 106"
   },
   {
@@ -7683,6 +8319,16 @@
    "evidencias": [],
    "guardar": [],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "publicar_no_site",
+     "nome": "Publicar no site",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "publicar_no_site"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 106"
   },
   {
@@ -7750,6 +8396,16 @@
     "protocolos"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "sem_tipo",
+     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 107, alínea a"
   },
   {
@@ -7817,6 +8473,16 @@
     "protocolos"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "sem_tipo",
+     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 107, alínea b"
   },
   {
@@ -7884,6 +8550,16 @@
     "protocolos"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "sem_tipo",
+     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 107, alínea c"
   },
   {
@@ -7951,6 +8627,16 @@
     "protocolos"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "sem_tipo",
+     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 107, alínea d"
   },
   {
@@ -8018,6 +8704,16 @@
     "protocolos"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "sem_tipo",
+     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 107, alínea e"
   },
   {
@@ -8085,6 +8781,16 @@
     "protocolos"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "sem_tipo",
+     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 107, alínea f"
   },
   {
@@ -8152,6 +8858,16 @@
     "protocolos"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "sem_tipo",
+     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 107, alínea g"
   },
   {
@@ -8219,6 +8935,16 @@
     "protocolos"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "sem_tipo",
+     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 107, alínea h"
   },
   {
@@ -8286,6 +9012,16 @@
     "protocolos"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "sem_tipo",
+     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 107, alínea i"
   },
   {
@@ -8353,6 +9089,16 @@
     "protocolos"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "sem_tipo",
+     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 107, alínea j"
   },
   {
@@ -8429,6 +9175,16 @@
     "versoes"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Elaborar ou revisar plano; IA: publicar_no_site",
+     "regra_id": "elaborar_ou_revisar_plano"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 108"
   },
   {
@@ -8490,6 +9246,16 @@
     "protocolos"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "sem_tipo",
+     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 109, alínea a"
   },
   {
@@ -8551,6 +9317,16 @@
     "protocolos"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "sem_tipo",
+     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 109, alínea b"
   },
   {
@@ -8612,6 +9388,16 @@
     "protocolos"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "sem_tipo",
+     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 109, alínea c"
   },
   {
@@ -8673,6 +9459,16 @@
     "protocolos"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "sem_tipo",
+     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 109, alínea d"
   },
   {
@@ -8740,6 +9536,16 @@
     "protocolos"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "comunicar_consumidores",
+     "nome": "Comunicar consumidores",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "comunicar_consumidores"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 110"
   },
   {
@@ -8801,6 +9607,16 @@
     "protocolos"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "comunicar_consumidores",
+     "nome": "Comunicar consumidores",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "comunicar_consumidores"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 112"
   },
   {
@@ -8868,7 +9684,8 @@
      "id": null,
      "nome": null,
      "situacao": "a_revisar",
-     "por": "regra: sem tipo próprio; IA: Enviar informação à ANEEL"
+     "por": "regra: sem tipo próprio; IA: Enviar informação à ANEEL",
+     "regra_id": null
     },
     "dependencias_no_texto": [
      {
@@ -8939,6 +9756,16 @@
     "emergencia"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Articular e coordenar com terceiros; IA: outros",
+     "regra_id": "articular_coordenar_terceiros"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 116"
   },
   {
@@ -9003,6 +9830,16 @@
     "emergencia"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "comunicar_poder_publico_terceiros",
+     "nome": "Comunicar Poder Público e terceiros",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "comunicar_poder_publico_terceiros"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 117"
   },
   {
@@ -9066,6 +9903,16 @@
     "emergencia"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Elaborar ou revisar plano; IA: estabelecer_criterios_e_papeis",
+     "regra_id": "elaborar_ou_revisar_plano"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 119"
   },
   {
@@ -9127,6 +9974,16 @@
     "terceiros"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Estabelecer critérios, regras ou responsáveis",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 126"
   },
   {
@@ -9159,6 +10016,16 @@
     "terceiros"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Estabelecer critérios, regras ou responsáveis",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 127"
   },
   {
@@ -9231,7 +10098,8 @@
      "id": null,
      "nome": null,
      "situacao": "a_revisar",
-     "por": "regra: sem tipo próprio; IA: Manter registro ou histórico"
+     "por": "regra: sem tipo próprio; IA: Manter registro ou histórico",
+     "regra_id": null
     },
     "dependencias_no_texto": []
    },
@@ -9296,6 +10164,16 @@
     "terceiros"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Adequar contrato ou documento; IA: elaborar_ou_revisar_plano",
+     "regra_id": "adequar_contrato_documento"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 133, alínea c"
   },
   {
@@ -9357,6 +10235,16 @@
     "terceiros"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Estabelecer critérios, regras ou responsáveis",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 133, alínea d"
   },
   {
@@ -9418,6 +10306,16 @@
     "terceiros"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Manter estrutura de atendimento ou contingência; IA: estabelecer_criterios_e_papeis",
+     "regra_id": "estrutura_atendimento_contingencia"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 133, alínea e"
   },
   {
@@ -9484,6 +10382,16 @@
     "terceiros"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Manter estrutura de atendimento ou contingência; IA: implantar_sistema_processo",
+     "regra_id": "estrutura_atendimento_contingencia"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 133, alínea f"
   },
   {
@@ -9545,6 +10453,16 @@
     "terceiros"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Capacitar equipe; IA: estabelecer_criterios_e_papeis",
+     "regra_id": "capacitar_equipe"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 133, alínea g"
   },
   {
@@ -9604,6 +10522,16 @@
    "evidencias": [],
    "guardar": [],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Estabelecer critérios, regras ou responsáveis",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 134, alínea a"
   },
   {
@@ -9663,6 +10591,16 @@
    "evidencias": [],
    "guardar": [],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Estabelecer critérios, regras ou responsáveis",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 134, alínea b"
   },
   {
@@ -9724,6 +10662,16 @@
     "terceiros"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Estabelecer critérios, regras ou responsáveis",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 134, alínea c"
   },
   {
@@ -9785,6 +10733,16 @@
     "terceiros"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Estabelecer critérios, regras ou responsáveis",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 134, alínea d"
   },
   {
@@ -9849,7 +10807,8 @@
      "id": "capacitar_equipe",
      "nome": "Capacitar equipe",
      "situacao": "concordam",
-     "por": "regra e IA concordam"
+     "por": "regra e IA concordam",
+     "regra_id": "capacitar_equipe"
     },
     "dependencias_no_texto": []
    },
@@ -9919,7 +10878,8 @@
      "id": "estrutura_atendimento_contingencia",
      "nome": "Manter estrutura de atendimento ou contingência",
      "situacao": "concordam",
-     "por": "regra e IA concordam"
+     "por": "regra e IA concordam",
+     "regra_id": "estrutura_atendimento_contingencia"
     },
     "dependencias_no_texto": []
    },
@@ -9982,6 +10942,16 @@
    "evidencias": [],
    "guardar": [],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Manter estrutura de atendimento ou contingência; IA: estabelecer_criterios_e_papeis",
+     "regra_id": "estrutura_atendimento_contingencia"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 139, alínea c"
   },
   {
@@ -10048,6 +11018,16 @@
     "versoes"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Manter estrutura de atendimento ou contingência; IA: outros",
+     "regra_id": "estrutura_atendimento_contingencia"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 142, alínea g"
   },
   {
@@ -10107,6 +11087,16 @@
    "evidencias": [],
    "guardar": [],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Elaborar ou revisar plano",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 144, alínea a"
   },
   {
@@ -10166,6 +11156,16 @@
    "evidencias": [],
    "guardar": [],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "capacitar_equipe",
+     "nome": "Capacitar equipe",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "capacitar_equipe"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 145"
   },
   {
@@ -10227,6 +11227,16 @@
     "poder_publico"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Capacitar equipe",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 145, alínea b"
   },
   {
@@ -10300,7 +11310,8 @@
      "id": "enviar_informacao_aneel",
      "nome": "Enviar informação à ANEEL",
      "situacao": "concordam",
-     "por": "regra e IA concordam"
+     "por": "regra e IA concordam",
+     "regra_id": "enviar_informacao_aneel"
     },
     "dependencias_no_texto": []
    },
@@ -10366,6 +11377,16 @@
     "emergencia"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "comunicar_consumidores",
+     "nome": "Comunicar consumidores",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "comunicar_consumidores"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 23-B"
   },
   {
@@ -10425,6 +11446,16 @@
    "evidencias": [],
    "guardar": [],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Comunicar consumidores",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 23-C"
   },
   {
@@ -10492,6 +11523,16 @@
     "protocolos"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "publicar_no_site",
+     "nome": "Publicar no site",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "publicar_no_site"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 23-D"
   },
   {
@@ -10562,6 +11603,16 @@
     "indisponibilidade"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "publicar_no_site",
+     "nome": "Publicar no site",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "publicar_no_site"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 23-E"
   },
   {
@@ -10710,6 +11761,16 @@
     "indisponibilidade"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "publicar_no_site",
+     "nome": "Publicar no site",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "publicar_no_site"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 23-I"
   },
   {
@@ -10777,6 +11838,16 @@
     "aneel"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Implantar sistema ou processo",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 23-K"
   },
   {
@@ -10841,6 +11912,16 @@
     "emergencia"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "comunicar_poder_publico_terceiros",
+     "nome": "Comunicar Poder Público e terceiros",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "comunicar_poder_publico_terceiros"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 23-L"
   },
   {
@@ -10900,6 +11981,16 @@
    "evidencias": [],
    "guardar": [],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "apurar_calcular_indicador",
+     "nome": "Apurar ou calcular indicador",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "apurar_calcular_indicador"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 180-A"
   },
   {
@@ -10942,7 +12033,8 @@
      "id": "restabelecer_ou_compensar",
      "nome": "Restabelecer fornecimento ou compensar",
      "situacao": "concordam",
-     "por": "regra e IA concordam"
+     "por": "regra e IA concordam",
+     "regra_id": "restabelecer_ou_compensar"
     },
     "dependencias_no_texto": []
    },
@@ -11017,6 +12109,16 @@
     "terceiros"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Estabelecer critérios, regras ou responsáveis; IA: adequar_contrato_documento",
+     "regra_id": "estabelecer_criterios_e_papeis"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 226"
   },
   {
@@ -11081,6 +12183,16 @@
    ],
    "guardar": [],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "restabelecer_ou_compensar",
+     "nome": "Restabelecer fornecimento ou compensar",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "restabelecer_ou_compensar"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "item 227, alínea d"
   },
   {
@@ -11143,6 +12255,16 @@
     "protocolos"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Comunicar Poder Público e terceiros; IA: estrutura_atendimento_contingencia",
+     "regra_id": "comunicar_poder_publico_terceiros"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "Art. 371-A"
   },
   {
@@ -11204,6 +12326,16 @@
     "indisponibilidade"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "sem_tipo",
+     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "Art. 371-A, § 1º, inciso I"
   },
   {
@@ -11265,6 +12397,16 @@
     "indisponibilidade"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "sem_tipo",
+     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "Art. 371-A, § 1º, inciso II"
   },
   {
@@ -11327,6 +12469,16 @@
     "protocolos"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "sem_tipo",
+     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "Art. 371-A, § 1º, inciso III"
   },
   {
@@ -11388,6 +12540,16 @@
     "protocolos"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Comunicar Poder Público e terceiros; IA: estabelecer_criterios_e_papeis",
+     "regra_id": "comunicar_poder_publico_terceiros"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "Art. 371-A, § 3º"
   },
   {
@@ -11447,6 +12609,16 @@
    "evidencias": [],
    "guardar": [],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Comunicar Poder Público e terceiros",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "Art. 371-A, § 4º"
   },
   {
@@ -11509,6 +12681,16 @@
     "emergencia"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "estrutura_atendimento_contingencia",
+     "nome": "Manter estrutura de atendimento ou contingência",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "estrutura_atendimento_contingencia"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "Art. 371-A, § 5º"
   },
   {
@@ -11568,6 +12750,16 @@
    "evidencias": [],
    "guardar": [],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Manter estrutura de atendimento ou contingência; IA: implantar_sistema_processo",
+     "regra_id": "estrutura_atendimento_contingencia"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "Art. 371-A, § 6º"
   },
   {
@@ -11630,6 +12822,16 @@
     "protocolos"
    ],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "comunicar_poder_publico_terceiros",
+     "nome": "Comunicar Poder Público e terceiros",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "comunicar_poder_publico_terceiros"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "Art. 371-A, § 7º"
   },
   {
@@ -11660,6 +12862,16 @@
    "evidencias": [],
    "guardar": [],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "estabelecer_criterios_e_papeis",
+     "nome": "Estabelecer critérios, regras ou responsáveis",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "estabelecer_criterios_e_papeis"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "Art. 10, § 2º"
   },
   {
@@ -11719,6 +12931,16 @@
    "evidencias": [],
    "guardar": [],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Adequar contrato ou documento",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "Art. 10, §3º"
   },
   {
@@ -11778,6 +13000,16 @@
    "evidencias": [],
    "guardar": [],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Manter estrutura de atendimento ou contingência; IA: adequar_contrato_documento",
+     "regra_id": "estrutura_atendimento_contingencia"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "Art. 19, inciso XIII, alínea c"
   },
   {
@@ -11808,6 +13040,16 @@
    "evidencias": [],
    "guardar": [],
    "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "implantar_sistema_processo",
+     "nome": "Implantar sistema ou processo",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "implantar_sistema_processo"
+    },
+    "dependencias_no_texto": []
+   },
    "dispositivo": "Art. 18"
   }
  ],
@@ -12490,6 +13732,50 @@
   ],
   "causa_externa": "argumento a confirmar com advogado"
  },
+ "escala_de_gravidade": {
+  "limite_grupo_I": {
+   "dispositivo": "Art. 8º, I",
+   "trecho": "I - Grupo I: até 0,125% (cento e vinte e cinco milésimos por cento);",
+   "percentual": 0.125,
+   "fonte": "REN 846/2019 (texto compilado oficial até a RN 1.137/2025)",
+   "sha256": "efe4e35fb41aa1306846677ffc32a0c2a150ee6ac44aafe5f15e475e6ad05ad9"
+  },
+  "limite_grupo_II": {
+   "dispositivo": "Art. 8º, II",
+   "trecho": "II - Grupo II: até 0,25% (vinte e cinco centésimos por cento);",
+   "percentual": 0.25,
+   "fonte": "REN 846/2019 (texto compilado oficial até a RN 1.137/2025)",
+   "sha256": "efe4e35fb41aa1306846677ffc32a0c2a150ee6ac44aafe5f15e475e6ad05ad9"
+  },
+  "limite_grupo_III": {
+   "dispositivo": "Art. 8º, III",
+   "trecho": "III - Grupo III: até 0,5% (cinco décimos por cento);",
+   "percentual": 0.5,
+   "fonte": "REN 846/2019 (texto compilado oficial até a RN 1.137/2025)",
+   "sha256": "efe4e35fb41aa1306846677ffc32a0c2a150ee6ac44aafe5f15e475e6ad05ad9"
+  },
+  "limite_grupo_IV": {
+   "dispositivo": "Art. 8º, IV",
+   "trecho": "IV - Grupo IV: até 1% (um por cento); e",
+   "percentual": 1.0,
+   "fonte": "REN 846/2019 (texto compilado oficial até a RN 1.137/2025)",
+   "sha256": "efe4e35fb41aa1306846677ffc32a0c2a150ee6ac44aafe5f15e475e6ad05ad9"
+  },
+  "limite_grupo_V": {
+   "dispositivo": "Art. 8º, V",
+   "trecho": "V - Grupo V: até 2% (dois por cento).",
+   "percentual": 2.0,
+   "fonte": "REN 846/2019 (texto compilado oficial até a RN 1.137/2025)",
+   "sha256": "efe4e35fb41aa1306846677ffc32a0c2a150ee6ac44aafe5f15e475e6ad05ad9"
+  },
+  "teto_legal_lei": {
+   "dispositivo": "Art. 3, X da Lei 9.427/1996",
+   "trecho": "X - fixar as multas administrativas a serem impostas aos concessionários, permissionários e autorizados de instalações e serviços de energia elétrica, observado o limite, por infração, de 3% (três por cento) do faturamento, ou do valor estimado da energia produzida e consumida nos casos de autoprodução, produção independente e unidades consumidoras autorizadas, correspondente aos últimos 12 (doze) meses anteriores à lavratura do auto de infração ou estimados para um período de 12 (doze) meses caso o infrator não esteja em operação ou esteja operando por um período inferior a 12 (doze) meses;",
+   "percentual": 3.0,
+   "fonte": "Lei 9.427/1996 (texto compilado)",
+   "sha256": "ff948e3442edc619d98a3256fc6988a7c3d0dc21b27e25444a56a701082ac91b"
+  }
+ },
  "guardar": {
   "indisponibilidade": "Registro de indisponibilidade de sistemas e canais (próprios ou de terceiros), com início, fim, causa e chamado aberto ao fornecedor",
   "protocolos": "Protocolos de envio e de recebimento das comunicações, com data, hora e número",
@@ -12549,6 +13835,36 @@
     ],
     "status": "rascunho — revisar"
    },
+   "articular_coordenar_terceiros": {
+    "nome": "Articular e coordenar com terceiros",
+    "ideias_cumprimento": [
+     "Formalizar o combinado com os envolvidos (acordo, ata, protocolo de atuação).",
+     "Definir responsáveis, canais e gatilhos de acionamento de cada parte.",
+     "Fazer exercícios conjuntos antes de a necessidade surgir.",
+     "Registrar as reuniões e os encaminhamentos."
+    ],
+    "evidencias": [
+     "Acordo, convênio ou ata assinada.",
+     "Lista de contatos e papéis de cada parte.",
+     "Registro das reuniões e das ações combinadas."
+    ],
+    "status": "rascunho — revisar"
+   },
+   "inspecionar_executar_manutencao": {
+    "nome": "Inspecionar ou executar manutenção",
+    "ideias_cumprimento": [
+     "Definir critérios de priorização por risco e calendário de inspeção.",
+     "Registrar cada inspeção ou serviço com local, data, responsável e fotos.",
+     "Registrar o pedido de autorização, quando a atividade a exigir de terceiros, antes de executar.",
+     "Acompanhar pendências até a conclusão."
+    ],
+    "evidencias": [
+     "Ordens de serviço com data, local e responsável.",
+     "Fotos georreferenciadas antes e depois.",
+     "Protocolos de pedidos de autorização e respostas."
+    ],
+    "status": "rascunho — revisar"
+   },
    "comunicar_poder_publico_terceiros": {
     "nome": "Comunicar Poder Público e terceiros",
     "ideias_cumprimento": [
@@ -12564,18 +13880,48 @@
     ],
     "status": "rascunho — revisar"
    },
-   "enviar_informacao_aneel": {
-    "nome": "Enviar informação à ANEEL",
+   "manter_registro_historico": {
+    "nome": "Manter registro ou histórico",
     "ideias_cumprimento": [
-     "Montar calendário interno com antecedência sobre o prazo de cada envio.",
-     "Definir quem prepara, quem confere e quem envia.",
-     "Enviar com folga e guardar o protocolo do sistema da ANEEL.",
-     "Ter plano alternativo se o sistema estiver indisponível (registro da tentativa e contato formal)."
+     "Definir o que registrar, em que sistema, por quanto tempo e quem pode alterar.",
+     "Registrar no momento do fato, com data e hora automáticas.",
+     "Proteger o registro contra edição posterior (trilha de auditoria).",
+     "Testar a recuperação do registro para uma fiscalização."
     ],
     "evidencias": [
-     "Protocolo do envio gerado pelo sistema da ANEEL.",
-     "Arquivo enviado e conferência interna.",
-     "Registro de indisponibilidade do sistema, se houver (captura de tela com data e hora)."
+     "Exportação do registro com período e filtros usados.",
+     "Política de retenção e controle de acesso.",
+     "Trilha de auditoria do sistema."
+    ],
+    "status": "rascunho — revisar"
+   },
+   "estrutura_atendimento_contingencia": {
+    "nome": "Manter estrutura de atendimento ou contingência",
+    "ideias_cumprimento": [
+     "Dimensionar equipes, equipamentos e canais para o pior cenário que a norma prevê.",
+     "Definir escalas de plantão e regras de mobilização.",
+     "Manter inventário de recursos e contratos de apoio.",
+     "Revisar o dimensionamento após cada evento real."
+    ],
+    "evidencias": [
+     "Escalas e registros de mobilização.",
+     "Inventário de recursos e contratos de apoio vigentes.",
+     "Relatório pós-evento com o que foi acionado."
+    ],
+    "status": "rascunho — revisar"
+   },
+   "estabelecer_criterios_e_papeis": {
+    "nome": "Estabelecer critérios, regras ou responsáveis",
+    "ideias_cumprimento": [
+     "Transformar a norma em regra interna escrita, com responsável por cada decisão.",
+     "Definir quem aprova exceções e como são registradas.",
+     "Dar ciência formal às áreas envolvidas.",
+     "Revisar a regra quando a norma mudar."
+    ],
+    "evidencias": [
+     "Norma interna aprovada, com data e versão.",
+     "Registro de ciência das áreas.",
+     "Registro das exceções aprovadas."
     ],
     "status": "rascunho — revisar"
    },
@@ -12594,18 +13940,33 @@
     ],
     "status": "rascunho — revisar"
    },
-   "estrutura_atendimento_contingencia": {
-    "nome": "Manter estrutura de atendimento ou contingência",
+   "enviar_informacao_aneel": {
+    "nome": "Enviar informação à ANEEL",
     "ideias_cumprimento": [
-     "Dimensionar equipes, equipamentos e canais para o pior cenário que a norma prevê.",
-     "Definir escalas de plantão e regras de mobilização.",
-     "Manter inventário de recursos e contratos de apoio.",
-     "Revisar o dimensionamento após cada evento real."
+     "Montar calendário interno com antecedência sobre o prazo de cada envio.",
+     "Definir quem prepara, quem confere e quem envia.",
+     "Enviar com folga e guardar o protocolo do sistema da ANEEL.",
+     "Ter plano alternativo se o sistema estiver indisponível (registro da tentativa e contato formal)."
     ],
     "evidencias": [
-     "Escalas e registros de mobilização.",
-     "Inventário de recursos e contratos de apoio vigentes.",
-     "Relatório pós-evento com o que foi acionado."
+     "Protocolo do envio gerado pelo sistema da ANEEL.",
+     "Arquivo enviado e conferência interna.",
+     "Registro de indisponibilidade do sistema, se houver (captura de tela com data e hora)."
+    ],
+    "status": "rascunho — revisar"
+   },
+   "adequar_contrato_documento": {
+    "nome": "Adequar contrato ou documento",
+    "ideias_cumprimento": [
+     "Listar os itens que a norma manda constar e conferir cláusula por cláusula.",
+     "Usar modelo padrão revisado pelo jurídico.",
+     "Controlar a data de adequação de cada contrato existente.",
+     "Guardar a versão assinada e a anterior."
+    ],
+    "evidencias": [
+     "Contrato ou aditivo assinado, com data.",
+     "Matriz de aderência entre a norma e as cláusulas.",
+     "Registro de revisão pelo jurídico."
     ],
     "status": "rascunho — revisar"
    },

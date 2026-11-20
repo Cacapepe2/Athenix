@@ -1,7 +1,9 @@
-"""Gera landing/src/content/plano-rn1137.json: o plano de ação da RN 1.137/2025 para a demo do site.
+"""Gera o plano de ação de uma norma para a demo do site (por padrão, a RN 1.137/2025).
 
 Uso:
-  python scripts/exportar_plano_demo.py                  # plano com o perfil ilustrativo
+  python scripts/exportar_plano_demo.py                  # plano da RN 1.137 com o perfil ilustrativo
+  python -m athenix processar <arquivo> --agente distribuidora --saida landing/src/content/plano-x.json
+      # comando único: do arquivo oficial da norma (PDF ou HTML do DOU) ao JSON do plano
   python scripts/exportar_plano_demo.py --importar-ia artifacts/revisao-ensaio
       # recria athenix/data/ia_cache_rn1137.json a partir do cache local do ensaio (sem rede)
 
@@ -33,15 +35,44 @@ from athenix.normalizacao import espacos  # noqa: E402
 import extrair_parametros as ep  # noqa: E402
 from exportar_demo_site import rotulo  # noqa: E402
 
+DATA = ROOT / "athenix" / "data"
+
 SAIDA = ROOT / "landing" / "src" / "content" / "plano-rn1137.json"
+NORMA_PADRAO = ROOT / "tests" / "norma_poc" / "ren20251137.pdf"
+NORMAS = json.loads((ROOT / "athenix" / "data" / "normas_plano.json").read_text(encoding="utf-8"))[
+    "normas"
+]
+SEGMENTOS = {"distribuidora": "distribuicao", "transmissora": "transmissao"}
+
+
+def config_da_norma(arquivo):
+    """Registro da norma pelo nome do arquivo (sem extensão); norma desconhecida: só o título e o hash."""
+    chave = Path(arquivo).stem
+    return NORMAS.get(chave) or {
+        "titulo": chave,
+        "url": None,
+        "fonte": None,
+        "origem": str(arquivo),
+    }
+
+
 SITUACAO_PRINCIPAL = "principal não condicional e não genérica"
 
 
-def processar():
-    """RN 1.137 processada por regras num banco descartável: (linhas, unidades, parâmetros)."""
+def processar(arquivo=None):
+    """Norma (por padrão, a RN 1.137) processada por regras num banco descartável: (linhas, extração,
+    parâmetros). `arquivo` é o PDF ou HTML oficial; sem IA, sem rede."""
+    arquivo = Path(arquivo or NORMA_PADRAO)
+    cfg = config_da_norma(arquivo)
     with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as tmp:
         settings = Settings(model="", api_key="", ai_mode="off")
-        senha = preparar(settings, banco=Path(tmp) / "demo.db")
+        senha = preparar(
+            settings,
+            banco=Path(tmp) / "demo.db",
+            norma=arquivo,
+            titulo=cfg["titulo"],
+            origem=cfg["origem"],
+        )
         with TestClient(create_app(settings)) as client:
             client.post("/api/login", json={"username": USUARIO, "password": senha})
             rows = client.get("/api/obligations").json()["items"]
@@ -49,10 +80,18 @@ def processar():
     return rows, doc["extraction"], impacto.carregar()
 
 
-def avaliar(rows, params, base, data_referencia, faturamento=None, atenuante="nenhuma"):
+def avaliar(
+    rows,
+    params,
+    base,
+    data_referencia,
+    faturamento=None,
+    atenuante="nenhuma",
+    segmento="distribuicao",
+):
     """impacto.avaliar para uma distribuidora. Com atenuante, o valor base vai ao teto do grupo
     (fração 100%, pior caso) para o motor aplicar o atenuante sobre ele."""
-    form = {"segmento": "distribuicao", "base": "" if base is None else str(base)}
+    form = {"segmento": segmento, "base": "" if base is None else str(base)}
     form |= {"data_referencia": data_referencia, "faturamento": faturamento or ""}
     if atenuante != "nenhuma":
         form |= {"atenuante": atenuante, "fracao_valor_base": "100"}
@@ -60,24 +99,34 @@ def avaliar(rows, params, base, data_referencia, faturamento=None, atenuante="ne
     return impacto.avaliar(params, rows, p), p
 
 
-def montar(base, data_referencia, faturamento=None, processado=None):
-    """Plano para uma distribuidora com a base informada (None = em branco)."""
-    rows, extraction, params = processado or processar()
+def montar(
+    base, data_referencia, faturamento=None, processado=None, arquivo=None, segmento="distribuicao"
+):
+    """Plano de uma norma para um agente com a base informada (None = em branco)."""
+    rows, extraction, params = processado or processar(arquivo)
     units = extraction["units"]
-    resultado, p = avaliar(rows, params, base, data_referencia, faturamento)
+    cfg_norma = config_da_norma(arquivo or NORMA_PADRAO)
+    resultado, p = avaliar(rows, params, base, data_referencia, faturamento, segmento=segmento)
     cenarios = {
-        a: avaliar(rows, params, base, data_referencia, faturamento, a)[0]
+        a: avaliar(rows, params, base, data_referencia, faturamento, a, segmento)[0]
         for a in impacto.ATENUANTES
         if a != "nenhuma"
     }
+    tema_por_unidade = None
+    if cfg_norma.get("temas"):
+        cfg_temas = plano.carregar_temas(DATA / cfg_norma["temas"])
+    else:  # norma sem arquivo de temas: um tema por capítulo
+        cfg_temas, tema_por_unidade = plano.temas_automaticos(units, plano.carregar_temas())
+    ia = plano.carregar_ia(DATA / cfg_norma["ia"]) if cfg_norma.get("ia") else None
     out = plano.montar(
         resultado,
         units,
         params,
         p,
-        plano.carregar_temas(),
-        plano.carregar_ia(),
+        cfg_temas,
+        ia,
         cenarios=cenarios,
+        tema_por_unidade=tema_por_unidade,
     )
     out["analise"] = analise.montar(out, rows, extraction)
     by_id = {u["id"]: u for u in units}
@@ -129,7 +178,7 @@ def importar_ia(pasta):
     )
 
 
-def simulador(demo, processado):
+def simulador(demo, processado, arquivo=None, segmento="distribuicao"):
     """Faixas de porte do perfil ilustrativo e casos de conferência do motor Python: o simulador do
     site (landing/src/content/plano.ts) refaz a conta no navegador e o teste compara com estes."""
     casos = []
@@ -137,14 +186,17 @@ def simulador(demo, processado):
         (demo["base"], str(int(demo["base"]) // 10))
     ]:
         # O último caso (faturamento menor que a base) é artificial: força o teto legal a limitar.
-        out, _, _ = montar(base, demo["data_referencia"], fat, processado)
-        o = next(o for o in out["obrigacoes"] if o["faixa"])
+        out, _, _ = montar(base, demo["data_referencia"], fat, processado, arquivo, segmento)
+        o = next((o for o in out["obrigacoes"] if o["faixa"] or o["faixa_preliminar"]), None)
+        if o is None:  # norma sem nenhuma faixa calculável: nada a conferir
+            continue
+        f = o["faixa"] or o["faixa_preliminar"]
         casos.append({
             "base": float(base),
             "faturamento": float(fat) if fat else None,
             "obrigacao": o["id"],
-            "maximo_reais": o["faixa"]["maximo_reais"]["com_teto"],
-            "com_atenuante_reais": o["faixa"]["com_atenuante_reais"],
+            "maximo_reais": f["maximo_reais"]["com_teto"],
+            "com_atenuante_reais": f["com_atenuante_reais"],
         })  # fmt: skip
     faixas = [f | {"base": float(f["base"])} for f in demo["faixas_porte"]]
     return {"faixas": faixas, "origem_faixas": demo["origem_faixas"], "conferencia": casos}
@@ -232,12 +284,20 @@ def sucessao_no_tempo(params, cache):
     }
 
 
-def gerar(data=None, commit=None):
+def gerar(data=None, commit=None, arquivo=None, segmento="distribuicao"):
     """Monta o JSON da demo. `data` e `commit` são entradas controláveis (a reprodutibilidade compara o
     resto, sem estes dois metadados); por padrão, hoje e o HEAD do git."""
+    arquivo = Path(arquivo or NORMA_PADRAO)
+    cfg_norma = config_da_norma(arquivo)
     demo = impacto.perfil_ilustrativo()
-    processado = processar()
-    out, params, p = montar(demo["base"], demo["data_referencia"], processado=processado)
+    processado = processar(arquivo)
+    out, params, p = montar(
+        demo["base"],
+        demo["data_referencia"],
+        processado=processado,
+        arquivo=arquivo,
+        segmento=segmento,
+    )
     cache = proveniencia(out, params)
     out["sucessao_no_tempo"] = [sucessao_no_tempo(params, cache)]
     ia = plano.carregar_ia()
@@ -247,17 +307,20 @@ def gerar(data=None, commit=None):
             ["git", "rev-parse", "--short", "HEAD"], cwd=ROOT, capture_output=True, text=True
         ).stdout.strip()
     )
-    fonte = params["fontes"]["1137"]
+    fonte = params["fontes"].get(cfg_norma.get("fonte") or "")
     dados = {
         "gerado_por": "scripts/exportar_plano_demo.py",
         "commit_origem": commit,
         "gerado_em": data or date.today().isoformat(),
         "aviso": impacto.AVISO,
         "norma": {
-            "titulo": "RN ANEEL 1.137/2025",
-            "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
-            "sha256": fonte["sha256"],
-            "vigencia": fonte["vigencia"],
+            "titulo": cfg_norma["titulo"],
+            "url": cfg_norma.get("url"),
+            "data_rotulo": cfg_norma.get("data_rotulo", "em vigor desde"),
+            "sha256": fonte["sha256"]
+            if fonte
+            else hashlib.sha256(arquivo.read_bytes()).hexdigest(),
+            "vigencia": fonte["vigencia"] if fonte else _vigencia(processado[1]),
         },
         "perfil": {
             "rotulo": demo["rotulo"],
@@ -273,10 +336,18 @@ def gerar(data=None, commit=None):
         if ia
         else None,  # fmt: skip
         "referencia_escala": analise.referencia_escala(),
-        "simulador": simulador(demo, processado),
+        "simulador": simulador(demo, processado, arquivo, segmento),
         **out,
     }
     return dados, out
+
+
+def _vigencia(extraction):
+    """Data de publicação/vigência lida do texto, para norma fora do registro."""
+    datas = sorted(
+        d["date"] for d in extraction["dates"] if d["kind"] in {"effective", "publication"}
+    )
+    return datas[-1] if datas else None
 
 
 def diferencas(a, b, caminho="", limite=10):
@@ -320,8 +391,8 @@ def verificar(saida, dados):
     return 0
 
 
-def main(saida, data=None, commit=None, checar=False):
-    dados, out = gerar(data, commit)
+def main(saida, data=None, commit=None, checar=False, arquivo=None, segmento="distribuicao"):
+    dados, out = gerar(data, commit, arquivo, segmento)
     if checar:
         return verificar(saida, dados)
     Path(saida).write_text(
@@ -335,6 +406,50 @@ def main(saida, data=None, commit=None, checar=False):
     return 0
 
 
+def processar_norma(arquivo, agente, saida, data=None, commit=None):
+    """Comando único (python -m athenix processar): do arquivo oficial da norma ao JSON do plano, com
+    um resumo legível no terminal. Devolve o código de saída."""
+    import time
+    import warnings
+
+    warnings.filterwarnings("ignore")
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")  # saída legível também quando redirecionada
+    t0 = time.perf_counter()
+    arquivo = Path(arquivo)
+    if not arquivo.exists():
+        print(f"Arquivo não encontrado: {arquivo}")
+        return 2
+    segmento = SEGMENTOS[agente]
+    cfg = config_da_norma(arquivo)
+    print(f"Athenix · processar {arquivo.name} para {agente}")
+    print(f"  Norma: {cfg['titulo']} (sem IA, sem rede, só regras)")
+    dados, out = gerar(data, commit, arquivo, segmento)
+    Path(saida).parent.mkdir(parents=True, exist_ok=True)
+    Path(saida).write_text(
+        json.dumps(dados, ensure_ascii=False, indent=1) + "\n", encoding="utf-8", newline="\n"
+    )
+    r = out["resumo"]
+    sit = r["por_situacao"]
+    print(f"  1. Obrigações extraídas: {r['identificadas']} dispositivos lidos")
+    print(
+        f"  2. Deveres da {agente}: {r['aplicaveis']} · outros dispositivos (faculdades, direitos, "
+        f"outros agentes): {r['outros_dispositivos']} · fora do perfil: {r['fora_do_perfil']}"
+    )
+    print(
+        f"  3. Prazos: {sit['vencida']} vencidas · {sit['90dias']} nos próximos 90 dias · "
+        f"{sit['recorrente']} recorrentes · {sit['evento'] + sit['sem_prazo']} sem data"
+    )
+    print(
+        f"  4. Enquadramento na REN 846: {r['na_fila']} identificados no texto · "
+        f"{r['a_confirmar']} a confirmar ({sum(1 for o in out['obrigacoes'] if o['ia'])} com sugestão da IA "
+        f"em cache, marcadas) · {r['sem_multa']} sem multa"
+    )
+    print(f"  5. Temas: {r['temas']} · plano gravado em {saida}")
+    print(f"Tempo total: {time.perf_counter() - t0:.1f} s")
+    return 0
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--saida", default=str(SAIDA))
@@ -342,8 +457,9 @@ if __name__ == "__main__":
     parser.add_argument("--data", help="data de geração (AAAA-MM-DD); padrão: hoje")
     parser.add_argument("--commit", help="commit de origem; padrão: HEAD do git")
     parser.add_argument("--verificar", action="store_true", help="compara com o JSON versionado")
+    parser.add_argument("--arquivo", help="norma a processar (padrão: RN 1.137)")
     args = parser.parse_args()
     if args.importar_ia:
         importar_ia(args.importar_ia)
     else:
-        sys.exit(main(args.saida, args.data, args.commit, args.verificar))
+        sys.exit(main(args.saida, args.data, args.commit, args.verificar, args.arquivo))

@@ -1,7 +1,8 @@
 // Plano de ação da RN ANEEL 1.137/2025 para uma distribuidora ilustrativa. Dados gerados por
 // scripts/exportar_plano_demo.py a partir do produto (athenix/plano.py): nenhum número é digitado aqui.
 // Interpretações da IA vêm de um cache revisável, aparecem marcadas e nunca entram no cálculo.
-import dados from './plano-rn1137.json' with { type: 'json' }
+import dados1137 from './plano-rn1137.json' with { type: 'json' }
+import dados1174 from './plano-ren1174.json' with { type: 'json' }
 
 export type Situacao = 'vencida' | '90dias' | 'depois' | 'recorrente' | 'evento' | 'sem_prazo'
 export type Diagnostico = 'sim' | 'parcial' | 'nao'
@@ -78,7 +79,7 @@ export interface Infracao {
 }
 export interface OutroDispositivo {
   id: string
-  natureza: 'faculdade' | 'direito_de_terceiro' | 'competencia_aneel'
+  natureza: 'faculdade' | 'direito_de_terceiro' | 'competencia_aneel' | 'dever_de_outro_agente'
   rotulo: string
   sujeito: string
   unidade: string | null
@@ -95,7 +96,7 @@ export interface Sucessao {
 
 export type SituacaoTipo = 'so_regra' | 'concordam' | 'a_revisar' | 'sem_tipo'
 export interface AnaliseObrigacao {
-  tipo: { id: string | null; nome: string | null; situacao: SituacaoTipo; por: string }
+  tipo: { id: string | null; nome: string | null; situacao: SituacaoTipo; por: string; /** Tipo da regra, mesmo quando regra e IA ainda não concordam. */ regra_id: string | null }
   dependencias_no_texto: { id: string; trecho_literal: string }[]
 }
 export interface ManualDependencia {
@@ -133,12 +134,12 @@ export interface Tema {
   causa_externa: string | null
 }
 
-export const plano = dados as unknown as {
+export interface PlanoDados {
   gerado_por: string
   commit_origem: string
   gerado_em: string
   aviso: string
-  norma: { titulo: string; url: string; sha256: string; vigencia: string }
+  norma: { titulo: string; url: string | null; data_rotulo: string; sha256: string; vigencia: string }
   perfil: { rotulo: string; aviso: string; base_reais: number; origem_base: string; data_referencia: string }
   ia: { aviso: string; modelo: string; reasoning: string; criterio_titulos: string; criterio_enquadramentos: string } | null
   resumo: {
@@ -169,6 +170,8 @@ export const plano = dados as unknown as {
   evidencias: Record<string, string>
   reducao: { rotulo: string; regras: Citacao[]; medidas: Medida[]; causa_externa: string }
   guardar: Record<string, string>
+  /** Teto de cada grupo da REN 846 (art. 8º) e teto legal, com trecho, fonte e SHA-256. */
+  escala_de_gravidade: Record<string, { dispositivo: string; trecho: string; percentual: number | null; fonte: string; sha256: string }>
   analise: {
     rotulo: string
     tipo_so_regra: string
@@ -179,13 +182,27 @@ export const plano = dados as unknown as {
     causas_por_tema: Record<string, { nome: string; nota: string }>
     contraponto: { titulo: string; urls: string[]; o_que_e: string; a_confirmar: string }
   }
-  referencia_escala: { rotulo: string; segmento: string; unidade: string; autos: number; empresas: number; mediana_reais: number; maximo_reais: number; fonte: string; limites: string }
+  referencia_escala: { infracao_grave: { rotulo: string; autos: number; mediana_reais: number; maximo_reais: number; fonte: string; limites: string }; rotulo: string; segmento: string; unidade: string; autos: number; empresas: number; mediana_reais: number; maximo_reais: number; fonte: string; limites: string }
   simulador: {
     faixas: { id: string; rotulo: string; base: number }[]
     origem_faixas: string
     conferencia: { base: number; faturamento: number | null; obrigacao: string; maximo_reais: number; com_atenuante_reais: Partial<Record<Cenario, number>> }[]
   }
 }
+
+/** Os dois planos, gerados pelo mesmo comando (python -m athenix processar). */
+export const planos = { rn1137: dados1137 as unknown as PlanoDados, ren1174: dados1174 as unknown as PlanoDados }
+export type NormaId = keyof typeof planos
+/** Norma da página completa: ?norma=ren1174 na URL do navegador; sem parâmetro (e no build), a RN 1.137. */
+export function normaDaUrl(): NormaId {
+  try {
+    const n = typeof location !== 'undefined' ? new URLSearchParams(location.search).get('norma') : null
+    return n && n in planos ? (n as NormaId) : 'rn1137'
+  } catch {
+    return 'rn1137'
+  }
+}
+export const plano: PlanoDados = planos[normaDaUrl()]
 
 export const obrigacaoPorId = new Map(plano.obrigacoes.map((o) => [o.id, o]))
 export const obrigacao = (id: string) => obrigacaoPorId.get(id)!

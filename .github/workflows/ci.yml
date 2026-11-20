@@ -33,7 +33,9 @@ jobs:
       - name: Não regressão do gabarito
         run: python scripts/avaliar.py --rotulo ci --comparar tests/baseline/metricas_v1.json
       - name: O export da demo reproduz o JSON versionado
-        run: python scripts/exportar_plano_demo.py --verificar
+        run: |
+          python scripts/exportar_plano_demo.py --verificar
+          python scripts/exportar_plano_demo.py --verificar --arquivo tests/fontes_impacto/dou/dou_ren20261174.html --saida landing/src/content/plano-ren1174.json
       - run: python -m pytest --junitxml=artifacts/tests.xml
       - uses: actions/upload-artifact@v4
         if: always()
