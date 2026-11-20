@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useMemo, useRef, useState, type ReactNode, type Ref } from 'react'
-import { AlertTriangle, ArrowDown, ArrowUp, ChevronDown, Download, FileText, Printer, Sparkles } from 'lucide-react'
+import { AlertTriangle, ArrowDown, ArrowUp, ChevronDown, ClipboardList, Download, FileText, Printer, Sparkles } from 'lucide-react'
 import { Logo } from '../ui/Logo'
 import { Tag } from '../product/Tag'
 import {
@@ -97,10 +97,10 @@ export function PlanoPage() {
       <section aria-labelledby="titulo-plano" className="space-y-6">
         <p className={kicker}>Plano de ação · RN 1.137/2025 · {plano.perfil.rotulo.toLowerCase()} (não é empresa real)</p>
         <Porte setSim={setSim} />
-        <p className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-2xl border border-slate-blue/40 border-l-4 border-l-slate-blue bg-acento-claro py-2 pr-4 pl-4 text-sm print:hidden">
+        <p className="flex flex-wrap items-center gap-x-3 rounded-2xl border border-slate-blue/40 border-l-4 border-l-slate-blue bg-acento-claro py-1 pr-4 pl-4 text-sm text-obsidian print:hidden">
           <span data-acento="etiqueta" className="rounded-full bg-acento-escuro px-2.5 py-0.5 text-xs font-bold tracking-wide text-white uppercase">Novo</span>
-          <span className="font-semibold text-obsidian">Gere o diagnóstico da sua empresa aqui mesmo, sem baixar nada.</span>
-          <span className="text-ink-soft">Marque a situação em cada tema e clique em “Gerar diagnóstico”, depois da lista.</span>
+          <span className="lg:hidden">Marque os temas e gere o diagnóstico.</span>
+          <span className="hidden lg:inline">Abaixo dos temas há um card de diagnóstico com o resultado ao lado: marque a situação de cada tema e gere aqui mesmo.</span>
           <a href="#seu-diagnostico" className={`inline-flex min-h-11 items-center ${LINK}`}>Ir para o diagnóstico ↓</a>
         </p>
         <Metricas m={m} />
@@ -150,13 +150,22 @@ export function PlanoPage() {
           <summary className={`${SUMARIO} inline-flex rounded-full text-sm`}>Como ordenamos<Chevron /></summary>
           <p className="mt-2 leading-relaxed text-ink-soft">{plano.regra_ordem}</p>
         </details>
-        <div className="mt-6 grid grid-cols-[minmax(0,1fr)] items-start gap-6 lg:grid-cols-[minmax(0,1fr)_20rem]">
-          <ol className="space-y-5">{temas.map((t, n) => <CartaoTema key={t.id} tema={t} posicao={n + 1} diag={diag[t.id]} marcar={marcar} maiorPct={maiorPct} />)}</ol>
-          <SeuDiagnostico diag={diag} gap={gap} gerar={() => setGeracao((g) => g + 1)} />
-        </div>
+        <ol className="mt-6 space-y-5">{temas.map((t, n) => <CartaoTema key={t.id} tema={t} posicao={n + 1} diag={diag[t.id]} marcar={marcar} maiorPct={maiorPct} />)}</ol>
       </section>
 
-      {gerado && <DiagnosticoGerado ref={refDiag} diag={diag} temas={temas} decisoes={decisoes} m={m} imprimir={() => setSoDiagnostico(true)} fechar={() => { setGeracao(0); document.getElementById('seu-diagnostico')?.scrollIntoView({ block: 'start' }) }} />}
+      {/* Diagnóstico: card de controles à esquerda e painel de resultado à direita (empilhados abaixo de 1024 px).
+          Na impressão sai só o resultado gerado; sem resultado, a seção inteira fica fora do papel. */}
+      <section id="seu-diagnostico" aria-labelledby="titulo-seu-diagnostico" className={`grid scroll-mt-6 grid-cols-[minmax(0,1fr)] items-start gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] print:block ${gerado ? '' : 'print:hidden'}`}>
+        <ControlesDiagnostico diag={diag} gap={gap} gerar={() => setGeracao((g) => g + 1)} />
+        <div id="painel-diagnostico" className="min-w-0">
+          {gerado
+            ? <DiagnosticoGerado ref={refDiag} diag={diag} temas={temas} decisoes={decisoes} m={m} imprimir={() => setSoDiagnostico(true)} fechar={() => { setGeracao(0); document.getElementById('seu-diagnostico')?.scrollIntoView({ block: 'start' }) }} />
+            : <div className="flex min-h-64 flex-col items-center justify-center gap-3 rounded-2xl border-2 border-slate-blue bg-diag-fundo p-6 text-center text-slate-blue print:hidden">
+              <FileText aria-hidden="true" className="h-8 w-8" />
+              <p className="max-w-md text-base">O resultado aparece aqui: manchete, {decisoes.length} {decisoes.length === 1 ? 'decisão' : 'decisões'} e os temas em ordem.</p>
+            </div>}
+        </div>
+      </section>
 
       <div className="space-y-4 print:hidden">
         <Expansivel id="reduzir" titulo="Como reduzir a exposição" resumo="atenuantes do art. 24 da REN 846, regras comuns e valores por tema">{() => <ComoReduzir temas={temas} />}</Expansivel>
@@ -191,25 +200,28 @@ function Metricas({ m }: { m: Manchete }) {
   </dl>
 }
 
-/** Card "Seu diagnóstico": ao lado dos temas (fixo ao rolar em tela grande); no celular, depois da lista. */
-function SeuDiagnostico({ diag, gap, gerar }: { diag: Diagnosticos; gap: ReturnType<typeof lacuna>; gerar: () => void }) {
+/** Card de controles do diagnóstico (à esquerda do painel de resultado; no celular, acima dele). Não acompanha a rolagem. */
+function ControlesDiagnostico({ diag, gap, gerar }: { diag: Diagnosticos; gap: ReturnType<typeof lacuna>; gerar: () => void }) {
   const { sim } = useContext(Cenario)
   const marcados = plano.temas.length - gap.semResposta
-  return <aside id="seu-diagnostico" aria-labelledby="titulo-seu-diagnostico" className="rounded-2xl border-2 border-slate-blue bg-diag-fundo p-5 text-obsidian shadow-soft lg:sticky lg:top-6 print:hidden">
-    <p className="text-xs font-bold tracking-widest text-slate-blue uppercase">Gere aqui mesmo</p>
-    <h2 id="titulo-seu-diagnostico" className="font-display mt-1 text-2xl text-slate-blue">Seu diagnóstico</h2>
-    <dl className="mt-3 space-y-3 text-sm">
+  return <div className="rounded-2xl border-2 border-slate-blue bg-diag-fundo p-5 text-obsidian shadow-soft sm:p-6 print:hidden">
+    <h2 id="titulo-seu-diagnostico" className="font-display flex items-center gap-3 text-2xl text-slate-blue">
+      <span aria-hidden="true" className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-slate-blue text-white"><ClipboardList className="h-5 w-5" /></span>
+      Diagnóstico da regulação
+    </h2>
+    <p className="mt-3 text-sm">Marque a situação em cada tema acima e gere o resultado aqui, na própria página. Nada é enviado.</p>
+    <dl className="mt-4 space-y-3 text-sm">
       <div><dt className="text-ink-soft">Porte</dt><dd className="font-semibold">{nomePorte(sim)} <a href="#porte" className={`inline-flex min-h-11 items-center ${LINK}`}>alterar no topo</a></dd></div>
       <div><dt className="text-ink-soft">Situação por tema</dt>
         <dd aria-live="polite">{marcados === 0 ? <>Nenhum tema marcado ainda.</> : <>{marcados} de {plano.temas.length} temas marcados. Lacuna: <strong>{gap.nao} obrigações</strong> em temas que vocês não atendem e <strong>{gap.parcial}</strong> em temas parciais.</>}</dd></div>
     </dl>
-    <p className="mt-3 text-xs text-ink-soft">Marque “Já temos”, “Parcial” ou “Não temos” em cada tema. As marcações ficam só nesta aba: nada é salvo nem enviado.</p>
-    <button type="button" onClick={gerar} aria-controls="diagnostico-gerado" className="mt-4 inline-flex min-h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-acento px-5 text-[1.1875rem] font-bold text-white shadow-sm hover:bg-acento-hover"><FileText aria-hidden="true" className="h-5 w-5" />Gerar diagnóstico</button>
+    <p className="mt-3 text-xs text-ink-soft">“Já temos”, “Parcial” ou “Não temos” em cada tema. As marcações ficam só nesta aba: nada é salvo.</p>
+    <button type="button" onClick={gerar} aria-controls="painel-diagnostico" className="mt-4 inline-flex min-h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-acento px-5 text-[1.1875rem] font-bold text-white shadow-sm hover:bg-acento-hover"><FileText aria-hidden="true" className="h-5 w-5" />Gerar diagnóstico</button>
     <div className="mt-3 grid gap-2">
       <button type="button" onClick={() => baixarCsv(diag, sim)} className={`${BOTAO_DIAG_SEC} justify-center`}><Download aria-hidden="true" className="h-4 w-4" />Baixar planilha (CSV)</button>
       <button type="button" onClick={() => window.print()} className={`${BOTAO_DIAG_SEC} justify-center`}><Printer aria-hidden="true" className="h-4 w-4" />Imprimir ou salvar PDF</button>
     </div>
-  </aside>
+  </div>
 }
 
 /** Diagnóstico gerado no navegador, em forma de boletim. Nada é enviado. */
@@ -226,12 +238,12 @@ function DiagnosticoGerado({ ref, diag, temas, decisoes, m, imprimir, fechar }: 
         <button type="button" onClick={fechar} className={BOTAO_DIAG_SEC}>Fechar</button>
       </div>
     </div>
-    <h2 id="titulo-diagnostico" className="font-display mt-3 text-[2rem] text-obsidian leading-tight sm:text-5xl sm:leading-[1.08]"><TextoManchete m={m} /></h2>
+    <h2 id="titulo-diagnostico" className="font-display mt-3 text-[2rem] text-obsidian leading-tight sm:text-[2.6rem] sm:leading-[1.1]"><TextoManchete m={m} /></h2>
     <p className="mt-3 text-sm text-ink-soft">Data de referência {dataBR(plano.perfil.data_referencia)} · Porte: {nomePorte(sim)} · RN 1.137/2025 · {modo === 'preliminar' ? 'cenário preliminar' : 'só enquadramentos confirmados'} · {plano.perfil.rotulo.toLowerCase()} (não é empresa real)</p>
     <p className="mt-5 max-w-4xl text-lg leading-relaxed">{resumoDiagnostico(plano.temas, diag, sim, modo)}</p>
     {algumSugerido && <p className="mt-3 flex flex-wrap items-center gap-2 text-sm"><Tag kind="ai" label="Interpretação da IA · aguarda revisão humana" /><span className="text-ink-soft">Valores marcados “sugerido” usam o enquadramento sugerido pela IA ({PRELIMINAR}).</span></p>}
 
-    <div className="mt-8 grid items-start gap-6 lg:grid-cols-[1.3fr_1fr]">
+    <div className="mt-8 grid items-start gap-6 xl:grid-cols-[1.3fr_1fr]">
       <div><h3 className="font-display text-2xl text-slate-blue">{`${decisoes.length} ${decisoes.length === 1 ? 'decisão' : 'decisões'} para esta semana`}</h3>
         <ol className="mt-3 list-decimal space-y-2 pl-5">{decisoes.map((t) => { const e = exposicaoTema(t, sim, modo); return <li key={t.id}><a href={`#tema-${t.id}`} className={`inline-block py-2.5 ${LINK} print:py-0 print:no-underline`}>{t.nome}<ArrowDown aria-hidden="true" className="ml-1 inline h-4 w-4 align-[-0.15em] print:hidden" /></a>
           <span className="block text-sm">{e ? <>até <strong>{valor(e)}</strong> por infração</> : 'exposição a enquadrar'} · {situacaoPrazo(t)} {e?.origem === 'sugerido' && <Sugerido />}</span></li> })}</ol></div>
