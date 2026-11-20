@@ -11,14 +11,15 @@
   --color-ink-soft: #4f5a69;
   --color-line: #dcd7ce;
   --color-pending: #9a6b1f;
-  /* Acento terracota: só para o que é clicável e o mais importante (demo). Contraste WCAG 2.x:
-     #C56A45 com texto branco 3,80:1 e com #111c2f 4,49:1 -> nenhum passa AA em texto normal
-     (4,5:1); branco sobre #C56A45 só em texto grande/negrito (>= 18,66 px negrito, 3:1).
-     Como contorno/borda (não texto, 3:1): 3,61 sobre ivory, 3,80 sobre branco, 3,05 sobre stone.
-     Texto e fundo de botão pequeno usam --color-acento-escuro (#9a4a2b): 5,89:1 sobre ivory,
-     6,20:1 com branco, 4,98:1 sobre stone, 5,16:1 sobre --color-acento-claro.
+  /* Acento terracota da demo: SÓ como fundo de (a) botões de ação principal (Gerar diagnóstico,
+     Imprimir este diagnóstico), (b) o porte selecionado e (c) etiquetas pequenas de tópicos muito
+     relevantes ("Novo"; marcadas com data-acento). Nunca como cor de texto, borda, sublinhado ou
+     foco: esses ficam no azul escuro do site (--color-slate-blue: 9,22:1 sobre branco, 8,76:1 sobre ivory) ou obsidian.
+     Combinações permitidas (WCAG 2.x): branco sobre #C56A45 = 3,80:1, só em texto grande/negrito
+     (>= 18,66 px negrito, mínimo 3:1; é o "Gerar diagnóstico"); branco sobre --color-acento-escuro
+     (#9a4a2b) = 6,20:1, para texto pequeno (botões, porte selecionado, etiqueta "Novo").
      --color-acento-claro (#f4e8e1 = 12% de acento sobre ivory): fundo da faixa de anúncio;
-     #111c2f sobre ele 14,2:1, #4f5a69 5,83:1. */
+     #111c2f sobre ele 14,2:1, #4f5a69 5,83:1, #284b63 7,68:1. */
   --color-acento: #c56a45;
   --color-acento-escuro: #9a4a2b;
   --color-acento-claro: #f4e8e1;
@@ -106,9 +107,16 @@
   --color-pending: #855a17;
   --color-bronze-deep: #6e5b46;
 }
-/* Foco visível da demo no acento (contorno, 3:1 sobre os fundos claros da página). */
-#plano :focus-visible {
-  outline-color: var(--color-acento);
+/* Foco visível da demo: o anel azul escuro padrão do site (:focus-visible acima). */
+/* Expansíveis: sem o triângulo nativo; o chevron (.chevron) gira quando o <details> abre. */
+#plano summary {
+  list-style: none;
+}
+#plano summary::-webkit-details-marker {
+  display: none;
+}
+#plano details[open] > summary .chevron {
+  transform: rotate(180deg);
 }
 #plano summary,
 #plano blockquote {
