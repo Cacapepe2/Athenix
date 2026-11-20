@@ -42,6 +42,8 @@ export interface Obrigacao {
   id: string
   titulo: string
   titulo_origem: 'regra' | 'ia'
+  /** Título sem corte (o curto termina em "…" quando passa de 88 caracteres). */
+  titulo_completo: string
   tema: string
   motivo_tema: string
   unidade: string | null
@@ -254,6 +256,27 @@ export function lacuna(temas: Tema[], diag: Diagnosticos) {
   }
 }
 
+/**
+ * Frase-resumo do diagnóstico gerado no navegador: o tema em aberto mais exposto (por infração,
+ * nunca soma), a lacuna informada (em obrigações) e quantos temas o enquadramento confirmado libera.
+ */
+export function resumoDiagnostico(temas: Tema[], diag: Diagnosticos, sim: Simulacao | null, modo: Modo): string {
+  const abertos = ordenarTemas(temas, diag, sim, modo).filter((t) => diag[t.id] !== 'sim')
+  const topo = abertos.find((t) => exposicaoTema(t, sim, modo))
+  const partes: string[] = []
+  if (topo) {
+    const e = exposicaoTema(topo, sim, modo)!
+    const v = e.reais != null ? brl(e.reais) : `${pct(e.pct)} da receita`
+    const venc = topo.contagem.vencida ? ` e ${textoVencidas(topo.contagem.vencida)}` : ''
+    partes.push(`Neste porte, o tema mais exposto é ${topo.nome}, com até ${v} por infração${venc}${e.origem === 'sugerido' ? ' (enquadramento sugerido, a confirmar)' : ''}`)
+  } else partes.push('Neste porte, nenhum tema em aberto tem exposição calculada')
+  const g = lacuna(temas, diag)
+  if (g.semResposta < temas.length) partes.push(`a lacuna informada é de ${g.nao} obrigações em temas não atendidos e ${g.parcial} em temas parciais`)
+  const n = plano.decisoes.confirmar.temas_sem_calculo_confirmado
+  partes.push(`confirmar enquadramentos libera o cálculo de ${n} ${n === 1 ? 'tema' : 'temas'}`)
+  return partes.join('; ') + '.'
+}
+
 export const dataBR = (iso: string) => iso.split('-').reverse().join('/')
 
 export function brl(valor: number): string {
@@ -343,7 +366,7 @@ export function csvPlano(diag: Diagnosticos, s: Simulacao | null = SIM_INICIAL):
         n + 1,
         t.nome,
         nomeDiag(diag[t.id]),
-        o.titulo,
+        o.titulo_completo,
         o.dispositivo,
         plano.nomes_situacao[o.situacao],
         o.prazo.data ? dataBR(o.prazo.data) + (o.prazo.provisorio ? ' (provisório)' : '') : o.prazo.texto,

@@ -113,3 +113,15 @@ def test_causas_externas_por_tema_so_com_origem_declarada():
         assert "sem citação" in causa["nota"] and "jurídico" in causa["nota"]
     com_ato = {t["id"] for t in PLANO["temas"] if t["dependencias_no_texto"]}
     assert com_ato == {"poder_publico", "outros"}  # os prazos dos arts. 14 a 16 estão nestes temas
+
+
+def test_titulo_completo_nao_corta_o_texto_e_o_curto_so_abrevia():
+    for o in PLANO["obrigacoes"]:
+        assert not o["titulo_completo"].endswith("…")
+        if o["titulo"].endswith("…"):
+            inicio = o["titulo"][:-1].rstrip()
+            assert o["titulo_completo"].startswith(inicio) and len(o["titulo_completo"]) > len(
+                inicio
+            )
+        else:
+            assert o["titulo_completo"] == o["titulo"]

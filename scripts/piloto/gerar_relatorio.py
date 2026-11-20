@@ -116,14 +116,14 @@ table.portes th, table.portes td { font-size: 8pt; padding: 2.5pt 4pt; }
    <div><dt>Exposição por infração</dt>{% set e = expo(t) %}<dd>{% if e[0] is not none %}até {{ pct(e[0]) }} da ROL (pode ser só advertência){% else %}Exposição a enquadrar{% endif %}</dd>{% set at = aten(t) %}{% if at.espontanea is not none %}<dd class="n">pode cair para {{ pct(at.espontanea) }} da ROL se regularizar antes da fiscalização (art. 24, I){% if at.ate_tn is not none %}; {{ pct(at.ate_tn) }} até o prazo do Termo de Notificação (art. 24, II){% endif %}</dd>{% endif %}<dd class="n">{% if e[1] == 'sugerido' %}Cenário preliminar: inclui sugestões aguardando confirmação. {% endif %}Em R$: % × ROL informada. Provável não estimável (sem histórico de multas).</dd></div>
    <div><dt>Como provar que cumpriu (sugestão)</dt>{% for e in t.evidencias %}<dd class="n">• {{ p.evidencias[e.id] }} ({{ e.n }})</dd>{% else %}<dd class="n">Definir com a equipe.</dd>{% endfor %}</div>
   </dl>
-  <p class="small"><b>Obrigações principais:</b> {% for id in t.principais %}{{ ob[id].titulo }}{% if ob[id].titulo_origem == 'ia' %}*{% endif %} <span class="muted">({{ ob[id].prazo.texto }})</span>{% if not loop.last %}; {% endif %}{% endfor %}</p>
+  <p class="small"><b>Obrigações principais:</b> {% for id in t.principais %}{{ ob[id].titulo_completo }}{% if ob[id].titulo_origem == 'ia' %}*{% endif %} <span class="muted">({{ ob[id].prazo.texto }})</span>{% if not loop.last %}; {% endif %}{% endfor %}</p>
   {% if t.fontes %}<p class="small muted">Tema pela norma: {% for f in t.fontes %}{{ f.rotulo }}, “{{ f.titulo }}”{% if not loop.last %}; {% endif %}{% endfor %}.</p>{% endif %}
   <p class="small"><b>Causas externas:</b> {% set cs = causas(t) %}{% if cs %}{% for c in cs %}{{ c.nome }} <span class="muted">({{ c.origem }})</span>{% if c.texto %}: <span class="muted">{{ c.texto }}</span>{% endif %}{% if not loop.last %}; {% endif %}{% endfor %}{% else %}nenhuma identificada{% endif %}</p>
   <div class="analise"><p class="kicker">{{ p.analise.rotulo }}</p>
    {% if t.dependencias_no_texto %}<div class="ato"><b>Prazo condicionado a ato da ANEEL: verificar se as instruções foram publicadas.</b>
     {% for d in t.dependencias_no_texto %}<blockquote>“{{ d.trecho_literal }}” <span class="muted">{{ ob[d.obrigacao].dispositivo or '—' }} · trecho literal conferido na fonte</span></blockquote>{% endfor %}</div>{% endif %}
    {% for id in t.principais %}{% set o = ob[id] %}{% set a = o.analise %}<div class="ob">
-    <b>{{ o.titulo }}</b> <span class="muted">· {{ o.dispositivo or '—' }}</span>
+    <b>{{ o.titulo_completo }}</b> <span class="muted">· {{ o.dispositivo or '—' }}</span>
     {% if o.trecho %}<blockquote>“{{ o.trecho }}” <span class="muted">{{ o.dispositivo }}</span></blockquote>{% endif %}
     <div><b>Tipo:</b> {% if a.tipo.situacao == 'concordam' %}{{ a.tipo.nome }}{% elif a.tipo.situacao == 'so_regra' %}{{ a.tipo.nome }} <span class="ia">só pela regra, segunda leitura da IA não feita (a revisar)</span>{% elif a.tipo.situacao == 'a_revisar' %}tipo a revisar{% else %}sem tipo próprio{% endif %}</div>
     {% if a.tipo.id %}{% set m = p.analise.manuais[a.tipo.id] %}
@@ -163,7 +163,7 @@ table.portes th, table.portes td { font-size: 8pt; padding: 2.5pt 4pt; }
  <p class="small muted">Fonte: {{ norma.titulo }} ({{ norma.url }}), SHA-256 {{ norma.sha256 }}. Infrações: {{ p.reducao.medidas[0].fonte }} (catálogo extraído pela Athenix). Teto legal: Lei 9.427/1996, Art. 3º, X, com redação da Lei 15.269/2025.</p>
  {% for t in p.temas %}<h3 style="margin-top:8pt">{{ loop.index }}. {{ t.nome }}</h3>
  <table><tr><th style="width:22%">Obrigação</th><th style="width:13%">Dispositivo · prazo</th><th>Trecho literal da norma</th><th style="width:21%">Infração (REN 846)</th></tr>
- {% for id in t.obrigacoes %}{% set o = ob[id] %}<tr><td>{{ o.titulo }}{% if o.titulo_origem == 'ia' %}*{% endif %}</td><td>{{ o.dispositivo or '—' }}<br><span class="muted">{{ o.prazo.texto }}</span></td>
+ {% for id in t.obrigacoes %}{% set o = ob[id] %}<tr><td>{{ o.titulo_completo }}{% if o.titulo_origem == 'ia' %}*{% endif %}</td><td>{{ o.dispositivo or '—' }}<br><span class="muted">{{ o.prazo.texto }}</span></td>
  <td>{% if o.trecho %}“{{ o.trecho }}”{% else %}<span class="muted">Sem citação verificada: conferir na fonte.</span>{% endif %}</td>
  <td>{% for e in o.enquadramento %}<b>{{ e.dispositivo }} · Grupo {{ e.grupo }}</b> (o texto nomeia o instrumento da infração){% endfor %}{% if not o.enquadramento and o.ia %}<span class="ia">Interpretação da IA · aguarda revisão</span><br>{{ o.ia.dispositivo }} · Grupo {{ o.ia.grupo }}{% if o.ia.duvida %} · depende da dúvida {{ o.ia.duvida }}{% endif %}{% elif not o.enquadramento %}<span class="muted">A confirmar</span>{% endif %}</td></tr>{% endfor %}
  </table>{% endfor %}

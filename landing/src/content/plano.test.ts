@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { brlCurto, textoVencidas, celula, comAtenuantePct, csvPlano, decisoesDaSemana, exposicaoTema, lacuna, lerReais, manchete, maximoPct, obrigacao, ordenarTemas, plano, reaisDe, SIM_INICIAL, situacaoPrazo, textoFaixa, type Cenario, type Simulacao } from './plano.ts'
+import { brlCurto, textoVencidas, celula, comAtenuantePct, csvPlano, decisoesDaSemana, exposicaoTema, lacuna, lerReais, manchete, maximoPct, resumoDiagnostico, obrigacao, ordenarTemas, plano, reaisDe, SIM_INICIAL, situacaoPrazo, textoFaixa, type Cenario, type Simulacao } from './plano.ts'
 
 test('plano vem do produto, com perfil ilustrativo e sem números soltos', () => {
   assert.equal(plano.gerado_por, 'scripts/exportar_plano_demo.py')
@@ -206,4 +206,24 @@ test('empate de R$: confirmado antes de sugerido, depois mais obrigações venci
   assert.equal(m.obrigacoesVencidas, plano.resumo.por_situacao.vencida)
   assert.equal(textoVencidas(1), '1 obrigação vencida')
   assert.equal(textoVencidas(3), '3 obrigações vencidas')
+})
+
+test('resumo do diagnóstico: tema mais exposto em aberto, lacuna e nada de promessa', () => {
+  const ordem = ordenarTemas(plano.temas, {}, SIM_INICIAL, 'preliminar')
+  const topo = ordem.find((t) => exposicaoTema(t, SIM_INICIAL, 'preliminar'))!
+  const s = resumoDiagnostico(plano.temas, {}, SIM_INICIAL, 'preliminar')
+  assert.ok(s.startsWith(`Neste porte, o tema mais exposto é ${topo.nome}, com até R$`), s)
+  assert.ok(s.includes(`libera o cálculo de ${plano.decisoes.confirmar.temas_sem_calculo_confirmado}`))
+  assert.ok(!s.includes('lacuna'), 'sem marcação, sem lacuna')
+  assert.doesNotMatch(s, /multad|garantid|isent|evita a multa/i)
+  // Marcar o primeiro como atendido troca o tema da frase e traz a lacuna em obrigações.
+  const outro = resumoDiagnostico(plano.temas, { [topo.id]: 'sim' }, SIM_INICIAL, 'preliminar')
+  assert.ok(!outro.includes(`mais exposto é ${topo.nome},`))
+  assert.match(outro, /lacuna informada é de 0 obrigações em temas não atendidos e 0 em temas parciais/)
+  // Sem receita válida: em % da receita.
+  assert.match(resumoDiagnostico(plano.temas, {}, null, 'confirmados'), /da receita por infração|nenhum tema em aberto/)
+})
+
+test('título completo nunca termina em reticências', () => {
+  for (const o of plano.obrigacoes) assert.ok(o.titulo_completo && !o.titulo_completo.endsWith('…'), o.id)
 })
