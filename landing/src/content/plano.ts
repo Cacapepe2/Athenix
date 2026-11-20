@@ -67,6 +67,32 @@ export interface Obrigacao {
   excludente: string | null
 }
 
+export interface FonteDoc { titulo: string; arquivo: string; sha256: string }
+export interface Infracao {
+  grupo: string
+  trecho: string
+  origem_da_redacao: string
+  fonte: FonteDoc
+  /** O export relê a fonte versionada e confere o trecho literal. */
+  conferido_na_fonte: boolean
+}
+export interface OutroDispositivo {
+  id: string
+  natureza: 'faculdade' | 'direito_de_terceiro' | 'competencia_aneel'
+  rotulo: string
+  sujeito: string
+  unidade: string | null
+  dispositivo: string | null
+  trecho: string | null
+  motivo: string
+}
+export interface Sucessao {
+  dispositivo: string
+  duvida: string
+  texto_da_duvida: string
+  redacoes: { ato: string; vigencia_de: string; vigencia_ate: string | null; trecho: string; fonte: FonteDoc; estado: 'verified' | 'incerta'; conferido_na_fonte: boolean; motivo: string | null }[]
+}
+
 export type SituacaoTipo = 'so_regra' | 'concordam' | 'a_revisar' | 'sem_tipo'
 export interface AnaliseObrigacao {
   tipo: { id: string | null; nome: string | null; situacao: SituacaoTipo; por: string }
@@ -117,6 +143,8 @@ export const plano = dados as unknown as {
   ia: { aviso: string; modelo: string; reasoning: string; criterio_titulos: string; criterio_enquadramentos: string } | null
   resumo: {
     identificadas: number
+    /** Itens que não são deveres da distribuidora (seção "Outros dispositivos relevantes"). */
+    outros_dispositivos: number
     aplicaveis: number
     fora_do_perfil: number
     por_situacao: Record<Situacao, number>
@@ -130,7 +158,11 @@ export const plano = dados as unknown as {
   temas: Tema[]
   ordem_inicial: string[]
   obrigacoes: Obrigacao[]
-  infracoes: Record<string, { grupo: string; trecho: string }>
+  infracoes: Record<string, Infracao>
+  /** Faculdades, direitos de terceiros e competências da ANEEL: fora da contagem de deveres. */
+  outros_dispositivos: OutroDispositivo[]
+  /** Redações datadas de um mesmo dispositivo (hoje o art. 11, XXIII), com fonte e estado. */
+  sucessao_no_tempo: Sucessao[]
   linha_do_tempo: Record<Situacao, string[]>
   nomes_situacao: Record<Situacao, string>
   regra_ordem: string

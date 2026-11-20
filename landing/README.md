@@ -4,7 +4,7 @@ Site institucional da Athenix (React + TypeScript + Vite + Tailwind CSS 4 + Moti
 
 ## Rodar localmente
 
-Requer Node.js 20 ou superior.
+Node.js 24 é o ambiente conferido (o CI usa Node 24 e o teste executa arquivos TypeScript diretamente); Node 20 não foi testado. Instale com `npm ci`, que respeita o `package-lock.json`.
 
 ```powershell
 cd landing

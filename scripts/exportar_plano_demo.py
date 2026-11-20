@@ -14,10 +14,11 @@ enquadramentos só como "Interpretação da IA", fora do cálculo. O site só l�
 import argparse
 import hashlib
 import json
+import re
 import subprocess
 import sys
 import tempfile
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -29,6 +30,7 @@ from athenix.app import create_app  # noqa: E402
 from athenix.config import Settings  # noqa: E402
 from athenix.demo import USUARIO, preparar  # noqa: E402
 from athenix.normalizacao import espacos  # noqa: E402
+import extrair_parametros as ep  # noqa: E402
 from exportar_demo_site import rotulo  # noqa: E402
 
 SAIDA = ROOT / "landing" / "src" / "content" / "plano-rn1137.json"
@@ -79,7 +81,7 @@ def montar(base, data_referencia, faturamento=None, processado=None):
     )
     out["analise"] = analise.montar(out, rows, extraction)
     by_id = {u["id"]: u for u in units}
-    for o in out["obrigacoes"]:
+    for o in out["obrigacoes"] + out["outros_dispositivos"]:
         o["dispositivo"] = rotulo(by_id[o["unidade"]], by_id) if o["unidade"] else None
         assert o["trecho"] is None or o["trecho"] in espacos(by_id[o["unidade"]]["text"])
     return out, params, p
@@ -91,7 +93,7 @@ def importar_ia(pasta):
     fontes = [pasta / "titulos" / "resultado.json", pasta / "enquadramento_proposta.json"]
     titulos, enq = (json.loads(f.read_text(encoding="utf-8")) for f in fontes)
     cache = {
-        "aviso": "Sugestões da IA gravadas no ensaio de 17/11/2026. Aguardam revisão humana e não entram no cálculo.",
+        "aviso": "Sugestões da IA gravadas no ensaio de 17/11/2026. Aguardam revisão humana. No modo só identificados no texto não entram no cálculo; no cenário preliminar entram no valor do tema, sempre marcadas como sugeridas.",
         "modelo": titulos["modelo"],
         "reasoning": titulos["reasoning"],
         "gerado_por": "scripts/exportar_plano_demo.py --importar-ia",
@@ -148,19 +150,108 @@ def simulador(demo, processado):
     return {"faixas": faixas, "origem_faixas": demo["origem_faixas"], "conferencia": casos}
 
 
-def main(saida):
+# Fonte(s) que sustentam a redação de cada infração, pela "origem" registrada no catálogo. A primeira
+# em que o trecho literal é encontrado vale; se nenhuma, a exportação falha (nada sem proveniência).
+ORIGEM_PARA_FONTES = {
+    "redação original": ["846"],
+    "REN ANEEL 1.000, de 07.12.2021": ["846"],
+    "REN ANEEL 1.137, de 21.10.2025": ["846", "1137"],
+    "REN 1.162/2026": ["1162"],
+    "REN 1.174/2026": ["1174"],
+}
+FONTE_DO_ATO = {"RN 1.137/2025": "1137", "REN 1.148/2026": "1148"}
+CHAVES_DE_GERACAO = (
+    "commit_origem",
+    "gerado_em",
+)  # metadados fora da comparação de reprodutibilidade
+
+
+def _textos_da_fonte(nome, cache):
+    if nome not in cache:
+        cache[nome] = [espacos(u["text"]) for u in ep.read(nome)["units"]]
+    return cache[nome]
+
+
+def _fonte_de(params, nome):
+    f = params["fontes"][nome]
+    return {"titulo": f["titulo"], "arquivo": f["arquivo"], "sha256": f["sha256"]}
+
+
+def proveniencia(out, params):
+    """Leva a fonte, o SHA-256 e a origem da redação de cada infração citada até o JSON, no formato das
+    atenuantes, e VALIDA o trecho literal contra o arquivo indicado (relê a fonte versionada)."""
+    cache = {}
+    for disp, inf in sorted(out["infracoes"].items()):
+        trecho = espacos(inf["trecho"])
+        candidatas = ORIGEM_PARA_FONTES[inf["origem_da_redacao"]]
+        achou = next(
+            (n for n in candidatas if any(trecho in t for t in _textos_da_fonte(n, cache))), None
+        )
+        assert achou, f"{disp}: o trecho citado não está em {candidatas}; exportação interrompida"
+        inf["fonte"] = _fonte_de(params, achou)
+        inf["conferido_na_fonte"] = True
+    return cache
+
+
+def _limpar(trecho):
+    """Texto de uma leitura como a extração entregou, sem o pontilhado do sumário nem a hifenização."""
+    t = re.sub(r"\s*\.{5,}\s*$", "", espacos(trecho))
+    t = re.sub(r"(?<=[a-zà-ú])- (?=[a-zà-ú])", "", t)
+    return t.rstrip("”").strip()
+
+
+def sucessao_no_tempo(params, cache):
+    """As duas redações datadas do art. 11, XXIII (dúvida D1): fonte, SHA-256, vigência e estado. A
+    redação futura continua INCERTA (sem (NR)/(AC) na fonte); nada é convertido em conclusão."""
+    d1 = next(d for d in params["duvidas"] if d["id"] == "D1")
+    leituras = sorted(d1["leituras"], key=lambda x: x["vigencia_desde"])
+    saida = []
+    for n, x in enumerate(leituras):
+        nome = FONTE_DO_ATO[x["ato"]]
+        ate = (
+            (date.fromisoformat(leituras[n + 1]["vigencia_desde"]) - timedelta(days=1)).isoformat()
+            if n + 1 < len(leituras)
+            else None
+        )
+        confere = any(_limpar(x["trecho"]) in t for t in _textos_da_fonte(nome, cache))
+        saida.append({
+            "ato": x["ato"],
+            "vigencia_de": x["vigencia_desde"],
+            "vigencia_ate": ate,
+            "trecho": _limpar(x["trecho"]),
+            "fonte": _fonte_de(params, nome),
+            "estado": "verified" if x["ancora"] == "verified" else "incerta",
+            "conferido_na_fonte": bool(confere) and x["ancora"] == "verified",
+            "motivo": x.get("motivo"),
+        })  # fmt: skip
+    return {
+        "dispositivo": d1["dispositivo"],
+        "duvida": d1["id"],
+        "texto_da_duvida": d1["texto"],
+        "redacoes": saida,
+    }
+
+
+def gerar(data=None, commit=None):
+    """Monta o JSON da demo. `data` e `commit` são entradas controláveis (a reprodutibilidade compara o
+    resto, sem estes dois metadados); por padrão, hoje e o HEAD do git."""
     demo = impacto.perfil_ilustrativo()
     processado = processar()
     out, params, p = montar(demo["base"], demo["data_referencia"], processado=processado)
+    cache = proveniencia(out, params)
+    out["sucessao_no_tempo"] = [sucessao_no_tempo(params, cache)]
     ia = plano.carregar_ia()
-    commit = subprocess.run(
-        ["git", "rev-parse", "--short", "HEAD"], cwd=ROOT, capture_output=True, text=True
-    ).stdout.strip()
+    commit = (
+        commit
+        or subprocess.run(
+            ["git", "rev-parse", "--short", "HEAD"], cwd=ROOT, capture_output=True, text=True
+        ).stdout.strip()
+    )
     fonte = params["fontes"]["1137"]
     dados = {
         "gerado_por": "scripts/exportar_plano_demo.py",
         "commit_origem": commit,
-        "gerado_em": date.today().isoformat(),
+        "gerado_em": data or date.today().isoformat(),
         "aviso": impacto.AVISO,
         "norma": {
             "titulo": "RN ANEEL 1.137/2025",
@@ -185,16 +276,74 @@ def main(saida):
         "simulador": simulador(demo, processado),
         **out,
     }
+    return dados, out
+
+
+def diferencas(a, b, caminho="", limite=10):
+    """Primeiras diferenças entre dois JSONs (lista de caminhos), para a mensagem da verificação."""
+    achadas = []
+    if type(a) is not type(b):
+        return [caminho or "/"]
+    if isinstance(a, dict):
+        for k in sorted(set(a) | set(b)):
+            if k not in a or k not in b:
+                achadas.append(f"{caminho}/{k}")
+            else:
+                achadas += diferencas(a[k], b[k], f"{caminho}/{k}", limite)
+            if len(achadas) >= limite:
+                break
+    elif isinstance(a, list):
+        if len(a) != len(b):
+            return [f"{caminho} (tamanho {len(a)} x {len(b)})"]
+        for i, (x, y) in enumerate(zip(a, b)):
+            achadas += diferencas(x, y, f"{caminho}[{i}]", limite)
+            if len(achadas) >= limite:
+                break
+    elif a != b:
+        achadas.append(caminho)
+    return achadas[:limite]
+
+
+def verificar(saida, dados):
+    """O export regenerado tem de ser igual ao JSON versionado, exceto os metadados de geração."""
+    versionado = json.loads(Path(saida).read_text(encoding="utf-8"))
+    novo = json.loads(json.dumps(dados, ensure_ascii=False))
+    for k in CHAVES_DE_GERACAO:
+        versionado.pop(k, None)
+        novo.pop(k, None)
+    dif = diferencas(versionado, novo)
+    if dif:
+        print(f"{saida} NÃO reproduz o export regenerado. Primeiras diferenças: {', '.join(dif)}")
+        print("Regenere com: python scripts/exportar_plano_demo.py")
+        return 1
+    print(f"{saida} reproduz o export regenerado (sem {', '.join(CHAVES_DE_GERACAO)}).")
+    return 0
+
+
+def main(saida, data=None, commit=None, checar=False):
+    dados, out = gerar(data, commit)
+    if checar:
+        return verificar(saida, dados)
     Path(saida).write_text(
         json.dumps(dados, ensure_ascii=False, indent=1) + "\n", encoding="utf-8", newline="\n"
     )
     r = out["resumo"]
-    print(f"{saida}: {r['aplicaveis']} obrigações, {r['temas']} temas (commit {commit})")
+    print(
+        f"{saida}: {r['aplicaveis']} deveres da distribuidora, {r['outros_dispositivos']} outros "
+        f"dispositivos, {r['temas']} temas (commit {dados['commit_origem']})"
+    )
+    return 0
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--saida", default=str(SAIDA))
     parser.add_argument("--importar-ia", metavar="PASTA")
+    parser.add_argument("--data", help="data de geração (AAAA-MM-DD); padrão: hoje")
+    parser.add_argument("--commit", help="commit de origem; padrão: HEAD do git")
+    parser.add_argument("--verificar", action="store_true", help="compara com o JSON versionado")
     args = parser.parse_args()
-    importar_ia(args.importar_ia) if args.importar_ia else main(args.saida)
+    if args.importar_ia:
+        importar_ia(args.importar_ia)
+    else:
+        sys.exit(main(args.saida, args.data, args.commit, args.verificar))

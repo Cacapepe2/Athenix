@@ -6,14 +6,15 @@ Junta, para a obrigação: tipo (athenix/tipos.py), manual do tipo (ideias de cu
 - prática conhecida por tema: sem citação da norma, com referência pública e a cautela do contraponto.
 
 Tipo: só aparece como definitivo quando a regra e a IA (lida do cache local, sem chamada) concordam; se
-discordam, "tipo a revisar". Sem resposta da IA no cache (o caso hoje: nenhuma IA foi chamada), o tipo
-sai marcado "só pela regra · IA não consultada" e a pessoa decide. Não é parecer jurídico.
+discordam, "tipo a revisar". Sem resposta da IA no cache (cache ausente ou obrigação fora dele), o tipo
+sai marcado "só pela regra · IA não consultada" e a pessoa decide. Quando a regra não acha tipo
+("outros") e a IA acha um, a divergência também vira "tipo a revisar". Não é parecer jurídico.
 """
 
 import json
 from pathlib import Path
 
-from . import dependencias, enquadramento, tipos, tipos_ia
+from . import dependencias, tipos, tipos_ia
 from .evidence import verify
 from .normalizacao import espacos
 
@@ -36,6 +37,14 @@ def _tipo(texto, detalhe, cache_ia, oid, cfg):
     regra = tipos.classificar(texto, detalhe=detalhe, cfg=cfg)
     tipo = regra["tipo"]
     if tipo == "outros":
+        ia_tipo = (cache_ia or {}).get(oid)
+        if ia_tipo and ia_tipo != "outros":
+            return {
+                "id": None,
+                "nome": None,
+                "situacao": "a_revisar",
+                "por": f"regra: sem tipo próprio; IA: {tipos.manual(ia_tipo, cfg)['nome']}",
+            }
         return {"id": None, "nome": None, "situacao": "sem_tipo", "por": regra["por"]}
     nome = tipos.manual(tipo, cfg)["nome"]
     if cache_ia:
@@ -60,7 +69,6 @@ def montar(out, rows, extraction, cache_ia=None):
     units = extraction["units"]
     por_unidade = {u["id"]: u for u in units}
     por_obrigacao = {o["id"]: o for o in out["obrigacoes"]}
-    por_linha = {r["id"]: r for r in rows}
     manuais, deps = {}, {}
 
     def verificar(trecho, unit_id):
@@ -91,7 +99,7 @@ def montar(out, rows, extraction, cache_ia=None):
                 continue
             texto = espacos(unit["text"])
             detalhe = bool(unit["parent"]) and unit["kind"] in TIPOS_DE_DETALHE
-            tipo = _tipo(texto, detalhe, cache_ia, enquadramento.chave(por_linha[oid]), cfg_tipos)
+            tipo = _tipo(texto, detalhe, cache_ia, oid, cfg_tipos)
             if tipo["id"] and tipo["id"] not in manuais:
                 m = tipos.manual(tipo["id"], cfg_tipos)
                 manuais[tipo["id"]] = {

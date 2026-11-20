@@ -3,7 +3,10 @@
 Monta a apresentação a partir de impacto.avaliar; não calcula multa nova. Tema = seção da própria
 norma (título conferido no texto) ou, nas disposições transitórias e sem seção, o primeiro assunto
 nomeado no texto. Títulos e enquadramentos sugeridos pela IA vêm de um cache revisável, aparecem
-marcados como interpretação e nunca entram no cálculo.
+marcados como interpretação. No modo "só identificados no texto" não entram no cálculo; no cenário
+preliminar (decisão do fundador, docs/CONTEXTO.md) entram no valor do tema, sempre marcados como sugeridos.
+Só DEVERES da distribuidora entram na contagem principal; faculdades, direitos de terceiros e
+competências da ANEEL vão para `outros_dispositivos`. Os ids das obrigações são estáveis (chave do texto).
 """
 
 import json
@@ -62,6 +65,28 @@ REDUCOES = (
 REGRAS_REDUCAO = ("atenuantes_nao_cumulativas", "atenuante_comprovacao", "ordem_calculo")
 # Degraus de prazo da ordem: evento sem data e sem prazo no texto ficam juntos ("sem data").
 DEGRAU = {"vencida": 0, "90dias": 1, "depois": 2, "recorrente": 3, "evento": 4, "sem_prazo": 4}
+
+
+NOMES_NATUREZA = {
+    "faculdade": "Faculdade (pode, não deve)",
+    "direito_de_terceiro": "Direito de terceiro (consumidor ou usuário)",
+    "competencia_aneel": "Competência da ANEEL",
+}
+SUJEITO_ANEEL = re.compile(r"^\W*(?:a\s+)?(?:ag[êe]ncia|aneel)\b", re.I)
+SUJEITO_TERCEIRO = re.compile(r"\b(?:consumidor(?:es)?|usu[áa]rios?)\b", re.I)
+
+
+def natureza(row):
+    """Natureza do dispositivo pelo SUJEITO e pela MODALIDADE da oração principal (modality vem de
+    proposals.modality): "dever" da distribuidora; "competencia_aneel" quando o sujeito é a Agência;
+    "direito_de_terceiro" quando consumidor ou usuário é o sujeito de uma permissão; "faculdade" para
+    qualquer outra permissão. Só "dever" entra na contagem principal."""
+    sujeito = row.get("subject", "") or ""
+    if SUJEITO_ANEEL.match(sujeito):
+        return "competencia_aneel"
+    if row.get("modality") == "permission":
+        return "direito_de_terceiro" if SUJEITO_TERCEIRO.search(sujeito) else "faculdade"
+    return "dever"
 
 
 def exposicao_pct(t, preliminar=True):
@@ -321,7 +346,7 @@ def montar(resultado, units, params, p, cfg, ia=None, chave=None, cenarios=None)
     validas = infracoes_validas(params)
     fila = {id(i): n for n, i in enumerate(resultado["ranking"], start=1)}
     verificar = {id(i) for i in resultado["verificar"]}
-    obrigacoes, infracoes = [], {}
+    obrigacoes, infracoes, outros = [], {}, []
 
     for item in resultado["itens"]:
         if not item["aplicavel"]:
@@ -330,6 +355,18 @@ def montar(resultado, units, params, p, cfg, ia=None, chave=None, cenarios=None)
         item["chave"] = chave(row)
         ancora = next((a for a in row.get("anchors", []) if a.get("state") == "verified"), None)
         unidade = by_id.get(ancora["unit_id"]) if ancora else None
+        nat = natureza(row)
+        if nat != "dever":
+            outros.append({
+                "id": item["chave"],
+                "natureza": nat,
+                "rotulo": NOMES_NATUREZA[nat],
+                "sujeito": espacos(row.get("subject", "")),
+                "unidade": unidade["id"] if unidade else None,
+                "trecho": espacos(ancora["quote"]) if ancora else None,
+                "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
+            })  # fmt: skip
+            continue
         tema, motivo_tema = tema_de(item, secoes.get(ancora["unit_id"]) if ancora else None, cfg)
         titulo, origem_titulo = _titulo(item, ia, units_texto)
         pedacos = [espacos(row.get("action", ""))] + [
@@ -347,10 +384,14 @@ def montar(resultado, units, params, p, cfg, ia=None, chave=None, cenarios=None)
         for d in [e["dispositivo"] for e in regra] + (
             [sugestao["dispositivo"]] if sugestao else []
         ):
-            infracoes.setdefault(d, {"grupo": validas[d]["grupo"], "trecho": validas[d]["trecho"]})
+            infracoes.setdefault(d, {
+                "grupo": validas[d]["grupo"],
+                "trecho": validas[d]["trecho"],
+                "origem_da_redacao": validas[d].get("origem"),
+            })  # fmt: skip
         urg = item["urgencia"]
         obrigacoes.append({
-            "id": row["id"],
+            "id": item["chave"],  # estável entre execuções (o id do banco é aleatório)
             "titulo": titulo,
             "titulo_origem": origem_titulo,
             "titulo_completo": _titulo_completo(item, titulo, origem_titulo),
@@ -390,14 +431,17 @@ def montar(resultado, units, params, p, cfg, ia=None, chave=None, cenarios=None)
             o["posicao_fila"] or 999,
         )
     )
+    ids = [o["id"] for o in obrigacoes] + [o["id"] for o in outros]
+    assert len(set(ids)) == len(ids), "chave de obrigação repetida: o id estável não é único"
     temas = [_tema(t, obrigacoes, fontes_temas.get(t["id"], []), cfg) for t in cfg["temas"]]
     temas = ordenar_temas([t for t in temas if t["n"]])
     return {
-        "resumo": _resumo(obrigacoes, resultado, temas),
+        "resumo": _resumo(obrigacoes, resultado, temas, outros),
         "decisoes": decisoes(obrigacoes, temas),
         "temas": temas,
         "ordem_inicial": [t["id"] for t in temas],
         "obrigacoes": obrigacoes,
+        "outros_dispositivos": outros,
         "infracoes": infracoes,
         "linha_do_tempo": {
             s: [o["id"] for o in obrigacoes if o["situacao"] == s] for s in SITUACOES
@@ -482,11 +526,12 @@ def _tema(cfg_tema, obrigacoes, fontes, cfg):
     }
 
 
-def _resumo(obrigacoes, resultado, temas):
+def _resumo(obrigacoes, resultado, temas, outros=()):
     grupos = [o["grupo"] for o in obrigacoes if o["grupo"]]
     return {
         "identificadas": len([i for i in resultado["itens"]]),
-        "aplicaveis": len(obrigacoes),
+        "aplicaveis": len(obrigacoes),  # só deveres da distribuidora
+        "outros_dispositivos": len(outros),
         "fora_do_perfil": sum(not i["aplicavel"] for i in resultado["itens"]),
         "por_situacao": {s: sum(o["situacao"] == s for o in obrigacoes) for s in SITUACOES},
         "na_fila": sum(o["calculo"] == "fila" for o in obrigacoes),

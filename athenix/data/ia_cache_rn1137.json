@@ -1,5 +1,5 @@
 {
- "aviso": "Sugestões da IA gravadas no ensaio de 17/11/2026. Aguardam revisão humana e não entram no cálculo.",
+ "aviso": "Sugestões da IA gravadas no ensaio de 17/11/2026. Aguardam revisão humana. No modo só identificados no texto não entram no cálculo; no cenário preliminar entram no valor do tema, sempre marcadas como sugeridas.",
  "modelo": "gpt-5-mini",
  "reasoning": "medium",
  "gerado_por": "scripts/exportar_plano_demo.py --importar-ia",

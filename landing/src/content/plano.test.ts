@@ -9,7 +9,8 @@ test('plano vem do produto, com perfil ilustrativo e sem números soltos', () =>
   const r = plano.resumo
   assert.equal(r.aplicaveis, r.na_fila + r.a_confirmar + r.sem_multa)
   assert.equal(r.aplicaveis, Object.values(r.por_situacao).reduce((a, b) => a + b, 0))
-  assert.equal(r.identificadas, r.aplicaveis + r.fora_do_perfil)
+  assert.equal(r.identificadas, r.aplicaveis + r.fora_do_perfil + r.outros_dispositivos)
+  assert.equal(plano.outros_dispositivos.length, r.outros_dispositivos)
   assert.equal(plano.temas.reduce((n, t) => n + t.n, 0), r.aplicaveis)
 })
 
@@ -234,4 +235,28 @@ test('resumo do diagnóstico: tema mais exposto em aberto, lacuna e nada de prom
 
 test('título completo nunca termina em reticências', () => {
   for (const o of plano.obrigacoes) assert.ok(o.titulo_completo && !o.titulo_completo.endsWith('…'), o.id)
+})
+
+test('infrações citadas trazem fonte, SHA-256 e origem da redação, conferidos pelo export', () => {
+  const todas = Object.entries(plano.infracoes)
+  assert.ok(todas.length > 0)
+  for (const [d, i] of todas) {
+    assert.ok(i.conferido_na_fonte, `sem conferência em ${d}`)
+    assert.match(i.fonte.sha256, /^[0-9a-f]{64}$/)
+    assert.ok(i.fonte.arquivo && i.origem_da_redacao)
+  }
+})
+
+test('art. 11, XXIII: as duas redações aparecem com vigência e estado; a futura segue incerta', () => {
+  const s = plano.sucessao_no_tempo.find((x) => x.dispositivo === 'Art. 11, XXIII')!
+  assert.equal(s.redacoes.length, 2)
+  assert.equal(s.redacoes[0].vigencia_ate, '2026-12-31')
+  assert.equal(s.redacoes[1].estado, 'incerta')
+  assert.equal(s.redacoes[1].conferido_na_fonte, false)
+})
+
+test('outros dispositivos não entram nos deveres nem nos temas', () => {
+  const deveres = new Set(plano.obrigacoes.map((o) => o.id))
+  for (const o of plano.outros_dispositivos) assert.ok(!deveres.has(o.id), `${o.id} contado como dever`)
+  assert.equal(plano.temas.reduce((n, t) => n + t.n, 0), plano.resumo.aplicaveis)
 })
