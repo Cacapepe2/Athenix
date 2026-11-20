@@ -13,13 +13,30 @@ entram no valor por tema, sempre marcadas ("sugerido", barra hachurada); no modo
 vale a regra antiga (só o enquadramento que o texto da obrigação nomeia). No empate de R$, o
 identificado no texto vem antes do sugerido. "Confirmado" fica reservado à revisão humana, que ainda não existe. É um MVP técnico, ainda não validado comercialmente.
 
-## Estado (17/11/2026)
-- `main` em `87ba336`. CI verde em Ubuntu, Windows e macOS (284 testes + 4 pulados por falta dos
-  PDFs oficiais). Gabarito 20/20, trava ok.
-- PR #24, a nova `/demo` em forma de plano de ação, é rascunho e **não pode ser mergeada sem o
-  fundador**. #22 e #20 estão intocados.
-- Pendências do fundador: `docs/SPRINT_2026-11-17.md` §5. Progresso do sprint em curso:
-  `.review/PROGRESSO.md` (fora do git).
+## Estado (20/11/2026)
+- `main` em `74e0fb3` (#36 a #39 mergeados); trabalho em curso na branch `sprint/demo-executiva`.
+  CI verde em Ubuntu, Windows e macOS (458 testes Python, 30 do site). Gabarito 20/20, trava ok.
+- `/demo` completa (plano por tema, cenário preliminar x só identificados no texto, diagnóstico
+  gerado no site, análise regulatória preliminar). A contagem principal é só de **deveres da
+  distribuidora** na RN 1.137 (155); faculdades, direitos de terceiros e competências da ANEEL (12)
+  ficam em "Outros dispositivos relevantes". Cada infração citada traz fonte, SHA-256 e origem da
+  redação, e o export relê o arquivo para conferir o trecho. As duas redações do art. 11, XXIII
+  aparecem com vigência e estado (a futura é INCERTA).
+- Reprodutibilidade: o JSON da demo tem ids estáveis (chave do texto) e
+  `python scripts/exportar_plano_demo.py --verificar` (também no CI) compara o export regenerado com o
+  versionado, exceto `commit_origem` e `gerado_em` (`--data` e `--commit` os tornam controláveis).
+- **Página executiva** `/demo/executivo` (a landing leva a ela): três números (exposição por infração,
+  quanto cai se regularizar antes da fiscalização, prazos), as 5 obrigações para olhar primeiro e a
+  referência do setor, em linguagem de negócio ("infração grave (Grupo IV)"; mapeamento em
+  `landing/src/content/gravidade.ts`). Abre duas normas, ambas pelo mesmo motor: RN 1.137/2025 e
+  **REN 1.174/2026** (abertura do mercado livre; 86 deveres da distribuidora, 5 com prazo e 2 recorrentes; enquadramento
+  só por sugestão de IA, marcada, `docs/enquadramento_ia_ren1174.md`). Sem enquadramento não há valor:
+  nada de teto da escala como "pior caso". A página completa `/demo?norma=ren1174` mostra a segunda norma.
+- **Comando único:** `python -m athenix processar <arquivo> --agente distribuidora --saida <json>` (do
+  PDF/HTML oficial ao JSON do plano, sem IA nem rede; saídas em `docs/telas/executivo/comando_*.txt`).
+- Renúncia ao recurso: REN 846, **art. 38, § 2º** (redução de 25%; não é atenuante do art. 24).
+- Progresso do sprint em curso: `.review/PROGRESSO.md` (fora do git). Pendências do fundador:
+  `docs/SPRINT_2026-11-17.md` §5 (histórico).
 
 ## Regras
 - Nunca inventar obrigação, citação ou dispositivo. Todo parâmetro precisa de documento, artigo,

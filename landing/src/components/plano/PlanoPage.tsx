@@ -2,13 +2,19 @@ import { createContext, useContext, useEffect, useMemo, useRef, useState, type R
 import { AlertTriangle, ArrowDown, ArrowUp, ChevronDown, ClipboardList, Download, FileText, Printer, Sparkles } from 'lucide-react'
 import { Logo } from '../ui/Logo'
 import { Tag } from '../product/Tag'
+import { Chevron } from '../ui/Chevron'
+import { AjudaGrupos } from './AjudaGrupos'
+import { idDaObrigacao } from '../../content/executivo'
+import { rotuloDoGrupo } from '../../content/gravidade'
 import {
   brl, brlCurto, comAtenuantePct, csvPlano, dataBR, decisoesDaSemana, exposicaoTema, lacuna, lerReais, manchete, NOTA_ADVERTENCIA, textoVencidas, nomeDiag,
-  obrigacao, ordenarTemas, pct, plano, reaisDe, resumoDiagnostico, situacaoPrazo, SIM_INICIAL, textoFaixa,
-  type Citacao, type Diagnostico, type Diagnosticos, type Exposicao, type Manchete, type Medida, type Modo, type Obrigacao, type Simulacao, type Situacao, type Tema,
+  normaDaUrl, obrigacao, ordenarTemas, pct, plano, reaisDe, resumoDiagnostico, situacaoPrazo, SIM_INICIAL, textoFaixa,
+  type Citacao, type OutroDispositivo, type Diagnostico, type Diagnosticos, type Exposicao, type Manchete, type Medida, type Modo, type Obrigacao, type Simulacao, type Situacao, type Tema,
 } from '../../content/plano'
 
 const r = plano.resumo
+/** A visão executiva da mesma norma (/demo/executivo, ou com ?norma=). */
+const URL_EXECUTIVO = normaDaUrl() === 'rn1137' ? '/demo/executivo' : `/demo/executivo?norma=${normaDaUrl()}`
 const semData = r.por_situacao.evento + r.por_situacao.sem_prazo
 const kicker = 'text-xs font-semibold tracking-widest text-bronze-deep uppercase'
 const PRELIMINAR = 'cenário preliminar: inclui sugestões aguardando confirmação'
@@ -25,8 +31,6 @@ const LINK = 'font-semibold text-slate-blue underline decoration-slate-blue/40 u
 // Linha clicável de um <details>: borda, fundo ao passar o mouse e chevron que gira (index.css).
 const SUMARIO = 'flex min-h-11 cursor-pointer items-center gap-3 rounded-xl border border-slate-blue/30 bg-white px-4 py-2 font-semibold text-slate-blue hover:border-slate-blue hover:bg-slate-blue/5'
 
-/** Chevron do <summary>: gira quando o <details> está aberto (regra em index.css). */
-const Chevron = () => <ChevronDown aria-hidden="true" className="chevron ml-auto h-5 w-5 shrink-0 text-slate-blue transition-transform" />
 // Receita simulada (null: valor digitado inválido, mostra só percentuais) e modo do cenário. Nada sai do navegador.
 const Cenario = createContext<{ sim: Simulacao | null; modo: Modo }>({ sim: SIM_INICIAL, modo: 'preliminar' })
 
@@ -83,6 +87,22 @@ export function PlanoPage() {
     refDiag.current?.scrollIntoView({ block: 'start' })
     refDiag.current?.focus({ preventScroll: true })
   }, [geracao])
+  // Âncora #obrigacao-<id>: ao carregar, ao clicar num link com ela ou ao mudar o hash, abre o tema e a obrigação.
+  useEffect(() => {
+    abrirObrigacao(location.hash)
+    const clique = (e: MouseEvent) => {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
+      const href = (e.target as Element | null)?.closest?.('a[href^="#obrigacao-"]')?.getAttribute('href')
+      if (!href || !document.getElementById(href.slice(1))) return
+      e.preventDefault() // antes do handler de âncoras do App, que rolaria até um item ainda recolhido
+      history.pushState(null, '', href)
+      abrirObrigacao(href)
+    }
+    const hash = () => abrirObrigacao(location.hash)
+    document.addEventListener('click', clique, true)
+    window.addEventListener('hashchange', hash)
+    return () => { document.removeEventListener('click', clique, true); window.removeEventListener('hashchange', hash) }
+  }, [])
   useEffect(() => {
     if (!soDiagnostico) return
     const fim = () => setSoDiagnostico(false)
@@ -92,7 +112,7 @@ export function PlanoPage() {
   }, [soDiagnostico])
 
   return <Cenario.Provider value={{ sim, modo }}>
-    <header className="border-b border-line bg-ivory print:hidden"><div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-8"><a href="/" aria-label="Athenix, voltar ao início"><Logo /></a><a href="/" className={`inline-flex min-h-11 items-center text-sm ${LINK}`}>← Voltar ao site</a></div></header>
+    <header className="border-b border-line bg-ivory print:hidden"><div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-8"><a href="/" aria-label="Athenix, voltar ao início"><Logo /></a><nav aria-label="Páginas da demonstração" className="flex flex-wrap items-center justify-end gap-x-5 gap-y-1"><a href={URL_EXECUTIVO} className={`inline-flex min-h-11 items-center text-sm ${LINK}`}>Visão executiva →</a><a href="/" className={`inline-flex min-h-11 items-center text-sm ${LINK}`}>← Voltar ao site</a></nav></div></header>
     <main id="plano" className={`mx-auto max-w-7xl space-y-14 px-4 pt-6 pb-8 sm:px-8 sm:pt-10 md:pb-28 print:pb-10 ${soDiagnostico ? 'so-diagnostico' : ''}`}>
       <section aria-labelledby="titulo-plano" className="space-y-6">
         <p className={kicker}>Plano de ação · RN 1.137/2025 · {plano.perfil.rotulo.toLowerCase()} (não é empresa real)</p>
@@ -172,6 +192,7 @@ export function PlanoPage() {
       <div className="space-y-4 print:hidden">
         <Expansivel id="reduzir" titulo="Como reduzir a exposição" resumo="atenuantes do art. 24 da REN 846, regras comuns e valores por tema">{() => <ComoReduzir temas={temas} />}</Expansivel>
         <Expansivel id="linha" titulo="Quando cada coisa vence" resumo={`${r.por_situacao.vencida} vencidas, ${r.por_situacao['90dias']} em 90 dias, ${r.por_situacao.recorrente} recorrentes, ${semData} sem data`}>{() => <LinhaDoTempo />}</Expansivel>
+        <Expansivel id="outros" titulo="Outros dispositivos relevantes" resumo={`${plano.outros_dispositivos.length} dispositivos que não são deveres da distribuidora (faculdades, direitos de terceiros, competências da ANEEL e deveres de outros agentes)`}>{() => <OutrosDispositivos />}</Expansivel>
         <Expansivel id="metodo" titulo="Como chegamos aqui" resumo="contagens, prazos, cálculo da exposição, premissas e fontes">{() => <Metodo />}</Expansivel>
         <Expansivel id="referencia" titulo="Referência do setor" resumo={`autos de infração publicados em distribuição (${plano.referencia_escala.autos}, amostra pequena)`}>{() => <ReferenciaSetor />}</Expansivel>
       </div>
@@ -181,6 +202,21 @@ export function PlanoPage() {
       Iniciativa em validação · valores ilustrativos · não constitui parecer jurídico
     </div>
   </Cenario.Provider>
+}
+
+/** Abre o <details> do tema e o da obrigação do hash, rola até ela e dá foco com realce azul (index.css). */
+function abrirObrigacao(hash: string) {
+  if (!hash.startsWith('#obrigacao-')) return
+  const alvo = document.getElementById(decodeURIComponent(hash.slice(1)))
+  if (!alvo) return
+  for (let d = alvo.closest('details'); d; d = d.parentElement?.closest('details') ?? null) d.open = true
+  const proprio = alvo.querySelector('details')
+  if (proprio) proprio.open = true
+  document.querySelectorAll('[data-realce]').forEach((x) => x.removeAttribute('data-realce'))
+  alvo.setAttribute('data-realce', '')
+  alvo.tabIndex = -1
+  // Espera o React montar o detalhe (onToggle) antes de rolar.
+  requestAnimationFrame(() => requestAnimationFrame(() => { alvo.scrollIntoView({ block: 'start' }); alvo.focus({ preventScroll: true }) }))
 }
 
 /** Card de controles do diagnóstico (à esquerda do painel de resultado; no celular, acima dele). Não acompanha a rolagem. */
@@ -266,11 +302,49 @@ function Expansivel({ id, titulo, resumo, children }: { id: string; titulo: stri
   </details></section>
 }
 
+/** Fonte, SHA-256 e origem da redação da infração citada (conferidas pelo export), no formato das atenuantes. */
+function ProvInfracao({ d }: { d: string }) {
+  const i = plano.infracoes[d]
+  if (!i) return null
+  return <span className="mt-1 block break-all text-xs text-ink-soft">Fonte: {i.fonte.titulo} ({i.fonte.arquivo}) · SHA-256 {i.fonte.sha256} · redação: {i.origem_da_redacao}{i.conferido_na_fonte ? ' · trecho conferido no arquivo' : ''}</span>
+}
+
+/** As duas redações datadas de um dispositivo, com fonte, vigência e estado. A futura segue incerta. */
+function SucessaoNoTempo({ dispositivo }: { dispositivo: string }) {
+  const s = plano.sucessao_no_tempo.find((x) => x.dispositivo === dispositivo)
+  if (!s) return null
+  return <div className="mt-2 rounded-lg border border-pending/50 bg-[#f6ecd9] p-3 text-xs">
+    <p className="font-semibold text-obsidian">{s.dispositivo}: duas redações em sucessão no tempo (dúvida {s.duvida}, para especialista)</p>
+    <ul className="mt-2 space-y-2">{s.redacoes.map((r) => <li key={r.ato}>
+      <p className="font-semibold">{r.ato} · {r.vigencia_ate ? `de ${dataBR(r.vigencia_de)} até ${dataBR(r.vigencia_ate)}` : `a partir de ${dataBR(r.vigencia_de)}`} · {r.estado === 'verified' ? 'redação conferida na fonte' : 'INCERTA: não confirmada por leitura independente'}</p>
+      <blockquote className="mt-1 border-l-2 border-bronze bg-white p-2 text-sm">“{r.trecho}”</blockquote>
+      <p className="mt-1 break-all text-ink-soft">{s.dispositivo} · {r.fonte.titulo} ({r.fonte.arquivo}) · SHA-256 {r.fonte.sha256}{r.motivo ? ` · ${r.motivo}` : ''}</p>
+    </li>)}</ul>
+    <p className="mt-2 text-ink-soft">{s.texto_da_duvida}</p>
+  </div>
+}
+
+/** Faculdades, direitos de terceiros e competências da ANEEL: não entram na contagem de deveres. */
+function OutrosDispositivos() {
+  const por = (n: OutroDispositivo['natureza']) => plano.outros_dispositivos.filter((o) => o.natureza === n)
+  const grupos: [OutroDispositivo['natureza'], string][] = [['faculdade', 'Faculdades (a norma diz que pode, não que deve)'], ['direito_de_terceiro', 'Direitos de consumidores e usuários'], ['competencia_aneel', 'Competências da ANEEL'], ['dever_de_outro_agente', 'Deveres de outros agentes (não são da distribuidora)']]
+  return <div className="space-y-5 text-sm">
+    <p className="text-ink-soft">Dispositivos lidos pela mesma extração que não são deveres da distribuidora. Ficam fora da contagem do plano e do cálculo de multa. Cada um mostra o trecho literal e o dispositivo.</p>
+    {grupos.map(([n, titulo]) => por(n).length > 0 && <div key={n}>
+      <h3 className="font-semibold">{titulo} <span className="text-ink-soft">({por(n).length})</span></h3>
+      <ul className="mt-2 space-y-3">{por(n).map((o) => <li key={o.id}>
+        <blockquote className="border-l-2 border-bronze bg-ivory p-3">“{o.trecho ?? 'sem citação verificada'}”</blockquote>
+        <p className="mt-1 text-xs text-ink-soft">{o.dispositivo ?? 'dispositivo a confirmar'} · sujeito: {o.sujeito}</p>
+      </li>)}</ul>
+    </div>)}
+  </div>
+}
+
 function Metodo() {
   const esc = plano.referencia_escala
   return <div className="max-w-3xl space-y-3 text-sm leading-relaxed">
     <p>Contagens: {r.aplicaveis} obrigações para distribuidoras · {r.por_situacao.vencida} com prazo vencido · {r.por_situacao['90dias']} vencem em 90 dias · {r.por_situacao.recorrente} recorrentes · {semData} sem data ({r.por_situacao.evento} dependem de evento).</p>
-    <p>A leitura automática da norma identificou {r.identificadas} itens. {r.fora_do_perfil} {r.fora_do_perfil === 1 ? 'vale' : 'valem'} só para transmissoras; os outros {r.aplicaveis} entram neste plano. Em {r.na_fila} o texto da obrigação nomeia o instrumento de uma infração da REN 846 e o grupo de multa é identificado; {r.a_confirmar} aguardam a confirmação do enquadramento por uma pessoa; {r.sem_multa} não têm multa estimável.</p>
+    <p>A leitura automática da norma identificou {r.identificadas} itens. {r.fora_do_perfil} {r.fora_do_perfil === 1 ? 'vale' : 'valem'} só para transmissoras; {r.outros_dispositivos} não são deveres da distribuidora (faculdades, direitos de terceiros e competências da ANEEL: veja “Outros dispositivos relevantes”); os outros {r.aplicaveis} deveres entram neste plano. Em {r.na_fila} o texto da obrigação nomeia o instrumento de uma infração da REN 846 e o grupo de multa é identificado; {r.a_confirmar} aguardam a confirmação do enquadramento por uma pessoa; {r.sem_multa} não têm multa estimável.</p>
     <p>Os temas seguem as seções da própria norma (por exemplo, “{plano.temas[0].fontes[0]?.titulo}”). Disposições transitórias vão para o tema do primeiro assunto que nomeiam.</p>
     <p>Prazos: calculados pelo motor temporal a partir da publicação ({dataBR(plano.norma.vigencia)}). Ficam provisórios até uma pessoa confirmar a contagem.</p>
     <p>Exposição: teto do grupo de infração (REN 846, Art. 8º) sobre a receita operacional líquida, limitado pelo teto legal. Sem simulação, a receita é a ilustrativa de {brl(plano.perfil.base_reais)}. {plano.perfil.origem_base} Sem faturamento bruto informado, o teto legal pode estar subestimado. A manchete mostra a maior exposição por infração entre os temas já vencidos.</p>
@@ -355,7 +429,7 @@ function CartaoTema({ tema: t, posicao, diag, marcar, maiorPct }: { tema: Tema; 
           <p className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-ink-soft">
             <span>{situacaoPrazo(t)}</span><span aria-hidden="true">·</span>
             <span>{t.n} {t.n === 1 ? 'obrigação' : 'obrigações'}</span>
-            {grupo && <><span aria-hidden="true">·</span><span>Grupo {grupo}</span>{e!.origem === 'confirmado' ? <span className="rounded-full bg-slate-blue px-2 py-0.5 text-xs font-medium text-ivory">identificado no texto ({t.na_fila} de {t.n} {t.n === 1 ? 'obrigação' : 'obrigações'})</span> : <Sugerido />}</>}
+            {grupo && <><span aria-hidden="true">·</span><span className="inline-flex items-center gap-1.5">{rotuloDoGrupo(grupo)}<AjudaGrupos p={plano} /></span>{e!.origem === 'confirmado' ? <span className="rounded-full bg-slate-blue px-2 py-0.5 text-xs font-medium text-ivory">identificado no texto ({t.na_fila} de {t.n} {t.n === 1 ? 'obrigação' : 'obrigações'})</span> : <Sugerido />}</>}
             {diag === 'sim' && <><span aria-hidden="true">·</span><span>você marcou como já atendido</span></>}
           </p>
         </div>
@@ -383,7 +457,7 @@ function CartaoTema({ tema: t, posicao, diag, marcar, maiorPct }: { tema: Tema; 
       <div><dt className="text-ink-soft">Prazo mais urgente</dt><dd className="mt-1 font-semibold">{urgente ? urgente.texto : 'Sem data no texto'}</dd>
         <dd className="mt-1 text-xs text-ink-soft">{[cont('vencida') && `${cont('vencida')} vencida(s)`, cont('recorrente') && `${cont('recorrente')} recorrente(s)`, cont('evento') && `${cont('evento')} dependem de evento`, cont('sem_prazo') && `${cont('sem_prazo')} sem prazo`].filter(Boolean).join(' · ')}</dd></div>
       <div><dt className="text-ink-soft">Enquadramento na REN 846</dt>
-        {t.grupo_mais_grave ? <><dd className="mt-1 font-semibold">Grupo {t.grupos.join(', ')} · {t.infracoes.join('; ')}</dd><dd className="mt-1 text-xs text-ink-soft">Identificado pelo texto em {t.na_fila} de {t.n}; {t.a_confirmar} a confirmar.</dd></>
+        {t.grupo_mais_grave ? <><dd className="mt-1 font-semibold">{t.grupos.map(rotuloDoGrupo).join(', ')} <AjudaGrupos p={plano} /> · {t.infracoes.join('; ')}</dd><dd className="mt-1 text-xs text-ink-soft">Identificado pelo texto em {t.na_fila} de {t.n}; {t.a_confirmar} a confirmar.</dd></>
           : <dd className="mt-1 font-semibold">A confirmar</dd>}
         {t.ia && <dd className="mt-2 text-xs"><Tag kind="ai" /> <span className="text-ink-soft">sugere {t.ia.dispositivo} em {t.ia.n} de {t.ia.de}. Aguarda revisão humana; entra só no cenário preliminar, marcada.</span></dd>}</div>
       <div><dt className="text-ink-soft">Como provar que cumpriu <Tag kind="review" label="Sugestão" /></dt>
@@ -444,7 +518,7 @@ function Titulo({ o }: { o: Obrigacao }) {
 
 function ItemObrigacao({ o }: { o: Obrigacao }) {
   const [aberto, setAberto] = useState(false)
-  return <li className="rounded-xl border border-line"><details className="p-4" onToggle={(e) => setAberto(e.currentTarget.open)}>
+  return <li id={idDaObrigacao(o.id)} className="rounded-xl border border-line"><details className="p-4" onToggle={(e) => setAberto(e.currentTarget.open)}>
     <summary className="-m-2 flex min-h-11 cursor-pointer items-center gap-3 rounded-lg p-2 hover:bg-slate-blue/5"><span className="min-w-0"><Titulo o={o} /><span className="ml-2 text-xs text-ink-soft">{o.prazo.texto}{o.dispositivo ? ` · ${o.dispositivo}` : ''}</span></span><Chevron /></summary>
     {aberto && <PorQue o={o} />}
   </details></li>
@@ -453,15 +527,15 @@ function ItemObrigacao({ o }: { o: Obrigacao }) {
 function PorQue({ o }: { o: Obrigacao }) {
   return <div className="mt-4 space-y-4 text-sm leading-relaxed">
       <div><h5 className="font-semibold">O que a norma diz <Tag kind="source" /></h5>
-        {o.trecho ? <><blockquote className="mt-2 border-l-2 border-bronze bg-ivory p-3">“{o.trecho}”</blockquote><p className="mt-1 text-xs text-ink-soft">{o.dispositivo} · trecho literal conferido na fonte · <a className={LINK} href={plano.norma.url}>{plano.norma.titulo}</a></p></>
+        {o.trecho ? <><blockquote className="mt-2 border-l-2 border-bronze bg-ivory p-3">“{o.trecho}”</blockquote><p className="mt-1 text-xs text-ink-soft">{o.dispositivo} · trecho literal conferido na fonte · <a className={LINK} href={plano.norma.url ?? undefined}>{plano.norma.titulo}</a></p></>
           : <p className="mt-1">Sem citação verificada: confira o dispositivo na fonte. {o.motivo_sem_calculo}</p>}</div>
       <div><h5 className="font-semibold">Infração da REN 846</h5>
-        {o.enquadramento.map((e) => <blockquote key={e.dispositivo} className="mt-2 border-l-2 border-slate-blue bg-ivory p-3"><strong>{e.dispositivo} · Grupo {e.grupo}</strong> <span className="text-xs text-ink-soft">(o texto da obrigação nomeia o instrumento desta infração)</span><p>“{plano.infracoes[e.dispositivo].trecho}”</p></blockquote>)}
+        {o.enquadramento.map((e) => <blockquote key={e.dispositivo} className="mt-2 border-l-2 border-slate-blue bg-ivory p-3"><strong>{e.dispositivo} · {rotuloDoGrupo(e.grupo)}</strong> <AjudaGrupos p={plano} /> <span className="text-xs text-ink-soft">(o texto da obrigação nomeia o instrumento desta infração)</span><ProvInfracao d={e.dispositivo} /><p>“{plano.infracoes[e.dispositivo].trecho}”</p></blockquote>)}
         {!o.enquadramento.length && o.ia && <div className="mt-2 rounded-lg border border-dashed border-slate-blue/40 p-3">
           <p className="flex flex-wrap gap-2"><Tag kind="ai" /><Tag kind="review" /></p>
-          <p className="mt-2"><strong>{o.ia.dispositivo} · Grupo {o.ia.grupo}</strong>: “{plano.infracoes[o.ia.dispositivo].trecho}”</p>
+          <p className="mt-2"><strong>{o.ia.dispositivo} · {rotuloDoGrupo(o.ia.grupo)}</strong> <AjudaGrupos p={plano} />: “{plano.infracoes[o.ia.dispositivo].trecho}”</p><ProvInfracao d={o.ia.dispositivo} />
           <p className="mt-1 text-ink-soft">{o.ia.justificativa}</p>
-          {o.ia.duvida && <p className="mt-1 text-xs text-pending">Depende da dúvida {o.ia.duvida} (duas redações para este inciso), em consulta a especialista.</p>}
+          {o.ia.duvida && <SucessaoNoTempo dispositivo={o.ia.dispositivo} />}
           <p className="mt-1 text-xs">Entra só no cenário preliminar, marcada como sugerida, até uma pessoa confirmar.</p></div>}
         {!o.enquadramento.length && !o.ia && <p className="mt-1">Enquadramento a confirmar.</p>}</div>
       <div><h5 className="font-semibold">Prazo</h5><p>{o.prazo.texto}{o.prazo.provisorio ? '. Data provisória: calculada a partir da publicação da norma, aguarda confirmação da contagem por uma pessoa.' : '.'}</p></div>
@@ -647,7 +721,7 @@ function ReducaoTema({ t }: { t: Tema }) {
         {e && f ? <dd><ul className="mt-1 space-y-1">
           <li>Sem atenuante: até <strong>{valor(e)}</strong></li>
           {ATENUANTES.map((m) => { const v = comAtenuantePct(f, s, m.cenario!); return v == null ? null : <li key={m.parametro}>{m.dispositivo} (−{pct(m.percentual!)}): até <strong>{emReais(v, sim)}</strong></li> })}
-        </ul><p className="mt-1 text-xs text-ink-soft">Grupo {maisGrave(e.origem === 'confirmado' ? t.grupos : t.grupos_sugeridos)}{e.origem === 'sugerido' ? ` (${PRELIMINAR})` : ''}. Também pode caber advertência (art. 6º).</p></dd>
+        </ul><p className="mt-1 text-xs text-ink-soft">{rotuloDoGrupo(maisGrave(e.origem === 'confirmado' ? t.grupos : t.grupos_sugeridos))} <AjudaGrupos p={plano} />{e.origem === 'sugerido' ? ` (${PRELIMINAR})` : ''}. Também pode caber advertência (art. 6º).</p></dd>
           : <dd className="mt-1">Exposição a enquadrar. Se houver multa, os atenuantes do art. 24 reduzem o valor calculado em {ATENUANTES.map((m) => pct(m.percentual!)).join(' ou ')}, conforme a condição.</dd>}
       </div>
       <div><dt className="text-ink-soft">Causas externas</dt><CausasExternas t={t} /></div>

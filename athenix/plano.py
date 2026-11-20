@@ -3,14 +3,18 @@
 Monta a apresentação a partir de impacto.avaliar; não calcula multa nova. Tema = seção da própria
 norma (título conferido no texto) ou, nas disposições transitórias e sem seção, o primeiro assunto
 nomeado no texto. Títulos e enquadramentos sugeridos pela IA vêm de um cache revisável, aparecem
-marcados como interpretação e nunca entram no cálculo.
+marcados como interpretação. No modo "só identificados no texto" não entram no cálculo; no cenário
+preliminar (decisão do fundador, docs/CONTEXTO.md) entram no valor do tema, sempre marcados como sugeridos.
+Só DEVERES da distribuidora entram na contagem principal; faculdades, direitos de terceiros e
+competências da ANEEL vão para `outros_dispositivos`. Os ids das obrigações são estáveis (chave do texto).
 """
 
 import json
 import re
 from pathlib import Path
 
-from . import impacto
+from . import impacto, proposals
+from .evidence import verify
 from .enquadramento import chave as chave_texto
 from .enquadramento import infracoes_validas
 from .normalizacao import espacos
@@ -62,6 +66,123 @@ REDUCOES = (
 REGRAS_REDUCAO = ("atenuantes_nao_cumulativas", "atenuante_comprovacao", "ordem_calculo")
 # Degraus de prazo da ordem: evento sem data e sem prazo no texto ficam juntos ("sem data").
 DEGRAU = {"vencida": 0, "90dias": 1, "depois": 2, "recorrente": 3, "evento": 4, "sem_prazo": 4}
+
+
+NOMES_NATUREZA = {
+    "faculdade": "Faculdade (pode, não deve)",
+    "direito_de_terceiro": "Direito de terceiro (consumidor ou usuário)",
+    "competencia_aneel": "Competência da ANEEL",
+    "dever_de_outro_agente": "Dever de outro agente (não é da distribuidora)",
+}
+SUJEITO_ANEEL = re.compile(r"^\W*(?:a\s+)?(?:ag[êe]ncia|aneel)\b", re.I)
+# Sujeito que é OUTRO agente do setor (CCEE, Sandbox, comercializador, consumidor...): o dever não é da
+# distribuidora. Só vale quando o sujeito COMEÇA por ele; sujeito impessoal ("O plano de contingência")
+# continua na contagem da distribuidora.
+SUJEITO_OUTRO_AGENTE = re.compile(
+    r"^\W*(?:[oa]s?\s+)?(?:ccee\b|c[âa]mara de comercializa|ons\b|operador nacional|sandbox|"
+    r"representante da comercializa|(?:agente\s+)?comercializador|gerador|autoprodutor|"
+    r"consumidor|interessado)",
+    re.I,
+)
+SUJEITO_DISTRIBUIDORA = re.compile(
+    r"distribuidor|concession[áa]ri|permission[áa]ri|cession[áa]ri", re.I
+)
+SUJEITO_TERCEIRO = re.compile(r"\b(?:consumidor(?:es)?|usu[áa]rios?)\b", re.I)
+
+
+# Complemento agentivo: "deve ser realizada por consumidor", "pela CCEE": quem age é OUTRO agente.
+AGENTE_NO_CAPUT = re.compile(
+    r"\b(?:por|pel[oa]s?)\s+(?:o\s+|a\s+|os\s+|as\s+)?(?:consumidor(?:es)?|ccee\b|"
+    r"c[âa]mara de comercializa|sandbox|comercializador(?:es)?|representante da comercializa)",
+    re.I,
+)
+
+
+def ancorar_pendentes(rows, extraction):
+    """Obrigação cuja âncora ficou "pending" (o trecho do dispositivo traz tabela ou quebra de linha junto)
+    ganha a PRIMEIRA FRASE do próprio dispositivo como citação, se o verificador a confirmar literalmente
+    na fonte. O que continuar sem citação verificada sai do plano (nada de obrigação sem dispositivo)."""
+    por_id = {u["id"]: u for u in extraction["units"]}
+    for row in rows:
+        if any(a.get("state") == "verified" for a in row.get("anchors", [])):
+            continue
+        for ev in row.get("evidence", []):
+            unit = por_id.get(ev.get("unit_id"))
+            if not unit:
+                continue
+            frase = next(iter(proposals.sentences(unit["text"])), "")
+            if len(frase) < 16:
+                continue
+            r = verify(frase, unit["id"], extraction["units"], extraction["text_hash"], source=extraction.get("source"))  # fmt: skip
+            if r["state"] == "verified":
+                row["anchors"] = [{"unit_id": unit["id"], "quote": frase, "state": "verified"}]
+                break
+    return rows
+
+
+def validar_bases_dos_prazos(rows, extraction):
+    """Trava: prazo contado da publicação ou da vigência da PRÓPRIA norma com data-base anterior à
+    publicação é erro de leitura (por exemplo, a data de outro ato lida como vigência). Interrompe."""
+    publicacoes = {d["date"] for d in extraction["dates"] if d["kind"] == "publication"}
+    if len(publicacoes) != 1:
+        return
+    publicacao = next(iter(publicacoes))
+    for row in rows:
+        for d in row.get("deadlines", []):
+            if d.get("date") and d.get("event") in ("Publicação da norma", "Vigência da norma") and (d.get("base") or "") < publicacao:  # fmt: skip
+                raise ValueError(
+                    f"Prazo com data-base {d.get('base')} anterior à publicação da norma ({publicacao}): "
+                    f"{d.get('quote', '')[:80]!r}. Corrija a leitura da data (athenix/structure.py)."
+                )
+
+
+def caput_do_dispositivo(unit, by_id):
+    """Texto do caput: o ancestral mais próximo que traz marcador deôntico (deve, poderá...)."""
+    atual = by_id.get(unit.get("parent")) if unit else None
+    while atual:
+        if proposals.DUTY.search(atual["text"]):
+            return espacos(atual["text"])
+        atual = by_id.get(atual.get("parent"))
+    return ""
+
+
+def natureza(row, caput=""):
+    """Natureza do dispositivo pelo SUJEITO e pela MODALIDADE da oração principal (modality vem de
+    proposals.modality): "dever" da distribuidora; "competencia_aneel" quando o sujeito é a Agência;
+    "direito_de_terceiro" quando consumidor ou usuário é o sujeito de uma permissão; "faculdade" para
+    qualquer outra permissão; "dever_de_outro_agente" quando o sujeito é outro agente (CCEE, Sandbox,
+    comercializador, consumidor). Só "dever" entra na contagem principal."""
+    sujeito = row.get("subject", "") or ""
+    # Inciso sem sujeito próprio ("não identificado", fragmento sem substantivo) HERDA o sujeito do caput.
+    if caput and (
+        not sujeito
+        or sujeito == "não identificado"
+        or not re.search(r"[A-Za-zÀ-ú]{4}", sujeito)  # sem substantivo ("-A.", "a)")
+        or re.match(
+            r"\s*[a-zà-ú]+(?:ar|er|ir)\b", sujeito
+        )  # começa por verbo ("celebrar o Contrato...")
+    ):
+        sujeito = proposals.subject_of(caput)
+    if SUJEITO_ANEEL.match(sujeito):
+        return "competencia_aneel"
+    if row.get("modality") == "permission":
+        return "direito_de_terceiro" if SUJEITO_TERCEIRO.search(sujeito) else "faculdade"
+    if SUJEITO_OUTRO_AGENTE.match(sujeito):
+        return "dever_de_outro_agente"
+    # Sujeito impessoal ("A solicitação de redução...") mas o caput diz quem age: "por consumidor livre".
+    texto = f"{caput} {row.get('action', '')}"
+    distribuidora_age = re.search(
+        r"\bpel[oa]s?\s+(?:distribuidor|concession)|\b(?:a|as)\s+distribuidor\w*\s+(?:dever|deve|poder|pode|fica)",
+        texto,
+        re.I,
+    )
+    if (
+        not SUJEITO_DISTRIBUIDORA.search(sujeito)
+        and not distribuidora_age
+        and AGENTE_NO_CAPUT.search(texto)
+    ):
+        return "dever_de_outro_agente"
+    return "dever"
 
 
 def exposicao_pct(t, preliminar=True):
@@ -127,6 +248,28 @@ def secao_por_unidade(units):
             atual = u["label"]
         out[u["id"]] = atual
     return out
+
+
+def temas_automaticos(units, base):
+    """Temas de uma norma sem arquivo de temas: um por CAPÍTULO (título do próprio texto). `base` é o
+    arquivo de temas padrão, de onde vêm só os catálogos de evidência e de "o que guardar". Devolve
+    (cfg, {unidade: tema}). Unidades antes do primeiro capítulo e sem capítulo vão para "outros"."""
+    cap = re.compile(r"^\W*(CAP[ÍI]TULO\s+[IVXLC]+(?:-[A-Z])?)\s*(.*)$", re.I | re.S)
+    temas, por_unidade, atual = [], {}, "outros"
+    for u in sorted(units, key=lambda u: u["start"]):
+        if u["kind"] == "heading":
+            m = cap.match(espacos(u["text"]))
+            if m:
+                titulo = m.group(2).strip(' "”.') or m.group(1)
+                rotulo_cap = "Capítulo " + m.group(1).split(None, 1)[1].upper()
+                nome = f"{rotulo_cap}: {titulo.lower().capitalize()}"
+                atual = re.sub(r"\W+", "_", m.group(1).lower()).strip("_") + f"_{len(temas)}"
+                temas.append({"id": atual, "nome": nome, "secoes": [], "padrao": None})
+        por_unidade[u["id"]] = atual
+    temas.append(
+        {"id": "outros", "nome": "Disposições gerais e outras", "secoes": [], "padrao": None}
+    )
+    return base | {"temas": temas}, por_unidade
 
 
 def conferir_secoes(cfg, units):
@@ -277,6 +420,26 @@ def _ids_por_padrao(pedacos, lista):
     return [e["id"] for e in lista if any(re.search(e["padrao"], t) for t in pedacos)]
 
 
+def escala_de_gravidade(params):
+    """Teto de multa de cada grupo (REN 846, art. 8º) e o teto legal (Lei 9.427/1996, art. 3º, X), cada um
+    com dispositivo, trecho literal, fonte e SHA-256. O nome de negócio de cada grupo (leve, média...)
+    fica no site (landing/src/content/gravidade.ts), num único lugar."""
+    saida = {}
+    for pid in [f"limite_grupo_{g}" for g in impacto.GRUPOS] + ["teto_legal_lei"]:
+        par = impacto.parametro(params, pid)
+        if not par:
+            continue
+        fonte = params["fontes"][par["fonte"]]
+        saida[pid] = {
+            "dispositivo": par["dispositivo"],
+            "trecho": espacos(par["trecho"]),
+            "percentual": par["percentuais"][0] if par["percentuais"] else None,
+            "fonte": fonte["titulo"],
+            "sha256": fonte["sha256"],
+        }
+    return saida
+
+
 def reducao(params):
     """Bloco geral de "Como reduzir a exposição": regras e medidas da REN 846 com citação."""
 
@@ -307,7 +470,9 @@ def reducao(params):
     }
 
 
-def montar(resultado, units, params, p, cfg, ia=None, chave=None, cenarios=None):
+def montar(
+    resultado, units, params, p, cfg, ia=None, chave=None, cenarios=None, tema_por_unidade=None
+):
     """Plano para o perfil `p`. `chave(row)` identifica a obrigação no cache da IA. `cenarios`:
     {atenuante: resultado de impacto.avaliar com esse atenuante e fração do valor base 100%}."""
     chave = chave or chave_texto
@@ -321,7 +486,7 @@ def montar(resultado, units, params, p, cfg, ia=None, chave=None, cenarios=None)
     validas = infracoes_validas(params)
     fila = {id(i): n for n, i in enumerate(resultado["ranking"], start=1)}
     verificar = {id(i) for i in resultado["verificar"]}
-    obrigacoes, infracoes = [], {}
+    obrigacoes, infracoes, outros = [], {}, []
 
     for item in resultado["itens"]:
         if not item["aplicavel"]:
@@ -330,7 +495,25 @@ def montar(resultado, units, params, p, cfg, ia=None, chave=None, cenarios=None)
         item["chave"] = chave(row)
         ancora = next((a for a in row.get("anchors", []) if a.get("state") == "verified"), None)
         unidade = by_id.get(ancora["unit_id"]) if ancora else None
-        tema, motivo_tema = tema_de(item, secoes.get(ancora["unit_id"]) if ancora else None, cfg)
+        nat = natureza(row, caput_do_dispositivo(unidade, by_id))
+        if nat != "dever":
+            outros.append({
+                "id": item["chave"],
+                "natureza": nat,
+                "rotulo": NOMES_NATUREZA[nat],
+                "sujeito": espacos(row.get("subject", "")),
+                "unidade": unidade["id"] if unidade else None,
+                "trecho": espacos(ancora["quote"]) if ancora else None,
+                "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
+            })  # fmt: skip
+            continue
+        if tema_por_unidade is not None:  # norma sem arquivo de temas: tema = capítulo
+            tema = tema_por_unidade.get(ancora["unit_id"], "outros") if ancora else "outros"
+            motivo_tema = "Capítulo da norma" if tema != "outros" else "Sem capítulo identificado"
+        else:
+            tema, motivo_tema = tema_de(
+                item, secoes.get(ancora["unit_id"]) if ancora else None, cfg
+            )
         titulo, origem_titulo = _titulo(item, ia, units_texto)
         pedacos = [espacos(row.get("action", ""))] + [
             espacos(e.get("quote", "")) for e in row.get("evidence", [])
@@ -347,10 +530,14 @@ def montar(resultado, units, params, p, cfg, ia=None, chave=None, cenarios=None)
         for d in [e["dispositivo"] for e in regra] + (
             [sugestao["dispositivo"]] if sugestao else []
         ):
-            infracoes.setdefault(d, {"grupo": validas[d]["grupo"], "trecho": validas[d]["trecho"]})
+            infracoes.setdefault(d, {
+                "grupo": validas[d]["grupo"],
+                "trecho": validas[d]["trecho"],
+                "origem_da_redacao": validas[d].get("origem"),
+            })  # fmt: skip
         urg = item["urgencia"]
         obrigacoes.append({
-            "id": row["id"],
+            "id": item["chave"],  # estável entre execuções (o id do banco é aleatório)
             "titulo": titulo,
             "titulo_origem": origem_titulo,
             "titulo_completo": _titulo_completo(item, titulo, origem_titulo),
@@ -364,6 +551,11 @@ def montar(resultado, units, params, p, cfg, ia=None, chave=None, cenarios=None)
                 "texto": urg["principal"],
                 "dias": urg["dias"],
                 "provisorio": "provisório" in urg["detalhe"],
+                # Data de referência da contagem (marco do prazo), para a tela dizer de onde ele vem.
+                "base": next(
+                    (d.get("base") for d in row.get("deadlines", []) if d.get("date") == urg["data"]),
+                    None,
+                ),
             },
             "calculo": calculo,
             "posicao_fila": fila.get(id(item)),
@@ -390,14 +582,17 @@ def montar(resultado, units, params, p, cfg, ia=None, chave=None, cenarios=None)
             o["posicao_fila"] or 999,
         )
     )
+    ids = [o["id"] for o in obrigacoes] + [o["id"] for o in outros]
+    assert len(set(ids)) == len(ids), "chave de obrigação repetida: o id estável não é único"
     temas = [_tema(t, obrigacoes, fontes_temas.get(t["id"], []), cfg) for t in cfg["temas"]]
     temas = ordenar_temas([t for t in temas if t["n"]])
     return {
-        "resumo": _resumo(obrigacoes, resultado, temas),
+        "resumo": _resumo(obrigacoes, resultado, temas, outros),
         "decisoes": decisoes(obrigacoes, temas),
         "temas": temas,
         "ordem_inicial": [t["id"] for t in temas],
         "obrigacoes": obrigacoes,
+        "outros_dispositivos": outros,
         "infracoes": infracoes,
         "linha_do_tempo": {
             s: [o["id"] for o in obrigacoes if o["situacao"] == s] for s in SITUACOES
@@ -406,6 +601,7 @@ def montar(resultado, units, params, p, cfg, ia=None, chave=None, cenarios=None)
         "regra_ordem": ORDEM_PLANO,
         "evidencias": {e["id"]: e["texto"] for e in cfg["evidencias"]},
         "reducao": reducao(params),
+        "escala_de_gravidade": escala_de_gravidade(params),
         "guardar": {e["id"]: e["texto"] for e in cfg.get("guardar", [])},
     }
 
@@ -482,11 +678,12 @@ def _tema(cfg_tema, obrigacoes, fontes, cfg):
     }
 
 
-def _resumo(obrigacoes, resultado, temas):
+def _resumo(obrigacoes, resultado, temas, outros=()):
     grupos = [o["grupo"] for o in obrigacoes if o["grupo"]]
     return {
         "identificadas": len([i for i in resultado["itens"]]),
-        "aplicaveis": len(obrigacoes),
+        "aplicaveis": len(obrigacoes),  # só deveres da distribuidora
+        "outros_dispositivos": len(outros),
         "fora_do_perfil": sum(not i["aplicavel"] for i in resultado["itens"]),
         "por_situacao": {s: sum(o["situacao"] == s for o in obrigacoes) for s in SITUACOES},
         "na_fila": sum(o["calculo"] == "fila" for o in obrigacoes),

@@ -6,14 +6,15 @@ Junta, para a obrigação: tipo (athenix/tipos.py), manual do tipo (ideias de cu
 - prática conhecida por tema: sem citação da norma, com referência pública e a cautela do contraponto.
 
 Tipo: só aparece como definitivo quando a regra e a IA (lida do cache local, sem chamada) concordam; se
-discordam, "tipo a revisar". Sem resposta da IA no cache (o caso hoje: nenhuma IA foi chamada), o tipo
-sai marcado "só pela regra · IA não consultada" e a pessoa decide. Não é parecer jurídico.
+discordam, "tipo a revisar". Sem resposta da IA no cache (cache ausente ou obrigação fora dele), o tipo
+sai marcado "só pela regra · IA não consultada" e a pessoa decide. Quando a regra não acha tipo
+("outros") e a IA acha um, a divergência também vira "tipo a revisar". Não é parecer jurídico.
 """
 
 import json
 from pathlib import Path
 
-from . import dependencias, enquadramento, tipos, tipos_ia
+from . import dependencias, tipos, tipos_ia
 from .evidence import verify
 from .normalizacao import espacos
 
@@ -33,9 +34,25 @@ TIPOS_DE_DETALHE = {"letter", "clause", "item", "paragraph"}
 
 
 def _tipo(texto, detalhe, cache_ia, oid, cfg):
+    """Tipo da obrigação. `regra_id` é sempre o tipo da REGRA (ou None): a página executiva o usa, com a
+    etiqueta "preliminar", quando regra e IA ainda não concordam."""
+    r = _tipo_final(texto, detalhe, cache_ia, oid, cfg)
+    regra = tipos.classificar(texto, detalhe=detalhe, cfg=cfg)["tipo"]
+    return r | {"regra_id": None if regra == "outros" else regra}
+
+
+def _tipo_final(texto, detalhe, cache_ia, oid, cfg):
     regra = tipos.classificar(texto, detalhe=detalhe, cfg=cfg)
     tipo = regra["tipo"]
     if tipo == "outros":
+        ia_tipo = (cache_ia or {}).get(oid)
+        if ia_tipo and ia_tipo != "outros":
+            return {
+                "id": None,
+                "nome": None,
+                "situacao": "a_revisar",
+                "por": f"regra: sem tipo próprio; IA: {tipos.manual(ia_tipo, cfg)['nome']}",
+            }
         return {"id": None, "nome": None, "situacao": "sem_tipo", "por": regra["por"]}
     nome = tipos.manual(tipo, cfg)["nome"]
     if cache_ia:
@@ -60,7 +77,6 @@ def montar(out, rows, extraction, cache_ia=None):
     units = extraction["units"]
     por_unidade = {u["id"]: u for u in units}
     por_obrigacao = {o["id"]: o for o in out["obrigacoes"]}
-    por_linha = {r["id"]: r for r in rows}
     manuais, deps = {}, {}
 
     def verificar(trecho, unit_id):
@@ -69,7 +85,6 @@ def montar(out, rows, extraction, cache_ia=None):
         )["state"]
 
     for t in out["temas"]:
-        principais = set(t["principais"])
         t["dependencias_no_texto"] = []
         for oid in t["obrigacoes"]:
             o = por_obrigacao[oid]
@@ -87,19 +102,18 @@ def montar(out, rows, extraction, cache_ia=None):
             for d in no_texto:
                 deps.setdefault(d["id"], dependencias.manual_da_dependencia(d["id"], cfg_dep))
                 t["dependencias_no_texto"].append({"obrigacao": oid, **d})
-            if oid not in principais and not no_texto:
-                continue
             texto = espacos(unit["text"])
             detalhe = bool(unit["parent"]) and unit["kind"] in TIPOS_DE_DETALHE
-            tipo = _tipo(texto, detalhe, cache_ia, enquadramento.chave(por_linha[oid]), cfg_tipos)
-            if tipo["id"] and tipo["id"] not in manuais:
-                m = tipos.manual(tipo["id"], cfg_tipos)
-                manuais[tipo["id"]] = {
-                    "nome": m["nome"],
-                    "ideias_cumprimento": m["ideias_cumprimento"],
-                    "evidencias": m["evidencias"],
-                    "status": m["status"],
-                }
+            tipo = _tipo(texto, detalhe, cache_ia, oid, cfg_tipos)
+            for tid in {tipo["id"], tipo["regra_id"]} - {None}:
+                if tid not in manuais:
+                    m = tipos.manual(tid, cfg_tipos)
+                    manuais[tid] = {
+                        "nome": m["nome"],
+                        "ideias_cumprimento": m["ideias_cumprimento"],
+                        "evidencias": m["evidencias"],
+                        "status": m["status"],
+                    }
             o["analise"] = {"tipo": tipo, "dependencias_no_texto": no_texto}
     pratica = {}
     for tema, dep in PRATICA_POR_TEMA.items():

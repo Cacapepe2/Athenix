@@ -22,7 +22,7 @@ from jinja2 import Environment  # noqa: E402
 from playwright.sync_api import sync_playwright  # noqa: E402
 
 from athenix import analise, impacto, plano  # noqa: E402
-from exportar_plano_demo import montar  # noqa: E402
+from exportar_plano_demo import montar, proveniencia, sucessao_no_tempo  # noqa: E402
 
 SAIDA = ROOT / "artifacts" / "piloto" / "relatorio_rn1137_distribuidora.pdf"
 REFERENCIA = "2026-11-17"
@@ -168,7 +168,13 @@ table.portes th, table.portes td { font-size: 8pt; padding: 2.5pt 4pt; }
  <td>{% for e in o.enquadramento %}<b>{{ e.dispositivo }} · Grupo {{ e.grupo }}</b> (o texto nomeia o instrumento da infração){% endfor %}{% if not o.enquadramento and o.ia %}<span class="ia">Interpretação da IA · aguarda revisão</span><br>{{ o.ia.dispositivo }} · Grupo {{ o.ia.grupo }}{% if o.ia.duvida %} · depende da dúvida {{ o.ia.duvida }}{% endif %}{% elif not o.enquadramento %}<span class="muted">A confirmar</span>{% endif %}</td></tr>{% endfor %}
  </table>{% endfor %}
  <h3 style="margin-top:10pt">Texto das infrações citadas</h3>
- <table>{% for d, i in p.infracoes|dictsort %}<tr><td style="width:18%"><b>{{ d }}</b> · Grupo {{ i.grupo }}</td><td>“{{ i.trecho }}”</td></tr>{% endfor %}</table>
+ <table>{% for d, i in p.infracoes|dictsort %}<tr><td style="width:18%"><b>{{ d }}</b> · Grupo {{ i.grupo }}</td><td>“{{ i.trecho }}”<br><span class="muted small">Fonte: {{ i.fonte.titulo }} ({{ i.fonte.arquivo }}) · SHA-256 {{ i.fonte.sha256 }} · redação: {{ i.origem_da_redacao }} · trecho conferido no arquivo</span></td></tr>{% endfor %}</table>
+ {% for s in p.sucessao_no_tempo %}<h3 style="margin-top:10pt">{{ s.dispositivo }}: duas redações em sucessão no tempo</h3>
+ <table>{% for r in s.redacoes %}<tr><td style="width:22%"><b>{{ r.ato }}</b><br>{% if r.vigencia_ate %}de {{ r.vigencia_de[8:10] }}/{{ r.vigencia_de[5:7] }}/{{ r.vigencia_de[:4] }} até {{ r.vigencia_ate[8:10] }}/{{ r.vigencia_ate[5:7] }}/{{ r.vigencia_ate[:4] }}{% else %}a partir de {{ r.vigencia_de[8:10] }}/{{ r.vigencia_de[5:7] }}/{{ r.vigencia_de[:4] }}{% endif %}<br>{{ 'conferida na fonte' if r.estado == 'verified' else 'INCERTA (não confirmada por leitura independente)' }}</td><td>“{{ r.trecho }}”<br><span class="muted small">{{ s.dispositivo }} · {{ r.fonte.titulo }} ({{ r.fonte.arquivo }}) · SHA-256 {{ r.fonte.sha256 }}</span></td></tr>{% endfor %}</table>
+ <p class="small muted">{{ s.texto_da_duvida }}</p>{% endfor %}
+ <h3 style="margin-top:10pt">Outros dispositivos relevantes ({{ p.outros_dispositivos|length }})</h3>
+ <p class="small muted">Faculdades, direitos de consumidores e usuários e competências da ANEEL: não são deveres da distribuidora e ficam fora da contagem e do cálculo de multa.</p>
+ <table>{% for o in p.outros_dispositivos %}<tr><td style="width:22%"><b>{{ o.rotulo }}</b><br><span class="muted small">{{ o.dispositivo or '—' }}</span></td><td>“{{ o.trecho or 'sem citação verificada' }}”</td></tr>{% endfor %}</table>
  <h3 style="margin-top:10pt">Premissas da exposição</h3>
  <ul class="small">{% for pr in premissas %}<li>{{ pr }}</li>{% endfor %}</ul>
 </section>
@@ -185,6 +191,8 @@ table.portes th, table.portes td { font-size: 8pt; padding: 2.5pt 4pt; }
 
 def main():
     p, params, perfil = montar(None, REFERENCIA)
+    fontes_lidas = proveniencia(p, params)  # relê as fontes e confere cada trecho citado
+    p["sucessao_no_tempo"] = [sucessao_no_tempo(params, fontes_lidas)]
     ob = {o["id"]: o for o in p["obrigacoes"]}
     fila = next(o for o in p["obrigacoes"] if o["faixa"])
     vencidos = [t for t in p["temas"] if t["contagem"]["vencida"]]

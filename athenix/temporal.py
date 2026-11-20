@@ -37,10 +37,21 @@ MONTH_NAMES = (
 )
 FREQUENCY = "anual|mensal|semestral|trimestral|bimestral|semanal|diária"
 # Recorrência: "anualmente", "com periodicidade anual", "a cada ano", "em janeiro" (sem ano).
+# "a cada período de 12 meses": o "12 meses" é a PERIODICIDADE, não um prazo único para cumprir.
+PERIODO_RECORRENTE = re.compile(
+    r"a\s+cada\s+per[íi]odo\s+de\s+(?:\d+|\w+)\s*(?:\([^)]{1,40}\)\s*)?(?:dias|meses|anos?)\b", re.I
+)
+# "maior que 12 meses", "superior a 30 dias": limite de comparação, não prazo para cumprir.
+COMPARACAO = re.compile(
+    r"(?:maior|menor|superior|inferior|mais|menos)"
+    + r"\s+(?:do\s+)?que\s+$|(?:superior|inferior|igual)\s+a\s+$",
+    re.I,
+)
 PERIODIC = re.compile(
     r"\b(?:(?:anual|mensal|semestral|trimestral|bimestral|semanal|diari)mente"
     rf"|com\s+periodicidade\s+(?:mínima\s+)?(?:{FREQUENCY})"
     r"|a\s+cada\s+(?:ano|mês|semestre|trimestre|bimestre|semana)"
+    r"|a\s+cada\s+per[íi]odo\s+de\s+(?:\d+|\w+)\s*(?:\([^)]{1,40}\)\s*)?(?:dias|meses|anos?)"
     rf"|(?:em|no\s+mês\s+de)\s+(?:{MONTH_NAMES})(?!\s+de\s+\d{{4}}))\b",
     re.I,
 )
@@ -94,7 +105,13 @@ def compute(quantity, unit, base, direction=1, convention="last_day"):
 
 def rules(text, unit_id, dates, inherited="", clarification=False, target_dates=None):
     result = []
-    periods = list(PERIOD.finditer(text))
+    recorrentes = [m.span() for m in PERIODO_RECORRENTE.finditer(text)]
+    periods = [
+        m
+        for m in PERIOD.finditer(text)
+        if not any(a <= m.start() and m.end() <= b for a, b in recorrentes)
+        and not COMPARACAO.search(text[max(0, m.start() - 30) : m.start()])
+    ]
     for index, match in enumerate(periods):
         left = max(text.rfind(".", 0, match.start()) + 1, text.rfind(";", 0, match.start()) + 1)
         end = periods[index + 1].start() if index + 1 < len(periods) else len(text)

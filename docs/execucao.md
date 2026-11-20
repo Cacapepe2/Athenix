@@ -3,7 +3,19 @@
 Registro de verificações da aplicação. As seções abaixo de "Implementado e exercitado" são de
 05/11 e 10/11/2026 e ficam como histórico; o estado atual está logo a seguir.
 
-## Estado em 17/11/2026
+## Estado em 20/11/2026
+
+| Verificação | Resultado |
+| --- | --- |
+| Testes Python | 458 aprovados (Windows local); no CI, nos três sistemas |
+| Testes do site | 30 aprovados; build e pré-renderização de `/` e `/demo` conferidos |
+| Gabarito (20 casos, sem revisão de especialista) | 20/20; trava `tests/baseline/metricas_v1.json` passa |
+| Reprodutibilidade do export | `python scripts/exportar_plano_demo.py --verificar` (CI) |
+
+O quadro de 17/11/2026 abaixo é histórico (19/20 no gabarito, 270 testes, normas oficiais ainda
+ausentes); as normas oficiais estão versionadas em `tests/fontes_impacto/`.
+
+## Estado em 17/11/2026 (histórico)
 
 | Verificação | Resultado | Onde |
 | --- | --- | --- |

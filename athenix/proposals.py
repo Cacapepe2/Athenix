@@ -22,9 +22,16 @@ BOUNDARY = re.compile(r"[;:](?=\s)|(?<=[a-zà-úç]{3})\.(?=\s+[A-ZÀ-Ú])")
 
 
 def modality(text):
-    if re.search(r"vedad|não poder[áã]o?", text, re.I):
+    """Modalidade da ORAÇÃO PRINCIPAL: a do primeiro marcador deôntico do trecho. "a cessionária deverá
+    manter dossiê ... poderão ser requisitados pela fiscalização" é dever (a permissão é da fiscalização,
+    subordinada); "as distribuidoras podem oferecer ..." é permissão."""
+    first = DUTY.search(text)
+    if not first:
+        return "duty"
+    token = first.group(0).lower()
+    if token.startswith(("não", "é vedad")):
         return "prohibition"
-    return "permission" if re.search(r"\bpoder[áã]o?\b|\bpodem\b", text, re.I) else "duty"
+    return "permission" if token.startswith("pod") else "duty"
 
 
 def modalities(text):

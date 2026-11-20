@@ -1,6 +1,6 @@
 # Valor provável a partir dos dados abertos (análise revista, 18/11/2026)
 
-**Resultado de análise. Não foi levado à demo nem ao cálculo do produto**; depende de revisão do
+**Resultado de análise. Não é valor provável por obrigação e não entra no cálculo do produto.** A mediana por auto de distribuição aparece na `/demo` só como "referência do setor" (ordem de grandeza descritiva, `athenix/data/referencia_escala.json`); depende de revisão do
 fundador. Reproduzir: `python scripts/analisar_autos.py` (testes: `tests/test_analisar_autos.py`).
 Fontes (baixadas em 17/11/2026, em `.local/dados_aneel/`): CSV de Auto de Infração (sha256
 `453451f4…`, 1.635 linhas, 06/2018 a 11/2026), dicionário v1.0 e CSV SIGEC de multa de fiscalização

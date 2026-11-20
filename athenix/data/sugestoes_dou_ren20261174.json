@@ -1,0 +1,1117 @@
+{
+ "nota": "Sugestões de IA, não decisões.",
+ "modelo": "gpt-5-mini",
+ "prompt_version": "enquadramento-1",
+ "prompt_hash": "22eca2a7edbfc0d6de54a844934dcad4a461d21ba63fa7f9965826075cc05c5c",
+ "parametros_sha256": "76ebb99f228b54523d3ebfbacf35259763fae0e002d8020fd44c11482f545024",
+ "preco": {
+  "input": "0.25",
+  "output": "2",
+  "source": "https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/",
+  "date": "2026-11-20",
+  "currency": "USD"
+ },
+ "gerado_em": "2026-11-20",
+ "custo_usd": "0.5171",
+ "chamadas": 91,
+ "falhas": [],
+ "sugestoes": {
+  "9b1cc6151482bc3c": [
+   {
+    "dispositivo": "Art. 12, III",
+    "justificativa": "A obrigação exige que a solicitação de redução do montante contratado seja feita com antecedência determinada (ex.: 90 dias); o dispositivo descreve a conduta de deixar de atender pedido de serviços nos prazos e nas condições estabelecidas na legislação ou no contrato, o que coincide com o não cumprimento desse prazo de antecedência."
+   },
+   {
+    "dispositivo": "Art. 11, XIV",
+    "justificativa": "A exigência de antecedência (90 dias) para a solicitação é norma regulamentar; o dispositivo prevê como infração o deixar de cumprir o disposto em resoluções da ANEEL, aplicável se a antecedência estiver estabelecida em resolução."
+   },
+   {
+    "dispositivo": "Art. 11, XIX",
+    "justificativa": "A alteração do montante contratado envolve atos contratuais de compra e venda de energia; o dispositivo tipifica deixar de celebrar ou celebrar em desacordo com disposições legais ou regulamentares contratos do setor, aplicando‑se ao descumprimento dos prazos/condições para modificar contratos."
+   }
+  ],
+  "aaf89df0fa2f9873": [
+   {
+    "dispositivo": "Art. 9º, VI",
+    "justificativa": "A obrigação determina prazo mínimo para a solicitação de redução («deve ser realizada com a antecedência...»); o não encaminhamento dessa solicitação dentro do prazo configuraria a conduta prevista em Art. 9º, VI de «deixar de enviar ou disponibilizar informações ou documentos [...] nos prazos e nas condições estabelecidas»."
+   },
+   {
+    "dispositivo": "Art. 10, XX",
+    "justificativa": "Trata‑se de um dever de apresentar solicitação dentro de prazo legalmente fixado; o descumprimento dessa antecedência se enquadra em «deixar de enviar ou disponibilizar à ANEEL informações ou documentos, nos prazos e nas condições estabelecidas na legislação» (Art. 10, XX)."
+   }
+  ],
+  "de259c2eb695201e": [
+   {
+    "dispositivo": "Art. 11, XI",
+    "justificativa": "A obrigação determina que a revisão e o registro dos valores sejam feitos “observadas as Regras e Procedimentos de Comercialização”; deixar de permitir a revisão ou de registrar os valores conforme esses Procedimentos configura descumprimento de normas e Procedimentos de Comercialização, enquadrando-se no dispositivo que trata do não cumprimento dessas Regras/Procedimentos."
+   },
+   {
+    "dispositivo": "Art. 11, XIX",
+    "justificativa": "A obrigação refere‑se à possibilidade de revisão dos “valores mensais de energia elétrica contratada” em período do CCER, ou seja, a disciplina do próprio contrato; celebrar contrato que impeça tal revisão ou não permitir a revisão exigida implicaria celebrar ou manter contrato em desacordo com disposições legais/regulamentares sobre contratos de compra e venda de energia."
+   }
+  ],
+  "62b27f9320f5f56e": [
+   {
+    "dispositivo": "Art. 10, XX",
+    "justificativa": "A obrigação determina que eventuais descumprimentos das normas/padrões na primeira conexão sejam notificados pela distribuidora ‘‘na forma do art. 43’’, o que impõe o envio de informação formal; omitir essa notificação se enquadra em ‘‘deixar de enviar ou disponibilizar à ANEEL informações ou documentos, nos prazos e nas condições estabelecidas’’ (Art. 10, XX)."
+   },
+   {
+    "dispositivo": "Art. 11, XXIV",
+    "justificativa": "O texto expressa que o processo de migração ao ACL ‘‘não deve ser interrompido pela distribuidora’’, logo qualquer ato de interrupção ou condicionamento da migração caracteriza ‘‘atrasar, dificultar ou representar lesão ou ameaça ao direito de o consumidor implementar a opção’’ previstos no Art. 11, XXIV."
+   },
+   {
+    "dispositivo": "Art. 9º, VI",
+    "justificativa": "A exigência de notificação ‘‘na forma do art. 43’’ implica comunicação formal; caso essa comunicação seja considerada requisição da ANEEL, a não remessa constitui ‘‘deixar de enviar ou disponibilizar informações ou documentos solicitados pela ANEEL’’ (Art. 9º, VI)."
+   }
+  ],
+  "2ddcf318e58a47bf": [
+   {
+    "dispositivo": "Art. 9º, III",
+    "justificativa": "A obrigação exige que a distribuidora informe, por escrito, por meio de relatório técnico, a eventual inviabilidade técnica para migração ao ACL; o Art. 9º, III descreve o inadimplemento de «deixar de prestar informações aos consumidores ou usuários, quando solicitado ou conforme determinado», o que se aplica diretamente ao não encaminhamento desse relatório ao consumidor."
+   },
+   {
+    "dispositivo": "Art. 9º, II",
+    "justificativa": "O texto obriga emissão de relatório técnico escrito sobre inviabilidade e adaptações necessárias; o Art. 9º, II tipifica «deixar de manter à disposição dos consumidores nos postos de atendimento presencial, em locais acessíveis, os documentos ou informações» — enquadrando a omissão de disponibilizar esse relatório nos canais de atendimento."
+   }
+  ],
+  "6a16e3400ab43199": [
+   {
+    "dispositivo": "Art. 10, XX",
+    "justificativa": "A obrigação impõe à distribuidora observar os prazos dispostos no Submódulo 1.8 dos Procedimentos de Comercialização; o dispositivo descreve o ato de 'deixar de enviar ou disponibilizar à ANEEL informações ou documentos, nos prazos e nas condições estabelecidas', o que corresponde diretamente ao não cumprimento desses prazos."
+   },
+   {
+    "dispositivo": "Art. 9º, VI",
+    "justificativa": "A obrigação refere-se ao atendimento de prazos previstos no Submódulo 1.8; o dispositivo pune 'deixar de enviar ou disponibilizar informações ou documentos solicitados pela ANEEL, nos prazos e nas condições estabelecidas', aplicável quando os prazos exigidos pela regulação não são observados."
+   },
+   {
+    "dispositivo": "Art. 10, XV",
+    "justificativa": "Observar os prazos do Submódulo 1.8 é essencial para o cumprimento dos cronogramas de contabilização e liquidação; o dispositivo prevê infração por 'causar atraso na execução das etapas do cronograma de contabilização e liquidação financeira das transações efetuadas', consequência provável do descumprimento dos prazos."
+   }
+  ],
+  "dc7870cacd7cc071": [
+   {
+    "dispositivo": "Art. 9º, IV",
+    "justificativa": "A obrigação exige garantir a mesma titularidade no CUSD, o que pressupõe organizar/atualizar o cadastro de unidades consumidoras; o dispositivo pune quem deixa de proceder à organização ou atualização de cadastro relativo a unidades consumidoras, correspondendo diretamente ao descumprimento indicado."
+   },
+   {
+    "dispositivo": "Art. 11, XIX",
+    "justificativa": "A obrigação também exige coerência entre cadastro (CUSD) e os contratos no ACL; se a titularidade nos contratos divergir do cadastro, isso pode configurar celebração de contratos em desacordo com as disposições legais ou regulamentares, enquadrando-se no Art. 11, XIX."
+   }
+  ],
+  "22a9bd5d3590bfe1": [
+   {
+    "dispositivo": "Art. 10, I",
+    "justificativa": "A obrigação determina que a alteração de titularidade \"será registrada e processada pela distribuidora após a notificação pela CCEE ou apresentação dos contratos no ACL\", logo, a omissão em registrar/processar esse pedido enquadra‑se em \"deixar de manter registro atualizado das reclamações e solicitações dos consumidores\"."
+   },
+   {
+    "dispositivo": "Art. 12, III",
+    "justificativa": "O texto impõe procedimento e condição para o atendimento da alteração de titularidade (registro só após notificação pela CCEE ou apresentação de contratos), portanto não observar esses prazos/condições configura \"deixar de atender pedido de serviços nos prazos e nas condições estabelecidas na legislação ou no contrato\"."
+   },
+   {
+    "dispositivo": "Art. 11, XIX",
+    "justificativa": "Como a obrigação vincula o processamento à notificação da CCEE ou à apresentação de contratos no ACL, efetivar alterações ou contratos sem observar esse procedimento pode caracterizar a celebração em desconformidade, isto é, \"celebrar em desacordo com as disposições legais ou regulamentares contrato ... exigido na legislação\"."
+   }
+  ],
+  "144816bda2da3a17": [
+   {
+    "dispositivo": "Art. 11, XI",
+    "justificativa": "A obrigação exige que a distribuidora \"comunique a CCEE\" em caso de alteração de titularidade durante migração para o ACL; o disposto nas Regras/Procedimentos de Comercialização da CCEE regula exatamente comunicações entre agentes e a CCEE. Assim, a omissão em comunicar à CCEE enquadra‑se em \"deixar de cumprir ao disposto na Convenção, nas Regras, nos Procedimentos de Comercialização...\", pois tra"
+   }
+  ],
+  "93230d4b3dad607f": [
+   {
+    "dispositivo": "Art. 12, XIV",
+    "justificativa": "A obrigação determina que “nenhuma cobrança deve ser realizada no caso de migração na modalidade regular”, o que corresponde a efetuar cobrança não autorizada; o Art. 12, XIV tipifica exatamente “cobrar dos consumidores ou usuários serviços não previstos na legislação ou valores diversos dos estabelecidos”, enquadrando essa conduta."
+   },
+   {
+    "dispositivo": "Art. 12, XIII",
+    "justificativa": "Cobrar pela migração impõe um ônus ao consumidor distinto do permitido pela regra expressa da obrigação; o Art. 12, XIII descreve “impor ônus para o solicitante ou consumidor ... em desacordo com as disposições legais ou regulamentares”, aplicável ao caso."
+   }
+  ],
+  "0b3bd6ad5b32c8bd": [
+   {
+    "dispositivo": "Art. 10, XVIII",
+    "justificativa": "A obrigação determina o método específico de cálculo do valor a faturar na migração antecipada (média dos 12 últimos consumos e tarifa/bandeira vigentes); não aplicar esse critério significa efetuar faturamento em desacordo com a legislação, enquadrando-se na descrição do dispositivo."
+   },
+   {
+    "dispositivo": "Art. 9º, III",
+    "justificativa": "Se o consumidor solicitar o detalhamento do cálculo aplicável à migração antecipada e o agente deixar de prestar tais informações, incorre na infração de deixar de prestar informações aos consumidores, pois a regra exige cálculo e parâmetros definidos que devem ser informados quando requisitados."
+   },
+   {
+    "dispositivo": "Art. 9º, II",
+    "justificativa": "A metodologia e os dados usados no cálculo (média dos 12 consumos, tarifa e bandeira) são informações regulatórias que devem estar à disposição dos consumidores; deixar de disponibilizá‑los nos postos de atendimento caracteriza a infração de não manter documentos ou informações acessíveis."
+   }
+  ],
+  "63056f8a9e6c93f5": [
+   {
+    "dispositivo": "Art. 11, XIX",
+    "justificativa": "A obrigação impõe que contratos no ACL tenham a mesma titularidade do CUSD para a mesma unidade consumidora; celebrar contrato com titularidade diversa corresponderia a celebrar \"em desacordo com as disposições legais ou regulamentares\" contratos exigidos na legislação."
+   },
+   {
+    "dispositivo": "Art. 9º, IV",
+    "justificativa": "A exigência de titularidade coincidente implica a necessidade de organização/atualização do cadastro da unidade consumidora; não refletir a titularidade correta no cadastro se amolda a \"deixar de proceder à organização ou atualização de cadastro relativo a unidades consumidoras.\""
+   },
+   {
+    "dispositivo": "Art. 10, XVII",
+    "justificativa": "Contratos com titularidade diferente do CUSD podem resultar em classificação incorreta da unidade consumidora; essa situação corresponde a \"classificar unidade consumidora em desacordo com a legislação.\""
+   }
+  ],
+  "d0344387a3350022": [
+   {
+    "dispositivo": "Art. 9º, XIII",
+    "justificativa": "A obrigação exige comunicação permanente na página da CCEE e em redes e canais de relacionamento para divulgação e educação, o que constitui canais e estrutura que possibilitem acesso dos consumidores; o dispositivo pune quem deixa de disponibilizar estrutura de atendimento adequada que permita fácil acesso ao agente setorial."
+   },
+   {
+    "dispositivo": "Art. 9º, III",
+    "justificativa": "Ao prever divulgação contínua de informações na página da CCEE e em outros canais, a obrigação visa assegurar que os consumidores tenham acesso à informação; o dispositivo sanciona a omissão em prestar informações aos consumidores, o que ocorre se a divulgação permanente não for mantida."
+   }
+  ],
+  "1cc27f2c34dd3d5f": [
+   {
+    "dispositivo": "Art. 10, XVIII",
+    "justificativa": "A obrigação exige retornar o faturamento aplicando tarifa do grupo A e contratação de demanda antes da migração ao ACL, ou seja, trata diretamente da forma de faturamento a ser aplicada; a infração descreve a conduta de 'realizar leitura ou faturamento em desacordo com a legislação', aplicável a esse descumprimento."
+   },
+   {
+    "dispositivo": "Art. 10, XVII",
+    "justificativa": "A obrigação impõe mudança de regime tarifário e contratação de demanda para a unidade consumidora antes da migração, o que configura reclassificação da unidade; a infração prevê 'classificar unidade consumidora em desacordo com a legislação', aplicável se a reclassificação não for feita conforme exigido."
+   }
+  ],
+  "8174eb909c2b034a": [
+   {
+    "dispositivo": "Art. 10, XVII",
+    "justificativa": "A obrigação determina que a unidade consumidora do grupo B seja previamente alterada para o subgrupo AS antes de formalizar a migração ao ACL; não efetuar essa alteração corresponde a classificar a unidade consumidora em desacordo com a legislação, conforme descrito no dispositivo."
+   },
+   {
+    "dispositivo": "Art. 9º, IV",
+    "justificativa": "A obrigação implica alteração cadastral prévia da unidade consumidora para o subgrupo AS; a omissão dessa atualização enquadra-se em deixar de proceder à organização ou atualização de cadastro relativo a unidades consumidoras."
+   }
+  ],
+  "6ac8b71ebc7d780e": [
+   {
+    "dispositivo": "Art. 11, XIX",
+    "justificativa": "A obrigação exige que o montante contratado por meio do CCER seja definido conforme o montante de energia medido; contratar um volume distinto configura celebrar contrato de compra e venda de energia em desacordo com as disposições legais."
+   },
+   {
+    "dispositivo": "Art. 13, XII",
+    "justificativa": "Definir montantes contratados que não correspondam à energia efetivamente medida pode caracterizar contratação simulada, pois a obrigação impõe que o montante contratado por CCER reflita o montante medido."
+   }
+  ],
+  "f0cd208483b0ece3": [
+   {
+    "dispositivo": "Art. 9º, XIII",
+    "justificativa": "A obrigação prevê que o consumidor deve comunicar a opção “por meio dos canais de atendimento disponibilizados”; se o agente setorial deixar de disponibilizar estrutura de atendimento que possibilite fácil acesso aos consumidores, isso caracteriza o descrito no Art. 9º, XIII."
+   },
+   {
+    "dispositivo": "Art. 9º, III",
+    "justificativa": "A comunicação depende também de informações sobre o procedimento; se a distribuidora deixar de prestar informações aos consumidores sobre como exercer a opção, trata‑se da conduta prevista no Art. 9º, III."
+   },
+   {
+    "dispositivo": "Art. 9º, II",
+    "justificativa": "A obrigação menciona uso de canais e interface padronizada; se a distribuidora não mantiver nos postos de atendimento presencial os documentos ou informações necessários para formalizar a opção, isso se enquadra no Art. 9º, II."
+   }
+  ],
+  "7df077bdc114900b": [
+   {
+    "dispositivo": "Art. 11, XIX",
+    "justificativa": "A obrigação exige celebrar o Contrato para Comercialização Varejista (CCV) com o agente varejista; o dispositivo Art. 11, XIX pune quem 'deixar de celebrar ... contrato ... exigido na legislação', correspondendo diretamente ao não cumprimento dessa obrigação."
+   },
+   {
+    "dispositivo": "Art. 11, XI",
+    "justificativa": "A obrigação remete expressamente ao Submódulo 1.8 dos Procedimentos de Comercialização e ao sistema da CCEE; o Art. 11, XI tipifica como infração deixar de cumprir as disposições constantes na 'Convenção, nas Regras, nos Procedimentos de Comercialização ou na Convenção Arbitral celebrada entre os agentes e a CCEE', abrangendo o descumprimento do procedimento de migração e das regras da CCEE."
+   }
+  ],
+  "f4bb99990831d27a": [
+   {
+    "dispositivo": "Art. 9º, XIII",
+    "justificativa": "A obrigação exige que a distribuidora \"disponibilizar no espaço reservado para atendimento na internet ... interface padronizada para o consumidor exercer a opção\", e a infração trata de \"deixar de disponibilizar aos consumidores estrutura de atendimento adequada, que lhes possibilite fácil acesso ao agente setorial\", correspondendo diretamente à omissão de uma interface de atendimento online adeq"
+   },
+   {
+    "dispositivo": "Art. 9º, III",
+    "justificativa": "A interface exigida destina‑se a permitir que o consumidor exerça uma opção; sua não disponibilização impede o consumidor de acessar essa funcionalidade, enquadrando‑se em \"deixar de prestar informações aos consumidores ou usuários, quando solicitado\"."
+   }
+  ],
+  "8ca5f1def5e87ce5": [
+   {
+    "dispositivo": "Art. 9º, III",
+    "justificativa": "O §3º impõe que a distribuidora forneça protocolo ao receber a comunicação do consumidor; deixar de emitir esse protocolo é deixar de prestar informação ao consumidor quando solicitado, enquadrando‑se no dispositivo que pune a omissão de prestação de informações."
+   },
+   {
+    "dispositivo": "Art. 9º, II",
+    "justificativa": "O protocolo é um documento/informação resultante do atendimento; não disponibilizá‑lo no momento do atendimento pode ser enquadrado como deixar de manter à disposição dos consumidores, nos postos de atendimento, os documentos ou informações em locais acessíveis."
+   },
+   {
+    "dispositivo": "Art. 9º, XIII",
+    "justificativa": "A obrigação de emitir protocolo está ligada à prestação de um atendimento adequado e ao acesso fácil ao agente setorial; a recusa ou omissão em fornecer o protocolo pode caracterizar a falta de estrutura de atendimento exigida por esse dispositivo."
+   }
+  ],
+  "5f1e90f07a781a9f": [
+   {
+    "dispositivo": "Art. 12, XVI",
+    "justificativa": "A obrigação veda a aplicação individual ou por grupos, exigindo isonomia na redução de prazo; aplicar a redução de forma seletiva é prática discriminatória. O dispositivo prevê expressamente 'discriminar consumidores ou demais usuários utilizando critérios não previstos na legislação', o que corresponde ao descumprimento apontado."
+   },
+   {
+    "dispositivo": "Art. 12, XIII",
+    "justificativa": "A concessão de redução de prazo de forma não isonômica pode impor tratamento desigual ou ônus a outros consumidores em desacordo com as regras. O dispositivo 'impor ônus para o solicitante ou consumidor ... em desacordo com as disposições legais ou regulamentares' pode ser aplicado quando a redução seletiva resultar em encargos ou perdas para terceiros."
+   }
+  ],
+  "a18cdd2d9ab0da66": [
+   {
+    "dispositivo": "Art. 12, XIV",
+    "justificativa": "A obrigação determina que a cobrança pelo encerramento antecipado do CCER só pode ocorrer em casos específicos (mês da efetiva migração inferior ao mês previsto), logo cobrar em situações fora desse critério implica aplicar valores não previstos pela regra; o dispositivo tipifica exatamente a conduta de cobrar dos consumidores serviços ou valores diversos dos estabelecidos na legislação."
+   },
+   {
+    "dispositivo": "Art. 12, XIII",
+    "justificativa": "Cobrar encerramento antecipado fora das hipóteses autorizadas pela obrigação constitui impor um ônus ao consumidor em desacordo com a regra expressa sobre quando a cobrança é permitida; o dispositivo descreve como infração justamente impor ônus ao solicitante ou consumidor em desacordo com disposições legais ou regulamentares."
+   },
+   {
+    "dispositivo": "Art. 10, XVIII",
+    "justificativa": "A cobrança indevida de encerramento antecipado reflete prática de faturamento em desconformidade com a regra que limita quando o encargo pode ser cobrado; o dispositivo considera infração realizar faturamento em desacordo com a legislação."
+   }
+  ],
+  "096251809e2f4fba": [
+   {
+    "dispositivo": "Art. 10, XVIII",
+    "justificativa": "A obrigação determina que a cobrança seja efetuada 'na fatura emitida pela distribuidora, no prazo de até 90 dias', sendo um dever específico de faturamento; o dispositivo descreve a conduta inversa como 'realizar leitura ou faturamento em desacordo com a legislação'."
+   },
+   {
+    "dispositivo": "Art. 11, XIV",
+    "justificativa": "Trata‑se de obrigação prevista em norma/regulamento da ANEEL (cobrança na fatura em prazo definido); o descumprimento configura 'deixar de cumprir ao disposto em resoluções da ANEEL', previsto no dispositivo."
+   }
+  ],
+  "b3e3b3d8c696f470": [
+   {
+    "dispositivo": "Art. 11, XIV",
+    "justificativa": "A regra de que a contagem do prazo de migração deve ser realizada de forma contínua é previsão expressa de resolução da ANEEL; não observar essa regra constitui deixar de cumprir o disposto em resolução da ANEEL."
+   },
+   {
+    "dispositivo": "Art. 11, XXI",
+    "justificativa": "Caso a contagem contínua do prazo tenha sido fixada por determinação da Diretoria Colegiada, o seu descumprimento pode ser qualificado como deixar de cumprir determinação da Diretoria Colegiada da ANEEL no prazo estabelecido."
+   },
+   {
+    "dispositivo": "Art. 12, I",
+    "justificativa": "Trata‑se de obrigação prevista em norma regulamentar do setor (contagem contínua do prazo de migração); o não cumprimento configura descumprimento de disposições legais ou regulamentares aplicáveis ao serviço elétrico."
+   }
+  ],
+  "8ceadb0f8fb6a1b2": [
+   {
+    "dispositivo": "Art. 9º, III",
+    "justificativa": "A obrigação exige entrega de relatório técnico detalhado ao consumidor e justificativas das inviabilidades técnicas; não fornecer esse relatório ou as justificativas quando solicitado enquadra‑se em \"deixar de prestar informações aos consumidores ou usuários, quando solicitado\". A redacção exige comunicação direta ao consumidor, que é precisamente a conduta protegida pelo dispositivo."
+   },
+   {
+    "dispositivo": "Art. 9º, II",
+    "justificativa": "A obrigação impõe disponibilizar ao consumidor o relatório e as justificativas resultantes da visita técnica; deixar de manter esses documentos ou informações à disposição do consumidor nos postos de atendimento corresponde a \"deixar de manter à disposição dos consumidores nos postos de atendimento presencial... os documentos ou informações\". Assim, a omissão em disponibilizar o relatório técnico "
+   },
+   {
+    "dispositivo": "Art. 10, I",
+    "justificativa": "A exigência de fundamentar a reprovação em visita técnica e entrega de relatório implica registro e controle dessas ocorrências; a ausência de registro ou atualização desse relatório/ocorrência enquadra‑se em \"deixar de manter registro atualizado das reclamações e solicitações dos consumidores\". Falhar em registrar e atualizar o procedimento técnico impede a rastreabilidade exigida pela norma."
+   }
+  ],
+  "c0a868f1dc449059": [
+   {
+    "dispositivo": "Art. 9º, III",
+    "justificativa": "A obrigação exige “entrega de relatório técnico detalhado ao consumidor”, o que é uma informação solicitada pelo usuário; o dispositivo pune “deixar de prestar informações aos consumidores ou usuários, quando solicitado”, correspondendo diretamente ao descumprimento de entrega do relatório."
+   },
+   {
+    "dispositivo": "Art. 9º, II",
+    "justificativa": "O texto impõe documentação resultante da visita técnica a ser entregue ao consumidor; o Art. 9º, II sanciona “deixar de manter à disposição dos consumidores nos postos de atendimento presencial, em locais acessíveis, os documentos ou informações” exigidas, aplicando‑se se o relatório ou informações não forem disponibilizados de forma acessível."
+   },
+   {
+    "dispositivo": "Art. 10, VI",
+    "justificativa": "O §3º condiciona a reprovação por inviabilidade técnica a uma “visita técnica realizada na unidade consumidora”, implicando necessidade de pessoal qualificado; o Art. 10, VI pune “deixar de utilizar pessoal técnico ... habilitado ... para a operação e a manutenção das instalações elétricas”, aplicável se a visita não for realizada por equipe técnica habilitada."
+   }
+  ],
+  "710f9b643c7508e6": [
+   {
+    "dispositivo": "Art. 9º, III",
+    "justificativa": "A obrigação exige notificar o consumidor sobre o atraso e a possibilidade de encerramento do processo de migração; o Art. 9º, III trata de “deixar de prestar informações aos consumidores ou usuários, quando solicitado ou conforme determinado nas disposições legais”, o que abrange a omissão dessa notificação legalmente prevista."
+   },
+   {
+    "dispositivo": "Art. 9º, XIII",
+    "justificativa": "A norma prevê que a notificação pode ser impressa em destaque na fatura como meio de comunicação ao consumidor; o Art. 9º, XIII sanciona “deixar de disponibilizar aos consumidores estrutura de atendimento adequada, que lhes possibilite fácil acesso ao agente setorial”, o que pode abarcar a falta de canais ou meios adequados de comunicação previstos na obrigação."
+   },
+   {
+    "dispositivo": "Art. 9º, II",
+    "justificativa": "A obrigação determina disponibilizar informação ao consumidor (inclusive via fatura) sobre o atraso na migração; o Art. 9º, II pune “deixar de manter à disposição dos consumidores nos postos de atendimento presencial, em locais acessíveis, os documentos ou informações estabelecidas”, aplicável caso a informação exigida não seja colocada à disposição pelos canais obrigatórios."
+   }
+  ],
+  "25765596a71be59c": [
+   {
+    "dispositivo": "Art. 10, XVIII",
+    "justificativa": "A obrigação exige faturar o consumidor conforme as disposições aplicáveis do art. 168; o dispositivo tipifica precisamente a conduta de 'realizar leitura ou faturamento em desacordo com a legislação', que corresponde diretamente ao não cumprimento dessa obrigação."
+   },
+   {
+    "dispositivo": "Art. 9º, XV",
+    "justificativa": "Faturar conforme o art. 168 pressupõe observância do calendário de leitura e faturamento; o dispositivo aponta como infração 'deixar de organizar e manter atualizado o calendário de leitura e faturamento ou deixar de informar aos consumidores... as alterações', situação que pode resultar em faturamento em desacordo com o art. 168."
+   },
+   {
+    "dispositivo": "Art. 9º, III",
+    "justificativa": "Se a distribuidora não faturar conforme o art. 168 pode omitir informações essenciais aos consumidores; o dispositivo tipifica 'deixar de prestar informações aos consumidores', aplicável quando há falta de esclarecimentos sobre faturamento previsto na norma."
+   }
+  ],
+  "fd91bb7aa7e0a252": [
+   {
+    "dispositivo": "Art. 11, XI",
+    "justificativa": "A obrigação determina procedimento específico de encerramento do processo de migração (decorridos dois ciclos de faturamento considerar desistência tácita e finalizar o processo), que integra as regras comerciais entre agentes; o dispositivo pune deixar de cumprir o disposto na Convenção, nas Regras e nos Procedimentos de Comercialização, abrangendo esse tipo de descumprimento."
+   },
+   {
+    "dispositivo": "Art. 11, VII",
+    "justificativa": "O trecho menciona deveres da distribuidora (Art. 167-B) sobre manutenção do CCER e procedimentos frente a atraso na migração, vinculados aos fluxos operacionais que constam nos Procedimentos de Distribuição; o dispositivo sanciona deixar de cumprir o disposto nos Procedimentos de Distribuição, o que se aplica se a distribuidora não observar esses passos."
+   },
+   {
+    "dispositivo": "Art. 9º, III",
+    "justificativa": "A regra exige que, após dois ciclos, se considere a desistência tácita e se finalize o processo, obrigação que envolve comunicação e informação ao consumidor sobre o status da migração; o Art. 9º, III descreve como infração deixar de prestar informações aos consumidores, aplicável caso não haja comunicação adequada sobre a desistência ou o encerramento do processo."
+   }
+  ],
+  "8a0223ac7c168448": [
+   {
+    "dispositivo": "Art. 10, XVIII",
+    "justificativa": "O Art. 167-C veda o faturamento do consumo nos ciclos em que a migração se atrasar por culpa da distribuidora; a infração ‘realizar leitura ou faturamento em desacordo com a legislação’ descreve exatamente o ato de faturar em desconformidade legal."
+   },
+   {
+    "dispositivo": "Art. 11, II",
+    "justificativa": "Se a distribuidora faturar indevidamente em desacordo com o Art. 167-C, caberia a restituição dos valores cobrados; a infração ‘deixar de restituir ou restituir incorretamente os valores recebidos indevidamente’ aplica‑se ao não devolvimento desses montantes."
+   },
+   {
+    "dispositivo": "Art. 12, XIII",
+    "justificativa": "Cobrar consumo vedado pelo Art. 167‑C constitui impor ônus ao consumidor em desacordo com a norma; a infração ‘impor ônus para o solicitante ou consumidor ... em desacordo com as disposições legais ou regulamentares’ abrange essa conduta."
+   }
+  ],
+  "32bb87c4bbe606c4": [
+   {
+    "dispositivo": "Art. 9º, III",
+    "justificativa": "A obrigação refere-se a informar \"o prazo de migração informado pela distribuidora\" e o \"período previsto para migração\", ou seja, comunicação dirigida ao consumidor; o Art. 9º, III penaliza quem \"deixar de prestar informações aos consumidores ou usuários, quando solicitado ou conforme determinado\", cobrindo a omissão em informar o prazo de migração."
+   }
+  ],
+  "66c61d4e91686d77": [
+   {
+    "dispositivo": "Art. 12, III",
+    "justificativa": "A obrigação trata do prazo de migração a ser considerado quando houver ausência de manifestação da distribuidora (“o prazo de migração requerido pelo consumidor”), logo o não atendimento desse pedido ou o não cumprimento do prazo configuraria deixar de atender pedido de serviços nos prazos e nas condições estabelecidas na legislação ou no contrato."
+   },
+   {
+    "dispositivo": "Art. 9º, III",
+    "justificativa": "A situação descrita refere-se à ausência de manifestação da distribuidora sobre a migração, o que equivale a não prestar resposta ou informação ao consumidor sobre seu pedido; isso se enquadra em deixar de prestar informações aos consumidores, quando solicitado ou conforme determinado nas disposições legais."
+   }
+  ],
+  "256d3b52eb869bf7": [
+   {
+    "dispositivo": "Art. 10, XVIII",
+    "justificativa": "A obrigação autoriza a distribuidora a ‘efetuar o faturamento e a cobrança mensal ... para ressarcimento das repercussões financeiras incorridas’; se esse faturamento for realizado em desacordo com as regras legais (modo, cálculo ou periodicidade), enquadra‑se em ‘realizar leitura ou faturamento em desacordo com a legislação’."
+   },
+   {
+    "dispositivo": "Art. 12, XIV",
+    "justificativa": "A norma permite cobrança mensal como substituição à suspensão para ressarcimento; cobrar valores ou serviços que não estejam previstos nessa autorização constitui ‘cobrar dos consumidores ou usuários serviços não previstos na legislação ou valores diversos dos estabelecidos na legislação’."
+   },
+   {
+    "dispositivo": "Art. 13, V",
+    "justificativa": "Ao ressarcir repercussões financeiras mediante cobrança, a distribuidora deve observar os limites tarifários; se praticar tarifas ou cobrança de valores superiores aos legalmente estabelecidos, incide em ‘praticar tarifas de fornecimento ou suprimento de energia elétrica em valores superiores aos estabelecidos’."
+   }
+  ],
+  "feb344531c216efe": [
+   {
+    "dispositivo": "Art. 10, XVIII",
+    "justificativa": "A obrigação afirma que “o pagamento do valor do inciso II é devido enquanto presentes as condições de aplicação dispostas no caput”, impondo regras sobre quando cobrar; a infração descreve “realizar leitura ou faturamento em desacordo com a legislação”, o que abrange cobrança/faturamento incompatível com a condição temporal prevista na obrigação."
+   },
+   {
+    "dispositivo": "Art. 11, II",
+    "justificativa": "A obrigação delimita o período em que o pagamento é devido, portanto valores cobrados após cessadas as condições deveriam ser devolvidos; a infração prevê “deixar de restituir ou restituir incorretamente aos consumidores os valores recebidos indevidamente”, aplicável nesse caso."
+   },
+   {
+    "dispositivo": "Art. 9º, III",
+    "justificativa": "O trecho remete a regras sobre cobrança quando o consumidor está descontratado e, assim, exige esclarecimentos sobre obrigações de pagamento; a infração “deixar de prestar informações aos consumidores ou usuários, quando solicitado” enquadra a omissão de informar o consumidor sobre tais condições de cobrança."
+   }
+  ],
+  "e7bbeed0a84f40bd": [],
+  "d680801349c97d8f": [
+   {
+    "dispositivo": "Art. 10, III",
+    "justificativa": "A obrigação determina que a distribuidora só pode interromper o faturamento e suspender o fornecimento após a notificação prevista no art. 360; isso exige prévio aviso antes da suspensão. A infração tipifica exatamente o descumprimento das determinações legais sobre o prévio aviso para suspensão ou interrupção programada do fornecimento."
+   },
+   {
+    "dispositivo": "Art. 11, XXIII",
+    "justificativa": "A obrigação impõe procedimento de notificação antes de suspender o fornecimento, implicando dever de informar os consumidores sobre a interrupção. A infração refere‑se a deixar de prestar informações decorrentes de interrupções no fornecimento aos consumidores, o que se aplica quando a suspensão ocorre sem as informações exigidas."
+   }
+  ],
+  "0d4598afde5c12e3": [
+   {
+    "dispositivo": "Art. 12, III",
+    "justificativa": "A obrigação determina que, recebida a solicitação do consumidor para retorno ao ACR, a distribuidora deve agir 'no prazo de até 30 dias da solicitação'; o dispositivo tipifica como infração o fato de 'deixar de atender pedido de serviços nos prazos e nas condições estabelecidas', cobrindo o não cumprimento desse prazo legal."
+   },
+   {
+    "dispositivo": "Art. 9º, III",
+    "justificativa": "A obrigação exige o encaminhamento ao consumidor do CCER (informação/documento) quando aplicável; o dispositivo pune 'deixar de prestar informações aos consumidores ou usuários, quando solicitado', aplicável ao não envio ou não fornecimento da informação solicitada."
+   },
+   {
+    "dispositivo": "Art. 9º, II",
+    "justificativa": "Ao exigir o encaminhamento do CCER ao consumidor, pressupõe-se que tal documento deva estar disponível; o dispositivo 'deixar de manter à disposição dos consumidores nos postos de atendimento presencial, em locais acessíveis, os documentos ou informações' pode ser usado se o CCER não for disponibilizado nos canais de atendimento exigidos."
+   }
+  ],
+  "a93cae63c466b658": [
+   {
+    "dispositivo": "Art. 9º, III",
+    "justificativa": "A obrigação determina que, recebida a solicitação, a distribuidora deve, no prazo de até 30 dias, analisar e encaminhar ao consumidor o CCER ou informar o indeferimento; não cumprir essa resposta ao pedido do consumidor é corresponder a 'deixar de prestar informações aos consumidores ou usuários, quando solicitado'."
+   },
+   {
+    "dispositivo": "Art. 9º, XVII",
+    "justificativa": "A exigência de análise e resposta ao pedido do consumidor no prazo previsto refere‑se ao tratamento da solicitação/reclamação; a omissão em cumprir esse procedimento se enquadra em 'deixar de atender às disposições ... relativas ao tratamento das reclamações dos consumidores'."
+   },
+   {
+    "dispositivo": "Art. 10, I",
+    "justificativa": "Ao não proceder à análise e ao encaminhamento do CCER no prazo de 30 dias, a distribuidora também pode não registrar ou manter atualizado o pedido do consumidor, o que se enquadra em 'deixar de manter registro atualizado das reclamações e solicitações dos consumidores'."
+   }
+  ],
+  "f77d812ee26acece": [
+   {
+    "dispositivo": "Art. 10, XVIII",
+    "justificativa": "A obrigação exige que a distribuidora fature o uso do sistema aplicando a TUSD (R$/MWh) sobre o montante total medido, observando postos tarifários; não aplicar esse cálculo ou faturar em desacordo com essa regra se enquadra em “realizar leitura ou faturamento em desacordo com a legislação”."
+   },
+   {
+    "dispositivo": "Art. 13, VI",
+    "justificativa": "Se a distribuidora cobrar tarifa de uso da distribuição diversa (por exemplo, superior) à TUSD fixada ou aplicar cálculo que aumente o valor devido, isso corresponde à infração de “praticar tarifas de uso ou conexão na transmissão ou na distribuição em valores superiores aos estabelecidos”."
+   },
+   {
+    "dispositivo": "Art. 12, XIV",
+    "justificativa": "A obrigação determina o método e o valor a ser faturado (TUSD em R$/MWh); cobrar valores diversos ou serviços não previstos na legislação caracteriza a infração de “cobrar dos consumidores ou usuários serviços não previstos na legislação ou valores diversos dos estabelecidos na legislação”."
+   }
+  ],
+  "f2d3efb9e62de56b": [
+   {
+    "dispositivo": "Art. 9º, III",
+    "justificativa": "A obrigação exige o envio, como determinação regulamentar, do arquivo da nota fiscal eletrônica ao consumidor na hipótese de entrega digital; deixar de enviar esse arquivo é não prestar a informação exigida ao consumidor. O dispositivo tipifica “deixar de prestar informações aos consumidores ou usuários, quando solicitado ou conforme determinado nas disposições legais, regulamentares ou contratuai"
+   },
+   {
+    "dispositivo": "Art. 11, X",
+    "justificativa": "O dever de encaminhar o arquivo da nota fiscal em entregas digitais integra as obrigações de prestação de serviço previstas nas condições contratuais/regulamentares; não cumprir esse envio configura descumprimento das regras de fornecimento. O dispositivo prevê “deixar de cumprir ao disposto nas Condições Gerais de Fornecimento de Energia Elétrica e nas Regras de Prestação do Serviço Público de Di"
+   }
+  ],
+  "542b07c93c1a9898": [
+   {
+    "dispositivo": "Art. 11, XIX",
+    "justificativa": "O §2º impõe que a adoção de uma opção só ocorra com autorização prévia e comprovada do consumidor; implementar a opção sem essa manifestação contraria a exigência legal, o que se enquadra em “celebrar em desacordo com as disposições legais ou regulamentares” relativa a contratos e atos entre agentes e consumidores."
+   },
+   {
+    "dispositivo": "Art. 11, XXIV",
+    "justificativa": "Exigir ou adotar uma opção sem a manifestação voluntária do consumidor representa lesão ou ameaça ao direito do consumidor de exercer suas opções previstas em lei; assim, o descumprimento do §2º pode ser classificado como dificultar ou lesar esse direito."
+   },
+   {
+    "dispositivo": "Art. 9º, X",
+    "justificativa": "O §2º requer comprovação e autorização prévia do consumidor, o que costuma se formalizar no contrato de adesão; não encaminhar o contrato ou não viabilizar sua obtenção impede a manifestação voluntária e, por isso, compatibiliza-se com a infração de deixar de encaminhar o contrato de adesão aos consumidores."
+   }
+  ],
+  "4a15738dfbb6bcee": [
+   {
+    "dispositivo": "Art. 12, XIV",
+    "justificativa": "O § 3º exige que as opções sejam disponibilizadas gratuitamente e não representem custo adicional no faturamento; o Art. 12, XIV descreve a infração de cobrar dos consumidores serviços não previstos na legislação ou valores diversos dos estabelecidos, o que abrange a cobrança indevida dessas opções."
+   },
+   {
+    "dispositivo": "Art. 12, XIII",
+    "justificativa": "O § 3º veda impor custos adicionais ao consumidor pelo fornecimento das opções; o Art. 12, XIII tipifica a conduta de impor ônus ao solicitante ou consumidor em desacordo com as disposições legais ou regulamentares, enquadrando a cobrança dessas opções."
+   },
+   {
+    "dispositivo": "Art. 10, XVIII",
+    "justificativa": "O § 3º proíbe que as opções representem custo adicional no faturamento; o Art. 10, XVIII pune realizar leitura ou faturamento em desacordo com a legislação, o que inclui a inclusão de cobranças indevidas relativas a essas opções no faturamento."
+   }
+  ],
+  "33b4a458e340917c": [
+   {
+    "dispositivo": "Art. 11, XVIII",
+    "justificativa": "A obrigação proíbe expressamente a cobrança entre a distribuidora e o comercializador para operacionalização das opções; o dispositivo prevê como infração a implementação de atos ou negócios jurídicos entre concessionárias, permissionárias e autorizadas e suas partes relacionadas que não observem os critérios definidos na legislação, o que abrange a cobrança vedada por norma. Esta correspondência "
+   },
+   {
+    "dispositivo": "Art. 13, VIII",
+    "justificativa": "A vedação impede qualquer cobrança entre distribuidora e comercializador para operacionalizar as opções, e o Art. 13, VIII tipifica como infração a implementação de atos ou negócios entre partes relacionadas em prejuízo da modicidade tarifária ou do equilíbrio econômico‑financeiro da concessão ou permissão; uma cobrança indevida entre esses agentes pode, portanto, afetar a modicidade tarifária ou "
+   },
+   {
+    "dispositivo": "Art. 13, XI",
+    "justificativa": "Cobrar entre distribuidora e comercializador contrariando a proibição pode configurar prática que distorce as condições de atuação no mercado, e o Art. 13, XI prevê como infração conduta que atente contra a concorrência efetiva ou o desenvolvimento normal das operações do mercado de energia elétrica. Assim, a cobrança vedada pode ser enquadrada quando produzir prejuízo à concorrência ou ao mercado"
+   }
+  ],
+  "92f995ec346e17a6": [
+   {
+    "dispositivo": "Art. 11, XVIII",
+    "justificativa": "A obrigação exige isonomia no oferecimento entre distribuidoras e comercializadoras, o que veda tratamento preferencial; o dispositivo pune a implementação de atos ou negócios jurídicos que não observem os critérios legais entre concessionárias/permissionárias/ autorizadas e suas partes relacionadas, compatível com conduta de favorecer determinados agentes em detrimento da isonomia."
+   },
+   {
+    "dispositivo": "Art. 13, XI",
+    "justificativa": "Exigir que o oferecimento seja feito com isonomia visa preservar condições equânimes entre comercializadores e distribuidoras; o dispositivo sanciona conduta que atente contra a concorrência efetiva ou o desenvolvimento normal das operações do mercado, o que incluiria ofertas discriminatórias que prejudiquem concorrentes."
+   },
+   {
+    "dispositivo": "Art. 13, VII",
+    "justificativa": "A obrigação impõe tratamento igualitário entre agentes nas opções ofertadas, o que reflete obrigação de tramitar condições de acesso sem privilégios; o dispositivo descreve a infração de deixar de assegurar livre acesso aos sistemas de transmissão ou distribuição ou de atender acessantes nas condições estabelecidas, aplicável se a falta de isonomia se traduzir em restrição ou tratamento desigual d"
+   }
+  ],
+  "b485e47182de1500": [
+   {
+    "dispositivo": "Art. 10, XVIII",
+    "justificativa": "A obrigação exige que a distribuidora «continue a cobrança ... na fatura que emitir para o consumidor», logo a omissão dessa cobrança configura faturamento em desacordo com a legislação, tal como descrito em Art. 10, XVIII («realizar leitura ou faturamento em desacordo com a legislação»)."
+   },
+   {
+    "dispositivo": "Art. 11, X",
+    "justificativa": "A inclusão da cobrança na fatura integra as regras de prestação do serviço ao consumidor; deixar de praticá‑la pode equivaler a «deixar de cumprir ao disposto nas Condições Gerais de Fornecimento de Energia Elétrica», conforme Art. 11, X."
+   }
+  ],
+  "0ef7999640c79216": [
+   {
+    "dispositivo": "Art. 10, XVIII",
+    "justificativa": "A obrigação determina que a distribuidora “deve continuar a arrecadação ... na fatura que emitir para o consumidor”, sendo portanto uma obrigação de faturamento; o dispositivo pune quem “realizar leitura ou faturamento em desacordo com a legislação”, enquadrando o não lançamento da arrecadação exigida na fatura como faturamento irregular."
+   },
+   {
+    "dispositivo": "Art. 11, X",
+    "justificativa": "A exigência de manter a arrecadação prevista na legislação na fatura integra as regras de cobrança previstas nas Condições Gerais de Fornecimento; o dispositivo prevê penalidade para quem “deixar de cumprir ao disposto nas Condições Gerais de Fornecimento de Energia Elétrica”, o que contempla a omissão de valores que a legislação determina incluir na fatura."
+   },
+   {
+    "dispositivo": "Art. 12, XIV",
+    "justificativa": "A obrigação impõe à distribuidora cobrar na fatura a arrecadação prevista no caput; o dispositivo pune cobrar dos consumidores “serviços não previstos na legislação ou valores diversos dos estabelecidos na legislação”, aplicável também quando a cobrança efetivada na fatura diverge do que a legislação determina (incluindo omissão ou alteração do valor devido)."
+   }
+  ],
+  "d82397fc3b81b89e": [
+   {
+    "dispositivo": "Art. 12, XIV",
+    "justificativa": "O dispositivo do §9º afirma que a atividade de arrecadação “não pode ser cobrada”, o que se enquadra diretamente em Art. 12, XIV que tipifica “cobrar dos consumidores ou usuários serviços não previstos na legislação ou valores diversos dos estabelecidos”."
+   },
+   {
+    "dispositivo": "Art. 12, XIII",
+    "justificativa": "A obrigação estabelece que a arrecadação deve ser prestada sem cobrança e a todos os comercializadores; condicionar ou cobrar por essa prestação implica impor ônus ao consumidor ou solicitante, conforme vedado por Art. 12, XIII."
+   },
+   {
+    "dispositivo": "Art. 13, VII",
+    "justificativa": "Ao exigir que a arrecadação seja “realizada para todos os comercializadores”, o §9º impõe dever de atendimento universal; a recusa ou a restrição desse atendimento configura ‘deixar de assegurar livre acesso … ou de efetuar o atendimento a acessantes’ previsto no Art. 13, VII."
+   }
+  ],
+  "efb86cc4a7e1b3ee": [
+   {
+    "dispositivo": "Art. 11, XIX",
+    "justificativa": "A obrigação (Art. 655‑Y) impõe observar disposições para a migração ao ACL, procedimento que normalmente envolve contratos de conexão/uso/compra e venda; o dispositivo Art. 11, XIX pune quem deixar de celebrar ou celebrar contrato em desacordo com disposições legais ou regulamentares."
+   },
+   {
+    "dispositivo": "Art. 11, XIV",
+    "justificativa": "O texto da obrigação determina observar ‘as seguintes disposições’, que presumivelmente incluem normas e resoluções da ANEEL sobre migração; Art. 11, XIV tipifica deixar de cumprir disposições constantes em resoluções da ANEEL."
+   },
+   {
+    "dispositivo": "Art. 9º, III",
+    "justificativa": "A migração de unidade consumidora com micro/mini geração costuma exigir prestação de informações aos consumidores sobre procedimentos e condições, e Art. 9º, III puniria o fornecedor que deixar de prestar tais informações quando solicitadas ou conforme determinado na regulação."
+   }
+  ],
+  "60efb422a7e8e6be": [
+   {
+    "dispositivo": "Art. 9º, X",
+    "justificativa": "A obrigação determina “entregar ao interessado os aditivos contratuais e demais documentos…”, e o Art. 9º, X pune quem “deixar de encaminhar o contrato de adesão aos consumidores”; a negativa em fornecer documentos contratuais ao interessado é conduta análoga prevista no dispositivo."
+   },
+   {
+    "dispositivo": "Art. 9º, II",
+    "justificativa": "A entrega dos aditivos implica disponibilizar documentos ao interessado, possivelmente em atendimento presencial; o Art. 9º, II pune quem “deixar de manter à disposição dos consumidores nos postos de atendimento presencial… os documentos ou informações”, aplicável quando não se entrega o documento solicitado."
+   },
+   {
+    "dispositivo": "Art. 9º, III",
+    "justificativa": "Se o interessado solicita os aditivos e a empresa deixa de entregá‑los, há omissão de informação; o Art. 9º, III prevê infração por “deixar de prestar informações aos consumidores… quando solicitado”, correspondendo ao descumprimento da obrigação."
+   }
+  ],
+  "5956d4aacad71adf": [
+   {
+    "dispositivo": "Art. 9º, IV",
+    "justificativa": "A obrigação impõe que a distribuidora \"realizar o enquadramento simultâneo como unidade consumidora ... e como central geradora\", o que envolve organização/atualização de registros; o Art. 9º, IV descreve exatamente a infração de deixar de proceder à organização ou atualização de cadastro de unidades consumidoras e centrais geradoras."
+   },
+   {
+    "dispositivo": "Art. 10, XVII",
+    "justificativa": "A norma exige classificação específica da unidade (consumidora e central geradora reduzida) para fins de injeção; o Art. 10, XVII prevê a infração de classificar unidade consumidora em desacordo com a legislação, aplicável se o enquadramento não for feito conforme previsto."
+   },
+   {
+    "dispositivo": "Art. 11, VII",
+    "justificativa": "O texto condiciona o enquadramento ao cumprimento das \"disposições aplicáveis previstas neste artigo e nesta Resolução\", o que implica observância dos Procedimentos de Distribuição; o Art. 11, VII tipifica a infração de deixar de cumprir o disposto nos Procedimentos de Distribuição."
+   }
+  ],
+  "34af6f68128e5133": [
+   {
+    "dispositivo": "Art. 11, II",
+    "justificativa": "A obrigação impõe que a distribuidora ressarcirá ao consumidor a penalidade paga por erro de medição mediante requerimento e comprovação; o Art. 11, II pune quem \"deixar de restituir ou restituir incorretamente aos consumidores ... os valores recebidos indevidamente\", correspondendo diretamente ao descumprimento dessa obrigação de restituição."
+   },
+   {
+    "dispositivo": "Art. 9º, XVII",
+    "justificativa": "A obrigação condiciona o ressarcimento à apresentação de requerimento e documentação, de modo que a recusa ou omissão no atendimento a esse pedido configura falha no tratamento da demanda do consumidor; o Art. 9º, XVII prevê infração por \"deixar de atender às disposições ... relativas ao tratamento das reclamações dos consumidores\"."
+   },
+   {
+    "dispositivo": "Art. 9º, III",
+    "justificativa": "O ressarcimento depende também de interação com o consumidor para instruir e processar o requerimento; o Art. 9º, III prevê infração por \"deixar de prestar informações aos consumidores ou usuários, quando solicitado\", aplicável caso a distribuidora não oriente ou informe sobre o procedimento de reembolso."
+   }
+  ],
+  "f958a912777a3264": [
+   {
+    "dispositivo": "Art. 9º, III",
+    "justificativa": "A obrigação exige veicular avisos padronizados e explícitos em toda a comunicação institucional, informando que os agentes são pessoas jurídicas distintas; a infração descreve exatamente a conduta de \"deixar de prestar informações aos consumidores ... conforme determinado nas disposições legais\", o que corresponde ao não veiculação desses avisos."
+   },
+   {
+    "dispositivo": "Art. 9º, II",
+    "justificativa": "O texto obriga que a informação padronizada esteja disponível em comunicações como faturas e sites; a infração prevê penalidade para \"deixar de manter à disposição dos consumidores ... os documentos ou informações estabelecidas nas disposições legais\", aplicando‑se se tais avisos não forem tornados acessíveis aos consumidores."
+   }
+  ],
+  "f4d8768ac72bd7d3": [
+   {
+    "dispositivo": "Art. 11, XIV",
+    "justificativa": "A obrigação (Art. 9º‑A) impõe, por ato normativo da ANEEL, a veiculação de avisos padronizados nas comunicações institucionais; o não cumprimento dessa exigência é, em essência, deixar de cumprir disposição de resolução da ANEEL. Portanto, a omissão em veicular o aviso requerido enquadra‑se em “deixar de cumprir ao disposto em resoluções da ANEEL”."
+   },
+   {
+    "dispositivo": "Art. 9º, III",
+    "justificativa": "O dispositivo exige que o agente veicule, de forma visível e clara, informações nos canais (faturas, sites e mídias) esclarecendo que os preços não são tarifas reguladas; a não divulgação constitui omissão na prestação de informação aos consumidores. Assim, a falta do aviso configuraria “deixar de prestar informações aos consumidores”."
+   }
+  ],
+  "dff8615bdeeaf106": [
+   {
+    "dispositivo": "Art. 9º, III",
+    "justificativa": "A obrigação exige veicular avisos factuais padronizados e explícitos aos consumidores em toda a comunicação institucional, declarando que o consumidor não é obrigado a adquirir energia do comercializador do mesmo grupo; assim, a não veiculação desses avisos configura deixar de prestar informações aos consumidores conforme determinado nas disposições legais. O dispositivo da infração prevê exatamen"
+   },
+   {
+    "dispositivo": "Art. 9º, II",
+    "justificativa": "A obrigação impõe disponibilização visível e clara da informação em todas as comunicações (inclusive faturas e sites), o que implica tornar a informação acessível aos consumidores; não disponibilizar nos pontos de atendimento ou em canais acessíveis pode ser enquadrado como deixar de manter à disposição dos consumidores, nos postos de atendimento presencial, as informações estabelecidas pela regul"
+   }
+  ],
+  "17328d915cd7dc29": [
+   {
+    "dispositivo": "Art. 9º, III",
+    "justificativa": "A obrigação exige veicular, de forma visível e clara, avisos padronizados em toda a comunicação institucional (faturas, sites e mídias) informando que o consumidor é livre para escolher outro agente; deixar de exibir esses avisos configura deixar de prestar informações aos consumidores, conforme o dispositivo."
+   },
+   {
+    "dispositivo": "Art. 9º, II",
+    "justificativa": "Como a norma exige que os avisos sejam veiculados inclusive em faturas e canais de atendimento, a ausência desses avisos ou a não disponibilização das informações padronizadas em pontos de atendimento presencial pode enquadrar-se em deixar de manter à disposição dos consumidores, em locais acessíveis, as informações exigidas."
+   }
+  ],
+  "58ea67abc3ec2971": [
+   {
+    "dispositivo": "Art. 9º, XVI",
+    "justificativa": "A obrigação impõe forma obrigatória de uso da marca/logotipo (incluir visivelmente o termo que identifique a atividade de comercialização) quando houver reprodução ou imitação. O Art. 9º, XVI sanciona o uso de logomarca fora do que determina a legislação (\"deixar de utilizar a logomarca ... de acordo com a legislação\"), aplicando‑se por analogia ao descumprimento da forma exigida."
+   }
+  ],
+  "de74db97765787be": [
+   {
+    "dispositivo": "Art. 11, XI",
+    "justificativa": "A obrigação determina que a distribuidora comunique formalmente à CCEE o atendimento ao consumidor; o dispositivo tipifica como infração o fato de “deixar de cumprir ao disposto na Convenção, nas Regras, nos Procedimentos de Comercialização ... entre os agentes e a CCEE”, o que inclui a omissão de comunicações exigidas por esses procedimentos."
+   }
+  ],
+  "5601d7cf3867bf32": [
+   {
+    "dispositivo": "Art. 11, XI",
+    "justificativa": "A obrigação exige que as controvérsias de comercialização varejista sejam inicialmente submetidas ao representante da comercialização varejista. O Art. 11, XI caracteriza como infração o deixar de cumprir a Convenção, as Regras ou os Procedimentos de Comercialização (incluindo a Convenção Arbitral), que é onde estaria prevista essa obrigação processual."
+   },
+   {
+    "dispositivo": "Art. 12, I",
+    "justificativa": "A previsão do Art. 21‑A é uma determinação normativa sobre o encaminhamento de controvérsias, ou seja, uma disposição legal/regulamentar a ser cumprida. O Art. 12, I tipifica como infração o descumprimento de disposições legais, regulamentares e contratuais, englobando a inobservância da regra de submissão inicial ao representante."
+   },
+   {
+    "dispositivo": "Art. 11, XXI",
+    "justificativa": "A obrigação impõe um procedimento específico para o tratamento de controvérsias que pode ser objeto de determinações da Agência. O Art. 11, XXI tipifica como infração deixar de cumprir determinação da Diretoria Colegiada da ANEEL, aplicável caso a ANEEL tenha fixado prazo ou ato determinando a submissão prevista no Art. 21‑A."
+   }
+  ],
+  "48facbbb1cb1cce4": [
+   {
+    "dispositivo": "Art. 9º, XVII",
+    "justificativa": "A obrigação determina que \"a resposta às reclamações deve ser apresentada em até 5 (cinco) dias úteis e indicar os fundamentos da decisão adotada\"; o dispositivo Art. 9º, XVII pune quem \"deixar de atender às disposições legais, regulamentares ou contratuais relativas ao tratamento das reclamações dos consumidores\", o que abrange não responder no prazo ou sem a devida fundamentação."
+   },
+   {
+    "dispositivo": "Art. 9º, III",
+    "justificativa": "A obrigação exige que a resposta \"indicar os fundamentos da decisão adotada\", isto é, prestar informação concreta ao reclamante; Art. 9º, III prevê \"deixar de prestar informações aos consumidores ou usuários, quando solicitado\", aplicando‑se quando a resposta não contém a fundamentação exigida."
+   },
+   {
+    "dispositivo": "Art. 10, I",
+    "justificativa": "Responder às reclamações em prazo definido pressupõe registro e tratamento adequado dos pedidos; Art. 10, I descreve a infração de \"deixar de manter registro atualizado das reclamações e solicitações dos consumidores\", conduta compatível quando não há resposta tempestiva em 5 dias úteis."
+   }
+  ],
+  "1d177cb6c2eebf9a": [
+   {
+    "dispositivo": "Art. 9º, XVII",
+    "justificativa": "A obrigação exige apresentação de “resposta fundamentada à reclamação” antes de adotar medidas por inadimplência; agir com base exclusiva na parcela controversa contraria diretamente as disposições relativas ao tratamento das reclamações dos consumidores, caracterizando o não atendimento a tais disposições."
+   },
+   {
+    "dispositivo": "Art. 9º, III",
+    "justificativa": "Ao determinar que não se pode adotar medidas antes de apresentar resposta fundamentada, a norma impõe fornecer esclarecimento ao consumidor; a não apresentação dessa resposta configura deixar de prestar informações aos consumidores quando solicitadas."
+   },
+   {
+    "dispositivo": "Art. 10, I",
+    "justificativa": "A exigência de resposta fundamentada pressupõe registro e acompanhamento da reclamação; não responder antes de adotar medidas pode corresponder a deixar de manter registro atualizado das reclamações e solicitações dos consumidores."
+   }
+  ],
+  "17605232023781dd": [
+   {
+    "dispositivo": "Art. 11, XIV",
+    "justificativa": "A obrigação é uma determinação regulatória (incluir visível o termo relativo à atividade de distribuição em materiais e sites); o dispositivo tipifica o \"deixar de cumprir ao disposto em resoluções da ANEEL\", enquadrando diretamente o descumprimento de norma da Agência."
+   },
+   {
+    "dispositivo": "Art. 9º, III",
+    "justificativa": "A norma exige identificação nítida em apresentações e materiais de informação; Art. 9º, III pune o \"deixar de prestar informações aos consumidores\", o que cobre a omissão de identificação clara nas informações disponibilizadas aos consumidores."
+   },
+   {
+    "dispositivo": "Art. 9º, II",
+    "justificativa": "A obrigação obriga inclusão visível do termo em materiais institucionais e comerciais que podem estar nos postos de atendimento; Art. 9º, II prevê infração para \"deixar de manter à disposição dos consumidores nos postos de atendimento presencial... os documentos ou informações estabelecidas\", aplicável se tais materiais não exibirem a identificação exigida."
+   }
+  ],
+  "1829ab6332d473ce": [
+   {
+    "dispositivo": "Art. 9º, III",
+    "justificativa": "A obrigação proíbe qualquer ambiguidade nas comunicações (ex.: propostas, materiais e páginas na internet), o que pode resultar em informações insuficientes ou incompreensíveis ao consumidor; o dispositivo descreve deixar de prestar informações aos consumidores quando solicitado, conduta compatível com comunicações ambíguas que não esclareçam o conteúdo exigido."
+   },
+   {
+    "dispositivo": "Art. 9º, II",
+    "justificativa": "A norma exige clareza e distinção em materiais e canais de comunicação (folders, sítios, mídias sociais), e comunicações ambíguas podem equivaler a não disponibilizar documentos ou informações de forma acessível; o dispositivo trata de deixar de manter à disposição dos consumidores, nos postos de atendimento, os documentos ou informações exigidas."
+   },
+   {
+    "dispositivo": "Art. 9º, XIII",
+    "justificativa": "Comunicações ambíguas em qualquer plataforma podem dificultar o acesso do consumidor ao agente setorial ou ao atendimento, contrariando a exigência de clareza; o dispositivo refere-se a deixar de disponibilizar estrutura de atendimento adequada que possibilite fácil acesso ao agente setorial."
+   }
+  ],
+  "728895c11bbe26d8": [
+   {
+    "dispositivo": "Art. 10, XX",
+    "justificativa": "A obrigação exige o envio à SFF/ANEEL de informação atualizada sobre a composição societária na concretização de transferência acionária e trimestralmente; o Art. 10, XX tipifica 'deixar de enviar ou disponibilizar à ANEEL informações ou documentos, nos prazos e nas condições estabelecidas', cobrindo diretamente essa omissão."
+   },
+   {
+    "dispositivo": "Art. 9º, VI",
+    "justificativa": "A obrigação prevê comunicação à ANEEL em ocasiões específicas (transferência e periodicidade trimestral); o Art. 9º, VI pune 'deixar de enviar ou disponibilizar informações ou documentos solicitados pela ANEEL, nos prazos e nas condições estabelecidas', aplicável se a informação exigida não for fornecida conforme solicitado."
+   },
+   {
+    "dispositivo": "Art. 11, V",
+    "justificativa": "A composição societária e a identificação do grupo de controle são informações de natureza econômico‑financeira relevantes à fiscalização; o Art. 11, V trata de 'deixar de enviar ou disponibilizar à ANEEL, nos prazos e nas condições estabelecidas na legislação, documentos ou informações econômicas e financeiras', o que abrange a omissão prevista na obrigação."
+   }
+  ],
+  "667bcae318ad50c6": [
+   {
+    "dispositivo": "Art. 12, VII",
+    "justificativa": "A obrigação determina que a distribuidora \"deve apresentar à ANEEL, previamente ao início, a proposta do Sandbox\"; o Art. 12, VII tipifica deixar de encaminhar para exame e aprovação da ANEEL ou implementar sem a anuência prévia, que corresponde ao não envio prévio para aprovação."
+   },
+   {
+    "dispositivo": "Art. 10, XX",
+    "justificativa": "A obrigação impõe o envio à ANEEL de uma proposta antes do início; o Art. 10, XX descreve a infração de deixar de enviar ou disponibilizar à ANEEL informações ou documentos nos prazos e condições estabelecidos, aplicável caso a proposta não seja apresentada no prazo legal."
+   }
+  ],
+  "fef01f4eb3d5d88c": [
+   {
+    "dispositivo": "Art. 10, XX",
+    "justificativa": "A obrigação exige que a distribuidora \"apresentar à ANEEL, previamente ao início, a proposta do Sandbox\"; omitir esse envio ou não disponibilizar a proposta à Agência enquadra‑se em \"deixar de enviar ou disponibilizar à ANEEL informações ou documentos, nos prazos e nas condições estabelecidas\" do Art. 10, XX."
+   },
+   {
+    "dispositivo": "Art. 9º, VI",
+    "justificativa": "Do mesmo modo, a falha em apresentar à ANEEL a proposta solicitada caracteriza \"deixar de enviar ou disponibilizar informações ou documentos solicitados pela ANEEL, nos prazos e nas condições estabelecidas\", previsto no Art. 9º, VI."
+   }
+  ],
+  "6cb749b8189058af": [
+   {
+    "dispositivo": "Art. 12, VII",
+    "justificativa": "A obrigação determina que a distribuidora deve apresentar à ANEEL, previamente ao início, a proposta do Sandbox (incluindo a metodologia de escolha dos participantes); Art. 12, VII descreve especificamente 'deixar de encaminhar, para exame e aprovação da ANEEL... ou implementar, antes da anuência prévia da Agência', aplicando‑se diretamente se a proposta não for submetida antes do início."
+   },
+   {
+    "dispositivo": "Art. 10, XX",
+    "justificativa": "A obrigação impõe o envio à ANEEL de documentação necessária à implementação do Sandbox nos termos e prazos previstos; Art. 10, XX pune 'deixar de enviar ou disponibilizar à ANEEL informações ou documentos, nos prazos e nas condições estabelecidas na legislação', enquadrando a omissão do envio da proposta."
+   },
+   {
+    "dispositivo": "Art. 9º, VI",
+    "justificativa": "A obrigação exige disponibilizar à ANEEL a proposta contendo a metodologia de escolha dos participantes; Art. 9º, VI prevê 'deixar de enviar ou disponibilizar informações ou documentos solicitados pela ANEEL, nos prazos e nas condições estabelecidas', que pode subsumir a não apresentação da metodologia quando exigida pela Agência."
+   }
+  ],
+  "d6e372fb4b797bf0": [
+   {
+    "dispositivo": "Art. 12, VII",
+    "justificativa": "A obrigação exige que a distribuidora \"deve apresentar à ANEEL, previamente ao início, a proposta do Sandbox\"; o Art. 12, VII descreve exatamente a conduta de \"deixar de encaminhar, para exame e aprovação da ANEEL... ou implementar, antes da anuência prévia da Agência\", sendo este o enquadramento mais direto."
+   },
+   {
+    "dispositivo": "Art. 10, XX",
+    "justificativa": "A exigência de apresentação prévia à ANEEL constitui envio de documento dentro de prazo/condição legal; o Art. 10, XX tipifica \"deixar de enviar ou disponibilizar à ANEEL informações ou documentos, nos prazos e nas condições estabelecidas na legislação\"."
+   },
+   {
+    "dispositivo": "Art. 9º, VI",
+    "justificativa": "Se a apresentação da proposta for objeto de pedido formal pela Agência, a não remessa configura não atender solicitação; o Art. 9º, VI tipifica \"deixar de enviar ou disponibilizar informações ou documentos solicitados pela ANEEL, nos prazos e nas condições estabelecidas\"."
+   }
+  ],
+  "da50e0e8061f472e": [
+   {
+    "dispositivo": "Art. 10, IV",
+    "justificativa": "A obrigação determina que a distribuidora «deve apresentar à ANEEL, previamente ao início, a proposta do Sandbox», o que é equivalentesubmeter à Agência um projeto antes do início. Art. 10, IV prevê como infração o fato de «deixar de submeter à prévia aprovação... projetos... ou implementar, antes da anuência», aplicável se a proposta não for apresentada/aguardada."
+   },
+   {
+    "dispositivo": "Art. 10, XX",
+    "justificativa": "O dever expresso de apresentar à ANEEL o plano de comunicação/ informação implica envio de documento à Agência; não enviá‑lo configura a conduta descrita em Art. 10, XX: «deixar de enviar ou disponibilizar à ANEEL informações ou documentos, nos prazos e nas condições estabelecidas»."
+   },
+   {
+    "dispositivo": "Art. 9º, III",
+    "justificativa": "O item exige um «plano de comunicação e de informação aos participantes», de modo que a ausência de comunicação efetiva aos consumidores/participantes pode ser enquadrada como «deixar de prestar informações aos consumidores ou usuários, quando solicitado ou conforme determinado», previsto no Art. 9º, III."
+   }
+  ],
+  "5609080c03fdcb67": [
+   {
+    "dispositivo": "Art. 11, V",
+    "justificativa": "A obrigação exige que a distribuidora apresente à ANEEL, previamente ao início, a proposta do Sandbox incluindo, no mínimo, o 'orçamento preliminar' (informação econômico‑financeira); o Art. 11, V tipifica como infração deixar de enviar ou disponibilizar à ANEEL documentos ou informações econômicas e financeiras."
+   },
+   {
+    "dispositivo": "Art. 10, XX",
+    "justificativa": "A obrigação impõe o envio prévio à ANEEL de documentação da proposta; o Art. 10, XX descreve a infração de deixar de enviar ou disponibilizar à ANEEL informações ou documentos nos prazos e nas condições estabelecidas na legislação."
+   },
+   {
+    "dispositivo": "Art. 9º, VI",
+    "justificativa": "A exigência de apresentar à ANEEL a proposta do Sandbox configura obrigação de fornecer documentos quando exigidos; o Art. 9º, VI prevê a infração de deixar de enviar ou disponibilizar informações ou documentos solicitados pela ANEEL, nos prazos e nas condições estabelecidas."
+   }
+  ],
+  "acc78339ce7532ff": [
+   {
+    "dispositivo": "Art. 9º, VI",
+    "justificativa": "A obrigação exige que a distribuidora apresente à ANEEL, previamente ao início, a proposta do Sandbox contendo, entre outros, o plano de monitoramento e controle; a não apresentação desse documento caracteriza “deixar de enviar ou disponibilizar informações ou documentos solicitados pela ANEEL”."
+   },
+   {
+    "dispositivo": "Art. 9º, XIV",
+    "justificativa": "A obrigação prevê a proposição de indicadores e ferramentas para análise de resultados e de custos e benefícios; omitir ou deixar de encaminhar esses indicadores à ANEEL se enquadra em “deixar de encaminhar à ANEEL... indicadores utilizados para apurar a qualidade do atendimento e do fornecimento de energia elétrica”."
+   }
+  ],
+  "0ebb4ed9ace89a7e": [
+   {
+    "dispositivo": "Art. 9º, II",
+    "justificativa": "A obrigação exige que as regras do Sandbox sejam amplamente divulgadas e, portanto, disponibilizadas aos participantes; o Art. 9º, II caracteriza como infração deixar de manter à disposição dos consumidores, em locais acessíveis, os documentos ou informações estabelecidos, o que se aplica à não divulgação das regras."
+   },
+   {
+    "dispositivo": "Art. 9º, III",
+    "justificativa": "A obrigação impõe prestação de informações sobre critérios de adesão/desistência e canais; o Art. 9º, III pune deixar de prestar informações aos consumidores ou usuários quando solicitado, se houver omissão na comunicação dessas regras."
+   },
+   {
+    "dispositivo": "Art. 9º, XIII",
+    "justificativa": "A obrigação exige indicar os canais em que poderão ser prestadas informações; o Art. 9º, XIII trata de deixar de disponibilizar aos consumidores estrutura de atendimento adequada que lhes possibilite fácil acesso ao agente setorial, o que abrange a ausência de canais de divulgação acessíveis."
+   }
+  ],
+  "be6a76133085cee8": [
+   {
+    "dispositivo": "Art. 10, XX",
+    "justificativa": "A obrigação exige o envio semestral de relatórios informativos à ANEEL ('devem ser encaminhados à ANEEL, semestralmente'); o Art. 10, XX pune justamente 'deixar de enviar ou disponibilizar à ANEEL informações ou documentos, nos prazos e nas condições estabelecidas na legislação', correspondendo ao não envio desses relatórios."
+   },
+   {
+    "dispositivo": "Art. 9º, VI",
+    "justificativa": "Se os relatórios forem considerados informações exigidas ou solicitadas pela Agência, a omissão de envio se enquadra em 'deixar de enviar ou disponibilizar informações ou documentos solicitados pela ANEEL, nos prazos e nas condições estabelecidas' (Art. 9º, VI), por deixar de remeter os documentos semestralmente."
+   }
+  ],
+  "5f2cad17305d09c9": [
+   {
+    "dispositivo": "Art. 10, XX",
+    "justificativa": "A obrigação impõe apresentar à ANEEL proposta e, se necessário, manual com detalhamento operacional \"no prazo de até 1 ano\"; o Art. 10, XX tipifica \"deixar de enviar ou disponibilizar à ANEEL informações ou documentos, nos prazos e nas condições estabelecidas na legislação\", sendo o não encaminhamento dentro do prazo compatível com esse dispositivo."
+   },
+   {
+    "dispositivo": "Art. 9º, VI",
+    "justificativa": "O texto exige que o grupo de trabalho apresente à ANEEL a proposta e o manual no prazo fixado; o Art. 9º, VI descreve a conduta de \"deixar de enviar ou disponibilizar informações ou documentos solicitados pela ANEEL, nos prazos e nas condições estabelecidas\", aplicável caso a apresentação decorra de solicitação ou determinação da Agência."
+   },
+   {
+    "dispositivo": "Art. 11, XXI",
+    "justificativa": "Se a obrigação decorrer de determinação da Diretoria Colegiada, o prazo de apresentação é legalmente vinculante; o Art. 11, XXI prevê como infração \"deixar de cumprir determinação da Diretoria Colegiada da ANEEL, no prazo estabelecido\", enquadrando o eventual descumprimento."
+   }
+  ],
+  "b9ec4a3959208f38": [
+   {
+    "dispositivo": "Art. 11, XIV",
+    "justificativa": "A obrigação impõe dever regulatório explícito de definir a coordenação do grupo; o dispositivo pune quem 'deixar de cumprir... resoluções da ANEEL', sendo aplicável quando a obrigação provém de norma/rezolução e não é observada."
+   },
+   {
+    "dispositivo": "Art. 12, I",
+    "justificativa": "O texto exige que as instituições 'deverão definir a coordenação do grupo', configurando descumprimento de disposição regulamentar; o Art. 12, I abrange o 'descumprir às disposições legais, regulamentares e contratuais', aplicável a esta omissão."
+   },
+   {
+    "dispositivo": "Art. 11, XXI",
+    "justificativa": "Se a definição de coordenação tiver sido objeto de determinação da Diretoria da ANEEL, o não atendimento ao dever ('deverão definir a coordenação do grupo') pode ser enquadrado em 'deixar de cumprir determinação da Diretoria Colegiada da ANEEL, no prazo estabelecido'."
+   }
+  ],
+  "44e6f2493416fd04": [
+   {
+    "dispositivo": "Art. 11, I",
+    "justificativa": "A obrigação impõe realização da primeira reunião em prazo fixo ('em até 60 dias da publicação desta Resolução'); se tal reunião se refere à Ouvidoria ou ao Conselho de Consumidores, a sua não realização configura deixar de instituir ou prover condições para o adequado funcionamento desses órgãos."
+   },
+   {
+    "dispositivo": "Art. 11, XXI",
+    "justificativa": "A determinação temporal da Resolução (primeira reunião em até 60 dias) é uma ordem da Diretoria/Resolução; o não cumprimento desse prazo enquadra-se em deixar de cumprir determinação da Diretoria Colegiada da ANEEL no prazo estabelecido."
+   }
+  ],
+  "3c31e7c6948c4d3e": [
+   {
+    "dispositivo": "Art. 12, VI",
+    "justificativa": "A obrigação proíbe acréscimo no montante de energia do CCER; proceder a esse acréscimo implica registro/contabilização de quantidades de energia em desacordo com as normas aplicáveis, enquadrando‑se em “deixar de realizar a contabilização em conformidade com as normas, procedimentos ou instruções legais ou regulamentares”."
+   },
+   {
+    "dispositivo": "Art. 11, XXII",
+    "justificativa": "A inclusão de energia adicional no CCER resultaria na divulgação de montantes incorretos; isso se ajusta à hipótese de “enviar à ANEEL documento ou informação com conteúdo incorreto, resultando em prejuízo às decisões da Agência ou à divulgação de informações”."
+   },
+   {
+    "dispositivo": "Art. 13, XVII",
+    "justificativa": "Se o acréscimo no montante do CCER for deliberado ou intencional, configura prestação de informação falsa; tal conduta pode ser enquadrada em “fornecer documentos ou informações falsas à ANEEL”."
+   }
+  ],
+  "6e56e83f4405c837": [
+   {
+    "dispositivo": "Art. 11, XIX",
+    "justificativa": "A obrigação exige que o CCER contenha o montante contratado discriminado mês a mês para todo o período do contrato; o art. 11, XIX tipifica celebrar contrato em desacordo com disposições legais ou regulamentares, o que se configura se o CCER não trouxer a discrimeração exigida pela REN."
+   },
+   {
+    "dispositivo": "Art. 11, XIV",
+    "justificativa": "A exigência decorre da REN ANEEL 846/2019 (ato normativo da Agência) e o art. 11, XIV prevê penalidade para quem deixar de cumprir disposições de resoluções da ANEEL; omitir a discriminação mensal no CCER implica descumprir essa resolução."
+   }
+  ],
+  "e9484bb6aff3edc1": [
+   {
+    "dispositivo": "Art. 11, XI",
+    "justificativa": "A obrigação determina que a modulação seja realizada “observadas as Regras e Procedimentos de Comercialização aplicáveis ao registro desses valores”; portanto o descumprimento por não seguir tais Regras/Procedimentos configura diretamente deixar de cumprir o disposto nas Regras e nos Procedimentos de Comercialização, enquadrável no Art. 11, XI."
+   },
+   {
+    "dispositivo": "Art. 9º, IV",
+    "justificativa": "A modulação deve ser feita segundo o “perfil de carga da unidade consumidora”, o que depende de cadastro e informações atualizadas da unidade; deixar de proceder à organização ou atualização do cadastro relativo a unidades consumidoras (Art. 9º, IV) pode impedir a aplicação correta do perfil e, assim, caracterizar o descumprimento da obrigação."
+   },
+   {
+    "dispositivo": "Art. 10, XX",
+    "justificativa": "A obrigação exige que os valores sejam registrados conforme os Procedimentos de Comercialização; se a modulação e os registros exigidos não forem enviados ou disponibilizados nos prazos e condições previstos, isso caracteriza “deixar de enviar ou disponibilizar à ANEEL informações ou documentos” (Art. 10, XX)."
+   }
+  ],
+  "18bb6a68bf909f20": [
+   {
+    "dispositivo": "Art. 10, XVIII",
+    "justificativa": "A obrigação determina expressamente o critério de faturamento do CCER (faturamento pela energia medida, limitada ao montante contratado); o dispositivo descreve a conduta de realizar leitura ou faturamento em desacordo com a legislação, o que coincide diretamente com o descumprimento desse critério de faturamento."
+   },
+   {
+    "dispositivo": "Art. 11, XI",
+    "justificativa": "O critério de faturamento do CCER ocorre no âmbito da comercialização de energia; o dispositivo prevê como infração deixar de cumprir o disposto na Convenção, nas Regras ou nos Procedimentos de Comercialização, o que abarcaría a não observância do critério de faturamento estabelecido nesses instrumentos."
+   }
+  ],
+  "1025c9f72102008c": [
+   {
+    "dispositivo": "Art. 12, III",
+    "justificativa": "O §6 exige que a solicitação de redução tenha prazos para atendimento e condições específicas; Art. 12, III pune quem deixa de atender pedido de serviços nos prazos e nas condições estabelecidas, correspondendo diretamente ao descumprimento desta obrigação."
+   },
+   {
+    "dispositivo": "Art. 9º, III",
+    "justificativa": "O dispositivo do §6 impõe requisitos formais sobre o tratamento da solicitação (prazos e condições); Art. 9 a, III tipifica deixar de prestar informações aos consumidores quando solicitado, aplicável se a concessionária não informar sobre prazos ou condições da redução."
+   },
+   {
+    "dispositivo": "Art. 9º, XIII",
+    "justificativa": "Exigir prazos e condições semelhantes a migração implica formalização de processos de atendimento; Art. 9 a, XIII descreve a omissão em disponibilizar estrutura de atendimento adequada, enquadrando a ausência de procedimentos ou prazos previstos pelo §6."
+   }
+  ],
+  "26c6fa3441f9a408": [
+   {
+    "dispositivo": "Art. 11, XI",
+    "justificativa": "A obrigação exige que os montantes contratados via CCER \"sejam registrados na CCEE conforme Procedimentos de Comercialização\"; o dispositivo tipifica deixar de cumprir o disposto nas \"Regras, nos Procedimentos de Comercialização\", cobrindo a omissão em seguir esses procedimentos de registro na CCEE."
+   },
+   {
+    "dispositivo": "Art. 10, XIII",
+    "justificativa": "Se os montantes contratados no CCER não forem registrados na CCEE, tal conduta pode equivaler a comercializar energia \"fora do âmbito da CCEE\", que é exatamente a hipótese prevista no dispositivo como infração."
+   }
+  ],
+  "ed224db7755f6815": [
+   {
+    "dispositivo": "Art. 11, XIV",
+    "justificativa": "A obrigação refere-se expressamente à Resolução Normativa nº 1.000/2021 (manter o benefício tarifário do art. 186 até a data de retorno celebrada no CCER); o dispositivo Art. 11, XIV pune quem 'deixar de cumprir ao disposto em resoluções da ANEEL', que é justamente a hipótese de não observar a RN mencionada."
+   },
+   {
+    "dispositivo": "Art. 13, V",
+    "justificativa": "Manter o benefício tarifário significa aplicar a tarifa com o desconto previsto; deixar de mantê‑lo até a data acordada implicaria em 'praticar tarifas de fornecimento ... em valores superiores aos estabelecidos', conforme descrito no Art. 13, V."
+   },
+   {
+    "dispositivo": "Art. 11, X",
+    "justificativa": "A obrigação decorre de regras contratuais e normativas (CCER e RN) sobre condições de fornecimento; o Art. 11, X tipifica o ato de 'deixar de cumprir ao disposto nas Condições Gerais de Fornecimento', aplicável caso o agente não aplique o benefício previsto."
+   }
+  ],
+  "59c5496d841c8794": [
+   {
+    "dispositivo": "Art. 11, XIV",
+    "justificativa": "A obrigação impõe atuação conforme o prazo e forma definidos em uma Resolução da ANEEL (“a aplicação do benefício tarifário deve ser realizada... até o prazo de doze meses da publicação desta Resolução”), logo o não cumprimento configura deixar de cumprir disposições constantes em resoluções da ANEEL."
+   },
+   {
+    "dispositivo": "Art. 11, XXI",
+    "justificativa": "A exigência fixa prazo explícito para aplicação do benefício (o maior entre doze meses e o prazo reduzido informado), de modo que a inobservância desse prazo é compatível com \"deixar de cumprir determinação da Diretoria Colegiada da ANEEL, no prazo estabelecido\"."
+   },
+   {
+    "dispositivo": "Art. 13, V",
+    "justificativa": "A obrigação determina aplicação de benefício tarifário por prazo concreto; a omissão em aplicá‑lo pode resultar em cobrança de tarifas superiores às previstas pela norma, enquadrando‑se em \"praticar tarifas de fornecimento ... em valores superiores aos estabelecidos\"."
+   }
+  ],
+  "f1b6ba520d519463": [
+   {
+    "dispositivo": "Art. 11, XIV",
+    "justificativa": "A obrigação decorre de Resolução Normativa da ANEEL (NR nº 1.000/2021) que determina como a distribuidora deve aplicar os benefícios tarifários; deixar de aplicar exclusivamente o benefício do art. 186 conforme previsto constitui descumprimento de resolução da ANEEL."
+   },
+   {
+    "dispositivo": "Art. 11, XXI",
+    "justificativa": "A regra impõe prazo e conduta específicos a serem observados pela distribuidora a partir da manifestação do consumidor; não cumprir essa determinação da agência configura 'deixar de cumprir determinação da Diretoria Colegiada da ANEEL'."
+   },
+   {
+    "dispositivo": "Art. 11, X",
+    "justificativa": "A obrigação estabelece a forma de tratamento tarifário a ser prestada ao consumidor no serviço de distribuição; deixar de aplicar o benefício exigido pela norma após manifestação do consumidor pode equivaler a descumprir as Condições Gerais de Fornecimento do serviço público."
+   }
+  ],
+  "91c26ed1a77c413a": [
+   {
+    "dispositivo": "Art. 12, XV",
+    "justificativa": "A obrigação impõe que a distribuidora cesse a aplicação do benefício tarifário; continuar aplicando-o configura conceder ou manter benefício tarifário em desacordo com a legislação, enquadrando-se em \"deixar de conceder benefício tarifário a que o consumidor ... ou fazê-lo em desacordo com a legislação\"."
+   },
+   {
+    "dispositivo": "Art. 10, XVIII",
+    "justificativa": "A determinação exige cessar a aplicação no ciclo de faturamento subsequente; persistir na aplicação resulta em faturamento realizado em desacordo com a legislação, enquadrando-se em \"realizar leitura ou faturamento em desacordo com a legislação\"."
+   }
+  ],
+  "ad1cd6d7bc9bb42b": [
+   {
+    "dispositivo": "Art. 12, XV",
+    "justificativa": "A obrigação impõe à distribuidora aplicar exclusivamente o benefício tarifário previsto no art. 195 quando houver recebimento simultâneo dos arts. 186 e 195; o dispositivo descreve como infração “deixar de conceder benefício tarifário a que o consumidor e os demais usuários têm direito ou fazê-lo em desacordo com a legislação”, que corresponde diretamente ao descumprimento da aplicação do benefíci"
+   },
+   {
+    "dispositivo": "Art. 11, XIV",
+    "justificativa": "A obrigação decorre da Resolução Normativa nº 1.000/2021, sendo pedido cumprimento de regra específica dessa resolução; o dispositivo prevê como infração “deixar de cumprir ao disposto em resoluções da ANEEL”, que abrange não aplicar a norma regulamentar que determina o benefício do art. 195."
+   }
+  ],
+  "33f462f47b99eeab": [
+   {
+    "dispositivo": "Art. 12, XV",
+    "justificativa": "A obrigação determina que a distribuidora cesse um benefício (art.186) e aplique, se cabível, outro benefício tarifário (art.195); deixar de fazê‑lo é exatamente “deixar de conceder benefício tarifário a que o consumidor ... tem direito ou fazê‑lo em desacordo com a legislação.”"
+   },
+   {
+    "dispositivo": "Art. 13, V",
+    "justificativa": "O não cumprimento da obrigação (não cessar/aplicar o benefício correto) pode resultar na cobrança de tarifas incorretas; tal conduta se enquadra em “praticar tarifas de fornecimento ... em valores superiores aos estabelecidos.”"
+   },
+   {
+    "dispositivo": "Art. 12, XIII",
+    "justificativa": "Se a distribuidora não cessar ou aplicar o benefício previsto, pode impor ônus indevido ao consumidor; isso se aproxima de “impor ônus para o solicitante ou consumidor ... em desacordo com as disposições legais ou regulamentares.”"
+   }
+  ],
+  "86b151000f2548bd": [
+   {
+    "dispositivo": "Art. 10, XVIII",
+    "justificativa": "A obrigação proíbe alterar o faturamento já realizado até a manifestação do consumidor ou até o prazo para manifestação, e o dispositivo tipifica «realizar leitura ou faturamento em desacordo com a legislação»; alterar faturas antes do prazo/configuração legal configura faturamento em desacordo com a regulação."
+   },
+   {
+    "dispositivo": "Art. 9º, XVII",
+    "justificativa": "A regra exige que a distribuidora não altere o faturamento até a manifestação do consumidor, o que integra o tratamento adequado das manifestações; o dispositivo pune deixar de atender às disposições legais, regulamentares ou contratuais relativas ao tratamento das reclamações dos consumidores, hipótese aplicável se a alteração antecipa ou frustra a manifestação."
+   },
+   {
+    "dispositivo": "Art. 9º, III",
+    "justificativa": "A obrigação protege o direito do consumidor de manifestar-se antes de qualquer alteração de faturamento; o dispositivo prevê infração por «deixar de prestar informações aos consumidores... quando solicitado», situação correlata quando a distribuidora altera faturamento sem oportunizar ou informar o consumer adequadamente."
+   }
+  ],
+  "a7588cff2b247082": [
+   {
+    "dispositivo": "Art. 12, I",
+    "justificativa": "A obrigação impõe a “adequação às alterações promovidas por esta Resolução” dentro de prazos definidos, logo o não cumprimento dessa adequação no prazo constitui descumprimento de disposições regulamentares; o dispositivo tipifica exatamente o descumprimento de disposições legais, regulamentares ou contratuais."
+   },
+   {
+    "dispositivo": "Art. 11, XXI",
+    "justificativa": "A resolução estabelece prazos para implementação das alterações (determinação da Agência) e o não cumprimento desses prazos configura deixar de cumprir determinação da Diretoria Colegiada da ANEEL no prazo estabelecido, conforme previsto no dispositivo."
+   }
+  ],
+  "485b9126b959bcd7": [
+   {
+    "dispositivo": "Art. 11, XXI",
+    "justificativa": "A obrigação determina a ‘‘adequação às alterações promovidas por esta Resolução… em até 180 dias’’ (Art. 16), ou seja, cumprimento de determinação da ANEEL dentro de prazo estabelecido; não realizar essa adequação no prazo enquadra‑se em ‘‘deixar de cumprir determinação da Diretoria Colegiada da ANEEL, no prazo estabelecido’’."
+   },
+   {
+    "dispositivo": "Art. 9º, VI",
+    "justificativa": "Caso a adequação exija o envio de informações ou documentos à ANEEL dentro do prazo de 180 dias, a omissão configura ‘‘deixar de enviar ou disponibilizar informações ou documentos solicitados pela ANEEL, nos prazos e nas condições estabelecidas’’, conforme descrito na infração."
+   },
+   {
+    "dispositivo": "Art. 10, XX",
+    "justificativa": "Para agentes sujeitos às disposições do Grupo II, o não encaminhamento à ANEEL de informações ou documentos exigidos pela Resolução no prazo de 180 dias encaixa‑se em ‘‘deixar de enviar ou disponibilizar à ANEEL informações ou documentos, nos prazos e nas condições estabelecidas na legislação’’."
+   }
+  ],
+  "c17096cc06163ed7": [
+   {
+    "dispositivo": "Art. 12, XVI",
+    "justificativa": "A obrigação determina que a adaptação seja feita com isonomia e aplicável a todas as situações; o Art. 12, XVI pune a discriminação de consumidores por critérios não previstos na legislação, o que corresponde diretamente à falta de tratamento isonômico exigida."
+   },
+   {
+    "dispositivo": "Art. 12, XIII",
+    "justificativa": "A exigência de aplicação a todas as situações implica não criar tratamentos ou exigências distintas; o Art. 12, XIII sanciona impor ônus ao consumidor em desacordo com a legislação, enquadrando condutas que resultem em tratamento desigual na transição."
+   }
+  ]
+ }
+}

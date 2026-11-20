@@ -14,9 +14,10 @@ import { Opportunity } from './components/sections/Opportunity'
 import { Closing } from './components/sections/Closing'
 
 export const isDemo = (path: string) => /^\/demo\/?$/.test(path)
+export const isExecutivo = (path: string) => /^\/demo\/executivo\/?$/.test(path)
 
-/** `demo`: a página /demo, passada pelo ponto de entrada (no navegador, carregada à parte). */
-export default function App({ path = '/', demo }: { path?: string; demo?: ReactNode }) {
+/** `demo` e `executivo`: as páginas /demo e /demo/executivo, passadas pelo ponto de entrada (no navegador, carregadas à parte). */
+export default function App({ path = '/', demo, executivo }: { path?: string; demo?: ReactNode; executivo?: ReactNode }) {
   const reduce = useReducedMotion() ?? false
   useEffect(() => {
     const onClick = (e: MouseEvent) => handleAnchorClick(e, reduce)
@@ -27,7 +28,7 @@ export default function App({ path = '/', demo }: { path?: string; demo?: ReactN
   return (
     // reducedMotion="user": respeita prefers-reduced-motion em todas as animações do Motion.
     <MotionConfig reducedMotion="user">
-      {isDemo(path) ? demo : <>
+      {isExecutivo(path) ? executivo : isDemo(path) ? demo : <>
       <Header />
       <main id="conteudo">
         <Hero />
