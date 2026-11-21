@@ -10,6 +10,7 @@ const MODO = 'preliminar' as const
 const PORTE_PADRAO = 'media'
 const LINK = 'font-semibold underline underline-offset-4 hover:text-acento'
 const GRANDE = 'block text-[64px] leading-[0.95] font-bold sm:text-[80px] lg:text-[96px]'
+const GRANDE_4 = 'block text-[56px] leading-[0.95] font-bold sm:text-[64px] lg:text-[72px]' // com o 4º número a linha tem 4 colunas
 const LEGENDA = 'text-[17px] font-semibold'
 
 const valorDoBloco = (l: LinhaTop5) => (l.valor?.reais != null ? `${brlCurto(l.valor.reais)}${l.preliminar ? '*' : ''}` : 'a enquadrar')
@@ -41,6 +42,7 @@ function Executiva({ normaId, setNormaId }: { normaId: NormaId; setNormaId: (id:
   }, [aberto])
   const preliminar = v?.origem === 'sugerido'
   const pr = prontidao(p, respostas, sim, MODO) // o quarto número só aparece depois de marcar provas no plano
+  const grande = pr.algumaMarcada ? GRANDE_4 : GRANDE
 
   const trocarNorma = (id: NormaId) => {
     setNormaId(id)
@@ -72,21 +74,21 @@ function Executiva({ normaId, setNormaId }: { normaId: NormaId; setNormaId: (id:
 
     <section aria-label="Resumo" aria-live="polite" className="grid gap-8 [grid-template-columns:repeat(auto-fit,minmax(260px,1fr))]">
       <div className="flex flex-col gap-1.5">
-        <span className={`${GRANDE} text-acento`}>{v?.reais != null ? <><span className="mr-2 text-[0.4em] align-baseline">R$</span>{brlCurto(v.reais).replace('R$ ', '')}</> : 'a enquadrar'}</span>
+        <span className={`${grande} text-acento`}>{v?.reais != null ? <><span className="mr-2 text-[0.4em] align-baseline">R$</span>{brlCurto(v.reais).replace('R$ ', '')}</> : 'a enquadrar'}</span>
         <span className={LEGENDA}>por infração{preliminar ? '*' : ''}</span>
       </div>
       <div className="flex flex-col gap-1.5">
-        <span className={GRANDE}>{q ? `−${Math.round(q.reducaoPct)}%` : '—'}</span>
+        <span className={grande}>{q ? `−${Math.round(q.reducaoPct)}%` : '—'}</span>
         <span className={LEGENDA}>se agir antes da fiscalização</span>
       </div>
       <div className="flex flex-col gap-1.5">
         {pz.vencidas > 0
-          ? <><span className={GRANDE}>{pz.vencidas}</span><span className={LEGENDA}>{pz.vencidas === 1 ? 'obrigação vencida' : 'obrigações vencidas'}</span></>
+          ? <><span className={grande}>{pz.vencidas}</span><span className={LEGENDA}>{pz.vencidas === 1 ? 'obrigação vencida' : 'obrigações vencidas'}</span></>
           : pz.proxima
-            ? <><span className={GRANDE}>{pz.proxima.dias} dias</span><span className={LEGENDA}>até o próximo prazo</span></>
-            : <><span className={GRANDE}>—</span><span className={LEGENDA}>nenhum prazo a vencer</span></>}
+            ? <><span className={grande}>{pz.proxima.dias} dias</span><span className={LEGENDA}>até o próximo prazo</span></>
+            : <><span className={grande}>—</span><span className={LEGENDA}>nenhum prazo a vencer</span></>}
       </div>
-      {pr.algumaMarcada && <div className="flex flex-col gap-1.5"><span className={GRANDE}>{pr.geral.x} de {pr.geral.n}</span><span className={LEGENDA}>obrigações com prova em mãos</span></div>}
+      {pr.algumaMarcada && <div className="flex flex-col gap-1.5"><span className={grande}>{pr.geral.x + pr.geral.y}</span><span className={LEGENDA}>obrigações com prova em mãos: {pr.geral.x} completa · {pr.geral.y} parcial · de {pr.geral.n}</span></div>}
     </section>
 
     <section aria-labelledby="comece-por" className="flex flex-col gap-3.5">

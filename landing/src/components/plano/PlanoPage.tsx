@@ -393,7 +393,7 @@ function Prontidao({ sim, modo }: { sim: Simulacao | null; modo: Modo }) {
   const { respostas } = useRespostas()
   const p = prontidao(plano, respostas, sim, modo)
   if (!p.algumaMarcada) return null
-  return <p className="border-[length:var(--borda-forte)] border-obsidian p-4 text-lg font-bold print:hidden" aria-live="polite">{fraseProntidao(p.geral.x, p.geral.n)} <a href="#como-calculamos" className={`text-sm ${LINK}`}>como contamos</a></p>
+  return <p className="border-[length:var(--borda-forte)] border-obsidian p-4 text-lg font-bold print:hidden" aria-live="polite">{fraseProntidao(p.geral.x, p.geral.n, p.geral.y)} <a href="#como-calculamos" className={`text-sm ${LINK}`}>como contamos</a></p>
 }
 
 /** Perguntas para o jurídico, geradas do que o plano marca como incerto. */
@@ -496,7 +496,7 @@ function Recomendamos({ t }: { t: Tema }) {
       <div><h5 className="font-bold">O que guardar como prova</h5>
         {rec.provas.length ? <ul className="mt-1 space-y-1">{rec.provas.map((x) => <li key={x.id}><label className="flex min-h-11 cursor-pointer items-start gap-2 py-1">
           <input type="checkbox" className="mt-1 h-5 w-5 shrink-0 accent-[var(--cor-texto)]" checked={marcadas.includes(x.id)} onChange={() => marcarProva(t.id, x.id)} /><span>{x.texto}</span></label></li>)}</ul> : <p className="mt-1">—</p>}
-        {rec.provas.length > 0 && <p className="mt-1 text-xs" aria-live="polite">Marque o que vocês já têm. {marcadas.length > 0 ? <strong>Prova para {pr.porTema[t.id].x} de {pr.porTema[t.id].n} obrigações deste tema.</strong> : 'Fica só no seu navegador.'}</p>}</div>
+        {rec.provas.length > 0 && <p className="mt-1 text-xs" aria-live="polite">Marque o que vocês já têm. {marcadas.length > 0 ? <strong>Prova completa para {pr.porTema[t.id].x} de {pr.porTema[t.id].n} obrigações deste tema{pr.porTema[t.id].y > 0 ? ` · parcial para ${pr.porTema[t.id].y}` : ''}.</strong> : 'Fica só no seu navegador.'}</p>}</div>
       <div className="space-y-3">
         {rec.efeito && <div><h5 className="font-bold">Efeito financeiro de agir</h5>
           <p className="mt-1">Regularizar antes da fiscalização pode reduzir até {pct(rec.efeito.reducaoPct)}{rec.efeito.de != null && rec.efeito.para != null ? ` (${brlCurto(rec.efeito.de)} → ${brlCurto(rec.efeito.para)})` : ''} <span className="text-xs text-ink-soft">({rec.efeito.dispositivo} da REN 846; exige cessar a infração e reparar o dano)</span></p></div>}

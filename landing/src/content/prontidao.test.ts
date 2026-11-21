@@ -30,5 +30,17 @@ test('marcar só parte das provas de um tipo não conta a obrigação (todas as 
 })
 
 test('frase do indicador', () => {
-  assert.equal(fraseProntidao(12, 80), 'Se a ANEEL fiscalizar amanhã, vocês têm prova para 12 de 80 obrigações')
+  assert.equal(fraseProntidao(12, 80), 'Se a ANEEL fiscalizar amanhã, vocês têm prova completa para 12 de 80 obrigações')
+})
+
+test('prova parcial: com provas marcadas nunca mostra só zero; a frase traz o parcial', () => {
+  const t = plano.temas.find((x) => recomendacoesDoTema(plano, x).provas.length >= 2)!
+  const provas = recomendacoesDoTema(plano, t).provas
+  const p = prontidao(plano, alternarProva(RESPOSTAS_VAZIAS, t.id, provas[0].id))
+  assert.ok(p.algumaMarcada)
+  assert.equal(p.porTema[t.id].x, 0)
+  assert.ok(p.porTema[t.id].y > 0, 'marcou uma prova: deve haver obrigações com prova parcial')
+  assert.equal(p.geral.y, Object.values(p.porTema).reduce((s, v) => s + v.y, 0))
+  assert.equal(fraseProntidao(0, 155, 24), 'Se a ANEEL fiscalizar amanhã, vocês têm prova completa para 0 de 155 obrigações · parcial para 24')
+  assert.equal(fraseProntidao(3, 80), 'Se a ANEEL fiscalizar amanhã, vocês têm prova completa para 3 de 80 obrigações')
 })

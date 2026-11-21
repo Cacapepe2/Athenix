@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { MIN_AUTOS_REFERENCIA, NORMAS, textoMaiorMulta, contagemDeEnquadramentos, defesa, destaqueDaNorma, frase, prazoTexto, idDaObrigacao, norma, prazos, queda, referenciaDoSetor, simplificar, tabelaDeGrupos, top5, urlDetalhe, urlPlanoCompleto, valorDaObrigacao, valorGeral } from './executivo.ts'
+import { MIN_AUTOS_REFERENCIA, NORMAS, acaoGerencial, eGerencial, textoMaiorMulta, contagemDeEnquadramentos, defesa, destaqueDaNorma, frase, prazoTexto, idDaObrigacao, norma, prazos, queda, referenciaDoSetor, simplificar, tabelaDeGrupos, top5, urlDetalhe, urlPlanoCompleto, valorDaObrigacao, valorGeral } from './executivo.ts'
 import { GRUPOS, NOME_DA_GRAVIDADE, nomeDaGravidade, rotuloDoGrupo } from './gravidade.ts'
 import { SIM_INICIAL, planos, type Simulacao } from './plano.ts'
 
@@ -284,4 +284,20 @@ test('REN 1.174, Art. 12 (grupo de trabalho): fora dos deveres, com nota; Art. 1
   assert.equal(p.notas_outros['Art. 12'], 'Grupo de trabalho sobre faturas, coordenado provisoriamente pela Abradee; primeira reunião até 03/01/2027 (§ 11).')
   assert.ok(p.obrigacoes.some((o) => o.dispositivo === 'Art. 13, § 1º' && /celebrado entre o consumidor parcialmente livre e a distribuidora/.test(o.trecho ?? '')))
   assert.equal(p.resumo.aplicaveis, 80)
+})
+
+test('executiva: recomendação de nível gerencial; detalhe operacional só no plano completo', () => {
+  assert.equal(eGerencial('Equipe de campo com motosserra e guincho para remover galhos'), false)
+  assert.equal(eGerencial('Publique o plano de manejo aprovado no site, com data de aprovação.'), true)
+  assert.equal(acaoGerencial(['Acione imediatamente equipe de campo com motosserra e guincho para remover árvores.', 'Publique o plano revisado no site.']), 'Publique o plano revisado no site.')
+  // sem versão gerencial: a mais genérica (a mais curta) das válidas
+  assert.equal(acaoGerencial(['Acione imediatamente a equipe de campo com guincho no local afetado hoje.', 'Acione equipe de campo.']), 'Acione equipe de campo.')
+  for (const n of NORMAS) {
+    for (const l of top5(n.id, porte(5e9), 'preliminar')) {
+      if (!l.fazer) continue
+      const todasOperacionais = l.fazer.todas.every((a) => !eGerencial(a))
+      if (!todasOperacionais) assert.ok(eGerencial(l.fazer.texto), `${n.id}: ${l.fazer.texto}`)
+      assert.ok(l.fazer.todas.includes(l.fazer.texto)) // continua sendo uma ação validada, não texto novo
+    }
+  }
 })

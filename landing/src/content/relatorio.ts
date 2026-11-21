@@ -115,7 +115,7 @@ export function montarRelatorio(args: { sim: Simulacao | null; modo: Modo; diag:
         : pz.proxima ? { valor: `${pz.proxima.dias} dias`, legenda: 'até o próximo prazo' } : { valor: '—', legenda: 'nenhum prazo a vencer' },
     },
     decisoes: decisoesDaSemana(plano.temas, diag, sim, modo).map((t) => ({ nome: t.nome, porque: t.prazo_mais_urgente?.texto ?? 'sem data no texto' })),
-    prontidao: (() => { const p = prontidao(plano, respostas, sim, modo); return p.algumaMarcada ? fraseProntidao(p.geral.x, p.geral.n) : null })(),
+    prontidao: (() => { const p = prontidao(plano, respostas, sim, modo); return p.algumaMarcada ? fraseProntidao(p.geral.x, p.geral.n, p.geral.y) : null })(),
     temas, lacunas, areas,
     perguntas: perguntasParaOJuridico(plano, normaDaUrl(), sim, modo),
   }

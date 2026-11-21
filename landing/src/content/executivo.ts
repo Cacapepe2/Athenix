@@ -152,9 +152,19 @@ export function textoDoValor(v: ValorExecutivo | null): { gravidade: string; val
 /** "O que recomendamos": a 1ª ação ESPECÍFICA do dispositivo (IA, validada, "Sugestão"). Sem ela, null:
  *  a tela diz "recomendação em revisão". Nunca frase genérica do manual do tipo no top 5. */
 export function oQueFazer(_p: PlanoDados, o: Obrigacao): { texto: string; preliminar: boolean; todas: string[] } | null {
-  const r = o.recomendacoes ?? []
+  const r = (o.recomendacoes ?? []).map((x) => x.acao)
   if (!r.length) return null
-  return { texto: r[0].acao, preliminar: true, todas: r.map((x) => x.acao) }
+  return { texto: acaoGerencial(r), preliminar: true, todas: r }
+}
+
+/** Detalhe operacional (equipamento, ferramenta, ordem de campo): só o plano completo mostra. */
+const OPERACIONAL = /motosserra|guincho|scada|equipes? de campo|caminh[ãa]o|ve[íi]culo|ferramenta|\bEPI\b|r[áa]dio|sensor|religador|disjuntor|transformador|poste|\bacione\b|imediatamente|checklist|rotina automatizada|script/i
+const MAX_PALAVRAS_GERENCIAL = 22
+export const eGerencial = (acao: string) => !OPERACIONAL.test(acao) && acao.split(/\s+/).length <= MAX_PALAVRAS_GERENCIAL
+
+/** Ação para a executiva: a primeira de nível gerencial; sem nenhuma, a mais genérica (a mais curta) das válidas. */
+export function acaoGerencial(acoes: string[]): string {
+  return acoes.find(eGerencial) ?? [...acoes].sort((a, b) => a.split(/\s+/).length - b.split(/\s+/).length)[0]
 }
 
 /** Defesa possível: causa externa no texto (com citação), prática conhecida do tema (a avaliar) ou "—". */
