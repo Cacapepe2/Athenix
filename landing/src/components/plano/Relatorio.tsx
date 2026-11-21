@@ -1,0 +1,57 @@
+import { useEffect } from 'react'
+import { montarRelatorio } from '../../content/relatorio'
+import type { Diagnosticos, Modo, Simulacao } from '../../content/plano'
+import { useRespostas } from './Respostas'
+
+// Relatório de trabalho para imprimir ou salvar em PDF (A4). Fica fora da tela e só existe enquanto imprime:
+// o botão "Baixar meu relatório" monta, abre a impressão e desmonta. Nada sai do navegador.
+export function Relatorio({ ativo, fim, diag, sim, modo }: { ativo: boolean; fim: () => void; diag: Diagnosticos; sim: Simulacao | null; modo: Modo }) {
+  const { respostas } = useRespostas()
+  useEffect(() => {
+    if (!ativo) return
+    const espera = setTimeout(() => window.print(), 300) // dá tempo de as respostas do navegador carregarem
+    window.addEventListener('afterprint', fim)
+    return () => { clearTimeout(espera); window.removeEventListener('afterprint', fim) }
+  }, [ativo, fim])
+  if (!ativo) return null
+  const r = montarRelatorio({ sim, modo, diag, respostas })
+  const vazio = !Object.values(respostas.jaFazemos).some(Boolean) && !Object.values(respostas.provas).some((p) => p.length) && !Object.keys(diag).length
+  return <section id="relatorio" aria-label="Relatório de trabalho" className="relatorio">
+    <header>
+      <h1>Relatório de trabalho · {r.cabecalho.norma}</h1>
+      <p>{r.cabecalho.porte} · {r.cabecalho.data}</p>
+      <p><strong>{r.cabecalho.aviso}</strong></p>
+    </header>
+
+    <h2>Resumo executivo</h2>
+    <div className="rel-numeros">
+      <p><span>{r.numeros.exposicao}</span>{r.numeros.porInfracao}</p>
+      <p><span>{r.numeros.reducao}</span>se agir antes da fiscalização</p>
+      <p><span>{r.numeros.prazo.valor}</span>{r.numeros.prazo.legenda}</p>
+    </div>
+    <h3>3 decisões para esta semana</h3>
+    <ol>{r.decisoes.map((d) => <li key={d.nome}><strong>{d.nome}</strong> · {d.porque}</li>)}</ol>
+    {vazio && <p className="rel-nota">Nada foi preenchido ainda: as colunas “O que vocês já fazem” e “Situação” ficam em branco para completar à mão ou no site.</p>}
+
+    <h2>Por tema</h2>
+    <table>
+      <thead><tr><th>O que a norma exige</th><th>Prazo</th><th>Exposição por infração</th><th>O que recomendamos <small>(Sugestão)</small></th><th>O que provar</th><th>O que vocês já fazem</th><th>Situação</th></tr></thead>
+      <tbody>{r.temas.map((t) => <tr key={t.id}>
+        <td><strong>{t.nome}</strong><br />{t.citacao}<br /><small>{t.dispositivo}</small></td>
+        <td>{t.prazo}</td>
+        <td>{t.exposicao ? <>teto {t.exposicao.teto}{t.exposicao.preliminar ? '*' : ''}{t.exposicao.ii && <><br />art. 24, II: {t.exposicao.ii}</>}{t.exposicao.i && <><br />art. 24, I: {t.exposicao.i}</>}</> : 'a enquadrar'}</td>
+        <td>{t.acoes.length ? <ul>{t.acoes.map((a) => <li key={a}>{a}</li>)}</ul> : 'em revisão'}</td>
+        <td><ul className="rel-provas">{t.provas.map((p) => <li key={p.id}>{p.marcada ? '✓' : '☐'} {p.texto}</li>)}</ul></td>
+        <td>{t.jaFazemos || ' '}</td>
+        <td>{t.situacao}</td>
+      </tr>)}</tbody>
+    </table>
+    <p className="rel-nota">* preliminar: enquadramento sugerido pela IA, aguardando revisão humana. Valores por infração, nunca somados; ilustrativos.</p>
+
+    <h2>Lacunas a tratar</h2>
+    {r.lacunas.length ? <ol>{r.lacunas.map((l) => <li key={l.nome}><strong>{l.nome}</strong> · {l.motivo}</li>)}</ol> : <p>Nenhuma lacuna marcada. Marque “Já temos”, “Parcial” ou “Não temos” em cada tema para listar as lacunas.</p>}
+
+    <h2>Quem faz o quê <small>(áreas sugeridas)</small></h2>
+    <ul>{r.areas.map((a) => <li key={a.area}>{a.frase}</li>)}</ul>
+  </section>
+}

@@ -175,6 +175,8 @@ export function defesa(p: PlanoDados, o: Obrigacao): { texto: string; origem: 'n
 }
 
 export const urlPlanoCompleto = (id: NormaId) => (id === NORMA_PADRAO ? '/demo' : `/demo?norma=${id}`)
+/** Abre o plano completo da norma já imprimindo o relatório de trabalho. */
+export const urlRelatorio = (id: NormaId) => (id === NORMA_PADRAO ? '/demo?relatorio=1' : `/demo?norma=${id}&relatorio=1`)
 export const idDaObrigacao = (id: string) => `obrigacao-${id}`
 /** Abre a obrigação certa na página completa da norma. */
 export const urlDetalhe = (id: NormaId, obrigacaoId: string) => `${urlPlanoCompleto(id)}#${idDaObrigacao(obrigacaoId)}`

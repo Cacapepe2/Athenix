@@ -415,7 +415,10 @@ export function celula(v: unknown): string {
   return `"${s.replaceAll('"', '""')}"`
 }
 
-export function csvPlano(diag: Diagnosticos, s: Simulacao | null = SIM_INICIAL): string {
+/** Colunas a mais no CSV (injetadas por quem as conhece: respostas e provas ficam fora deste módulo). */
+export interface ExtrasCsv { colunas: string[]; linha: (tema: Tema, o: Obrigacao) => unknown[] }
+
+export function csvPlano(diag: Diagnosticos, s: Simulacao | null = SIM_INICIAL, extras?: ExtrasCsv): string {
   // A planilha só traz o que o texto da obrigação confirma: a ordem usa o modo 'confirmados'.
   const temas = ordenarTemas(plano.temas, diag, s, 'confirmados')
   const linhas: unknown[][] = [
@@ -423,7 +426,7 @@ export function csvPlano(diag: Diagnosticos, s: Simulacao | null = SIM_INICIAL):
     ['ESTIMATIVA ILUSTRATIVA. ' + plano.perfil.aviso + ' ' + plano.aviso + ' Iniciativa em validação.'],
     ['Interpretações da IA aguardam revisão humana e não entram no cálculo. Diagnóstico informado só nesta planilha; nada foi enviado.'],
     [],
-    ['Ordem do tema', 'Tema', 'Diagnóstico', 'Obrigação', 'Dispositivo', 'Situação do prazo', 'Prazo', 'Enquadramento identificado (REN 846)', 'Grupo', 'Exposição máxima por infração', 'Interpretação da IA (não entra no cálculo)', 'Evidência sugerida', 'Trecho literal da norma', 'Fonte'],
+    ['Ordem do tema', 'Tema', 'Diagnóstico', 'Obrigação', 'Dispositivo', 'Situação do prazo', 'Prazo', 'Enquadramento identificado (REN 846)', 'Grupo', 'Exposição máxima por infração', 'Interpretação da IA (não entra no cálculo)', 'Evidência sugerida', 'Trecho literal da norma', 'Fonte', ...(extras?.colunas ?? [])],
   ]
   temas.forEach((t, n) => {
     for (const id of t.obrigacoes) {
@@ -443,6 +446,7 @@ export function csvPlano(diag: Diagnosticos, s: Simulacao | null = SIM_INICIAL):
         o.evidencias.map((e) => plano.evidencias[e.id]).join('; '),
         o.trecho,
         plano.norma.url,
+        ...(extras ? extras.linha(t, o) : []),
       ])
     }
   })

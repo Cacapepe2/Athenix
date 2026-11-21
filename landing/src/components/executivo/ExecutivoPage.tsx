@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { NORMA_PADRAO, NORMAS, norma as dadosDa, prazos, queda, top5, urlPlanoCompleto, valorGeral, type LinhaTop5 } from '../../content/executivo'
+import { NORMA_PADRAO, NORMAS, norma as dadosDa, prazos, queda, top5, urlPlanoCompleto, urlRelatorio, valorGeral, type LinhaTop5 } from '../../content/executivo'
 import { brlCurto, normaDaUrl, type NormaId, type Simulacao } from '../../content/plano'
 
 // Visão executiva (/demo/executivo): três números e até cinco blocos clicáveis. Muito pouco texto; o resto
@@ -111,7 +111,7 @@ export function ExecutivoPage() {
 
     <footer className="flex flex-wrap justify-between gap-3 border-t border-obsidian pt-3.5 text-[13px]">
       <span>* preliminar · valores ilustrativos · não é parecer jurídico</span>
-      <a href={urlPlanoCompleto(normaId)} className="font-semibold">Plano completo →</a>
+      <span className="flex gap-4"><a href={urlRelatorio(normaId)} className="font-semibold">Baixar meu relatório</a><a href={urlPlanoCompleto(normaId)} className="font-semibold">Plano completo →</a></span>
     </footer>
   </main>
 }

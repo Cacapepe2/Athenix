@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useMemo, useRef, useState, type ReactNode, type Ref } from 'react'
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode, type Ref } from 'react'
 import { AlertTriangle, ArrowDown, ArrowUp, ChevronDown, ClipboardList, Download, FileText, Printer, Sparkles } from 'lucide-react'
 import { Logo } from '../ui/Logo'
 import { Tag } from '../product/Tag'
@@ -6,7 +6,9 @@ import { Chevron } from '../ui/Chevron'
 import { AjudaGrupos } from './AjudaGrupos'
 import { BlocosObrigacoes } from './BlocosObrigacoes'
 import { RespostasProvider, useRespostas } from './Respostas'
-import { LIMITE_JA_FAZEMOS } from '../../content/respostas'
+import { Relatorio } from './Relatorio'
+import { LIMITE_JA_FAZEMOS, type Respostas } from '../../content/respostas'
+import { extrasDoCsv } from '../../content/relatorio'
 import { recomendacoesDoTema } from '../../content/recomendacoes'
 import { contagemDeEnquadramentos, destaqueDaNorma, idDaObrigacao, tabelaDeGrupos, textoMaiorMulta } from '../../content/executivo'
 import { rotuloDoGrupo } from '../../content/gravidade'
@@ -36,10 +38,10 @@ const LINK = 'font-semibold text-slate-blue underline decoration-slate-blue/40 u
 const SUMARIO = 'flex min-h-11 cursor-pointer items-center gap-3 rounded-xl border border-slate-blue/30 bg-white px-4 py-2 font-semibold text-slate-blue hover:border-slate-blue hover:bg-slate-blue/5'
 
 // Receita simulada (null: valor digitado inválido, mostra só percentuais) e modo do cenário. Nada sai do navegador.
-const Cenario = createContext<{ sim: Simulacao | null; modo: Modo }>({ sim: SIM_INICIAL, modo: 'preliminar' })
+const Cenario = createContext<{ sim: Simulacao | null; modo: Modo; relatorio: () => void }>({ sim: SIM_INICIAL, modo: 'preliminar', relatorio: () => {} })
 
-function baixarCsv(diag: Diagnosticos, sim: Simulacao | null) {
-  const url = URL.createObjectURL(new Blob([csvPlano(diag, sim)], { type: 'text/csv;charset=utf-8' }))
+function baixarCsv(diag: Diagnosticos, sim: Simulacao | null, respostas: Respostas) {
+  const url = URL.createObjectURL(new Blob([csvPlano(diag, sim, extrasDoCsv(respostas, diag))], { type: 'text/csv;charset=utf-8' }))
   const a = Object.assign(document.createElement('a'), { href: url, download: 'athenix-plano-rn1137-ilustrativo.csv' })
   a.click()
   URL.revokeObjectURL(url)
@@ -75,6 +77,14 @@ export function PlanoPage() {
   // Diagnóstico gerado na própria página (contagem de cliques: cada clique rola até ele de novo).
   const [geracao, setGeracao] = useState(0)
   const [soDiagnostico, setSoDiagnostico] = useState(false)
+  const [imprimindo, setImprimindo] = useState(() => typeof location !== 'undefined' && new URLSearchParams(location.search).has('relatorio'))
+  const fimRelatorio = useCallback(() => {
+    setImprimindo(false)
+    const q = new URLSearchParams(location.search)
+    const tinha = q.has('relatorio')
+    q.delete('relatorio')
+    if (tinha) history.replaceState(history.state, '', `${location.pathname}${q.size ? `?${q}` : ''}${location.hash}`)
+  }, [])
   const refDiag = useRef<HTMLElement>(null)
   const temas = useMemo(() => ordenarTemas(plano.temas, diag, sim, modo), [diag, sim, modo])
   const decisoes = decisoesDaSemana(plano.temas, diag, sim, modo)
@@ -115,9 +125,9 @@ export function PlanoPage() {
     return () => window.removeEventListener('afterprint', fim)
   }, [soDiagnostico])
 
-  return <RespostasProvider norma={normaDaUrl()}><Cenario.Provider value={{ sim, modo }}>
+  return <RespostasProvider norma={normaDaUrl()}><Cenario.Provider value={{ sim, modo, relatorio: () => setImprimindo(true) }}>
     <header className="border-b border-line bg-ivory print:hidden"><div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-8"><a href="/" aria-label="Athenix, voltar ao início"><Logo /></a><nav aria-label="Páginas da demonstração" className="flex flex-wrap items-center justify-end gap-x-5 gap-y-1"><a href={URL_EXECUTIVO} className={`inline-flex min-h-11 items-center text-sm ${LINK}`}>Visão executiva →</a><a href="/" className={`inline-flex min-h-11 items-center text-sm ${LINK}`}>← Voltar ao site</a></nav></div></header>
-    <main id="plano" className={`mx-auto max-w-7xl space-y-14 px-4 pt-6 pb-8 sm:px-8 sm:pt-10 md:pb-28 print:pb-10 ${soDiagnostico ? 'so-diagnostico' : ''}`}>
+    <main id="plano" className={`mx-auto max-w-7xl space-y-14 px-4 pt-6 pb-8 sm:px-8 sm:pt-10 md:pb-28 print:pb-10 ${soDiagnostico ? 'so-diagnostico' : ''} ${imprimindo ? 'so-relatorio' : ''}`}>
       <section aria-labelledby="titulo-plano" className="space-y-6">
         <p className={kicker}>Plano de ação · RN 1.137/2025 · {plano.perfil.rotulo.toLowerCase()} (não é empresa real)</p>
         <Porte setSim={setSim} />
@@ -203,8 +213,10 @@ export function PlanoPage() {
         <Expansivel id="como-calculamos" titulo="Como calculamos" resumo="grupos de gravidade, teto de cada um e contagem de deveres">{() => <ComoCalculamos />}</Expansivel>
         <Expansivel id="referencia" titulo="Referência do setor" resumo={`autos de infração publicados em distribuição (${plano.referencia_escala.autos}, amostra pequena)`}>{() => <ReferenciaSetor />}</Expansivel>
       </div>
+      <div className="print:hidden"><button type="button" onClick={() => setImprimindo(true)} className={BOTAO_ACENTO}><FileText aria-hidden="true" className="h-4 w-4" />Baixar meu relatório</button> <span className="text-sm">Página para imprimir ou salvar em PDF, com o que vocês escreveram e marcaram. Nada é enviado.</span></div>
       <footer className="border-t border-line pt-6 text-sm text-ink-soft">{plano.aviso} Iniciativa em validação. Valores ilustrativos, que não indicam descumprimento de uma empresa real. Não constitui parecer jurídico. <a className={`ml-2 inline-flex min-h-11 items-center ${LINK} print:hidden`} href="/">Voltar à Athenix</a></footer>
     </main>
+    <Relatorio ativo={imprimindo} fim={fimRelatorio} diag={diag} sim={sim} modo={modo} />
     <div role="note" className="z-30 border-t md:fixed md:inset-x-0 md:bottom-0 border-line bg-obsidian/95 px-4 py-2.5 text-center text-xs leading-snug text-ivory print:hidden">
       Iniciativa em validação · valores ilustrativos · não constitui parecer jurídico
     </div>
@@ -229,6 +241,7 @@ function abrirObrigacao(hash: string) {
 /** Card de controles do diagnóstico (à esquerda do painel de resultado; no celular, acima dele). Não acompanha a rolagem. */
 function ControlesDiagnostico({ diag, gap, gerar }: { diag: Diagnosticos; gap: ReturnType<typeof lacuna>; gerar: () => void }) {
   const { sim } = useContext(Cenario)
+  const { respostas } = useRespostas()
   const marcados = plano.temas.length - gap.semResposta
   return <div className="rounded-2xl border-2 border-slate-blue bg-diag-fundo p-5 text-obsidian sm:p-6 print:hidden">
     <h2 id="titulo-seu-diagnostico" className="font-display flex items-center gap-3 text-2xl text-slate-blue">
@@ -241,10 +254,10 @@ function ControlesDiagnostico({ diag, gap, gerar }: { diag: Diagnosticos; gap: R
       <div><dt className="text-ink-soft">Situação por tema</dt>
         <dd aria-live="polite">{marcados === 0 ? <>Nenhum tema marcado ainda.</> : <>{marcados} de {plano.temas.length} temas marcados. Lacuna: <strong>{gap.nao} obrigações</strong> em temas que vocês não atendem e <strong>{gap.parcial}</strong> em temas parciais.</>}</dd></div>
     </dl>
-    <p className="mt-3 text-xs text-ink-soft">“Já temos”, “Parcial” ou “Não temos” em cada tema. As marcações ficam só nesta aba: nada é salvo.</p>
+    <p className="mt-3 text-xs text-ink-soft">“Já temos”, “Parcial” ou “Não temos” em cada tema. As marcações ficam só nesta aba. O texto de “O que sua empresa já faz” fica só no seu navegador.</p>
     <button type="button" onClick={gerar} aria-controls="painel-diagnostico" className="mt-4 inline-flex min-h-12 w-full cursor-pointer items-center justify-center gap-2 bg-acento px-5 text-[1.1875rem] font-bold text-white hover:bg-acento-hover"><FileText aria-hidden="true" className="h-5 w-5" />Gerar diagnóstico</button>
     <div className="mt-3 grid gap-2">
-      <button type="button" onClick={() => baixarCsv(diag, sim)} className={`${BOTAO_DIAG_SEC} justify-center`}><Download aria-hidden="true" className="h-4 w-4" />Baixar planilha (CSV)</button>
+      <button type="button" onClick={() => baixarCsv(diag, sim, respostas)} className={`${BOTAO_DIAG_SEC} justify-center`}><Download aria-hidden="true" className="h-4 w-4" />Baixar planilha (CSV)</button>
       <button type="button" onClick={() => window.print()} className={`${BOTAO_DIAG_SEC} justify-center`}><Printer aria-hidden="true" className="h-4 w-4" />Imprimir ou salvar PDF</button>
     </div>
   </div>
@@ -252,7 +265,8 @@ function ControlesDiagnostico({ diag, gap, gerar }: { diag: Diagnosticos; gap: R
 
 /** Diagnóstico gerado no navegador, em forma de boletim. Nada é enviado. */
 function DiagnosticoGerado({ ref, diag, temas, decisoes, m, imprimir, fechar }: { ref: Ref<HTMLElement>; diag: Diagnosticos; temas: Tema[]; decisoes: Tema[]; m: Manchete; imprimir: () => void; fechar: () => void }) {
-  const { sim, modo } = useContext(Cenario)
+  const { sim, modo, relatorio } = useContext(Cenario)
+  const { respostas } = useRespostas()
   const gap = lacuna(plano.temas, diag)
   const algumSugerido = temas.some((t) => exposicaoTema(t, sim, modo)?.origem === 'sugerido')
   return <section ref={ref} id="diagnostico-gerado" tabIndex={-1} aria-labelledby="titulo-diagnostico" className="rounded-2xl border-2 border-slate-blue bg-diag-fundo p-5 text-obsidian sm:p-8 print:border-0 print:bg-white print:p-0 print:shadow-none">
@@ -260,7 +274,8 @@ function DiagnosticoGerado({ ref, diag, temas, decisoes, m, imprimir, fechar }: 
       <p className="text-xs font-bold text-slate-blue ">Diagnóstico da regulação</p>
       <div className="flex flex-wrap gap-2 print:hidden">
         <button type="button" onClick={imprimir} className={BOTAO_ACENTO}><Printer aria-hidden="true" className="h-4 w-4" />Imprimir este diagnóstico</button>
-        <button type="button" onClick={() => baixarCsv(diag, sim)} className={BOTAO_DIAG_SEC}><Download aria-hidden="true" className="h-4 w-4" />Planilha (CSV)</button>
+        <button type="button" onClick={() => baixarCsv(diag, sim, respostas)} className={BOTAO_DIAG_SEC}><Download aria-hidden="true" className="h-4 w-4" />Planilha (CSV)</button>
+        <button type="button" onClick={relatorio} className={BOTAO_DIAG_SEC}><FileText aria-hidden="true" className="h-4 w-4" />Baixar meu relatório</button>
         <button type="button" onClick={fechar} className={BOTAO_DIAG_SEC}>Fechar</button>
       </div>
     </div>
