@@ -31,7 +31,7 @@ export function Tag({ kind, label, className = '' }: { kind: TagKind; label?: st
   const { label: fallback, cls, Icon } = config[kind]
   return (
     <span
-      className={`inline-flex shrink-0 items-center gap-1 rounded-full px-2 py-0.5 text-[0.68rem] leading-4 font-medium whitespace-nowrap ${cls} ${className}`}
+      className={`inline-flex shrink-0 items-center gap-1 px-2 py-0.5 text-[0.68rem] leading-4 font-medium whitespace-nowrap ${cls} ${className}`}
     >
       {Icon && <Icon aria-hidden="true" className="h-3 w-3" strokeWidth={2.2} />}
       {label ?? fallback}

@@ -8,7 +8,7 @@ const ease = [0.16, 1, 0.3, 1] as const
 const rings = [
   { inset: '0%', labelTop: '7%', cls: 'border border-dashed border-obsidian/25 animate-[spin_80s_linear_infinite]' },
   { inset: '17%', labelTop: '24%', cls: 'border border-obsidian/20 bg-white/50' },
-  { inset: '34%', labelTop: '50%', cls: 'bg-slate-blue shadow-float' },
+  { inset: '34%', labelTop: '50%', cls: 'bg-slate-blue ' },
 ]
 
 function Rings() {
@@ -42,7 +42,7 @@ function Rings() {
               className={`absolute left-1/2 -translate-x-1/2 -translate-y-1/2 text-center ${isCore ? 'w-[27%]' : 'w-[42%]'}`}
             >
               <span
-                className={`block text-[0.62rem] font-semibold tracking-[0.14em] ${isCore ? 'text-bronze' : 'text-bronze-deep'}`}
+                className={`block text-[0.62rem] font-semibold ${isCore ? 'text-bronze' : 'text-bronze-deep'}`}
               >
                 {l.tag}
               </span>
@@ -77,7 +77,7 @@ export function Opportunity() {
             ))}
           </div>
           <Reveal delay={0.3}>
-            <p className="mt-8 inline-flex items-center gap-2 rounded-full border border-dashed border-bronze-deep/45 px-3.5 py-1.5 text-[0.78rem] font-medium text-bronze-deep">
+            <p className="mt-8 inline-flex items-center gap-2 border border-dashed border-bronze-deep/45 px-3.5 py-1.5 text-[0.78rem] font-medium text-bronze-deep">
               <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-bronze-deep" />
               {opportunity.hypothesis}
             </p>

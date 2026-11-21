@@ -24,7 +24,7 @@ export function Hero() {
     <section
       id="topo"
       ref={section}
-      className="relative overflow-hidden bg-[linear-gradient(180deg,#f3f1ec_0%,var(--color-ivory)_100%)] pt-28 pb-24 sm:pt-36 lg:pb-32"
+      className="relative overflow-hidden bg-ivory pt-28 pb-24 sm:pt-36 lg:pb-32"
       {...tilt.handlers}
     >
       {/* Fundo: grade fina e faixa de luz diagonal, como no material de referência */}
@@ -83,7 +83,7 @@ export function Hero() {
             transition={{ duration: 1, delay: 0.95 }}
             className="mt-10 border-t border-obsidian/10 pt-6"
           >
-            <p className="inline-flex items-center gap-2 rounded-full border border-dashed border-bronze-deep/40 px-3 py-1 text-[0.75rem] font-medium text-bronze-deep">
+            <p className="inline-flex items-center gap-2 border border-dashed border-bronze-deep/40 px-3 py-1 text-[0.75rem] font-medium text-bronze-deep">
               <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-bronze-deep" />
               {hero.status}
             </p>

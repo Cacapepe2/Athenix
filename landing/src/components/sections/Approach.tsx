@@ -55,7 +55,7 @@ function Pillar({ i, title, text, scope }: { i: number; title: string; text: str
         <h3 className={`font-display mt-6 text-[1.35rem] leading-tight ${now ? 'text-ivory' : 'text-ivory/75'}`}>{title}</h3>
         <p className={`mt-2.5 text-[0.9rem] leading-relaxed ${now ? 'text-ivory/70' : 'text-ivory/55'}`}>{text}</p>
         <p
-          className={`mt-5 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[0.68rem] font-medium ${
+          className={`mt-5 inline-flex items-center gap-1.5 px-2.5 py-1 text-[0.68rem] font-medium ${
             scope === 'foco'
               ? 'bg-bronze text-obsidian'
               : now
@@ -89,7 +89,7 @@ export function Approach() {
           </div>
 
           {/* Linha de escopo: preenchida no MVP, tracejada na visão futura */}
-          <div aria-hidden="true" className="mt-16 hidden gap-4 text-[0.7rem] font-semibold tracking-[0.16em] lg:grid lg:grid-cols-4">
+          <div aria-hidden="true" className="mt-16 hidden gap-4 text-[0.7rem] font-semibold lg:grid lg:grid-cols-4">
             {[approach.scopeLabels.base, approach.scopeLabels.foco, approach.scopeLabels.futuro].map((label, i) => (
               <div key={label} className={i === 0 ? 'col-span-2' : ''}>
                 <p className={i < 2 ? 'text-bronze' : 'text-ivory/45'}>{label}</p>

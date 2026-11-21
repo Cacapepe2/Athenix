@@ -16,7 +16,7 @@ function arquivos(dir: string): string[] {
 
 // ---------- nada de cor, fonte ou raio fora de tokens.css ----------
 
-const COR = /#[0-9a-fA-F]{3,8}\b|\brgba?\(|\bhsla?\(/
+const COR = /#[0-9a-fA-F]{3,8}(?![0-9a-zA-Z])|\brgba?\(|\bhsla?\(/
 const FONTE = /\b(?:Inter Tight|Helvetica|Arial|Georgia|Newsreader|Times New Roman|Roboto|Segoe UI)\b|font-family\s*:(?!\s*var\()/
 const EXCECAO = /token-ok:\s*\S+/ // comentário explícito na mesma linha, com o motivo
 
@@ -37,7 +37,8 @@ test('raio e sombra: nada de rounded arbitrário nem sombra com cor fora dos tok
   for (const arq of arquivos(SRC)) {
     if (!/\.tsx$/.test(arq)) continue
     readFileSync(arq, 'utf-8').split('\n').forEach((linha, i) => {
-      if (/\brounded-\[|\bshadow-\[|\bfont-serif\b/.test(linha) && !EXCECAO.test(linha)) achados.push(`${relative(SRC, arq)}:${i + 1}`)
+      const pontinho = /\bh-(?:1\.5|2|3|4)\b[^"`]*\bw-(?:1\.5|2|3|4)\b|animate-ping|inset-0|absolute rounded-full/.test(linha)
+      if ((/\brounded-\[|\bshadow-(?:\[|sm|md|lg|xl|2xl)|\bfont-serif\b|\btracking-\[|\buppercase\b/.test(linha) || (/\brounded-full\b/.test(linha) && !pontinho)) && !EXCECAO.test(linha)) achados.push(`${relative(SRC, arq)}:${i + 1}`)
     })
   }
   assert.deepEqual(achados, [])

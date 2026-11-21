@@ -14,7 +14,7 @@ export function ImpactExample({ item: o, explain = false }: { item: Obligation; 
         <div><dt className="text-ink-soft">Máximo estimado</dt><dd className="mt-1 font-medium">{brl(o.impact.max)}</dd></div>
       </dl>
       <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
-        <p>Confiança: <strong className="rounded-full bg-stone px-2 py-1">{o.confidence}</strong></p>
+        <p>Confiança: <strong className="bg-stone px-2 py-1">{o.confidence}</strong></p>
         <p>{o.impact.framings.length ? o.impact.framings.map((f) => `${f.dispositivo} · Grupo ${f.grupo}`).join('; ') : 'Infração ainda não identificada'}</p>
       </div>
       <p className="mt-3 text-xs text-ink-soft">Fonte: <a className="underline" href={demoNorm.url}>RN ANEEL 1.137/2025 · {articleById(o.articleId).label}</a></p>

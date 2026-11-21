@@ -110,8 +110,10 @@ def validar(titulo, o):
     base = tipos.normalizar(
         f"{o.get('trecho') or ''} {o['titulo_completo']} {o.get('contexto', '')}"
     )
-    if any(m.group(0).lower() not in base for m in ra.PRODUTOS.finditer(t)):
+    if any(not ra.termo_no_texto(m.group(0), base) for m in ra.PRODUTOS.finditer(t)):
         return None
+    if any(n not in re.findall(r"\d+", base) for n in re.findall(r"\d+", t)):
+        return None  # número que o dispositivo não traz
     return t[0].upper() + t[1:]
 
 

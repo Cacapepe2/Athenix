@@ -29,7 +29,7 @@ function Chip({ label, i, n, p, k }: { label: string; i: number; n: number; p: M
   return (
     <motion.li
       style={{ x, y, rotate }}
-      className="absolute top-1/2 left-1/2 -mt-[17px] -ml-[110px] flex h-[34px] w-[220px] items-center gap-2.5 rounded-lg border border-line bg-white px-3 text-[0.8rem] text-obsidian shadow-soft"
+      className="absolute top-1/2 left-1/2 -mt-[17px] -ml-[110px] flex h-[34px] w-[220px] items-center gap-2.5 rounded-lg border border-line bg-white px-3 text-[0.8rem] text-obsidian "
     >
       <FileText aria-hidden="true" className="h-3.5 w-3.5 shrink-0 text-bronze-deep" strokeWidth={1.8} />
       <span className="truncate">{label}</span>
@@ -62,7 +62,7 @@ function SourceField() {
     >
       <motion.p
         style={{ opacity: headerOpacity }}
-        className="absolute top-6 left-1/2 -translate-x-1/2 text-[0.68rem] font-semibold tracking-[0.2em] whitespace-nowrap text-bronze-deep "
+        className="absolute top-6 left-1/2 -translate-x-1/2 text-[0.68rem] font-semibold whitespace-nowrap text-bronze-deep "
       >
         {challenge.flowLabel}
       </motion.p>
@@ -96,7 +96,7 @@ export function Challenge() {
             </Reveal>
             <Reveal delay={0.2}>
               <div className="mt-10 max-w-xl border-l-2 border-bronze pl-5">
-                <p className="text-[0.72rem] font-semibold tracking-[0.18em] text-bronze-deep ">
+                <p className="text-[0.72rem] font-semibold text-bronze-deep ">
                   {challenge.need.label}
                 </p>
                 <p className="font-display mt-2 text-[1.3rem] leading-snug text-obsidian">{challenge.need.text}</p>

@@ -150,19 +150,11 @@
    {
     "acao": "Anexe à proposta do Sandbox um documento público com requisitos, passos e modelos de formulários de adesão e desistência.",
     "trecho_citado": "critérios de adesão e de desistência dos participantes"
-   },
-   {
-    "acao": "Publique formulário eletrônico de adesão e de desistência no portal da distribuidora com checklist automático de validação.",
-    "trecho_citado": "critérios de adesão e de desistência dos participantes"
    }
   ],
   "3c31e7c6948c4d3e": [
    {
     "acao": "Implemente validação no sistema comercial que rejeite qualquer acréscimo de energia ao registro CCER para consumidores parcialmente livres em migração.",
-    "trecho_citado": "o CCER não poderá ter acréscimo do montante de energia elétrica"
-   },
-   {
-    "acao": "Execute rotina de conciliação mensal que compare montantes faturados e gere alerta quando houver alteração no montante CCER.",
     "trecho_citado": "o CCER não poderá ter acréscimo do montante de energia elétrica"
    }
   ],
@@ -190,10 +182,6 @@
    {
     "acao": "Registre no portal eletrônico da CCEE a alteração de titularidade de unidade consumidora, anexando documento assinado e número do processo de migração.",
     "trecho_citado": "alteração de titularidade de unidade consumidora"
-   },
-   {
-    "acao": "Envie e-mail com protocolo ao endereço eletrônico da CCEE, anexando comprovante da alteração no processo de migração para o ACL.",
-    "trecho_citado": "processo de migração para o ACL"
    }
   ],
   "1829ab6332d473ce": [

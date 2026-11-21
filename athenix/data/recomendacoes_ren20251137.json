@@ -14,12 +14,6 @@
  "nota_preco": "Preço informado pelo fundador (tabela de preço do Azure para gpt-5-mini); a confirmar no portal.",
  "custo_total_da_execucao_usd": "0.1057",
  "recomendacoes": {
-  "a002094347c42776": [
-   {
-    "acao": "Publicar no portal web e no app as demais informações de atendimento previstas no item 105, com link em cada ocorrência.",
-    "trecho_citado": "demais informações de que trata o item 105"
-   }
-  ],
   "b758c9c169c145ec": [
    {
     "acao": "Publicar mapa interativo no sítio eletrônico mostrando o número total de unidades consumidoras afetadas por interrupções por área.",
@@ -90,48 +84,16 @@
     "trecho_citado": "uso de linguagem clara e adequada"
    }
   ],
-  "868bbdfdd6ed7ce7": [
-   {
-    "acao": "Implemente planilha eletrônica padronizada com campos: data, município, contato, assunto, providência e anexos para o registro.",
-    "trecho_citado": "registro das interações com o Poder Público Municipal"
-   },
-   {
-    "acao": "Configure backups automáticos do registro em servidor interno e exporte cópias mensais para arquivo seguro.",
-    "trecho_citado": "registro das interações com o Poder Público Municipal"
-   }
-  ],
-  "dd9e67e41aa4ea38": [
-   {
-    "acao": "Envie ofício e e-mail formal aos Poderes Públicos solicitando que informem previamente até dois representantes oficiais com dados de contato.",
-    "trecho_citado": "informem previamente até dois representantes oficiais de cada ente"
-   }
-  ],
-  "c730ffb2caee9101": [
-   {
-    "acao": "Verifique operacionalidade ligando para contatos oficiais e enviando mensagens teste por e-mail e rádio, registrando respostas.",
-    "trecho_citado": "canais de comunicação oficiais estejam acessíveis e operacionais"
-   }
-  ],
   "b7c2d81bf787af70": [
    {
     "acao": "Registre no SCADA roteiro de restabelecimento por prioridade para garantir a continuidade do fornecimento de energia elétrica.",
     "trecho_citado": "continuidade do fornecimento de energia elétrica"
-   },
-   {
-    "acao": "Publique checklists de mitigação de impacto no portal operacional para minimizar os impactos das contingências.",
-    "trecho_citado": "minimizar os impactos das contingências"
    }
   ],
   "5a66534ae45af0c6": [
    {
     "acao": "Integre a lista de nomes e telefones de contato dos responsáveis ao sistema de despacho para uso imediato pela operação.",
     "trecho_citado": "nomes e telefones de contato dos responsáveis"
-   }
-  ],
-  "db13351273cc2a40": [
-   {
-    "acao": "Inclua checklist de EPI e procedimentos de bloqueio (LOTO) no manual do plano e no app de inspeção para priorizar a segurança de todos os colaboradores.",
-    "trecho_citado": "priorizar a segurança de todos os colaboradores"
    }
   ],
   "98f4753768bef99f": [
@@ -182,12 +144,6 @@
    {
     "acao": "Emitir vouchers de alimentação ou contratar catering e registrar contrato de segurança privada para proteção das equipes.",
     "trecho_citado": "alimentação, transporte, hospedagem e segurança"
-   }
-  ],
-  "aa970d563840ad15": [
-   {
-    "acao": "Publique painel de evolução dos eventos climáticos severos no site e intranet, com mapas e atualizações horárias.",
-    "trecho_citado": "processo de comunicação e acompanhamento da evolução dos eventos climáticos severos"
    }
   ],
   "fa76d96bea74ec08": [

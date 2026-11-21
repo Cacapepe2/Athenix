@@ -14,11 +14,18 @@ PLANOS = [
 ]
 
 
-def test_toda_obrigacao_tem_titulo_curto_de_ate_cinco_palavras():
+def test_titulo_curto_tem_ate_cinco_palavras_e_quase_toda_obrigacao_o_tem():
+    """Título que a validação recusa (ex.: número que o dispositivo não traz) fica None: a tela encurta o título completo."""
+    total = sem = 0
     for p in PLANOS:
         for o in p["obrigacoes"]:
+            total += 1
             t = o["titulo_curto"]
-            assert t and len(t.split()) <= tc.MAX_PALAVRAS and not t.endswith("."), (o["id"], t)
+            if t is None:
+                sem += 1
+                continue
+            assert len(t.split()) <= tc.MAX_PALAVRAS and not t.endswith("."), (o["id"], t)
+    assert sem <= 3 and sem < total * 0.02
 
 
 def test_validacao_recusa_mais_de_cinco_palavras_e_produto_fora_do_texto():

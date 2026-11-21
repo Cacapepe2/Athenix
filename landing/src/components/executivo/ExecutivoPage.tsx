@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { NORMA_PADRAO, NORMAS, norma as dadosDa, prazos, queda, top5, urlPlanoCompleto, valorGeral, type LinhaTop5 } from '../../content/executivo'
 import { brlCurto, normaDaUrl, type NormaId, type Simulacao } from '../../content/plano'
 
@@ -7,7 +7,7 @@ import { brlCurto, normaDaUrl, type NormaId, type Simulacao } from '../../conten
 const MODO = 'preliminar' as const
 const PORTE_PADRAO = 'media'
 const LINK = 'font-semibold underline underline-offset-4 hover:text-acento'
-const GRANDE = 'block text-[64px] leading-[0.95] font-bold tracking-[-0.05em] sm:text-[80px] lg:text-[96px]'
+const GRANDE = 'block text-[64px] leading-[0.95] font-bold sm:text-[80px] lg:text-[96px]'
 const LEGENDA = 'text-[17px] font-semibold'
 
 const valorDoBloco = (l: LinhaTop5) => (l.valor?.reais != null ? `${brlCurto(l.valor.reais)}${l.preliminar ? '*' : ''}` : 'a enquadrar')
@@ -26,13 +26,22 @@ export function ExecutivoPage() {
   const pz = prazos(p)
   const linhas = top5(normaId, sim, MODO)
   const sel = linhas.find((l) => l.id === ultimo) ?? null
+  const painelRef = useRef<HTMLDivElement>(null)
+  const blocos = useRef<Record<string, HTMLButtonElement | null>>({})
+  // Ao abrir, traz o painel para a tela (no celular ele fica abaixo dos cinco blocos).
+  useEffect(() => {
+    if (aberto) painelRef.current?.scrollIntoView({ block: 'nearest', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })
+  }, [aberto])
   const preliminar = v?.origem === 'sugerido'
 
   const trocarNorma = (id: NormaId) => {
     setNormaId(id)
     setAberto(null)
     setUltimo(null)
-    history.replaceState(history.state, '', `${location.pathname}${id === NORMA_PADRAO ? '' : `?norma=${id}`}`)
+    const q = new URLSearchParams(location.search)
+    if (id === NORMA_PADRAO) q.delete('norma')
+    else q.set('norma', id)
+    history.replaceState(history.state, '', `${location.pathname}${q.size ? `?${q}` : ''}${location.hash}`)
   }
   const alternar = (id: string) => {
     setAberto(aberto === id ? null : id)
@@ -41,13 +50,13 @@ export function ExecutivoPage() {
 
   return <main id="executivo" className="mx-auto flex max-w-[1200px] flex-col gap-10 px-4 pt-6 pb-12 sm:px-8">
     <header className="flex flex-wrap items-center justify-between gap-4 border-b-[length:var(--borda-titulo)] border-obsidian pb-4">
-      <a href="/" aria-label="Athenix, voltar ao início" className="text-[28px] font-bold tracking-[-0.03em]">Athenix</a>
+      <a href="/" aria-label="Athenix, voltar ao início" className="text-[28px] font-bold ">Athenix</a>
       <div className="flex flex-wrap items-center gap-3.5">
         <div role="group" aria-label="Norma" className="flex">
           {NORMAS.map((x) => <button key={x.id} type="button" className="seg" aria-pressed={normaId === x.id} onClick={() => trocarNorma(x.id)}>{x.rotulo.replace('/2025', '').replace('/2026', '')}</button>)}
         </div>
         <div role="group" aria-label="Porte da distribuidora (receita operacional líquida anual)" className="flex">
-          {p.simulador.faixas.map((x) => <button key={x.id} type="button" className="seg" aria-pressed={faixa.id === x.id} onClick={() => setPorteId(x.id)}>{x.base / 1e9} bi</button>)}
+          {p.simulador.faixas.map((x) => <button key={x.id} type="button" className="seg" aria-pressed={faixa.id === x.id} onClick={() => setPorteId(x.id)}>R$ {x.base / 1e9} bi</button>)}
         </div>
       </div>
       <a href={urlPlanoCompleto(normaId)} className={`text-[15px] ${LINK}`}>Plano completo →</a>
@@ -80,12 +89,12 @@ export function ExecutivoPage() {
         {linhas.map((l) => {
           const aberta = aberto === l.id
           const vencida = l.situacao === 'vencida'
-          return <button key={l.id} type="button" className="bloco flex min-h-[196px] flex-col gap-2.5 p-4 text-left" aria-expanded={aberta} aria-controls="painel" onClick={() => alternar(l.id)}>
+          return <button key={l.id} ref={(el) => { blocos.current[l.id] = el }} type="button" className="bloco flex min-h-[196px] flex-col gap-2.5 p-4 text-left" aria-expanded={aberta} aria-controls="painel" onClick={() => alternar(l.id)}>
             <span className={`inline-flex items-center gap-1.5 text-xs font-bold ${vencida && !aberta ? 'text-bronze-deep' : ''}`}>
               <span aria-hidden="true" className={`inline-block h-2 w-2 rounded-full ${vencida ? 'bg-acento' : aberta ? 'bg-white' : 'bg-obsidian'}`} />{l.prazoCurto}
             </span>
             <span className="text-base leading-tight font-semibold">{l.titulo}</span>
-            <span className="mt-auto text-[30px] font-bold tracking-[-0.03em]">{valorDoBloco(l)}</span>
+            <span className="mt-auto text-[30px] font-bold ">{valorDoBloco(l)}</span>
             <span className="flex items-center justify-between border-t border-current pt-2.5 text-[13px] font-semibold">
               <span>{aberta ? 'Fechar' : 'Ver o que fazer'}</span><span aria-hidden="true" className="seta text-lg">{aberta ? '↑' : '↓'}</span>
             </span>
@@ -93,9 +102,9 @@ export function ExecutivoPage() {
         })}
       </div>
 
-      <div id="painel" role="region" aria-label="Detalhes da obrigação" className="painel" data-aberto={aberto ? 'true' : 'false'}>
+      <div id="painel" ref={painelRef} role="region" aria-label="Detalhes da obrigação" className="painel" data-aberto={aberto ? 'true' : 'false'}>
         <div className="painel-miolo" inert={!aberto}>
-          {sel && <Painel l={sel} fechar={() => setAberto(null)} />}
+          {sel && <Painel l={sel} fechar={() => { setAberto(null); blocos.current[sel.id]?.focus() }} />}
         </div>
       </div>
     </section>
@@ -115,7 +124,8 @@ function Painel({ l, fechar }: { l: LinhaTop5; fechar: () => void }) {
     <div className="flex flex-wrap items-start justify-between gap-4 border-b-[length:var(--borda-forte)] border-obsidian px-6 py-5">
       <div className="flex min-w-0 flex-1 flex-col gap-1">
         <span className="text-[13px] font-semibold">{l.dispositivo ?? 'dispositivo a confirmar'}</span>
-        <span className="text-[22px] leading-tight font-bold tracking-[-0.02em]">{l.frase}</span>
+        <span className="text-[22px] leading-tight font-bold">{l.frase}</span>
+        <span className="text-xs">Título do bloco: resumo gerado por IA, a revisar.</span>
       </div>
       <button type="button" onClick={fechar} aria-label="Fechar detalhes" className="seg">Fechar ✕</button>
     </div>
@@ -127,7 +137,8 @@ function Painel({ l, fechar }: { l: LinhaTop5; fechar: () => void }) {
       </div>
       <div className={COLUNA}>
         <span className={TITULO_COLUNA}>Gravidade e valor por infração</span>
-        <span className="text-[15px]">{l.valor ? `${l.gravidadeRotulo} · ${l.preliminar ? 'preliminar' : 'identificada no texto'}` : 'gravidade a enquadrar'}</span>
+        <span className="text-[15px]">{l.valor ? `${l.gravidadeRotulo} · ${l.preliminar ? 'sugerida pela IA, aguarda revisão humana' : 'identificada no texto'}` : 'gravidade a enquadrar'}</span>
+        {l.barras.length > 0 && <span className="text-xs">Atenuantes do art. 24: valem se a infração cessar e o dano for reparado antes da fiscalização.</span>}
         {l.barras.map((b) => <div key={b.rotulo} className="grid grid-cols-[70px_minmax(0,1fr)_72px] items-center gap-2 text-xs">
           <span>{b.rotulo}</span>
           <span className="block h-2 bg-trilho"><span className="barra" style={{ width: `${Math.max(b.fracao * 100, 2)}%`, background: b.cor === 'teto' ? 'var(--cor-barra-teto)' : b.cor === 'media' ? 'var(--cor-barra-media)' : 'var(--cor-barra-reducao)' }} /></span>

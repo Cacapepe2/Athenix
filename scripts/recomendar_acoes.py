@@ -53,7 +53,14 @@ PROIBIDAS = re.compile(
 #: Produto, fornecedor, formato ou canal: só passa se o próprio dispositivo (ou seu contexto) o cita.
 PRODUTOS = re.compile(
     r"\b(?:excel|pdf|docx?|xlsx?|csv|sms|ura|whatsapp|telegram|power ?bi|sap|google|microsoft|teams|outlook|"
-    r"gmail|slack|jira|sharepoint|tableau|arcgis|qgis|salesforce|oracle|zendesk|facebook|instagram|twitter)\b",
+    r"gmail|slack|jira|sharepoint|tableau|arcgis|qgis|salesforce|oracle|zendesk|facebook|instagram|twitter|"
+    r"planilhas?|e-?mails?|aplicativos?|apps?|r[aá]dio|intranet|pain[eé]is|painel|loto|checklists?|dashboards?)\b",
+    re.I,
+)
+#: Frequência: só passa se o dispositivo a diz (nada de "mensal" ou "a cada 30 minutos" por conta da IA).
+FREQUENCIA = re.compile(
+    r"\b(?:diari\w*|semanal\w*|mensa[li]\w*|bimestral\w*|trimestral\w*|semestral\w*|anua[li]\w*|hor[aá]ri\w*|"
+    r"quinzenal\w*|por hora)\b",
     re.I,
 )
 INSTRUCOES = (
@@ -164,6 +171,11 @@ def palavras_de_conteudo(texto):
     return {w for w in re.findall(r"[a-z]{6,}", tipos.normalizar(texto))}
 
 
+def termo_no_texto(termo, base):
+    """O termo (ou o início dele) aparece no texto como palavra, não como pedaço de outra ("ura" em "fatura")."""
+    return re.search(rf"\b{re.escape(tipos.normalizar(termo))}", base) is not None
+
+
 def validar(acoes, o):
     """Ações válidas de uma obrigação (até 3): trecho literal do dispositivo/contexto, palavra em comum, não genérica."""
     base = tipos.normalizar(
@@ -180,8 +192,10 @@ def validar(acoes, o):
             continue
         if not (palavras_de_conteudo(acao) & palavras_de_conteudo(trecho)):
             continue
-        if any(m.group(0).lower() not in base for m in PRODUTOS.finditer(acao)):
+        if any(not termo_no_texto(m.group(0), base) for m in PRODUTOS.finditer(acao)):
             continue
+        if any(not termo_no_texto(m.group(0)[:6], base) for m in FREQUENCIA.finditer(acao)):
+            continue  # frequência que o dispositivo não traz
         if any(n not in re.findall(r"\d+", base) for n in re.findall(r"\d+", acao)):
             continue  # número/frequência que o dispositivo não traz
         validas.append({"acao": acao, "trecho_citado": trecho})

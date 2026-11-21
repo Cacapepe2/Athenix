@@ -37,7 +37,7 @@ export function Header() {
     >
       <a
         href="#conteudo"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:rounded-full focus:bg-obsidian focus:px-4 focus:py-2 focus:text-ivory"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:focus:bg-obsidian focus:px-4 focus:py-2 focus:text-ivory"
       >
         Pular para o conteúdo
       </a>
@@ -69,7 +69,7 @@ export function Header() {
           </ButtonLink>
           <button
             type="button"
-            className={`grid h-11 w-11 place-items-center rounded-full lg:hidden ${dark ? 'text-ivory hover:bg-ivory/10' : 'text-obsidian hover:bg-obsidian/5'}`}
+            className={`grid h-11 w-11 place-items-center lg:hidden ${dark ? 'text-ivory hover:bg-ivory/10' : 'text-obsidian hover:bg-obsidian/5'}`}
             aria-expanded={open}
             aria-controls="menu-movel"
             aria-label={open ? 'Fechar menu' : 'Abrir menu'}

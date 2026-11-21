@@ -1,6 +1,6 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "74d4910",
+ "commit_origem": "9f8e374",
  "gerado_em": "2026-11-20",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
@@ -1567,16 +1567,7 @@
    "titulo_origem": "regra",
    "titulo_completo": "Implementar o registro das interações com o Poder Público Municipal em relação ao serviço de manejo da vegetação que apresente risco à segurança das redes elétricas e a continuidade do fornecimento",
    "titulo_curto": "Registrar interações com prefeituras",
-   "recomendacoes": [
-    {
-     "acao": "Implemente planilha eletrônica padronizada com campos: data, município, contato, assunto, providência e anexos para o registro.",
-     "trecho_citado": "registro das interações com o Poder Público Municipal"
-    },
-    {
-     "acao": "Configure backups automáticos do registro em servidor interno e exporte cópias mensais para arquivo seguro.",
-     "trecho_citado": "registro das interações com o Poder Público Municipal"
-    }
-   ],
+   "recomendacoes": [],
    "contexto": "Art. 13. As distribuidoras devem observar os seguintes prazos para implementação das disposições desta Resolução Normativa, contados da publicação:",
    "tema": "poder_publico",
    "motivo_tema": "O texto nomeia \"Poder Público\"",
@@ -1656,12 +1647,7 @@
    "titulo_origem": "regra",
    "titulo_completo": "Implementar os mecanismos de comunicação ao consumidor sobre a previsão de reestabelecimento do serviço e demais informações de que trata o item 105 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa",
    "titulo_curto": "Informar previsão de reestabelecimento",
-   "recomendacoes": [
-    {
-     "acao": "Publicar no portal web e no app as demais informações de atendimento previstas no item 105, com link em cada ocorrência.",
-     "trecho_citado": "demais informações de que trata o item 105"
-    }
-   ],
+   "recomendacoes": [],
    "contexto": "Art. 13. As distribuidoras devem observar os seguintes prazos para implementação das disposições desta Resolução Normativa, contados da publicação:",
    "tema": "consumidor",
    "motivo_tema": "O texto nomeia \"consumidor\"",
@@ -3283,7 +3269,7 @@
    "titulo": "Não ultrapassar o prazo de doze meses contados do final da Cessão Emergencial.…",
    "titulo_origem": "regra",
    "titulo_completo": "Não ultrapassar o prazo de doze meses contados do final da Cessão Emergencial. Contratos de Cessão Emergencial de recursos humanos, equipamentos e materiais entre Partes Relacionadas",
-   "titulo_curto": "Ressarcimento em até 12 meses",
+   "titulo_curto": null,
    "recomendacoes": [],
    "contexto": "",
    "tema": "cessao",
@@ -3468,12 +3454,7 @@
    "titulo_origem": "regra",
    "titulo_completo": "Implantar processo de comunicação e acompanhamento da evolução dos eventos climáticos severos de que trata o item 114 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, em até 30 (trinta) dias, contados da publicação das instruções pela ANEEL",
    "titulo_curto": "Monitoramento de eventos climáticos",
-   "recomendacoes": [
-    {
-     "acao": "Publique painel de evolução dos eventos climáticos severos no site e intranet, com mapas e atualizações horárias.",
-     "trecho_citado": "processo de comunicação e acompanhamento da evolução dos eventos climáticos severos"
-    }
-   ],
+   "recomendacoes": [],
    "contexto": "",
    "tema": "outros",
    "motivo_tema": "Sem seção temática nem assunto reconhecido",
@@ -4118,12 +4099,7 @@
    "titulo_origem": "ia",
    "titulo_completo": "Solicitar indicação prévia de até dois representantes oficiais",
    "titulo_curto": "Contatos oficiais para emergências",
-   "recomendacoes": [
-    {
-     "acao": "Envie ofício e e-mail formal aos Poderes Públicos solicitando que informem previamente até dois representantes oficiais com dados de contato.",
-     "trecho_citado": "informem previamente até dois representantes oficiais de cada ente"
-    }
-   ],
+   "recomendacoes": [],
    "contexto": "",
    "tema": "poder_publico",
    "motivo_tema": "Seção 4.9 da norma",
@@ -4207,12 +4183,7 @@
    "titulo_origem": "ia",
    "titulo_completo": "Garantir canais de comunicação oficiais acessíveis e operacionais",
    "titulo_curto": "Canais oficiais acessíveis em emergência",
-   "recomendacoes": [
-    {
-     "acao": "Verifique operacionalidade ligando para contatos oficiais e enviando mensagens teste por e-mail e rádio, registrando respostas.",
-     "trecho_citado": "canais de comunicação oficiais estejam acessíveis e operacionais"
-    }
-   ],
+   "recomendacoes": [],
    "contexto": "",
    "tema": "poder_publico",
    "motivo_tema": "Seção 4.9 da norma",
@@ -4301,10 +4272,6 @@
     {
      "acao": "Registre no SCADA roteiro de restabelecimento por prioridade para garantir a continuidade do fornecimento de energia elétrica.",
      "trecho_citado": "continuidade do fornecimento de energia elétrica"
-    },
-    {
-     "acao": "Publique checklists de mitigação de impacto no portal operacional para minimizar os impactos das contingências.",
-     "trecho_citado": "minimizar os impactos das contingências"
     }
    ],
    "contexto": "",
@@ -4486,12 +4453,7 @@
    "titulo_origem": "ia",
    "titulo_completo": "Priorizar a segurança de colaboradores e da população",
    "titulo_curto": "Segurança de colaboradores e população",
-   "recomendacoes": [
-    {
-     "acao": "Inclua checklist de EPI e procedimentos de bloqueio (LOTO) no manual do plano e no app de inspeção para priorizar a segurança de todos os colaboradores.",
-     "trecho_citado": "priorizar a segurança de todos os colaboradores"
-    }
-   ],
+   "recomendacoes": [],
    "contexto": "142. O plano de contingência deve ser baseado nos seguintes princípios norteadores:",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",

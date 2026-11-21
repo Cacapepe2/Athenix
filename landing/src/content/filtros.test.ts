@@ -36,13 +36,20 @@ test('as vencidas vêm antes das demais, na ordem da executiva', () => {
 })
 
 test('filtros na URL: ida e volta, "todas" sai da URL e os outros parâmetros ficam', () => {
-  const f = filtrosDaUrl('?norma=ren1174&situacao=a-vencer&gravidade=grave&enquadramento=sugerido')
+  const f = filtrosDaUrl('?so_norma=ren1174&situacao=a-vencer&gravidade=grave&enquadramento=sugerido')
   assert.deepEqual(f, { norma: 'ren1174', situacao: 'a-vencer', gravidade: 'grave', enquadramento: 'sugerido' })
-  assert.equal(urlComFiltros('', f), '?norma=ren1174&situacao=a-vencer&gravidade=grave&enquadramento=sugerido')
+  assert.equal(urlComFiltros('', f), '?so_norma=ren1174&situacao=a-vencer&gravidade=grave&enquadramento=sugerido')
+  // ?norma= escolhe o plano da página e nunca é tocado pelos filtros
+  assert.equal(urlComFiltros('?norma=ren1174&so_norma=rn1137', { ...FILTROS_INICIAIS }), '?norma=ren1174')
   assert.equal(urlComFiltros('?tema=alternativo&situacao=vencida', { ...FILTROS_INICIAIS }), '?tema=alternativo')
   assert.equal(urlComFiltros('', FILTROS_INICIAIS), '')
   // valor desconhecido (link antigo ou adulterado) vira "todas"
-  assert.deepEqual(filtrosDaUrl('?norma=xyz&situacao=<script>&gravidade=&enquadramento=1'), FILTROS_INICIAIS)
+  assert.deepEqual(filtrosDaUrl('?so_norma=xyz&situacao=<script>&gravidade=&enquadramento=1'), FILTROS_INICIAIS)
+})
+
+test('as opções de gravidade cobrem todos os blocos (nenhuma obrigação some com um filtro)', () => {
+  const cobertos = filtrar(todos, { ...FILTROS_INICIAIS, gravidade: 'grave' }).length + ['seria', 'media', 'leve', 'gravissima', 'a-enquadrar'].reduce((s, g) => s + filtrar(todos, { ...FILTROS_INICIAIS, gravidade: g as never }).length, 0)
+  assert.equal(cobertos, todos.length)
 })
 
 test('o contador "Mostrando N de M" bate com o filtro', () => {

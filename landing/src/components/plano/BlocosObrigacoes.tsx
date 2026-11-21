@@ -20,7 +20,7 @@ export function BlocosObrigacoes({ sim, modo }: { sim: Simulacao | null; modo: M
   const temFiltro = OPCOES.some((o) => filtros[o.chave] !== 'todas')
 
   return <section id="obrigacoes" aria-labelledby="titulo-obrigacoes" className="space-y-4 print:hidden">
-    <h2 id="titulo-obrigacoes" className="border-b-[length:var(--borda-titulo)] border-obsidian pb-3 text-[32px] leading-none font-bold tracking-[-0.03em]">Obrigações</h2>
+    <h2 id="titulo-obrigacoes" className="border-b-[length:var(--borda-titulo)] border-obsidian pb-3 text-[32px] leading-none font-bold ">Obrigações</h2>
     <div className="flex flex-wrap items-start gap-8">
       <aside aria-label="Filtros" className="flex max-w-full flex-[1_1_220px] flex-col gap-5 sm:max-w-[260px]">
         {OPCOES.map((g) => <fieldset key={g.chave} className="pilha flex flex-col">
@@ -30,8 +30,8 @@ export function BlocosObrigacoes({ sim, modo }: { sim: Simulacao | null; modo: M
         <button type="button" disabled={!temFiltro} onClick={() => mudar(FILTROS_INICIAIS)} className="min-h-11 cursor-pointer py-2.5 text-left text-sm font-semibold underline underline-offset-4 disabled:cursor-default disabled:no-underline disabled:opacity-60">Limpar filtros</button>
       </aside>
 
-      <div className="flex min-w-0 flex-[999_1_560px] flex-col gap-3.5" aria-live="polite">
-        <p className="text-sm">Mostrando <strong>{visiveis.length}</strong> de {todos.length} obrigações · clique num bloco para abrir</p>
+      <div className="flex min-w-0 flex-[999_1_560px] flex-col gap-3.5">
+        <p className="text-sm" aria-live="polite">Mostrando <strong>{visiveis.length}</strong> de {todos.length} obrigações · clique num bloco para abrir</p>
         <div className="grid gap-3 [grid-template-columns:repeat(auto-fill,minmax(220px,1fr))]">
           {visiveis.map((b) => <Bloco key={`${b.norma}-${b.id}`} b={b} aberta={aberto === `${b.norma}-${b.id}`} alternar={() => setAberto(aberto === `${b.norma}-${b.id}` ? null : `${b.norma}-${b.id}`)} />)}
         </div>
@@ -50,7 +50,7 @@ function Bloco({ b, aberta, alternar }: { b: BlocoPlano; aberta: boolean; altern
       <span className="text-xs font-semibold">{b.normaRotulo.replace('/2025', '').replace('/2026', '')} · {b.dispositivo ?? 'dispositivo a confirmar'}</span>
       <span className="text-base leading-tight font-semibold">{b.titulo}</span>
       <span className="mt-auto flex flex-col gap-1">
-        <span className="text-[28px] font-bold tracking-[-0.03em] whitespace-nowrap">{valorCurto(b)}</span>
+        <span className="text-[28px] font-bold whitespace-nowrap">{valorCurto(b)}</span>
         <span className={`inline-flex items-center gap-1.5 text-xs font-semibold ${vencida && !aberta ? 'text-bronze-deep' : ''}`}>
           {vencida && <span aria-hidden="true" className="inline-block h-2 w-2 rounded-full bg-acento" />}{b.prazoCurto}
         </span>
@@ -61,7 +61,8 @@ function Bloco({ b, aberta, alternar }: { b: BlocoPlano; aberta: boolean; altern
         <div className="flex flex-col gap-2">
           <span className="text-[13px] font-bold">O que a norma exige</span>
           <span className="text-[15px] leading-normal">{b.trecho ? `“${b.trecho.trim()}”` : b.frase}</span>
-          <span className="text-[13px]">{b.dispositivo}{b.valor ? ` · ${b.gravidadeRotulo} (${b.preliminar ? 'sugerida pela IA' : 'identificada no texto'})` : ' · gravidade a enquadrar'}</span>
+          <span className="text-[13px]">{b.dispositivo}{b.valor ? ` · ${b.gravidadeRotulo} (${b.preliminar ? 'sugerida pela IA, aguarda revisão humana' : 'identificada no texto'})` : ' · gravidade a enquadrar'}</span>
+          <span className="text-xs">Título do bloco: resumo gerado por IA, a revisar.</span>
         </div>
         <div className="flex flex-col gap-2">
           <span className="text-[13px] font-bold">Faça</span>

@@ -1,6 +1,6 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "74d4910",
+ "commit_origem": "9f8e374",
  "gerado_em": "2026-11-20",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
@@ -1307,10 +1307,6 @@
     {
      "acao": "Registre no portal eletrônico da CCEE a alteração de titularidade de unidade consumidora, anexando documento assinado e número do processo de migração.",
      "trecho_citado": "alteração de titularidade de unidade consumidora"
-    },
-    {
-     "acao": "Envie e-mail com protocolo ao endereço eletrônico da CCEE, anexando comprovante da alteração no processo de migração para o ACL.",
-     "trecho_citado": "processo de migração para o ACL"
     }
    ],
    "contexto": "",
@@ -5565,10 +5561,6 @@
     {
      "acao": "Anexe à proposta do Sandbox um documento público com requisitos, passos e modelos de formulários de adesão e desistência.",
      "trecho_citado": "critérios de adesão e de desistência dos participantes"
-    },
-    {
-     "acao": "Publique formulário eletrônico de adesão e de desistência no portal da distribuidora com checklist automático de validação.",
-     "trecho_citado": "critérios de adesão e de desistência dos participantes"
     }
    ],
    "contexto": "I - a distribuidora deve apresentar à ANEEL, previamente ao início, a proposta do Sandbox contendo, no mínimo:",
@@ -5980,10 +5972,6 @@
    "recomendacoes": [
     {
      "acao": "Implemente validação no sistema comercial que rejeite qualquer acréscimo de energia ao registro CCER para consumidores parcialmente livres em migração.",
-     "trecho_citado": "o CCER não poderá ter acréscimo do montante de energia elétrica"
-    },
-    {
-     "acao": "Execute rotina de conciliação mensal que compare montantes faturados e gere alerta quando houver alteração no montante CCER.",
      "trecho_citado": "o CCER não poderá ter acréscimo do montante de energia elétrica"
     }
    ],

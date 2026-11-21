@@ -11,7 +11,7 @@
   "date": "2026-11-17",
   "currency": "USD"
  },
- "custo_total_da_execucao_usd": "0.0045",
+ "custo_total_da_execucao_usd": "0.0013",
  "titulos_curtos": {
   "f0ee215c5b31a957": "Publicar planos revisados",
   "868bbdfdd6ed7ce7": "Registrar interações com prefeituras",
@@ -35,7 +35,6 @@
   "aacda5a99abb796e": "Tarefas de campo com horários",
   "88b6fa7ef4189740": "Estruturas, turmas e veículos",
   "768ca43e4161c231": "Outras informações relevantes",
-  "610cc5d8b942d8ac": "Ressarcimento em até 12 meses",
   "67dac8ada9048f75": "Dossiê comprobatório individual",
   "fa76d96bea74ec08": "Compensação por violação de continuidade",
   "aa970d563840ad15": "Monitoramento de eventos climáticos",
@@ -169,5 +168,7 @@
   "2c00dc4ce9434217": "Implementar disposições não listadas",
   "7e405a51e340f0da": "Comunicar risco de vegetação"
  },
- "rejeitados": {}
+ "rejeitados": {
+  "610cc5d8b942d8ac": "Ressarcimento em até 12 meses"
+ }
 }

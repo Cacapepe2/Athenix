@@ -19,7 +19,7 @@ export function DocumentView({ marks = {}, markLabels = {}, focusId, animateMark
   return (
     <div className={` rounded-xl border border-line p-5 text-[0.8rem] leading-relaxed text-ink-soft ${className}`}>
       <div className="mb-3 border-b border-line pb-3">
-        <p className="text-[0.62rem] font-semibold tracking-[0.18em] text-bronze-deep ">
+        <p className="text-[0.62rem] font-semibold text-bronze-deep ">
           {demoNorm.issuer}
         </p>
         <p className="font-display mt-1 text-[1.05rem] leading-tight text-obsidian">

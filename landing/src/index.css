@@ -111,9 +111,14 @@
     background-color var(--duracao-rapida) var(--curva),
     color var(--duracao-rapida) var(--curva);
 }
-.bloco:hover {
-  transform: translate(-3px, -3px);
-  box-shadow: var(--sombra-hover);
+@media (hover: hover) {
+  .bloco:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: var(--sombra-hover);
+  }
+  .bloco:hover .seta {
+    transform: translateY(2px);
+  }
 }
 .bloco:active {
   transform: translate(0, 0);
@@ -126,9 +131,6 @@
 .bloco[aria-expanded="true"] {
   background: var(--cor-texto);
   color: var(--cor-texto-invertido);
-}
-.bloco:hover .seta {
-  transform: translateY(2px);
 }
 .seta {
   transition: transform var(--duracao-rapida) var(--curva);
