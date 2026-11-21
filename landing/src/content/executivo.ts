@@ -8,6 +8,7 @@ import {
   type Faixa, type Modo, type NormaId, type Obrigacao, type PlanoDados, type Simulacao,
 } from './plano.ts'
 import { GRUPOS, rotuloDoGrupo, nomeDaGravidade, type Grupo } from './gravidade.ts'
+import { atualizar, hojeISO } from './datas.ts'
 
 export const NORMAS: { id: NormaId; rotulo: string; resumo: string; dados: PlanoDados }[] = [
   { id: 'rn1137', rotulo: 'RN 1.137/2025', resumo: 'eventos climáticos extremos', dados: planos.rn1137 },
@@ -70,13 +71,24 @@ export function queda(p: PlanoDados, s: Simulacao | null, modo: Modo): Queda | n
   return { de: v.reais, para: s ? reaisDe(aten, s) : null, reducaoPct: m.percentual, dispositivo: m.dispositivo, trecho: m.trecho, fonte: m.fonte, sha256: m.sha256 }
 }
 
+/** "Vencido desde 28/04/2026 (207 dias)" / "Vence em 04/11/2027 (348 dias)": prazo mais urgente do tema, contado de HOJE. */
+export function textoPrazoDoTema(p: PlanoDados, t: { prazo_mais_urgente: { obrigacao: string; data: string | null; texto: string } | null }, hoje: string = hojeISO()): string {
+  const u = t.prazo_mais_urgente
+  if (!u) return 'Sem data no texto'
+  const o = p.obrigacoes.find((x) => x.id === u.obrigacao)
+  if (!o || !u.data) return u.texto
+  const a = atualizar(o, hoje)
+  return a.situacao === 'vencida' ? `Vencido desde ${dataBR(u.data)} (${Math.abs(a.prazo.dias!)} dias)` : `Vence em ${dataBR(u.data)} (${a.prazo.dias} dias)`
+}
+
 export interface Prazos { vencidas: number; proxima: { dias: number; data: string } | null }
 
 /** Cartão 3: obrigações vencidas e a próxima que vence (só prazos com data). */
-export function prazos(p: PlanoDados): Prazos {
-  const futuras = p.obrigacoes.filter((o) => (o.situacao === '90dias' || o.situacao === 'depois') && o.prazo.dias != null && o.prazo.data)
+export function prazos(p: PlanoDados, hoje: string = hojeISO()): Prazos {
+  const obrig = p.obrigacoes.map((o) => atualizar(o, hoje))
+  const futuras = obrig.filter((o) => (o.situacao === '90dias' || o.situacao === 'depois') && o.prazo.dias != null && o.prazo.data)
   const prox = futuras.length ? futuras.reduce((a, b) => (b.prazo.dias! < a.prazo.dias! ? b : a)) : null
-  return { vencidas: p.resumo.por_situacao.vencida, proxima: prox ? { dias: prox.prazo.dias!, data: prox.prazo.data! } : null }
+  return { vencidas: obrig.filter((o) => o.situacao === 'vencida').length, proxima: prox ? { dias: prox.prazo.dias!, data: prox.prazo.data! } : null }
 }
 
 // ---------- linguagem de negócio ----------
@@ -257,9 +269,10 @@ const GRAU: Record<Obrigacao['situacao'], number> = { vencida: 0, '90dias': 1, d
 
 /** As 5 obrigações para olhar primeiro: vencidas (a mais antiga antes), depois as a vencer com data (a mais
  *  próxima antes), depois maior valor por infração, depois enquadramento identificado no texto antes do sugerido. */
-export function top5(normaId: NormaId, s: Simulacao | null, modo: Modo, n = 5): LinhaTop5[] {
+export function top5(normaId: NormaId, s: Simulacao | null, modo: Modo, n = 5, hoje: string = hojeISO()): LinhaTop5[] {
   const p = norma(normaId).dados
-  const comValor = p.obrigacoes.map((o, i) => ({ o, i, v: valorDaObrigacao(o, s, modo) }))
+  // Situação e dias recalculados para HOJE (o JSON traz os da data de referência da geração).
+  const comValor = p.obrigacoes.map((o, i) => { const a = atualizar(o, hoje); return { o: a, i, v: valorDaObrigacao(a, s, modo) } })
   // Grupo: 0 vencidas, 1 a vencer (com data), 2 o resto. Nos dois primeiros, a data mais próxima antes.
   const grupo = (o: Obrigacao) => (o.situacao === 'vencida' ? 0 : o.prazo.data && (o.situacao === '90dias' || o.situacao === 'depois') ? 1 : 2)
   comValor.sort((a, b) => {

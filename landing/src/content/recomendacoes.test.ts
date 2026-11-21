@@ -1,7 +1,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { provasDoTema, recomendacoesDoTema } from './recomendacoes.ts'
-import { NORMAS } from './executivo.ts'
+import { NORMAS, eGerencial } from './executivo.ts'
 import { SIM_INICIAL } from './plano.ts'
 
 const sim = { base: 5e9, faturamento: null }
@@ -60,4 +60,16 @@ test('defesa e "Evite" só aparecem quando existem nos dados', () => {
   }
   const p = NORMAS[0].dados
   assert.ok(provasDoTema(p, []).length === 0)
+})
+
+test('recomendações por tema: só ações de nível gerencial; o detalhe operacional vai à parte e nada cita produto fora do texto', () => {
+  const produto = /scada|erp|crm|\bgis\b|call ?center/i
+  for (const n of NORMAS) {
+    for (const t of n.dados.temas) {
+      const r = recomendacoesDoTema(n.dados, t, sim, 'preliminar')
+      for (const a of r.acoes) assert.ok(eGerencial(a) || /INMET/.test(a), `gerencial: ${a}`)
+      for (const a of r.operacionais) assert.ok(!eGerencial(a), `operacional: ${a}`)
+      for (const o of n.dados.obrigacoes) for (const x of o.recomendacoes) assert.doesNotMatch(x.acao, produto, x.acao)
+    }
+  }
 })

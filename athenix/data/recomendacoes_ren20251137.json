@@ -84,26 +84,10 @@
     "trecho_citado": "uso de linguagem clara e adequada"
    }
   ],
-  "b7c2d81bf787af70": [
-   {
-    "acao": "Registre no SCADA roteiro de restabelecimento por prioridade para garantir a continuidade do fornecimento de energia elétrica.",
-    "trecho_citado": "continuidade do fornecimento de energia elétrica"
-   }
-  ],
   "5a66534ae45af0c6": [
    {
     "acao": "Integre a lista de nomes e telefones de contato dos responsáveis ao sistema de despacho para uso imediato pela operação.",
     "trecho_citado": "nomes e telefones de contato dos responsáveis"
-   }
-  ],
-  "98f4753768bef99f": [
-   {
-    "acao": "Configure sequências automáticas de manobra no SCADA para reduzir tempo de indisponibilidade e minimizar o impacto das contingências nas operações.",
-    "trecho_citado": "minimizar o impacto das contingências nas operações"
-   },
-   {
-    "acao": "Publique mapa GIS com circuitos críticos e recursos logísticos, priorizando intervenções para minimizar o impacto na prestação dos serviços.",
-    "trecho_citado": "na prestação dos serviços"
    }
   ],
   "59a3e694522c005b": [

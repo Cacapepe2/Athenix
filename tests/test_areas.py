@@ -21,5 +21,6 @@ def test_palavra_de_vegetacao_vence_o_tipo_e_o_padrao_cobre_o_desconhecido():
         areas.area_de("comunicar_consumidores", "avisar o consumidor", cfg)
         == "Comunicação/Atendimento"
     )
-    assert areas.area_de("tipo_novo", "qualquer coisa", cfg) == cfg["padrao"]
-    assert areas.area_de(None, "", cfg) == cfg["padrao"]
+    assert areas.area_de("tipo_novo", "qualquer coisa", cfg) == "A definir"
+    assert areas.area_de(None, "", cfg) == "A definir"  # sem tipo: a definir, não "Regulatório"
+    assert areas.area_de("outros", "texto", cfg) == "A definir"

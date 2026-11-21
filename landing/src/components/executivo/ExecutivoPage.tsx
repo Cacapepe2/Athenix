@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import { NORMA_PADRAO, NORMAS, norma as dadosDa, prazos, queda, top5, urlPlanoCompleto, urlRelatorio, valorGeral, type LinhaTop5 } from '../../content/executivo'
 import { RespostasProvider, useRespostas } from '../plano/Respostas'
 import { prontidao } from '../../content/prontidao'
-import { brlCurto, normaDaUrl, type NormaId, type Simulacao } from '../../content/plano'
+import { hojeISO } from '../../content/datas'
+import { brlCurto, dataBR, normaDaUrl, type NormaId, type Simulacao } from '../../content/plano'
 
 // Visão executiva (/demo/executivo): três números e até cinco blocos clicáveis. Muito pouco texto; o resto
 // fica no plano completo. Todos os números vêm de content/executivo.ts (planos gerados pelo motor).
@@ -88,7 +89,7 @@ function Executiva({ normaId, setNormaId }: { normaId: NormaId; setNormaId: (id:
             ? <><span className={grande}>{pz.proxima.dias} dias</span><span className={LEGENDA}>até o próximo prazo</span></>
             : <><span className={grande}>—</span><span className={LEGENDA}>nenhum prazo a vencer</span></>}
       </div>
-      {pr.algumaMarcada && <div className="flex flex-col gap-1.5"><span className={grande}>{pr.geral.x + pr.geral.y}</span><span className={LEGENDA}>obrigações com prova em mãos: {pr.geral.x} completa · {pr.geral.y} parcial · de {pr.geral.n}</span></div>}
+      {pr.algumaMarcada && <div className="flex flex-col gap-1.5"><span className={grande}>{pr.geral.x} de {pr.geral.y}</span><span className={LEGENDA}>provas em mãos · checklist sugerido</span></div>}
     </section>
 
     <section aria-labelledby="comece-por" className="flex flex-col gap-3.5">
@@ -121,7 +122,7 @@ function Executiva({ normaId, setNormaId }: { normaId: NormaId; setNormaId: (id:
     </section>
 
     <footer className="flex flex-wrap justify-between gap-3 border-t border-obsidian pt-3.5 text-[13px]">
-      <span>* preliminar · valores ilustrativos · não é parecer jurídico</span>
+      <span>* preliminar · valores ilustrativos · não é parecer jurídico · dias contados até {dataBR(hojeISO())}</span>
       <span className="flex gap-4"><a href={urlRelatorio(normaId)} className="font-semibold">Baixar meu relatório</a><a href={urlPlanoCompleto(normaId)} className="font-semibold">Plano completo →</a></span>
     </footer>
   </main>

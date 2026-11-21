@@ -21,13 +21,11 @@ export function RespostasProvider({ norma, children }: { norma: NormaId; childre
     setRespostas(carregar(armazemDoNavegador(), norma))
     pronto.current = true
   }, [norma])
-  const aplicar = useCallback((f: (r: Respostas) => Respostas) => {
-    setRespostas((atual) => {
-      const novo = f(atual)
-      if (pronto.current) setPersistente(salvar(armazemDoNavegador(), norma, novo))
-      return novo
-    })
-  }, [norma])
+  // Grava DEPOIS de o estado mudar (efeito), nunca dentro do atualizador (que o StrictMode roda duas vezes).
+  useEffect(() => {
+    if (pronto.current) setPersistente(salvar(armazemDoNavegador(), norma, respostas))
+  }, [respostas, norma])
+  const aplicar = useCallback((f: (r: Respostas) => Respostas) => setRespostas((atual) => f(atual)), [])
   const valor = useMemo<Contexto>(() => ({
     respostas, persistente,
     escrever: (tema, texto) => aplicar((r) => definirJaFazemos(r, tema, texto)),

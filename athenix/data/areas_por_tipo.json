@@ -1,15 +1,16 @@
 {
  "rotulo": "sugestão — revisar com a empresa",
- "nota": "Área responsável SUGERIDA para cada tipo de obrigação. Cada empresa tem sua estrutura: este é o único arquivo a revisar para mudar quem faz o quê.",
+ "nota": "Área responsável SUGERIDA para cada tipo de obrigação. Obrigação sem tipo (ou do tipo \"outros\") vai para \"A definir\": não é atribuição. Cada empresa tem sua estrutura: este é o único arquivo a revisar para mudar quem faz o quê.",
  "areas": [
   "Regulatório",
   "Operação/Manutenção",
   "Comunicação/Atendimento",
   "TI/Sistemas",
   "Meio Ambiente/Arborização",
-  "Jurídico"
+  "Jurídico",
+  "A definir"
  ],
- "padrao": "Regulatório",
+ "padrao": "A definir",
  "por_tipo": {
   "comunicar_consumidores": "Comunicação/Atendimento",
   "comunicar_poder_publico_terceiros": "Regulatório",
@@ -27,9 +28,12 @@
   "responder_prazo_solicitacao": "Comunicação/Atendimento",
   "restabelecer_ou_compensar": "Operação/Manutenção",
   "estabelecer_criterios_e_papeis": "Regulatório",
-  "outros": "Regulatório"
+  "outros": "A definir"
  },
  "por_palavra": [
-  {"padrao": "vegeta[çc][ãa]o|poda|arboriza|manejo vegetal", "area": "Meio Ambiente/Arborização"}
+  {
+   "padrao": "vegeta[çc][ãa]o|poda|arboriza|manejo vegetal",
+   "area": "Meio Ambiente/Arborização"
+  }
  ]
 }

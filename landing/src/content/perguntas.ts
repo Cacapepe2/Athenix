@@ -27,16 +27,17 @@ export function perguntasParaOJuridico(p: PlanoDados, normaId: NormaId, s: Simul
     saida.push({ origem: 'enquadramento_topo', pergunta: `A IA sugere enquadrar esta obrigação no ${o.ia.dispositivo} da REN 846 (Grupo ${o.ia.grupo}). Vocês concordam?${o.ia.duvida ? ` Dúvida registrada: ${o.ia.duvida}.` : ''}`, dispositivo: o.dispositivo ?? 'dispositivo a confirmar', citacao: cit(o.trecho) })
   }
 
-  // 2. Enquadramentos a confirmar, agrupados por tema (com a quantidade).
-  for (const t of p.temas) {
-    const restantes = t.obrigacoes.map((id) => por.get(id)).filter((o): o is Obrigacao => !!o && !o.faixa && !topo.has(o.id))
-    if (!restantes.length) continue
-    const sugeridas = restantes.filter((o) => o.ia).length
-    const ref = restantes.find((o) => o.ia) ?? restantes[0]
+  // 2. Enquadramentos a confirmar: UMA pergunta, com o total e a quantidade por tema.
+  const porTema = p.temas.map((t) => ({ t, restantes: t.obrigacoes.map((id) => por.get(id)).filter((o): o is Obrigacao => !!o && !o.faixa && !topo.has(o.id)) })).filter((x) => x.restantes.length)
+  const total = porTema.reduce((n, x) => n + x.restantes.length, 0)
+  if (total) {
+    const maior = [...porTema].sort((m, n) => n.restantes.length - m.restantes.length)[0]
+    const ref = maior.restantes.find((o) => o.ia) ?? maior.restantes[0]
+    const sugeridas = porTema.reduce((n, x) => n + x.restantes.filter((o) => o.ia).length, 0)
     saida.push({
       origem: 'enquadramento_tema',
-      pergunta: `Tema “${t.nome}”: ${restantes.length} ${restantes.length === 1 ? 'obrigação com enquadramento a confirmar' : 'obrigações com enquadramento a confirmar'}${sugeridas ? `, ${sugeridas} com sugestão da IA${t.ia ? ` (${t.ia.dispositivo})` : ''}` : ''}. Qual infração da REN 846 se aplica?`,
-      dispositivo: ref.dispositivo ?? 'dispositivo a confirmar', citacao: cit(ref.trecho),
+      pergunta: `Enquadramento a confirmar em ${total} ${total === 1 ? 'obrigação' : 'obrigações'}${sugeridas ? ` (${sugeridas} com sugestão da IA)` : ''}: ${porTema.map((x) => `${x.t.nome} (${x.restantes.length})`).join('; ')}. Qual infração da REN 846 se aplica a cada grupo?`,
+      dispositivo: ref.dispositivo ?? 'dispositivo a confirmar', citacao: `exemplo, tema “${maior.t.nome}”: ${cit(ref.trecho)}`,
     })
   }
 
@@ -49,16 +50,23 @@ export function perguntasParaOJuridico(p: PlanoDados, normaId: NormaId, s: Simul
     })
   }
 
-  // 4. Dependências externas que podem servir de excludente (por tema, só as achadas no texto) e 5. prazos que dependem de ato da ANEEL.
+  // 4. Dependências externas que podem servir de excludente e 5. prazos que dependem de ato da ANEEL: uma pergunta por tipo de dependência.
+  const grupos = new Map<string, { nome: string; achados: { dispositivo: string; trecho: string; tema: string }[] }>()
   for (const t of p.temas) {
     for (const d of t.dependencias_no_texto) {
-      const o = por.get(d.obrigacao)
-      const nome = p.analise.dependencias[d.id]?.nome ?? d.id
-      if (d.id === 'ato_da_aneel') {
-        saida.push({ origem: 'instrucao_aneel', pergunta: `O prazo depende de instruções da ANEEL (${nome}). Conta da publicação do ato? Cabe pedir esclarecimento ou prorrogação?`, dispositivo: o?.dispositivo ?? 'dispositivo a confirmar', citacao: cit(d.trecho_literal) })
-      } else {
-        saida.push({ origem: 'excludente', pergunta: `“${nome}” pode servir de excludente neste tema? O que precisa estar documentado?`, dispositivo: o?.dispositivo ?? 'dispositivo a confirmar', citacao: cit(d.trecho_literal) })
-      }
+      const g = grupos.get(d.id) ?? { nome: p.analise.dependencias[d.id]?.nome ?? d.id, achados: [] }
+      g.achados.push({ dispositivo: por.get(d.obrigacao)?.dispositivo ?? 'dispositivo a confirmar', trecho: d.trecho_literal, tema: t.nome })
+      grupos.set(d.id, g)
+    }
+  }
+  for (const [id, g] of grupos) {
+    const n = g.achados.length
+    const primeiro = g.achados[0]
+    const resto = n > 1 ? ` e mais ${n - 1} ${n - 1 === 1 ? 'dispositivo' : 'dispositivos'}: ${g.achados.slice(1, 4).map((x) => x.dispositivo).join('; ')}${n > 4 ? '…' : ''}` : ''
+    if (id === 'ato_da_aneel') {
+      saida.push({ origem: 'instrucao_aneel', pergunta: `O prazo depende de instruções da ANEEL em ${n} ${n === 1 ? 'dispositivo' : 'dispositivos'} (${g.nome}). Conta da publicação do ato? Cabe pedir esclarecimento ou prorrogação?`, dispositivo: `${primeiro.dispositivo}${resto}`, citacao: cit(primeiro.trecho) })
+    } else {
+      saida.push({ origem: 'excludente', pergunta: `“${g.nome}” pode servir de excludente em ${n} ${n === 1 ? 'dispositivo' : 'dispositivos'}? O que precisa estar documentado?`, dispositivo: `${primeiro.dispositivo}${resto}`, citacao: cit(primeiro.trecho) })
     }
   }
   return saida

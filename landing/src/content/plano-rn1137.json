@@ -1,6 +1,6 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "72c0931",
+ "commit_origem": "13c6af1",
  "gerado_em": "2026-11-21",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
@@ -2264,7 +2264,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "Art. 19, inciso XIII, alínea b"
   },
   {
@@ -2348,7 +2348,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 132, alínea a"
   },
   {
@@ -2487,7 +2487,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 132, alínea c"
   },
   {
@@ -2571,7 +2571,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 132, alínea d"
   },
   {
@@ -2655,7 +2655,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 132, alínea e"
   },
   {
@@ -2739,7 +2739,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 132, alínea f"
   },
   {
@@ -2823,7 +2823,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 132, alínea g"
   },
   {
@@ -2907,7 +2907,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 132, alínea h"
   },
   {
@@ -2991,7 +2991,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 132, alínea i"
   },
   {
@@ -3079,7 +3079,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 132, alínea j"
   },
   {
@@ -3163,7 +3163,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 132, alínea k"
   },
   {
@@ -3465,7 +3465,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 139, alínea b"
   },
   {
@@ -3696,7 +3696,7 @@
      }
     ]
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "Art. 15"
   },
   {
@@ -3987,7 +3987,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 96"
   },
   {
@@ -4396,12 +4396,7 @@
     "acao": "Elaborar plano sem medidas que assegurem segurança de colaboradores e população.",
     "trecho_citado": "assegurando a segurança dos colaboradores e da população"
    },
-   "recomendacoes": [
-    {
-     "acao": "Registre no SCADA roteiro de restabelecimento por prioridade para garantir a continuidade do fornecimento de energia elétrica.",
-     "trecho_citado": "continuidade do fornecimento de energia elétrica"
-    }
-   ],
+   "recomendacoes": [],
    "contexto": "",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
@@ -4670,7 +4665,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 142, alínea a"
   },
   {
@@ -4683,16 +4678,7 @@
     "acao": "Adotar respostas que elevem, em vez de minimizar, o impacto das contingências.",
     "trecho_citado": "minimizar o impacto das contingências nas operações"
    },
-   "recomendacoes": [
-    {
-     "acao": "Configure sequências automáticas de manobra no SCADA para reduzir tempo de indisponibilidade e minimizar o impacto das contingências nas operações.",
-     "trecho_citado": "minimizar o impacto das contingências nas operações"
-    },
-    {
-     "acao": "Publique mapa GIS com circuitos críticos e recursos logísticos, priorizando intervenções para minimizar o impacto na prestação dos serviços.",
-     "trecho_citado": "na prestação dos serviços"
-    }
-   ],
+   "recomendacoes": [],
    "contexto": "142. O plano de contingência deve ser baseado nos seguintes princípios norteadores:",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
@@ -4771,7 +4757,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 142, alínea b"
   },
   {
@@ -4860,7 +4846,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 142, alínea c"
   },
   {
@@ -4950,7 +4936,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 142, alínea d"
   },
   {
@@ -5129,7 +5115,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 142, alínea f"
   },
   {
@@ -5220,7 +5206,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 143, alínea a"
   },
   {
@@ -5309,7 +5295,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 143, alínea b"
   },
   {
@@ -5489,7 +5475,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 143, alínea d"
   },
   {
@@ -8432,7 +8418,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 101, alínea d"
   },
   {
@@ -8507,7 +8493,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 101, alínea e"
   },
   {
@@ -9147,7 +9133,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 107, alínea a"
   },
   {
@@ -9230,7 +9216,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 107, alínea b"
   },
   {
@@ -9313,7 +9299,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 107, alínea c"
   },
   {
@@ -9396,7 +9382,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 107, alínea d"
   },
   {
@@ -9479,7 +9465,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 107, alínea e"
   },
   {
@@ -9562,7 +9548,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 107, alínea f"
   },
   {
@@ -9645,7 +9631,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 107, alínea g"
   },
   {
@@ -9728,7 +9714,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 107, alínea h"
   },
   {
@@ -9811,7 +9797,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 107, alínea i"
   },
   {
@@ -9894,7 +9880,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 107, alínea j"
   },
   {
@@ -10063,7 +10049,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 109, alínea a"
   },
   {
@@ -10140,7 +10126,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 109, alínea b"
   },
   {
@@ -10217,7 +10203,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 109, alínea c"
   },
   {
@@ -10294,7 +10280,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 109, alínea d"
   },
   {
@@ -10537,7 +10523,7 @@
      }
     ]
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 113"
   },
   {
@@ -10851,7 +10837,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 126"
   },
   {
@@ -10899,7 +10885,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 127"
   },
   {
@@ -10990,7 +10976,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 129"
   },
   {
@@ -11144,7 +11130,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 133, alínea d"
   },
   {
@@ -11455,7 +11441,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 134, alínea a"
   },
   {
@@ -11530,7 +11516,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 134, alínea b"
   },
   {
@@ -11607,7 +11593,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 134, alínea c"
   },
   {
@@ -11684,7 +11670,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 134, alínea d"
   },
   {
@@ -12084,7 +12070,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 144, alínea a"
   },
   {
@@ -12236,7 +12222,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 145, alínea b"
   },
   {
@@ -12481,7 +12467,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 23-C"
   },
   {
@@ -12929,7 +12915,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "item 23-K"
   },
   {
@@ -13475,7 +13461,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "Art. 371-A, § 1º, inciso I"
   },
   {
@@ -13552,7 +13538,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "Art. 371-A, § 1º, inciso II"
   },
   {
@@ -13630,7 +13616,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "Art. 371-A, § 1º, inciso III"
   },
   {
@@ -13782,7 +13768,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "Art. 371-A, § 4º"
   },
   {
@@ -14134,7 +14120,7 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
+   "area": "A definir",
    "dispositivo": "Art. 10, §3º"
   },
   {
@@ -15613,7 +15599,8 @@
     "Comunicação/Atendimento",
     "TI/Sistemas",
     "Meio Ambiente/Arborização",
-    "Jurídico"
+    "Jurídico",
+    "A definir"
    ]
   },
   "tipo_so_regra": "só pela regra · segunda leitura da IA não feita",

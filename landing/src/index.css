@@ -264,7 +264,8 @@
 .relatorio {
   display: none;
 }
-@page {
+/* Só o relatório sai em paisagem (página nomeada); o resto do site imprime em retrato. */
+@page relatorio {
   size: A4 landscape;
   margin: 14mm;
 }
@@ -273,6 +274,7 @@
     display: none !important;
   }
   .relatorio {
+    page: relatorio;
     display: block;
     font-size: 9.5pt;
     line-height: 1.35;

@@ -123,3 +123,10 @@ test('o tema alternativo é aplicado no <html> e removido sem o parâmetro', asy
   aplicarTema(doc, '')
   assert.equal(doc.documentElement.dataset.tema, undefined)
 })
+
+test('só o relatório imprime em paisagem (página nomeada); o resto do site imprime em retrato', () => {
+  const css = readFileSync(join(SRC, 'index.css'), 'utf-8')
+  assert.match(css, /@page relatorio\s*\{[^}]*A4 landscape/)
+  assert.match(css, /page:\s*relatorio/)
+  assert.doesNotMatch(css, /@page\s*\{/) // nenhuma regra global de página
+})

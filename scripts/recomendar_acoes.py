@@ -54,7 +54,8 @@ PROIBIDAS = re.compile(
 PRODUTOS = re.compile(
     r"\b(?:excel|pdf|docx?|xlsx?|csv|sms|ura|whatsapp|telegram|power ?bi|sap|google|microsoft|teams|outlook|"
     r"gmail|slack|jira|sharepoint|tableau|arcgis|qgis|salesforce|oracle|zendesk|facebook|instagram|twitter|"
-    r"planilhas?|e-?mails?|aplicativos?|apps?|r[aá]dio|intranet|pain[eé]is|painel|loto|checklists?|dashboards?)\b",
+    r"planilhas?|e-?mails?|aplicativos?|apps?|r[aá]dio|intranet|pain[eé]is|painel|loto|checklists?|dashboards?|"
+    r"scada|erp|crm|gis|adms|ami|ots|call ?center|chatbot|api|rpa)\b",
     re.I,
 )
 #: Frequência: só passa se o dispositivo a diz (nada de "mensal" ou "a cada 30 minutos" por conta da IA).

@@ -12,7 +12,7 @@ import { extrasDoCsv } from '../../content/relatorio'
 import { recomendacoesDoTema } from '../../content/recomendacoes'
 import { ABERTURA_PERGUNTAS, perguntasParaOJuridico } from '../../content/perguntas'
 import { CRITERIO_PRONTIDAO, fraseProntidao, prontidao } from '../../content/prontidao'
-import { contagemDeEnquadramentos, destaqueDaNorma, idDaObrigacao, tabelaDeGrupos, textoMaiorMulta } from '../../content/executivo'
+import { contagemDeEnquadramentos, destaqueDaNorma, idDaObrigacao, tabelaDeGrupos, textoMaiorMulta, textoPrazoDoTema } from '../../content/executivo'
 import { rotuloDoGrupo } from '../../content/gravidade'
 import {
   brl, brlCurto, comAtenuantePct, csvPlano, dataBR, decisoesDaSemana, exposicaoTema, lacuna, lerReais, manchete, NOTA_ADVERTENCIA, textoVencidas, nomeDiag,
@@ -44,7 +44,7 @@ const Cenario = createContext<{ sim: Simulacao | null; modo: Modo; relatorio: ()
 
 function baixarCsv(diag: Diagnosticos, sim: Simulacao | null, respostas: Respostas) {
   const url = URL.createObjectURL(new Blob([csvPlano(diag, sim, extrasDoCsv(respostas, diag))], { type: 'text/csv;charset=utf-8' }))
-  const a = Object.assign(document.createElement('a'), { href: url, download: 'athenix-plano-rn1137-ilustrativo.csv' })
+  const a = Object.assign(document.createElement('a'), { href: url, download: `athenix-plano-${normaDaUrl()}-ilustrativo.csv` })
   a.click()
   URL.revokeObjectURL(url)
 }
@@ -394,7 +394,7 @@ function Prontidao({ sim, modo }: { sim: Simulacao | null; modo: Modo }) {
   const { respostas } = useRespostas()
   const p = prontidao(plano, respostas, sim, modo)
   if (!p.algumaMarcada) return null
-  return <p className="border-[length:var(--borda-forte)] border-obsidian p-4 text-lg font-bold print:hidden" aria-live="polite">{fraseProntidao(p.geral.x, p.geral.n, p.geral.y)} <a href="#como-calculamos" className={`text-sm ${LINK}`}>como contamos</a></p>
+  return <p className="border-[length:var(--borda-forte)] border-obsidian p-4 text-lg font-bold print:hidden" aria-live="polite">{fraseProntidao(p.geral.x, p.geral.y)} <a href="#como-calculamos" className={`text-sm ${LINK}`}>como contamos</a></p>
 }
 
 /** Perguntas para o jurídico, geradas do que o plano marca como incerto. */
@@ -492,12 +492,14 @@ function Recomendamos({ t }: { t: Tema }) {
   return <section aria-labelledby={`rec-${t.id}`} className="mt-5 border-[length:var(--borda-forte)] border-obsidian p-4 sm:p-5">
     <h4 id={`rec-${t.id}`} className="flex flex-wrap items-center gap-2 text-xl font-bold">O que recomendamos <Tag kind="review" label="Sugestão" /></h4>
     {rec.acoes.length ? <ol className="mt-3 space-y-2">{rec.acoes.map((a) => <li key={a} className="border-l-[length:var(--borda-titulo)] border-obsidian pl-3.5 text-base leading-snug">{a}</li>)}</ol>
-      : <p className="mt-3 text-sm">Recomendação em revisão: a IA não deu uma ação específica válida para este tema.</p>}
+      : <p className="mt-3 text-sm">Recomendação em revisão: a IA não deu uma ação de nível gerencial válida para este tema.</p>}
+    {rec.operacionais.length > 0 && <details className="mt-3 text-sm print:hidden"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline underline-offset-4">Detalhe operacional (sugestão)</summary>
+      <ul className="mt-1 list-disc space-y-1 pl-5">{rec.operacionais.map((a) => <li key={a}>{a}</li>)}</ul></details>}
     <div className="mt-4 grid gap-4 text-sm sm:grid-cols-2">
       <div><h5 className="font-bold">O que guardar como prova</h5>
         {rec.provas.length ? <ul className="mt-1 space-y-1">{rec.provas.map((x) => <li key={x.id}><label className="flex min-h-11 cursor-pointer items-start gap-2 py-1">
           <input type="checkbox" className="mt-1 h-5 w-5 shrink-0 accent-[var(--cor-texto)]" checked={marcadas.includes(x.id)} onChange={() => marcarProva(t.id, x.id)} /><span>{x.texto}</span></label></li>)}</ul> : <p className="mt-1">—</p>}
-        {rec.provas.length > 0 && <p className="mt-1 text-xs" aria-live="polite">Marque o que vocês já têm. {marcadas.length > 0 ? <strong>Prova completa para {pr.porTema[t.id].x} de {pr.porTema[t.id].n} obrigações deste tema{pr.porTema[t.id].y > 0 ? ` · parcial para ${pr.porTema[t.id].y}` : ''}.</strong> : 'Fica só no seu navegador.'}</p>}</div>
+        {rec.provas.length > 0 && <p className="mt-1 text-xs" aria-live="polite">Marque o que vocês já têm. {marcadas.length > 0 ? <strong>Provas em mãos neste tema: {pr.porTema[t.id].x} de {pr.porTema[t.id].y}.</strong> : 'Fica só no seu navegador.'}</p>}</div>
       <div className="space-y-3">
         {rec.efeito && <div><h5 className="font-bold">Efeito financeiro de agir</h5>
           <p className="mt-1">Regularizar antes da fiscalização pode reduzir até {pct(rec.efeito.reducaoPct)}{rec.efeito.de != null && rec.efeito.para != null ? ` (${brlCurto(rec.efeito.de)} → ${brlCurto(rec.efeito.para)})` : ''} <span className="text-xs text-ink-soft">({rec.efeito.dispositivo} da REN 846; exige cessar a infração e reparar o dano)</span></p></div>}
@@ -518,7 +520,6 @@ function Recomendamos({ t }: { t: Tema }) {
 const OPCOES: [Diagnostico, string][] = [['sim', 'Já temos'], ['parcial', 'Parcial'], ['nao', 'Não temos']]
 
 function CartaoTema({ tema: t, posicao, diag, marcar, maiorPct }: { tema: Tema; posicao: number; diag?: Diagnostico; marcar: (id: string, d: Diagnostico) => void; maiorPct: number }) {
-  const urgente = t.prazo_mais_urgente
   const { sim, modo } = useContext(Cenario)
   const e = exposicaoTema(t, sim, modo)
   const grupo = e && maisGrave(e.origem === 'confirmado' ? t.grupos : t.grupos_sugeridos)
@@ -558,7 +559,7 @@ function CartaoTema({ tema: t, posicao, diag, marcar, maiorPct }: { tema: Tema; 
     </div>
 
     <dl className="mt-5 grid gap-4 border-y border-line py-5 text-sm sm:grid-cols-3">
-      <div><dt className="text-ink-soft">Prazo mais urgente</dt><dd className="mt-1 font-semibold">{urgente ? urgente.texto : 'Sem data no texto'}</dd>
+      <div><dt className="text-ink-soft">Prazo mais urgente</dt><dd className="mt-1 font-semibold">{textoPrazoDoTema(plano, t)}</dd>
         <dd className="mt-1 text-xs text-ink-soft">{[cont('vencida') && `${cont('vencida')} vencida(s)`, cont('recorrente') && `${cont('recorrente')} recorrente(s)`, cont('evento') && `${cont('evento')} dependem de evento`, cont('sem_prazo') && `${cont('sem_prazo')} sem prazo`].filter(Boolean).join(' · ')}</dd></div>
       <div><dt className="text-ink-soft">Enquadramento na REN 846</dt>
         {t.grupo_mais_grave ? <><dd className="mt-1 font-semibold">{t.grupos.map(rotuloDoGrupo).join(', ')} <AjudaGrupos p={plano} /> · {t.infracoes.join('; ')}</dd><dd className="mt-1 text-xs text-ink-soft">Identificado pelo texto em {t.na_fila} de {t.n}; {t.a_confirmar} a confirmar.</dd></>

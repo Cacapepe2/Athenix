@@ -20,7 +20,7 @@ export function Relatorio({ ativo, fim, diag, sim, modo }: { ativo: boolean; fim
   return <section id="relatorio" aria-label="Relatório de trabalho" className="relatorio">
     <header>
       <h1>Relatório de trabalho · {r.cabecalho.norma}</h1>
-      <p>{r.cabecalho.porte} · {r.cabecalho.data}</p>
+      <p>{r.cabecalho.porte} · {r.cabecalho.data} · dias dos prazos contados até {r.cabecalho.prazosAte}</p>
       <p><strong>{r.cabecalho.aviso}</strong></p>
     </header>
 
@@ -37,7 +37,7 @@ export function Relatorio({ ativo, fim, diag, sim, modo }: { ativo: boolean; fim
 
     <h2>Por tema</h2>
     <table>
-      <thead><tr><th>O que a norma exige</th><th>Prazo</th><th>Exposição por infração</th><th>O que recomendamos <small>(Sugestão)</small></th><th>O que provar</th><th>O que vocês já fazem</th><th>Situação</th></tr></thead>
+      <thead><tr><th>O que a norma exige</th><th>Prazo</th><th>Exposição por infração</th><th>O que recomendamos <small>(Sugestão da IA, a revisar)</small></th><th>O que provar</th><th>O que vocês já fazem</th><th>Situação</th></tr></thead>
       <tbody>{r.temas.map((t) => <tr key={t.id}>
         <td><strong>{t.nome}</strong><br />{t.citacao}<br /><small>{t.dispositivo}</small></td>
         <td>{t.prazo}</td>
@@ -53,7 +53,7 @@ export function Relatorio({ ativo, fim, diag, sim, modo }: { ativo: boolean; fim
     <h2>Lacunas a tratar</h2>
     {r.lacunas.length ? <ol>{r.lacunas.map((l) => <li key={l.nome}><strong>{l.nome}</strong> · {l.motivo}</li>)}</ol> : <p>Nenhuma lacuna marcada. Marque “Já temos”, “Parcial” ou “Não temos” em cada tema para listar as lacunas.</p>}
 
-    <h2>Quem faz o quê <small>(áreas sugeridas)</small></h2>
+    <h2>Quem faz o quê <small>(áreas sugeridas; títulos resumidos por IA, a revisar)</small></h2>
     <ul>{r.areas.map((a) => <li key={a.area}>{a.frase}</li>)}</ul>
 
     <h2>Perguntas para levar ao jurídico</h2>
