@@ -5,14 +5,15 @@ import type { BlocoPlano } from './filtros.ts'
 
 export const AVISO_TAREFAS = 'Análise regulatória preliminar · valores ilustrativos · não constitui parecer jurídico'
 export const ORIGEM_IA = 'sugestão (IA), a revisar'
-export const COLUNAS_TAREFAS = ['obrigação', 'dispositivo', 'prazo', 'valor por infração', 'ação recomendada', 'o que provar', 'norma', 'área (sugestão)', 'origem dos textos gerados'] as const
+export const SUJEITO_IMPLICITO = 'sujeito implícito (a revisar)'
+export const COLUNAS_TAREFAS = ['obrigação', 'dispositivo', 'prazo', 'valor por infração', 'ação recomendada', 'o que provar', 'norma', 'área (sugestão)', 'sujeito', 'origem dos textos gerados'] as const
 
 const valorTexto = (b: BlocoPlano) => (b.valor ? (b.valor.reais != null ? brlCurto(b.valor.reais) : `${pct(b.valor.pct)} da receita`) + (b.preliminar ? ' (preliminar)' : '') : 'a enquadrar')
 
 /** Uma linha por obrigação da área (ou de todas, se `area` for null), na ordem da executiva. */
 export function tarefasCsv(blocos: BlocoPlano[], area: string | null): string {
   const linhas = blocos.filter((b) => !area || b.area === area)
-  const corpo = linhas.map((b) => [b.frase, b.dispositivo ?? '', b.prazoCurto, valorTexto(b), b.fazer?.texto ?? 'recomendação em revisão', b.proveCom ?? '', b.normaRotulo, b.areaOrigem === 'ia' ? `${b.area} (área sugerida (IA))` : b.area, `título, ação, o que provar e área: ${ORIGEM_IA}`].map(celula).join(','))
+  const corpo = linhas.map((b) => [b.frase, b.dispositivo ?? '', b.prazoCurto, valorTexto(b), b.fazer?.texto ?? 'recomendação em revisão', b.proveCom ?? '', b.normaRotulo, b.areaOrigem === 'ia' ? `${b.area} (área sugerida (IA))` : b.area, b.sujeitoImplicito ? SUJEITO_IMPLICITO : 'distribuidora (no texto)', `título, ação, o que provar e área: ${ORIGEM_IA}`].map(celula).join(','))
   return [celula(AVISO_TAREFAS), COLUNAS_TAREFAS.map(celula).join(','), ...corpo].join('\r\n') + '\r\n'
 }
 

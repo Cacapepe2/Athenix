@@ -44,7 +44,7 @@ test('o texto e as provas marcadas aparecem no relatório e a situação informa
   assert.ok(r.lacunas.some((l) => l.nome === t.nome && /Parcial/.test(l.motivo)))
 })
 
-test('CSV: colunas novas (o_que_ja_fazemos, situacao, provas_marcadas, area) com o que foi escrito e marcado', () => {
+test('CSV: colunas novas (o_que_ja_fazemos, situacao, provas_marcadas, area, sujeito) com o que foi escrito e marcado', () => {
   const t = plano.temas[0]
   const os = t.obrigacoes.map((id) => plano.obrigacoes.find((o) => o.id === id)!)
   const prova = provasDoTema(plano, os)[0]
@@ -52,11 +52,11 @@ test('CSV: colunas novas (o_que_ja_fazemos, situacao, provas_marcadas, area) com
   const csv = csvPlano({ [t.id]: 'sim' }, SIM_INICIAL, extrasDoCsv(resp, { [t.id]: 'sim' }))
   const linhas = csv.replace('﻿', '').trimEnd().split('\r\n')
   const cab = linhas.find((l) => l.includes('o_que_ja_fazemos'))!
-  assert.match(cab, /"o_que_ja_fazemos";"situacao";"provas_marcadas";"area"$/)
+  assert.match(cab, /"o_que_ja_fazemos";"situacao";"provas_marcadas";"area";"sujeito"$/)
   assert.ok(csv.includes('"Já temos o registro."') && csv.includes(`"${prova.texto}"`) && csv.includes('"Já temos"'))
   assert.ok(os.every((o) => csv.includes(`"${o.area}"`)))
   // sem respostas, as colunas existem e ficam vazias
-  assert.match(csvPlano({}, SIM_INICIAL, extrasDoCsv(RESPOSTAS_VAZIAS)), /"o_que_ja_fazemos";"situacao";"provas_marcadas";"area"/)
+  assert.match(csvPlano({}, SIM_INICIAL, extrasDoCsv(RESPOSTAS_VAZIAS)), /"o_que_ja_fazemos";"situacao";"provas_marcadas";"area";"sujeito"/)
 })
 
 test('o relatório não usa rede', () => {
