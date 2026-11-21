@@ -45,6 +45,8 @@ export interface Obrigacao {
   titulo_origem: 'regra' | 'ia'
   /** Rótulo de até 5 palavras (IA, linguagem simples); null: usa o título encurtado. */
   titulo_curto: string | null
+  /** Área responsável SUGERIDA (data/areas_por_tipo.json): quem faz o quê. */
+  area: string
   /** "Evite" sugerido pela IA (cita trecho do dispositivo); null: a tela não mostra a linha. */
   evite: { acao: string; trecho_citado: string } | null
   /** Ações específicas sugeridas pela IA para este dispositivo (cada uma cita uma expressão literal dele). */
@@ -184,12 +186,15 @@ export interface PlanoDados {
     rotulo: string
     tipo_so_regra: string
     tipo_a_revisar: string
-    manuais: Record<string, { nome: string; ideias_cumprimento: string[]; evidencias: string[]; status: string }>
+    areas: { rotulo: string; lista: string[] }
+  manuais: Record<string, { nome: string; ideias_cumprimento: string[]; evidencias: string[]; status: string }>
     dependencias: Record<string, ManualDependencia>
     pratica_por_tema: Record<string, string>
     causas_por_tema: Record<string, { nome: string; nota: string }>
     contraponto: { titulo: string; urls: string[]; o_que_e: string; a_confirmar: string }
   }
+  /** Nota por artigo em "Outros dispositivos relevantes" (ex.: Art. 12 da REN 1.174, grupo de trabalho). */
+  notas_outros: Record<string, string>
   referencia_escala: { maior_multa: { rotulo: string; valor_reais: number; ano: number; motivo: string; fonte: string }; infracao_grave: { rotulo: string; autos: number; mediana_reais: number; maximo_reais: number; fonte: string; limites: string }; rotulo: string; segmento: string; unidade: string; autos: number; empresas: number; mediana_reais: number; maximo_reais: number; fonte: string; limites: string }
   simulador: {
     faixas: { id: string; rotulo: string; base: number }[]

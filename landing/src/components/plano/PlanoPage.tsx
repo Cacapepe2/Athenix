@@ -5,6 +5,9 @@ import { Tag } from '../product/Tag'
 import { Chevron } from '../ui/Chevron'
 import { AjudaGrupos } from './AjudaGrupos'
 import { BlocosObrigacoes } from './BlocosObrigacoes'
+import { RespostasProvider, useRespostas } from './Respostas'
+import { LIMITE_JA_FAZEMOS } from '../../content/respostas'
+import { recomendacoesDoTema } from '../../content/recomendacoes'
 import { contagemDeEnquadramentos, destaqueDaNorma, idDaObrigacao, tabelaDeGrupos, textoMaiorMulta } from '../../content/executivo'
 import { rotuloDoGrupo } from '../../content/gravidade'
 import {
@@ -112,7 +115,7 @@ export function PlanoPage() {
     return () => window.removeEventListener('afterprint', fim)
   }, [soDiagnostico])
 
-  return <Cenario.Provider value={{ sim, modo }}>
+  return <RespostasProvider norma={normaDaUrl()}><Cenario.Provider value={{ sim, modo }}>
     <header className="border-b border-line bg-ivory print:hidden"><div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-8"><a href="/" aria-label="Athenix, voltar ao início"><Logo /></a><nav aria-label="Páginas da demonstração" className="flex flex-wrap items-center justify-end gap-x-5 gap-y-1"><a href={URL_EXECUTIVO} className={`inline-flex min-h-11 items-center text-sm ${LINK}`}>Visão executiva →</a><a href="/" className={`inline-flex min-h-11 items-center text-sm ${LINK}`}>← Voltar ao site</a></nav></div></header>
     <main id="plano" className={`mx-auto max-w-7xl space-y-14 px-4 pt-6 pb-8 sm:px-8 sm:pt-10 md:pb-28 print:pb-10 ${soDiagnostico ? 'so-diagnostico' : ''}`}>
       <section aria-labelledby="titulo-plano" className="space-y-6">
@@ -205,7 +208,7 @@ export function PlanoPage() {
     <div role="note" className="z-30 border-t md:fixed md:inset-x-0 md:bottom-0 border-line bg-obsidian/95 px-4 py-2.5 text-center text-xs leading-snug text-ivory print:hidden">
       Iniciativa em validação · valores ilustrativos · não constitui parecer jurídico
     </div>
-  </Cenario.Provider>
+  </Cenario.Provider></RespostasProvider>
 }
 
 /** Abre o <details> do tema e o da obrigação do hash, rola até ela e dá foco com realce azul (index.css). */
@@ -334,6 +337,7 @@ function OutrosDispositivos() {
   const grupos: [OutroDispositivo['natureza'], string][] = [['faculdade', 'Faculdades (a norma diz que pode, não que deve)'], ['direito_de_terceiro', 'Direitos de consumidores e usuários'], ['competencia_aneel', 'Competências da ANEEL'], ['dever_de_outro_agente', 'Deveres de outros agentes (não são da distribuidora)'], ['regra_de_transicao', 'Regras de transição (prazo de adequação a outros dispositivos)']]
   return <div className="space-y-5 text-sm">
     <p className="text-ink-soft">Dispositivos lidos pela mesma extração que não são deveres da distribuidora. Ficam fora da contagem do plano e do cálculo de multa. Cada um mostra o trecho literal e o dispositivo.</p>
+    {Object.entries(plano.notas_outros).map(([art, nota]) => <p key={art} className="border-[length:var(--borda-forte)] border-obsidian p-3 font-semibold">{art}: {nota}</p>)}
     {grupos.map(([n, titulo]) => por(n).length > 0 && <div key={n}>
       <h3 className="font-semibold">{titulo} <span className="text-ink-soft">({por(n).length})</span></h3>
       <ul className="mt-2 space-y-3">{por(n).map((o) => <li key={o.id}>
@@ -435,6 +439,36 @@ function Porte({ setSim }: { setSim: (s: Simulacao | null) => void }) {
   </div>
 }
 
+/** "O que recomendamos": ações, provas, defesa, "Evite" e o efeito de agir; e o campo "O que sua empresa já faz". */
+function Recomendamos({ t }: { t: Tema }) {
+  const { sim, modo } = useContext(Cenario)
+  const { respostas, persistente, escrever } = useRespostas()
+  const rec = recomendacoesDoTema(plano, t, sim, modo)
+  const texto = respostas.jaFazemos[t.id] ?? ''
+  return <section aria-labelledby={`rec-${t.id}`} className="mt-5 border-[length:var(--borda-forte)] border-obsidian p-4 sm:p-5">
+    <h4 id={`rec-${t.id}`} className="flex flex-wrap items-center gap-2 text-xl font-bold">O que recomendamos <Tag kind="review" label="Sugestão" /></h4>
+    {rec.acoes.length ? <ol className="mt-3 space-y-2">{rec.acoes.map((a) => <li key={a} className="border-l-[length:var(--borda-titulo)] border-obsidian pl-3.5 text-base leading-snug">{a}</li>)}</ol>
+      : <p className="mt-3 text-sm">Recomendação em revisão: a IA não deu uma ação específica válida para este tema.</p>}
+    <div className="mt-4 grid gap-4 text-sm sm:grid-cols-2">
+      <div><h5 className="font-bold">O que guardar como prova</h5>
+        {rec.provas.length ? <ul className="mt-1 list-disc space-y-1 pl-4">{rec.provas.map((x) => <li key={x.id}>{x.texto}</li>)}</ul> : <p className="mt-1">—</p>}</div>
+      <div className="space-y-3">
+        {rec.efeito && <div><h5 className="font-bold">Efeito financeiro de agir</h5>
+          <p className="mt-1">Regularizar antes da fiscalização pode reduzir até {pct(rec.efeito.reducaoPct)}{rec.efeito.de != null && rec.efeito.para != null ? ` (${brlCurto(rec.efeito.de)} → ${brlCurto(rec.efeito.para)})` : ''} <span className="text-xs text-ink-soft">({rec.efeito.dispositivo} da REN 846; exige cessar a infração e reparar o dano)</span></p></div>}
+        {rec.defesa && <div><h5 className="font-bold">Defesa possível</h5><p className="mt-1">{rec.defesa.texto} <span className="text-xs text-ink-soft">({rec.defesa.origem})</span></p></div>}
+        {rec.evite && <div><h5 className="font-bold text-evite">Evite</h5><p className="mt-1">{rec.evite} <span className="text-xs text-ink-soft">(Sugestão)</span></p></div>}
+      </div>
+    </div>
+    <div className="mt-4 border-t border-line pt-4 print:hidden">
+      <label htmlFor={`ja-${t.id}`} className="text-sm font-bold">O que sua empresa já faz</label>
+      <textarea id={`ja-${t.id}`} rows={3} maxLength={LIMITE_JA_FAZEMOS} value={texto} onChange={(e) => escrever(t.id, e.target.value)} aria-describedby={`ja-aj-${t.id}`}
+        className="mt-1 block w-full border-[length:var(--borda-forte)] border-obsidian bg-white p-2.5 text-sm" placeholder="Ex.: plano aprovado em 2025, sem revisão anual ainda" />
+      <p id={`ja-aj-${t.id}`} className="mt-1 flex flex-wrap justify-between gap-2 text-xs"><span>{texto.length}/{LIMITE_JA_FAZEMOS} · Fica só no seu navegador. Nada é enviado.</span>
+        {!persistente && <span role="status" className="font-semibold text-bronze-deep">Este navegador não deixou gravar: o texto se perde ao fechar a página.</span>}</p>
+    </div>
+  </section>
+}
+
 const OPCOES: [Diagnostico, string][] = [['sim', 'Já temos'], ['parcial', 'Parcial'], ['nao', 'Não temos']]
 
 function CartaoTema({ tema: t, posicao, diag, marcar, maiorPct }: { tema: Tema; posicao: number; diag?: Diagnostico; marcar: (id: string, d: Diagnostico) => void; maiorPct: number }) {
@@ -466,6 +500,8 @@ function CartaoTema({ tema: t, posicao, diag, marcar, maiorPct }: { tema: Tema; 
       </fieldset>
       <p className="hidden text-sm print:block">Situação informada: {nomeDiag(diag)}</p>
     </div>
+
+    <Recomendamos t={t} />
 
     <div className="mt-5">
       {e ? <>

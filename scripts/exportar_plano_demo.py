@@ -356,6 +356,7 @@ def gerar(data=None, commit=None, arquivo=None, segmento="distribuicao"):
         if ia
         else None,  # fmt: skip
         "referencia_escala": analise.referencia_escala(),
+        "notas_outros": cfg_norma.get("notas_outros", {}),
         "simulador": simulador(demo, processado, arquivo, segmento),
         **out,
     }

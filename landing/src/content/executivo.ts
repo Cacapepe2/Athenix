@@ -211,6 +211,8 @@ export function proveCom(p: PlanoDados, o: Obrigacao): string | null {
 
 export interface LinhaTop5 {
   id: string
+  area: string
+  dataPrazo: string | null
   /** Citação literal do dispositivo (o que a norma exige). */
   trecho: string | null
   /** Valor por infração se regularizar antes da fiscalização (atenuante do art. 24, I). */
@@ -268,7 +270,7 @@ export function top5(normaId: NormaId, s: Simulacao | null, modo: Modo, n = 5): 
   return comValor.slice(0, n).map(({ o, v }) => {
     const t = textoDoValor(v)
     return {
-      id: o.id, trecho: o.trecho, situacaoPrazo: o.situacao, reduzidoReais: barrasDeValor(p, v, s).find((b) => b.cor === 'reducao')?.reais ?? null, titulo: tituloCurto(o), prazoCurto: prazoCurto(o), prazoBase: prazoBase(o), barras: barrasDeValor(p, v, s),
+      id: o.id, area: o.area, dataPrazo: o.prazo.data, trecho: o.trecho, situacaoPrazo: o.situacao, reduzidoReais: barrasDeValor(p, v, s).find((b) => b.cor === 'reducao')?.reais ?? null, titulo: tituloCurto(o), prazoCurto: prazoCurto(o), prazoBase: prazoBase(o), barras: barrasDeValor(p, v, s),
       proveCom: proveCom(p, o), evite: o.evite?.acao ?? null, gravidadeRotulo: rotuloDoGrupo(v?.grupo), normaId, frase: frase(o), fraseOriginal: o.titulo_completo, dispositivo: o.dispositivo,
       prazo: prazoTexto(o), situacao: o.situacao, valor: v, gravidade: t.gravidade, textoValor: t.valor,
       preliminar: t.preliminar, fazer: oQueFazer(p, o), defesa: defesa(p, o), link: urlDetalhe(normaId, o.id),

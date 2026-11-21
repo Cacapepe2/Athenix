@@ -26,15 +26,17 @@
    ],
    "exige_contexto": true,
    "ideias_cumprimento": [
-    "Definir canais e modelos de mensagem (SMS, aplicativo, call center, redes sociais) para cada situação prevista na norma.",
+    "Definir canais e modelos de mensagem para cada situação prevista na norma.",
     "Automatizar o disparo a partir do evento que gera a obrigação e registrar quem recebeu e quando.",
     "Priorizar consumidores com necessidade especial ou serviço essencial, se a norma os destacar.",
-    "Testar a mensagem e o canal antes de precisar deles (simulação)."
+    "Testar a mensagem e o canal antes de precisar deles (simulação).",
+    "Avisar com antecedência a partir de alerta meteorológico oficial (ex.: INMET), quando a norma tratar de evento climático."
    ],
    "evidencias": [
     "Log de envio com data, hora, canal e destinatários.",
     "Modelo da mensagem na versão vigente e histórico de versões.",
-    "Relatório de alcance e de falhas de entrega."
+    "Relatório de alcance e de falhas de entrega.",
+    "Registro do alerta recebido e do aviso enviado (horário, região, quantidade de clientes)."
    ],
    "dependencias_tipicas": [
     "evento_extremo_defesa_civil",

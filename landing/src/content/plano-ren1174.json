@@ -1,6 +1,6 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "0d86523",
+ "commit_origem": "8286a30",
  "gerado_em": "2026-11-20",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
@@ -49,6 +49,9 @@
    "motivo": "falhas no restabelecimento após evento climático",
    "fonte": "notícia pública, Agência Brasil, 09/02/2024; multa mantida pela diretoria da ANEEL em 09/04/2024"
   }
+ },
+ "notas_outros": {
+  "Art. 12": "Grupo de trabalho sobre faturas, coordenado provisoriamente pela Abradee; primeira reunião até 03/01/2027 (§ 11)."
  },
  "simulador": {
   "faixas": [
@@ -725,6 +728,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 14, § 1º, inciso II"
   },
   {
@@ -814,6 +818,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 11, inciso VIII"
   },
   {
@@ -895,6 +900,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 13, § 3º"
   },
   {
@@ -971,6 +977,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 42, § 3º"
   },
   {
@@ -1052,6 +1059,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 42, § 4º"
   },
   {
@@ -1134,6 +1142,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 96-A, § 1º"
   },
   {
@@ -1223,6 +1232,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 138, § 9º, inciso I"
   },
   {
@@ -1310,6 +1320,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 138, § 9º, inciso II"
   },
   {
@@ -1394,6 +1405,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
    "dispositivo": "Art. 138, § 10"
   },
   {
@@ -1476,6 +1488,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 142, inciso IV, alínea a"
   },
   {
@@ -1550,6 +1563,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 142, inciso IV, alínea b"
   },
   {
@@ -1631,6 +1645,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 159, Parágrafo único"
   },
   {
@@ -1708,6 +1723,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 159-B, § 1º"
   },
   {
@@ -1792,6 +1808,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 160, § 4º, inciso I"
   },
   {
@@ -1868,6 +1885,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 160, § 4º, inciso II"
   },
   {
@@ -1944,6 +1962,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 163"
   },
   {
@@ -2021,6 +2040,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 166, inciso I"
   },
   {
@@ -2099,6 +2119,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 166, inciso II"
   },
   {
@@ -2175,6 +2196,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 166, § 1º"
   },
   {
@@ -2251,6 +2273,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
    "dispositivo": "Art. 166, § 3º"
   },
   {
@@ -2337,6 +2360,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 166, § 6º, inciso I"
   },
   {
@@ -2423,6 +2447,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 166, § 7º, inciso I"
   },
   {
@@ -2497,6 +2522,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 166, § 7º, inciso II"
   },
   {
@@ -2573,6 +2599,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 166, § 10"
   },
   {
@@ -2652,6 +2679,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 166-A, § 3º, inciso I"
   },
   {
@@ -2731,6 +2759,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 166-A, § 3º, inciso II"
   },
   {
@@ -2807,6 +2836,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
    "dispositivo": "Art. 167-B, inciso I"
   },
   {
@@ -2881,6 +2911,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 167-B, inciso II"
   },
   {
@@ -2955,6 +2986,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 167-B, inciso III"
   },
   {
@@ -3029,6 +3061,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 167-C"
   },
   {
@@ -3105,6 +3138,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 167-C, § 2º, inciso I"
   },
   {
@@ -3181,6 +3215,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 168, inciso I"
   },
   {
@@ -3257,6 +3292,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 168, inciso III"
   },
   {
@@ -3304,6 +3340,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 168, inciso VII"
   },
   {
@@ -3380,6 +3417,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 168, inciso VIII"
   },
   {
@@ -3459,6 +3497,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 170, § 4º, inciso I"
   },
   {
@@ -3535,6 +3574,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
    "dispositivo": "Art. 170, § 4º, inciso II"
   },
   {
@@ -3611,6 +3651,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
    "dispositivo": "Art. 294, § 4º"
   },
   {
@@ -3687,6 +3728,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 333, § 4º"
   },
   {
@@ -3761,6 +3803,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "§ 2º"
   },
   {
@@ -3840,6 +3883,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "§ 3º"
   },
   {
@@ -3914,6 +3958,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "§ 5º"
   },
   {
@@ -3988,6 +4033,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "§ 6º"
   },
   {
@@ -4062,6 +4108,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 476, § 5º"
   },
   {
@@ -4136,6 +4183,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 627-A, § 11"
   },
   {
@@ -4215,6 +4263,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 629, § 9º"
   },
   {
@@ -4289,6 +4338,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 655-Y"
   },
   {
@@ -4365,6 +4415,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "inciso III, alínea e"
   },
   {
@@ -4439,6 +4490,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Parágrafo único"
   },
   {
@@ -4513,6 +4565,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
    "dispositivo": "Art. 7º, § 3º"
   },
   {
@@ -4589,6 +4642,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 9º-A, inciso I"
   },
   {
@@ -4666,6 +4720,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 9º-A, inciso II"
   },
   {
@@ -4742,6 +4797,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 9º-A, inciso III"
   },
   {
@@ -4819,6 +4875,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 9º-A, inciso IV"
   },
   {
@@ -4893,6 +4950,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 9º-A, § 1º"
   },
   {
@@ -4969,6 +5027,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
    "dispositivo": "Art. 19, § 9º"
   },
   {
@@ -5051,6 +5110,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 21-A"
   },
   {
@@ -5137,6 +5197,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
    "dispositivo": "Art. 21-B, § 1º"
   },
   {
@@ -5225,6 +5286,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 172-C"
   },
   {
@@ -5317,6 +5379,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 3º-A"
   },
   {
@@ -5397,6 +5460,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 4º"
   },
   {
@@ -5486,6 +5550,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 11, inciso I"
   },
   {
@@ -5567,6 +5632,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 11, inciso I"
   },
   {
@@ -5656,6 +5722,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 11, inciso I, alínea c"
   },
   {
@@ -5745,6 +5812,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 11, inciso I, alínea d"
   },
   {
@@ -5832,6 +5900,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
    "dispositivo": "Art. 11, inciso I, alínea e"
   },
   {
@@ -5913,6 +5982,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 11, inciso I, alínea f"
   },
   {
@@ -5999,6 +6069,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 11, inciso I, alínea g"
   },
   {
@@ -6076,6 +6147,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
    "dispositivo": "Art. 11, inciso III"
   },
   {
@@ -6158,6 +6230,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 13, inciso II"
   },
   {
@@ -6239,6 +6312,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 13, § 1º"
   },
   {
@@ -6318,6 +6392,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 13, § 4º"
   },
   {
@@ -6394,6 +6469,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 13, § 5º"
   },
   {
@@ -6475,6 +6551,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
    "dispositivo": "Art. 13, § 7º"
   },
   {
@@ -6549,6 +6626,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 14, § 1º, inciso I"
   },
   {
@@ -6623,6 +6701,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 14, § 1º, inciso III"
   },
   {
@@ -6709,6 +6788,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 14, § 2º, inciso I"
   },
   {
@@ -6795,6 +6875,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 14, § 2º, inciso II"
   },
   {
@@ -6881,6 +6962,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 14, § 3º"
   },
   {
@@ -6955,6 +7037,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 14, § 4º"
   }
  ],
@@ -8237,6 +8320,17 @@
  },
  "analise": {
   "rotulo": "Análise regulatória preliminar · não constitui parecer jurídico · revisar com o jurídico",
+  "areas": {
+   "rotulo": "sugestão — revisar com a empresa",
+   "lista": [
+    "Regulatório",
+    "Operação/Manutenção",
+    "Comunicação/Atendimento",
+    "TI/Sistemas",
+    "Meio Ambiente/Arborização",
+    "Jurídico"
+   ]
+  },
   "tipo_so_regra": "só pela regra · segunda leitura da IA não feita",
   "tipo_a_revisar": "tipo a revisar",
   "manuais": {
@@ -8318,15 +8412,17 @@
    "comunicar_consumidores": {
     "nome": "Comunicar consumidores",
     "ideias_cumprimento": [
-     "Definir canais e modelos de mensagem (SMS, aplicativo, call center, redes sociais) para cada situação prevista na norma.",
+     "Definir canais e modelos de mensagem para cada situação prevista na norma.",
      "Automatizar o disparo a partir do evento que gera a obrigação e registrar quem recebeu e quando.",
      "Priorizar consumidores com necessidade especial ou serviço essencial, se a norma os destacar.",
-     "Testar a mensagem e o canal antes de precisar deles (simulação)."
+     "Testar a mensagem e o canal antes de precisar deles (simulação).",
+     "Avisar com antecedência a partir de alerta meteorológico oficial (ex.: INMET), quando a norma tratar de evento climático."
     ],
     "evidencias": [
      "Log de envio com data, hora, canal e destinatários.",
      "Modelo da mensagem na versão vigente e histórico de versões.",
-     "Relatório de alcance e de falhas de entrega."
+     "Relatório de alcance e de falhas de entrega.",
+     "Registro do alerta recebido e do aviso enviado (horário, região, quantidade de clientes)."
     ],
     "status": "rascunho — revisar"
    },

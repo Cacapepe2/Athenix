@@ -1,0 +1,35 @@
+{
+ "rotulo": "sugestão — revisar com a empresa",
+ "nota": "Área responsável SUGERIDA para cada tipo de obrigação. Cada empresa tem sua estrutura: este é o único arquivo a revisar para mudar quem faz o quê.",
+ "areas": [
+  "Regulatório",
+  "Operação/Manutenção",
+  "Comunicação/Atendimento",
+  "TI/Sistemas",
+  "Meio Ambiente/Arborização",
+  "Jurídico"
+ ],
+ "padrao": "Regulatório",
+ "por_tipo": {
+  "comunicar_consumidores": "Comunicação/Atendimento",
+  "comunicar_poder_publico_terceiros": "Regulatório",
+  "publicar_no_site": "TI/Sistemas",
+  "manter_registro_historico": "TI/Sistemas",
+  "elaborar_ou_revisar_plano": "Operação/Manutenção",
+  "enviar_informacao_aneel": "Regulatório",
+  "apurar_calcular_indicador": "Regulatório",
+  "implantar_sistema_processo": "TI/Sistemas",
+  "articular_coordenar_terceiros": "Regulatório",
+  "capacitar_equipe": "Operação/Manutenção",
+  "estrutura_atendimento_contingencia": "Comunicação/Atendimento",
+  "inspecionar_executar_manutencao": "Operação/Manutenção",
+  "adequar_contrato_documento": "Jurídico",
+  "responder_prazo_solicitacao": "Comunicação/Atendimento",
+  "restabelecer_ou_compensar": "Operação/Manutenção",
+  "estabelecer_criterios_e_papeis": "Regulatório",
+  "outros": "Regulatório"
+ },
+ "por_palavra": [
+  {"padrao": "vegeta[çc][ãa]o|poda|arboriza|manejo vegetal", "area": "Meio Ambiente/Arborização"}
+ ]
+}

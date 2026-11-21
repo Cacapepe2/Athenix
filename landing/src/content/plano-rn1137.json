@@ -1,6 +1,6 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "0d86523",
+ "commit_origem": "8286a30",
  "gerado_em": "2026-11-20",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
@@ -50,6 +50,7 @@
    "fonte": "notícia pública, Agência Brasil, 09/02/2024; multa mantida pela diretoria da ANEEL em 09/04/2024"
   }
  },
+ "notas_outros": {},
  "simulador": {
   "faixas": [
    {
@@ -1561,6 +1562,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
    "dispositivo": "Art. 13, inciso I"
   },
   {
@@ -1645,6 +1647,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
    "dispositivo": "Art. 13, inciso II"
   },
   {
@@ -1724,6 +1727,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
    "dispositivo": "Art. 13, inciso III"
   },
   {
@@ -1817,6 +1821,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
    "dispositivo": "Art. 13, inciso IV"
   },
   {
@@ -1911,6 +1916,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
    "dispositivo": "Art. 13, inciso V"
   },
   {
@@ -2004,6 +2010,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 13, inciso VI"
   },
   {
@@ -2090,6 +2097,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 120"
   },
   {
@@ -2169,6 +2177,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 172"
   },
   {
@@ -2255,6 +2264,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 19, inciso XIII, alínea b"
   },
   {
@@ -2338,6 +2348,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 132, alínea a"
   },
   {
@@ -2392,6 +2403,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Jurídico",
    "dispositivo": "item 132, alínea b"
   },
   {
@@ -2475,6 +2487,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 132, alínea c"
   },
   {
@@ -2558,6 +2571,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 132, alínea d"
   },
   {
@@ -2641,6 +2655,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 132, alínea e"
   },
   {
@@ -2724,6 +2739,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 132, alínea f"
   },
   {
@@ -2807,6 +2823,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 132, alínea g"
   },
   {
@@ -2890,6 +2907,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 132, alínea h"
   },
   {
@@ -2973,6 +2991,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 132, alínea i"
   },
   {
@@ -3060,6 +3079,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 132, alínea j"
   },
   {
@@ -3143,6 +3163,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 132, alínea k"
   },
   {
@@ -3226,6 +3247,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
    "dispositivo": "item 132, alínea l"
   },
   {
@@ -3309,6 +3331,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 132, alínea m"
   },
   {
@@ -3385,6 +3408,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
    "dispositivo": "item 138"
   },
   {
@@ -3441,6 +3465,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 139, alínea b"
   },
   {
@@ -3499,6 +3524,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 219"
   },
   {
@@ -3585,6 +3611,7 @@
      }
     ]
    },
+   "area": "TI/Sistemas",
    "dispositivo": "Art. 14"
   },
   {
@@ -3669,6 +3696,7 @@
      }
     ]
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 15"
   },
   {
@@ -3760,6 +3788,7 @@
      }
     ]
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 16"
   },
   {
@@ -3865,6 +3894,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
    "dispositivo": "item 94"
   },
   {
@@ -3957,6 +3987,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 96"
   },
   {
@@ -4066,6 +4097,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
    "dispositivo": "item 103"
   },
   {
@@ -4172,6 +4204,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
    "dispositivo": "item 107, alínea k"
   },
   {
@@ -4260,6 +4293,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 115"
   },
   {
@@ -4349,6 +4383,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 118"
   },
   {
@@ -4446,6 +4481,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
    "dispositivo": "item 140"
   },
   {
@@ -4542,6 +4578,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
    "dispositivo": "item 141"
   },
   {
@@ -4633,6 +4670,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 142, alínea a"
   },
   {
@@ -4733,6 +4771,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 142, alínea b"
   },
   {
@@ -4821,6 +4860,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 142, alínea c"
   },
   {
@@ -4910,6 +4950,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 142, alínea d"
   },
   {
@@ -4998,6 +5039,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 142, alínea e"
   },
   {
@@ -5087,6 +5129,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 142, alínea f"
   },
   {
@@ -5177,6 +5220,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 143, alínea a"
   },
   {
@@ -5265,6 +5309,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 143, alínea b"
   },
   {
@@ -5353,6 +5398,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
    "dispositivo": "item 143, alínea c"
   },
   {
@@ -5443,6 +5489,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 143, alínea d"
   },
   {
@@ -5535,6 +5582,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
    "dispositivo": "item 143, alínea e"
   },
   {
@@ -5627,6 +5675,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
    "dispositivo": "item 143, alínea f"
   },
   {
@@ -5715,6 +5764,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
    "dispositivo": "item 143, alínea g"
   },
   {
@@ -5804,6 +5854,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 143, alínea h"
   },
   {
@@ -5892,6 +5943,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 143, alínea i"
   },
   {
@@ -5976,6 +6028,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
    "dispositivo": "item 143, alínea j"
   },
   {
@@ -6065,6 +6118,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 143, alínea k"
   },
   {
@@ -6153,6 +6207,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 144, alínea b"
   },
   {
@@ -6241,6 +6296,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
    "dispositivo": "item 144, alínea c"
   },
   {
@@ -6331,6 +6387,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
    "dispositivo": "item 144, alínea d"
   },
   {
@@ -6419,6 +6476,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
    "dispositivo": "item 144, alínea e"
   },
   {
@@ -6511,6 +6569,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
    "dispositivo": "item 144, alínea f"
   },
   {
@@ -6599,6 +6658,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
    "dispositivo": "item 144, alínea g"
   },
   {
@@ -6691,6 +6751,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
    "dispositivo": "item 144, alínea h"
   },
   {
@@ -6780,6 +6841,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
    "dispositivo": "item 144, alínea i"
   },
   {
@@ -6861,6 +6923,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
    "dispositivo": "item 145, alínea a"
   },
   {
@@ -6949,6 +7012,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
    "dispositivo": "item 146"
   },
   {
@@ -7046,6 +7110,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
    "dispositivo": "item 147"
   },
   {
@@ -7134,6 +7199,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
    "dispositivo": "item 148"
   },
   {
@@ -7234,6 +7300,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
    "dispositivo": "item 23-F"
   },
   {
@@ -7329,6 +7396,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
    "dispositivo": "item 23-J"
   },
   {
@@ -7426,6 +7494,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 23-M"
   },
   {
@@ -7519,6 +7588,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
    "dispositivo": "Art. 13, Parágrafo único"
   },
   {
@@ -7595,6 +7665,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
    "dispositivo": "item 95"
   },
   {
@@ -7669,6 +7740,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
    "dispositivo": "item 97"
   },
   {
@@ -7746,6 +7818,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
    "dispositivo": "item 99, alínea a"
   },
   {
@@ -7822,6 +7895,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
    "dispositivo": "item 99, alínea b"
   },
   {
@@ -7899,6 +7973,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
    "dispositivo": "item 99, alínea c"
   },
   {
@@ -7980,6 +8055,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
    "dispositivo": "item 99, alínea d"
   },
   {
@@ -8054,6 +8130,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
    "dispositivo": "item 100"
   },
   {
@@ -8128,6 +8205,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
    "dispositivo": "item 101, alínea a"
   },
   {
@@ -8204,6 +8282,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
    "dispositivo": "item 101, alínea b"
   },
   {
@@ -8278,6 +8357,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
    "dispositivo": "item 101, alínea c"
   },
   {
@@ -8352,6 +8432,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 101, alínea d"
   },
   {
@@ -8426,6 +8507,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 101, alínea e"
   },
   {
@@ -8500,6 +8582,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
    "dispositivo": "item 101, alínea f"
   },
   {
@@ -8577,6 +8660,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 101, alínea g"
   },
   {
@@ -8662,6 +8746,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
    "dispositivo": "item 102"
   },
   {
@@ -8744,6 +8829,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
    "dispositivo": "item 104"
   },
   {
@@ -8821,6 +8907,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
    "dispositivo": "item 105"
   },
   {
@@ -8902,6 +8989,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
    "dispositivo": "item 106"
   },
   {
@@ -8976,6 +9064,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
    "dispositivo": "item 106"
   },
   {
@@ -9058,6 +9147,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 107, alínea a"
   },
   {
@@ -9140,6 +9230,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 107, alínea b"
   },
   {
@@ -9222,6 +9313,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 107, alínea c"
   },
   {
@@ -9304,6 +9396,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 107, alínea d"
   },
   {
@@ -9386,6 +9479,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 107, alínea e"
   },
   {
@@ -9468,6 +9562,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 107, alínea f"
   },
   {
@@ -9550,6 +9645,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 107, alínea g"
   },
   {
@@ -9632,6 +9728,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 107, alínea h"
   },
   {
@@ -9714,6 +9811,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 107, alínea i"
   },
   {
@@ -9796,6 +9894,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 107, alínea j"
   },
   {
@@ -9887,6 +9986,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
    "dispositivo": "item 108"
   },
   {
@@ -9963,6 +10063,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 109, alínea a"
   },
   {
@@ -10039,6 +10140,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 109, alínea b"
   },
   {
@@ -10115,6 +10217,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 109, alínea c"
   },
   {
@@ -10191,6 +10294,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 109, alínea d"
   },
   {
@@ -10273,6 +10377,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
    "dispositivo": "item 110"
   },
   {
@@ -10349,6 +10454,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
    "dispositivo": "item 112"
   },
   {
@@ -10431,6 +10537,7 @@
      }
     ]
    },
+   "area": "Regulatório",
    "dispositivo": "item 113"
   },
   {
@@ -10508,6 +10615,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 116"
   },
   {
@@ -10587,6 +10695,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 117"
   },
   {
@@ -10665,6 +10774,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
    "dispositivo": "item 119"
   },
   {
@@ -10741,6 +10851,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 126"
   },
   {
@@ -10788,6 +10899,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 127"
   },
   {
@@ -10878,6 +10990,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 129"
   },
   {
@@ -10954,6 +11067,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Jurídico",
    "dispositivo": "item 133, alínea c"
   },
   {
@@ -11030,6 +11144,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 133, alínea d"
   },
   {
@@ -11106,6 +11221,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
    "dispositivo": "item 133, alínea e"
   },
   {
@@ -11187,6 +11303,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
    "dispositivo": "item 133, alínea f"
   },
   {
@@ -11263,6 +11380,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
    "dispositivo": "item 133, alínea g"
   },
   {
@@ -11337,6 +11455,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 134, alínea a"
   },
   {
@@ -11411,6 +11530,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 134, alínea b"
   },
   {
@@ -11487,6 +11607,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 134, alínea c"
   },
   {
@@ -11563,6 +11684,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 134, alínea d"
   },
   {
@@ -11645,6 +11767,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
    "dispositivo": "item 135"
   },
   {
@@ -11729,6 +11852,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
    "dispositivo": "item 136"
   },
   {
@@ -11803,6 +11927,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
    "dispositivo": "item 139, alínea c"
   },
   {
@@ -11884,6 +12009,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
    "dispositivo": "item 142, alínea g"
   },
   {
@@ -11958,6 +12084,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 144, alínea a"
   },
   {
@@ -12032,6 +12159,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
    "dispositivo": "item 145"
   },
   {
@@ -12108,6 +12236,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 145, alínea b"
   },
   {
@@ -12199,6 +12328,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 23-A"
   },
   {
@@ -12276,6 +12406,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
    "dispositivo": "item 23-B"
   },
   {
@@ -12350,6 +12481,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 23-C"
   },
   {
@@ -12432,6 +12564,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
    "dispositivo": "item 23-D"
   },
   {
@@ -12517,6 +12650,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
    "dispositivo": "item 23-E"
   },
   {
@@ -12571,6 +12705,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 23-G"
   },
   {
@@ -12625,6 +12760,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
    "dispositivo": "item 23-H"
   },
   {
@@ -12710,6 +12846,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
    "dispositivo": "item 23-I"
   },
   {
@@ -12792,6 +12929,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 23-K"
   },
   {
@@ -12871,6 +13009,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 23-L"
   },
   {
@@ -12945,6 +13084,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 180-A"
   },
   {
@@ -13013,6 +13153,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
    "dispositivo": "item 220-A"
   },
   {
@@ -13099,6 +13240,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "item 226"
   },
   {
@@ -13178,6 +13320,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
    "dispositivo": "item 227, alínea d"
   },
   {
@@ -13255,6 +13398,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 371-A"
   },
   {
@@ -13331,6 +13475,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 371-A, § 1º, inciso I"
   },
   {
@@ -13407,6 +13552,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 371-A, § 1º, inciso II"
   },
   {
@@ -13484,6 +13630,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 371-A, § 1º, inciso III"
   },
   {
@@ -13560,6 +13707,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 371-A, § 3º"
   },
   {
@@ -13634,6 +13782,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 371-A, § 4º"
   },
   {
@@ -13711,6 +13860,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
    "dispositivo": "Art. 371-A, § 5º"
   },
   {
@@ -13785,6 +13935,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
    "dispositivo": "Art. 371-A, § 6º"
   },
   {
@@ -13862,6 +14013,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 371-A, § 7º"
   },
   {
@@ -13907,6 +14059,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 10, § 2º"
   },
   {
@@ -13981,6 +14134,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
    "dispositivo": "Art. 10, §3º"
   },
   {
@@ -14055,6 +14209,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
    "dispositivo": "Art. 19, inciso XIII, alínea c"
   },
   {
@@ -14100,6 +14255,7 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
    "dispositivo": "Art. 18"
   }
  ],
@@ -14837,21 +14993,34 @@
  },
  "analise": {
   "rotulo": "Análise regulatória preliminar · não constitui parecer jurídico · revisar com o jurídico",
+  "areas": {
+   "rotulo": "sugestão — revisar com a empresa",
+   "lista": [
+    "Regulatório",
+    "Operação/Manutenção",
+    "Comunicação/Atendimento",
+    "TI/Sistemas",
+    "Meio Ambiente/Arborização",
+    "Jurídico"
+   ]
+  },
   "tipo_so_regra": "só pela regra · segunda leitura da IA não feita",
   "tipo_a_revisar": "tipo a revisar",
   "manuais": {
    "comunicar_consumidores": {
     "nome": "Comunicar consumidores",
     "ideias_cumprimento": [
-     "Definir canais e modelos de mensagem (SMS, aplicativo, call center, redes sociais) para cada situação prevista na norma.",
+     "Definir canais e modelos de mensagem para cada situação prevista na norma.",
      "Automatizar o disparo a partir do evento que gera a obrigação e registrar quem recebeu e quando.",
      "Priorizar consumidores com necessidade especial ou serviço essencial, se a norma os destacar.",
-     "Testar a mensagem e o canal antes de precisar deles (simulação)."
+     "Testar a mensagem e o canal antes de precisar deles (simulação).",
+     "Avisar com antecedência a partir de alerta meteorológico oficial (ex.: INMET), quando a norma tratar de evento climático."
     ],
     "evidencias": [
      "Log de envio com data, hora, canal e destinatários.",
      "Modelo da mensagem na versão vigente e histórico de versões.",
-     "Relatório de alcance e de falhas de entrega."
+     "Relatório de alcance e de falhas de entrega.",
+     "Registro do alerta recebido e do aviso enviado (horário, região, quantidade de clientes)."
     ],
     "status": "rascunho — revisar"
    },

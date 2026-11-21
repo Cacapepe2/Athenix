@@ -1,11 +1,20 @@
 import { useMemo, useState } from 'react'
 import { brlCurto, normaDaUrl, pct, type Modo, type Simulacao } from '../../content/plano'
-import { norma as dadosDa, urlPlanoCompleto } from '../../content/executivo'
+import { norma as dadosDa, NORMAS, urlPlanoCompleto } from '../../content/executivo'
+import { calendarioIcs, tarefasCsv } from '../../content/tarefas'
 import { FILTROS_INICIAIS, OPCOES, blocosDoPlano, filtrar, filtrosDaUrl, urlComFiltros, type BlocoPlano, type Filtros } from '../../content/filtros'
 
 // Plano completo, por obrigação: filtros à esquerda (empilham no celular) e blocos clicáveis. Mesma lógica
 // da página executiva (content/executivo.ts); a URL guarda os filtros (?norma=…&situacao=…).
 const valorCurto = (b: BlocoPlano) => (b.valor ? (b.valor.reais != null ? `${brlCurto(b.valor.reais)}${b.preliminar ? '*' : ''}` : `${pct(b.valor.pct)}${b.preliminar ? '*' : ''}`) : 'a enquadrar')
+
+function baixar(nome: string, conteudo: string, tipo: string) {
+  const url = URL.createObjectURL(new Blob([conteudo], { type: tipo }))
+  const a = Object.assign(document.createElement('a'), { href: url, download: nome })
+  a.click()
+  setTimeout(() => URL.revokeObjectURL(url), 1000)
+}
+const slug = (t: string) => t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 
 export function BlocosObrigacoes({ sim, modo }: { sim: Simulacao | null; modo: Modo }) {
   const [filtros, setFiltros] = useState<Filtros>(() => (typeof location === 'undefined' ? FILTROS_INICIAIS : filtrosDaUrl(location.search)))
@@ -30,6 +39,12 @@ export function BlocosObrigacoes({ sim, modo }: { sim: Simulacao | null; modo: M
           <legend className="mb-1.5 p-0 text-[13px] font-bold">{g.titulo}</legend>
           {g.opcoes.map((o) => <button key={o.valor} type="button" className="seg" aria-pressed={filtros[g.chave] === o.valor} onClick={() => mudar({ ...filtros, [g.chave]: o.valor })}>{o.rotulo}</button>)}
         </fieldset>)}
+        <div className="flex flex-col gap-2 border-t border-obsidian pt-4">
+          <span className="text-[13px] font-bold">Quem faz o quê</span>
+          <button type="button" className="seg" onClick={() => baixar(`tarefas-${filtros.area === 'todas' ? 'todas-as-areas' : slug(filtros.area)}.csv`, `﻿${tarefasCsv(visiveis, filtros.area === 'todas' ? null : filtros.area)}`, 'text/csv;charset=utf-8')}>Baixar tarefas da área (CSV)</button>
+          <button type="button" className="seg" onClick={() => baixar('prazos-athenix.ics', calendarioIcs(NORMAS.map((n) => ({ norma: n.id, vigencia: n.dados.norma.vigencia, blocos: visiveis.filter((b) => b.norma === n.id), trechos: Object.fromEntries(n.dados.obrigacoes.map((o) => [o.id, o.trecho ?? ''])) })), filtros.area === 'todas' ? null : filtros.area), 'text/calendar;charset=utf-8')}>Adicionar prazos ao calendário (.ics)</button>
+          <span className="text-xs">A área é sugestão; o arquivo sai só no seu navegador. Respeita os filtros acima.</span>
+        </div>
         <button type="button" disabled={!temFiltro} onClick={() => mudar(FILTROS_INICIAIS)} className="min-h-11 cursor-pointer py-2.5 text-left text-sm font-semibold underline underline-offset-4 disabled:cursor-default disabled:no-underline disabled:opacity-60">Limpar filtros</button>
       </aside>
 

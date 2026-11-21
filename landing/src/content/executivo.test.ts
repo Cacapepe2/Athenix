@@ -276,3 +276,12 @@ test('terceiro número: sem vencidas mostra os dias até o próximo prazo; sem n
   assert.equal(pz.proxima?.data, '2027-11-04')
   assert.ok(prazos(planos.rn1137).vencidas > 0)
 })
+
+test('REN 1.174, Art. 12 (grupo de trabalho): fora dos deveres, com nota; Art. 13, § 1º conta como dever da distribuidora', () => {
+  const p = planos.ren1174
+  assert.ok(!p.obrigacoes.some((o) => o.dispositivo?.startsWith('Art. 12')))
+  for (const d of ['Art. 12, § 1º', 'Art. 12, § 5º', 'Art. 12, § 11']) assert.ok(p.outros_dispositivos.some((o) => o.dispositivo === d), d)
+  assert.equal(p.notas_outros['Art. 12'], 'Grupo de trabalho sobre faturas, coordenado provisoriamente pela Abradee; primeira reunião até 03/01/2027 (§ 11).')
+  assert.ok(p.obrigacoes.some((o) => o.dispositivo === 'Art. 13, § 1º' && /celebrado entre o consumidor parcialmente livre e a distribuidora/.test(o.trecho ?? '')))
+  assert.equal(p.resumo.aplicaveis, 80)
+})
