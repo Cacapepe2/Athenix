@@ -299,7 +299,8 @@ def test_futuro_so_vira_dever_quando_a_distribuidora_age_explicitamente(texto, v
 
 def test_nada_some_em_silencio_na_ren_1174_e_a_rn_1137_nao_muda_de_contagem():
     assert P1137["resumo"]["aplicaveis"] == 153
-    assert P1174["resumo"]["aplicaveis"] == 83
+    # 84: +Art. 42, § 2º, I e II (vedação "não pode exigir" do caput), −Art. 168, VIII ("pode"; auditoria C1)
+    assert P1174["resumo"]["aplicaveis"] == 84
     s10 = [
         o
         for o in P1174["sem_dever_identificado"]

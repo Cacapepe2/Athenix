@@ -253,7 +253,9 @@ def test_rn_1137_ponta_a_ponta_so_dependencia_de_ato_com_citacao_verificada():
 
     itens = rt.analisar()
     r = rt.resumo(itens)
-    assert r["obrigacoes"] == 168
+    assert (
+        r["obrigacoes"] == 170
+    )  # +2 com "pode"/"não pode" singular (itens 131 e 137, auditoria C1)
     assert (
         r["detalhe_do_dispositivo_pai_sem_tipo_proprio"] > 0
     )  # alíneas de conteúdo não herdam tipo
