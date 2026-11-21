@@ -2,7 +2,7 @@
 // possível (só se houver), "Evite" (só se houver) e o efeito financeiro de agir. Tudo vem dos dados do plano:
 // as ações são as recomendações ESPECÍFICAS por dispositivo (IA, "Sugestão"); as provas, do manual do tipo.
 import { defesa, eGerencial } from './executivo.ts'
-import { exposicaoTema, planos, reaisDe, SIM_INICIAL, type Modo, type Obrigacao, type PlanoDados, type Simulacao, type Tema } from './plano.ts'
+import { comAtenuantePct, exposicaoTema, planos, reaisDe, SIM_INICIAL, type Faixa, type Modo, type Obrigacao, type PlanoDados, type Simulacao, type Tema } from './plano.ts'
 
 export interface ProvaSugerida { id: string; texto: string }
 export interface EfeitoDeAgir { reducaoPct: number; de: number | null; para: number | null; dispositivo: string }
@@ -12,7 +12,7 @@ export interface RecomendacaoDoTema {
   /** Detalhe operacional (sugestão): equipamento, ferramenta, ordem de campo. Só no plano completo, recolhido. */
   operacionais: string[]
   provas: ProvaSugerida[]
-  defesa: { texto: string; origem: 'no texto' | 'prática conhecida' } | null
+  defesa: { texto: string; origem: 'no texto' | 'marco do texto' | 'prática conhecida' } | null
   evite: string | null
   efeito: EfeitoDeAgir | null
 }
@@ -71,9 +71,15 @@ export function recomendacoesDoTema(p: PlanoDados, t: Tema, s: Simulacao | null 
   const e = exposicaoTema(t, s, modo)
   const m = p.reducao.medidas.find((x) => x.cenario === 'espontanea')
   const efeito = e && m?.percentual != null
-    ? { reducaoPct: m.percentual, de: e.reais, para: s ? reaisDe(e.pct * (1 - m.percentual / 100), s) : null, dispositivo: m.dispositivo }
+    // A MESMA conta do motor e dos outros componentes: o atenuante parte do teto do GRUPO e só depois o teto legal limita.
+    ? { reducaoPct: m.percentual, de: e.reais, para: s ? paraReais(e.faixa, s) : null, dispositivo: m.dispositivo }
     : null
   return { acoes, operacionais, provas, defesa: def, evite, efeito }
+}
+
+function paraReais(faixa: Faixa, s: Simulacao): number | null {
+  const pctAten = comAtenuantePct(faixa, s, 'espontanea')
+  return pctAten == null ? null : reaisDe(pctAten, s)
 }
 
 export const planoDaNorma = (id: 'rn1137' | 'ren1174') => planos[id]

@@ -2,7 +2,7 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { provasDoTema, recomendacoesDoTema } from './recomendacoes.ts'
 import { NORMAS, eGerencial } from './executivo.ts'
-import { SIM_INICIAL } from './plano.ts'
+import { comAtenuantePct, exposicaoTema, reaisDe, SIM_INICIAL } from './plano.ts'
 
 const sim = { base: 5e9, faturamento: null }
 
@@ -55,7 +55,7 @@ test('defesa e "Evite" só aparecem quando existem nos dados', () => {
     for (const t of n.dados.temas) {
       const r = recomendacoesDoTema(n.dados, t, SIM_INICIAL, 'preliminar')
       if (r.evite) assert.ok(n.dados.obrigacoes.some((o) => o.evite?.acao === r.evite))
-      if (r.defesa) assert.ok(r.defesa.origem === 'no texto' || r.defesa.origem === 'prática conhecida')
+      if (r.defesa) assert.ok(['no texto', 'marco do texto', 'prática conhecida'].includes(r.defesa.origem))
     }
   }
   const p = NORMAS[0].dados
@@ -71,5 +71,22 @@ test('recomendações por tema: só ações de nível gerencial; o detalhe opera
       for (const a of r.operacionais) assert.ok(!eGerencial(a), `operacional: ${a}`)
       for (const o of n.dados.obrigacoes) for (const x of o.recomendacoes) assert.doesNotMatch(x.acao, produto, x.acao)
     }
+  }
+})
+
+test('C2: o efeito de agir usa a mesma conta do motor (comAtenuantePct), inclusive limitado pelo faturamento', () => {
+  // Faturamento bruto R$ 500 mi com ROL R$ 5 bi: o teto legal (3% do faturamento = R$ 15 mi) limita o valor sem atenuante,
+  // mas o atenuante parte do teto do GRUPO (R$ 50 mi × 5% = R$ 2,5 mi), não de R$ 15 mi × 5% = R$ 750 mil.
+  const limitado = { base: 5e9, faturamento: 500e6 }
+  const p = NORMAS.find((n) => n.id === 'rn1137')!.dados
+  for (const t of p.temas) {
+    const e = exposicaoTema(t, limitado, 'preliminar')
+    if (!e) continue
+    const r = recomendacoesDoTema(p, t, limitado, 'preliminar')
+    const esperado = reaisDe(comAtenuantePct(e.faixa, limitado, 'espontanea')!, limitado)
+    assert.equal(r.efeito!.para, esperado, t.id)
+    assert.ok(r.efeito!.de! <= 15_000_000 + 1) // o valor "de" já vem limitado pelo teto legal
+    const grupoIV = e.faixa.grupos.includes('IV') && e.faixa.teto_grupo_pct === 1
+    if (grupoIV) assert.ok(Math.abs(r.efeito!.para! - 2_500_000) < 1) // e não R$ 750 mil
   }
 })

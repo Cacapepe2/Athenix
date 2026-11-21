@@ -4,11 +4,11 @@
 // nunca soma valores de infrações diferentes. Linguagem de negócio: o grupo da REN 846 vira
 // "infração grave (Grupo IV)" (mapeamento em gravidade.ts).
 import {
-  brlCurto, comAtenuantePct, dataBR, maximoPct, pct, planos, reaisDe, SIM_INICIAL,
+  brlCurto, comAtenuantePct, dataBR, HOJE, maximoPct, pct, planos, reaisDe, SIM_INICIAL,
   type Faixa, type Modo, type NormaId, type Obrigacao, type PlanoDados, type Simulacao,
 } from './plano.ts'
 import { GRUPOS, rotuloDoGrupo, nomeDaGravidade, type Grupo } from './gravidade.ts'
-import { atualizar, hojeISO } from './datas.ts'
+import { atualizar } from './datas.ts'
 
 export const NORMAS: { id: NormaId; rotulo: string; resumo: string; dados: PlanoDados }[] = [
   { id: 'rn1137', rotulo: 'RN 1.137/2025', resumo: 'eventos climáticos extremos', dados: planos.rn1137 },
@@ -72,7 +72,7 @@ export function queda(p: PlanoDados, s: Simulacao | null, modo: Modo): Queda | n
 }
 
 /** "Vencido desde 28/04/2026 (207 dias)" / "Vence em 04/11/2027 (348 dias)": prazo mais urgente do tema, contado de HOJE. */
-export function textoPrazoDoTema(p: PlanoDados, t: { prazo_mais_urgente: { obrigacao: string; data: string | null; texto: string } | null }, hoje: string = hojeISO()): string {
+export function textoPrazoDoTema(p: PlanoDados, t: { prazo_mais_urgente: { obrigacao: string; data: string | null; texto: string } | null }, hoje: string = HOJE): string {
   const u = t.prazo_mais_urgente
   if (!u) return 'Sem data no texto'
   const o = p.obrigacoes.find((x) => x.id === u.obrigacao)
@@ -84,7 +84,7 @@ export function textoPrazoDoTema(p: PlanoDados, t: { prazo_mais_urgente: { obrig
 export interface Prazos { vencidas: number; proxima: { dias: number; data: string } | null }
 
 /** Cartão 3: obrigações vencidas e a próxima que vence (só prazos com data). */
-export function prazos(p: PlanoDados, hoje: string = hojeISO()): Prazos {
+export function prazos(p: PlanoDados, hoje: string = HOJE): Prazos {
   const obrig = p.obrigacoes.map((o) => atualizar(o, hoje))
   const futuras = obrig.filter((o) => (o.situacao === '90dias' || o.situacao === 'depois') && o.prazo.dias != null && o.prazo.data)
   const prox = futuras.length ? futuras.reduce((a, b) => (b.prazo.dias! < a.prazo.dias! ? b : a)) : null
@@ -149,6 +149,7 @@ export function prazoTexto(o: Obrigacao, comBase = true): string {
   if (o.situacao === 'vencida' && d != null) return `vencida há ${Math.abs(d)} dias${contada_}`
   if ((o.situacao === '90dias' || o.situacao === 'depois') && d != null) return `vence em ${d} dias${contada_}`
   if (o.situacao === 'recorrente') return 'recorrente'
+  if (o.prazo.condicional) return 'maior entre 12 meses e o prazo informado'
   if (o.situacao === 'evento') return 'depende de um evento'
   return 'sem prazo no texto'
 }
@@ -180,19 +181,24 @@ export function acaoGerencial(acoes: string[]): string {
 }
 
 /** Defesa possível: causa externa no texto (com citação), prática conhecida do tema (a avaliar) ou "—". */
-export function defesa(p: PlanoDados, o: Obrigacao): { texto: string; origem: 'no texto' | 'prática conhecida' | null } {
-  if (o.analise?.dependencias_no_texto.some((d) => d.id === 'ato_da_aneel')) return { texto: 'instruções da ANEEL ainda por publicar', origem: 'no texto' }
+export type OrigemDefesa = 'no texto' | 'marco do texto' | 'prática conhecida'
+
+/** A "prática conhecida" só vale quando o dever É a ação que a dependência condiciona (poda para a autorização municipal;
+ *  comunicação para os canais de terceiros). Mencionar a prefeitura ou o município no texto não basta. */
+const ACAO_DA_PRATICA: Record<string, RegExp> = {
+  autorizacao_municipal: /\b(?:poda\w*|podar|supress[ãa]o|corte de [áa]rvores?|remo[çc][ãa]o de (?:[áa]rvores?|vegeta[çc][ãa]o))\b/i,
+  indisponibilidade_de_canais: /\b(?:comunic\w+|avis\w+|mensagens?|notific\w+|SMS|aplicativo|atendimento telef[ôo]nico)\b/i,
+}
+
+export function defesa(p: PlanoDados, o: Obrigacao): { texto: string; origem: OrigemDefesa | null } {
+  // O marco está no texto (a norma conta o prazo da publicação de instruções da ANEEL); se elas já saíram, não se sabe daqui.
+  if (o.analise?.dependencias_no_texto.some((d) => d.id === 'ato_da_aneel')) return { texto: 'verificar se as instruções da ANEEL foram publicadas', origem: 'marco do texto' }
   if (o.excludente) return { texto: 'excludente previsto no texto da norma', origem: 'no texto' }
-  // Coerência com o texto: obrigação que envolve a prefeitura mostra a dependência da autorização municipal,
-  // seja qual for o tema (ex.: registro das interações com o Poder Público Municipal).
-  const municipal = p.analise.dependencias.autorizacao_municipal
-  if (municipal && /prefeitura|poder p[úu]blico municipal|munic[ií]pi/i.test(`${o.titulo_completo} ${o.trecho ?? ''}`)) {
-    return { texto: simplificar(municipal.nome).toLowerCase(), origem: 'prática conhecida' }
-  }
+  const texto = `${o.titulo_completo} ${o.trecho ?? ''}`
   const dep = p.analise.pratica_por_tema[o.tema]
-  if (dep) return { texto: simplificar(p.analise.dependencias[dep].nome).toLowerCase(), origem: 'prática conhecida' }
+  if (dep && ACAO_DA_PRATICA[dep]?.test(texto)) return { texto: simplificar(p.analise.dependencias[dep].nome).toLowerCase(), origem: 'prática conhecida' }
   const outra = p.analise.causas_por_tema[o.tema]
-  if (outra) return { texto: outra.nome.toLowerCase(), origem: 'prática conhecida' }
+  if (outra && ACAO_DA_PRATICA.indisponibilidade_de_canais.test(texto)) return { texto: outra.nome.toLowerCase(), origem: 'prática conhecida' }
   return { texto: '—', origem: null }
 }
 
@@ -261,7 +267,7 @@ export interface LinhaTop5 {
   textoValor: string
   preliminar: string | null
   fazer: { texto: string; preliminar: boolean; todas: string[] } | null
-  defesa: { texto: string; origem: 'no texto' | 'prática conhecida' | null }
+  defesa: { texto: string; origem: OrigemDefesa | null }
   link: string
 }
 
@@ -270,7 +276,7 @@ const GRAU: Record<Obrigacao['situacao'], number> = { vencida: 0, '90dias': 1, d
 
 /** As 5 obrigações para olhar primeiro: vencidas (a mais antiga antes), depois as a vencer com data (a mais
  *  próxima antes), depois maior valor por infração, depois enquadramento identificado no texto antes do sugerido. */
-export function top5(normaId: NormaId, s: Simulacao | null, modo: Modo, n = 5, hoje: string = hojeISO()): LinhaTop5[] {
+export function top5(normaId: NormaId, s: Simulacao | null, modo: Modo, n = 5, hoje: string = HOJE): LinhaTop5[] {
   const p = norma(normaId).dados
   // Situação e dias recalculados para HOJE (o JSON traz os da data de referência da geração).
   const comValor = p.obrigacoes.map((o, i) => { const a = atualizar(o, hoje); return { o: a, i, v: valorDaObrigacao(a, s, modo) } })
@@ -325,7 +331,7 @@ export function referenciaDoSetor(p: PlanoDados, grupo?: string | null): Referen
 /** "maior multa já aplicada a uma distribuidora: R$ 165,8 mi (2024), por falhas no restabelecimento após evento climático" (informado; sem nome de empresa). */
 export function textoMaiorMulta(p: PlanoDados): string {
   const m = p.referencia_escala.maior_multa
-  return `${m.rotulo}: ${brlCurto(m.valor_reais)} (${m.ano}), por ${m.motivo}`
+  return `${m.rotulo}: ${brlCurto(m.valor_reais)}`
 }
 
 export interface DestaqueDaNorma { texto: string; rotuloData: string; data: string; deveres: number; comPrazo: number; recorrentes: number }

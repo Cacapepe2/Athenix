@@ -2,16 +2,17 @@
 // (mesmos números da executiva e do plano completo) e do que a empresa escreveu e marcou no navegador.
 // Lógica pura, testada em relatorio.test.ts. Nada sai do navegador.
 import { prazos, queda, textoPrazoDoTema, tituloCurto, valorGeral } from './executivo.ts'
-import { atualizar, hojeISO } from './datas.ts'
+import { atualizar } from './datas.ts'
+import { planoEm } from './referencia.ts'
 import { provasDoTema, recomendacoesDoTema } from './recomendacoes.ts'
-import { normaDaUrl, decisoesDaSemana, nomeDiag, brlCurto, comAtenuantePct, dataBR, exposicaoTema, ordenarTemas, pct, plano, reaisDe, SIM_INICIAL, type Diagnosticos, type ExtrasCsv, type Modo, type Obrigacao, type Simulacao, type Tema } from './plano.ts'
+import { normaDaUrl, decisoesDaSemana, nomeDiag, brlCurto, comAtenuantePct, dataBR, exposicaoTema, ordenarTemas, pct, plano as planoDaPagina, HOJE, reaisDe, SIM_INICIAL, type Diagnosticos, type ExtrasCsv, type Modo, type Obrigacao, type Simulacao, type Tema } from './plano.ts'
 import { fraseProntidao, prontidao } from './prontidao.ts'
 import { perguntasParaOJuridico, type Pergunta } from './perguntas.ts'
 import type { Respostas } from './respostas.ts'
 
 export const AVISO_RELATORIO = 'Análise regulatória preliminar · não constitui parecer jurídico'
 
-const obrigacoesDoTema = (t: Tema): Obrigacao[] => t.obrigacoes.map((id) => plano.obrigacoes.find((o) => o.id === id)!).filter(Boolean)
+const obrigacoesDoTema = (t: Tema): Obrigacao[] => t.obrigacoes.map((id) => planoDaPagina.obrigacoes.find((o) => o.id === id)!).filter(Boolean)
 
 /** Colunas novas do CSV do plano: o que já fazem, situação informada, provas marcadas e área sugerida. */
 export function extrasDoCsv(r: Respostas, diag: Diagnosticos = {}): ExtrasCsv {
@@ -19,7 +20,7 @@ export function extrasDoCsv(r: Respostas, diag: Diagnosticos = {}): ExtrasCsv {
     colunas: ['o_que_ja_fazemos', 'situacao', 'provas_marcadas', 'area'],
     linha: (t, o) => {
       const marcadas = new Set(r.provas[t.id] ?? [])
-      const texto = provasDoTema(plano, obrigacoesDoTema(t)).filter((p) => marcadas.has(p.id)).map((p) => p.texto).join('; ')
+      const texto = provasDoTema(planoDaPagina, obrigacoesDoTema(t)).filter((p) => marcadas.has(p.id)).map((p) => p.texto).join('; ')
       return [r.jaFazemos[t.id] ?? '', diag[t.id] ? nomeDiag(diag[t.id]) : '', texto, o.area]
     },
   }
@@ -55,12 +56,15 @@ const diaLocal = (d: Date) => `${d.getFullYear()}-${String(d.getMonth() + 1).pad
 
 const curta = (t: string, n = 220) => (t.length <= n ? t : `${t.slice(0, n).replace(/\s+\S*$/, '')}…`)
 
-export function montarRelatorio(args: { sim: Simulacao | null; modo: Modo; diag: Diagnosticos; respostas: Respostas; hoje?: Date }): Relatorio {
+export function montarRelatorio(args: { sim: Simulacao | null; modo: Modo; diag: Diagnosticos; respostas: Respostas; hoje?: Date | string }): Relatorio {
   const { sim, modo, diag, respostas } = args
+  // UMA referência de data para o relatório inteiro (a recebida; sem ela, a da página).
+  const hojeIso = typeof args.hoje === 'string' ? args.hoje : args.hoje ? diaLocal(args.hoje) : HOJE
+  const plano = planoEm(planoDaPagina, hojeIso)
   const base = sim ?? SIM_INICIAL
   const v = valorGeral(plano, sim, modo)
   const q = queda(plano, sim, modo)
-  const pz = prazos(plano)
+  const pz = prazos(plano, hojeIso)
   const dinheiro = (p: number) => (sim ? brlCurto(reaisDe(p, sim)) : `${pct(p)} da receita`)
   const ordenados = ordenarTemas(plano.temas, diag, sim, modo)
 
@@ -75,7 +79,7 @@ export function montarRelatorio(args: { sim: Simulacao | null; modo: Modo; diag:
       id: t.id, nome: t.nome,
       citacao: principal?.trecho ? `“${curta(principal.trecho.trim())}”` : principal?.titulo_completo ?? '—',
       dispositivo: principal?.dispositivo ?? 'dispositivo a confirmar',
-      prazo: textoPrazoDoTema(plano, t),
+      prazo: textoPrazoDoTema(plano, t, hojeIso),
       exposicao: e ? { teto: dinheiro(e.pct), ii: ii != null ? dinheiro(ii) : null, i: i != null ? dinheiro(i) : null, preliminar: e.origem === 'sugerido' } : null,
       acoes: rec.acoes,
       provas: rec.provas.map((p) => ({ ...p, marcada: marcadas.has(p.id) })),
@@ -96,7 +100,7 @@ export function montarRelatorio(args: { sim: Simulacao | null; modo: Modo; diag:
   const areas = lista.flatMap<AreaRelatorio>((area) => {
     const os = plano.obrigacoes.filter((o) => o.area === area)
     if (!os.length) return []
-    const venc = os.map((o) => atualizar(o, hojeISO())).filter((o) => o.situacao === 'vencida').sort((a, b) => (a.prazo.data ?? '').localeCompare(b.prazo.data ?? ''))
+    const venc = os.map((o) => atualizar(o, hojeIso)).filter((o) => o.situacao === 'vencida').sort((a, b) => (a.prazo.data ?? '').localeCompare(b.prazo.data ?? ''))
     const frase = area === 'A definir' ? `A definir: ${os.length} obrigações sem tipo identificado; a área responsável fica para a empresa decidir` : venc.length ? `${area}: ${os.length} obrigações, ${venc.length} vencidas — comece por ${venc.length > 3 ? 'estas 3' : venc.length === 1 ? 'esta' : `estas ${venc.length}`}: ${venc.slice(0, 3).map((o) => tituloCurto(o)).join('; ')}` : `${area}: ${os.length} obrigações, nenhuma vencida`
     const viaIA = os.filter((o) => o.area_origem === 'ia').length
     return [{ area, n: os.length, vencidas: venc.length, viaIA, frase: viaIA ? `${frase} · ${viaIA} com área sugerida (IA)` : frase }]
@@ -106,8 +110,8 @@ export function montarRelatorio(args: { sim: Simulacao | null; modo: Modo; diag:
     cabecalho: {
       norma: plano.norma.titulo,
       porte: sim ? `distribuidora de ${brlCurto(sim.base)} de receita operacional líquida (ilustrativo)` : 'receita não informada (valores em % da receita)',
-      data: dataBR(diaLocal(args.hoje ?? new Date())),
-      prazosAte: dataBR(diaLocal(args.hoje ?? new Date())),
+      data: dataBR(hojeIso),
+      prazosAte: dataBR(hojeIso),
       aviso: AVISO_RELATORIO,
     },
     numeros: {
@@ -117,9 +121,9 @@ export function montarRelatorio(args: { sim: Simulacao | null; modo: Modo; diag:
       prazo: pz.vencidas > 0 ? { valor: String(pz.vencidas), legenda: pz.vencidas === 1 ? 'obrigação vencida' : 'obrigações vencidas' }
         : pz.proxima ? { valor: `${pz.proxima.dias} dias`, legenda: 'até o próximo prazo' } : { valor: '—', legenda: 'nenhum prazo a vencer' },
     },
-    decisoes: decisoesDaSemana(plano.temas, diag, sim, modo).map((t) => ({ nome: t.nome, porque: textoPrazoDoTema(plano, t).toLowerCase() })),
+    decisoes: decisoesDaSemana(plano.temas, diag, sim, modo).map((t) => ({ nome: t.nome, porque: textoPrazoDoTema(plano, t, hojeIso).toLowerCase() })),
     prontidao: (() => { const p = prontidao(plano, respostas, sim, modo); return p.algumaMarcada ? fraseProntidao(p.geral.x, p.geral.y) : null })(),
     temas, lacunas, areas,
-    perguntas: perguntasParaOJuridico(plano, normaDaUrl(), sim, modo),
+    perguntas: perguntasParaOJuridico(plano, normaDaUrl(), sim, modo, hojeIso),
   }
 }

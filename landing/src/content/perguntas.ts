@@ -14,13 +14,13 @@ export interface Pergunta { origem: Origem; pergunta: string; dispositivo: strin
 const curta = (t: string, n = 240) => (t.length <= n ? t : `${t.slice(0, n).replace(/\s+\S*$/, '')}…`)
 const cit = (t: string | null | undefined) => (t ? `“${curta(t.trim())}”` : '—')
 
-export function perguntasParaOJuridico(p: PlanoDados, normaId: NormaId, s: Simulacao | null = null, modo: Modo = 'preliminar'): Pergunta[] {
+export function perguntasParaOJuridico(p: PlanoDados, normaId: NormaId, s: Simulacao | null = null, modo: Modo = 'preliminar', hoje?: string): Pergunta[] {
   const por = new Map(p.obrigacoes.map((o) => [o.id, o]))
   const saida: Pergunta[] = []
 
   // 1. Enquadramentos sugeridos pela IA nas 5 obrigações do topo (primeiro).
   const topo = new Set<string>()
-  for (const l of top5(normaId, s, modo)) {
+  for (const l of top5(normaId, s, modo, 5, hoje)) {
     const o = por.get(l.id)
     if (!o?.ia || o.faixa) continue
     topo.add(o.id)

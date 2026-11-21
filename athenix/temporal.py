@@ -47,6 +47,14 @@ COMPARACAO = re.compile(
     + r"\s+(?:do\s+)?que\s+$|(?:superior|inferior|igual)\s+a\s+$",
     re.I,
 )
+# Marco direto, sem quantidade de dias: "devem ser implementadas na data de publicação desta Resolução".
+# "entra em vigor na data de sua publicação" é vigência (não é prazo de obrigação) e fica de fora.
+MARCO_DIRETO = re.compile(
+    r"\bna\s+data\s+(?:de|da)\s+(?:sua\s+|dest[ae]\s+)?publicação(?:\s+dest[ae]\s+Resolução(?:\s+Normativa)?)?",
+    re.I,
+)
+# "o maior prazo entre doze meses da publicação e o prazo informado pela distribuidora": prazo CONDICIONAL.
+MAIOR_ENTRE = re.compile(r"\bmaior\s+(?:prazo\s+)?entre\b", re.I)
 PERIODIC = re.compile(
     r"\b(?:(?:anual|mensal|semestral|trimestral|bimestral|semanal|diari)mente"
     rf"|com\s+periodicidade\s+(?:mínima\s+)?(?:{FREQUENCY})"
@@ -157,6 +165,18 @@ def rules(text, unit_id, dates, inherited="", clarification=False, target_dates=
                 reason = "Calculado; convenção ainda não confirmada por pessoa"
             except (ValueError, OverflowError):
                 reason = "Quantidade fora do intervalo suportado"
+        if record["state"] == "provisional" and MAIOR_ENTRE.search(
+            text[max(0, match.start() - 80) : match.start()]
+        ):
+            # Parcela conhecida (a contada da publicação); o outro termo depende de dado que a norma não traz.
+            record["parcela_conhecida"] = record["date"]
+            record["date"] = None
+            record["state"] = "conditional"
+            record["event"] = f"O maior entre {amount} {unit} da publicação e o prazo informado"
+            reason = (
+                "Prazo condicional: o maior de dois termos, e um deles depende de informação da "
+                "distribuidora; sem data única"
+            )
         record["explanation"] = (
             f"{amount} {unit}; marco: {label}; base: {base or 'desconhecida'}; "
             f"direção: {'antes' if direction < 0 else 'após'}; "
@@ -182,6 +202,30 @@ def rules(text, unit_id, dates, inherited="", clarification=False, target_dates=
             }
         )
     if not periods:
+        for match in MARCO_DIRETO.finditer(text):
+            antes = text[max(0, match.start() - 60) : match.start()]
+            if re.search(r"vigor|vigência|efeitos", antes, re.I):
+                continue
+            base = unique_date(dates, "publication")
+            result.append(
+                {
+                    "unit_id": unit_id,
+                    "quantity": 0,
+                    "unit": "dias",
+                    "landmark": "publication",
+                    "event": "Publicação da norma",
+                    "quote": clause(text, match.start(), match.end()).strip(),
+                    "direction": 1,
+                    "convention": "marco_direto_v1",
+                    "inherited": False,
+                    "date": base,
+                    "base": base,
+                    "state": "provisional" if base else "not_calculated",
+                    "explanation": "Prazo na data de publicação da norma (marco direto, sem quantidade de dias); "
+                    + ("calculado" if base else "publicação desconhecida: nenhuma data presumida")
+                    + "; confirmação humana pendente.",
+                }
+            )
         for match in DATE.finditer(text):
             parsed = parse_date(match)
             if parsed and re.search(

@@ -25,8 +25,9 @@ test('a situação acompanha o dia: vence hoje ainda não venceu; amanhã sim; f
 test('"vencida há N dias" na executiva, nos blocos e no prazo do tema usam a mesma data de hoje', () => {
   const hoje = '2026-11-21'
   const l = top5('rn1137', null, 'preliminar', 5, hoje)[0]
-  assert.match(l.prazoCurto, /^vencida há 297 dias$/) // 28/01/2026 -> 21/11/2026
-  assert.equal(prazos(planos.rn1137, hoje).vencidas, 6)
+  assert.match(l.prazoCurto, /^vencida há 387 dias$/) // art. 18: 30/10/2025 -> 21/11/2026 (a mais antiga primeiro)
+  assert.match(top5('rn1137', null, 'preliminar', 5, hoje).map((x) => x.prazoCurto).join(';'), /vencida há 297 dias/) // 28/01/2026
+  assert.equal(prazos(planos.rn1137, hoje).vencidas, 7)
   const t = planos.rn1137.temas.find((x) => x.id === 'manejo')!
   assert.equal(textoPrazoDoTema(planos.rn1137, t, hoje), 'Vencido desde 28/01/2026 (297 dias)')
   const o = planos.rn1137.obrigacoes.find((x) => x.id === t.prazo_mais_urgente!.obrigacao)!

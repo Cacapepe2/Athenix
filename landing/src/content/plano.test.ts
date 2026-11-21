@@ -110,7 +110,9 @@ test('temas ordenados por R$ em risco: maior primeiro, sem enquadramento por úl
   const diag = { [ordem[0].id]: 'sim' as const }
   assert.equal(ordenarTemas(plano.temas, diag, SIM_INICIAL, 'preliminar').at(-1)!.id, ordem[0].id)
   // empate de R$: o prazo vencido vem antes do que não tem data
-  const empate = ordem.filter((t) => exposicaoTema(t, SIM_INICIAL)?.reais === valores[0])
+  // (confirmado vem antes de sugerido no mesmo R$; o desempate por prazo vale dentro do mesmo R$ e da mesma origem)
+  const e0 = exposicaoTema(ordem[0], SIM_INICIAL, 'preliminar')!
+  const empate = ordem.filter((t) => { const e = exposicaoTema(t, SIM_INICIAL, 'preliminar'); return e?.reais === e0.reais && e.origem === e0.origem })
   const vencidoAntes = empate.map((t) => (t.contagem.vencida ? 0 : 1))
   assert.deepEqual(vencidoAntes, [...vencidoAntes].sort((a, b) => a - b))
 })

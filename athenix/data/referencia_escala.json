@@ -17,7 +17,7 @@
   "limites": "n = 10 (pequena). O campo do auto traz só o grupo e o artigo, sem o inciso: não separa XXVI, XXVII ou XXVIII."
  },
  "maior_multa": {
-  "rotulo": "maior multa já aplicada a uma distribuidora",
+  "rotulo": "maior multa aplicada a uma distribuidora até fev/2024, segundo a ANEEL",
   "valor_reais": 165800000,
   "ano": 2024,
   "motivo": "falhas no restabelecimento após evento climático",

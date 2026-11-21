@@ -75,7 +75,13 @@ NOMES_NATUREZA = {
     "competencia_aneel": "Competência da ANEEL",
     "dever_de_outro_agente": "Dever de outro agente (não é da distribuidora)",
     "regra_de_transicao": "Regra de transição: prazo de adequação a outro dispositivo",
+    "sem_dever_identificado": "Sem dever identificado: o sujeito não é a distribuidora",
 }
+# Quem EMITE o ato (a Agência, a Portaria, o Diretor-Geral): é competência da ANEEL, nunca dever da distribuidora.
+SUJEITO_EMISSOR = re.compile(
+    r"^\W*(?:(?:a|o|as|os)\s+)?(?:portaria|diretor(?:-geral)?|diretoria|superintend\w*|despacho)\b",
+    re.I,
+)
 MOTIVO_SEM_DEVER = "sem dever identificado"
 KINDS_SEM_DEVER = {"article", "paragraph", "clause", "item", "letter"}
 
@@ -212,7 +218,7 @@ def natureza(row, caput=""):
         sujeito = proposals.subject_of(caput)
     if TRANSICAO.search(sujeito) or TRANSICAO.search(caput[:140]):
         return "regra_de_transicao"
-    if SUJEITO_ANEEL.match(sujeito):
+    if SUJEITO_ANEEL.match(sujeito) or SUJEITO_EMISSOR.match(sujeito):
         return "competencia_aneel"
     if row.get("modality") == "permission":
         return "direito_de_terceiro" if SUJEITO_TERCEIRO.search(sujeito) else "faculdade"
@@ -231,6 +237,17 @@ def natureza(row, caput=""):
         and AGENTE_NO_CAPUT.search(texto)
     ):
         return "dever_de_outro_agente"
+    # O caput é do emissor ("A Agência poderá instituir..."): o que o detalha não é dever da distribuidora.
+    sujeito_do_caput = proposals.subject_of(caput) if caput else ""
+    if (
+        (SUJEITO_ANEEL.match(sujeito_do_caput) or SUJEITO_EMISSOR.match(sujeito_do_caput))
+        and not SUJEITO_DISTRIBUIDORA.search(sujeito)
+        and not distribuidora_age
+    ):
+        return "competencia_aneel"
+    # Sem emissor distinto: o dispositivo segue como dever (sujeito impessoal de norma dirigida às distribuidoras).
+    # A variante estrita (só com a distribuidora como sujeito, próprio ou do caput) derrubaria ~100 deveres e foi
+    # medida à parte: ver .review/PROGRESSO.md. Quem decide é o fundador.
     return "dever"
 
 
@@ -378,7 +395,7 @@ def situacao(item):
     estados = {d.get("state") for d in item["row"].get("deadlines", [])}
     if "recurring" in estados:
         return "recorrente"
-    if "awaiting_event" in estados:
+    if "awaiting_event" in estados or "conditional" in estados:
         return "evento"
     return "sem_prazo"
 
@@ -578,6 +595,7 @@ def montar(
     fila = {id(i): n for n, i in enumerate(resultado["ranking"], start=1)}
     verificar = {id(i) for i in resultado["verificar"]}
     obrigacoes, infracoes, outros = [], {}, []
+    sem_dever_linhas = []
 
     for item in resultado["itens"]:
         if not item["aplicavel"]:
@@ -587,6 +605,17 @@ def montar(
         ancora = next((a for a in row.get("anchors", []) if a.get("state") == "verified"), None)
         unidade = by_id.get(ancora["unit_id"]) if ancora else None
         nat = natureza(row, caput_do_dispositivo(unidade, by_id))
+        if nat == "sem_dever_identificado":
+            sem_dever_linhas.append({
+                "id": item["chave"],
+                "natureza": nat,
+                "rotulo": NOMES_NATUREZA[nat],
+                "sujeito": espacos(row.get("subject", "")),
+                "unidade": unidade["id"] if unidade else None,
+                "trecho": espacos(ancora["quote"]) if ancora else None,
+                "motivo": MOTIVO_SEM_DEVER + ": o sujeito não é a distribuidora (nem pelo caput)",
+            })  # fmt: skip
+            continue
         if nat != "dever":
             outros.append({
                 "id": item["chave"],
@@ -657,6 +686,10 @@ def montar(
                 "texto": urg["principal"],
                 "dias": urg["dias"],
                 "provisorio": "provisório" in urg["detalhe"],
+                # Prazo CONDICIONAL ("o maior entre 12 meses da publicação e o prazo informado"): sem data única.
+                "condicional": any(
+                    d.get("state") == "conditional" for d in row.get("deadlines", [])
+                ),
                 # Data de referência da contagem (marco do prazo), para a tela dizer de onde ele vem.
                 "base": next(
                     (d.get("base") for d in row.get("deadlines", []) if d.get("date") == urg["data"]),
@@ -688,7 +721,7 @@ def montar(
             o["posicao_fila"] or 999,
         )
     )
-    sem_dever = sem_dever_identificado(units, resultado)
+    sem_dever = sem_dever_linhas + sem_dever_identificado(units, resultado)
     ids = [o["id"] for o in obrigacoes] + [o["id"] for o in outros] + [o["id"] for o in sem_dever]
     assert len(set(ids)) == len(ids), "chave de obrigação repetida: o id estável não é único"
     temas = [_tema(t, obrigacoes, fontes_temas.get(t["id"], []), cfg) for t in cfg["temas"]]

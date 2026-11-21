@@ -52,8 +52,8 @@ export const situacaoDoBloco = (b: LinhaTop5): FiltroSituacao => SITUACAO[b.situ
 export const gravidadeDoBloco = (b: LinhaTop5): FiltroGravidade | 'outra' => (b.valor ? GRAVIDADE[b.valor.grupo] ?? 'outra' : 'a-enquadrar')
 
 /** Todas as obrigações das duas normas, já na ordem da executiva (vencidas, a vencer, maior valor). */
-export function blocosDoPlano(s: Simulacao | null, modo: Modo): BlocoPlano[] {
-  return NORMAS.flatMap((n) => top5(n.id, s, modo, n.dados.obrigacoes.length).map((l) => ({ ...l, norma: n.id, normaRotulo: n.rotulo })))
+export function blocosDoPlano(s: Simulacao | null, modo: Modo, hoje?: string): BlocoPlano[] {
+  return NORMAS.flatMap((n) => top5(n.id, s, modo, n.dados.obrigacoes.length, hoje).map((l) => ({ ...l, norma: n.id, normaRotulo: n.rotulo })))
 }
 
 export function filtrar(blocos: BlocoPlano[], f: Filtros): BlocoPlano[] {
