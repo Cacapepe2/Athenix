@@ -117,7 +117,9 @@ def montar(out, rows, extraction, cache_ia=None):
                     }
             o["analise"] = {"tipo": tipo, "dependencias_no_texto": no_texto}
             # Área responsável SUGERIDA (data/areas_por_tipo.json): quem faz o quê.
-            o["area"] = areas.area_de(tipo["id"] or tipo["regra_id"], texto, cfg_areas)
+            o["area"], o["area_origem"] = areas.area_com_origem(
+                tipo["id"] or tipo["regra_id"], (cache_ia or {}).get(oid), texto, cfg_areas
+            )
     pratica = {}
     for tema, dep in PRATICA_POR_TEMA.items():
         deps.setdefault(dep, dependencias.manual_da_dependencia(dep, cfg_dep))

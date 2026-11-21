@@ -12,7 +12,7 @@ const valorTexto = (b: BlocoPlano) => (b.valor ? (b.valor.reais != null ? brlCur
 /** Uma linha por obrigação da área (ou de todas, se `area` for null), na ordem da executiva. */
 export function tarefasCsv(blocos: BlocoPlano[], area: string | null): string {
   const linhas = blocos.filter((b) => !area || b.area === area)
-  const corpo = linhas.map((b) => [b.frase, b.dispositivo ?? '', b.prazoCurto, valorTexto(b), b.fazer?.texto ?? 'recomendação em revisão', b.proveCom ?? '', b.normaRotulo, b.area, `título, ação, o que provar e área: ${ORIGEM_IA}`].map(celula).join(','))
+  const corpo = linhas.map((b) => [b.frase, b.dispositivo ?? '', b.prazoCurto, valorTexto(b), b.fazer?.texto ?? 'recomendação em revisão', b.proveCom ?? '', b.normaRotulo, b.areaOrigem === 'ia' ? `${b.area} (área sugerida (IA))` : b.area, `título, ação, o que provar e área: ${ORIGEM_IA}`].map(celula).join(','))
   return [celula(AVISO_TAREFAS), COLUNAS_TAREFAS.map(celula).join(','), ...corpo].join('\r\n') + '\r\n'
 }
 
@@ -60,7 +60,7 @@ export function calendarioIcs(entradas: EntradaCalendario[], area: string | null
       const rec = b.situacaoPrazo === 'recorrente' ? recorrenciaDoTexto(e.trechos[b.id] ?? '') : null
       const data = b.dataPrazo
       if (!data && !rec) continue
-      const desc = `${b.normaRotulo} · ${b.dispositivo ?? ''}. Área sugerida: ${b.area}. ${data ? `Prazo provisório${b.prazoBase ? ` (${b.prazoBase})` : ''}.` : `Recorrente; data de partida estimada na vigência da norma (${dataBR(e.vigencia)}).`} Título e área: ${ORIGEM_IA}. Análise preliminar, não é parecer jurídico.`
+      const desc = `${b.normaRotulo} · ${b.dispositivo ?? ''}. Área sugerida${b.areaOrigem === 'ia' ? ' (IA)' : ''}: ${b.area}. ${data ? `Prazo provisório${b.prazoBase ? ` (${b.prazoBase})` : ''}.` : `Recorrente; data de partida estimada na vigência da norma (${dataBR(e.vigencia)}).`} Título e área: ${ORIGEM_IA}. Análise preliminar, não é parecer jurídico.`
       eventos.push([
         'BEGIN:VEVENT', `UID:${b.norma}-${b.id}@athenix`, `DTSTAMP:${carimbo}`, `DTSTART;VALUE=DATE:${dia(data ?? e.vigencia)}`,
         ...(rec ? [`RRULE:${rec}`] : []), `SUMMARY:${escapar(`${data ? 'Prazo' : 'Recorrente'}: ${b.titulo} (${b.dispositivo ?? ''})`)}`, `DESCRIPTION:${escapar(desc)}`, 'END:VEVENT',

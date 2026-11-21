@@ -29,7 +29,7 @@ identificado no texto vem antes do sugerido. "Confirmado" fica reservado à revi
   quanto cai se regularizar antes da fiscalização, prazos), as 5 obrigações para olhar primeiro e a
   referência do setor, em linguagem de negócio ("infração grave (Grupo IV)"; mapeamento em
   `landing/src/content/gravidade.ts`). Abre duas normas, ambas pelo mesmo motor: RN 1.137/2025 e
-  **REN 1.174/2026** (abertura do mercado livre; 80 deveres da distribuidora, 1 com prazo e 2 recorrentes; enquadramento
+  **REN 1.174/2026** (abertura do mercado livre; 83 deveres da distribuidora, 1 com prazo e 2 recorrentes; enquadramento
   só por sugestão de IA, marcada, `docs/enquadramento_ia_ren1174.md`). Sem enquadramento não há valor:
   nada de teto da escala como "pior caso". A página completa `/demo?norma=ren1174` mostra a segunda norma.
 - **Comando único:** `python -m athenix processar <arquivo> --agente distribuidora --saida <json>` (do

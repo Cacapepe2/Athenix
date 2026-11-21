@@ -44,7 +44,7 @@ export function BlocosObrigacoes({ sim, modo }: { sim: Simulacao | null; modo: M
           <span className="text-[13px] font-bold">Quem faz o quê</span>
           <button type="button" className="seg" onClick={() => baixar(`tarefas-${filtros.area === 'todas' ? 'todas-as-areas' : slug(filtros.area)}.csv`, `﻿${tarefasCsv(visiveis, filtros.area === 'todas' ? null : filtros.area)}`, 'text/csv;charset=utf-8')}>Baixar tarefas da área (CSV)</button>
           <button type="button" className="seg" onClick={() => baixar('prazos-athenix.ics', calendarioIcs(NORMAS.map((n) => ({ norma: n.id, vigencia: n.dados.norma.vigencia, blocos: visiveis.filter((b) => b.norma === n.id), trechos: Object.fromEntries(n.dados.obrigacoes.map((o) => [o.id, o.trecho ?? ''])) })), filtros.area === 'todas' ? null : filtros.area), 'text/calendar;charset=utf-8')}>Adicionar prazos ao calendário (.ics)</button>
-          <span className="text-xs">A área é sugestão; o arquivo sai só no seu navegador. Respeita os filtros acima.</span>
+          <span className="text-xs">A área é sugestão: pela regra do tipo da obrigação ou, quando a regra não acha, “área sugerida (IA)”, marcada no CSV e no relatório. O arquivo sai só no seu navegador. Respeita os filtros acima.</span>
         </div>
         <button type="button" disabled={!temFiltro} onClick={() => mudar(FILTROS_INICIAIS)} className="min-h-11 cursor-pointer py-2.5 text-left text-sm font-semibold underline underline-offset-4 disabled:cursor-default disabled:no-underline disabled:opacity-60">Limpar filtros</button>
       </aside>

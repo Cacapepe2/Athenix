@@ -37,7 +37,7 @@ export interface LinhaTemaRelatorio {
   jaFazemos: string
   situacao: string
 }
-export interface AreaRelatorio { area: string; n: number; vencidas: number; frase: string }
+export interface AreaRelatorio { area: string; n: number; vencidas: number; viaIA: number; frase: string }
 export interface Relatorio {
   cabecalho: { norma: string; porte: string; data: string; prazosAte: string; aviso: string }
   numeros: { exposicao: string; porInfracao: string; reducao: string; prazo: { valor: string; legenda: string } }
@@ -98,7 +98,8 @@ export function montarRelatorio(args: { sim: Simulacao | null; modo: Modo; diag:
     if (!os.length) return []
     const venc = os.map((o) => atualizar(o, hojeISO())).filter((o) => o.situacao === 'vencida').sort((a, b) => (a.prazo.data ?? '').localeCompare(b.prazo.data ?? ''))
     const frase = area === 'A definir' ? `A definir: ${os.length} obrigações sem tipo identificado; a área responsável fica para a empresa decidir` : venc.length ? `${area}: ${os.length} obrigações, ${venc.length} vencidas — comece por ${venc.length > 3 ? 'estas 3' : venc.length === 1 ? 'esta' : `estas ${venc.length}`}: ${venc.slice(0, 3).map((o) => tituloCurto(o)).join('; ')}` : `${area}: ${os.length} obrigações, nenhuma vencida`
-    return [{ area, n: os.length, vencidas: venc.length, frase }]
+    const viaIA = os.filter((o) => o.area_origem === 'ia').length
+    return [{ area, n: os.length, vencidas: venc.length, viaIA, frase: viaIA ? `${frase} · ${viaIA} com área sugerida (IA)` : frase }]
   })
 
   return {

@@ -47,6 +47,8 @@ export interface Obrigacao {
   titulo_curto: string | null
   /** Área responsável SUGERIDA (data/areas_por_tipo.json): quem faz o quê. */
   area: string
+  /** "regra": tipo achado pela regra; "ia": tipo sugerido pela IA (área sugerida (IA)); null: A definir. */
+  area_origem: 'regra' | 'ia' | null
   /** "Evite" sugerido pela IA (cita trecho do dispositivo); null: a tela não mostra a linha. */
   evite: { acao: string; trecho_citado: string } | null
   /** Ações específicas sugeridas pela IA para este dispositivo (cada uma cita uma expressão literal dele). */

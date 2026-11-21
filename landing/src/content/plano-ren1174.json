@@ -1,6 +1,6 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "13c6af1",
+ "commit_origem": "1672aeb",
  "gerado_em": "2026-11-21",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
@@ -725,13 +725,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Estabelecer critérios, regras ou responsáveis",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "Art. 14, § 1º, inciso II"
   },
   {
@@ -822,6 +823,7 @@
     "dependencias_no_texto": []
    },
    "area": "Regulatório",
+   "area_origem": "regra",
    "dispositivo": "Art. 11, inciso VIII"
   },
   {
@@ -897,13 +899,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Estabelecer critérios, regras ou responsáveis",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "Art. 13, § 3º"
   },
   {
@@ -974,13 +977,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Comunicar Poder Público e terceiros",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "Art. 42, § 3º"
   },
   {
@@ -1056,13 +1060,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Comunicar Poder Público e terceiros",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "Art. 42, § 4º"
   },
   {
@@ -1139,13 +1144,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Responder em prazo a solicitação",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
    "dispositivo": "Art. 96-A, § 1º"
   },
   {
@@ -1229,13 +1235,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Estabelecer critérios, regras ou responsáveis",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "Art. 138, § 9º, inciso I"
   },
   {
@@ -1317,13 +1324,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Estabelecer critérios, regras ou responsáveis",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "Art. 138, § 9º, inciso II"
   },
   {
@@ -1409,6 +1417,7 @@
     "dependencias_no_texto": []
    },
    "area": "Comunicação/Atendimento",
+   "area_origem": "regra",
    "dispositivo": "Art. 138, § 10"
   },
   {
@@ -1485,13 +1494,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Estabelecer critérios, regras ou responsáveis",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "Art. 142, inciso IV, alínea a"
   },
   {
@@ -1567,6 +1577,7 @@
     "dependencias_no_texto": []
    },
    "area": "Regulatório",
+   "area_origem": "regra",
    "dispositivo": "Art. 142, inciso IV, alínea b"
   },
   {
@@ -1642,13 +1653,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Estabelecer critérios, regras ou responsáveis",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "Art. 159, Parágrafo único"
   },
   {
@@ -1720,13 +1732,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Publicar no site",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "Art. 159-B, § 1º"
   },
   {
@@ -1805,13 +1818,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Estabelecer critérios, regras ou responsáveis",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "Art. 160, § 4º, inciso I"
   },
   {
@@ -1882,13 +1896,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Estabelecer critérios, regras ou responsáveis",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "Art. 160, § 4º, inciso II"
   },
   {
@@ -1966,6 +1981,7 @@
     "dependencias_no_texto": []
    },
    "area": "Regulatório",
+   "area_origem": "regra",
    "dispositivo": "Art. 163"
   },
   {
@@ -2037,13 +2053,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Comunicar Poder Público e terceiros",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "Art. 166, inciso I"
   },
   {
@@ -2116,13 +2133,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Adequar contrato ou documento",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "Jurídico",
+   "area_origem": "ia",
    "dispositivo": "Art. 166, inciso II"
   },
   {
@@ -2193,13 +2211,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Publicar no site",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "Art. 166, § 1º"
   },
   {
@@ -2277,6 +2296,7 @@
     "dependencias_no_texto": []
    },
    "area": "Comunicação/Atendimento",
+   "area_origem": "regra",
    "dispositivo": "Art. 166, § 3º"
   },
   {
@@ -2357,13 +2377,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Estabelecer critérios, regras ou responsáveis",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "Art. 166, § 6º, inciso I"
   },
   {
@@ -2444,13 +2465,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Estabelecer critérios, regras ou responsáveis",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "Art. 166, § 7º, inciso I"
   },
   {
@@ -2519,13 +2541,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Responder em prazo a solicitação",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
    "dispositivo": "Art. 166, § 7º, inciso II"
   },
   {
@@ -2596,13 +2619,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Estabelecer critérios, regras ou responsáveis",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "Art. 166, § 10"
   },
   {
@@ -2683,6 +2707,7 @@
     "dependencias_no_texto": []
    },
    "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 166-A, § 3º, inciso I"
   },
   {
@@ -2763,6 +2788,7 @@
     "dependencias_no_texto": []
    },
    "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 166-A, § 3º, inciso II"
   },
   {
@@ -2809,6 +2835,7 @@
     "dependencias_no_texto": []
    },
    "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 166-A, § 4º"
   },
   {
@@ -2855,6 +2882,7 @@
     "dependencias_no_texto": []
    },
    "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 167-A, Parágrafo único"
   },
   {
@@ -2932,6 +2960,7 @@
     "dependencias_no_texto": []
    },
    "area": "Comunicação/Atendimento",
+   "area_origem": "regra",
    "dispositivo": "Art. 167-B, inciso I"
   },
   {
@@ -3007,6 +3036,7 @@
     "dependencias_no_texto": []
    },
    "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 167-B, inciso II"
   },
   {
@@ -3075,13 +3105,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Estabelecer critérios, regras ou responsáveis",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "Art. 167-B, inciso III"
   },
   {
@@ -3157,6 +3188,7 @@
     "dependencias_no_texto": []
    },
    "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 167-C"
   },
   {
@@ -3234,6 +3266,7 @@
     "dependencias_no_texto": []
    },
    "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 167-C, § 2º, inciso I"
   },
   {
@@ -3311,6 +3344,7 @@
     "dependencias_no_texto": []
    },
    "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 168, inciso I"
   },
   {
@@ -3388,6 +3422,7 @@
     "dependencias_no_texto": []
    },
    "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 168, inciso III"
   },
   {
@@ -3436,6 +3471,7 @@
     "dependencias_no_texto": []
    },
    "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 168, inciso VII"
   },
   {
@@ -3513,6 +3549,7 @@
     "dependencias_no_texto": []
    },
    "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 168, inciso VIII"
   },
   {
@@ -3586,13 +3623,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Comunicar consumidores",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
    "dispositivo": "Art. 170, § 4º, inciso I"
   },
   {
@@ -3670,6 +3708,7 @@
     "dependencias_no_texto": []
    },
    "area": "Comunicação/Atendimento",
+   "area_origem": "regra",
    "dispositivo": "Art. 170, § 4º, inciso II"
   },
   {
@@ -3718,6 +3757,7 @@
     "dependencias_no_texto": []
    },
    "area": "Comunicação/Atendimento",
+   "area_origem": "regra",
    "dispositivo": "Art. 170, § 5º"
   },
   {
@@ -3795,6 +3835,7 @@
     "dependencias_no_texto": []
    },
    "area": "TI/Sistemas",
+   "area_origem": "regra",
    "dispositivo": "Art. 294, § 4º"
   },
   {
@@ -3865,13 +3906,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Comunicar consumidores",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
    "dispositivo": "Art. 333, § 4º"
   },
   {
@@ -3947,6 +3989,7 @@
     "dependencias_no_texto": []
    },
    "area": "A definir",
+   "area_origem": null,
    "dispositivo": "§ 2º"
   },
   {
@@ -4027,6 +4070,7 @@
     "dependencias_no_texto": []
    },
    "area": "A definir",
+   "area_origem": null,
    "dispositivo": "§ 3º"
   },
   {
@@ -4102,6 +4146,7 @@
     "dependencias_no_texto": []
    },
    "area": "A definir",
+   "area_origem": null,
    "dispositivo": "§ 5º"
   },
   {
@@ -4170,13 +4215,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "sem sinal suficiente",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Estabelecer critérios, regras ou responsáveis",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "§ 6º"
   },
   {
@@ -4245,13 +4291,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Adequar contrato ou documento",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "Jurídico",
+   "area_origem": "ia",
    "dispositivo": "Art. 476, § 5º"
   },
   {
@@ -4320,13 +4367,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Adequar contrato ou documento",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "Jurídico",
+   "area_origem": "ia",
    "dispositivo": "Art. 627-A, § 11"
   },
   {
@@ -4400,13 +4448,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Estabelecer critérios, regras ou responsáveis",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "Art. 629, § 9º"
   },
   {
@@ -4482,6 +4531,7 @@
     "dependencias_no_texto": []
    },
    "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 655-Y"
   },
   {
@@ -4552,13 +4602,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Adequar contrato ou documento",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "Jurídico",
+   "area_origem": "ia",
    "dispositivo": "inciso III, alínea e"
   },
   {
@@ -4627,13 +4678,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "sem sinal suficiente",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Implantar sistema ou processo",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "Parágrafo único"
   },
   {
@@ -4709,6 +4761,7 @@
     "dependencias_no_texto": []
    },
    "area": "Operação/Manutenção",
+   "area_origem": "regra",
    "dispositivo": "Art. 7º, § 3º"
   },
   {
@@ -4786,6 +4839,7 @@
     "dependencias_no_texto": []
    },
    "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 9º-A, inciso I"
   },
   {
@@ -4864,6 +4918,7 @@
     "dependencias_no_texto": []
    },
    "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 9º-A, inciso II"
   },
   {
@@ -4941,6 +4996,7 @@
     "dependencias_no_texto": []
    },
    "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 9º-A, inciso III"
   },
   {
@@ -5019,6 +5075,7 @@
     "dependencias_no_texto": []
    },
    "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 9º-A, inciso IV"
   },
   {
@@ -5087,13 +5144,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Estabelecer critérios, regras ou responsáveis",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "Art. 9º-A, § 1º"
   },
   {
@@ -5171,6 +5229,7 @@
     "dependencias_no_texto": []
    },
    "area": "Comunicação/Atendimento",
+   "area_origem": "regra",
    "dispositivo": "Art. 19, § 9º"
   },
   {
@@ -5247,13 +5306,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "sem sinal suficiente",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Estabelecer critérios, regras ou responsáveis",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "Art. 21-A"
   },
   {
@@ -5341,6 +5401,7 @@
     "dependencias_no_texto": []
    },
    "area": "Comunicação/Atendimento",
+   "area_origem": "regra",
    "dispositivo": "Art. 21-B, § 1º"
   },
   {
@@ -5423,13 +5484,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "sem sinal suficiente",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Publicar no site",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "Art. 172-C"
   },
   {
@@ -5516,13 +5578,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "sem sinal suficiente",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Estabelecer critérios, regras ou responsáveis",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "Art. 3º-A"
   },
   {
@@ -5604,6 +5667,7 @@
     "dependencias_no_texto": []
    },
    "area": "Regulatório",
+   "area_origem": "regra",
    "dispositivo": "Art. 4º"
   },
   {
@@ -5694,6 +5758,7 @@
     "dependencias_no_texto": []
    },
    "area": "Regulatório",
+   "area_origem": "regra",
    "dispositivo": "Art. 11, inciso I"
   },
   {
@@ -5776,6 +5841,7 @@
     "dependencias_no_texto": []
    },
    "area": "Regulatório",
+   "area_origem": "regra",
    "dispositivo": "Art. 11, inciso I"
   },
   {
@@ -5866,6 +5932,7 @@
     "dependencias_no_texto": []
    },
    "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 11, inciso I, alínea c"
   },
   {
@@ -5956,6 +6023,7 @@
     "dependencias_no_texto": []
    },
    "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 11, inciso I, alínea d"
   },
   {
@@ -6044,6 +6112,7 @@
     "dependencias_no_texto": []
    },
    "area": "Operação/Manutenção",
+   "area_origem": "regra",
    "dispositivo": "Art. 11, inciso I, alínea e"
   },
   {
@@ -6126,6 +6195,7 @@
     "dependencias_no_texto": []
    },
    "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 11, inciso I, alínea f"
   },
   {
@@ -6213,6 +6283,7 @@
     "dependencias_no_texto": []
    },
    "area": "Regulatório",
+   "area_origem": "regra",
    "dispositivo": "Art. 11, inciso I, alínea g"
   },
   {
@@ -6291,6 +6362,7 @@
     "dependencias_no_texto": []
    },
    "area": "TI/Sistemas",
+   "area_origem": "regra",
    "dispositivo": "Art. 11, inciso III"
   },
   {
@@ -6367,13 +6439,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Adequar contrato ou documento",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "Jurídico",
+   "area_origem": "ia",
    "dispositivo": "Art. 13, inciso II"
   },
   {
@@ -6449,13 +6522,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Adequar contrato ou documento",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "Jurídico",
+   "area_origem": "ia",
    "dispositivo": "Art. 13, § 1º"
   },
   {
@@ -6529,13 +6603,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Implantar sistema ou processo",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "Art. 13, § 4º"
   },
   {
@@ -6606,13 +6681,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Estabelecer critérios, regras ou responsáveis",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "Art. 13, § 5º"
   },
   {
@@ -6695,6 +6771,7 @@
     "dependencias_no_texto": []
    },
    "area": "TI/Sistemas",
+   "area_origem": "regra",
    "dispositivo": "Art. 13, § 7º"
   },
   {
@@ -6763,13 +6840,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Adequar contrato ou documento",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "Jurídico",
+   "area_origem": "ia",
    "dispositivo": "Art. 14, § 1º, inciso I"
   },
   {
@@ -6838,13 +6916,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Responder em prazo a solicitação",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
    "dispositivo": "Art. 14, § 1º, inciso III"
   },
   {
@@ -6925,13 +7004,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Implantar sistema ou processo",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "Art. 14, § 2º, inciso I"
   },
   {
@@ -7012,13 +7092,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Implantar sistema ou processo",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "Art. 14, § 2º, inciso II"
   },
   {
@@ -7099,13 +7180,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Implantar sistema ou processo",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "Art. 14, § 3º"
   },
   {
@@ -7174,13 +7256,14 @@
     "tipo": {
      "id": null,
      "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "situacao": "a_revisar",
+     "por": "regra: sem tipo próprio; IA: Manter registro ou histórico",
      "regra_id": null
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "Art. 14, § 4º"
   }
  ],

@@ -67,3 +67,15 @@ test('dobrar corta por octetos e nunca no meio de um caractere acentuado', () =>
   assert.ok(dobrada.split('\r\n').every((l) => octetos(l) <= 75))
   assert.equal(dobrada.split('\r\n').join('').replaceAll(' ', ''), 'é'.repeat(100))
 })
+
+test('área vinda da IA sai marcada "área sugerida (IA)" no CSV e no .ics; as que a regra achou, não', () => {
+  const ia = todos.find((b) => b.areaOrigem === 'ia')!
+  const regra = todos.find((b) => b.areaOrigem === 'regra')!
+  assert.ok(ia && regra)
+  assert.ok(tarefasCsv([ia], null).includes(`"${ia.area} (área sugerida (IA))"`))
+  assert.ok(!tarefasCsv([regra], null).includes('área sugerida (IA)'))
+  const entrada = (b: typeof ia) => [{ norma: b.norma, vigencia: '2026-11-04', blocos: [b], trechos: { [b.id]: '' } }]
+  const comPrazo = todos.find((b) => b.dataPrazo && b.areaOrigem === 'ia') ?? { ...ia, dataPrazo: '2027-01-01' }
+  assert.match(calendarioIcs(entrada(comPrazo), null).split('\r\n ').join(''), /Área sugerida \(IA\): /)
+  assert.equal(todos.filter((b) => b.areaOrigem === null).length, todos.filter((b) => b.area === 'A definir').length)
+})
