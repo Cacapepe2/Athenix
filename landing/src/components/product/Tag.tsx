@@ -20,10 +20,10 @@ const config: Record<TagKind, { label: string; cls: string; Icon?: typeof Quote 
     cls: 'border border-dashed border-bronze-deep/50 text-bronze-deep',
     Icon: Calculator,
   },
-  review: { label: 'Aguarda revisão humana', cls: 'bg-[#f6ecd9] text-pending', Icon: UserRound },
+  review: { label: 'Aguarda revisão humana', cls: 'bg-stone text-pending', Icon: UserRound },
   accepted: { label: 'Aceita na revisão', cls: 'bg-slate-blue text-ivory', Icon: Check },
   rejected: { label: 'Rejeitada na revisão', cls: 'bg-obsidian/8 text-ink-soft', Icon: X },
-  pending: { label: 'Data pendente', cls: 'bg-[#f6ecd9] text-pending' },
+  pending: { label: 'Data pendente', cls: 'bg-stone text-pending' },
   fictional: { label: 'Dados fictícios', cls: 'border border-dashed border-bronze-deep/50 text-bronze-deep' },
 }
 

@@ -121,10 +121,21 @@ export function frase(o: Obrigacao, max = 110): string {
 /** "contada de 12/08/2026": de onde vem a data provisória (o marco que o motor leu no texto). */
 const contada = (o: Obrigacao) => (o.prazo.provisorio && o.prazo.base ? ` (provisória, contada de ${dataBR(o.prazo.base)})` : '')
 
-export function prazoTexto(o: Obrigacao): string {
+/** "contada de 30/10/2025 · provisória" (a data de partida que o motor leu no texto); null sem data. */
+export function prazoBase(o: Obrigacao): string | null {
+  return o.prazo.data && o.prazo.base ? `contada de ${dataBR(o.prazo.base)}${o.prazo.provisorio ? ' · provisória' : ''}` : null
+}
+
+/** Texto curto do prazo para os blocos: "vencida há 293 dias", "vence em 47 dias", "recorrente". */
+export function prazoCurto(o: Obrigacao): string {
+  return prazoTexto(o, false)
+}
+
+export function prazoTexto(o: Obrigacao, comBase = true): string {
   const d = o.prazo.dias
-  if (o.situacao === 'vencida' && d != null) return `vencida há ${Math.abs(d)} dias${contada(o)}`
-  if ((o.situacao === '90dias' || o.situacao === 'depois') && d != null) return `vence em ${d} dias${contada(o)}`
+  const contada_ = comBase ? contada(o) : ''
+  if (o.situacao === 'vencida' && d != null) return `vencida há ${Math.abs(d)} dias${contada_}`
+  if ((o.situacao === '90dias' || o.situacao === 'depois') && d != null) return `vence em ${d} dias${contada_}`
   if (o.situacao === 'recorrente') return 'recorrente'
   if (o.situacao === 'evento') return 'depende de um evento'
   return 'sem prazo no texto'
@@ -168,8 +179,49 @@ export const idDaObrigacao = (id: string) => `obrigacao-${id}`
 /** Abre a obrigação certa na página completa da norma. */
 export const urlDetalhe = (id: NormaId, obrigacaoId: string) => `${urlPlanoCompleto(id)}#${idDaObrigacao(obrigacaoId)}`
 
+/** Título curto do bloco: o rótulo de até 5 palavras gerado por IA; sem ele, o título completo encurtado. */
+export function tituloCurto(o: Obrigacao): string {
+  return o.titulo_curto ?? frase(o, 40)
+}
+
+export interface BarraDeValor { rotulo: string; reais: number | null; pct: number; fracao: number; cor: 'teto' | 'media' | 'reducao' }
+
+/** Três barras do painel: teto, atenuante do art. 24, II e do art. 24, I (valor por infração, nunca soma). */
+export function barrasDeValor(p: PlanoDados, v: ValorExecutivo | null, s: Simulacao | null): BarraDeValor[] {
+  if (!v) return []
+  const base = s ?? SIM_INICIAL
+  const med = (c: 'ate_tn' | 'espontanea') => p.reducao.medidas.find((m) => m.cenario === c)
+  const rotuloArt = (c: 'ate_tn' | 'espontanea') => `art. ${(med(c)?.dispositivo ?? '').replace(/^Art\.\s*/, '')}`
+  const por = (c: 'ate_tn' | 'espontanea') => {
+    const r = med(c)?.percentual
+    return comAtenuantePct(v.faixa, base, c) ?? (r != null ? v.pct * (1 - r / 100) : null)
+  }
+  const mk = (rotulo: string, pctV: number, cor: BarraDeValor['cor']): BarraDeValor => ({ rotulo, pct: pctV, reais: s ? reaisDe(pctV, s) : null, fracao: v.pct ? Math.min(pctV / v.pct, 1) : 0, cor })
+  const ii = por('ate_tn')
+  const i = por('espontanea')
+  return [mk('teto', v.pct, 'teto'), ...(ii != null ? [mk(rotuloArt('ate_tn'), ii, 'media')] : []), ...(i != null ? [mk(rotuloArt('espontanea'), i, 'reducao')] : [])]
+}
+
+/** "Prove com": a primeira evidência do manual do tipo da obrigação (rascunho; marcada como sugestão). */
+export function proveCom(p: PlanoDados, o: Obrigacao): string | null {
+  const t = o.analise?.tipo
+  const id = t?.id ?? t?.regra_id ?? null
+  return (id && p.analise.manuais[id]?.evidencias[0]) || null
+}
+
 export interface LinhaTop5 {
   id: string
+  /** Citação literal do dispositivo (o que a norma exige). */
+  trecho: string | null
+  /** Valor por infração se regularizar antes da fiscalização (atenuante do art. 24, I). */
+  reduzidoReais: number | null
+  situacaoPrazo: Obrigacao['situacao']
+  titulo: string
+  prazoCurto: string
+  prazoBase: string | null
+  barras: BarraDeValor[]
+  proveCom: string | null
+  gravidadeRotulo: string
   normaId: NormaId
   frase: string
   fraseOriginal: string
@@ -215,7 +267,8 @@ export function top5(normaId: NormaId, s: Simulacao | null, modo: Modo, n = 5): 
   return comValor.slice(0, n).map(({ o, v }) => {
     const t = textoDoValor(v)
     return {
-      id: o.id, normaId, frase: frase(o), fraseOriginal: o.titulo_completo, dispositivo: o.dispositivo,
+      id: o.id, trecho: o.trecho, situacaoPrazo: o.situacao, reduzidoReais: barrasDeValor(p, v, s).find((b) => b.cor === 'reducao')?.reais ?? null, titulo: tituloCurto(o), prazoCurto: prazoCurto(o), prazoBase: prazoBase(o), barras: barrasDeValor(p, v, s),
+      proveCom: proveCom(p, o), gravidadeRotulo: rotuloDoGrupo(v?.grupo), normaId, frase: frase(o), fraseOriginal: o.titulo_completo, dispositivo: o.dispositivo,
       prazo: prazoTexto(o), situacao: o.situacao, valor: v, gravidade: t.gravidade, textoValor: t.valor,
       preliminar: t.preliminar, fazer: oQueFazer(p, o), defesa: defesa(p, o), link: urlDetalhe(normaId, o.id),
     }

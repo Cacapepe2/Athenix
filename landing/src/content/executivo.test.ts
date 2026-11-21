@@ -237,3 +237,43 @@ test('maior multa já aplicada a uma distribuidora, sem nome de empresa', () => 
   assert.match(m.fonte_detalhe, /09\/02\/2024.*09\/04\/2024/)
   assert.doesNotMatch(`${textoMaiorMulta(planos.rn1137)} ${m.fonte} ${m.fonte_detalhe}`, /enel|light|cemig|copel|cpfl/i)
 })
+
+test('blocos da executiva: título curto (até 5 palavras), prazo, valor e barras, sem somar infrações', () => {
+  for (const n of NORMAS) {
+    const linhas = top5(n.id, porte(5e9), 'preliminar')
+    assert.equal(linhas.length, 5)
+    for (const l of linhas) {
+      assert.ok(l.titulo.length > 0)
+      const o = n.dados.obrigacoes.find((x) => x.id === l.id)!
+      if (o.titulo_curto) assert.ok(o.titulo_curto.split(/\s+/).length <= 5, o.titulo_curto)
+      if (l.valor?.reais != null) {
+        assert.equal(l.barras[0].rotulo, 'teto')
+        assert.equal(l.barras[0].reais, l.valor.reais) // a barra do teto é o valor do bloco, nunca uma soma
+        for (const b of l.barras) assert.ok(b.reais! <= l.valor.reais && b.fracao <= 1)
+        const [, ii, i] = l.barras
+        assert.match(ii.rotulo, /^art\. 24, II$/)
+        assert.match(i.rotulo, /^art\. 24, I$/)
+        assert.ok(i.reais! < ii.reais! && ii.reais! < l.barras[0].reais!)
+      } else assert.deepEqual(l.barras, [])
+      if (l.situacaoPrazo === 'vencida') assert.match(l.prazoCurto, /^vencida há \d+ dias$/)
+      if (l.prazoBase) assert.match(l.prazoBase, /^contada de \d{2}\/\d{2}\/\d{4}( · provisória)?$/)
+    }
+  }
+})
+
+test('trocar a norma troca os cinco blocos; trocar o porte muda o valor e mantém a ordem', () => {
+  const a = top5('rn1137', porte(5e9), 'preliminar').map((l) => l.id)
+  const b = top5('ren1174', porte(5e9), 'preliminar').map((l) => l.id)
+  assert.ok(a.every((id) => !b.includes(id)))
+  const g1 = top5('rn1137', porte(1e9), 'preliminar')
+  const g20 = top5('rn1137', porte(20e9), 'preliminar')
+  assert.deepEqual(g1.map((l) => l.id), g20.map((l) => l.id))
+  assert.ok(g20[0].valor!.reais! === g1[0].valor!.reais! * 20)
+})
+
+test('terceiro número: sem vencidas mostra os dias até o próximo prazo; sem nenhum, "nenhum prazo a vencer"', () => {
+  const pz = prazos(planos.ren1174)
+  assert.equal(pz.vencidas, 0)
+  assert.equal(pz.proxima?.data, '2027-11-04')
+  assert.ok(prazos(planos.rn1137).vencidas > 0)
+})

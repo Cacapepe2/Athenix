@@ -9,7 +9,8 @@
    "ia": "ia_cache_rn1137.json",
    "origem": "tests/norma_poc/ren20251137.pdf (PDF da norma publicado pela ANEEL)",
    "data_rotulo": "em vigor desde",
-   "recomendacoes": "recomendacoes_ren20251137.json"
+   "recomendacoes": "recomendacoes_ren20251137.json",
+   "titulos_curtos": "titulos_curtos_ren20251137.json"
   },
   "dou_ren20261174": {
    "titulo": "REN ANEEL 1.174/2026",
@@ -18,7 +19,8 @@
    "origem": "tests/fontes_impacto/dou/dou_ren20261174.html (DOU de 04/11/2026, seção 1, p. 68)",
    "data_rotulo": "publicada em",
    "ia": "ia_cache_dou_ren20261174.json",
-   "recomendacoes": "recomendacoes_dou_ren20261174.json"
+   "recomendacoes": "recomendacoes_dou_ren20261174.json",
+   "titulos_curtos": "titulos_curtos_dou_ren20261174.json"
   }
  }
 }

@@ -46,7 +46,7 @@ export function Audience() {
         </div>
 
         <div id="potenciais-clientes" className="mt-24">
-          <p className="text-[0.72rem] font-semibold tracking-[0.2em] text-bronze-deep uppercase">{audience.sectorsTitle}</p>
+          <p className="text-[0.72rem] font-semibold tracking-[0.2em] text-bronze-deep ">{audience.sectorsTitle}</p>
           {/* As frentes futuras "desdobram" a partir do foco inicial */}
           <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-[1.25fr_1fr_1fr_1fr]">
             {audience.sectors.map((s, i) => {

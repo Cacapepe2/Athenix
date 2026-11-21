@@ -43,6 +43,8 @@ export interface Obrigacao {
   id: string
   titulo: string
   titulo_origem: 'regra' | 'ia'
+  /** Rótulo de até 5 palavras (IA, linguagem simples); null: usa o título encurtado. */
+  titulo_curto: string | null
   /** Ações específicas sugeridas pela IA para este dispositivo (cada uma cita uma expressão literal dele). */
   recomendacoes: { acao: string; trecho_citado: string }[]
   /** Caput do inciso ou parágrafo (até 300 caracteres); vazio quando o dispositivo é o próprio caput. */

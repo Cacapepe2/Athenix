@@ -24,8 +24,8 @@ export function HeroMockup({ px, py }: { px: MotionValue<number>; py: MotionValu
 
   return (
     <div className="relative" aria-hidden="true">
-      <div className="rounded-[22px] border border-white/70 bg-white/55 p-1.5 shadow-float backdrop-blur-sm">
-        <div className="grid grid-cols-[52px_1fr] overflow-hidden rounded-[17px] border border-line/70 bg-ivory">
+      <div className=" border border-white/70 bg-white/55 p-1.5 shadow-float backdrop-blur-sm">
+        <div className="grid grid-cols-[52px_1fr] overflow-hidden  border border-line/70 bg-ivory">
           <div className="flex flex-col items-center gap-4 bg-obsidian py-4 text-ivory/45">
             <LogoMark className="mb-2 h-6 w-6 text-ivory" />
             {[Gauge, ListChecks, Bell, FileText, Layers].map((Icon, i) => (
@@ -65,7 +65,7 @@ export function HeroMockup({ px, py }: { px: MotionValue<number>; py: MotionValu
               <div className="flex flex-col justify-between rounded-xl bg-stone/80 p-3.5">
                 <Gauge className="h-5 w-5 text-bronze-deep" strokeWidth={1.6} />
                 <div className="mt-3">
-                  <p className="text-[0.62rem] font-semibold tracking-[0.12em] text-bronze-deep uppercase">1ª prioridade</p>
+                  <p className="text-[0.62rem] font-semibold tracking-[0.12em] text-bronze-deep ">1ª prioridade</p>
                   <p className="font-display text-[1.05rem] leading-tight text-obsidian">
                     {brl(first.impact.min)} a {brl(first.impact.max)}
                   </p>
@@ -102,7 +102,7 @@ export function HeroMockup({ px, py }: { px: MotionValue<number>; py: MotionValu
               </div>
               <p className="mt-1.5 line-clamp-2 text-[0.68rem] leading-relaxed text-ink-soft">
                 {excerpt[0]}
-                <mark className="rounded-[2px] bg-bronze/35 text-obsidian">{excerpt[1]}</mark>
+                <mark className=" bg-bronze/35 text-obsidian">{excerpt[1]}</mark>
                 {excerpt[2]}
               </p>
             </div>
@@ -137,7 +137,7 @@ export function HeroMockup({ px, py }: { px: MotionValue<number>; py: MotionValu
         className="rounded-xl border border-line/70 bg-white p-3.5 shadow-float"
       >
         <div className="flex items-center justify-between">
-          <span className="text-[0.6rem] font-semibold tracking-[0.14em] text-bronze-deep uppercase">Obrigação 1</span>
+          <span className="text-[0.6rem] font-semibold tracking-[0.14em] text-bronze-deep ">Obrigação 1</span>
           <Tag kind="rule" label="Regras" />
         </div>
         <p className="mt-1.5 text-[0.76rem] leading-snug font-semibold text-obsidian">{first.short}</p>

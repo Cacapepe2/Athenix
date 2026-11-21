@@ -78,5 +78,6 @@ cd landing && npm ci && npm test && npm run build   # site; Node 24 (pode ser po
 - Propostas: `docs/proposta_valor_provavel.md`, `docs/proposta_enquadramento.md`,
   `docs/parcela_variavel.md`.
 - Demo: `docs/plano_acao.md` (no #24), capturas em `docs/telas/`.
+- Identidade visual (tokens, como mudar uma cor, `?tema=`, contraste): `docs/IDENTIDADE_VISUAL.md`.
 - Revisão por especialista: `docs/revisao_especialista.md`.
 - Último sprint: `docs/SPRINT_2026-11-17.md`.

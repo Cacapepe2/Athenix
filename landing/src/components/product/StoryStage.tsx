@@ -33,7 +33,7 @@ export function StoryStage({ step }: { step: number }) {
   return (
     <div
       aria-hidden="true"
-      className="flex h-full flex-col overflow-hidden rounded-[26px] border border-line bg-white/75 shadow-float backdrop-blur"
+      className="flex h-full flex-col overflow-hidden  border border-line bg-white/75 shadow-float backdrop-blur"
     >
       <div className="flex items-center justify-between gap-3 border-b border-line px-4 py-3 sm:px-5">
         <span className="truncate text-[0.72rem] text-ink-soft">

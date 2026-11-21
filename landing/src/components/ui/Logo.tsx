@@ -7,7 +7,7 @@ interface Props {
 export function LogoMark({ className = 'h-7 w-7' }: { className?: string }) {
   return (
     <svg viewBox="0 0 32 32" className={className} aria-hidden="true">
-      <path d="M2.5 28 13.2 4h5.1L7.6 28z" fill="#B6A38B" />
+      <path d="M2.5 28 13.2 4h5.1L7.6 28z" fill="var(--cor-destaque)" />
       <path d="M16.6 11.2 19.4 5 29.5 28h-5.1z" fill="currentColor" />
     </svg>
   )

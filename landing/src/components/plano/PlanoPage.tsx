@@ -4,7 +4,8 @@ import { Logo } from '../ui/Logo'
 import { Tag } from '../product/Tag'
 import { Chevron } from '../ui/Chevron'
 import { AjudaGrupos } from './AjudaGrupos'
-import { idDaObrigacao } from '../../content/executivo'
+import { BlocosObrigacoes } from './BlocosObrigacoes'
+import { contagemDeEnquadramentos, destaqueDaNorma, idDaObrigacao, tabelaDeGrupos, textoMaiorMulta } from '../../content/executivo'
 import { rotuloDoGrupo } from '../../content/gravidade'
 import {
   brl, brlCurto, comAtenuantePct, csvPlano, dataBR, decisoesDaSemana, exposicaoTema, lacuna, lerReais, manchete, NOTA_ADVERTENCIA, textoVencidas, nomeDiag,
@@ -16,7 +17,7 @@ const r = plano.resumo
 /** A visão executiva da mesma norma (/demo/executivo, ou com ?norma=). */
 const URL_EXECUTIVO = normaDaUrl() === 'rn1137' ? '/demo/executivo' : `/demo/executivo?norma=${normaDaUrl()}`
 const semData = r.por_situacao.evento + r.por_situacao.sem_prazo
-const kicker = 'text-xs font-semibold tracking-widest text-bronze-deep uppercase'
+const kicker = 'text-xs font-semibold text-bronze-deep '
 const PRELIMINAR = 'cenário preliminar: inclui sugestões aguardando confirmação'
 const ATENUANTES = plano.reducao.medidas.filter((m) => m.cenario)
 const ATEN_I = ATENUANTES.find((m) => m.cenario === 'espontanea')
@@ -118,7 +119,7 @@ export function PlanoPage() {
         <p className={kicker}>Plano de ação · RN 1.137/2025 · {plano.perfil.rotulo.toLowerCase()} (não é empresa real)</p>
         <Porte setSim={setSim} />
         <p className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-2xl border border-slate-blue/40 border-l-4 border-l-slate-blue bg-acento-claro py-2 pr-4 pl-3 text-sm text-obsidian print:hidden">
-          <span data-acento="etiqueta" className="inline-flex shrink-0 items-center rounded-full bg-acento-escuro px-3 py-1 text-xs leading-none font-bold tracking-wide text-white uppercase">Novo</span>
+          <span data-acento="etiqueta" className="inline-flex shrink-0 items-center rounded-full bg-acento-escuro px-3 py-1 text-xs leading-none font-bold text-white ">Novo</span>
           <span className="min-w-0 lg:hidden">Marque os temas e gere o diagnóstico.</span>
           <span className="hidden min-w-0 lg:inline">Abaixo dos temas há um card de diagnóstico com o resultado ao lado: marque a situação de cada tema e gere aqui mesmo.</span>
           <a href="#seu-diagnostico" className={`inline-flex min-h-11 items-center gap-1.5 whitespace-nowrap ${LINK}`}>Ir para o diagnóstico<ArrowDown aria-hidden="true" className="h-4 w-4 shrink-0" /></a>
@@ -165,6 +166,8 @@ export function PlanoPage() {
         </div>
       </section>
 
+      <BlocosObrigacoes sim={sim} modo={modo} />
+
       <section aria-labelledby="temas" className={gerado ? 'print:hidden' : ''}>
         <p className={kicker}>Plano por tema</p>
         <h2 id="temas" className="font-display mt-2 text-3xl sm:text-4xl">Temas por valor em risco</h2>
@@ -194,6 +197,7 @@ export function PlanoPage() {
         <Expansivel id="linha" titulo="Quando cada coisa vence" resumo={`${r.por_situacao.vencida} vencidas, ${r.por_situacao['90dias']} em 90 dias, ${r.por_situacao.recorrente} recorrentes, ${semData} sem data`}>{() => <LinhaDoTempo />}</Expansivel>
         <Expansivel id="outros" titulo="Outros dispositivos relevantes" resumo={`${plano.outros_dispositivos.length} dispositivos que não são deveres da distribuidora (faculdades, direitos de terceiros, competências da ANEEL e deveres de outros agentes)`}>{() => <OutrosDispositivos />}</Expansivel>
         <Expansivel id="metodo" titulo="Como chegamos aqui" resumo="contagens, prazos, cálculo da exposição, premissas e fontes">{() => <Metodo />}</Expansivel>
+        <Expansivel id="como-calculamos" titulo="Como calculamos" resumo="grupos de gravidade, teto de cada um e contagem de deveres">{() => <ComoCalculamos />}</Expansivel>
         <Expansivel id="referencia" titulo="Referência do setor" resumo={`autos de infração publicados em distribuição (${plano.referencia_escala.autos}, amostra pequena)`}>{() => <ReferenciaSetor />}</Expansivel>
       </div>
       <footer className="border-t border-line pt-6 text-sm text-ink-soft">{plano.aviso} Iniciativa em validação. Valores ilustrativos, que não indicam descumprimento de uma empresa real. Não constitui parecer jurídico. <a className={`ml-2 inline-flex min-h-11 items-center ${LINK} print:hidden`} href="/">Voltar à Athenix</a></footer>
@@ -250,7 +254,7 @@ function DiagnosticoGerado({ ref, diag, temas, decisoes, m, imprimir, fechar }: 
   const algumSugerido = temas.some((t) => exposicaoTema(t, sim, modo)?.origem === 'sugerido')
   return <section ref={ref} id="diagnostico-gerado" tabIndex={-1} aria-labelledby="titulo-diagnostico" className="rounded-2xl border-2 border-slate-blue bg-diag-fundo p-5 text-obsidian shadow-soft sm:p-8 print:border-0 print:bg-white print:p-0 print:shadow-none">
     <div className="flex flex-wrap items-start justify-between gap-3">
-      <p className="text-xs font-bold tracking-[0.2em] text-slate-blue uppercase">Diagnóstico da regulação</p>
+      <p className="text-xs font-bold tracking-[0.2em] text-slate-blue ">Diagnóstico da regulação</p>
       <div className="flex flex-wrap gap-2 print:hidden">
         <button type="button" onClick={imprimir} className={BOTAO_ACENTO}><Printer aria-hidden="true" className="h-4 w-4" />Imprimir este diagnóstico</button>
         <button type="button" onClick={() => baixarCsv(diag, sim)} className={BOTAO_DIAG_SEC}><Download aria-hidden="true" className="h-4 w-4" />Planilha (CSV)</button>
@@ -313,7 +317,7 @@ function ProvInfracao({ d }: { d: string }) {
 function SucessaoNoTempo({ dispositivo }: { dispositivo: string }) {
   const s = plano.sucessao_no_tempo.find((x) => x.dispositivo === dispositivo)
   if (!s) return null
-  return <div className="mt-2 rounded-lg border border-pending/50 bg-[#f6ecd9] p-3 text-xs">
+  return <div className="mt-2 rounded-lg border border-pending/50 bg-stone p-3 text-xs">
     <p className="font-semibold text-obsidian">{s.dispositivo}: duas redações em sucessão no tempo (dúvida {s.duvida}, para especialista)</p>
     <ul className="mt-2 space-y-2">{s.redacoes.map((r) => <li key={r.ato}>
       <p className="font-semibold">{r.ato} · {r.vigencia_ate ? `de ${dataBR(r.vigencia_de)} até ${dataBR(r.vigencia_ate)}` : `a partir de ${dataBR(r.vigencia_de)}`} · {r.estado === 'verified' ? 'redação conferida na fonte' : 'INCERTA: não confirmada por leitura independente'}</p>
@@ -359,10 +363,28 @@ function Metodo() {
   </div>
 }
 
+/** Grupos de gravidade e teto de cada um (com o dispositivo da REN 846), tudo vindo do plano. */
+function ComoCalculamos() {
+  const t = tabelaDeGrupos(plano)
+  return <div className="max-w-4xl space-y-3 text-sm leading-relaxed">
+    <p>{destaqueDaNorma(plano).texto}. {contagemDeEnquadramentos(plano).texto}.</p>
+    <p>A ANEEL classifica cada infração em 5 grupos de gravidade (REN 846, o regulamento de multas). Cada grupo tem um teto de multa em % da receita da empresa.</p>
+    <ul className="grid gap-2 sm:grid-cols-5" aria-label="Teto de multa por grupo">
+      {t.grupos.map((g) => <li key={g.grupo} className="border border-line px-3 py-2" title={g.trecho ?? undefined}>
+        <span className="block">{g.rotulo}</span>
+        <strong className="block">{g.pct != null ? `até ${pct(g.pct)} da receita` : 'sem teto citado'}</strong>
+        <span className="block text-xs text-ink-soft">REN 846, {g.dispositivo ?? 'dispositivo a confirmar'}</span>
+      </li>)}
+    </ul>
+    {t.tetoLegal && <p>Por infração, nunca somadas. Acima de todos, o limite legal de {t.tetoLegal.pct != null ? pct(t.tetoLegal.pct) : '—'} do faturamento ({t.tetoLegal.dispositivo}).</p>}
+  </div>
+}
+
 function ReferenciaSetor() {
   const esc = plano.referencia_escala
   return <div className="max-w-3xl text-sm">
     <p>Mediana de {esc.autos} autos de infração publicados em distribuição (amostra pequena) ≈ <strong>{brlCurto(esc.mediana_reais)}</strong>; maior na amostra ≈ <strong>{brlCurto(esc.maximo_reais)}</strong>.</p>
+    <p className="mt-2">{textoMaiorMulta(plano)} <a href={esc.maior_multa.link} target="_blank" rel="noopener noreferrer" title={esc.maior_multa.fonte_detalhe} className={LINK}>({esc.maior_multa.fonte})</a>.</p>
     <p className="mt-1 text-xs text-ink-soft">{esc.rotulo}. É valor do auto inteiro, que pode reunir várias infrações; não é comparável ao valor por infração. Limites da amostra em “Como chegamos aqui”.</p>
   </div>
 }
@@ -559,7 +581,7 @@ function AnalisePreliminar({ t }: { t: Tema }) {
 function DependenciaAto({ itens }: { itens: { obrigacao?: string; id: string; trecho_literal: string }[] }) {
   const ato = itens.filter((d) => d.id === 'ato_da_aneel')
   const outros = itens.filter((d) => d.id !== 'ato_da_aneel')
-  const bloco = (titulo: string, lista: typeof itens) => lista.length > 0 && <div className="rounded-lg border border-pending/50 bg-[#f6ecd9] p-3">
+  const bloco = (titulo: string, lista: typeof itens) => lista.length > 0 && <div className="rounded-lg border border-pending/50 bg-stone p-3">
     <p className="flex items-start gap-2 font-semibold text-obsidian"><AlertTriangle aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-pending" />{titulo}</p>
     {lista.map((d) => <figure key={`${d.obrigacao ?? ''}${d.trecho_literal}`} className="mt-2">
       <blockquote className="border-l-2 border-bronze bg-white p-2 text-sm">“{d.trecho_literal}”</blockquote>
@@ -576,7 +598,7 @@ function ConteudoAnalise({ t }: { t: Tema }) {
   const a = plano.analise
   const pratica = a.pratica_por_tema[t.id] ? a.dependencias[a.pratica_por_tema[t.id]] : undefined
   return <div className="space-y-5 px-4 pb-4 text-sm leading-relaxed">
-    <p className="inline-block rounded-md border border-pending/50 bg-[#f6ecd9] px-2.5 py-1 text-xs font-semibold text-pending">{SELO_ANALISE}</p>
+    <p className="inline-block rounded-md border border-pending/50 bg-stone px-2.5 py-1 text-xs font-semibold text-pending">{SELO_ANALISE}</p>
     {t.dependencias_no_texto.length > 0 && <DependenciaAto itens={t.dependencias_no_texto} />}
     {t.principais.map((id) => <AnaliseObrigacao key={id} o={obrigacao(id)} />)}
     {pratica && <div className="rounded-lg border border-dashed border-line p-3 text-xs">
@@ -612,7 +634,7 @@ function AnaliseObrigacao({ o }: { o: Obrigacao }) {
         : tipo.situacao === 'a_revisar' ? 'tipo a revisar' : 'sem tipo próprio'
   return <article className="border-t border-line pt-4">
     <h5 className="font-semibold"><Titulo o={o} /> <span className="text-xs font-normal text-ink-soft">· {o.dispositivo ?? 'dispositivo a confirmar'}</span></h5>
-    <p className="mt-2 text-xs font-semibold tracking-wide text-ink-soft uppercase">O que a norma exige <Tag kind="source" /></p>
+    <p className="mt-2 text-xs font-semibold text-ink-soft ">O que a norma exige <Tag kind="source" /></p>
     {o.trecho ? <><blockquote className="mt-1 border-l-2 border-bronze bg-white p-3">“{o.trecho}”</blockquote><p className="mt-1 text-xs text-ink-soft">{o.dispositivo} · trecho literal conferido na fonte</p></>
       : <p className="mt-1">Sem citação verificada: confira o dispositivo na fonte.</p>}
     {an && an.dependencias_no_texto.some((d) => d.id === 'ato_da_aneel') && <p className="mt-2 flex items-start gap-2 text-xs font-semibold text-pending"><AlertTriangle aria-hidden="true" className="mt-0.5 h-3.5 w-3.5 shrink-0" />Prazo condicionado a ato da ANEEL: verificar se as instruções foram publicadas.</p>}

@@ -42,7 +42,7 @@ function Rings() {
               className={`absolute left-1/2 -translate-x-1/2 -translate-y-1/2 text-center ${isCore ? 'w-[27%]' : 'w-[42%]'}`}
             >
               <span
-                className={`block text-[0.62rem] font-semibold tracking-[0.14em] uppercase ${isCore ? 'text-bronze' : 'text-bronze-deep'}`}
+                className={`block text-[0.62rem] font-semibold tracking-[0.14em] ${isCore ? 'text-bronze' : 'text-bronze-deep'}`}
               >
                 {l.tag}
               </span>

@@ -127,6 +127,11 @@ def montar(
         recomendacoes = json.loads((DATA / cfg_norma["recomendacoes"]).read_text(encoding="utf-8"))[
             "recomendacoes"
         ]
+    titulos_curtos = None
+    if cfg_norma.get("titulos_curtos"):
+        titulos_curtos = json.loads(
+            (DATA / cfg_norma["titulos_curtos"]).read_text(encoding="utf-8")
+        )["titulos_curtos"]
     out = plano.montar(
         resultado,
         units,
@@ -137,6 +142,7 @@ def montar(
         cenarios=cenarios,
         tema_por_unidade=tema_por_unidade,
         recomendacoes=recomendacoes,
+        titulos_curtos=titulos_curtos,
     )
     out["analise"] = analise.montar(out, rows, extraction)
     by_id = {u["id"]: u for u in units}

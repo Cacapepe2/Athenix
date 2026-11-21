@@ -4,7 +4,7 @@ export function ImpactExample({ item: o, explain = false }: { item: Obligation; 
   const group = o.impact.groups.join(', ')
   return (
     <article className="impact-example lg:has-[details[open]]:col-span-3 rounded-2xl border border-line bg-white p-5 sm:p-7">
-      <p className="mb-2 text-xs font-semibold tracking-widest text-bronze-deep uppercase">{o.position ? `Prioridade ${o.position}` : 'Enquadramento a confirmar'}</p>
+      <p className="mb-2 text-xs font-semibold text-bronze-deep ">{o.position ? `Prioridade ${o.position}` : 'Enquadramento a confirmar'}</p>
       <h3 className="font-display text-2xl leading-tight text-obsidian">{o.short}</h3>
       <p className="mt-3 text-sm font-semibold text-slate-blue">{o.deadline}</p>
       <p className="mt-4 text-lg font-semibold leading-snug text-obsidian">De advertência (sem multa) até {brl(o.impact.groupCapPct / 100 * profile.base)} (teto do Grupo {group})</p>

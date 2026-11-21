@@ -58,11 +58,11 @@ function SourceField() {
   return (
     <div
       ref={box}
-      className="hairline-grid relative h-[440px] overflow-hidden rounded-[28px] border border-line bg-stone/50 sm:h-[480px]"
+      className="hairline-grid relative h-[440px] overflow-hidden  border border-line bg-stone/50 sm:h-[480px]"
     >
       <motion.p
         style={{ opacity: headerOpacity }}
-        className="absolute top-6 left-1/2 -translate-x-1/2 text-[0.68rem] font-semibold tracking-[0.2em] whitespace-nowrap text-bronze-deep uppercase"
+        className="absolute top-6 left-1/2 -translate-x-1/2 text-[0.68rem] font-semibold tracking-[0.2em] whitespace-nowrap text-bronze-deep "
       >
         {challenge.flowLabel}
       </motion.p>
@@ -96,7 +96,7 @@ export function Challenge() {
             </Reveal>
             <Reveal delay={0.2}>
               <div className="mt-10 max-w-xl border-l-2 border-bronze pl-5">
-                <p className="text-[0.72rem] font-semibold tracking-[0.18em] text-bronze-deep uppercase">
+                <p className="text-[0.72rem] font-semibold tracking-[0.18em] text-bronze-deep ">
                   {challenge.need.label}
                 </p>
                 <p className="font-display mt-2 text-[1.3rem] leading-snug text-obsidian">{challenge.need.text}</p>
