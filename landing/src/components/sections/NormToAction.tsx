@@ -103,7 +103,7 @@ export function NormToAction() {
 
             <div aria-hidden="true" className="mt-1 flex gap-1.5 lg:hidden">
               {story.steps.map((s, i) => (
-                <span key={s.title} className={`h-1 flex-1 rounded-full ${i <= step ? 'bg-bronze-deep' : 'bg-line'}`} />
+                <span key={s.title} className={`h-1 flex-1 ${i <= step ? 'bg-bronze-deep' : 'bg-line'}`} />
               ))}
             </div>
           </div>

@@ -1,7 +1,7 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "bf7a5b8",
- "gerado_em": "2026-11-20",
+ "commit_origem": "1672aeb",
+ "gerado_em": "2026-11-21",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
   "titulo": "RN ANEEL 1.137/2025",
@@ -41,8 +41,16 @@
    "maximo_reais": 48654893,
    "fonte": "scripts/autos_por_dispositivo.py (docs/historico_multas_por_dispositivo.md): autos de distribuição que contam (quitado, parcelado, encerrado ou decidido, com valor em reais) e citam o art. 12 da REN 846 (Grupo IV). Mediana e máximo do auto inteiro; arredondados ao real.",
    "limites": "n = 10 (pequena). O campo do auto traz só o grupo e o artigo, sem o inciso: não separa XXVI, XXVII ou XXVIII."
+  },
+  "maior_multa": {
+   "rotulo": "maior multa já aplicada a uma distribuidora",
+   "valor_reais": 165800000,
+   "ano": 2024,
+   "motivo": "falhas no restabelecimento após evento climático",
+   "fonte": "notícia pública, Agência Brasil, 09/02/2024; multa mantida pela diretoria da ANEEL em 09/04/2024"
   }
  },
+ "notas_outros": {},
  "simulador": {
   "faixas": [
    {
@@ -1460,6 +1468,22 @@
    "titulo": "Revisar e publicar planos de manejo, comunicação e contingência",
    "titulo_origem": "ia",
    "titulo_completo": "Revisar e publicar planos de manejo, comunicação e contingência",
+   "titulo_curto": "Publicar planos revisados",
+   "evite": {
+    "acao": "Revisar planos sem publicar versão atualizada e acessível ao público.",
+    "trecho_citado": "revisar e publicar os planos de manejo vegetal"
+   },
+   "recomendacoes": [
+    {
+     "acao": "Publicar no sítio eletrônico os planos de manejo vegetal revisados com mapas por circuito e cronograma de poda por faixa.",
+     "trecho_citado": "planos de manejo vegetal"
+    },
+    {
+     "acao": "Publicar no sítio eletrônico o plano de contingência revisado com pontos de concentração e procedimentos de restabelecimento.",
+     "trecho_citado": "de contingência"
+    }
+   ],
+   "contexto": "Art. 13. As distribuidoras devem observar os seguintes prazos para implementação das disposições desta Resolução Normativa, contados da publicação:",
    "tema": "manejo",
    "motivo_tema": "O texto nomeia \"manejo\"",
    "unidade": "u0300",
@@ -1538,6 +1562,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
+   "area_origem": "regra",
    "dispositivo": "Art. 13, inciso I"
   },
   {
@@ -1545,6 +1571,13 @@
    "titulo": "Implementar o registro das interações com o Poder Público Municipal em relação ao…",
    "titulo_origem": "regra",
    "titulo_completo": "Implementar o registro das interações com o Poder Público Municipal em relação ao serviço de manejo da vegetação que apresente risco à segurança das redes elétricas e a continuidade do fornecimento",
+   "titulo_curto": "Registrar interações com prefeituras",
+   "evite": {
+    "acao": "Omitir interações sobre manejo da vegetação no registro.",
+    "trecho_citado": "registro das interações com o Poder Público Municipal"
+   },
+   "recomendacoes": [],
+   "contexto": "Art. 13. As distribuidoras devem observar os seguintes prazos para implementação das disposições desta Resolução Normativa, contados da publicação:",
    "tema": "poder_publico",
    "motivo_tema": "O texto nomeia \"Poder Público\"",
    "unidade": "u0301",
@@ -1610,11 +1643,13 @@
      "id": null,
      "nome": null,
      "situacao": "a_revisar",
-     "por": "regra: Inspecionar ou executar manutenção; IA: implantar_sistema_processo",
-     "regra_id": "inspecionar_executar_manutencao"
+     "por": "regra: Manter registro ou histórico; IA: implantar_sistema_processo",
+     "regra_id": "manter_registro_historico"
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
+   "area_origem": "regra",
    "dispositivo": "Art. 13, inciso II"
   },
   {
@@ -1622,6 +1657,13 @@
    "titulo": "Implementar os mecanismos de comunicação ao consumidor sobre a previsão de…",
    "titulo_origem": "regra",
    "titulo_completo": "Implementar os mecanismos de comunicação ao consumidor sobre a previsão de reestabelecimento do serviço e demais informações de que trata o item 105 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa",
+   "titulo_curto": "Informar previsão de reestabelecimento",
+   "evite": {
+    "acao": "Divulgar previsão vaga de reestabelecimento sem justificativa técnica e sem estimativa confiável.",
+    "trecho_citado": "previsão de reestabelecimento do serviço"
+   },
+   "recomendacoes": [],
+   "contexto": "Art. 13. As distribuidoras devem observar os seguintes prazos para implementação das disposições desta Resolução Normativa, contados da publicação:",
    "tema": "consumidor",
    "motivo_tema": "O texto nomeia \"consumidor\"",
    "unidade": "u0302",
@@ -1687,6 +1729,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
+   "area_origem": "regra",
    "dispositivo": "Art. 13, inciso III"
   },
   {
@@ -1694,6 +1738,22 @@
    "titulo": "Disponibilizar em sítio eletrônico o número total de unidades consumidoras afetadas…",
    "titulo_origem": "regra",
    "titulo_completo": "Disponibilizar em sítio eletrônico o número total de unidades consumidoras afetadas por interrupções em mapa",
+   "titulo_curto": "Mapa de unidades afetadas",
+   "evite": {
+    "acao": "Publicar mapa online sem exibir o número total de unidades consumidoras afetadas.",
+    "trecho_citado": "número total de unidades consumidoras afetadas"
+   },
+   "recomendacoes": [
+    {
+     "acao": "Publicar mapa interativo no sítio eletrônico mostrando o número total de unidades consumidoras afetadas por interrupções por área.",
+     "trecho_citado": "número total de unidades consumidoras afetadas"
+    },
+    {
+     "acao": "Disponibilizar o mapa na página principal do sítio eletrônico com camada por bairro e opção de visualização por circuito.",
+     "trecho_citado": "disponibilizar em sítio eletrônico"
+    }
+   ],
+   "contexto": "Art. 13. As distribuidoras devem observar os seguintes prazos para implementação das disposições desta Resolução Normativa, contados da publicação:",
    "tema": "consumidor",
    "motivo_tema": "O texto nomeia \"consumidor\"",
    "unidade": "u0303",
@@ -1764,6 +1824,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
+   "area_origem": "regra",
    "dispositivo": "Art. 13, inciso IV"
   },
   {
@@ -1771,6 +1833,22 @@
    "titulo": "Disponibilizar em sítio eletrônico as informações relacionadas às ocorrências abertas",
    "titulo_origem": "regra",
    "titulo_completo": "Disponibilizar em sítio eletrônico as informações relacionadas às ocorrências abertas",
+   "titulo_curto": "Publicar informações de ocorrências",
+   "evite": {
+    "acao": "Divulgar ocorrências abertas sem os campos exigidos pelo item 107 do Anexo IV.",
+    "trecho_citado": "informações relacionadas às ocorrências abertas"
+   },
+   "recomendacoes": [
+    {
+     "acao": "Publicar página com lista de ocorrências abertas no sítio eletrônico, indicando local, início, causa e status por ocorrência.",
+     "trecho_citado": "informações relacionadas às ocorrências abertas"
+    },
+    {
+     "acao": "Incluir filtros por município e tipo de ocorrência na página de ocorrências disponibilizada no sítio eletrônico.",
+     "trecho_citado": "disponibilizar em sítio eletrônico"
+    }
+   ],
+   "contexto": "Art. 13. As distribuidoras devem observar os seguintes prazos para implementação das disposições desta Resolução Normativa, contados da publicação:",
    "tema": "consumidor",
    "motivo_tema": "O texto nomeia \"ocorrências abertas\"",
    "unidade": "u0304",
@@ -1842,6 +1920,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
+   "area_origem": "regra",
    "dispositivo": "Art. 13, inciso V"
   },
   {
@@ -1849,6 +1929,22 @@
    "titulo": "Iniciar as apurações do Duração da Interrupção Individual ocorrida em Situação de…",
    "titulo_origem": "regra",
    "titulo_completo": "Iniciar as apurações do Duração da Interrupção Individual ocorrida em Situação de Emergência por Unidade Consumidora ou por Ponto de Conexão – DISE e observar as disposições da Seção 8.2 do Módulo 8 do PRODIST com o corresponde pagamento de compensações por transgressão desse indicador, com efeitos retroativos a 2 meses após a publicação da norma",
+   "titulo_curto": "Apurar duração de interrupções emergenciais",
+   "evite": {
+    "acao": "Iniciar apurações sem seguir as disposições da Seção 8.2 do Módulo 8 do PRODIST.",
+    "trecho_citado": "Seção 8.2 do Módulo 8 do PRODIST"
+   },
+   "recomendacoes": [
+    {
+     "acao": "Crie relatório por consumidor relacionando DISE apurada e status 'Situação de Emergência', gerando arquivo para cálculo de compensações retroativas.",
+     "trecho_citado": "Situação de Emergência"
+    },
+    {
+     "acao": "Aplique as fórmulas e critérios da Seção 8.2 do Módulo 8 do PRODIST no processamento automático das apurações DISE.",
+     "trecho_citado": "Seção 8.2 do Módulo 8 do PRODIST"
+    }
+   ],
+   "contexto": "Art. 13. As distribuidoras devem observar os seguintes prazos para implementação das disposições desta Resolução Normativa, contados da publicação:",
    "tema": "dise",
    "motivo_tema": "O texto nomeia \"DISE\"",
    "unidade": "u0305",
@@ -1919,6 +2015,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "regra",
    "dispositivo": "Art. 13, inciso VI"
   },
   {
@@ -1926,6 +2024,18 @@
    "titulo": "Realizar comunicações formais, com periodicidade anual, aos representantes do Poder…",
    "titulo_origem": "regra",
    "titulo_completo": "Realizar comunicações formais, com periodicidade anual, aos representantes do Poder Público, detalhando a execução dos protocolos estabelecidos de modo a garantir que todos os envolvidos estejam familiarizados com os procedimentos de comunicação",
+   "titulo_curto": "Comunicar protocolos ao Poder Público",
+   "evite": {
+    "acao": "Enviar comunicações formais sem detalhar execução dos protocolos.",
+    "trecho_citado": "detalhando a execução dos protocolos estabelecidos"
+   },
+   "recomendacoes": [
+    {
+     "acao": "Publique no sítio eletrônico relatório anual detalhado com fluxogramas e registros operacionais da execução dos protocolos.",
+     "trecho_citado": "detalhando a execução dos protocolos"
+    }
+   ],
+   "contexto": "",
    "tema": "poder_publico",
    "motivo_tema": "Seção 4.9 da norma",
    "unidade": "u0084",
@@ -1993,13 +2103,22 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "regra",
    "dispositivo": "item 120"
   },
   {
    "id": "ef8c0e08544c2dc6",
-   "titulo": "Ser apurados mensalmente, considerando o mês civil, com exceção dos indicadores…",
+   "titulo": "Os indicadores devem ser apurados mensalmente, considerando o mês civil, com exceção…",
    "titulo_origem": "regra",
-   "titulo_completo": "Ser apurados mensalmente, considerando o mês civil, com exceção dos indicadores DICRI e DISE, que devem ser apurados por interrupção ocorrida em Dia Crítico ou em Situação de Emergência, respectivamente",
+   "titulo_completo": "Os indicadores devem ser apurados mensalmente, considerando o mês civil, com exceção dos indicadores DICRI e DISE, que devem ser apurados por interrupção ocorrida em Dia Crítico ou em Situação de Emergência, respectivamente",
+   "titulo_curto": "Apurar indicadores mensalmente",
+   "evite": {
+    "acao": "Apurar DISE mensalmente em lugar de por interrupção ocorrida em Situação de Emergência.",
+    "trecho_citado": "apurados por interrupção ocorrida em Dia Crítico ou em Situação de Emergência"
+   },
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "dise",
    "motivo_tema": "Seção IV da norma",
    "unidade": "u0209",
@@ -2065,6 +2184,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "regra",
    "dispositivo": "item 172"
   },
   {
@@ -2072,6 +2193,13 @@
    "titulo": "Manter dossiê individualizado em sua sede contendo os documentos comprobatórios que…",
    "titulo_origem": "regra",
    "titulo_completo": "Manter dossiê individualizado em sua sede contendo os documentos comprobatórios que evidenciem a neutralidade de custos e despesas reembolsados à cedente",
+   "titulo_curto": "Manter dossiê de reembolsos",
+   "evite": {
+    "acao": "Guardar dossiê sem documentos comprobatórios da neutralidade de custos.",
+    "trecho_citado": "neutralidade de custos e despesas reembolsados"
+   },
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "outros",
    "motivo_tema": "Sem seção temática nem assunto reconhecido",
    "unidade": "u0296",
@@ -2144,6 +2272,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "Art. 19, inciso XIII, alínea b"
   },
   {
@@ -2151,6 +2281,10 @@
    "titulo": "Valor global da contratação com detalhamento dos recursos envolvidos, segregados por…",
    "titulo_origem": "regra",
    "titulo_completo": "Valor global da contratação com detalhamento dos recursos envolvidos, segregados por tipo de gasto",
+   "titulo_curto": "Informar valor total e detalhamento",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "132. Ao acionar o mecanismo de Cessão Emergencial de recursos, a distribuidora cessionária deve enviar às áreas de fiscalização da ANEEL, em até 60 dias após o fim da situação emergencial, relatório contendo discriminação das despesas ou custos incorridos a serem reembolsados à cedente, contendo as ",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0099",
@@ -2223,6 +2357,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 132, alínea a"
   },
   {
@@ -2230,6 +2366,10 @@
    "titulo": "Duração do Contrato de Cessão Emergencial para execução dos serviços realizados",
    "titulo_origem": "regra",
    "titulo_completo": "Duração do Contrato de Cessão Emergencial para execução dos serviços realizados",
+   "titulo_curto": "Informar duração do contrato",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "132. Ao acionar o mecanismo de Cessão Emergencial de recursos, a distribuidora cessionária deve enviar às áreas de fiscalização da ANEEL, em até 60 dias após o fim da situação emergencial, relatório contendo discriminação das despesas ou custos incorridos a serem reembolsados à cedente, contendo as ",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0100",
@@ -2273,6 +2413,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Jurídico",
+   "area_origem": "regra",
    "dispositivo": "item 132, alínea b"
   },
   {
@@ -2280,6 +2422,10 @@
    "titulo": "Relação das matrículas dos profissionais que realizaram os atendimentos,…",
    "titulo_origem": "regra",
    "titulo_completo": "Relação das matrículas dos profissionais que realizaram os atendimentos, discriminando função, remuneração, cargos e encargos totais",
+   "titulo_curto": "Informar relação detalhada de profissionais",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "132. Ao acionar o mecanismo de Cessão Emergencial de recursos, a distribuidora cessionária deve enviar às áreas de fiscalização da ANEEL, em até 60 dias após o fim da situação emergencial, relatório contendo discriminação das despesas ou custos incorridos a serem reembolsados à cedente, contendo as ",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0101",
@@ -2352,6 +2498,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 132, alínea c"
   },
   {
@@ -2359,6 +2507,10 @@
    "titulo": "Valor individualizado por frente de serviço e montante total dos serviços realizados",
    "titulo_origem": "regra",
    "titulo_completo": "Valor individualizado por frente de serviço e montante total dos serviços realizados",
+   "titulo_curto": "Informar valores por frente",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "132. Ao acionar o mecanismo de Cessão Emergencial de recursos, a distribuidora cessionária deve enviar às áreas de fiscalização da ANEEL, em até 60 dias após o fim da situação emergencial, relatório contendo discriminação das despesas ou custos incorridos a serem reembolsados à cedente, contendo as ",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0102",
@@ -2431,6 +2583,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 132, alínea d"
   },
   {
@@ -2438,6 +2592,10 @@
    "titulo": "Documentação comprobatória e discriminação detalhada de despesas com equipamentos e…",
    "titulo_origem": "regra",
    "titulo_completo": "Documentação comprobatória e discriminação detalhada de despesas com equipamentos e materiais",
+   "titulo_curto": "Comprovar despesas com equipamentos",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "132. Ao acionar o mecanismo de Cessão Emergencial de recursos, a distribuidora cessionária deve enviar às áreas de fiscalização da ANEEL, em até 60 dias após o fim da situação emergencial, relatório contendo discriminação das despesas ou custos incorridos a serem reembolsados à cedente, contendo as ",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0103",
@@ -2510,6 +2668,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "item 132, alínea e"
   },
   {
@@ -2517,6 +2677,10 @@
    "titulo": "Documentação comprobatória e discriminação detalhada de outras despesas realizadas…",
    "titulo_origem": "regra",
    "titulo_completo": "Documentação comprobatória e discriminação detalhada de outras despesas realizadas na operação emergencial",
+   "titulo_curto": "Comprovar outras despesas operacionais",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "132. Ao acionar o mecanismo de Cessão Emergencial de recursos, a distribuidora cessionária deve enviar às áreas de fiscalização da ANEEL, em até 60 dias após o fim da situação emergencial, relatório contendo discriminação das despesas ou custos incorridos a serem reembolsados à cedente, contendo as ",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0104",
@@ -2589,6 +2753,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "item 132, alínea f"
   },
   {
@@ -2596,6 +2762,10 @@
    "titulo": "Forma de pagamento, observando o que dispõe o item 138",
    "titulo_origem": "regra",
    "titulo_completo": "Forma de pagamento, observando o que dispõe o item 138",
+   "titulo_curto": "Forma de pagamento",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "132. Ao acionar o mecanismo de Cessão Emergencial de recursos, a distribuidora cessionária deve enviar às áreas de fiscalização da ANEEL, em até 60 dias após o fim da situação emergencial, relatório contendo discriminação das despesas ou custos incorridos a serem reembolsados à cedente, contendo as ",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0105",
@@ -2668,6 +2838,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "item 132, alínea g"
   },
   {
@@ -2675,6 +2847,10 @@
    "titulo": "Informações separadas por cedente, resguardando a respectiva proporcionalidade na…",
    "titulo_origem": "regra",
    "titulo_completo": "Informações separadas por cedente, resguardando a respectiva proporcionalidade na Cessão Emergencial e a individualidade das concessões",
+   "titulo_curto": "Informações por cedente",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "132. Ao acionar o mecanismo de Cessão Emergencial de recursos, a distribuidora cessionária deve enviar às áreas de fiscalização da ANEEL, em até 60 dias após o fim da situação emergencial, relatório contendo discriminação das despesas ou custos incorridos a serem reembolsados à cedente, contendo as ",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0106",
@@ -2747,6 +2923,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "item 132, alínea h"
   },
   {
@@ -2754,6 +2932,10 @@
    "titulo": "Apresentação das razões da opção pela utilização de recursos humanos pertencentes a…",
    "titulo_origem": "regra",
    "titulo_completo": "Apresentação das razões da opção pela utilização de recursos humanos pertencentes a outras empresas",
+   "titulo_curto": "Razões uso de equipes externas",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "132. Ao acionar o mecanismo de Cessão Emergencial de recursos, a distribuidora cessionária deve enviar às áreas de fiscalização da ANEEL, em até 60 dias após o fim da situação emergencial, relatório contendo discriminação das despesas ou custos incorridos a serem reembolsados à cedente, contendo as ",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0107",
@@ -2826,6 +3008,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "item 132, alínea i"
   },
   {
@@ -2833,6 +3017,10 @@
    "titulo": "Atividades desenvolvidas pelas equipes cedidas, registradas detalhadamente, por…",
    "titulo_origem": "regra",
    "titulo_completo": "Atividades desenvolvidas pelas equipes cedidas, registradas detalhadamente, por localidade",
+   "titulo_curto": "Atividades por localidade",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "132. Ao acionar o mecanismo de Cessão Emergencial de recursos, a distribuidora cessionária deve enviar às áreas de fiscalização da ANEEL, em até 60 dias após o fim da situação emergencial, relatório contendo discriminação das despesas ou custos incorridos a serem reembolsados à cedente, contendo as ",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0108",
@@ -2909,6 +3097,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "item 132, alínea j"
   },
   {
@@ -2916,6 +3106,10 @@
    "titulo": "Detalhamento das tarefas de campo, com dia, data e hora",
    "titulo_origem": "regra",
    "titulo_completo": "Detalhamento das tarefas de campo, com dia, data e hora",
+   "titulo_curto": "Tarefas de campo com horários",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "132. Ao acionar o mecanismo de Cessão Emergencial de recursos, a distribuidora cessionária deve enviar às áreas de fiscalização da ANEEL, em até 60 dias após o fim da situação emergencial, relatório contendo discriminação das despesas ou custos incorridos a serem reembolsados à cedente, contendo as ",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0109",
@@ -2988,6 +3182,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "item 132, alínea k"
   },
   {
@@ -2995,6 +3191,10 @@
    "titulo": "Detalhamento dos tipos de estruturas utilizadas nos atendimentos, com quantidade de…",
    "titulo_origem": "regra",
    "titulo_completo": "Detalhamento dos tipos de estruturas utilizadas nos atendimentos, com quantidade de turmas e veículos (leves e pesados); e",
+   "titulo_curto": "Estruturas, turmas e veículos",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "132. Ao acionar o mecanismo de Cessão Emergencial de recursos, a distribuidora cessionária deve enviar às áreas de fiscalização da ANEEL, em até 60 dias após o fim da situação emergencial, relatório contendo discriminação das despesas ou custos incorridos a serem reembolsados à cedente, contendo as ",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0110",
@@ -3067,6 +3267,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
+   "area_origem": "regra",
    "dispositivo": "item 132, alínea l"
   },
   {
@@ -3074,6 +3276,10 @@
    "titulo": "Outras informações que julgar relevante sobre a Cessão Emergencial. Acordo de Cessão…",
    "titulo_origem": "regra",
    "titulo_completo": "Outras informações que julgar relevante sobre a Cessão Emergencial. Acordo de Cessão Emergencial Prévio",
+   "titulo_curto": "Outras informações relevantes",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "132. Ao acionar o mecanismo de Cessão Emergencial de recursos, a distribuidora cessionária deve enviar às áreas de fiscalização da ANEEL, em até 60 dias após o fim da situação emergencial, relatório contendo discriminação das despesas ou custos incorridos a serem reembolsados à cedente, contendo as ",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0111",
@@ -3146,6 +3352,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "regra",
    "dispositivo": "item 132, alínea m"
   },
   {
@@ -3153,6 +3361,10 @@
    "titulo": "Não ultrapassar o prazo de doze meses contados do final da Cessão Emergencial.…",
    "titulo_origem": "regra",
    "titulo_completo": "Não ultrapassar o prazo de doze meses contados do final da Cessão Emergencial. Contratos de Cessão Emergencial de recursos humanos, equipamentos e materiais entre Partes Relacionadas",
+   "titulo_curto": null,
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0128",
@@ -3218,6 +3430,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
+   "area_origem": "regra",
    "dispositivo": "item 138"
   },
   {
@@ -3225,6 +3439,19 @@
    "titulo": "Manter dossiê individualizado em sua sede contendo os documentos comprobatórios que…",
    "titulo_origem": "regra",
    "titulo_completo": "Manter dossiê individualizado em sua sede contendo os documentos comprobatórios que evidenciem a neutralidade de custos e despesas reembolsados à cedente, os quais poderão ser requisitados pela fiscalização por até 5 (cinco) anos após fim do evento emergencial",
+   "titulo_curto": "Dossiê comprobatório individual",
+   "evite": null,
+   "recomendacoes": [
+    {
+     "acao": "Arquivar na sede dossiê físico e cópia digital contendo notas fiscais, recibos, contratos e comprovantes que demonstrem neutralidade de custos por evento.",
+     "trecho_citado": "dossiê individualizado em sua sede"
+    },
+    {
+     "acao": "Organizar o dossiê por evento emergencial com índice eletrônico e manter acessível para fiscalização até cinco anos após o evento.",
+     "trecho_citado": "dossiê individualizado em sua sede"
+    }
+   ],
+   "contexto": "",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0131",
@@ -3261,6 +3488,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "item 139, alínea b"
   },
   {
@@ -3268,6 +3497,18 @@
    "titulo": "Calcular a compensação ao consumidor ou central geradora, inclusive aqueles…",
    "titulo_origem": "regra",
    "titulo_completo": "Calcular a compensação ao consumidor ou central geradora, inclusive aqueles conectados em DIT, e efetuar o crédito na fatura apresentada em até 2 meses após o período de apuração",
+   "titulo_curto": "Compensação por violação de continuidade",
+   "evite": {
+    "acao": "Calcular compensação omitindo consumidores ou centrais conectados em DIT.",
+    "trecho_citado": "inclusive aqueles conectados em DIT"
+   },
+   "recomendacoes": [
+    {
+     "acao": "Inclua o crédito gerado na fatura do consumidor no ciclo correspondente, com referência ao período de apuração.",
+     "trecho_citado": "efetuar o crédito na fatura apresentada em até 2 meses"
+    }
+   ],
+   "contexto": "",
    "tema": "dise",
    "motivo_tema": "Seção IV da norma",
    "unidade": "u0229",
@@ -3307,6 +3548,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "regra",
    "dispositivo": "item 219"
   },
   {
@@ -3314,6 +3557,13 @@
    "titulo": "Implantar processo de comunicação e acompanhamento da evolução dos eventos…",
    "titulo_origem": "regra",
    "titulo_completo": "Implantar processo de comunicação e acompanhamento da evolução dos eventos climáticos severos de que trata o item 114 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, em até 30 (trinta) dias, contados da publicação das instruções pela ANEEL",
+   "titulo_curto": "Monitoramento de eventos climáticos",
+   "evite": {
+    "acao": "Implantar processo apenas documental, sem acompanhamento da evolução dos eventos climáticos.",
+    "trecho_citado": "processo de comunicação e acompanhamento da evolução"
+   },
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "outros",
    "motivo_tema": "Sem seção temática nem assunto reconhecido",
    "unidade": "u0307",
@@ -3386,6 +3636,8 @@
      }
     ]
    },
+   "area": "TI/Sistemas",
+   "area_origem": "regra",
    "dispositivo": "Art. 14"
   },
   {
@@ -3393,6 +3645,13 @@
    "titulo": "Disponibilizar a API de que trata item 113 do Anexo IV da Resolução Normativa nº…",
    "titulo_origem": "regra",
    "titulo_completo": "Disponibilizar a API de que trata item 113 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa em até 60 (sessenta) dias, contados da publicação das instruções pela ANEEL",
+   "titulo_curto": "Disponibilizar interface de dados",
+   "evite": {
+    "acao": "Disponibilizar a API sem documentação dos endpoints e métodos.",
+    "trecho_citado": "disponibilizar a API"
+   },
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "outros",
    "motivo_tema": "Sem seção temática nem assunto reconhecido",
    "unidade": "u0308",
@@ -3463,6 +3722,8 @@
      }
     ]
    },
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "Art. 15"
   },
   {
@@ -3470,6 +3731,13 @@
    "titulo": "Informar e manter, por até cinco anos, em seu sítio eletrônico, os indicadores…",
    "titulo_origem": "regra",
    "titulo_completo": "Informar e manter, por até cinco anos, em seu sítio eletrônico, os indicadores estabelecidos nos incisos V e VI do caput do art. 4º; do Decreto 12.068, de 20 de julho de 2024, em até 30 dias, contados da publicação das instruções pela ANEEL",
+   "titulo_curto": "Manter indicadores no site",
+   "evite": {
+    "acao": "Publicar indicadores de maneira temporária sem manter por cinco anos no sítio eletrônico.",
+    "trecho_citado": "manter, por até cinco anos, em seu sítio eletrônico"
+   },
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "outros",
    "motivo_tema": "Sem seção temática nem assunto reconhecido",
    "unidade": "u0309",
@@ -3547,6 +3815,8 @@
      }
     ]
    },
+   "area": "Regulatório",
+   "area_origem": "regra",
    "dispositivo": "Art. 16"
   },
   {
@@ -3554,6 +3824,26 @@
    "titulo": "Estabelecer plano de manejo vegetal na área de atuação",
    "titulo_origem": "ia",
    "titulo_completo": "Estabelecer plano de manejo vegetal na área de atuação",
+   "titulo_curto": "Plano de manejo vegetal",
+   "evite": {
+    "acao": "Elaborar plano sem coordenação com o Poder Público Municipal e órgãos estaduais competentes.",
+    "trecho_citado": "coordenação com o Poder Público Municipal"
+   },
+   "recomendacoes": [
+    {
+     "acao": "Mapear e georreferenciar a vegetação que interfira em suas redes de distribuição e publicar o mapa por circuito no portal.",
+     "trecho_citado": "vegetação que interfira em suas redes de distribuição"
+    },
+    {
+     "acao": "Enviar proposta formal de calendário de intervenções ao Poder Público Municipal e anexar cópia pública no sítio eletrônico.",
+     "trecho_citado": "em coordenação com o Poder Público Municipal"
+    },
+    {
+     "acao": "Publicar relatórios de intervenções realizadas para garantir a segurança da rede de distribuição e continuidade do fornecimento.",
+     "trecho_citado": "garantir a segurança da rede de distribuição"
+    }
+   ],
+   "contexto": "",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0026",
@@ -3632,6 +3922,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
+   "area_origem": "regra",
    "dispositivo": "item 94"
   },
   {
@@ -3639,6 +3931,18 @@
    "titulo": "Remover árvores ou galhos caídos sobre a rede",
    "titulo_origem": "regra",
    "titulo_completo": "Remover árvores ou galhos caídos sobre a rede",
+   "titulo_curto": "Remoção rápida de árvores",
+   "evite": {
+    "acao": "Aguardar autorização externa antes de remover árvores ou galhos caídos sobre a rede.",
+    "trecho_citado": "rápida remoção de árvores ou galhos caídos sobre a rede"
+   },
+   "recomendacoes": [
+    {
+     "acao": "Acione imediatamente equipe de campo com motosserra e guincho para remover árvores ou galhos caídos sobre a rede no local afetado.",
+     "trecho_citado": "rápida remoção de árvores ou galhos caídos sobre a rede"
+    }
+   ],
+   "contexto": "",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0028",
@@ -3712,6 +4016,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
    "dispositivo": "item 96"
   },
   {
@@ -3719,6 +4025,22 @@
    "titulo": "Disponibilizar versão atualizada do plano de manejo vegetal",
    "titulo_origem": "ia",
    "titulo_completo": "Disponibilizar versão atualizada do plano de manejo vegetal",
+   "titulo_curto": "Plano de manejo vegetal atualizado",
+   "evite": {
+    "acao": "Disponibilizar no site versão desatualizada do plano de manejo vegetal ou em linguagem inacessível.",
+    "trecho_citado": "versão mais atualizada de seu plano de manejo vegetal"
+   },
+   "recomendacoes": [
+    {
+     "acao": "Disponibilize cópias impressas do plano atual nos postos de atendimento presencial em local visível e acessível ao público.",
+     "trecho_citado": "nos postos de atendimento presencial"
+    },
+    {
+     "acao": "Inclua sumário executivo em linguagem clara e adequada no início do documento publicado.",
+     "trecho_citado": "uso de linguagem clara e adequada"
+    }
+   ],
+   "contexto": "",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0046",
@@ -3805,6 +4127,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
+   "area_origem": "regra",
    "dispositivo": "item 103"
   },
   {
@@ -3812,6 +4136,22 @@
    "titulo": "Incluir estágio da operação conforme etapas do plano de contingência",
    "titulo_origem": "ia",
    "titulo_completo": "Incluir estágio da operação conforme etapas do plano de contingência",
+   "titulo_curto": "Estágio da operação",
+   "evite": {
+    "acao": "Omitir o estágio da operação ou usar descrição ambígua não alinhada ao plano de contingência.",
+    "trecho_citado": "Estágio da operação"
+   },
+   "recomendacoes": [
+    {
+     "acao": "Exibir o campo Estágio da operação na página de cada ocorrência aberta do sítio eletrônico, visível no detalhamento público.",
+     "trecho_citado": "Estágio da operação"
+    },
+    {
+     "acao": "Atualizar o campo Estágio da operação na página de ocorrências com atualização a cada 30 minutos.",
+     "trecho_citado": "com atualização a cada 30 minutos"
+    }
+   ],
+   "contexto": "107. As distribuidoras de energia devem disponibilizar em sítio eletrônico com atualização a cada 30 minutos, as seguintes informações relacionadas às ocorrências abertas:",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0063",
@@ -3895,6 +4235,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
+   "area_origem": "regra",
    "dispositivo": "item 107, alínea k"
   },
   {
@@ -3902,6 +4244,13 @@
    "titulo": "Solicitar indicação prévia de até dois representantes oficiais",
    "titulo_origem": "ia",
    "titulo_completo": "Solicitar indicação prévia de até dois representantes oficiais",
+   "titulo_curto": "Contatos oficiais para emergências",
+   "evite": {
+    "acao": "Registrar mais de dois representantes oficiais por ente.",
+    "trecho_citado": "até dois representantes oficiais de cada ente"
+   },
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "poder_publico",
    "motivo_tema": "Seção 4.9 da norma",
    "unidade": "u0079",
@@ -3976,6 +4325,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "regra",
    "dispositivo": "item 115"
   },
   {
@@ -3983,6 +4334,13 @@
    "titulo": "Garantir canais de comunicação oficiais acessíveis e operacionais",
    "titulo_origem": "ia",
    "titulo_completo": "Garantir canais de comunicação oficiais acessíveis e operacionais",
+   "titulo_curto": "Canais oficiais acessíveis em emergência",
+   "evite": {
+    "acao": "Manter canais oficiais inacessíveis ou inoperantes em situações de emergência.",
+    "trecho_citado": "acessíveis e operacionais em situações de emergência"
+   },
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "poder_publico",
    "motivo_tema": "Seção 4.9 da norma",
    "unidade": "u0082",
@@ -4058,6 +4416,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "regra",
    "dispositivo": "item 118"
   },
   {
@@ -4065,6 +4425,13 @@
    "titulo": "Elaborar plano de contingência para garantir continuidade e segurança",
    "titulo_origem": "ia",
    "titulo_completo": "Elaborar plano de contingência para garantir continuidade e segurança",
+   "titulo_curto": "Plano de contingência para continuidade",
+   "evite": {
+    "acao": "Elaborar plano sem medidas que assegurem segurança de colaboradores e população.",
+    "trecho_citado": "assegurando a segurança dos colaboradores e da população"
+   },
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0135",
@@ -4143,6 +4510,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
+   "area_origem": "regra",
    "dispositivo": "item 140"
   },
   {
@@ -4150,6 +4519,18 @@
    "titulo": "Incluir nomes e telefones de contato dos responsáveis",
    "titulo_origem": "ia",
    "titulo_completo": "Incluir nomes e telefones de contato dos responsáveis",
+   "titulo_curto": "Nomes e telefones dos responsáveis",
+   "evite": {
+    "acao": "Listar apenas cargos sem nomes ou telefones de contato.",
+    "trecho_citado": "nomes e telefones de contato dos responsáveis"
+   },
+   "recomendacoes": [
+    {
+     "acao": "Integre a lista de nomes e telefones de contato dos responsáveis ao sistema de despacho para uso imediato pela operação.",
+     "trecho_citado": "nomes e telefones de contato dos responsáveis"
+    }
+   ],
+   "contexto": "",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0136",
@@ -4227,6 +4608,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
+   "area_origem": "regra",
    "dispositivo": "item 141"
   },
   {
@@ -4234,6 +4617,13 @@
    "titulo": "Priorizar a segurança de colaboradores e da população",
    "titulo_origem": "ia",
    "titulo_completo": "Priorizar a segurança de colaboradores e da população",
+   "titulo_curto": "Segurança de colaboradores e população",
+   "evite": {
+    "acao": "Priorizar operações sobre medidas de proteção à segurança de colaboradores e população.",
+    "trecho_citado": "priorizar a segurança de todos os colaboradores e da população"
+   },
+   "recomendacoes": [],
+   "contexto": "142. O plano de contingência deve ser baseado nos seguintes princípios norteadores:",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0138",
@@ -4311,6 +4701,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 142, alínea a"
   },
   {
@@ -4318,6 +4710,13 @@
    "titulo": "Minimizar o impacto das contingências nas operações",
    "titulo_origem": "ia",
    "titulo_completo": "Minimizar o impacto das contingências nas operações",
+   "titulo_curto": "Minimizar impacto nas operações",
+   "evite": {
+    "acao": "Adotar respostas que elevem, em vez de minimizar, o impacto das contingências.",
+    "trecho_citado": "minimizar o impacto das contingências nas operações"
+   },
+   "recomendacoes": [],
+   "contexto": "142. O plano de contingência deve ser baseado nos seguintes princípios norteadores:",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0139",
@@ -4395,6 +4794,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 142, alínea b"
   },
   {
@@ -4402,6 +4803,10 @@
    "titulo": "Cumprir as obrigações legais e regulamentares",
    "titulo_origem": "ia",
    "titulo_completo": "Cumprir as obrigações legais e regulamentares",
+   "titulo_curto": "Cumprir obrigações legais",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "142. O plano de contingência deve ser baseado nos seguintes princípios norteadores:",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0140",
@@ -4479,6 +4884,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 142, alínea c"
   },
   {
@@ -4486,6 +4893,10 @@
    "titulo": "Manter comunicação clara e aberta com setores afetados",
    "titulo_origem": "ia",
    "titulo_completo": "Manter comunicação clara e aberta com setores afetados",
+   "titulo_curto": "Manter comunicação transparente",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "142. O plano de contingência deve ser baseado nos seguintes princípios norteadores:",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0141",
@@ -4564,6 +4975,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 142, alínea d"
   },
   {
@@ -4571,6 +4984,10 @@
    "titulo": "Antecipar problemas e definir protocolos de atuação",
    "titulo_origem": "ia",
    "titulo_completo": "Antecipar problemas e definir protocolos de atuação",
+   "titulo_curto": "Antecipar problemas e definir protocolos",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "142. O plano de contingência deve ser baseado nos seguintes princípios norteadores:",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0142",
@@ -4648,6 +5065,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "regra",
    "dispositivo": "item 142, alínea e"
   },
   {
@@ -4655,6 +5074,10 @@
    "titulo": "Garantir adaptabilidade às mudanças climáticas e operacionais",
    "titulo_origem": "ia",
    "titulo_completo": "Garantir adaptabilidade às mudanças climáticas e operacionais",
+   "titulo_curto": "Adaptar estratégias conforme evento",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "142. O plano de contingência deve ser baseado nos seguintes princípios norteadores:",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0143",
@@ -4733,6 +5156,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 142, alínea f"
   },
   {
@@ -4740,6 +5165,10 @@
    "titulo": "Realizar monitoramento climático e meteorológico periódico",
    "titulo_origem": "ia",
    "titulo_completo": "Realizar monitoramento climático e meteorológico periódico",
+   "titulo_curto": "Monitoramento climático periódico",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "143. O plano de contingência deve observar as seguintes diretrizes:",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0146",
@@ -4819,6 +5248,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "item 143, alínea a"
   },
   {
@@ -4826,6 +5257,10 @@
    "titulo": "Implementar ações de gestão conforme níveis de contingência",
    "titulo_origem": "ia",
    "titulo_completo": "Implementar ações de gestão conforme níveis de contingência",
+   "titulo_curto": "Ações conforme nível de contingência",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "143. O plano de contingência deve observar as seguintes diretrizes:",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0147",
@@ -4903,6 +5338,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
    "dispositivo": "item 143, alínea b"
   },
   {
@@ -4910,6 +5347,10 @@
    "titulo": "Definir procedimentos para mobilização de equipes e recursos",
    "titulo_origem": "ia",
    "titulo_completo": "Definir procedimentos para mobilização de equipes e recursos",
+   "titulo_curto": "Mobilização de equipes e recursos",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "143. O plano de contingência deve observar as seguintes diretrizes:",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0148",
@@ -4987,6 +5428,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
+   "area_origem": "regra",
    "dispositivo": "item 143, alínea c"
   },
   {
@@ -4994,6 +5437,10 @@
    "titulo": "Estabelecer canais internos eficientes para coordenar ações",
    "titulo_origem": "ia",
    "titulo_completo": "Estabelecer canais internos eficientes para coordenar ações",
+   "titulo_curto": "Canais de comunicação interna",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "143. O plano de contingência deve observar as seguintes diretrizes:",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0149",
@@ -5073,6 +5520,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "item 143, alínea d"
   },
   {
@@ -5080,6 +5529,10 @@
    "titulo": "Manter relatórios e documentação detalhada das contingências",
    "titulo_origem": "ia",
    "titulo_completo": "Manter relatórios e documentação detalhada das contingências",
+   "titulo_curto": "Registros de ações em contingência",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "143. O plano de contingência deve observar as seguintes diretrizes:",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0150",
@@ -5161,6 +5614,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
+   "area_origem": "regra",
    "dispositivo": "item 143, alínea e"
   },
   {
@@ -5168,6 +5623,10 @@
    "titulo": "Realizar treinamentos e simulações periódicas",
    "titulo_origem": "ia",
    "titulo_completo": "Realizar treinamentos e simulações periódicas",
+   "titulo_curto": "Treinamentos e simulações periódicos",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "143. O plano de contingência deve observar as seguintes diretrizes:",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0151",
@@ -5249,6 +5708,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
+   "area_origem": "regra",
    "dispositivo": "item 143, alínea f"
   },
   {
@@ -5256,6 +5717,10 @@
    "titulo": "Estabelecer procedimentos de atendimento ao consumidor em contingências",
    "titulo_origem": "ia",
    "titulo_completo": "Estabelecer procedimentos de atendimento ao consumidor em contingências",
+   "titulo_curto": "Atendimento ao consumidor durante contingências",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "143. O plano de contingência deve observar as seguintes diretrizes:",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0152",
@@ -5333,6 +5798,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
+   "area_origem": "regra",
    "dispositivo": "item 143, alínea g"
   },
   {
@@ -5340,6 +5807,10 @@
    "titulo": "Definir ações para coordenação com autoridades públicas e reguladores",
    "titulo_origem": "ia",
    "titulo_completo": "Definir ações para coordenação com autoridades públicas e reguladores",
+   "titulo_curto": "Coordenação com órgãos externos",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "143. O plano de contingência deve observar as seguintes diretrizes:",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0153",
@@ -5418,6 +5889,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "regra",
    "dispositivo": "item 143, alínea h"
   },
   {
@@ -5425,6 +5898,10 @@
    "titulo": "Estabelecer diretrizes de apoio interdepartamental",
    "titulo_origem": "ia",
    "titulo_completo": "Estabelecer diretrizes de apoio interdepartamental",
+   "titulo_curto": "Colaboração entre departamentos",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "143. O plano de contingência deve observar as seguintes diretrizes:",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0154",
@@ -5502,6 +5979,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "regra",
    "dispositivo": "item 143, alínea i"
   },
   {
@@ -5509,6 +5988,10 @@
    "titulo": "Formalizar e divulgar o plano de contingência internamente",
    "titulo_origem": "ia",
    "titulo_completo": "Formalizar e divulgar o plano de contingência internamente",
+   "titulo_curto": "Formalização e divulgação do plano",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "143. O plano de contingência deve observar as seguintes diretrizes:",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0155",
@@ -5582,6 +6065,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
+   "area_origem": "regra",
    "dispositivo": "item 143, alínea j"
   },
   {
@@ -5589,6 +6074,10 @@
    "titulo": "Estabelecer cadeia de governança nos níveis estratégico, tático e operacional",
    "titulo_origem": "ia",
    "titulo_completo": "Estabelecer cadeia de governança nos níveis estratégico, tático e operacional",
+   "titulo_curto": "Governança por níveis de comando",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "143. O plano de contingência deve observar as seguintes diretrizes:",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0156",
@@ -5667,6 +6156,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "regra",
    "dispositivo": "item 143, alínea k"
   },
   {
@@ -5674,6 +6165,10 @@
    "titulo": "Definir e atualizar níveis de contingência por critérios objetivos",
    "titulo_origem": "ia",
    "titulo_completo": "Definir e atualizar níveis de contingência por critérios objetivos",
+   "titulo_curto": "Níveis de contingência",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "144. O plano de contingência deve conter os seguintes requisitos mínimos:",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0159",
@@ -5751,6 +6246,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "regra",
    "dispositivo": "item 144, alínea b"
   },
   {
@@ -5758,6 +6255,10 @@
    "titulo": "Desenvolver plano de ação específico para cada nível de contingência",
    "titulo_origem": "ia",
    "titulo_completo": "Desenvolver plano de ação específico para cada nível de contingência",
+   "titulo_curto": "Planos de ação por nível",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "144. O plano de contingência deve conter os seguintes requisitos mínimos:",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0160",
@@ -5835,6 +6336,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
+   "area_origem": "regra",
    "dispositivo": "item 144, alínea c"
   },
   {
@@ -5842,6 +6345,10 @@
    "titulo": "Garantir infraestrutura e recursos para execução do plano",
    "titulo_origem": "ia",
    "titulo_completo": "Garantir infraestrutura e recursos para execução do plano",
+   "titulo_curto": "Inventário de recursos e equipamentos",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "144. O plano de contingência deve conter os seguintes requisitos mínimos:",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0161",
@@ -5921,6 +6428,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
+   "area_origem": "regra",
    "dispositivo": "item 144, alínea d"
   },
   {
@@ -5928,6 +6437,10 @@
    "titulo": "Implementar programas de treinamento e capacitação contínuos",
    "titulo_origem": "ia",
    "titulo_completo": "Implementar programas de treinamento e capacitação contínuos",
+   "titulo_curto": "Treinamento e capacitação contínua",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "144. O plano de contingência deve conter os seguintes requisitos mínimos:",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0162",
@@ -6005,6 +6518,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
+   "area_origem": "regra",
    "dispositivo": "item 144, alínea e"
   },
   {
@@ -6012,6 +6527,10 @@
    "titulo": "Simulações e Testes Regulares: Realizar simulações ou testes periódicos para avaliar…",
    "titulo_origem": "regra",
    "titulo_completo": "Simulações e Testes Regulares: Realizar simulações ou testes periódicos para avaliar a eficácia do plano de contingência e identificar áreas de melhoria, inclusive com a participação de Órgãos Públicos",
+   "titulo_curto": "Simulações e testes periódicos",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "144. O plano de contingência deve conter os seguintes requisitos mínimos:",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0163",
@@ -6093,6 +6612,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
+   "area_origem": "regra",
    "dispositivo": "item 144, alínea f"
   },
   {
@@ -6100,6 +6621,10 @@
    "titulo": "Manter o plano atualizado e disponível com data e versão",
    "titulo_origem": "ia",
    "titulo_completo": "Manter o plano atualizado e disponível com data e versão",
+   "titulo_curto": "Atualização e controle de versões",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "144. O plano de contingência deve conter os seguintes requisitos mínimos:",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0164",
@@ -6177,6 +6702,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
+   "area_origem": "regra",
    "dispositivo": "item 144, alínea g"
   },
   {
@@ -6184,6 +6711,10 @@
    "titulo": "Realizar avaliações regulares e implementar melhorias no plano",
    "titulo_origem": "ia",
    "titulo_completo": "Realizar avaliações regulares e implementar melhorias no plano",
+   "titulo_curto": "Avaliação e melhoria contínua",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "144. O plano de contingência deve conter os seguintes requisitos mínimos:",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0165",
@@ -6265,6 +6796,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
+   "area_origem": "regra",
    "dispositivo": "item 144, alínea h"
   },
   {
@@ -6272,6 +6805,10 @@
    "titulo": "Possuir medidas para tratamento de unidades consumidoras específicas",
    "titulo_origem": "ia",
    "titulo_completo": "Possuir medidas para tratamento de unidades consumidoras específicas",
+   "titulo_curto": "Atendimento emergencial a consumidores essenciais",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "144. O plano de contingência deve conter os seguintes requisitos mínimos:",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0166",
@@ -6350,6 +6887,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
+   "area_origem": "regra",
    "dispositivo": "item 144, alínea i"
   },
   {
@@ -6357,6 +6896,10 @@
    "titulo": "Para o caso de ter havido aplicação do Plano de Contingência, a periodicidade máxima…",
    "titulo_origem": "regra",
    "titulo_completo": "Para o caso de ter havido aplicação do Plano de Contingência, a periodicidade máxima pode ser contada da sua última aplicação",
+   "titulo_curto": "Contagem de prazo após uso",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "145. A realização de simulados ou disponibilização de treinamentos atualizados deve ser feita com periodicidade máxima de um ano.",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0168",
@@ -6427,6 +6970,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
+   "area_origem": "regra",
    "dispositivo": "item 145, alínea a"
   },
   {
@@ -6434,6 +6979,10 @@
    "titulo": "Revisar o plano de contingência sempre que necessário e, no máximo, anualmente",
    "titulo_origem": "ia",
    "titulo_completo": "Revisar o plano de contingência sempre que necessário e, no máximo, anualmente",
+   "titulo_curto": "Revisão anual do plano",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0170",
@@ -6511,6 +7060,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
+   "area_origem": "regra",
    "dispositivo": "item 146"
   },
   {
@@ -6518,6 +7069,10 @@
    "titulo": "Disponibilizar a versão mais atualizada, sem a identificação e contato dos seus…",
    "titulo_origem": "regra",
    "titulo_completo": "Disponibilizar a versão mais atualizada, sem a identificação e contato dos seus responsáveis pelo seu plano de contingência, em seu sítio eletrônico na Internet e nos postos de atendimento presencial, de forma acessível ao público com uso de linguagem clara e adequada",
+   "titulo_curto": "Disponibilizar plano sem contatos",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0171",
@@ -6604,6 +7159,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
+   "area_origem": "regra",
    "dispositivo": "item 147"
   },
   {
@@ -6611,6 +7168,10 @@
    "titulo": "Incluir versão, data de aprovação e assinatura dos responsáveis técnicos",
    "titulo_origem": "ia",
    "titulo_completo": "Incluir versão, data de aprovação e assinatura dos responsáveis técnicos",
+   "titulo_curto": "Indicar versão, data e responsáveis",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0172",
@@ -6688,6 +7249,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
+   "area_origem": "regra",
    "dispositivo": "item 148"
   },
   {
@@ -6695,6 +7258,18 @@
    "titulo": "Disponibilizar o Plano de Manejo Vegetal em sítio eletrônico e postos",
    "titulo_origem": "ia",
    "titulo_completo": "Disponibilizar o Plano de Manejo Vegetal em sítio eletrônico e postos",
+   "titulo_curto": "Publicar Plano de Manejo Vegetal",
+   "evite": {
+    "acao": "Publicar Plano de Manejo Vegetal apenas online, omitindo postos de atendimento presencial.",
+    "trecho_citado": "disponibilizar em sítio eletrônico e nos postos"
+   },
+   "recomendacoes": [
+    {
+     "acao": "Disponibilize resumo em linguagem clara na página do plano e nos balcões, incluindo perguntas frequentes e contatos para esclarecimento.",
+     "trecho_citado": "com uso de linguagem clara e adequada"
+    }
+   ],
+   "contexto": "",
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
    "unidade": "u0186",
@@ -6776,6 +7351,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
+   "area_origem": "regra",
    "dispositivo": "item 23-F"
   },
   {
@@ -6783,6 +7360,13 @@
    "titulo": "Disponibilizar o Plano de Contingência em sítio eletrônico e postos",
    "titulo_origem": "ia",
    "titulo_completo": "Disponibilizar o Plano de Contingência em sítio eletrônico e postos",
+   "titulo_curto": "Publicar Plano de Contingência",
+   "evite": {
+    "acao": "Publicar Plano de Contingência apenas no sítio eletrônico, omitindo disponibilidade presencial.",
+    "trecho_citado": "o seu Plano de Contingência"
+   },
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
    "unidade": "u0192",
@@ -6864,6 +7448,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
+   "area_origem": "regra",
    "dispositivo": "item 23-J"
   },
   {
@@ -6871,6 +7457,13 @@
    "titulo": "Enviar regularmente à ANEEL alertas meteorológicos que justifiquem acionamento",
    "titulo_origem": "ia",
    "titulo_completo": "Enviar regularmente à ANEEL alertas meteorológicos que justifiquem acionamento",
+   "titulo_curto": "Enviar alertas meteorológicos à ANEEL",
+   "evite": {
+    "acao": "Enviar alertas meteorológicos somente depois do início do evento, não justificando acionamento preventivo.",
+    "trecho_citado": "enviar regularmente à ANEEL os alertas meteorológicos"
+   },
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
    "unidade": "u0198",
@@ -6954,6 +7547,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "regra",
    "dispositivo": "item 23-M"
   },
   {
@@ -6961,6 +7556,10 @@
    "titulo": "Publicar os planos de contingência em vigor no sítio eletrônico",
    "titulo_origem": "ia",
    "titulo_completo": "Publicar os planos de contingência em vigor no sítio eletrônico",
+   "titulo_curto": "Publicar planos vigentes no site",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "Art. 13. As distribuidoras devem observar os seguintes prazos para implementação das disposições desta Resolução Normativa, contados da publicação:",
    "tema": "contingencia",
    "motivo_tema": "O texto nomeia \"contingência\"",
    "unidade": "u0306",
@@ -7043,6 +7642,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
+   "area_origem": "regra",
    "dispositivo": "Art. 13, Parágrafo único"
   },
   {
@@ -7050,6 +7651,10 @@
    "titulo": "Celebrar convênios, acordos de cooperação ou outros instrumentos formais com os…",
    "titulo_origem": "regra",
    "titulo_completo": "Celebrar convênios, acordos de cooperação ou outros instrumentos formais com os entes públicos municipais, distritais e estaduais",
+   "titulo_curto": "Acordos para manejo da vegetação",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0027",
@@ -7115,6 +7720,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
+   "area_origem": "regra",
    "dispositivo": "item 95"
   },
   {
@@ -7122,6 +7729,10 @@
    "titulo": "Considerar os desafios específicos da vegetação local, incluindo aspectos como…",
    "titulo_origem": "regra",
    "titulo_completo": "Considerar os desafios específicos da vegetação local, incluindo aspectos como espécies predominantes, sazonalidade e características de crescimento de forma a garantir a prestação do serviço adequado",
+   "titulo_curto": "Considerar características da vegetação local",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0029",
@@ -7185,6 +7796,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
+   "area_origem": "regra",
    "dispositivo": "item 97"
   },
   {
@@ -7192,6 +7805,10 @@
    "titulo": "Inspeção regular: realizar a inspeção visual periódica das redes elétricas e da…",
    "titulo_origem": "regra",
    "titulo_completo": "Inspeção regular: realizar a inspeção visual periódica das redes elétricas e da vegetação próxima ou utilizar de sistema de gestão que possibilite a criação de ciclos de podas reduzindo a necessidade de deslocamento de equipe, a fim de identificar árvores ou galhos que possam representar risco de queda sobre a rede de distribuição",
+   "titulo_curto": "Inspeção visual periódica da vegetação",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "99. As distribuidoras de energia elétrica devem realizar inspeções periódicas na vegetação que possam interferir no funcionamento das redes de distribuição, com base na sua estratégia operacional e em uma avaliação de risco, atuando em coordenação com os órgãos competentes do Poder Público Estadual,",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0032",
@@ -7258,6 +7875,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
+   "area_origem": "regra",
    "dispositivo": "item 99, alínea a"
   },
   {
@@ -7265,6 +7884,10 @@
    "titulo": "Poda preventiva: realizar, em articulação com o Poder Público Estadual, Distrital e…",
    "titulo_origem": "regra",
    "titulo_completo": "Poda preventiva: realizar, em articulação com o Poder Público Estadual, Distrital e Municipal e em conformidade com as normas técnicas, podas preventivas para manter distância de segurança entre a vegetação e a rede elétrica, minimizando o risco de acidentes e interrupções no fornecimento de energia",
+   "titulo_curto": "Poda preventiva em coordenação pública",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "99. As distribuidoras de energia elétrica devem realizar inspeções periódicas na vegetação que possam interferir no funcionamento das redes de distribuição, com base na sua estratégia operacional e em uma avaliação de risco, atuando em coordenação com os órgãos competentes do Poder Público Estadual,",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0033",
@@ -7330,6 +7953,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
+   "area_origem": "regra",
    "dispositivo": "item 99, alínea b"
   },
   {
@@ -7337,6 +7962,10 @@
    "titulo": "Comunicar imediatamente a necessidade de eliminação do risco ao órgão competente do…",
    "titulo_origem": "regra",
    "titulo_completo": "Comunicar imediatamente a necessidade de eliminação do risco ao órgão competente do Poder Público Estadual, Distrital ou Municipal, e articular as ações necessárias para eliminação do risco, prestando apoio técnico necessário, inclusive com o desligamento da rede elétrica, quando aplicável, observando os convênios de cooperação entre os entes envolvidos, respeitando as competências legais e a legislação pertinente",
+   "titulo_curto": "Comunicar risco de vegetação",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "99. As distribuidoras de energia elétrica devem realizar inspeções periódicas na vegetação que possam interferir no funcionamento das redes de distribuição, com base na sua estratégia operacional e em uma avaliação de risco, atuando em coordenação com os órgãos competentes do Poder Público Estadual,",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0034",
@@ -7403,6 +8032,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
+   "area_origem": "regra",
    "dispositivo": "item 99, alínea c"
   },
   {
@@ -7410,6 +8041,10 @@
    "titulo": "Por meio de programas estimular o plantio de novas espécies adequadas ao convívio…",
    "titulo_origem": "regra",
    "titulo_completo": "Por meio de programas estimular o plantio de novas espécies adequadas ao convívio com as redes elétricas, em conformidade com os planos municipais de arborização",
+   "titulo_curto": "Estimular plantio de espécies adequadas",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "99. As distribuidoras de energia elétrica devem realizar inspeções periódicas na vegetação que possam interferir no funcionamento das redes de distribuição, com base na sua estratégia operacional e em uma avaliação de risco, atuando em coordenação com os órgãos competentes do Poder Público Estadual,",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0035",
@@ -7480,6 +8115,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
+   "area_origem": "regra",
    "dispositivo": "item 99, alínea d"
   },
   {
@@ -7487,6 +8124,10 @@
    "titulo": "Elaborar Relatório Anual de Gestão do Manejo Vegetal, documentando de forma…",
    "titulo_origem": "regra",
    "titulo_completo": "Elaborar Relatório Anual de Gestão do Manejo Vegetal, documentando de forma detalhada todas as atividades relacionadas à gestão da vegetação que interfira na rede de distribuição de energia, que servirá como ferramenta de transparência e controle para assegurar que as ações de manejo vegetal sejam realizadas de forma eficaz, em conformidade com as normas técnicas e ambientais, e com o objetivo de garantir a segurança e a continuidade do fornecimento de energia elétrica",
+   "titulo_curto": "Relatório anual de manejo vegetal",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0036",
@@ -7550,6 +8191,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
+   "area_origem": "regra",
    "dispositivo": "item 100"
   },
   {
@@ -7557,6 +8200,10 @@
    "titulo": "Inspeções Visuais: relatar o número de inspeções realizadas nas redes elétricas e…",
    "titulo_origem": "regra",
    "titulo_completo": "Inspeções Visuais: relatar o número de inspeções realizadas nas redes elétricas e vegetação, bem como a extensão das redes inspecionadas, destacando as áreas de risco identificadas por conjunto elétrico",
+   "titulo_curto": "Inspeções visuais nas redes",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "101. O Relatório Anual de Gestão do Manejo Vegetal deve conter no mínimo a descrição das seguintes atividades realizadas:",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0038",
@@ -7620,6 +8267,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
+   "area_origem": "regra",
    "dispositivo": "item 101, alínea a"
   },
   {
@@ -7627,6 +8276,10 @@
    "titulo": "Podas Preventivas: descrever as ações de poda realizadas e as ações indicadas ao…",
    "titulo_origem": "regra",
    "titulo_completo": "Podas Preventivas: descrever as ações de poda realizadas e as ações indicadas ao Poder Público Municipal, incluindo o número de árvores podadas por conjunto elétrico",
+   "titulo_curto": "Podas preventivas realizadas",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "101. O Relatório Anual de Gestão do Manejo Vegetal deve conter no mínimo a descrição das seguintes atividades realizadas:",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0039",
@@ -7692,6 +8345,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
+   "area_origem": "regra",
    "dispositivo": "item 101, alínea b"
   },
   {
@@ -7699,6 +8354,10 @@
    "titulo": "Podas Corretivas: descrever as ações de poda realizadas, incluindo o número de…",
    "titulo_origem": "regra",
    "titulo_completo": "Podas Corretivas: descrever as ações de poda realizadas, incluindo o número de árvores podadas por conjunto elétrico",
+   "titulo_curto": "Podas corretivas realizadas",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "101. O Relatório Anual de Gestão do Manejo Vegetal deve conter no mínimo a descrição das seguintes atividades realizadas:",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0040",
@@ -7762,6 +8421,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
+   "area_origem": "regra",
    "dispositivo": "item 101, alínea c"
   },
   {
@@ -7769,6 +8430,10 @@
    "titulo": "Remoção de Árvores: relatar os casos de remoção de árvores, detalhando a…",
    "titulo_origem": "regra",
    "titulo_completo": "Remoção de Árvores: relatar os casos de remoção de árvores, detalhando a localização, o motivo da remoção (risco iminente, doenças, porte inadequado) por conjunto elétrico",
+   "titulo_curto": "Remoção de árvores por local",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "101. O Relatório Anual de Gestão do Manejo Vegetal deve conter no mínimo a descrição das seguintes atividades realizadas:",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0041",
@@ -7832,6 +8497,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 101, alínea d"
   },
   {
@@ -7839,6 +8506,10 @@
    "titulo": "Programas de Substituição de Espécies: incluir dados sobre o número de substituição…",
    "titulo_origem": "regra",
    "titulo_completo": "Programas de Substituição de Espécies: incluir dados sobre o número de substituição de árvores inadequadas por espécies mais apropriadas por conjunto elétrico",
+   "titulo_curto": "Substituição de espécies arbóreas",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "101. O Relatório Anual de Gestão do Manejo Vegetal deve conter no mínimo a descrição das seguintes atividades realizadas:",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0042",
@@ -7902,6 +8573,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 101, alínea e"
   },
   {
@@ -7909,6 +8582,10 @@
    "titulo": "Aceiro de faixas de servidão: relatar o aceiro da vegetação realizado em faixas de…",
    "titulo_origem": "regra",
    "titulo_completo": "Aceiro de faixas de servidão: relatar o aceiro da vegetação realizado em faixas de servidão das redes e linhas de distribuição por conjunto elétrico; e",
+   "titulo_curto": "Aceiro em faixas de servidão",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "101. O Relatório Anual de Gestão do Manejo Vegetal deve conter no mínimo a descrição das seguintes atividades realizadas:",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0043",
@@ -7972,6 +8649,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
+   "area_origem": "regra",
    "dispositivo": "item 101, alínea f"
   },
   {
@@ -7979,6 +8658,10 @@
    "titulo": "Convênios Celebrados: informar os convênios celebrados com o Poder Público Estadual,…",
    "titulo_origem": "regra",
    "titulo_completo": "Convênios Celebrados: informar os convênios celebrados com o Poder Público Estadual, Distrital ou Municipal da sua área de atuação, bem como as tratativas com esses entes para a celebração de convênios",
+   "titulo_curto": "Convênios com entes públicos",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "101. O Relatório Anual de Gestão do Manejo Vegetal deve conter no mínimo a descrição das seguintes atividades realizadas:",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0044",
@@ -8045,6 +8728,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "regra",
    "dispositivo": "item 101, alínea g"
   },
   {
@@ -8052,6 +8737,10 @@
    "titulo": "Disponibilizar a versão mais atualizada de seu Relatório Anual de Gestão do Manejo…",
    "titulo_origem": "regra",
    "titulo_completo": "Disponibilizar a versão mais atualizada de seu Relatório Anual de Gestão do Manejo Vegetal em seu sítio eletrônico na Internet e nos postos de atendimento presencial, de forma acessível ao público, com uso de linguagem clara e adequada",
+   "titulo_curto": "Relatório anual disponível",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0045",
@@ -8126,6 +8815,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
+   "area_origem": "regra",
    "dispositivo": "item 102"
   },
   {
@@ -8133,6 +8824,10 @@
    "titulo": "Manter registro detalhado durante o período de 05 anos de todas as solicitações…",
    "titulo_origem": "regra",
    "titulo_completo": "Manter registro detalhado durante o período de 05 anos de todas as solicitações relacionadas ao serviço de manejo da vegetação que ofereça risco à segurança das redes elétricas e à continuidade do fornecimento de energia elétrica, incluídas tanto as solicitações realizadas pelo Poder Público Municipal quanto aquelas registradas pelas próprias distribuidoras e enviadas ao Poder Público Municipal, devendo o compartilhamento de informações estar em conformidade com as disposições da Lei Geral de Proteção de Dados (LGPD)",
+   "titulo_curto": "Registro de solicitações de manejo",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0047",
@@ -8204,6 +8899,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
+   "area_origem": "regra",
    "dispositivo": "item 104"
   },
   {
@@ -8211,6 +8908,10 @@
    "titulo": "Comunicar aos consumidores, por meio dos canais disponíveis, a provável causa da…",
    "titulo_origem": "regra",
    "titulo_completo": "Comunicar aos consumidores, por meio dos canais disponíveis, a provável causa da interrupção, a área afetada e o tempo previsto para a normalização do fornecimento em até 15 (quinze) minutos após o conhecimento da causa da interrupção. Independentemente do momento em que a causa for identificada, a comunicação contendo essas informações deve ser realizada em até 1 (uma) hora após o reconhecimento da ocorrência da interrupção no fornecimento de energia elétrica",
+   "titulo_curto": "Comunicar causa, área e prazo",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0050",
@@ -8277,6 +8978,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
+   "area_origem": "regra",
    "dispositivo": "item 105"
   },
   {
@@ -8284,6 +8987,10 @@
    "titulo": "Disponibilizar em sítio eletrônico, com atualização a cada 30 minutos, o número…",
    "titulo_origem": "regra",
    "titulo_completo": "Disponibilizar em sítio eletrônico, com atualização a cada 30 minutos, o número total de unidades consumidoras afetadas por interrupções, discriminado em mapa por bairro, no mínimo",
+   "titulo_curto": "Mapa de unidades afetadas",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0051",
@@ -8354,13 +9061,19 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
+   "area_origem": "regra",
    "dispositivo": "item 106"
   },
   {
    "id": "03038d3317d5920c",
-   "titulo": "Ser apresentado por tempo de interrupção, com as seguintes faixas de duração",
+   "titulo": "O número total de unidades consumidoras afetadas deve ser apresentado por tempo de…",
    "titulo_origem": "regra",
-   "titulo_completo": "Ser apresentado por tempo de interrupção, com as seguintes faixas de duração",
+   "titulo_completo": "O número total de unidades consumidoras afetadas deve ser apresentado por tempo de interrupção, com as seguintes faixas de duração",
+   "titulo_curto": "Unidades afetadas por duração",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0051",
@@ -8424,6 +9137,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
+   "area_origem": "regra",
    "dispositivo": "item 106"
   },
   {
@@ -8431,6 +9146,10 @@
    "titulo": "Número da ocorrência",
    "titulo_origem": "regra",
    "titulo_completo": "Número da ocorrência",
+   "titulo_curto": "Número da ocorrência",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "107. As distribuidoras de energia devem disponibilizar em sítio eletrônico com atualização a cada 30 minutos, as seguintes informações relacionadas às ocorrências abertas:",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0053",
@@ -8502,6 +9221,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 107, alínea a"
   },
   {
@@ -8509,6 +9230,10 @@
    "titulo": "Município/bairro da ocorrência aberta",
    "titulo_origem": "regra",
    "titulo_completo": "Município/bairro da ocorrência aberta",
+   "titulo_curto": "Município e bairro da ocorrência",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "107. As distribuidoras de energia devem disponibilizar em sítio eletrônico com atualização a cada 30 minutos, as seguintes informações relacionadas às ocorrências abertas:",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0054",
@@ -8580,6 +9305,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 107, alínea b"
   },
   {
@@ -8587,6 +9314,10 @@
    "titulo": "Data e hora de início da ocorrência aberta",
    "titulo_origem": "regra",
    "titulo_completo": "Data e hora de início da ocorrência aberta",
+   "titulo_curto": "Data e hora de início",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "107. As distribuidoras de energia devem disponibilizar em sítio eletrônico com atualização a cada 30 minutos, as seguintes informações relacionadas às ocorrências abertas:",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0055",
@@ -8658,6 +9389,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 107, alínea c"
   },
   {
@@ -8665,6 +9398,10 @@
    "titulo": "Tipo de ocorrência aberta (programada e não programada)",
    "titulo_origem": "regra",
    "titulo_completo": "Tipo de ocorrência aberta (programada e não programada)",
+   "titulo_curto": "Tipo de ocorrência",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "107. As distribuidoras de energia devem disponibilizar em sítio eletrônico com atualização a cada 30 minutos, as seguintes informações relacionadas às ocorrências abertas:",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0056",
@@ -8736,6 +9473,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 107, alínea d"
   },
   {
@@ -8743,6 +9482,10 @@
    "titulo": "Sinalização do status da ocorrência aberta (Em preparação/Em Deslocamento/Em Execução)",
    "titulo_origem": "regra",
    "titulo_completo": "Sinalização do status da ocorrência aberta (Em preparação/Em Deslocamento/Em Execução)",
+   "titulo_curto": "Status da ocorrência",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "107. As distribuidoras de energia devem disponibilizar em sítio eletrônico com atualização a cada 30 minutos, as seguintes informações relacionadas às ocorrências abertas:",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0057",
@@ -8814,6 +9557,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 107, alínea e"
   },
   {
@@ -8821,6 +9566,10 @@
    "titulo": "Quantidade de unidades consumidoras interrompidas da ocorrência aberta e o total da…",
    "titulo_origem": "regra",
    "titulo_completo": "Quantidade de unidades consumidoras interrompidas da ocorrência aberta e o total da área de atuação",
+   "titulo_curto": "Unidades interrompidas e total",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "107. As distribuidoras de energia devem disponibilizar em sítio eletrônico com atualização a cada 30 minutos, as seguintes informações relacionadas às ocorrências abertas:",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0058",
@@ -8892,6 +9641,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 107, alínea f"
   },
   {
@@ -8899,6 +9650,10 @@
    "titulo": "Duração da ocorrência (hh:mm)",
    "titulo_origem": "regra",
    "titulo_completo": "Duração da ocorrência (hh:mm)",
+   "titulo_curto": "Duração da ocorrência",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "107. As distribuidoras de energia devem disponibilizar em sítio eletrônico com atualização a cada 30 minutos, as seguintes informações relacionadas às ocorrências abertas:",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0059",
@@ -8970,6 +9725,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 107, alínea g"
   },
   {
@@ -8977,6 +9734,10 @@
    "titulo": "Consumidor Hora Interrompido (CHI) da ocorrência aberta e o total da área de atuação",
    "titulo_origem": "regra",
    "titulo_completo": "Consumidor Hora Interrompido (CHI) da ocorrência aberta e o total da área de atuação",
+   "titulo_curto": "Consumidor hora interrompido e total",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "107. As distribuidoras de energia devem disponibilizar em sítio eletrônico com atualização a cada 30 minutos, as seguintes informações relacionadas às ocorrências abertas:",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0060",
@@ -9048,6 +9809,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 107, alínea h"
   },
   {
@@ -9055,6 +9818,10 @@
    "titulo": "Quantidade de ocorrências abertas segregadas por município e o total na área de atuação",
    "titulo_origem": "regra",
    "titulo_completo": "Quantidade de ocorrências abertas segregadas por município e o total na área de atuação",
+   "titulo_curto": "Ocorrências por município e total",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "107. As distribuidoras de energia devem disponibilizar em sítio eletrônico com atualização a cada 30 minutos, as seguintes informações relacionadas às ocorrências abertas:",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0061",
@@ -9126,6 +9893,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 107, alínea i"
   },
   {
@@ -9133,6 +9902,10 @@
    "titulo": "Quantidade de equipes em atividade, segregadas por município e o total na área de…",
    "titulo_origem": "regra",
    "titulo_completo": "Quantidade de equipes em atividade, segregadas por município e o total na área de atuação; e",
+   "titulo_curto": "Equipes por município e total",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "107. As distribuidoras de energia devem disponibilizar em sítio eletrônico com atualização a cada 30 minutos, as seguintes informações relacionadas às ocorrências abertas:",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0062",
@@ -9204,6 +9977,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 107, alínea j"
   },
   {
@@ -9211,6 +9986,10 @@
    "titulo": "Disponibilizar a versão mais atualizada de seu plano de comunicação em seu sítio…",
    "titulo_origem": "regra",
    "titulo_completo": "Disponibilizar a versão mais atualizada de seu plano de comunicação em seu sítio eletrônico na Internet e nos postos de atendimento presencial, de forma acessível ao público, com uso de linguagem clara e adequada. Informações Detalhadas",
+   "titulo_curto": "Plano de comunicação atualizado",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0064",
@@ -9291,6 +10070,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
+   "area_origem": "regra",
    "dispositivo": "item 108"
   },
   {
@@ -9298,6 +10079,10 @@
    "titulo": "Motivo da Interrupção: informação sobre a causa da falha",
    "titulo_origem": "regra",
    "titulo_completo": "Motivo da Interrupção: informação sobre a causa da falha",
+   "titulo_curto": "Motivo da interrupção",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "109. As informações prestadas ao consumidor devem incluir:",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0066",
@@ -9363,6 +10148,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 109, alínea a"
   },
   {
@@ -9370,6 +10157,10 @@
    "titulo": "Área Afetada: delimitação geográfica da interrupção",
    "titulo_origem": "regra",
    "titulo_completo": "Área Afetada: delimitação geográfica da interrupção",
+   "titulo_curto": "Área afetada",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "109. As informações prestadas ao consumidor devem incluir:",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0067",
@@ -9435,6 +10226,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 109, alínea b"
   },
   {
@@ -9442,6 +10235,10 @@
    "titulo": "Unidades Consumidoras Impactadas: Número de unidades consumidoras afetadas; e",
    "titulo_origem": "regra",
    "titulo_completo": "Unidades Consumidoras Impactadas: Número de unidades consumidoras afetadas; e",
+   "titulo_curto": "Unidades consumidoras impactadas",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "109. As informações prestadas ao consumidor devem incluir:",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0068",
@@ -9507,6 +10304,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 109, alínea c"
   },
   {
@@ -9514,6 +10313,10 @@
    "titulo": "Previsão de Restabelecimento: estimativa de retorno do fornecimento, com base na…",
    "titulo_origem": "regra",
    "titulo_completo": "Previsão de Restabelecimento: estimativa de retorno do fornecimento, com base na melhor informação disponível. Canais de Comunicação",
+   "titulo_curto": "Previsão de restabelecimento",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "109. As informações prestadas ao consumidor devem incluir:",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0069",
@@ -9579,13 +10382,19 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 109, alínea d"
   },
   {
    "id": "73f0657fc5edfaa2",
-   "titulo": "Ser realizada, obrigatoriamente, por meio de SMS e aplicativos de mensagens, com…",
+   "titulo": "A comunicação de que trata o item 105 deve ser realizada, obrigatoriamente, por meio…",
    "titulo_origem": "regra",
-   "titulo_completo": "Ser realizada, obrigatoriamente, por meio de SMS e aplicativos de mensagens, com envio de mensagens automáticas aos consumidores afetados",
+   "titulo_completo": "A comunicação de que trata o item 105 deve ser realizada, obrigatoriamente, por meio de SMS e aplicativos de mensagens, com envio de mensagens automáticas aos consumidores afetados",
+   "titulo_curto": "Notificação por mensagens aos consumidores",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0070",
@@ -9657,6 +10466,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
+   "area_origem": "regra",
    "dispositivo": "item 110"
   },
   {
@@ -9664,6 +10475,10 @@
    "titulo": "Atualizar as informações referentes à interrupção de que trata o item 105, incluindo…",
    "titulo_origem": "regra",
    "titulo_completo": "Atualizar as informações referentes à interrupção de que trata o item 105, incluindo alterações no tempo estimado de restabelecimento e outras informações relevantes para o consumidor",
+   "titulo_curto": "Atualização das informações de interrupção",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0074",
@@ -9729,6 +10544,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
+   "area_origem": "regra",
    "dispositivo": "item 112"
   },
   {
@@ -9736,6 +10553,10 @@
    "titulo": "Disponibilizar uma API (Application Programming Interface) ou outra solução…",
    "titulo_origem": "regra",
    "titulo_completo": "Disponibilizar uma API (Application Programming Interface) ou outra solução tecnológica segura",
+   "titulo_curto": "Interface de dados de interrupção",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "poder_publico",
    "motivo_tema": "Seção 4.9 da norma",
    "unidade": "u0077",
@@ -9807,6 +10628,8 @@
      }
     ]
    },
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "item 113"
   },
   {
@@ -9814,6 +10637,10 @@
    "titulo": "Facilitar a coordenação entre as distribuidoras e os órgãos governamentais,…",
    "titulo_origem": "regra",
    "titulo_completo": "Facilitar a coordenação entre as distribuidoras e os órgãos governamentais, permitindo uma resposta integrada a crises e eventos adversos. Critérios de Comunicação",
+   "titulo_curto": "Coordenação com órgãos governamentais",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "poder_publico",
    "motivo_tema": "Seção 4.9 da norma",
    "unidade": "u0080",
@@ -9880,6 +10707,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "regra",
    "dispositivo": "item 116"
   },
   {
@@ -9887,6 +10716,10 @@
    "titulo": "Notificar o Poder Público imediatamente após a identificação de um evento crítico,…",
    "titulo_origem": "regra",
    "titulo_completo": "Notificar o Poder Público imediatamente após a identificação de um evento crítico, utilizando canais de comunicação oficiais previamente estabelecidos",
+   "titulo_curto": "Notificação imediata ao Poder Público",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "poder_publico",
    "motivo_tema": "Seção 4.9 da norma",
    "unidade": "u0081",
@@ -9955,6 +10788,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "regra",
    "dispositivo": "item 117"
   },
   {
@@ -9962,6 +10797,10 @@
    "titulo": "Estabelecer protocolos de alertas para notificar rapidamente o Poder Público",
    "titulo_origem": "regra",
    "titulo_completo": "Estabelecer protocolos de alertas para notificar rapidamente o Poder Público",
+   "titulo_curto": "Protocolos de alerta ao governo",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "poder_publico",
    "motivo_tema": "Seção 4.9 da norma",
    "unidade": "u0083",
@@ -10029,6 +10868,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
+   "area_origem": "regra",
    "dispositivo": "item 119"
   },
   {
@@ -10036,6 +10877,10 @@
    "titulo": "Não comprometer a segurança das operações das distribuidoras envolvidas",
    "titulo_origem": "regra",
    "titulo_completo": "Não comprometer a segurança das operações das distribuidoras envolvidas",
+   "titulo_curto": "Segurança nas cessões emergenciais",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0092",
@@ -10101,13 +10946,19 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "item 126"
   },
   {
    "id": "5c34e0b541763f48",
-   "titulo": "Ser limitada à necessidade demonstrada pela situação de crise e proporcional à…",
+   "titulo": "Proporcionalidade e Necessidade: A Cessão Emergencial deve ser limitada à…",
    "titulo_origem": "regra",
-   "titulo_completo": "Ser limitada à necessidade demonstrada pela situação de crise e proporcional à capacidade operacional disponível de cada distribuidora",
+   "titulo_completo": "Proporcionalidade e Necessidade: A Cessão Emergencial deve ser limitada à necessidade demonstrada pela situação de crise e proporcional à capacidade operacional disponível de cada distribuidora",
+   "titulo_curto": "Proporcionalidade na cessão emergencial",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0093",
@@ -10144,6 +10995,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "item 127"
   },
   {
@@ -10151,6 +11004,18 @@
    "titulo": "Evidenciar a proporção de cada distribuidora ou transmissora cedente. Situações…",
    "titulo_origem": "regra",
    "titulo_completo": "Evidenciar a proporção de cada distribuidora ou transmissora cedente. Situações Aplicáveis",
+   "titulo_curto": "Evidenciar proporção por cedente",
+   "evite": {
+    "acao": "Consolidar informações sem evidenciar a proporção de cada cedente nas despesas e registros contábeis.",
+    "trecho_citado": "evidenciar a proporção de cada distribuidora ou transmissora cedente"
+   },
+   "recomendacoes": [
+    {
+     "acao": "Incluir coluna 'proporção cedente (%)' em todos os relatórios e lançamentos contábeis relacionados à Cessão Emergencial.",
+     "trecho_citado": "evidenciar a proporção de cada distribuidora"
+    }
+   ],
+   "contexto": "",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0095",
@@ -10222,6 +11087,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "item 129"
   },
   {
@@ -10229,6 +11096,10 @@
    "titulo": "A previsão de duração da Cessão Emergencial",
    "titulo_origem": "regra",
    "titulo_completo": "A previsão de duração da Cessão Emergencial",
+   "titulo_curto": "Duração prevista da cessão emergencial",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "133. As distribuidoras envolvidas devem formalizar Acordo de Cessão Emergencial Prévio, contendo:",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0115",
@@ -10294,6 +11165,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Jurídico",
+   "area_origem": "regra",
    "dispositivo": "item 133, alínea c"
   },
   {
@@ -10301,6 +11174,10 @@
    "titulo": "A responsabilidade pelas despesas operacionais",
    "titulo_origem": "regra",
    "titulo_completo": "A responsabilidade pelas despesas operacionais",
+   "titulo_curto": "Responsabilidade por despesas operacionais",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "133. As distribuidoras envolvidas devem formalizar Acordo de Cessão Emergencial Prévio, contendo:",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0116",
@@ -10366,6 +11243,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "item 133, alínea d"
   },
   {
@@ -10373,6 +11252,10 @@
    "titulo": "Previsão de Cessão Emergencial, mantendo-se neutralidade das partes em relação a…",
    "titulo_origem": "regra",
    "titulo_completo": "Previsão de Cessão Emergencial, mantendo-se neutralidade das partes em relação a recursos humanos, equipamentos e materiais",
+   "titulo_curto": "Neutralidade nas cessões emergenciais",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "133. As distribuidoras envolvidas devem formalizar Acordo de Cessão Emergencial Prévio, contendo:",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0117",
@@ -10438,6 +11321,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
+   "area_origem": "regra",
    "dispositivo": "item 133, alínea e"
   },
   {
@@ -10445,6 +11330,10 @@
    "titulo": "Realização de testes regulares de Cessão Emergencial, simulando cenários de crise…",
    "titulo_origem": "regra",
    "titulo_completo": "Realização de testes regulares de Cessão Emergencial, simulando cenários de crise para validar a eficácia do processo e identificar melhorias operacionais no intercâmbio de recursos humanos, equipamentos e materiais; e",
+   "titulo_curto": "Testes regulares de cessão emergencial",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "133. As distribuidoras envolvidas devem formalizar Acordo de Cessão Emergencial Prévio, contendo:",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0118",
@@ -10515,6 +11404,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
+   "area_origem": "regra",
    "dispositivo": "item 133, alínea f"
   },
   {
@@ -10522,6 +11413,10 @@
    "titulo": "Procedimentos claros para a integração de equipes externas, com definição de…",
    "titulo_origem": "regra",
    "titulo_completo": "Procedimentos claros para a integração de equipes externas, com definição de treinamentos, capacitações e preparação prévia adequada para garantir que todos os envolvidos estejam alinhados com as práticas de segurança e operação da distribuidora requisitante",
+   "titulo_curto": "Integração de equipes externas",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "133. As distribuidoras envolvidas devem formalizar Acordo de Cessão Emergencial Prévio, contendo:",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0119",
@@ -10587,6 +11482,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
+   "area_origem": "regra",
    "dispositivo": "item 133, alínea g"
   },
   {
@@ -10594,6 +11491,10 @@
    "titulo": "Reembolso de despesas com horas de trabalho dos recursos humanos, proporcionais à…",
    "titulo_origem": "regra",
    "titulo_completo": "Reembolso de despesas com horas de trabalho dos recursos humanos, proporcionais à remuneração, cargos e encargos",
+   "titulo_curto": "Reembolso por horas trabalhadas",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "134. O acordo deve prever cláusulas sobre:",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0121",
@@ -10657,6 +11558,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "item 134, alínea a"
   },
   {
@@ -10664,6 +11567,10 @@
    "titulo": "Reembolso de despesas com equipamentos e materiais cedidos, proporcionais ao valor…",
    "titulo_origem": "regra",
    "titulo_completo": "Reembolso de despesas com equipamentos e materiais cedidos, proporcionais ao valor original para a cedente",
+   "titulo_curto": "Reembolso de equipamentos e materiais",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "134. O acordo deve prever cláusulas sobre:",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0122",
@@ -10727,6 +11634,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "item 134, alínea b"
   },
   {
@@ -10734,6 +11643,10 @@
    "titulo": "Seguros e indenizações em caso de acidentes durante a Cessão Emergencial; e",
    "titulo_origem": "regra",
    "titulo_completo": "Seguros e indenizações em caso de acidentes durante a Cessão Emergencial; e",
+   "titulo_curto": "Seguros e indenizações por acidentes",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "134. O acordo deve prever cláusulas sobre:",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0123",
@@ -10799,6 +11712,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "item 134, alínea c"
   },
   {
@@ -10806,6 +11721,10 @@
    "titulo": "Neutralidade dos valores para o reembolso à(s) cedente(s) pela requisitante.…",
    "titulo_origem": "regra",
    "titulo_completo": "Neutralidade dos valores para o reembolso à(s) cedente(s) pela requisitante. Critérios de Cessão de Equipes",
+   "titulo_curto": "Neutralidade no reembolso à cedente",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "134. O acordo deve prever cláusulas sobre:",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0124",
@@ -10871,6 +11790,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "item 134, alínea d"
   },
   {
@@ -10878,6 +11799,18 @@
    "titulo": "Possuir capacitação e experiência compatíveis com as atividades a serem…",
    "titulo_origem": "regra",
    "titulo_completo": "Possuir capacitação e experiência compatíveis com as atividades a serem desenvolvidas na distribuidora cedente",
+   "titulo_curto": "Equipes com capacitação compatível",
+   "evite": {
+    "acao": "Escalar equipes sem comprovada capacitação e experiência compatíveis com as atividades.",
+    "trecho_citado": "capacitação e experiência compatíveis"
+   },
+   "recomendacoes": [
+    {
+     "acao": "Incluir no dossiê de pessoal cópias digitais de certificados e relatórios de experiência compatível com as atividades a desempenhar.",
+     "trecho_citado": "capacitação e experiência compatíveis"
+    }
+   ],
+   "contexto": "",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0125",
@@ -10941,6 +11874,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
+   "area_origem": "regra",
    "dispositivo": "item 135"
   },
   {
@@ -10948,6 +11883,18 @@
    "titulo": "Prover condições adequadas de trabalho, como alimentação, transporte, hospedagem e…",
    "titulo_origem": "regra",
    "titulo_completo": "Prover condições adequadas de trabalho, como alimentação, transporte, hospedagem e segurança para as equipes objeto da Cessão Emergencial",
+   "titulo_curto": "Condições de trabalho adequadas",
+   "evite": {
+    "acao": "Não prover alimentação, transporte, hospedagem e segurança adequados às equipes cedidas.",
+    "trecho_citado": "alimentação, transporte, hospedagem e segurança"
+   },
+   "recomendacoes": [
+    {
+     "acao": "Emitir vouchers de alimentação ou contratar catering e registrar contrato de segurança privada para proteção das equipes.",
+     "trecho_citado": "alimentação, transporte, hospedagem e segurança"
+    }
+   ],
+   "contexto": "",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0126",
@@ -11013,13 +11960,19 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
+   "area_origem": "regra",
    "dispositivo": "item 136"
   },
   {
    "id": "dace5661de038677",
-   "titulo": "Ser reembolsadas pela cessionária à cedente garantindo a neutralidade da operação,…",
+   "titulo": "As cessões emergenciais de recursos humanos, equipamentos e materiais…",
    "titulo_origem": "regra",
-   "titulo_completo": "Ser reembolsadas pela cessionária à cedente garantindo a neutralidade da operação, não se tratando de rateio ou prestação de serviços, e preservando a individualidade das concessões",
+   "titulo_completo": "As cessões emergenciais de recursos humanos, equipamentos e materiais entre\ndistribuidoras e transmissoras e suas partes relacionadas devem ser reembolsadas pela cessionária à cedente garantindo a neutralidade da operação, não se tratando de rateio ou prestação de serviços, e preservando a individualidade das concessões",
+   "titulo_curto": "Reembolso neutro em cessões emergenciais",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0132",
@@ -11083,13 +12036,19 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
+   "area_origem": "regra",
    "dispositivo": "item 139, alínea c"
   },
   {
    "id": "a03bb494e4666bc9",
-   "titulo": "Ser estruturado de forma a permitir a verificação da sua continuidade e eficiência…",
+   "titulo": "Verificabilidade: o plano deve ser estruturado de forma a permitir a verificação da…",
    "titulo_origem": "regra",
-   "titulo_completo": "Ser estruturado de forma a permitir a verificação da sua continuidade e eficiência de execução. Diretrizes",
+   "titulo_completo": "Verificabilidade: o plano deve ser estruturado de forma a permitir a verificação da sua continuidade e eficiência de execução. Diretrizes",
+   "titulo_curto": "Plano verificável e executável",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "142. O plano de contingência deve ser baseado nos seguintes princípios norteadores:",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0144",
@@ -11160,6 +12119,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
+   "area_origem": "regra",
    "dispositivo": "item 142, alínea g"
   },
   {
@@ -11167,6 +12128,10 @@
    "titulo": "Incluir a localização, natureza do risco, frequência histórica de ocorrência e uma…",
    "titulo_origem": "regra",
    "titulo_completo": "Incluir a localização, natureza do risco, frequência histórica de ocorrência e uma análise completa dos impactos potenciais associados a cada risco",
+   "titulo_curto": "Identificação e análise de riscos",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "144. O plano de contingência deve conter os seguintes requisitos mínimos:",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0158",
@@ -11230,13 +12195,19 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
+   "area_origem": "ia",
    "dispositivo": "item 144, alínea a"
   },
   {
    "id": "a1b6115028690bc1",
-   "titulo": "Ser feita com periodicidade máxima de um ano",
+   "titulo": "A realização de simulados ou disponibilização de treinamentos atualizados deve ser…",
    "titulo_origem": "regra",
-   "titulo_completo": "Ser feita com periodicidade máxima de um ano",
+   "titulo_completo": "A realização de simulados ou disponibilização de treinamentos atualizados deve ser feita com periodicidade máxima de um ano",
+   "titulo_curto": "Simulados e treinamentos anuais",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0167",
@@ -11300,13 +12271,19 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
+   "area_origem": "regra",
    "dispositivo": "item 145"
   },
   {
    "id": "9248ddd0d9436761",
-   "titulo": "Ser fornecida na mesma periodicidade máxima para os agentes designados pelo Poder…",
+   "titulo": "A disponibilização de treinamentos atualizados, também deve ser fornecida na mesma…",
    "titulo_origem": "regra",
-   "titulo_completo": "Ser fornecida na mesma periodicidade máxima para os agentes designados pelo Poder Público",
+   "titulo_completo": "A disponibilização de treinamentos atualizados, também deve ser fornecida na mesma periodicidade máxima para os agentes designados pelo Poder Público",
+   "titulo_curto": "Treinamentos anuais para agentes públicos",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "145. A realização de simulados ou disponibilização de treinamentos atualizados deve ser feita com periodicidade máxima de um ano.",
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0169",
@@ -11372,6 +12349,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
+   "area_origem": "ia",
    "dispositivo": "item 145, alínea b"
   },
   {
@@ -11379,6 +12358,18 @@
    "titulo": "Enviar às áreas de fiscalização da ANEEL relatório contendo discriminação das…",
    "titulo_origem": "regra",
    "titulo_completo": "Enviar às áreas de fiscalização da ANEEL relatório contendo discriminação das despesas ou custos incorridos a serem reembolsados à cedente relativos à Cessão Emergencial de recursos humanos, equipamentos e materiais utilizados, além de outras informações pertinentes",
+   "titulo_curto": "Relatório despesas cessão emergencial",
+   "evite": {
+    "acao": "Enviar relatório sem discriminar despesas reembolsáveis, consolidando todos os custos sem detalhamento.",
+    "trecho_citado": "discriminação das despesas ou custos incorridos"
+   },
+   "recomendacoes": [
+    {
+     "acao": "Enviar o relatório e anexos à área de fiscalização da ANEEL via portal de envio ou e‑mail institucional, com identificação da cedente.",
+     "trecho_citado": "relatório contendo discriminação das despesas"
+    }
+   ],
+   "contexto": "",
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
    "unidade": "u0176",
@@ -11451,6 +12442,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "regra",
    "dispositivo": "item 23-A"
   },
   {
@@ -11458,6 +12451,10 @@
    "titulo": "Comunicar ao consumidor, após o reconhecimento da ocorrência de interrupções no…",
    "titulo_origem": "regra",
    "titulo_completo": "Comunicar ao consumidor, após o reconhecimento da ocorrência de interrupções no fornecimento de energia elétrica, informações sobre o evento",
+   "titulo_curto": "Comunicação ao consumidor sobre interrupções",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
    "unidade": "u0178",
@@ -11524,6 +12521,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
+   "area_origem": "regra",
    "dispositivo": "item 23-B"
   },
   {
@@ -11531,6 +12530,10 @@
    "titulo": "Disponibilizar aos consumidores o número total de unidades consumidoras afetadas por…",
    "titulo_origem": "regra",
    "titulo_completo": "Disponibilizar aos consumidores o número total de unidades consumidoras afetadas por interrupções",
+   "titulo_curto": "Número de unidades afetadas",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
    "unidade": "u0180",
@@ -11594,6 +12597,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
    "dispositivo": "item 23-C"
   },
   {
@@ -11601,6 +12606,10 @@
    "titulo": "Disponibilizar em sítio eletrônico informações relacionadas às ocorrências abertas",
    "titulo_origem": "regra",
    "titulo_completo": "Disponibilizar em sítio eletrônico informações relacionadas às ocorrências abertas",
+   "titulo_curto": "Informações de ocorrências online",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
    "unidade": "u0182",
@@ -11672,6 +12681,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
+   "area_origem": "regra",
    "dispositivo": "item 23-D"
   },
   {
@@ -11679,6 +12690,10 @@
    "titulo": "Disponibilizar em sítio eletrônico e nos postos de atendimento presencial, com uso…",
    "titulo_origem": "regra",
    "titulo_completo": "Disponibilizar em sítio eletrônico e nos postos de atendimento presencial, com uso de linguagem clara e adequada, a versão mais atualizada de seu Relatório Anual de Gestão do Manejo Vegetal",
+   "titulo_curto": "Relatório anual de manejo vegetal",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
    "unidade": "u0184",
@@ -11753,6 +12768,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Meio Ambiente/Arborização",
+   "area_origem": "regra",
    "dispositivo": "item 23-E"
   },
   {
@@ -11760,6 +12777,10 @@
    "titulo": "Informar e manter, por até cinco anos, em seu sítio eletrônico, a qualidade na…",
    "titulo_origem": "regra",
    "titulo_completo": "Informar e manter, por até cinco anos, em seu sítio eletrônico, a qualidade na prestação do serviço de distribuição de energia elétrica, por meio da apuração de indicadores de continuidade do fornecimento, permitindo a avaliação do percentual de cumprimento dos limites de conjuntos elétricos, além do valor global da distribuidora. Informação Especificação Unidade Periodicidade Observação Percentual de Comparação Percentual de Disponibilização atendimentos entre o conjuntos de unidades até o último dia A apuração do indicador dos limites indicador consumidoras que útil do mês deve corresponder à média regulatórios DEC e o atendem aos limites subsequente ao móvel dos últimos 12 dos conjuntos limite regulatórios de DEC período de meses. de unidades regulatório anualizado. apuração consumidoras Informação Especificação Unidade Periodicidade Observação Comparação Indicador coletivo de Disponibilização entre o continuidade DEC até o último dia A apuração do indicador Hora e indicador global anualizado em útil do mês deve corresponder à média centésimos DEC e o comparação com os subsequente ao móvel dos últimos 12 de hora limite respectivos limites período de meses. regulatório definidos pela ANEEL. apuração Percentual de conjuntos de Percentual de Comparação Disponibilização unidades atendimentos entre o até o último dia A apuração do indicador consumidoras que dos limites indicador útil do mês deve corresponder à média atendem aos regulatórios FEC e o subsequente ao móvel dos últimos 12 limites dos conjuntos limite período de meses. regulatórios de de unidades regulatório apuração FEC anualizado. consumidoras Comparação Indicador coletivo de Disponibilização Número de entre o continuidade FEC até o último dia A apuração do indicador interrupções indicador global anualizado em útil do mês deve corresponder à média e centésimos FEC e o comparação com os subsequente ao móvel dos últimos 12 do número de limite respectivos limites período de meses. interrupções regulatório definidos pela ANEEL. apuração",
+   "titulo_curto": "Manter indicadores por cinco anos",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
    "unidade": "u0188",
@@ -11803,6 +12824,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "regra",
    "dispositivo": "item 23-G"
   },
   {
@@ -11810,6 +12833,10 @@
    "titulo": "Informar e manter, por até cinco anos, em seu sítio eletrônico, os indicadores de…",
    "titulo_origem": "regra",
    "titulo_completo": "Informar e manter, por até cinco anos, em seu sítio eletrônico, os indicadores de duração e frequência de interrupções (DEC e FEC) efetivamente percebidas pelos usuários, sem aplicação de expurgos. Informação Especificação Unidade Periodicidade Observação Indicador coletivo de continuidade DEC anual apurado por Disponibilização conjunto de unidades até o último dia A apuração do indicador DEC Hora e consumidoras útil do mês deve corresponder à média apurado centésimos considerando todas as subsequente ao móvel dos últimos 12 sem expurgo de hora interrupções ocorridas período de meses. no sistema elétrico apuração que afetem os consumidores. Indicador coletivo de continuidade FEC anual apurado por Envio até o Número de conjunto de unidades último dia útil A apuração do indicador interrupções FEC apurado consumidoras do mês deve corresponder à média e centésimos sem expurgo considerando todas as subsequente ao móvel dos últimos 12 do número de interrupções ocorridas período de meses. interrupções no sistema elétrico apuração que afetem os consumidores. Fluxo de informações da distribuidora para o consumidor, Poder Público e mídia",
+   "titulo_curto": "Manter indicadores DEC e FEC",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
    "unidade": "u0189",
@@ -11853,6 +12880,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
+   "area_origem": "regra",
    "dispositivo": "item 23-H"
   },
   {
@@ -11860,6 +12889,10 @@
    "titulo": "Disponibilizar em sítio eletrônico e nos postos de atendimento presencial, com uso…",
    "titulo_origem": "regra",
    "titulo_completo": "Disponibilizar em sítio eletrônico e nos postos de atendimento presencial, com uso de linguagem clara e adequada, o seu Plano de Comunicação",
+   "titulo_curto": "Plano de comunicação",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
    "unidade": "u0190",
@@ -11934,6 +12967,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
+   "area_origem": "regra",
    "dispositivo": "item 23-I"
   },
   {
@@ -11941,6 +12976,10 @@
    "titulo": "Disponibilizar à ANEEL uma API (Application Programming Interface) que possibilite a…",
    "titulo_origem": "regra",
    "titulo_completo": "Disponibilizar à ANEEL uma API (Application Programming Interface) que possibilite a consulta de dados de interrupção do fornecimento diretamente dos sistemas das distribuidoras",
+   "titulo_curto": "Consulta de interrupções à ANEEL",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
    "unidade": "u0194",
@@ -12012,6 +13051,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "item 23-K"
   },
   {
@@ -12019,6 +13060,10 @@
    "titulo": "Notificar o Poder Público imediatamente após a identificação de um evento crítico,…",
    "titulo_origem": "regra",
    "titulo_completo": "Notificar o Poder Público imediatamente após a identificação de um evento crítico, utilizando canais de comunicação oficiais previamente estabelecidos",
+   "titulo_curto": "Notificação imediata ao poder público",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
    "unidade": "u0196",
@@ -12087,6 +13132,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "regra",
    "dispositivo": "item 23-L"
   },
   {
@@ -12094,6 +13141,10 @@
    "titulo": "Não ser consideradas as interrupções previstas no item 178, com exceção da alínea “c”",
    "titulo_origem": "regra",
    "titulo_completo": "Não ser consideradas as interrupções previstas no item 178, com exceção da alínea “c”",
+   "titulo_curto": "Excluir interrupções previstas no DISE",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "dise",
    "motivo_tema": "Seção IV da norma",
    "unidade": "u0225",
@@ -12157,6 +13208,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "regra",
    "dispositivo": "item 180-A"
   },
   {
@@ -12164,6 +13217,26 @@
    "titulo": "Efetuar uma compensação ao consumidor ou central geradora de média ou baixa tensão…",
    "titulo_origem": "regra",
    "titulo_completo": "Efetuar uma compensação ao consumidor ou central geradora de média ou baixa tensão para cada interrupção ocorrida em Situação de Emergência que superar o limite do indicador DISE.”(NR)",
+   "titulo_curto": "Compensação por interrupção em emergência",
+   "evite": {
+    "acao": "Efetuar compensação somente para interrupções fora de Situação de Emergência.",
+    "trecho_citado": "cada interrupção ocorrida em Situação de Emergência"
+   },
+   "recomendacoes": [
+    {
+     "acao": "Creditar compensação na fatura subsequente do consumidor de média/baixa tensão, referente à interrupção ocorrida em Situação de Emergência.",
+     "trecho_citado": "compensação ao consumidor ou central geradora"
+    },
+    {
+     "acao": "Emitir nota de crédito eletrônica para central geradora de média ou baixa tensão e registrar no sistema de faturamento.",
+     "trecho_citado": "central geradora de média ou baixa tensão"
+    },
+    {
+     "acao": "Publicar no site relatório individual das compensações por interrupção ocorrida em Situação de Emergência, com protocolos e valores creditados.",
+     "trecho_citado": "interrupção ocorrida em Situação de Emergência"
+    }
+   ],
+   "contexto": "",
    "tema": "dise",
    "motivo_tema": "Seção IV da norma",
    "unidade": "u0231",
@@ -12205,13 +13278,19 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
+   "area_origem": "regra",
    "dispositivo": "item 220-A"
   },
   {
    "id": "12c8dc53c25f41a2",
-   "titulo": "Ser estabelecidas nos respectivos contratos, obedecendo aos critérios deste Módulo",
+   "titulo": "As compensações associadas às violações dos limites de continuidade DIC, FIC, DMIC,…",
    "titulo_origem": "regra",
-   "titulo_completo": "Ser estabelecidas nos respectivos contratos, obedecendo aos critérios deste Módulo",
+   "titulo_completo": "As compensações associadas às violações dos limites de continuidade DIC, FIC, DMIC, DICRI e DISE por ponto de conexão devem ser estabelecidas nos respectivos contratos, obedecendo aos critérios deste Módulo",
+   "titulo_curto": "Compensações estabelecidas em contratos",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "dise",
    "motivo_tema": "Seção IV da norma",
    "unidade": "u0247",
@@ -12287,13 +13366,19 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "regra",
    "dispositivo": "item 226"
   },
   {
    "id": "09fc14322d39e994",
-   "titulo": "Ser realizada sem prejuízo das compensações por violação dos indicadores DIC, FIC e…",
+   "titulo": "A compensação deve ser realizada sem prejuízo das compensações por violação dos…",
    "titulo_origem": "regra",
-   "titulo_completo": "Ser realizada sem prejuízo das compensações por violação dos indicadores DIC, FIC e DMIC, podendo inclusive haver compensações referentes a mais de uma violação do limite dos indicadores DICRI e DISE no mesmo mês, hipótese em que deve ser paga a soma das compensações calculadas para cada violação.”(NR)",
+   "titulo_completo": "A compensação deve ser realizada sem prejuízo das compensações por violação dos indicadores DIC, FIC e DMIC, podendo inclusive haver compensações referentes a mais de uma violação do limite dos indicadores DICRI e DISE no mesmo mês, hipótese em que deve ser paga a soma das compensações calculadas para cada violação.”(NR)",
+   "titulo_curto": "Somar compensações por múltiplas violações",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "dise",
    "motivo_tema": "Seção IV da norma",
    "unidade": "u0249",
@@ -12362,6 +13447,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Operação/Manutenção",
+   "area_origem": "regra",
    "dispositivo": "item 227, alínea d"
   },
   {
@@ -12369,6 +13456,10 @@
    "titulo": "Estabelecer canais adicionais de comunicação exclusivos ao atendimento de órgão…",
    "titulo_origem": "regra",
    "titulo_completo": "Estabelecer canais adicionais de comunicação exclusivos ao atendimento de órgão central e representantes designados dos poderes públicos municipal, distrital e estadual",
+   "titulo_curto": "Canais exclusivos para poderes públicos",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "poder_publico",
    "motivo_tema": "Seção VI da norma",
    "unidade": "u0261",
@@ -12435,6 +13526,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "regra",
    "dispositivo": "Art. 371-A"
   },
   {
@@ -12442,6 +13535,10 @@
    "titulo": "Atendimento telefônico",
    "titulo_origem": "regra",
    "titulo_completo": "Atendimento telefônico",
+   "titulo_curto": "Atendimento telefônico dedicado",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "§ 1º Os canais dedicados devem contemplar, no mínimo:",
    "tema": "poder_publico",
    "motivo_tema": "Seção VI da norma",
    "unidade": "u0263",
@@ -12507,6 +13604,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 371-A, § 1º, inciso I"
   },
   {
@@ -12514,6 +13613,10 @@
    "titulo": "Atendimento presencial, com horário agendado; e",
    "titulo_origem": "regra",
    "titulo_completo": "Atendimento presencial, com horário agendado; e",
+   "titulo_curto": "Atendimento presencial agendado",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "§ 1º Os canais dedicados devem contemplar, no mínimo:",
    "tema": "poder_publico",
    "motivo_tema": "Seção VI da norma",
    "unidade": "u0264",
@@ -12579,6 +13682,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 371-A, § 1º, inciso II"
   },
   {
@@ -12586,6 +13691,10 @@
    "titulo": "Canal de comunicação por texto (chat) com atendimento humano, durante horário comercial",
    "titulo_origem": "regra",
    "titulo_completo": "Canal de comunicação por texto (chat) com atendimento humano, durante horário comercial",
+   "titulo_curto": "Atendimento por chat humano",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "§ 1º Os canais dedicados devem contemplar, no mínimo:",
    "tema": "poder_publico",
    "motivo_tema": "Seção VI da norma",
    "unidade": "u0265",
@@ -12652,6 +13761,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 371-A, § 1º, inciso III"
   },
   {
@@ -12659,6 +13770,10 @@
    "titulo": "Designar um ou mais representantes institucionais para atendimento exclusivo dos…",
    "titulo_origem": "regra",
    "titulo_completo": "Designar um ou mais representantes institucionais para atendimento exclusivo dos poderes públicos municipal, distrital e estadual, garantindo comunicação direta e eficaz",
+   "titulo_curto": "Representantes exclusivos aos poderes públicos",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "Art. 371-A A distribuidora deve estabelecer canais adicionais de comunicação exclusivos ao atendimento de órgão central e representantes designados dos poderes públicos municipal, distrital e estadual.",
    "tema": "poder_publico",
    "motivo_tema": "Seção VI da norma",
    "unidade": "u0267",
@@ -12724,6 +13839,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "regra",
    "dispositivo": "Art. 371-A, § 3º"
   },
   {
@@ -12731,6 +13848,10 @@
    "titulo": "Agendar e realizar, sempre que solicitado pelos poderes públicos municipal,…",
    "titulo_origem": "regra",
    "titulo_completo": "Agendar e realizar, sempre que solicitado pelos poderes públicos municipal, distrital e estadual, reuniões via plataforma de videoconferência com os seus representantes institucionais",
+   "titulo_curto": "Reuniões por videoconferência a pedido",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "Art. 371-A A distribuidora deve estabelecer canais adicionais de comunicação exclusivos ao atendimento de órgão central e representantes designados dos poderes públicos municipal, distrital e estadual.",
    "tema": "poder_publico",
    "motivo_tema": "Seção VI da norma",
    "unidade": "u0268",
@@ -12794,6 +13915,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "Art. 371-A, § 4º"
   },
   {
@@ -12801,6 +13924,10 @@
    "titulo": "Ter, no caso de urgência/emergência, disponibilidade ininterrupta durante 24 horas…",
    "titulo_origem": "regra",
    "titulo_completo": "Ter, no caso de urgência/emergência, disponibilidade ininterrupta durante 24 horas por dia e 7 dias por semana, com atendimento humano durante todo o período de funcionamento",
+   "titulo_curto": "Atendimento telefônico humano 24 horas",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "Art. 371-A A distribuidora deve estabelecer canais adicionais de comunicação exclusivos ao atendimento de órgão central e representantes designados dos poderes públicos municipal, distrital e estadual.",
    "tema": "poder_publico",
    "motivo_tema": "Seção VI da norma",
    "unidade": "u0269",
@@ -12867,6 +13994,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
+   "area_origem": "regra",
    "dispositivo": "Art. 371-A, § 5º"
   },
   {
@@ -12874,6 +14003,10 @@
    "titulo": "Observar as disposições relacionadas ao atendimento previstas no Módulo 4 do PRODIST",
    "titulo_origem": "regra",
    "titulo_completo": "Observar as disposições relacionadas ao atendimento previstas no Módulo 4 do PRODIST",
+   "titulo_curto": "Seguir regras de atendimento emergencial",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "Art. 371-A A distribuidora deve estabelecer canais adicionais de comunicação exclusivos ao atendimento de órgão central e representantes designados dos poderes públicos municipal, distrital e estadual.",
    "tema": "poder_publico",
    "motivo_tema": "Seção VI da norma",
    "unidade": "u0270",
@@ -12937,6 +14070,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
+   "area_origem": "regra",
    "dispositivo": "Art. 371-A, § 6º"
   },
   {
@@ -12944,6 +14079,10 @@
    "titulo": "Entregar e manter atualizado junto aos poderes públicos municipal, distrital e…",
    "titulo_origem": "regra",
    "titulo_completo": "Entregar e manter atualizado junto aos poderes públicos municipal, distrital e estadual a relação dos canais exclusivos e as informações de contato dos representantes institucionais estabelecidos com os horários de atendimento. ....................................................................................................”(NR)",
+   "titulo_curto": "Canais exclusivos para poderes públicos",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "Art. 371-A A distribuidora deve estabelecer canais adicionais de comunicação exclusivos ao atendimento de órgão central e representantes designados dos poderes públicos municipal, distrital e estadual.",
    "tema": "poder_publico",
    "motivo_tema": "Seção VI da norma",
    "unidade": "u0271",
@@ -13010,13 +14149,19 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "regra",
    "dispositivo": "Art. 371-A, § 7º"
   },
   {
    "id": "7dff368ce09aa0a5",
-   "titulo": "Ser estabelecido por Portaria emitida pelo Diretor-Geral",
+   "titulo": "O Comitê de Crise deve ser estabelecido por Portaria emitida pelo Diretor-Geral",
    "titulo_origem": "regra",
-   "titulo_completo": "Ser estabelecido por Portaria emitida pelo Diretor-Geral",
+   "titulo_completo": "O Comitê de Crise deve ser estabelecido por Portaria emitida pelo Diretor-Geral",
+   "titulo_curto": "Instituição do Comitê de Crise",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "Art 10. A Agência poderá instituir Comitê de Crise quando da ocorrência de eventos climáticos severos, com no mínimo os seguintes objetivos:",
    "tema": "cessao",
    "motivo_tema": "Seção VIII da norma",
    "unidade": "u0288",
@@ -13051,6 +14196,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Regulatório",
+   "area_origem": "regra",
    "dispositivo": "Art. 10, § 2º"
   },
   {
@@ -13058,6 +14205,10 @@
    "titulo": "Atender as demais disposições da Portaria nº 6.803, de 30 de janeiro de 2023, no que…",
    "titulo_origem": "regra",
    "titulo_completo": "Atender as demais disposições da Portaria nº 6.803, de 30 de janeiro de 2023, no que couber",
+   "titulo_curto": "Portaria atender norma aplicável",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "Art 10. A Agência poderá instituir Comitê de Crise quando da ocorrência de eventos climáticos severos, com no mínimo os seguintes objetivos:",
    "tema": "cessao",
    "motivo_tema": "Seção VIII da norma",
    "unidade": "u0289",
@@ -13121,13 +14272,19 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Jurídico",
+   "area_origem": "ia",
    "dispositivo": "Art. 10, §3º"
   },
   {
    "id": "d6664266cb6f2dc2",
-   "titulo": "Ser reembolsadas pela cessionária à cedente garantindo a neutralidade da operação,…",
+   "titulo": "As cessões emergenciais de recursos humanos, equipamentos e materiais…",
    "titulo_origem": "regra",
-   "titulo_completo": "Ser reembolsadas pela cessionária à cedente garantindo a neutralidade da operação, não se tratando de rateio ou prestação de serviços, e preservando a individualidade das concessões. ....................................................................................................”(NR)",
+   "titulo_completo": "As cessões emergenciais de recursos humanos, equipamentos e materiais entre\ndistribuidoras e transmissoras e suas partes relacionadas devem ser reembolsadas pela cessionária à cedente garantindo a neutralidade da operação, não se tratando de rateio ou prestação de serviços, e preservando a individualidade das concessões. ....................................................................................................”(NR)",
+   "titulo_curto": "Reembolso em cessões emergenciais",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "outros",
    "motivo_tema": "Sem seção temática nem assunto reconhecido",
    "unidade": "u0297",
@@ -13191,13 +14348,19 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "Comunicação/Atendimento",
+   "area_origem": "regra",
    "dispositivo": "Art. 19, inciso XIII, alínea c"
   },
   {
    "id": "2c00dc4ce9434217",
-   "titulo": "Ser implementadas na data de publicação desta Resolução Normativa",
+   "titulo": "As disposições não listadas nos artigos 13, 14, 15 e 16 devem ser implementadas na…",
    "titulo_origem": "regra",
-   "titulo_completo": "Ser implementadas na data de publicação desta Resolução Normativa",
+   "titulo_completo": "As disposições não listadas nos artigos 13, 14, 15 e 16 devem ser implementadas na data de publicação desta Resolução Normativa",
+   "titulo_curto": "Implementar disposições não listadas",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
    "tema": "outros",
    "motivo_tema": "Sem seção temática nem assunto reconhecido",
    "unidade": "u0311",
@@ -13232,6 +14395,8 @@
     },
     "dependencias_no_texto": []
    },
+   "area": "TI/Sistemas",
+   "area_origem": "regra",
    "dispositivo": "Art. 18"
   }
  ],
@@ -13355,6 +14520,618 @@
    "trecho": "Art 11. A Cessão Emergencial de recursos humanos, equipamentos e materiais poderá ser realizada também entre distribuidoras e transmissoras, visando garantir a continuidade do serviço em situações de crise, sem comprometer a segurança operacional do cedente.",
    "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
    "dispositivo": "Art. 11"
+  }
+ ],
+ "sem_dever_identificado": [
+  {
+   "id": "sd-b36d60498649",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0008",
+   "trecho": "Art. 1º Estabelece disposições para o aumento da resiliência do sistema de distribuição e de transmissão a eventos climáticos severos, altera as Resoluções Normativas nº 846, de 11 de junho de 2019, nº 905, de 08 de dezembro de 2020, nº 948, de 21 de novembro de 2021, nº 956, de 7 de dezembro de 2021, nº 1.000, de 7 de dezembro de 2021, e dá outras providências.",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 1º"
+  },
+  {
+   "id": "sd-aa40a91faba9",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0010",
+   "trecho": "Art. 2º O Anexo I da Resolução Normativa nº 956, de 7 de dezembro de 2021, passa a vigorar com a seguinte redação:",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 2º"
+  },
+  {
+   "id": "sd-71ad698898e8",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0011",
+   "trecho": "“134. ..............................................................................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 134"
+  },
+  {
+   "id": "sd-ce6877d1adba",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0012",
+   "trecho": "134-A. Duração da Interrupção Individual ocorrida em Situação de Emergência por Unidade Consumidora ou por Ponto de Conexão – DISE: corresponde à duração de cada interrupção ocorrida em Situação de Emergência, para cada unidade consumidora ou ponto de conexão. ....................................................................................................”(NR)",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 134-A"
+  },
+  {
+   "id": "sd-2a6161821bee",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0014",
+   "trecho": "Art. 3º O Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, passa a vigorar com a seguinte redação: “",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 3º"
+  },
+  {
+   "id": "sd-e3161ee4388a",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0015",
+   "trecho": "1. .............................................................................................. ..............................................................................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 1"
+  },
+  {
+   "id": "sd-bf03ca4857fc",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0016",
+   "trecho": "e) Seção 4.5 – Coordenação operacional: apresenta os requisitos mínimos para o relacionamento operacional entre os Centros de Operação da Distribuição - COD, do agente de transmissão detentor de DIT, do Centro de Despacho de Geração Distribuída - CDGD e demais órgãos de operação de instalações dos usuários;",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 1, alínea e"
+  },
+  {
+   "id": "sd-a4f894d923a0",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0017",
+   "trecho": "f) Seção 4.6 – Recursos de comunicação de voz e dados: estabelece os recursos mínimos de comunicação de voz e de dados do COD com o Centro de Operação do agente de transmissão detentor de DIT, com o CDGD e com os usuários;",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 1, alínea f"
+  },
+  {
+   "id": "sd-14104f46a543",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0018",
+   "trecho": "g) Seção 4.7 – Poda e manejo vegetal: define os procedimentos e as responsabilidades quanto à supressão e o manejo da vegetação;",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 1, alínea g"
+  },
+  {
+   "id": "sd-5c4329009457",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0019",
+   "trecho": "h) Seção 4.8 – Comunicação entre Distribuidoras e Consumidores em casos de interrupção no fornecimento: apresentar os critérios para comunicação com os consumidores durante situações de interrupção emergencial do fornecimento de energia elétrica de longa duração, garantindo transparência, agilidade e precisão nas informações prestadas;",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 1, alínea h"
+  },
+  {
+   "id": "sd-19fa2b29555b",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0020",
+   "trecho": "i) Seção 4.9 - Comunicação entre Distribuidoras e Poder Público em Situações de Emergência: apresentar os critérios para comunicação com o Poder Público em geral durante situações de interrupção emergencial do fornecimento de energia elétrica de longa duração, garantindo transparência, agilidade e precisão nas informações prestadas;",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 1, alínea i"
+  },
+  {
+   "id": "sd-22411277529e",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0021",
+   "trecho": "j) Seção 4.10 - Cessão Emergencial de recursos humanos, equipamentos e materiais entre distribuidoras: estabelecer as condições para a realização de cessão de recursos humanos, equipamentos e materiais entre distribuidoras, visando garantir a continuidade do serviço em situações de crise, sem comprometer a segurança operacional ou o atendimento aos consumidores por parte da distribuidora cedente; e",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 1, alínea j"
+  },
+  {
+   "id": "sd-0b6970133c97",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0022",
+   "trecho": "k) Seção 4.11 - Planos de Contingência: estabelece os princípios norteadores, diretrizes e requisitos mínimos para a elaboração e implementação de planos de contingência por empresas de distribuição de energia elétrica.”(NR)",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 1, alínea k"
+  },
+  {
+   "id": "sd-5e53de2ef1d3",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0023",
+   "trecho": "“93. ..............................................................................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 93"
+  },
+  {
+   "id": "sd-b89eb851a15c",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0030",
+   "trecho": "98. As distribuidoras são responsáveis pela realização de ações preventivas, devendo atuar junto ao Poder Público Estadual, Distrital e Municipal e manter os registros das solicitações conforme dispõe o item 104, e corretivas, visando garantir a segurança da rede de distribuição, a qualidade, a eficiência e a continuidade do fornecimento de energia elétrica, por meio do manejo adequado da vegetação, sempre seguindo às legislações pertinentes. 98.1. A notificação da distribuidora ao Poder Público Municipal não a exime de suas obrigações quanto à qualidade, eficiência e continuidade na prestação do serviço de distribuição de energia elétrica, devendo manter atuação diligente e tempestiva. Diretrizes para o manejo vegetal",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 98"
+  },
+  {
+   "id": "sd-b4203df58a4b",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0078",
+   "trecho": "114. A ANEEL estabelecerá procedimento para comunicação e acompanhamento das situações de crise enfrentadas pelas distribuidoras. Diretrizes de Comunicação",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 114"
+  },
+  {
+   "id": "sd-c2dfa4c575b0",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0087",
+   "trecho": "121. Estabelecer as condições para a realização de Cessão Emergencial de recursos humanos, equipamentos e materiais entre distribuidoras e transmissoras, visando garantir a continuidade do serviço em situações de crise, sem comprometer a segurança operacional ou o atendimento aos consumidores por parte da distribuidora cedente. Definições",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 121"
+  },
+  {
+   "id": "sd-11924f5ef6bf",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0088",
+   "trecho": "122. Situação de Crise: Evento que afeta significativamente a capacidade operacional da distribuidora, relacionado a eventos extraordinários e cuja caracterização esteja objetivamente definida no Plano de Contingência.",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 122"
+  },
+  {
+   "id": "sd-8d38798d9628",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0089",
+   "trecho": "123. Cessão Emergencial de Recursos: Cessão temporária de profissionais técnicos ou operacionais ou de equipamentos e materiais de uma distribuidora ou transmissora para uma distribuidora para auxiliar em situações de crise.",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 123"
+  },
+  {
+   "id": "sd-bb3108b3e90d",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0090",
+   "trecho": "124. Recursos Disponíveis: Totalidade dos recursos humanos (próprios ou terceirizados), material ou equipamento à disposição da distribuidora mediante contrato. Princípios da Cessão Emergencial",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 124"
+  },
+  {
+   "id": "sd-07bd4d30f7c5",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0094",
+   "trecho": "128. Neutralidade: os valores referentes aos custos ou despesas incorridos pela cedente em função da Cessão Emergencial de recursos serão reembolsados pela cessionária à cedente pelo valor incorrido, proporcional à folha de pagamento de pessoal ou despesa ou custo pelo uso de equipamento ou materiais, sem que haja lucro, remuneração ou rentabilidade de qualquer tipo, tendo em vista o caráter de colaboração e solidariedade.",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 128"
+  },
+  {
+   "id": "sd-492b21808d1b",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0097",
+   "trecho": "131. A Cessão Emergencial de recursos somente pode ser realizada em situações em que a distribuidora tenha atingido limite operacional crítico em relação aos seus recursos disponíveis no atendimento direto à situação de crise, devendo tal situação ser devidamente demonstrada e documentada em relatório circunstanciado do evento que gerou a situação de crise. Intercâmbio de Informações",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 131"
+  },
+  {
+   "id": "sd-dacd1fc74886",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0127",
+   "trecho": "137. O tempo de cessão das equipes não pode comprometer significativamente o atendimento aos consumidores da distribuidora cedente.",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 137"
+  },
+  {
+   "id": "sd-77db89c4acdc",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0130",
+   "trecho": "a) sejam comunicados à ANEEL em até 60 (sessenta) dias após o fim da situação emergencial, mediante relatório contendo a discriminação das despesas ou custos incorridos a serem reembolsados pela cessionária à cedente;",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 139, alínea a"
+  },
+  {
+   "id": "sd-4a4b41b7ba1b",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0174",
+   "trecho": "Art. 4º O Anexo VI da Resolução Normativa nº 956, de 7 de dezembro de 2021, passa a vigorar com a seguinte redação:",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 4º"
+  },
+  {
+   "id": "sd-16d07def5459",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0175",
+   "trecho": "“23. ..............................................................................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 23"
+  },
+  {
+   "id": "sd-fb6e98e88089",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0200",
+   "trecho": "“44. ..............................................................................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 44"
+  },
+  {
+   "id": "sd-9a2950f4d8b7",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0202",
+   "trecho": "“45. ..............................................................................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 45"
+  },
+  {
+   "id": "sd-49b60adf1bd7",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0204",
+   "trecho": "“46. ..............................................................................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 46"
+  },
+  {
+   "id": "sd-485c789dcf55",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0207",
+   "trecho": "Art. 5º O Anexo VIII da Resolução Normativa nº 956, de 7 de dezembro de 2021, passa a vigorar com a seguinte redação:",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 5º"
+  },
+  {
+   "id": "sd-4cddd02d9644",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0208",
+   "trecho": "“171. ..............................................................................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 171"
+  },
+  {
+   "id": "sd-61c26fadad94",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0210",
+   "trecho": "173. .............................................................................................. ..............................................................................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 173"
+  },
+  {
+   "id": "sd-fcc8aa1a8bf7",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0211",
+   "trecho": "e) Duração da Interrupção Individual ocorrida em Situação de Emergência por Unidade Consumidora ou por Ponto de Conexão – DISE, utilizando a seguinte fórmula:",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 173, alínea e"
+  },
+  {
+   "id": "sd-fde9d4a9ed59",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0224",
+   "trecho": "“180. ..............................................................................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 180"
+  },
+  {
+   "id": "sd-bd8c2c949fa4",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0226",
+   "trecho": "181. Os indicadores DICRI e DISE não se aplicam às unidades consumidoras e centrais geradoras atendidas em AT, nem aos pontos de conexão de DIT ou de distribuidoras acessados por outras distribuidoras. ..............................................................................................”(NR)",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 181"
+  },
+  {
+   "id": "sd-36b3f669bbb4",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0227",
+   "trecho": "“214. Os limites dos indicadores de continuidade individuais DIC, FIC, DMIC, DICRI e DISE para as unidades consumidoras e centrais geradoras são estabelecidos nas tabelas 1 a 5 do Anexo 8.B, de acordo com a localização e com a tensão contratada.”(NR)",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 214"
+  },
+  {
+   "id": "sd-3c0e0fabd415",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0228",
+   "trecho": "“216. Os limites dos indicadores DIC, DMIC, DICRI e DISE são vinculados ao limite anual do indicador DEC, enquanto os limites do indicador FIC são vinculados ao limite anual do indicador FEC.”(NR)",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 216"
+  },
+  {
+   "id": "sd-1199636f238b",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0230",
+   "trecho": "220. ..............................................................................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 220"
+  },
+  {
+   "id": "sd-0d52b36b12da",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0232",
+   "trecho": "“225. .............................................................................................. ..............................................................................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 225"
+  },
+  {
+   "id": "sd-4d342f94521e",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0248",
+   "trecho": "227. .............................................................................................. ..............................................................................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 227"
+  },
+  {
+   "id": "sd-dfeed4d393f1",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0256",
+   "trecho": "Art. 6º Aprovar a revisão do Módulo 4 – Prestação do Serviço, disposto no Anexo IV da Resolução Normativa ANEEL nº 905, de 8 de dezembro de 2020.",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 6º"
+  },
+  {
+   "id": "sd-3567ce545451",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0257",
+   "trecho": "Art. 7º Aprovar a revisão do Módulo 6 – Coordenação e Controle da Operação, disposto no Anexo VI da Resolução Normativa ANEEL nº 905, de 8 de dezembro de 2020.",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 7º"
+  },
+  {
+   "id": "sd-a3576b61d76e",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0259",
+   "trecho": "Art. 8º A Resolução Normativa nº 1.000, de 7 de dezembro de 2021, passa a vigorar com a seguinte redação:",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 8º"
+  },
+  {
+   "id": "sd-c63c9852c188",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0260",
+   "trecho": "“Art. 371. ..............................................................................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 371"
+  },
+  {
+   "id": "sd-1020dc665a46",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0273",
+   "trecho": "Art. 9º A Resolução Normativa nº 846, de 11 de junho de 2019, passa a vigorar com a seguinte redação:",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 9º"
+  },
+  {
+   "id": "sd-531d74a304a0",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0274",
+   "trecho": "“Art. 11. Constitui infração do Grupo III: (...)",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 11"
+  },
+  {
+   "id": "sd-16ebb9df0b49",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0275",
+   "trecho": "XXIII - deixar de prestar informações decorrentes de interrupções no fornecimento de energia elétrica aos consumidores ou usuários, nos termos da regulação vigente.” .............................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 11, inciso XXIII"
+  },
+  {
+   "id": "sd-147e84fa0bfd",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0276",
+   "trecho": "“Art. 12. Constitui infração do Grupo IV: ............................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 12"
+  },
+  {
+   "id": "sd-23d2096f80ee",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0277",
+   "trecho": "XXVI - a ausência, inadequação ou descumprimento do Plano de Contingência, nos termos da regulação vigente;",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 12, inciso XXVI"
+  },
+  {
+   "id": "sd-09072318f88c",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0278",
+   "trecho": "XXVII - a ausência, inadequação ou descumprimento do Plano de Manejo Vegetal, nos termos da regulação vigente; e",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 12, inciso XXVII"
+  },
+  {
+   "id": "sd-b5771e01648b",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0279",
+   "trecho": "XXVIII - comunicar-se de forma ineficiente com o Poder Público em Situações de Emergência, nos termos da regulação vigente.” .........................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 12, inciso XXVIII"
+  },
+  {
+   "id": "sd-279db54fe2e8",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0280",
+   "trecho": "“Art. 13. Constitui infração do Grupo V: (...)",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 13"
+  },
+  {
+   "id": "sd-fe14bc403e90",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0281",
+   "trecho": "XIX - atuar de forma inadequada no restabelecimento do fornecimento de energia elétrica nos sistemas de distribuição; e",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 13, inciso XIX"
+  },
+  {
+   "id": "sd-72367bab6d98",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0282",
+   "trecho": "XX - atuar de forma inadequada no retorno à disponibilidade das instalações sob responsabilidade de concessionária de transmissão.”(NR)",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 13, inciso XX"
+  },
+  {
+   "id": "sd-aaa3595e7870",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0287",
+   "trecho": "§ 1º O Comitê de Crise será composto por membros indicados pela Diretoria, pela Área de Assessoria Institucional da Diretoria, pela Área de Fiscalização Técnica dos Serviços de Energia Elétrica, pela Área de Mediação Administrativa e das Relações de Consumo e pela Área de Regulação dos Serviços de Transmissão e Distribuição de Energia Elétrica.",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 10, § 1º"
+  },
+  {
+   "id": "sd-615aee6836bb",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0292",
+   "trecho": "Art. 12 O Anexo V – Módulo V da Resolução Normativa nº 948, de 21 de novembro, passa a vigorar com a seguinte redação:",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 12"
+  },
+  {
+   "id": "sd-3c9ac5cd8d00",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0293",
+   "trecho": "“Art. 19. ..............................................................................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 19"
+  },
+  {
+   "id": "sd-13ab10c8cbe1",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0295",
+   "trecho": "a) sejam comunicados à ANEEL em até 60 (sessenta) dias após o fim da situação emergencial, mediante relatório contendo discriminação das despesas ou custos incorridos a serem reembolsados pela cessionária à cedente;",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 19, inciso XIII, alínea a"
+  },
+  {
+   "id": "sd-6d92af9a116b",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0312",
+   "trecho": "Art. 19. Revoga-se o inciso VIII do art. 621 da Resolução Normativa nº 1.000 de 2021.",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 19"
+  },
+  {
+   "id": "sd-32cab4ef9137",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0313",
+   "trecho": "Art. 20. Revoga-se a alínea b do item 14 do Módulo 9 do PRODIST, constante do anexo IX da Resolução Normativa nº 956 de 2021.",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 20"
+  },
+  {
+   "id": "sd-5eb2bb5abe55",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0314",
+   "trecho": "Art. 21. Esta Resolução entra em vigor na data de sua publicação. SANDOVAL DE ARAÚJO FEITOSA NETO Este texto não substitui o publicado no D.O. de 30.10.2025, seção 1, p. 89, v. 163, n. 207.",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 21"
   }
  ],
  "infracoes": {
@@ -13969,21 +15746,35 @@
  },
  "analise": {
   "rotulo": "Análise regulatória preliminar · não constitui parecer jurídico · revisar com o jurídico",
+  "areas": {
+   "rotulo": "sugestão — revisar com a empresa",
+   "lista": [
+    "Regulatório",
+    "Operação/Manutenção",
+    "Comunicação/Atendimento",
+    "TI/Sistemas",
+    "Meio Ambiente/Arborização",
+    "Jurídico",
+    "A definir"
+   ]
+  },
   "tipo_so_regra": "só pela regra · segunda leitura da IA não feita",
   "tipo_a_revisar": "tipo a revisar",
   "manuais": {
    "comunicar_consumidores": {
     "nome": "Comunicar consumidores",
     "ideias_cumprimento": [
-     "Definir canais e modelos de mensagem (SMS, aplicativo, call center, redes sociais) para cada situação prevista na norma.",
+     "Definir canais e modelos de mensagem para cada situação prevista na norma.",
      "Automatizar o disparo a partir do evento que gera a obrigação e registrar quem recebeu e quando.",
      "Priorizar consumidores com necessidade especial ou serviço essencial, se a norma os destacar.",
-     "Testar a mensagem e o canal antes de precisar deles (simulação)."
+     "Testar a mensagem e o canal antes de precisar deles (simulação).",
+     "Avisar com antecedência a partir de alerta meteorológico oficial (ex.: INMET), quando a norma tratar de evento climático."
     ],
     "evidencias": [
      "Log de envio com data, hora, canal e destinatários.",
      "Modelo da mensagem na versão vigente e histórico de versões.",
-     "Relatório de alcance e de falhas de entrega."
+     "Relatório de alcance e de falhas de entrega.",
+     "Registro do alerta recebido e do aviso enviado (horário, região, quantidade de clientes)."
     ],
     "status": "rascunho — revisar"
    },

@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { MIN_AUTOS_REFERENCIA, NORMAS, contagemDeEnquadramentos, defesa, destaqueDaNorma, frase, prazoTexto, idDaObrigacao, norma, prazos, queda, referenciaDoSetor, simplificar, tabelaDeGrupos, top5, urlDetalhe, urlPlanoCompleto, valorDaObrigacao, valorGeral } from './executivo.ts'
+import { MIN_AUTOS_REFERENCIA, NORMAS, acaoGerencial, eGerencial, textoMaiorMulta, contagemDeEnquadramentos, defesa, destaqueDaNorma, frase, prazoTexto, idDaObrigacao, norma, prazos, queda, referenciaDoSetor, simplificar, tabelaDeGrupos, top5, urlDetalhe, urlPlanoCompleto, valorDaObrigacao, valorGeral } from './executivo.ts'
 import { GRUPOS, NOME_DA_GRAVIDADE, nomeDaGravidade, rotuloDoGrupo } from './gravidade.ts'
 import { SIM_INICIAL, planos, type Simulacao } from './plano.ts'
 
@@ -35,9 +35,12 @@ test('top 5: vencidas primeiro (a mais antiga antes), depois maior valor por inf
     // se sobrou vencida fora do top 5, o top 5 é todo de vencidas
     const ids = new Set(linhas.map((l) => l.id))
     if (p.obrigacoes.some((o) => o.situacao === 'vencida' && !ids.has(o.id))) assert.ok(linhas.every((l) => l.situacao === 'vencida'))
-    // entre as não vencidas, o valor por infração não cresce ao descer a lista
-    const naoVenc = linhas.filter((l) => l.situacao !== 'vencida').map((l) => l.valor?.pct ?? -1)
-    assert.deepEqual(naoVenc, [...naoVenc].sort((a, b) => b - a))
+    // depois das vencidas vêm as a vencer COM DATA (a mais próxima antes); o resto, por maior valor
+    const aVencer = linhas.filter((l) => l.situacao !== 'vencida' && por.get(l.id)!.prazo.data)
+    const datasAVencer = aVencer.map((l) => por.get(l.id)!.prazo.data!)
+    assert.deepEqual(datasAVencer, [...datasAVencer].sort(), `${id}: a vencer, a mais próxima primeiro`)
+    const resto = linhas.filter((l) => l.situacao !== 'vencida' && !por.get(l.id)!.prazo.data).map((l) => l.valor?.pct ?? -1)
+    assert.deepEqual(resto, [...resto].sort((a, b) => b - a))
   }
   // mesmo prazo e mesmo valor: identificado no texto vem antes de sugerido
   const rank = { identificado: 0, sugerido: 1 }
@@ -144,7 +147,7 @@ test('referência do setor: infração grave (Grupo IV, n = 10) quando o valor �
 
 test('destaque da norma: data, deveres identificados e quantos têm prazo, tudo dos dados', () => {
   const d = destaqueDaNorma(planos.ren1174)
-  assert.equal(d.texto, 'publicada em 04/11/2026 · 86 deveres identificados · 5 com prazo · 2 recorrentes')  // dados reprocessados: 86 deveres e 6 com data
+  assert.equal(d.texto, 'publicada em 04/11/2026 · 83 deveres identificados · 1 com prazo · 2 recorrentes')  // dados reprocessados
   assert.equal(d.deveres, planos.ren1174.resumo.aplicaveis)
   assert.equal(d.comPrazo, planos.ren1174.obrigacoes.filter((o) => o.prazo.data).length)
   assert.match(destaqueDaNorma(planos.rn1137).texto, /^em vigor desde 30\/10\/2025 · 155 deveres identificados · \d+ com prazo · \d+ recorrentes?$/)
@@ -191,4 +194,131 @@ test('Art. 13, § 3º da REN 1.174 é recorrente, não prazo único', () => {
   const o = planos.ren1174.obrigacoes.find((x) => x.dispositivo === 'Art. 13, § 3º')!
   assert.equal(o.situacao, 'recorrente')
   assert.equal(o.prazo.data, null)
+})
+
+test('REN 1.174: a primeira reunião do grupo de trabalho (art. 12, § 11) não é dever da distribuidora', () => {
+  const p = planos.ren1174
+  const l = top5('ren1174', SIM_INICIAL, 'preliminar')
+  assert.ok(!p.obrigacoes.some((o) => o.dispositivo === 'Art. 12, § 11'))
+  assert.ok(p.outros_dispositivos.some((o) => o.dispositivo === 'Art. 12, § 11'))
+  assert.ok(!l.some((x) => /primeira reunião/i.test(x.frase)))
+  // o próximo prazo é o de um dever da distribuidora (art. 14, § 1º, II)
+  assert.equal(prazos(p).proxima?.data, '2027-11-04')
+  assert.equal(p.resumo.aplicaveis, 83)
+})
+
+test('títulos com contexto: nada de título que comece por "Ser ", "Até " ou "Em até " no top 5', () => {
+  for (const n of NORMAS) for (const l of top5(n.id, SIM_INICIAL, 'preliminar')) assert.doesNotMatch(l.frase, /^(?:Ser|Até|Em até)/, l.frase)
+  const o = planos.ren1174.obrigacoes.find((x) => x.dispositivo === 'Art. 14, § 1º, inciso II')!
+  assert.match(o.titulo_completo, /^A aplicação do benefício tarifário deve ser realizada/)
+})
+
+test('recomendação em revisão quando a IA não deu ação específica; nunca frase genérica no top 5', () => {
+  const generica = /definir (?:um |o |uma )?respons|designar (?:um |o |uma )?respons|com a equipe|prazo interno/i
+  for (const n of NORMAS) {
+    for (const l of top5(n.id, SIM_INICIAL, 'preliminar')) {
+      if (l.fazer) for (const a of l.fazer.todas) assert.doesNotMatch(a, generica, a)
+    }
+    for (const o of n.dados.obrigacoes) for (const r of o.recomendacoes) assert.ok(r.trecho_citado.length >= 8 && !generica.test(r.acao))
+  }
+})
+
+test('defesa possível coerente: obrigação que envolve a prefeitura mostra a autorização municipal', () => {
+  const o = planos.rn1137.obrigacoes.find((x) => x.dispositivo === 'Art. 13, inciso II')!
+  assert.match(defesa(planos.rn1137, o).texto, /autoriza/)
+  assert.equal(defesa(planos.rn1137, o).origem, 'prática conhecida')
+})
+
+test('maior multa já aplicada a uma distribuidora, sem nome de empresa', () => {
+  assert.equal(textoMaiorMulta(planos.rn1137), 'maior multa já aplicada a uma distribuidora: R$ 165,8 mi (2024), por falhas no restabelecimento após evento climático')
+  const m = planos.rn1137.referencia_escala.maior_multa
+  assert.equal(m.fonte, 'notícia pública, Agência Brasil, 09/02/2024; multa mantida pela diretoria da ANEEL em 09/04/2024')
+  assert.ok(!('link' in m) && !/https?:|www\./.test(JSON.stringify(m)), 'sem URL')
+  assert.doesNotMatch(`${textoMaiorMulta(planos.rn1137)} ${m.fonte}`, /enel|light|cemig|copel|cpfl/i)
+})
+
+test('blocos da executiva: título curto (até 5 palavras), prazo, valor e barras, sem somar infrações', () => {
+  for (const n of NORMAS) {
+    const linhas = top5(n.id, porte(5e9), 'preliminar')
+    assert.equal(linhas.length, 5)
+    for (const l of linhas) {
+      assert.ok(l.titulo.length > 0)
+      const o = n.dados.obrigacoes.find((x) => x.id === l.id)!
+      if (o.titulo_curto) assert.ok(o.titulo_curto.split(/\s+/).length <= 5, o.titulo_curto)
+      if (l.valor?.reais != null) {
+        assert.equal(l.barras[0].rotulo, 'teto')
+        assert.equal(l.barras[0].reais, l.valor.reais) // a barra do teto é o valor do bloco, nunca uma soma
+        for (const b of l.barras) assert.ok(b.reais! <= l.valor.reais && b.fracao <= 1)
+        const [, ii, i] = l.barras
+        assert.match(ii.rotulo, /^art\. 24, II$/)
+        assert.match(i.rotulo, /^art\. 24, I$/)
+        assert.ok(i.reais! < ii.reais! && ii.reais! < l.barras[0].reais!)
+      } else assert.deepEqual(l.barras, [])
+      if (l.situacaoPrazo === 'vencida') assert.match(l.prazoCurto, /^vencida há \d+ dias$/)
+      if (l.prazoBase) assert.match(l.prazoBase, /^contada de \d{2}\/\d{2}\/\d{4}( · provisória)?$/)
+    }
+  }
+})
+
+test('trocar a norma troca os cinco blocos; trocar o porte muda o valor e mantém a ordem', () => {
+  const a = top5('rn1137', porte(5e9), 'preliminar').map((l) => l.id)
+  const b = top5('ren1174', porte(5e9), 'preliminar').map((l) => l.id)
+  assert.ok(a.every((id) => !b.includes(id)))
+  const g1 = top5('rn1137', porte(1e9), 'preliminar')
+  const g20 = top5('rn1137', porte(20e9), 'preliminar')
+  assert.deepEqual(g1.map((l) => l.id), g20.map((l) => l.id))
+  assert.ok(g20[0].valor!.reais! === g1[0].valor!.reais! * 20)
+})
+
+test('terceiro número: sem vencidas mostra os dias até o próximo prazo; sem nenhum, "nenhum prazo a vencer"', () => {
+  const pz = prazos(planos.ren1174)
+  assert.equal(pz.vencidas, 0)
+  assert.equal(pz.proxima?.data, '2027-11-04')
+  assert.ok(prazos(planos.rn1137).vencidas > 0)
+})
+
+test('REN 1.174, Art. 12 (grupo de trabalho): fora dos deveres, com nota; Art. 13, § 1º conta como dever da distribuidora', () => {
+  const p = planos.ren1174
+  assert.ok(!p.obrigacoes.some((o) => o.dispositivo?.startsWith('Art. 12')))
+  for (const d of ['Art. 12, § 1º', 'Art. 12, § 5º', 'Art. 12, § 11']) assert.ok(p.outros_dispositivos.some((o) => o.dispositivo === d), d)
+  assert.equal(p.notas_outros['Art. 12'], 'Grupo de trabalho sobre faturas, coordenado provisoriamente pela Abradee; primeira reunião até 03/01/2027 (§ 11).')
+  assert.ok(p.obrigacoes.some((o) => o.dispositivo === 'Art. 13, § 1º' && /celebrado entre o consumidor parcialmente livre e a distribuidora/.test(o.trecho ?? '')))
+  assert.equal(p.resumo.aplicaveis, 83)
+})
+
+test('executiva: recomendação de nível gerencial; detalhe operacional só no plano completo', () => {
+  assert.equal(eGerencial('Equipe de campo com motosserra e guincho para remover galhos'), false)
+  assert.equal(eGerencial('Publique o plano de manejo aprovado no site, com data de aprovação.'), true)
+  assert.equal(acaoGerencial(['Acione imediatamente equipe de campo com motosserra e guincho para remover árvores.', 'Publique o plano revisado no site.']), 'Publique o plano revisado no site.')
+  // sem versão gerencial: a mais genérica (a mais curta) das válidas
+  assert.equal(acaoGerencial(['Acione imediatamente a equipe de campo com guincho no local afetado hoje.', 'Acione equipe de campo.']), 'Acione equipe de campo.')
+  for (const n of NORMAS) {
+    for (const l of top5(n.id, porte(5e9), 'preliminar')) {
+      if (!l.fazer) continue
+      const todasOperacionais = l.fazer.todas.every((a) => !eGerencial(a))
+      if (!todasOperacionais) assert.ok(eGerencial(l.fazer.texto), `${n.id}: ${l.fazer.texto}`)
+      assert.ok(l.fazer.todas.includes(l.fazer.texto)) // continua sendo uma ação validada, não texto novo
+    }
+  }
+})
+
+test('motor: futuro só vira dever quando a distribuidora age explicitamente; o resto vai para "sem dever identificado"', () => {
+  const p = planos.ren1174
+  const deveres = new Map(p.obrigacoes.map((o) => [o.dispositivo, o.trecho ?? '']))
+  // entraram (REN 1.174), com citação
+  assert.match(deveres.get('Art. 166-A, § 4º') ?? '', /será encerrada pela distribuidora/)
+  assert.match(deveres.get('Art. 167-A, Parágrafo único') ?? '', /devendo a distribuidora efetuar a cobrança/)
+  assert.match(deveres.get('Art. 170, § 5º') ?? '', /somente será realizada pela distribuidora/)
+  // não entraram: futuro sem a distribuidora como agente
+  const textoDeveres = p.obrigacoes.map((o) => o.trecho ?? '').join(' ')
+  for (const frag of ['terá dois suplentes', 'correrão por conta', 'a Abradee exercerá', 'será composto', 'A ANEEL estabelecerá']) assert.ok(!textoDeveres.includes(frag), frag)
+  // nada some em silêncio: o § 10 do Art. 12 está em "sem dever identificado", com o motivo
+  const s10 = p.sem_dever_identificado.find((o) => /Abradee exercerá a coordenação/.test(o.trecho ?? ''))!
+  assert.ok(s10 && s10.motivo === 'sem dever identificado' && s10.dispositivo === 'Art. 12, § 10')
+  for (const o of p.sem_dever_identificado) assert.ok(o.trecho && o.dispositivo && o.motivo === 'sem dever identificado')
+  // um dispositivo nunca está em duas listas
+  const ids = [...p.obrigacoes, ...p.outros_dispositivos, ...p.sem_dever_identificado].map((o) => o.id)
+  assert.equal(new Set(ids).size, ids.length)
+  // RN 1.137 não muda de contagem
+  assert.equal(planos.rn1137.resumo.aplicaveis, 155)
 })

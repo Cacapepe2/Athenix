@@ -12,6 +12,15 @@ DUTY = re.compile(
     r"|t[êe]m\s+(?:o\s+prazo\s+de\s+)?\d+\s*(?:\([^)]{1,40}\)\s*)?(?:dias|meses|anos))\b",
     re.I,
 )
+# A distribuidora age EXPLICITAMENTE, sem marcador deôntico (deve/poderá...): "será ... pela distribuidora" (passiva),
+# "a distribuidora + verbo no futuro" (efetuará, deverá...) ou "devendo a distribuidora". Futuro sem a
+# distribuidora como agente ("terá dois suplentes", "a Abradee exercerá", "correrão por conta") NÃO entra.
+DISTRIBUIDORA_AGE = re.compile(
+    r"\bser[áa]o?\s+(?:[a-zà-úç]+\s+){1,4}?pel[oa]s?\s+(?:distribuidor|concession[áa]ri)\w*"
+    r"|\b(?:a|as)\s+(?:distribuidor|concession[áa]ri)\w*(?:\s+[a-zà-úç]+){0,2}?\s+[a-zà-úç]+(?:erá|arão|erão|irá|ará|irão)\b"
+    r"|\bdevendo\s+(?:a|as)\s+(?:distribuidor|concession[áa]ri)\w*",
+    re.I,
+)
 EXCEPTION = re.compile(r"\b(?:exceto|salvo|ressalvad[oa]s?)\b[^.;\n]*", re.I)
 CONDITION = re.compile(r"\b(?:caso|desde que|se houver|quando)\b[^.;\n]*", re.I)
 
@@ -74,7 +83,13 @@ def rule_candidates(extraction):
             and DUTY.search(parent["text"])
             and unit["kind"] in {"clause", "letter", "item"}
         )
-        if not own and not inherited and not re.search(r"\bprazo\s+é\s+de", unit["text"], re.I):
+        explicit = not own and not inherited and bool(DISTRIBUIDORA_AGE.search(unit["text"]))
+        if (
+            not own
+            and not inherited
+            and not explicit
+            and not re.search(r"\bprazo\s+é\s+de", unit["text"], re.I)
+        ):
             continue
         pieces = [unit["text"].strip()]
         if own:
@@ -90,7 +105,7 @@ def rule_candidates(extraction):
             context = enumerating(parent["text"]) if inherited else piece
             candidates.append(
                 {
-                    "subject": subject_of(context),
+                    "subject": "a distribuidora" if explicit else subject_of(context),
                     "modality": modality(context),
                     "action": piece,
                     "object": "não identificado",

@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Athenix · Obrigações em blocos com filtros</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#111111}a:hover{color:#C8261A}
+</style>
+</helmet>
+<div style="font-family: 'Inter Tight', 'Helvetica Neue', Arial, sans-serif; color: #111111; background: #FFFFFF; min-height: 100%">
+<main style="max-width: 1240px; margin: 0 auto; padding: 32px 32px 56px; display: flex; flex-direction: column; gap: 28px">
+<header style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 16px; border-bottom: 3px solid #111111; padding-bottom: 16px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 32px; font-weight: 700; letter-spacing: -0.03em">Obrigações</span>
+<span style="font-size: 15px">RN 1.137/2025 e REN 1.174/2026 · distribuidora de R$ 5 bi (ilustrativa) · valores por infração</span>
+</div>
+<a href="#" style="font-size: 15px; font-weight: 600; text-decoration: underline; text-underline-offset: 4px">← Visão executiva</a>
+</header>
+<div style="display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start">
+<aside aria-label="Filtros" style="flex: 1 1 220px; max-width: 260px; display: flex; flex-direction: column; gap: 22px">
+<sc-for list="{{ grupos }}" as="g" hint-placeholder-count="4">
+<fieldset style="border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px">
+<legend style="font-size: 13px; font-weight: 700; padding: 0; margin-bottom: 6px">{{ g.titulo }}</legend>
+<sc-for list="{{ g.opcoes }}" as="o" hint-placeholder-count="4">
+<button aria-pressed="{{ o.ativo }}" onClick="{{ o.pick }}" style="{{ o.estilo }}">{{ o.rotulo }}</button>
+</sc-for>
+</fieldset>
+</sc-for>
+<button onClick="{{ limpar }}" style="font: inherit; font-size: 14px; font-weight: 600; text-align: left; padding: 10px 0; min-height: 44px; border: 0; background: transparent; color: #111111; text-decoration: underline; text-underline-offset: 4px; cursor: pointer">Limpar filtros</button>
+</aside>
+<section aria-label="Resultados" style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<p style="margin: 0; font-size: 14px">Mostrando <strong>{{ mostrando }}</strong> de {{ total }} obrigações · clique num bloco para abrir</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px">
+<sc-for list="{{ itens }}" as="t" hint-placeholder-count="8">
+<article style="{{ t.cardStyle }}">
+<button onClick="{{ t.toggle }}" aria-expanded="{{ t.aberto }}" style="{{ t.headStyle }}">
+<span style="font-size: 12px; font-weight: 600">{{ t.norma }} · {{ t.disp }}</span>
+<span style="font-size: 16px; font-weight: 600; line-height: 1.25; text-align: left">{{ t.titulo }}</span>
+<span style="display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-top: auto">
+<span style="font-size: 28px; font-weight: 700; letter-spacing: -0.03em">{{ t.valor }}</span>
+<span style="font-size: 12px; font-weight: 600; text-align: right">{{ t.prazo }}</span>
+</span>
+</button>
+<sc-if value="{{ t.aberto }}" hint-placeholder-val="{{ false }}">
+<div style="padding: 20px; border-top: 2px solid #111111; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; background: #FFFFFF; color: #111111">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 13px; font-weight: 700">O que a norma exige</span>
+<span style="font-size: 15px; line-height: 1.5">{{ t.trecho }}</span>
+<span style="font-size: 13px">{{ t.gravTxt }}</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 13px; font-weight: 700">Faça</span>
+<sc-for list="{{ t.faca }}" as="f" hint-placeholder-count="2">
+<span style="font-size: 15px; line-height: 1.45; padding-left: 14px; border-left: 3px solid #111111">{{ f }}</span>
+</sc-for>
+<span style="font-size: 13px; font-weight: 700; margin-top: 8px; color: #C8261A">Evite</span>
+<sc-for list="{{ t.evite }}" as="e" hint-placeholder-count="1">
+<span style="font-size: 15px; line-height: 1.45; padding-left: 14px; border-left: 3px solid #C8261A">{{ e }}</span>
+</sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 13px; font-weight: 700">O que provar</span>
+<span style="font-size: 15px; line-height: 1.45">{{ t.provar }}</span>
+<span style="font-size: 13px; font-weight: 700; margin-top: 8px">Defesa possível</span>
+<span style="font-size: 15px; line-height: 1.45">{{ t.defesa }}</span>
+<span style="font-size: 13px; margin-top: 8px">Se regularizar antes da fiscalização: {{ t.reduzido }}</span>
+</div>
+</div>
+</sc-if>
+</article>
+</sc-for>
+</div>
+<sc-if value="{{ vazio }}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0; padding: 24px; border: 2px solid #111111; font-size: 15px">Nenhuma obrigação com esses filtros. Limpe um dos filtros à esquerda.</p>
+</sc-if>
+<p style="margin: 0; font-size: 13px">Sugerido = enquadramento sugerido pela IA, aguardando revisão. Valores ilustrativos · não constitui parecer jurídico.</p>
+</section>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1400}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { norma: 'Todas', sit: 'Todas', grav: 'Todas', enq: 'Todas', aberto: 'a13-1' };
+  }
+  dados() {
+    return [
+      { id: 'a13-1', disp: 'Art. 13, I', area: 'Regulatório', titulo: 'Revisar e publicar planos de manejo, comunicação e contingência', sit: 'Vencida', prazo: 'vencida há 293 dias', grav: 'Grave', valor: 'R$ 50 mi', reduzido: 'R$ 2,5 mi', enq: 'Identificado no texto', trecho: 'Revisão e publicação dos planos de manejo, comunicação e contingência no prazo de 90 dias (Art. 13, I).', faca: ['Aprove o plano formalmente, com data e responsável.', 'Publique no site e guarde a captura datada.'], evite: ['Plano sem data de aprovação ou sem histórico de revisões.'], provar: 'Versão aprovada, data de publicação e captura da página.', defesa: 'Autorização municipal para poda (prática conhecida).' },
+      { id: 'a13-2', disp: 'Art. 13, II', area: 'Regulatório', titulo: 'Registrar as interações com o Poder Público Municipal', sit: 'Vencida', prazo: 'vencida há 203 dias', grav: 'Grave', valor: 'R$ 50 mi', reduzido: 'R$ 2,5 mi', enq: 'Sugerido', trecho: '“Até 180 (cento e oitenta) dias para implementar o registro das interações com o Poder Público Municipal em relação ao serviço de manejo da vegetação…”', faca: ['Crie um registro único por prefeitura: data, assunto, protocolo e resposta.'], evite: ['Contatos só por telefone ou mensagem pessoal, sem registro.'], provar: 'O registro com protocolos e respostas (ou a falta delas).', defesa: 'Resposta pendente da prefeitura, se documentada.' },
+      { id: 'a13-3', disp: 'Art. 13, III', area: 'Comunicação', titulo: 'Comunicar ao consumidor a previsão de restabelecimento', sit: 'Vencida', prazo: 'vencida há 203 dias', grav: 'Séria', valor: 'R$ 25 mi', reduzido: 'R$ 1,25 mi', enq: 'Sugerido', trecho: 'Implementar os mecanismos de comunicação ao consumidor sobre a previsão de restabelecimento do serviço (Art. 13, III).', faca: ['Defina canais e modelos de mensagem para cada situação.', 'Registre cada envio com horário e região.'], evite: ['Informar horário sem base técnica.'], provar: 'Log de envios, modelos aprovados e horários.', defesa: 'Falha de canal de terceiros, com registro do incidente.' },
+      { id: 'a13-4', disp: 'Art. 13, IV', area: 'TI e sistemas', titulo: 'Publicar no site as unidades afetadas, em mapa', sit: 'Vencida', prazo: 'vencida há 203 dias', grav: 'Séria', valor: 'R$ 25 mi', reduzido: 'R$ 1,25 mi', enq: 'Sugerido', trecho: 'Disponibilizar em sítio eletrônico o número total de unidades consumidoras afetadas por interrupções, em mapa (Art. 13, IV).', faca: ['Mapa com atualização periódica e data visível.', 'Guarde capturas datadas.'], evite: ['Mapa sem data de atualização.'], provar: 'Capturas datadas e registro de atualização.', defesa: '—' },
+      { id: 'a13-6', disp: 'Art. 13, VI', area: 'Regulatório', titulo: 'Iniciar a apuração do DISE em situação de emergência', sit: 'Vencida', prazo: 'vencida há 203 dias', grav: 'Média', valor: 'R$ 12,5 mi', reduzido: 'R$ 0,63 mi', enq: 'Sugerido', trecho: 'Iniciar as apurações da Duração da Interrupção Individual ocorrida em Situação de Emergência (Art. 13, VI).', faca: ['Documente a fórmula, as fontes de dados e o período.'], evite: ['Planilha manual sem fonte nem versão.'], provar: 'Memória de cálculo versionada.', defesa: '—' },
+      { id: 'i94', disp: 'Item 94', area: 'Meio ambiente', titulo: 'Estabelecer plano de manejo vegetal com a prefeitura', sit: 'Sem prazo fixo', prazo: 'sem prazo no texto', grav: 'Grave', valor: 'R$ 50 mi', reduzido: 'R$ 2,5 mi', enq: 'Identificado no texto', trecho: '“As distribuidoras devem estabelecer um plano de manejo vegetal na sua área de atuação, que contemple a vegetação que interfira em suas redes de distribuição, em coordenação com o Poder Público Municipal…”', faca: ['Mapeie trechos críticos de rede com vegetação.', 'Protocole os pedidos de poda à prefeitura.'], evite: ['Podar sem autorização onde a lei municipal exige.'], provar: 'Plano aprovado e protocolos dos pedidos.', defesa: 'Autorização municipal pendente (prática conhecida).' },
+      { id: 'i112', disp: 'Item 112', area: 'Comunicação', titulo: 'Atualizar as informações da interrupção', sit: 'Sem prazo fixo', prazo: 'por evento', grav: 'A enquadrar', valor: '—', reduzido: '—', enq: '—', trecho: '“A distribuidora deve atualizar as informações referentes à interrupção…”', faca: ['Atualize em ciclo fixo durante o evento.'], evite: ['Deixar a informação parada após o primeiro aviso.'], provar: 'Histórico de atualizações com horário.', defesa: '—' },
+      { id: 'i140', disp: 'Item 140', area: 'Operação', titulo: 'Elaborar o plano de contingência', sit: 'Sem prazo fixo', prazo: 'sem prazo no texto', grav: 'Grave', valor: 'R$ 50 mi', reduzido: 'R$ 2,5 mi', enq: 'Identificado no texto', trecho: '“O plano de contingência deve ser elaborado…”', faca: ['Defina níveis de contingência e quem age em cada um.', 'Faça ao menos uma simulação por ano.'], evite: ['Plano que nunca foi testado.'], provar: 'Plano aprovado e relatório da simulação.', defesa: '—' },
+      { id: 'i104', disp: 'Item 104', area: 'Regulatório', titulo: 'Manter registro detalhado por cinco anos', sit: 'Sem prazo fixo', prazo: 'contínuo', grav: 'A enquadrar', valor: '—', reduzido: '—', enq: '—', trecho: '“As distribuidoras devem manter registro detalhado…”', faca: ['Configure retenção mínima de cinco anos.'], evite: ['Apagar registros antes do prazo.'], provar: 'Política de retenção e amostra do registro.', defesa: '—' },
+      { id: 'i100', disp: 'Item 100', area: 'Meio ambiente', titulo: 'Relatório Anual de Gestão do Manejo Vegetal', sit: 'Recorrente', prazo: 'anual', grav: 'Grave', valor: 'R$ 50 mi', reduzido: 'R$ 2,5 mi', enq: 'Sugerido', trecho: '“As distribuidoras devem elaborar Relatório Anual de Gestão do Manejo Vegetal…”', faca: ['Colete os dados mês a mês, com um responsável.'], evite: ['Montar tudo no fim do ano sem dados.'], provar: 'Relatório entregue e dados de origem.', defesa: '—' },
+      { id: 'i23e', disp: 'Item 23-E', area: 'TI e sistemas', titulo: 'Publicar o relatório no site', sit: 'Sem prazo fixo', prazo: 'sem prazo no texto', grav: 'A enquadrar', valor: '—', reduzido: '—', enq: '—', trecho: '“A distribuidora deve disponibilizar em sítio eletrônico…”', faca: ['Página fixa no site, com data de publicação.'], evite: ['Arquivo solto sem data.'], provar: 'Captura datada da página.', defesa: '—' },
+      { id: 'i115', disp: 'Item 115', area: 'Comunicação', titulo: 'Comunicação clara com o Poder Público', sit: 'Sem prazo fixo', prazo: 'sem prazo no texto', grav: 'A enquadrar', valor: '—', reduzido: '—', enq: '—', trecho: '“A comunicação deve ser clara e transparente…”', faca: ['Peça a cada prefeitura seus representantes oficiais.'], evite: ['Depender de um contato informal.'], provar: 'Ofícios enviados e respostas.', defesa: 'Falta de indicação pela prefeitura, se documentada.' }
+    ].map((d) => Object.assign({ norma: 'RN 1.137' }, d)).concat([
+      { norma: 'REN 1.174', id: 'r12-11', disp: 'Art. 12, § 11', area: 'Regulatório', titulo: 'Realizar a primeira reunião prevista na norma', sit: 'A vencer', prazo: 'vence em 47 dias', grav: 'Grave', valor: 'R$ 50 mi', reduzido: 'R$ 2,5 mi', enq: 'Sugerido', trecho: 'Primeira reunião em até 60 dias da publicação (04/11/2026). Texto completo no plano.', faca: ['Marque a data já e registre a ata.'], evite: ['Deixar para a última semana do prazo.'], provar: 'Convocação e ata assinada.', defesa: '—' },
+      { norma: 'REN 1.174', id: 'r16-2', disp: 'Art. 16, II', area: 'TI e sistemas', titulo: 'Adequar processos e sistemas à norma', sit: 'A vencer', prazo: 'vence em 167 dias', grav: 'Grave', valor: 'R$ 50 mi', reduzido: 'R$ 2,5 mi', enq: 'Sugerido', trecho: 'Adequação em até 180 dias da publicação. Texto completo no plano.', faca: ['Liste os sistemas afetados e um responsável por cada.'], evite: ['Começar a adequação sem inventário.'], provar: 'Plano de adequação e evidência de entrega.', defesa: '—' },
+      { norma: 'REN 1.174', id: 'r14-2', disp: 'Art. 14, § 2º, I', area: 'Regulatório', titulo: 'Encerrar o benefício tarifário no ciclo previsto', sit: 'Sem prazo fixo', prazo: 'por ciclo', grav: 'Grave', valor: 'R$ 50 mi', reduzido: 'R$ 2,5 mi', enq: 'Sugerido', trecho: 'Cessar a aplicação do benefício tarifário do art. 186 da REN 1.000/2021, no ciclo indicado. Texto completo no plano.', faca: ['Identifique os clientes afetados antes do ciclo.'], evite: ['Aplicar a mudança sem avisar o cliente.'], provar: 'Lista de clientes e faturas do ciclo.', defesa: '—' },
+      { norma: 'REN 1.174', id: 'r11-8', disp: 'Art. 11, VIII', area: 'Comunicação', titulo: 'Informar semestralmente o previsto na norma', sit: 'Recorrente', prazo: 'semestral', grav: 'A enquadrar', valor: '—', reduzido: '—', enq: '—', trecho: 'Obrigação semestral. Texto completo no plano.', faca: ['Calendário fixo de duas entregas por ano.'], evite: ['Depender de lembrança manual.'], provar: 'Comprovantes de envio de cada semestre.', defesa: '—' }
+    ]);
+  }
+  renderVals() {
+    const s = this.state;
+    const all = this.dados();
+    const on = 'font: inherit; font-size: 14px; font-weight: 600; text-align: left; padding: 10px 12px; min-height: 44px; border: 2px solid #111111; background: #111111; color: #FFFFFF; border-radius: 0; cursor: pointer';
+    const off = 'font: inherit; font-size: 14px; text-align: left; padding: 10px 12px; min-height: 44px; border: 2px solid #111111; background: #FFFFFF; color: #111111; border-radius: 0; cursor: pointer';
+    const grupo = (titulo, chave, opcoes) => ({
+      titulo,
+      opcoes: ['Todas'].concat(opcoes).map((v) => ({
+        rotulo: v, ativo: s[chave] === v, estilo: s[chave] === v ? on : off,
+        pick: () => this.setState({ [chave]: v })
+      }))
+    });
+    const grupos = [
+      grupo('Norma', 'norma', ['RN 1.137', 'REN 1.174']),
+      grupo('Situação', 'sit', ['Vencida', 'A vencer', 'Recorrente', 'Sem prazo fixo']),
+      grupo('Gravidade', 'grav', ['Grave', 'Séria', 'Média', 'A enquadrar']),
+      grupo('Enquadramento', 'enq', ['Identificado no texto', 'Sugerido'])
+    ];
+    const vis = all.filter((d) => (s.norma === 'Todas' || d.norma === s.norma) && (s.sit === 'Todas' || d.sit === s.sit) && (s.grav === 'Todas' || d.grav === s.grav) && (s.enq === 'Todas' || d.enq === s.enq));
+    const itens = vis.map((d) => {
+      const aberto = s.aberto === d.id;
+      const venc = d.sit === 'Vencida';
+      const bg = aberto ? '#111111' : (venc ? '#C8261A' : '#FFFFFF');
+      const fg = aberto || venc ? '#FFFFFF' : '#111111';
+      return Object.assign({}, d, {
+        aberto,
+        gravTxt: d.grav === 'A enquadrar' ? 'Gravidade a enquadrar' : 'Gravidade: ' + d.grav.toLowerCase() + (d.enq === 'Sugerido' ? ' (sugerida pela IA)' : ' (identificada no texto)'),
+        toggle: () => this.setState({ aberto: aberto ? null : d.id }),
+        cardStyle: 'display: flex; flex-direction: column; border: 2px solid #111111; background: ' + bg + '; color: ' + fg + (aberto ? '; grid-column: 1 / -1' : ''),
+        headStyle: 'font: inherit; display: flex; flex-direction: column; gap: 8px; min-height: 150px; padding: 16px; border: 0; background: transparent; color: ' + fg + '; text-align: left; cursor: pointer'
+      });
+    });
+    return {
+      grupos, itens, mostrando: vis.length, total: all.length, vazio: vis.length === 0,
+      limpar: () => this.setState({ norma: 'Todas', sit: 'Todas', grav: 'Todas', enq: 'Todas' })
+    };
+  }
+}
+</script>
+</body>
+</html>

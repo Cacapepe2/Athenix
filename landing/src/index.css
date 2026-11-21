@@ -1,46 +1,46 @@
 @import "tailwindcss";
 
+@import "./styles/tokens.css";
+
+/* Os nomes de cor do Tailwind apontam para os tokens semânticos de styles/tokens.css:
+   nenhuma cor, fonte, raio ou sombra nasce neste arquivo. */
 @theme {
-  --color-obsidian: #111c2f;
-  --color-slate-blue: #284b63;
-  --color-bronze: #b6a38b;
-  /* Derivado do Bronze: texto pequeno sobre fundo claro precisa de contraste AA. */
-  --color-bronze-deep: #7a6650;
-  --color-stone: #e9e6e0;
-  --color-ivory: #faf9f6;
-  --color-ink-soft: #4f5a69;
-  --color-line: #dcd7ce;
-  --color-pending: #9a6b1f;
-  /* Acento terracota da demo: SÓ como fundo de (a) botões de ação principal (Gerar diagnóstico,
-     Imprimir este diagnóstico), (b) o porte selecionado e (c) etiquetas pequenas de tópicos muito
-     relevantes ("Novo"; marcadas com data-acento). Nunca como cor de texto, borda, sublinhado ou
-     foco: esses ficam no azul escuro do site (--color-slate-blue: 9,22:1 sobre branco, 8,76:1 sobre ivory) ou obsidian.
-     Combinações permitidas (WCAG 2.x): branco sobre #C56A45 = 3,80:1, só em texto grande/negrito
-     (>= 18,66 px negrito, mínimo 3:1; é o "Gerar diagnóstico"); branco sobre --color-acento-escuro
-     (#9a4a2b) = 6,20:1, para texto pequeno (botões, porte selecionado, etiqueta "Novo").
-     --color-acento-claro (#f4e8e1 = 12% de acento sobre ivory): fundo da faixa de anúncio;
-     #111c2f sobre ele 14,2:1, #4f5a69 5,83:1, #284b63 7,68:1. */
-  --color-acento: #c56a45;
-  --color-acento-escuro: #9a4a2b;
-  --color-acento-claro: #f4e8e1;
-  /* Hover dos botões terracota: branco sobre #7a3a21 = 8,56:1. */
-  --color-acento-hover: #7a3a21;
-  /* Diagnóstico (card de controles e painel de resultado): tudo azul, só os clicáveis em terracota.
-     --color-diag-fundo (#f2f4f6 = 6% de slate-blue sobre branco): #284b63 8,36:1, #111c2f 15,5:1.
-     --color-diag-caixa (#e5e9ec = 12% de slate-blue sobre branco, caixa de lacuna): #284b63 7,55:1,
-     #111c2f 14,0:1. Botões: branco sobre #c56a45 3,80:1 (só "Gerar diagnóstico", 19 px negrito);
-     branco sobre #9a4a2b 6,20:1; #9a4a2b sobre #f4e8e1 (botões secundários) 5,16:1. */
-  --color-diag-fundo: #f2f4f6;
-  --color-diag-caixa: #e5e9ec;
+  --color-white: var(--cor-fundo);
+  --color-black: var(--cor-texto);
+  --color-obsidian: var(--cor-texto);
+  --color-slate-blue: var(--cor-texto);
+  --color-bronze: var(--cor-linha-suave);
+  --color-bronze-deep: var(--cor-destaque-texto);
+  --color-stone: var(--cor-hover);
+  --color-ivory: var(--cor-fundo);
+  --color-ink-soft: var(--cor-barra-media);
+  --color-line: var(--cor-linha-suave);
+  --color-pending: var(--cor-destaque-texto);
+  --color-acento: var(--cor-destaque);
+  --color-acento-escuro: var(--cor-destaque-texto);
+  --color-acento-claro: var(--cor-hover);
+  --color-acento-hover: var(--cor-evite);
+  --color-diag-fundo: var(--cor-fundo);
+  --color-diag-caixa: var(--cor-hover);
+  --color-evite: var(--cor-evite);
+  --color-destaque: var(--cor-destaque);
+  --color-trilho: var(--cor-trilho);
 
-  --font-serif: "Newsreader Variable", "Iowan Old Style", Georgia, serif;
-  --font-sans: "Inter Tight Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--fonte-base);
+  --font-sans: var(--fonte-base);
 
-  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --radius-xs: var(--raio);
+  --radius-sm: var(--raio);
+  --radius-md: var(--raio);
+  --radius-lg: var(--raio);
+  --radius-xl: var(--raio);
+  --radius-2xl: var(--raio);
+  --radius-3xl: var(--raio);
+  --radius-4xl: var(--raio);
 
-  --shadow-float: 0 1px 1px rgb(17 28 47 / 0.04), 0 8px 24px -8px rgb(17 28 47 / 0.14),
-    0 32px 64px -24px rgb(17 28 47 / 0.22);
-  --shadow-soft: 0 1px 2px rgb(17 28 47 / 0.05), 0 12px 32px -16px rgb(17 28 47 / 0.18);
+  --ease-out-expo: var(--curva);
+  --shadow-float: none;
+  --shadow-soft: none;
 }
 
 @layer base {
@@ -54,22 +54,19 @@
     }
   }
   body {
-    background: var(--color-ivory);
-    color: var(--color-obsidian);
-    font-family: var(--font-sans);
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: var(--fonte-base);
     -webkit-font-smoothing: antialiased;
-    font-feature-settings: "ss01", "cv11";
   }
   ::selection {
-    background: color-mix(in srgb, var(--color-bronze) 45%, transparent);
+    background: var(--cor-texto);
+    color: var(--cor-texto-invertido);
   }
   :focus-visible {
-    outline: 2px solid var(--color-slate-blue);
+    outline: 3px solid var(--cor-destaque);
     outline-offset: 3px;
-    border-radius: 6px;
-  }
-  .on-dark :focus-visible {
-    outline-color: var(--color-bronze);
+    border-radius: var(--raio);
   }
   [id] {
     scroll-margin-top: 5rem;
@@ -82,49 +79,122 @@
 
 @layer utilities {
   .font-display {
-    font-family: var(--font-serif);
-    font-optical-sizing: auto;
-    letter-spacing: -0.018em;
-  }
-  .hairline-grid {
-    background-image: linear-gradient(to right, rgb(17 28 47 / 0.045) 1px, transparent 1px),
-      linear-gradient(to bottom, rgb(17 28 47 / 0.045) 1px, transparent 1px);
-    background-size: 56px 56px;
-  }
-  .paper {
-    background: linear-gradient(180deg, #fff 0%, #fdfcf9 100%);
+    letter-spacing: -0.03em;
   }
   /* Valor que vem de sugestão aguardando confirmação: hachurado (o texto ao lado diz o mesmo). */
   .hachura {
     background-image: repeating-linear-gradient(
       135deg,
-      var(--color-slate-blue) 0 4px,
-      color-mix(in srgb, var(--color-slate-blue) 25%, white) 4px 8px
+      var(--cor-texto) 0 4px,
+      var(--cor-barra-media) 4px 8px
     );
   }
   .hachura-leve {
     background-image: repeating-linear-gradient(
       135deg,
-      color-mix(in srgb, var(--color-slate-blue) 14%, white) 0 4px,
-      #fff 4px 8px
+      var(--cor-trilho) 0 4px,
+      var(--cor-fundo) 4px 8px
     );
   }
 }
 
-/* Demo: etiquetas pequenas sobre fundo creme/pedra precisam de contraste AA (4,5:1). */
-#plano,
-#executivo {
-  --color-pending: #855a17;
-  --color-bronze-deep: #6e5b46;
+/* Blocos clicáveis (executiva e plano): borda forte, sem raio; levanta 3px no hover, afunda ao clicar. */
+.bloco {
+  border: var(--borda-forte) solid var(--cor-texto);
+  border-radius: var(--raio);
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  cursor: pointer;
+  transition:
+    transform var(--duracao-rapida) var(--curva),
+    box-shadow var(--duracao-rapida) var(--curva),
+    background-color var(--duracao-rapida) var(--curva),
+    color var(--duracao-rapida) var(--curva);
 }
-/* Dentro do diagnóstico, texto secundário, linhas e fundos neutros viram azul (nada cinza-pedra ou
-   bege): ink-soft vira slate-blue (8,36:1 sobre diag-fundo), linha e pedra viram azul claro. */
-#seu-diagnostico,
-#diagnostico-gerado {
-  --color-ink-soft: var(--color-slate-blue);
-  --color-line: color-mix(in srgb, var(--color-slate-blue) 30%, white);
-  --color-stone: var(--color-diag-caixa);
+@media (hover: hover) {
+  .bloco:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: var(--sombra-hover);
+  }
+  .bloco:hover .seta {
+    transform: translateY(2px);
+  }
 }
+.bloco:active {
+  transform: translate(0, 0);
+  box-shadow: none;
+}
+.bloco:focus-visible {
+  outline: 3px solid var(--cor-destaque);
+  outline-offset: 3px;
+}
+.bloco[aria-expanded="true"] {
+  background: var(--cor-texto);
+  color: var(--cor-texto-invertido);
+}
+.seta {
+  transition: transform var(--duracao-rapida) var(--curva);
+}
+/* Seletor segmentado (norma, porte). */
+.seg {
+  min-height: 44px;
+  padding: 10px 12px;
+  border: var(--borda-forte) solid var(--cor-texto);
+  border-radius: var(--raio);
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color var(--duracao-rapida) var(--curva),
+    color var(--duracao-rapida) var(--curva);
+}
+.seg + .seg {
+  margin-left: calc(var(--borda-forte) * -1);
+}
+.seg:hover {
+  background: var(--cor-hover);
+}
+.seg[aria-pressed="true"] {
+  background: var(--cor-texto);
+  color: var(--cor-texto-invertido);
+}
+/* Painel de detalhes: abre deslizando (grid-template-rows 0fr -> 1fr) com fade; ao fechar, o conteúdo fica até acabar. */
+.painel {
+  display: grid;
+  grid-template-rows: 0fr;
+  border: var(--borda-forte) solid transparent;
+  transition:
+    grid-template-rows var(--duracao-painel) var(--curva),
+    border-color var(--duracao-painel) var(--curva);
+}
+.painel[data-aberto="true"] {
+  grid-template-rows: 1fr;
+  border-color: var(--cor-texto);
+}
+.painel > .painel-miolo {
+  overflow: hidden;
+  min-height: 0;
+}
+.painel-in {
+  opacity: 0;
+  transform: translateY(-8px);
+  transition:
+    opacity var(--duracao-painel) var(--curva) 60ms,
+    transform var(--duracao-painel) var(--curva) 40ms;
+}
+.painel[data-aberto="true"] .painel-in {
+  opacity: 1;
+  transform: none;
+}
+.barra {
+  display: block;
+  height: 8px;
+  transition: width 600ms var(--curva) 120ms;
+}
+
 /* Foco visível da demo: o anel azul escuro padrão do site (:focus-visible acima). */
 /* Expansíveis: sem o triângulo nativo; o chevron (.chevron) gira quando o <details> abre. */
 #plano summary,
@@ -163,11 +233,113 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .bloco,
+  .seta,
+  .seg,
+  .painel,
+  .painel-in,
+  .barra {
+    transition: none;
+  }
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* Filtros em pilha (plano completo): mesmo seletor segmentado, na vertical e alinhado à esquerda. */
+.pilha .seg {
+  width: 100%;
+  text-align: left;
+}
+.pilha .seg + .seg {
+  margin-left: 0;
+  margin-top: calc(var(--borda-forte) * -1);
+}
+
+/* Relatório de trabalho: fora da tela; ao imprimir, sai só ele, em A4, com o cabeçalho da tabela repetido. */
+.relatorio {
+  display: none;
+}
+/* Só o relatório sai em paisagem (página nomeada); o resto do site imprime em retrato. */
+@page relatorio {
+  size: A4 landscape;
+  margin: 14mm;
+}
+@media print {
+  #plano.so-relatorio {
+    display: none !important;
+  }
+  .relatorio {
+    page: relatorio;
+    display: block;
+    font-size: 9.5pt;
+    line-height: 1.35;
+  }
+  .relatorio h1 {
+    font-size: 17pt;
+    font-weight: 700;
+    border-bottom: var(--borda-titulo) solid var(--cor-texto);
+    padding-bottom: 4pt;
+  }
+  .relatorio h2 {
+    font-size: 12.5pt;
+    font-weight: 700;
+    margin: 14pt 0 5pt;
+    break-after: avoid;
+  }
+  .relatorio h3 {
+    font-weight: 700;
+    margin: 8pt 0 3pt;
+  }
+  .rel-numeros {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10pt;
+  }
+  .rel-numeros span {
+    display: block;
+    font-size: 24pt;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .relatorio table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+  .relatorio thead {
+    display: table-header-group;
+  }
+  .relatorio tr {
+    break-inside: avoid;
+  }
+  .relatorio th,
+  .relatorio td {
+    border: 1px solid var(--cor-texto);
+    padding: 3pt 4pt;
+    vertical-align: top;
+    overflow-wrap: anywhere;
+  }
+  .relatorio th {
+    background: var(--cor-hover);
+    font-size: 8.5pt;
+    text-align: left;
+  }
+  .relatorio ul,
+  .relatorio ol {
+    padding-left: 12pt;
+    list-style: revert;
+  }
+  .relatorio .rel-provas {
+    list-style: none;
+    padding-left: 0;
+  }
+  .rel-nota {
+    font-size: 8.5pt;
+    margin-top: 4pt;
   }
 }

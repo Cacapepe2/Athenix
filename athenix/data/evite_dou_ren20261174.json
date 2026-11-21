@@ -1,0 +1,97 @@
+{
+ "aviso": "Sugestões da IA (Sugestão · aguarda revisão humana). Cada frase cita uma expressão literal do dispositivo.",
+ "modelo": "gpt-5-mini",
+ "versao_do_prompt": "evite-1",
+ "prompt_hash": "831cc488830718b25f42993ce035019efb99b6066ee2a13c23e0c9ddb6c391de",
+ "gerado_em": "2026-11-20",
+ "preco_usd_por_milhao": {
+  "input": "0.275",
+  "output": "2.20",
+  "source": "https://azure.microsoft.com/pt-br/pricing/details/azure-openai/",
+  "date": "2026-11-17",
+  "currency": "USD"
+ },
+ "custo_total_da_execucao_usd": "0.0586",
+ "evite": {
+  "91c26ed1a77c413a": {
+   "acao": "Não continuar aplicando o benefício no ciclo de faturamento subsequente",
+   "trecho_citado": "cessar a aplicação do benefício"
+  },
+  "33f462f47b99eeab": {
+   "acao": "Não manter a aplicação do benefício após ausência de manifestação do consumidor",
+   "trecho_citado": "Em caso de não manifestação do consumidor"
+  },
+  "be6a76133085cee8": {
+   "acao": "Não deixar de encaminhar relatórios semestralmente à ANEEL durante a vigência do Sandbox",
+   "trecho_citado": "semestralmente, relatórios informativos"
+  },
+  "6a16e3400ab43199": {
+   "acao": "Não ignorar os prazos do art. 166-A e do Submódulo 1.8",
+   "trecho_citado": "art. 166-A e no Submódulo 1.8"
+  },
+  "dc7870cacd7cc071": {
+   "acao": "Não registrar titularidade diferente no CUSD e nos contratos no ACL",
+   "trecho_citado": "mesma titularidade no CUSD e nos contratos"
+  },
+  "144816bda2da3a17": {
+   "acao": "Não deixar de comunicar a CCEE sobre alteração de titularidade em migração para o ACL",
+   "trecho_citado": "deve comunicar a CCEE"
+  },
+  "1cc27f2c34dd3d5f": {
+   "acao": "Não formalizar migração sem retornar ao faturamento com tarifa do grupo A e contratar demanda",
+   "trecho_citado": "retornar ao faturamento com aplicação de tarifa do grupo A"
+  },
+  "17605232023781dd": {
+   "acao": "Divulgar materiais sem inclusão visível do termo relativo à atividade de distribuição.",
+   "trecho_citado": "inclusão visível do termo relativo à atividade de distribuição"
+  },
+  "1829ab6332d473ce": {
+   "acao": "Usar comunicação e marcas semelhantes entre empresas do mesmo grupo, gerando ambiguidade.",
+   "trecho_citado": "vedados quaisquer tipos de ambiguidade na apresentação de informações"
+  },
+  "728895c11bbe26d8": {
+   "acao": "Enviar composição societária incompleta, omitindo participações indiretas dos controladores.",
+   "trecho_citado": "explicitando todas as participações societárias diretas e indiretas"
+  },
+  "5601d7cf3867bf32": {
+   "acao": "Remeter controvérsias diretamente a outras instâncias sem submetê-las primeiro ao representante.",
+   "trecho_citado": "submetidas ao representante da comercialização varejista"
+  },
+  "48facbbb1cb1cce4": {
+   "acao": "Responder reclamações sem indicar os fundamentos da decisão adotada.",
+   "trecho_citado": "indicar os fundamentos da decisão adotada"
+  },
+  "93230d4b3dad607f": {
+   "acao": "Efetuar cobrança em caso de migração na modalidade regular.",
+   "trecho_citado": "nenhuma cobrança deve ser realizada no caso de migração na modalidade regular"
+  },
+  "5f1e90f07a781a9f": {
+   "acao": "Reduzir prazo sem isonomia, aplicando tratamento individual ou a grupo específico.",
+   "trecho_citado": "vedada a aplicação individual ou a grupo que atenda determinadas condições"
+  },
+  "a18cdd2d9ab0da66": {
+   "acao": "Cobrar encerramento antecipado do CCER fora das hipóteses exclusivas previstas.",
+   "trecho_citado": "cobrança pelo encerramento antecipado do CCER deve ser feita exclusivamente"
+  },
+  "667bcae318ad50c6": {
+   "acao": "Iniciar Sandbox sem apresentar proposta prévia à ANEEL",
+   "trecho_citado": "apresentar à ANEEL, previamente ao início, a proposta do Sandbox"
+  },
+  "6cb749b8189058af": {
+   "acao": "Apresentar metodologia sem explicitar como escolher consumidores e agentes",
+   "trecho_citado": "metodologia de escolha dos participantes, incluindo consumidores e agentes de comercialização;"
+  },
+  "d6e372fb4b797bf0": {
+   "acao": "Definir critérios vagos para adesão e desistência sem regras claras de aplicação",
+   "trecho_citado": "critérios de adesão e de desistência dos participantes;"
+  },
+  "3c31e7c6948c4d3e": {
+   "acao": "Incluir energia adicional no CCER além do montante autorizado",
+   "trecho_citado": "o CCER não poderá ter acréscimo do montante de energia elétrica;"
+  },
+  "ad1cd6d7bc9bb42b": {
+   "acao": "Aplicar benefício do art. 186 em vez do art. 195 quando houver recebimento simultâneo",
+   "trecho_citado": "aplicar exclusivamente o benefício tarifário do art. 195."
+  }
+ }
+}

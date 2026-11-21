@@ -122,6 +122,19 @@ def montar(
     else:  # norma sem arquivo de temas: um tema por capítulo
         cfg_temas, tema_por_unidade = plano.temas_automaticos(units, plano.carregar_temas())
     ia = plano.carregar_ia(DATA / cfg_norma["ia"]) if cfg_norma.get("ia") else None
+    recomendacoes = None
+    if cfg_norma.get("recomendacoes"):
+        recomendacoes = json.loads((DATA / cfg_norma["recomendacoes"]).read_text(encoding="utf-8"))[
+            "recomendacoes"
+        ]
+    titulos_curtos = None
+    if cfg_norma.get("titulos_curtos"):
+        titulos_curtos = json.loads(
+            (DATA / cfg_norma["titulos_curtos"]).read_text(encoding="utf-8")
+        )["titulos_curtos"]
+    evite = None
+    if cfg_norma.get("evite"):
+        evite = json.loads((DATA / cfg_norma["evite"]).read_text(encoding="utf-8"))["evite"]
     out = plano.montar(
         resultado,
         units,
@@ -131,10 +144,13 @@ def montar(
         ia,
         cenarios=cenarios,
         tema_por_unidade=tema_por_unidade,
+        recomendacoes=recomendacoes,
+        titulos_curtos=titulos_curtos,
+        evite=evite,
     )
     out["analise"] = analise.montar(out, rows, extraction)
     by_id = {u["id"]: u for u in units}
-    for o in out["obrigacoes"] + out["outros_dispositivos"]:
+    for o in out["obrigacoes"] + out["outros_dispositivos"] + out["sem_dever_identificado"]:
         o["dispositivo"] = rotulo(by_id[o["unidade"]], by_id) if o["unidade"] else None
         assert o["trecho"] is None or o["trecho"] in espacos(by_id[o["unidade"]]["text"])
     return out, params, p
@@ -340,6 +356,7 @@ def gerar(data=None, commit=None, arquivo=None, segmento="distribuicao"):
         if ia
         else None,  # fmt: skip
         "referencia_escala": analise.referencia_escala(),
+        "notas_outros": cfg_norma.get("notas_outros", {}),
         "simulador": simulador(demo, processado, arquivo, segmento),
         **out,
     }

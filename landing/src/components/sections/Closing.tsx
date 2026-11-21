@@ -17,14 +17,6 @@ export function Closing() {
 
   return (
     <motion.footer id="contato" data-dark ref={ref} style={{ clipPath }} className="on-dark relative overflow-hidden bg-obsidian text-ivory">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-1/3 right-[-15%] h-[160%] w-[50%] rotate-[24deg] bg-[linear-gradient(90deg,transparent,rgb(182_163_139/0.13),transparent)]"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -bottom-1/2 -left-1/4 h-full w-2/3 rounded-full bg-[radial-gradient(circle,rgb(40_75_99/0.5),transparent_65%)]"
-      />
 
       <div className="relative mx-auto max-w-7xl px-5 pt-28 pb-12 sm:px-8 sm:pt-36">
         <div className="max-w-3xl">

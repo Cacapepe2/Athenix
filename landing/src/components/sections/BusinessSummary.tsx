@@ -25,7 +25,7 @@ export function BusinessSummary() {
         </div>
 
         {/* Grade com filetes de 1px: um painel único em vez de seis cartões soltos */}
-        <ol className="mt-10 grid gap-px overflow-hidden rounded-[26px] border border-line bg-line shadow-soft sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+        <ol className="mt-10 grid gap-px overflow-hidden  border border-line bg-line sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
           {business.items.map((item, i) => {
             const Icon = icons[i]
             return (

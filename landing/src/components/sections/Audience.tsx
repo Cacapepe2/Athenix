@@ -46,7 +46,7 @@ export function Audience() {
         </div>
 
         <div id="potenciais-clientes" className="mt-24">
-          <p className="text-[0.72rem] font-semibold tracking-[0.2em] text-bronze-deep uppercase">{audience.sectorsTitle}</p>
+          <p className="text-[0.72rem] font-semibold text-bronze-deep ">{audience.sectorsTitle}</p>
           {/* As frentes futuras "desdobram" a partir do foco inicial */}
           <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-[1.25fr_1fr_1fr_1fr]">
             {audience.sectors.map((s, i) => {
@@ -60,7 +60,7 @@ export function Audience() {
                   transition={{ duration: 1, ease, delay: i === 0 ? 0 : 0.3 + i * 0.12 }}
                   className={`relative flex flex-col rounded-2xl p-6 ${
                     s.now
-                      ? 'bg-slate-blue text-ivory shadow-float'
+                      ? 'bg-slate-blue text-ivory '
                       : 'border border-dashed border-obsidian/20 bg-white/40 text-obsidian'
                   }`}
                 >
@@ -71,7 +71,7 @@ export function Audience() {
                       strokeWidth={1.5}
                     />
                     <span
-                      className={`rounded-full px-2.5 py-0.5 text-[0.68rem] font-medium ${
+                      className={`px-2.5 py-0.5 text-[0.68rem] font-medium ${
                         s.now ? 'bg-ivory/15 text-ivory' : 'bg-stone text-ink-soft'
                       }`}
                     >

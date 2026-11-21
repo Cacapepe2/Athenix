@@ -14,7 +14,7 @@ sai marcado "só pela regra · IA não consultada" e a pessoa decide. Quando a r
 import json
 from pathlib import Path
 
-from . import dependencias, tipos, tipos_ia
+from . import areas, dependencias, tipos, tipos_ia
 from .evidence import verify
 from .normalizacao import espacos
 
@@ -72,6 +72,7 @@ def montar(out, rows, extraction, cache_ia=None):
     """Anexa `analise` às obrigações principais de cada tema de `out` (plano.montar) e devolve o
     bloco global (manuais, dependências, prática por tema)."""
     cfg_tipos = tipos.carregar()
+    cfg_areas = areas.carregar()
     cfg_dep = dependencias.carregar()
     cache_ia = tipos_ia.carregar_cache() if cache_ia is None else cache_ia
     units = extraction["units"]
@@ -115,12 +116,17 @@ def montar(out, rows, extraction, cache_ia=None):
                         "status": m["status"],
                     }
             o["analise"] = {"tipo": tipo, "dependencias_no_texto": no_texto}
+            # Área responsável SUGERIDA (data/areas_por_tipo.json): quem faz o quê.
+            o["area"], o["area_origem"] = areas.area_com_origem(
+                tipo["id"] or tipo["regra_id"], (cache_ia or {}).get(oid), texto, cfg_areas
+            )
     pratica = {}
     for tema, dep in PRATICA_POR_TEMA.items():
         deps.setdefault(dep, dependencias.manual_da_dependencia(dep, cfg_dep))
         pratica[tema] = dep
     return {
         "rotulo": ROTULO,
+        "areas": {"rotulo": cfg_areas["rotulo"], "lista": cfg_areas["areas"]},
         "tipo_so_regra": SO_REGRA,
         "tipo_a_revisar": A_REVISAR,
         "manuais": manuais,

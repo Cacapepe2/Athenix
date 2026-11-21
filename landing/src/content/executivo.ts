@@ -8,6 +8,7 @@ import {
   type Faixa, type Modo, type NormaId, type Obrigacao, type PlanoDados, type Simulacao,
 } from './plano.ts'
 import { GRUPOS, rotuloDoGrupo, nomeDaGravidade, type Grupo } from './gravidade.ts'
+import { atualizar, hojeISO } from './datas.ts'
 
 export const NORMAS: { id: NormaId; rotulo: string; resumo: string; dados: PlanoDados }[] = [
   { id: 'rn1137', rotulo: 'RN 1.137/2025', resumo: 'eventos climáticos extremos', dados: planos.rn1137 },
@@ -70,13 +71,24 @@ export function queda(p: PlanoDados, s: Simulacao | null, modo: Modo): Queda | n
   return { de: v.reais, para: s ? reaisDe(aten, s) : null, reducaoPct: m.percentual, dispositivo: m.dispositivo, trecho: m.trecho, fonte: m.fonte, sha256: m.sha256 }
 }
 
+/** "Vencido desde 28/04/2026 (207 dias)" / "Vence em 04/11/2027 (348 dias)": prazo mais urgente do tema, contado de HOJE. */
+export function textoPrazoDoTema(p: PlanoDados, t: { prazo_mais_urgente: { obrigacao: string; data: string | null; texto: string } | null }, hoje: string = hojeISO()): string {
+  const u = t.prazo_mais_urgente
+  if (!u) return 'Sem data no texto'
+  const o = p.obrigacoes.find((x) => x.id === u.obrigacao)
+  if (!o || !u.data) return u.texto
+  const a = atualizar(o, hoje)
+  return a.situacao === 'vencida' ? `Vencido desde ${dataBR(u.data)} (${Math.abs(a.prazo.dias!)} dias)` : `Vence em ${dataBR(u.data)} (${a.prazo.dias} dias)`
+}
+
 export interface Prazos { vencidas: number; proxima: { dias: number; data: string } | null }
 
 /** Cartão 3: obrigações vencidas e a próxima que vence (só prazos com data). */
-export function prazos(p: PlanoDados): Prazos {
-  const futuras = p.obrigacoes.filter((o) => (o.situacao === '90dias' || o.situacao === 'depois') && o.prazo.dias != null && o.prazo.data)
+export function prazos(p: PlanoDados, hoje: string = hojeISO()): Prazos {
+  const obrig = p.obrigacoes.map((o) => atualizar(o, hoje))
+  const futuras = obrig.filter((o) => (o.situacao === '90dias' || o.situacao === 'depois') && o.prazo.dias != null && o.prazo.data)
   const prox = futuras.length ? futuras.reduce((a, b) => (b.prazo.dias! < a.prazo.dias! ? b : a)) : null
-  return { vencidas: p.resumo.por_situacao.vencida, proxima: prox ? { dias: prox.prazo.dias!, data: prox.prazo.data! } : null }
+  return { vencidas: obrig.filter((o) => o.situacao === 'vencida').length, proxima: prox ? { dias: prox.prazo.dias!, data: prox.prazo.data! } : null }
 }
 
 // ---------- linguagem de negócio ----------
@@ -121,10 +133,21 @@ export function frase(o: Obrigacao, max = 110): string {
 /** "contada de 12/08/2026": de onde vem a data provisória (o marco que o motor leu no texto). */
 const contada = (o: Obrigacao) => (o.prazo.provisorio && o.prazo.base ? ` (provisória, contada de ${dataBR(o.prazo.base)})` : '')
 
-export function prazoTexto(o: Obrigacao): string {
+/** "contada de 30/10/2025 · provisória" (a data de partida que o motor leu no texto); null sem data. */
+export function prazoBase(o: Obrigacao): string | null {
+  return o.prazo.data && o.prazo.base ? `contada de ${dataBR(o.prazo.base)}${o.prazo.provisorio ? ' · provisória' : ''}` : null
+}
+
+/** Texto curto do prazo para os blocos: "vencida há 293 dias", "vence em 47 dias", "recorrente". */
+export function prazoCurto(o: Obrigacao): string {
+  return prazoTexto(o, false)
+}
+
+export function prazoTexto(o: Obrigacao, comBase = true): string {
   const d = o.prazo.dias
-  if (o.situacao === 'vencida' && d != null) return `vencida há ${Math.abs(d)} dias${contada(o)}`
-  if ((o.situacao === '90dias' || o.situacao === 'depois') && d != null) return `vence em ${d} dias${contada(o)}`
+  const contada_ = comBase ? contada(o) : ''
+  if (o.situacao === 'vencida' && d != null) return `vencida há ${Math.abs(d)} dias${contada_}`
+  if ((o.situacao === '90dias' || o.situacao === 'depois') && d != null) return `vence em ${d} dias${contada_}`
   if (o.situacao === 'recorrente') return 'recorrente'
   if (o.situacao === 'evento') return 'depende de um evento'
   return 'sem prazo no texto'
@@ -138,18 +161,34 @@ export function textoDoValor(v: ValorExecutivo | null): { gravidade: string; val
   return { gravidade: nomeDaGravidade(v.grupo), valor, preliminar: v.origem === 'sugerido' ? 'preliminar' : null }
 }
 
-export function oQueFazer(p: PlanoDados, o: Obrigacao): { texto: string; preliminar: boolean } | null {
-  const t = o.analise?.tipo
-  const id = t?.id ?? t?.regra_id ?? null
-  const manual = id ? p.analise.manuais[id] : undefined
-  if (!manual) return null
-  return { texto: manual.ideias_cumprimento[0], preliminar: t?.situacao !== 'concordam' }
+/** "O que recomendamos": a 1ª ação ESPECÍFICA do dispositivo (IA, validada, "Sugestão"). Sem ela, null:
+ *  a tela diz "recomendação em revisão". Nunca frase genérica do manual do tipo no top 5. */
+export function oQueFazer(_p: PlanoDados, o: Obrigacao): { texto: string; preliminar: boolean; todas: string[] } | null {
+  const r = (o.recomendacoes ?? []).map((x) => x.acao)
+  if (!r.length) return null
+  return { texto: acaoGerencial(r), preliminar: true, todas: r }
+}
+
+/** Detalhe operacional (equipamento, ferramenta, ordem de campo): só o plano completo mostra. */
+const OPERACIONAL = /motosserra|guincho|scada|equipes? de campo|caminh[ãa]o|ve[íi]culo|ferramenta|\bEPI\b|r[áa]dio|sensor|religador|disjuntor|transformador|poste|\bacione\b|imediatamente|checklist|rotina automatizada|script/i
+const MAX_PALAVRAS_GERENCIAL = 22
+export const eGerencial = (acao: string) => !OPERACIONAL.test(acao) && acao.split(/\s+/).length <= MAX_PALAVRAS_GERENCIAL
+
+/** Ação para a executiva: a primeira de nível gerencial; sem nenhuma, a mais genérica (a mais curta) das válidas. */
+export function acaoGerencial(acoes: string[]): string {
+  return acoes.find(eGerencial) ?? [...acoes].sort((a, b) => a.split(/\s+/).length - b.split(/\s+/).length)[0]
 }
 
 /** Defesa possível: causa externa no texto (com citação), prática conhecida do tema (a avaliar) ou "—". */
 export function defesa(p: PlanoDados, o: Obrigacao): { texto: string; origem: 'no texto' | 'prática conhecida' | null } {
   if (o.analise?.dependencias_no_texto.some((d) => d.id === 'ato_da_aneel')) return { texto: 'instruções da ANEEL ainda por publicar', origem: 'no texto' }
   if (o.excludente) return { texto: 'excludente previsto no texto da norma', origem: 'no texto' }
+  // Coerência com o texto: obrigação que envolve a prefeitura mostra a dependência da autorização municipal,
+  // seja qual for o tema (ex.: registro das interações com o Poder Público Municipal).
+  const municipal = p.analise.dependencias.autorizacao_municipal
+  if (municipal && /prefeitura|poder p[úu]blico municipal|munic[ií]pi/i.test(`${o.titulo_completo} ${o.trecho ?? ''}`)) {
+    return { texto: simplificar(municipal.nome).toLowerCase(), origem: 'prática conhecida' }
+  }
   const dep = p.analise.pratica_por_tema[o.tema]
   if (dep) return { texto: simplificar(p.analise.dependencias[dep].nome).toLowerCase(), origem: 'prática conhecida' }
   const outra = p.analise.causas_por_tema[o.tema]
@@ -158,12 +197,59 @@ export function defesa(p: PlanoDados, o: Obrigacao): { texto: string; origem: 'n
 }
 
 export const urlPlanoCompleto = (id: NormaId) => (id === NORMA_PADRAO ? '/demo' : `/demo?norma=${id}`)
+/** Abre o plano completo da norma já imprimindo o relatório de trabalho. */
+export const urlRelatorio = (id: NormaId) => (id === NORMA_PADRAO ? '/demo?relatorio=1' : `/demo?norma=${id}&relatorio=1`)
 export const idDaObrigacao = (id: string) => `obrigacao-${id}`
 /** Abre a obrigação certa na página completa da norma. */
 export const urlDetalhe = (id: NormaId, obrigacaoId: string) => `${urlPlanoCompleto(id)}#${idDaObrigacao(obrigacaoId)}`
 
+/** Título curto do bloco: o rótulo de até 5 palavras gerado por IA; sem ele, o título completo encurtado. */
+export function tituloCurto(o: Obrigacao): string {
+  return o.titulo_curto ?? frase(o, 40)
+}
+
+export interface BarraDeValor { rotulo: string; reais: number | null; pct: number; fracao: number; cor: 'teto' | 'media' | 'reducao' }
+
+/** Três barras do painel: teto, atenuante do art. 24, II e do art. 24, I (valor por infração, nunca soma). */
+export function barrasDeValor(p: PlanoDados, v: ValorExecutivo | null, s: Simulacao | null): BarraDeValor[] {
+  if (!v) return []
+  const base = s ?? SIM_INICIAL
+  const med = (c: 'ate_tn' | 'espontanea') => p.reducao.medidas.find((m) => m.cenario === c)
+  const rotuloArt = (c: 'ate_tn' | 'espontanea') => `art. ${(med(c)?.dispositivo ?? '').replace(/^Art\.\s*/, '')}`
+  const por = (c: 'ate_tn' | 'espontanea') => {
+    const r = med(c)?.percentual
+    return comAtenuantePct(v.faixa, base, c) ?? (r != null ? v.pct * (1 - r / 100) : null)
+  }
+  const mk = (rotulo: string, pctV: number, cor: BarraDeValor['cor']): BarraDeValor => ({ rotulo, pct: pctV, reais: s ? reaisDe(pctV, s) : null, fracao: v.pct ? Math.min(pctV / v.pct, 1) : 0, cor })
+  const ii = por('ate_tn')
+  const i = por('espontanea')
+  return [mk('teto', v.pct, 'teto'), ...(ii != null ? [mk(rotuloArt('ate_tn'), ii, 'media')] : []), ...(i != null ? [mk(rotuloArt('espontanea'), i, 'reducao')] : [])]
+}
+
+/** "Prove com": a primeira evidência do manual do tipo da obrigação (rascunho; marcada como sugestão). */
+export function proveCom(p: PlanoDados, o: Obrigacao): string | null {
+  const t = o.analise?.tipo
+  const id = t?.id ?? t?.regra_id ?? null
+  return (id && p.analise.manuais[id]?.evidencias[0]) || null
+}
+
 export interface LinhaTop5 {
   id: string
+  area: string
+  areaOrigem: 'regra' | 'ia' | null
+  dataPrazo: string | null
+  /** Citação literal do dispositivo (o que a norma exige). */
+  trecho: string | null
+  /** Valor por infração se regularizar antes da fiscalização (atenuante do art. 24, I). */
+  reduzidoReais: number | null
+  situacaoPrazo: Obrigacao['situacao']
+  titulo: string
+  prazoCurto: string
+  prazoBase: string | null
+  barras: BarraDeValor[]
+  proveCom: string | null
+  evite: string | null
+  gravidadeRotulo: string
   normaId: NormaId
   frase: string
   fraseOriginal: string
@@ -174,7 +260,7 @@ export interface LinhaTop5 {
   gravidade: string
   textoValor: string
   preliminar: string | null
-  fazer: { texto: string; preliminar: boolean } | null
+  fazer: { texto: string; preliminar: boolean; todas: string[] } | null
   defesa: { texto: string; origem: 'no texto' | 'prática conhecida' | null }
   link: string
 }
@@ -182,16 +268,19 @@ export interface LinhaTop5 {
 const VERBO = /^[A-ZÀ-Ú][a-zà-úç]+(?:ar|er|ir)\s/
 const GRAU: Record<Obrigacao['situacao'], number> = { vencida: 0, '90dias': 1, depois: 2, recorrente: 3, evento: 4, sem_prazo: 4 }
 
-/** As 5 obrigações para olhar primeiro: vencidas (a mais antiga antes), depois maior valor por infração,
- *  depois enquadramento identificado no texto antes do sugerido. */
-export function top5(normaId: NormaId, s: Simulacao | null, modo: Modo, n = 5): LinhaTop5[] {
+/** As 5 obrigações para olhar primeiro: vencidas (a mais antiga antes), depois as a vencer com data (a mais
+ *  próxima antes), depois maior valor por infração, depois enquadramento identificado no texto antes do sugerido. */
+export function top5(normaId: NormaId, s: Simulacao | null, modo: Modo, n = 5, hoje: string = hojeISO()): LinhaTop5[] {
   const p = norma(normaId).dados
-  const comValor = p.obrigacoes.map((o, i) => ({ o, i, v: valorDaObrigacao(o, s, modo) }))
+  // Situação e dias recalculados para HOJE (o JSON traz os da data de referência da geração).
+  const comValor = p.obrigacoes.map((o, i) => { const a = atualizar(o, hoje); return { o: a, i, v: valorDaObrigacao(a, s, modo) } })
+  // Grupo: 0 vencidas, 1 a vencer (com data), 2 o resto. Nos dois primeiros, a data mais próxima antes.
+  const grupo = (o: Obrigacao) => (o.situacao === 'vencida' ? 0 : o.prazo.data && (o.situacao === '90dias' || o.situacao === 'depois') ? 1 : 2)
   comValor.sort((a, b) => {
-    const va = a.o.situacao === 'vencida' ? 0 : 1
-    const vb = b.o.situacao === 'vencida' ? 0 : 1
-    if (va !== vb) return va - vb
-    if (va === 0 && a.o.prazo.data !== b.o.prazo.data) return (a.o.prazo.data ?? '') < (b.o.prazo.data ?? '') ? -1 : 1
+    const ga = grupo(a.o)
+    const gb = grupo(b.o)
+    if (ga !== gb) return ga - gb
+    if (ga < 2 && a.o.prazo.data !== b.o.prazo.data) return (a.o.prazo.data ?? '') < (b.o.prazo.data ?? '') ? -1 : 1
     const pa = a.v?.pct ?? -1
     const pb = b.v?.pct ?? -1
     if (pa !== pb) return pb - pa
@@ -207,14 +296,15 @@ export function top5(normaId: NormaId, s: Simulacao | null, modo: Modo, n = 5): 
   return comValor.slice(0, n).map(({ o, v }) => {
     const t = textoDoValor(v)
     return {
-      id: o.id, normaId, frase: frase(o), fraseOriginal: o.titulo_completo, dispositivo: o.dispositivo,
+      id: o.id, area: o.area, areaOrigem: o.area_origem, dataPrazo: o.prazo.data, trecho: o.trecho, situacaoPrazo: o.situacao, reduzidoReais: barrasDeValor(p, v, s).find((b) => b.cor === 'reducao')?.reais ?? null, titulo: tituloCurto(o), prazoCurto: prazoCurto(o), prazoBase: prazoBase(o), barras: barrasDeValor(p, v, s),
+      proveCom: proveCom(p, o), evite: o.evite?.acao ?? null, gravidadeRotulo: rotuloDoGrupo(v?.grupo), normaId, frase: frase(o), fraseOriginal: o.titulo_completo, dispositivo: o.dispositivo,
       prazo: prazoTexto(o), situacao: o.situacao, valor: v, gravidade: t.gravidade, textoValor: t.valor,
       preliminar: t.preliminar, fazer: oQueFazer(p, o), defesa: defesa(p, o), link: urlDetalhe(normaId, o.id),
     }
   })
 }
 
-export interface ReferenciaSetor { texto: string; n: number; mediana: number; maximo: number; usouGeral: boolean; nota: string }
+export interface ReferenciaSetor { texto: string; n: number; mediana: number; maximo: number; usouGeral: boolean; nota: string; maiorMulta: string }
 
 /** Linha "referência do setor": se o grupo do valor mostrado é o IV (infração grave) e há autos
  *  suficientes (n >= 5), a referência por infração grave (n = 10); em qualquer outro caso, a geral (n = 21). */
@@ -228,7 +318,14 @@ export function referenciaDoSetor(p: PlanoDados, grupo?: string | null): Referen
     texto: `${quais}: mediana ≈ ${brlCurto(r.mediana_reais)}, maior ≈ ${brlCurto(r.maximo_reais)} (n = ${r.autos})`,
     n: r.autos, mediana: r.mediana_reais, maximo: r.maximo_reais, usouGeral: !grave,
     nota: 'valor do auto inteiro, não estimativa por obrigação',
+    maiorMulta: textoMaiorMulta(p),
   }
+}
+
+/** "maior multa já aplicada a uma distribuidora: R$ 165,8 mi (2024), por falhas no restabelecimento após evento climático" (informado; sem nome de empresa). */
+export function textoMaiorMulta(p: PlanoDados): string {
+  const m = p.referencia_escala.maior_multa
+  return `${m.rotulo}: ${brlCurto(m.valor_reais)} (${m.ano}), por ${m.motivo}`
 }
 
 export interface DestaqueDaNorma { texto: string; rotuloData: string; data: string; deveres: number; comPrazo: number; recorrentes: number }

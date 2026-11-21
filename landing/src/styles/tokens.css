@@ -1,0 +1,37 @@
+/* ÚNICO lugar com cor, fonte, raio, borda, sombra e tempo de animação do site.
+   Mudou a identidade? Mude só aqui. Guia: docs/IDENTIDADE_VISUAL.md.
+   Tema alternativo para teste: acrescente ?tema=alternativo à URL (bloco [data-tema] no fim). */
+:root {
+  --cor-fundo: #ffffff;
+  --cor-texto: #111111;
+  --cor-texto-invertido: #ffffff;
+  --cor-destaque: #c8261a;
+  --cor-destaque-texto: #b3241a;
+  --cor-evite: #a11f15;
+  --cor-linha-suave: #dddddd;
+  --cor-hover: #ededed;
+  --cor-barra-teto: #111111;
+  --cor-barra-media: #555555;
+  --cor-barra-reducao: #c8261a;
+  --cor-trilho: #eeeeee;
+
+  --fonte-base: "Inter Tight Variable", "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+
+  --raio: 0px;
+  --raio-ponto: 50%;
+  --borda-forte: 2px;
+  --borda-titulo: 3px;
+  --sombra-hover: 5px 5px 0 var(--cor-texto);
+
+  --duracao-rapida: 160ms;
+  --duracao-painel: 320ms;
+  --curva: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* Exemplo de tema: só troca o destaque (azul-petróleo). Teste: /demo/executivo?tema=alternativo */
+:root[data-tema="alternativo"] {
+  --cor-destaque: #0e4a5a;
+  --cor-destaque-texto: #0e4a5a;
+  --cor-evite: #7a1a12;
+  --cor-barra-reducao: #0e4a5a;
+}

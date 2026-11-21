@@ -29,7 +29,7 @@ identificado no texto vem antes do sugerido. "Confirmado" fica reservado à revi
   quanto cai se regularizar antes da fiscalização, prazos), as 5 obrigações para olhar primeiro e a
   referência do setor, em linguagem de negócio ("infração grave (Grupo IV)"; mapeamento em
   `landing/src/content/gravidade.ts`). Abre duas normas, ambas pelo mesmo motor: RN 1.137/2025 e
-  **REN 1.174/2026** (abertura do mercado livre; 86 deveres da distribuidora, 5 com prazo e 2 recorrentes; enquadramento
+  **REN 1.174/2026** (abertura do mercado livre; 83 deveres da distribuidora, 1 com prazo e 2 recorrentes; enquadramento
   só por sugestão de IA, marcada, `docs/enquadramento_ia_ren1174.md`). Sem enquadramento não há valor:
   nada de teto da escala como "pior caso". A página completa `/demo?norma=ren1174` mostra a segunda norma.
 - **Comando único:** `python -m athenix processar <arquivo> --agente distribuidora --saida <json>` (do
@@ -78,5 +78,6 @@ cd landing && npm ci && npm test && npm run build   # site; Node 24 (pode ser po
 - Propostas: `docs/proposta_valor_provavel.md`, `docs/proposta_enquadramento.md`,
   `docs/parcela_variavel.md`.
 - Demo: `docs/plano_acao.md` (no #24), capturas em `docs/telas/`.
+- Identidade visual (tokens, como mudar uma cor, `?tema=`, contraste): `docs/IDENTIDADE_VISUAL.md`.
 - Revisão por especialista: `docs/revisao_especialista.md`.
 - Último sprint: `docs/SPRINT_2026-11-17.md`.

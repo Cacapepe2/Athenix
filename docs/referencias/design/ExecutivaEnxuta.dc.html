@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Athenix · Visão executiva enxuta</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#111111}a:hover{color:#C8261A}
+.tile{transition:transform 160ms ease, box-shadow 160ms ease, background-color 200ms ease, color 200ms ease}
+.tile:hover{transform:translate(-3px,-3px);box-shadow:5px 5px 0 #111111}
+.tile:focus-visible{outline:3px solid #C8261A;outline-offset:3px}
+.tile:active{transform:translate(0,0);box-shadow:0 0 0 #111111}
+.cta{transition:transform 160ms ease}
+.tile:hover .cta{transform:translateY(2px)}
+.seg{transition:background-color 150ms ease, color 150ms ease}
+.seg:hover{background-color:#EDEDED}
+.painel{transition:grid-template-rows 320ms cubic-bezier(.2,.7,.2,1)}
+.painel-in{transition:opacity 260ms ease 60ms, transform 300ms cubic-bezier(.2,.7,.2,1) 40ms}
+.barra{transition:width 600ms cubic-bezier(.2,.7,.2,1) 120ms}
+.fechar:hover{background:#111111;color:#FFFFFF}
+@media (prefers-reduced-motion: reduce){.tile,.painel,.painel-in,.barra,.cta{transition:none}}
+</style>
+</helmet>
+<div style="font-family: 'Inter Tight', 'Helvetica Neue', Arial, sans-serif; color: #111111; background: #FFFFFF; min-height: 100%">
+<main style="max-width: 1200px; margin: 0 auto; padding: 32px 32px 48px; display: flex; flex-direction: column; gap: 40px">
+<header style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; border-bottom: 3px solid #111111; padding-bottom: 16px">
+<span style="font-size: 28px; font-weight: 700; letter-spacing: -0.03em">Athenix</span>
+<div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center">
+<div role="group" aria-label="Norma" style="display: flex">
+<sc-for list="{{ normas }}" as="n" hint-placeholder-count="2">
+<button class="seg" aria-pressed="{{ n.ativo }}" onClick="{{ n.pick }}" style="{{ n.estilo }}">{{ n.rotulo }}</button>
+</sc-for>
+</div>
+<div role="group" aria-label="Porte da distribuidora" style="display: flex">
+<sc-for list="{{ portes }}" as="p" hint-placeholder-count="4">
+<button class="seg" aria-pressed="{{ p.ativo }}" onClick="{{ p.pick }}" style="{{ p.estilo }}">{{ p.rotulo }}</button>
+</sc-for>
+</div>
+</div>
+<a href="ObrigacoesBlocos.dc.html" style="font-size: 15px; font-weight: 600; text-decoration: underline; text-underline-offset: 4px">Plano completo →</a>
+</header>
+<section aria-label="Resumo" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 96px; font-weight: 700; letter-spacing: -0.05em; line-height: 0.95; color: #C8261A">{{ exposicao }}</span>
+<span style="font-size: 17px; font-weight: 600">por infração{{ marcaExp }}</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 96px; font-weight: 700; letter-spacing: -0.05em; line-height: 0.95">−95%</span>
+<span style="font-size: 17px; font-weight: 600">se agir antes da fiscalização</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 96px; font-weight: 700; letter-spacing: -0.05em; line-height: 0.95">{{ prazoNum }}</span>
+<span style="font-size: 17px; font-weight: 600">{{ prazoTxt }}</span>
+</div>
+</section>
+<section aria-labelledby="cp" style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px">
+<h2 id="cp" style="margin: 0; font-size: 17px; font-weight: 700">Comece por</h2>
+<span style="font-size: 14px">Toque num item para ver o que fazer</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px">
+<sc-for list="{{ itens }}" as="t" hint-placeholder-count="5">
+<button class="tile" onClick="{{ t.toggle }}" aria-expanded="{{ t.aberto }}" aria-controls="painel" style="{{ t.estilo }}">
+<span style="{{ t.chipStyle }}"><span style="{{ t.dotStyle }}"></span>{{ t.prazo }}</span>
+<span style="font-size: 16px; font-weight: 600; line-height: 1.25">{{ t.titulo }}</span>
+<span style="font-size: 30px; font-weight: 700; letter-spacing: -0.03em; margin-top: auto">{{ t.valor }}</span>
+<span style="display: flex; justify-content: space-between; align-items: center; font-size: 13px; font-weight: 600; border-top: 1px solid currentColor; padding-top: 10px">
+<span>{{ t.cta }}</span>
+<span class="cta" aria-hidden="true" style="font-size: 18px">{{ t.seta }}</span>
+</span>
+</button>
+</sc-for>
+</div>
+<div id="painel" class="painel" role="region" aria-label="Detalhes da obrigação" style="{{ painelStyle }}">
+<div style="overflow: hidden; min-height: 0">
+<sc-if value="{{ temSel }}" hint-placeholder-val="{{ false }}">
+<div class="painel-in" style="{{ inStyle }}">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 16px; padding: 20px 24px; border-bottom: 2px solid #111111">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 13px; font-weight: 600">{{ sel.disp }}</span>
+<span style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em">{{ sel.tituloLongo }}</span>
+</div>
+<button class="fechar" onClick="{{ fechar }}" aria-label="Fechar detalhes" style="font: inherit; font-size: 14px; font-weight: 600; padding: 10px 14px; min-height: 44px; border: 2px solid #111111; background: #FFFFFF; color: #111111; border-radius: 0; cursor: pointer; transition: background-color 150ms ease, color 150ms ease">Fechar ✕</button>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0">
+<div style="padding: 20px 24px; border-right: 1px solid #DDDDDD; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 13px; font-weight: 700">Prazo</span>
+<span style="font-size: 18px; font-weight: 700">{{ sel.prazo }}</span>
+<span style="font-size: 13px">{{ sel.prazoDet }}</span>
+</div>
+<div style="padding: 20px 24px; border-right: 1px solid #DDDDDD; display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 13px; font-weight: 700">Gravidade e valor por infração</span>
+<span style="font-size: 15px">{{ sel.gravTxt }}</span>
+<sc-for list="{{ sel.barras }}" as="b" hint-placeholder-count="3">
+<div style="display: grid; grid-template-columns: 70px minmax(0, 1fr) 72px; gap: 8px; align-items: center; font-size: 12px">
+<span>{{ b.rotulo }}</span>
+<span style="height: 8px; background: #EEEEEE; display: block"><span class="barra" style="{{ b.estilo }}"></span></span>
+<span style="font-weight: 700; text-align: right">{{ b.valor }}</span>
+</div>
+</sc-for>
+</div>
+<div style="padding: 20px 24px; border-right: 1px solid #DDDDDD; display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 13px; font-weight: 700">O que fazer</span>
+<span style="font-size: 15px; line-height: 1.45">✓ {{ sel.faca }}</span>
+<span style="font-size: 15px; line-height: 1.45; color: #A11F15">✕ {{ sel.evite }}</span>
+<span style="font-size: 13px; line-height: 1.45; margin-top: 4px"><strong>Prove com:</strong> {{ sel.provar }}</span>
+</div>
+<div style="padding: 20px 24px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 13px; font-weight: 700">Defesa possível</span>
+<span style="font-size: 15px; line-height: 1.45">{{ sel.defesa }}</span>
+<sc-if value="{{ sel.temTag }}" hint-placeholder-val="{{ false }}">
+<span style="font-size: 12px; font-weight: 600; border: 1px solid #111111; padding: 3px 8px; align-self: flex-start">prática conhecida</span>
+</sc-if>
+<a href="ObrigacoesBlocos.dc.html" style="font-size: 15px; font-weight: 600; margin-top: auto">Detalhes no plano →</a>
+</div>
+</div>
+</div>
+</sc-if>
+</div>
+</div>
+</section>
+<footer style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 13px; border-top: 1px solid #111111; padding-top: 14px">
+<span>* preliminar · valores ilustrativos · não é parecer jurídico</span>
+<a href="ObrigacoesBlocos.dc.html" style="font-weight: 600">Plano completo →</a>
+</footer>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1100}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { norma: 'RN 1.137', rol: 5, aberto: null, ultimo: null };
+  }
+  dados() {
+    const base = 'contada de 30/10/2025 · provisória';
+    const b74 = 'contada de 04/11/2026 · provisória';
+    return {
+      'RN 1.137': [
+        { id: 'a', disp: 'Art. 13, I', titulo: 'Planos de manejo e contingência', tituloLongo: 'Revisar e publicar planos de manejo, comunicação e contingência', grav: 'grave', prel: false, prazo: 'vencida há 293 dias', prazoDet: base, venc: true, faca: 'Aprove o plano com data e responsável e publique no site.', evite: 'Plano sem data de aprovação.', provar: 'versão aprovada e captura datada da página.', defesa: 'Autorização municipal para poda.', tag: true },
+        { id: 'b', disp: 'Art. 13, II', titulo: 'Registro de contatos com prefeituras', tituloLongo: 'Implementar o registro das interações com o Poder Público Municipal', grav: 'grave', prel: true, prazo: 'vencida há 203 dias', prazoDet: base, venc: true, faca: 'Crie um registro por prefeitura: data, assunto, protocolo e resposta.', evite: 'Combinar poda por telefone, sem protocolo.', provar: 'o registro com protocolos e respostas.', defesa: 'Resposta pendente da prefeitura, se documentada.', tag: true },
+        { id: 'c', disp: 'Art. 13, III', titulo: 'Aviso de previsão de religação', tituloLongo: 'Implementar a comunicação ao consumidor sobre a previsão de restabelecimento', grav: 'séria', prel: true, prazo: 'vencida há 203 dias', prazoDet: base, venc: true, faca: 'Defina canais e modelos por situação; registre cada envio.', evite: 'Informar horário sem base técnica.', provar: 'log de envios e modelos aprovados.', defesa: 'Indisponibilidade de canais de terceiros.', tag: true },
+        { id: 'd', disp: 'Art. 13, IV', titulo: 'Mapa de clientes sem energia', tituloLongo: 'Publicar no site o número de unidades afetadas, em mapa', grav: 'séria', prel: true, prazo: 'vencida há 203 dias', prazoDet: base, venc: true, faca: 'Publique o mapa com atualização periódica e data visível.', evite: 'Mapa sem data de atualização.', provar: 'capturas datadas.', defesa: 'Indisponibilidade de canais de terceiros.', tag: true },
+        { id: 'e', disp: 'Art. 13, VI', titulo: 'Apuração do DISE', tituloLongo: 'Iniciar a apuração do DISE em situação de emergência', grav: 'média', prel: true, prazo: 'vencida há 203 dias', prazoDet: base, venc: true, faca: 'Documente a fórmula, as fontes de dados e o período.', evite: 'Planilha manual sem fonte.', provar: 'memória de cálculo versionada.', defesa: 'Nenhuma identificada.', tag: false }
+      ],
+      'REN 1.174': [
+        { id: 'f', disp: 'Art. 12, § 11', titulo: 'Primeira reunião da norma', tituloLongo: 'Realizar a primeira reunião em até 60 dias da publicação', grav: 'grave', prel: true, prazo: 'vence em 47 dias', prazoDet: b74, venc: false, faca: 'Marque a data já e registre a ata.', evite: 'Deixar para a última semana.', provar: 'convocação e ata.', defesa: 'Nenhuma identificada.', tag: false },
+        { id: 'g', disp: 'Art. 16, II', titulo: 'Adequar processos e sistemas', tituloLongo: 'Adequar processos e sistemas em até 180 dias', grav: 'grave', prel: true, prazo: 'vence em 167 dias', prazoDet: b74, venc: false, faca: 'Liste os sistemas afetados e um dono para cada.', evite: 'Começar sem inventário.', provar: 'plano de adequação e entregas.', defesa: 'Nenhuma identificada.', tag: false },
+        { id: 'h', disp: 'Art. 14, § 2º, I', titulo: 'Fim do benefício tarifário', tituloLongo: 'Cessar o benefício tarifário do art. 186 da REN 1.000 no ciclo previsto', grav: 'grave', prel: true, prazo: 'por ciclo', prazoDet: 'depende do ciclo tarifário', venc: false, faca: 'Mapeie os clientes afetados antes do ciclo.', evite: 'Mudar a fatura sem avisar o cliente.', provar: 'lista de clientes e faturas.', defesa: 'Nenhuma identificada.', tag: false },
+        { id: 'i', disp: 'Art. 142, IV, a', titulo: 'Migração na modalidade regular', tituloLongo: 'Conduzir a migração na modalidade regular', grav: 'grave', prel: true, prazo: 'sem prazo no texto', prazoDet: 'prazo por pedido', venc: false, faca: 'Crie um roteiro de migração com prazos.', evite: 'Tratar cada pedido de um jeito.', provar: 'pedidos e datas de atendimento.', defesa: 'Nenhuma identificada.', tag: false },
+        { id: 'j', disp: 'Art. 11, VIII', titulo: 'Envio semestral', tituloLongo: 'Informar semestralmente o previsto na norma', grav: null, prel: false, prazo: 'semestral', prazoDet: 'recorrente', venc: false, faca: 'Calendário fixo de duas entregas por ano.', evite: 'Depender de lembrança manual.', provar: 'comprovantes de cada semestre.', defesa: 'Nenhuma identificada.', tag: false }
+      ]
+    };
+  }
+  fmt(v) {
+    const mi = v / 1e6;
+    const t = mi >= 10 ? String(Math.round(mi * 10) / 10) : String(Math.round(mi * 100) / 100);
+    return 'R$ ' + t.replace('.', ',') + ' mi';
+  }
+  renderVals() {
+    const s = this.state;
+    const pct = { 'grave': 0.01, 'séria': 0.005, 'média': 0.0025 };
+    const nomes = { 'grave': 'infração grave (Grupo IV)', 'séria': 'infração séria (Grupo III)', 'média': 'infração média (Grupo II)' };
+    const rol = s.rol * 1e9;
+    const seg = (ativo, primeiro) => 'font: inherit; font-size: 14px; font-weight: 600; padding: 10px 12px; min-height: 44px; border: 2px solid #111111; ' + (primeiro ? '' : 'margin-left: -2px; ') + 'border-radius: 0; cursor: pointer; background: ' + (ativo ? '#111111' : '#FFFFFF') + '; color: ' + (ativo ? '#FFFFFF' : '#111111');
+    const normas = ['RN 1.137', 'REN 1.174'].map((v, i) => ({ rotulo: v, ativo: s.norma === v, estilo: seg(s.norma === v, i === 0), pick: () => this.setState({ norma: v, aberto: null, ultimo: null }) }));
+    const portes = [1, 5, 10, 20].map((v, i) => ({ rotulo: v + ' bi', ativo: s.rol === v, estilo: seg(s.rol === v, i === 0), pick: () => this.setState({ rol: v }) }));
+    const lista = this.dados()[s.norma];
+    const itens = lista.map((d) => {
+      const aberto = s.aberto === d.id;
+      const v = d.grav ? pct[d.grav] * rol : null;
+      return {
+        titulo: d.titulo, prazo: d.prazo, aberto,
+        valor: v ? this.fmt(v) + (d.prel ? '*' : '') : 'a enquadrar',
+        cta: aberto ? 'Fechar' : 'Ver o que fazer',
+        seta: aberto ? '↑' : '↓',
+        toggle: () => this.setState({ aberto: aberto ? null : d.id, ultimo: d.id }),
+        estilo: 'font: inherit; display: flex; flex-direction: column; gap: 10px; min-height: 196px; padding: 16px; border: 2px solid #111111; border-radius: 0; text-align: left; cursor: pointer; background: ' + (aberto ? '#111111' : '#FFFFFF') + '; color: ' + (aberto ? '#FFFFFF' : '#111111'),
+        chipStyle: 'display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: ' + (aberto ? '#FFFFFF' : (d.venc ? '#B3241A' : '#111111')),
+        dotStyle: 'width: 8px; height: 8px; border-radius: 50%; display: inline-block; background: ' + (d.venc ? '#C8261A' : (aberto ? '#FFFFFF' : '#111111'))
+      };
+    });
+    const d = lista.find((x) => x.id === s.ultimo);
+    const open = !!s.aberto;
+    let sel = { barras: [] };
+    if (d) {
+      const v = d.grav ? pct[d.grav] * rol : null;
+      sel = Object.assign({}, d, {
+        temTag: !!d.tag,
+        gravTxt: d.grav ? nomes[d.grav] + (d.prel ? ' · preliminar' : ' · identificada no texto') : 'gravidade a enquadrar',
+        barras: v ? [
+          { rotulo: 'teto', valor: this.fmt(v), estilo: 'display: block; height: 8px; background: #111111; width: 100%' },
+          { rotulo: 'art. 24, II', valor: this.fmt(v * 0.5), estilo: 'display: block; height: 8px; background: #555555; width: 50%' },
+          { rotulo: 'art. 24, I', valor: this.fmt(v * 0.05), estilo: 'display: block; height: 8px; background: #C8261A; width: 5%' }
+        ] : []
+      });
+    }
+    const e1137 = s.norma === 'RN 1.137';
+    return {
+      normas, portes, itens, sel, temSel: !!d,
+      painelStyle: 'display: grid; grid-template-rows: ' + (open ? '1fr' : '0fr') + '; border: 2px solid ' + (open ? '#111111' : 'transparent'),
+      inStyle: 'opacity: ' + (open ? '1' : '0') + '; transform: translateY(' + (open ? '0' : '-8px') + ')',
+      fechar: () => this.setState({ aberto: null }),
+      exposicao: this.fmt(0.01 * rol).replace('R$ ', ''),
+      marcaExp: e1137 ? '' : '*',
+      prazoNum: e1137 ? String(lista.filter((x) => x.venc).length) : '47 dias',
+      prazoTxt: e1137 ? 'obrigações vencidas' : 'até o próximo prazo'
+    };
+  }
+}
+</script>
+</body>
+</html>

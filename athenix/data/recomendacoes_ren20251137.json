@@ -1,0 +1,171 @@
+{
+ "aviso": "Sugestões da IA (Sugestão · aguarda revisão humana). Cada ação cita uma expressão literal do dispositivo.",
+ "modelo": "gpt-5-mini",
+ "versao_do_prompt": "recomendacoes-1",
+ "prompt_hash": "8901521064d3a9c584fa6fae8b2ccb36a3b9fb44e1feb252ef9ad69b267f9dc7",
+ "gerado_em": "2026-11-20",
+ "preco_usd_por_milhao": {
+  "input": "0.25",
+  "output": "2",
+  "source": "https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/",
+  "date": "2026-11-20",
+  "currency": "USD"
+ },
+ "nota_preco": "Preço informado pelo fundador (tabela de preço do Azure para gpt-5-mini); a confirmar no portal.",
+ "custo_total_da_execucao_usd": "0.1057",
+ "recomendacoes": {
+  "b758c9c169c145ec": [
+   {
+    "acao": "Publicar mapa interativo no sítio eletrônico mostrando o número total de unidades consumidoras afetadas por interrupções por área.",
+    "trecho_citado": "número total de unidades consumidoras afetadas"
+   },
+   {
+    "acao": "Disponibilizar o mapa na página principal do sítio eletrônico com camada por bairro e opção de visualização por circuito.",
+    "trecho_citado": "disponibilizar em sítio eletrônico"
+   }
+  ],
+  "d61df9955ff31362": [
+   {
+    "acao": "Publicar página com lista de ocorrências abertas no sítio eletrônico, indicando local, início, causa e status por ocorrência.",
+    "trecho_citado": "informações relacionadas às ocorrências abertas"
+   },
+   {
+    "acao": "Incluir filtros por município e tipo de ocorrência na página de ocorrências disponibilizada no sítio eletrônico.",
+    "trecho_citado": "disponibilizar em sítio eletrônico"
+   }
+  ],
+  "7d0919bce4ef3fe9": [
+   {
+    "acao": "Exibir o campo Estágio da operação na página de cada ocorrência aberta do sítio eletrônico, visível no detalhamento público.",
+    "trecho_citado": "Estágio da operação"
+   },
+   {
+    "acao": "Atualizar o campo Estágio da operação na página de ocorrências com atualização a cada 30 minutos.",
+    "trecho_citado": "com atualização a cada 30 minutos"
+   }
+  ],
+  "f0ee215c5b31a957": [
+   {
+    "acao": "Publicar no sítio eletrônico os planos de manejo vegetal revisados com mapas por circuito e cronograma de poda por faixa.",
+    "trecho_citado": "planos de manejo vegetal"
+   },
+   {
+    "acao": "Publicar no sítio eletrônico o plano de contingência revisado com pontos de concentração e procedimentos de restabelecimento.",
+    "trecho_citado": "de contingência"
+   }
+  ],
+  "def2aafb6310db09": [
+   {
+    "acao": "Mapear e georreferenciar a vegetação que interfira em suas redes de distribuição e publicar o mapa por circuito no portal.",
+    "trecho_citado": "vegetação que interfira em suas redes de distribuição"
+   },
+   {
+    "acao": "Enviar proposta formal de calendário de intervenções ao Poder Público Municipal e anexar cópia pública no sítio eletrônico.",
+    "trecho_citado": "em coordenação com o Poder Público Municipal"
+   },
+   {
+    "acao": "Publicar relatórios de intervenções realizadas para garantir a segurança da rede de distribuição e continuidade do fornecimento.",
+    "trecho_citado": "garantir a segurança da rede de distribuição"
+   }
+  ],
+  "4e4622fc78c94514": [
+   {
+    "acao": "Acione imediatamente equipe de campo com motosserra e guincho para remover árvores ou galhos caídos sobre a rede no local afetado.",
+    "trecho_citado": "rápida remoção de árvores ou galhos caídos sobre a rede"
+   }
+  ],
+  "4bc7805026308769": [
+   {
+    "acao": "Disponibilize cópias impressas do plano atual nos postos de atendimento presencial em local visível e acessível ao público.",
+    "trecho_citado": "nos postos de atendimento presencial"
+   },
+   {
+    "acao": "Inclua sumário executivo em linguagem clara e adequada no início do documento publicado.",
+    "trecho_citado": "uso de linguagem clara e adequada"
+   }
+  ],
+  "5a66534ae45af0c6": [
+   {
+    "acao": "Integre a lista de nomes e telefones de contato dos responsáveis ao sistema de despacho para uso imediato pela operação.",
+    "trecho_citado": "nomes e telefones de contato dos responsáveis"
+   }
+  ],
+  "59a3e694522c005b": [
+   {
+    "acao": "Disponibilize resumo em linguagem clara na página do plano e nos balcões, incluindo perguntas frequentes e contatos para esclarecimento.",
+    "trecho_citado": "com uso de linguagem clara e adequada"
+   }
+  ],
+  "1b3991405c9d043c": [
+   {
+    "acao": "Enviar o relatório e anexos à área de fiscalização da ANEEL via portal de envio ou e‑mail institucional, com identificação da cedente.",
+    "trecho_citado": "relatório contendo discriminação das despesas"
+   }
+  ],
+  "67dac8ada9048f75": [
+   {
+    "acao": "Arquivar na sede dossiê físico e cópia digital contendo notas fiscais, recibos, contratos e comprovantes que demonstrem neutralidade de custos por evento.",
+    "trecho_citado": "dossiê individualizado em sua sede"
+   },
+   {
+    "acao": "Organizar o dossiê por evento emergencial com índice eletrônico e manter acessível para fiscalização até cinco anos após o evento.",
+    "trecho_citado": "dossiê individualizado em sua sede"
+   }
+  ],
+  "ef6845fb40369ad2": [
+   {
+    "acao": "Incluir coluna 'proporção cedente (%)' em todos os relatórios e lançamentos contábeis relacionados à Cessão Emergencial.",
+    "trecho_citado": "evidenciar a proporção de cada distribuidora"
+   }
+  ],
+  "33981a4c29c4c4db": [
+   {
+    "acao": "Incluir no dossiê de pessoal cópias digitais de certificados e relatórios de experiência compatível com as atividades a desempenhar.",
+    "trecho_citado": "capacitação e experiência compatíveis"
+   }
+  ],
+  "c8fa6b48cf963d61": [
+   {
+    "acao": "Emitir vouchers de alimentação ou contratar catering e registrar contrato de segurança privada para proteção das equipes.",
+    "trecho_citado": "alimentação, transporte, hospedagem e segurança"
+   }
+  ],
+  "fa76d96bea74ec08": [
+   {
+    "acao": "Inclua o crédito gerado na fatura do consumidor no ciclo correspondente, com referência ao período de apuração.",
+    "trecho_citado": "efetuar o crédito na fatura apresentada em até 2 meses"
+   }
+  ],
+  "1c9deb8e873af795": [
+   {
+    "acao": "Creditar compensação na fatura subsequente do consumidor de média/baixa tensão, referente à interrupção ocorrida em Situação de Emergência.",
+    "trecho_citado": "compensação ao consumidor ou central geradora"
+   },
+   {
+    "acao": "Emitir nota de crédito eletrônica para central geradora de média ou baixa tensão e registrar no sistema de faturamento.",
+    "trecho_citado": "central geradora de média ou baixa tensão"
+   },
+   {
+    "acao": "Publicar no site relatório individual das compensações por interrupção ocorrida em Situação de Emergência, com protocolos e valores creditados.",
+    "trecho_citado": "interrupção ocorrida em Situação de Emergência"
+   }
+  ],
+  "e863a4cbf5a00dd2": [
+   {
+    "acao": "Publique no sítio eletrônico relatório anual detalhado com fluxogramas e registros operacionais da execução dos protocolos.",
+    "trecho_citado": "detalhando a execução dos protocolos"
+   }
+  ],
+  "6c0622d9f1615d32": [
+   {
+    "acao": "Crie relatório por consumidor relacionando DISE apurada e status 'Situação de Emergência', gerando arquivo para cálculo de compensações retroativas.",
+    "trecho_citado": "Situação de Emergência"
+   },
+   {
+    "acao": "Aplique as fórmulas e critérios da Seção 8.2 do Módulo 8 do PRODIST no processamento automático das apurações DISE.",
+    "trecho_citado": "Seção 8.2 do Módulo 8 do PRODIST"
+   }
+  ]
+ },
+ "nota_custo": "Soma das duas execuções (completa US$ 0,0887 + complemento das obrigações sem recomendação US$ 0,0170); preço informado, a confirmar no portal."
+}

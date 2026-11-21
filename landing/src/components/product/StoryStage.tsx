@@ -14,7 +14,7 @@ function Badge({ articleId }: { articleId: string }) {
   return (
     <motion.span
       layoutId={`mark-${articleId}`}
-      className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-slate-blue text-[0.7rem] font-semibold text-ivory"
+      className="grid h-6 w-6 shrink-0 place-items-center bg-slate-blue text-[0.7rem] font-semibold text-ivory"
     >
       {numbers[articleId]}
     </motion.span>
@@ -33,7 +33,7 @@ export function StoryStage({ step }: { step: number }) {
   return (
     <div
       aria-hidden="true"
-      className="flex h-full flex-col overflow-hidden rounded-[26px] border border-line bg-white/75 shadow-float backdrop-blur"
+      className="flex h-full flex-col overflow-hidden  border border-line bg-white/75 backdrop-blur"
     >
       <div className="flex items-center justify-between gap-3 border-b border-line px-4 py-3 sm:px-5">
         <span className="truncate text-[0.72rem] text-ink-soft">
@@ -71,7 +71,7 @@ export function StoryStage({ step }: { step: number }) {
                     transition={{ delay: 0.6, duration: 0.6, ease }}
                     className="mb-3 flex flex-wrap items-center gap-2 text-[0.68rem] text-ink-soft"
                   >
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-blue px-2.5 py-1 font-medium text-ivory">
+                    <span className="inline-flex items-center gap-1.5 bg-slate-blue px-2.5 py-1 font-medium text-ivory">
                       <span className="h-1.5 w-1.5 rounded-full bg-bronze" />
                       Documento carregado
                     </span>
@@ -186,9 +186,9 @@ export function StoryStage({ step }: { step: number }) {
                         </span>
                         <span className="shrink-0 text-ink-soft">de advertência até {brl(o.impact.max)}</span>
                       </div>
-                      <span className="mt-2 block h-1.5 rounded-full bg-stone">
+                      <span className="mt-2 block h-1.5 bg-stone">
                         <motion.span
-                          className="block h-full rounded-full bg-slate-blue"
+                          className="block h-full bg-slate-blue"
                           initial={{ width: 0 }}
                           animate={{ width: `${(100 * o.impact.max) / maior}%` }}
                           transition={{ duration: 0.8, ease, delay: 0.3 + r * 0.12 }}

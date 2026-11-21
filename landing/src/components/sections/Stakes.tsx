@@ -7,16 +7,14 @@ const n = stakes.chain.length
 
 function Node({ label, i, p }: { label: string; i: number; p: MotionValue<number> }) {
   const t = i / (n - 1)
-  const fill = useTransform(p, [t - 0.06, t], ['#faf9f6', i === n - 1 ? '#111c2f' : '#284b63'])
-  const ring = useTransform(p, [t - 0.06, t], ['#dcd7ce', i === n - 1 ? '#111c2f' : '#284b63'])
-  const text = useTransform(p, [t - 0.06, t], ['#4f5a69', '#111c2f'])
+  const aceso = useTransform(p, [t - 0.06, t], [0, 1])
+  const text = useTransform(p, [t - 0.06, t], [0.55, 1])
   return (
     <li className="relative flex items-center gap-4 md:flex-col md:items-start md:gap-5">
-      <motion.span
-        style={{ backgroundColor: fill, borderColor: ring }}
-        className="relative z-10 h-4 w-4 shrink-0 rounded-full border-2"
-      />
-      <motion.span style={{ color: text }} className="font-display text-[1.2rem] leading-tight md:text-[1.35rem]">
+      <span className="relative z-10 h-4 w-4 shrink-0 rounded-full border-2 border-obsidian bg-ivory">
+        <motion.span style={{ opacity: aceso }} className="absolute inset-0 rounded-full bg-obsidian" />
+      </span>
+      <motion.span style={{ opacity: text }} className="text-obsidian font-displaytext-[1.2rem] leading-tight md:text-[1.35rem]">
         {label}
       </motion.span>
     </li>
@@ -69,7 +67,7 @@ export function Stakes() {
         </ul>
 
         <Reveal delay={0.1}>
-          <p className="font-display mt-14 max-w-2xl text-[1.45rem] leading-snug text-obsidian italic">{stakes.note}</p>
+          <p className="font-display mt-14 max-w-2xl text-[1.45rem] leading-snug text-obsidian ">{stakes.note}</p>
         </Reveal>
       </div>
     </section>

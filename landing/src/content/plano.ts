@@ -43,6 +43,18 @@ export interface Obrigacao {
   id: string
   titulo: string
   titulo_origem: 'regra' | 'ia'
+  /** Rótulo de até 5 palavras (IA, linguagem simples); null: usa o título encurtado. */
+  titulo_curto: string | null
+  /** Área responsável SUGERIDA (data/areas_por_tipo.json): quem faz o quê. */
+  area: string
+  /** "regra": tipo achado pela regra; "ia": tipo sugerido pela IA (área sugerida (IA)); null: A definir. */
+  area_origem: 'regra' | 'ia' | null
+  /** "Evite" sugerido pela IA (cita trecho do dispositivo); null: a tela não mostra a linha. */
+  evite: { acao: string; trecho_citado: string } | null
+  /** Ações específicas sugeridas pela IA para este dispositivo (cada uma cita uma expressão literal dele). */
+  recomendacoes: { acao: string; trecho_citado: string }[]
+  /** Caput do inciso ou parágrafo (até 300 caracteres); vazio quando o dispositivo é o próprio caput. */
+  contexto: string
   /** Título sem corte (o curto termina em "…" quando passa de 88 caracteres). */
   titulo_completo: string
   tema: string
@@ -79,7 +91,7 @@ export interface Infracao {
 }
 export interface OutroDispositivo {
   id: string
-  natureza: 'faculdade' | 'direito_de_terceiro' | 'competencia_aneel' | 'dever_de_outro_agente'
+  natureza: 'faculdade' | 'direito_de_terceiro' | 'competencia_aneel' | 'dever_de_outro_agente' | 'regra_de_transicao' | 'sem_dever_identificado'
   rotulo: string
   sujeito: string
   unidade: string | null
@@ -162,6 +174,8 @@ export interface PlanoDados {
   infracoes: Record<string, Infracao>
   /** Faculdades, direitos de terceiros e competências da ANEEL: fora da contagem de deveres. */
   outros_dispositivos: OutroDispositivo[]
+  /** Unidades lidas sem marcador de dever e sem a distribuidora agindo: nada some em silêncio (motivo: "sem dever identificado"). */
+  sem_dever_identificado: OutroDispositivo[]
   /** Redações datadas de um mesmo dispositivo (hoje o art. 11, XXIII), com fonte e estado. */
   sucessao_no_tempo: Sucessao[]
   linha_do_tempo: Record<Situacao, string[]>
@@ -176,13 +190,16 @@ export interface PlanoDados {
     rotulo: string
     tipo_so_regra: string
     tipo_a_revisar: string
-    manuais: Record<string, { nome: string; ideias_cumprimento: string[]; evidencias: string[]; status: string }>
+    areas: { rotulo: string; lista: string[] }
+  manuais: Record<string, { nome: string; ideias_cumprimento: string[]; evidencias: string[]; status: string }>
     dependencias: Record<string, ManualDependencia>
     pratica_por_tema: Record<string, string>
     causas_por_tema: Record<string, { nome: string; nota: string }>
     contraponto: { titulo: string; urls: string[]; o_que_e: string; a_confirmar: string }
   }
-  referencia_escala: { infracao_grave: { rotulo: string; autos: number; mediana_reais: number; maximo_reais: number; fonte: string; limites: string }; rotulo: string; segmento: string; unidade: string; autos: number; empresas: number; mediana_reais: number; maximo_reais: number; fonte: string; limites: string }
+  /** Nota por artigo em "Outros dispositivos relevantes" (ex.: Art. 12 da REN 1.174, grupo de trabalho). */
+  notas_outros: Record<string, string>
+  referencia_escala: { maior_multa: { rotulo: string; valor_reais: number; ano: number; motivo: string; fonte: string }; infracao_grave: { rotulo: string; autos: number; mediana_reais: number; maximo_reais: number; fonte: string; limites: string }; rotulo: string; segmento: string; unidade: string; autos: number; empresas: number; mediana_reais: number; maximo_reais: number; fonte: string; limites: string }
   simulador: {
     faixas: { id: string; rotulo: string; base: number }[]
     origem_faixas: string
@@ -402,7 +419,10 @@ export function celula(v: unknown): string {
   return `"${s.replaceAll('"', '""')}"`
 }
 
-export function csvPlano(diag: Diagnosticos, s: Simulacao | null = SIM_INICIAL): string {
+/** Colunas a mais no CSV (injetadas por quem as conhece: respostas e provas ficam fora deste módulo). */
+export interface ExtrasCsv { colunas: string[]; linha: (tema: Tema, o: Obrigacao) => unknown[] }
+
+export function csvPlano(diag: Diagnosticos, s: Simulacao | null = SIM_INICIAL, extras?: ExtrasCsv): string {
   // A planilha só traz o que o texto da obrigação confirma: a ordem usa o modo 'confirmados'.
   const temas = ordenarTemas(plano.temas, diag, s, 'confirmados')
   const linhas: unknown[][] = [
@@ -410,7 +430,7 @@ export function csvPlano(diag: Diagnosticos, s: Simulacao | null = SIM_INICIAL):
     ['ESTIMATIVA ILUSTRATIVA. ' + plano.perfil.aviso + ' ' + plano.aviso + ' Iniciativa em validação.'],
     ['Interpretações da IA aguardam revisão humana e não entram no cálculo. Diagnóstico informado só nesta planilha; nada foi enviado.'],
     [],
-    ['Ordem do tema', 'Tema', 'Diagnóstico', 'Obrigação', 'Dispositivo', 'Situação do prazo', 'Prazo', 'Enquadramento identificado (REN 846)', 'Grupo', 'Exposição máxima por infração', 'Interpretação da IA (não entra no cálculo)', 'Evidência sugerida', 'Trecho literal da norma', 'Fonte'],
+    ['Ordem do tema', 'Tema', 'Diagnóstico', 'Obrigação', 'Dispositivo', 'Situação do prazo', 'Prazo', 'Enquadramento identificado (REN 846)', 'Grupo', 'Exposição máxima por infração', 'Interpretação da IA (não entra no cálculo)', 'Evidência sugerida', 'Trecho literal da norma', 'Fonte', ...(extras?.colunas ?? [])],
   ]
   temas.forEach((t, n) => {
     for (const id of t.obrigacoes) {
@@ -430,6 +450,7 @@ export function csvPlano(diag: Diagnosticos, s: Simulacao | null = SIM_INICIAL):
         o.evidencias.map((e) => plano.evidencias[e.id]).join('; '),
         o.trecho,
         plano.norma.url,
+        ...(extras ? extras.linha(t, o) : []),
       ])
     }
   })

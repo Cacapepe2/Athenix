@@ -191,4 +191,81 @@ def test_art_13_par_3_da_ren_1174_e_recorrente_no_plano():
     assert o["situacao"] == "recorrente" and o["prazo"]["data"] is None
     r = P1174["resumo"]["por_situacao"]
     assert r["recorrente"] == 2  # art. 11, VIII (semestral) e art. 13, § 3º (12 meses)
-    assert sum(1 for x in P1174["obrigacoes"] if x["prazo"]["data"]) == 5
+    assert (
+        sum(1 for x in P1174["obrigacoes"] if x["prazo"]["data"]) == 1
+    )  # as 2 de adequação (art. 16) viraram transição; a reunião do grupo (art. 12, § 11) não é da distribuidora
+
+
+@pytest.mark.parametrize(
+    ("texto", "vira_dever"),
+    [
+        # casos reais da REN 1.174: a distribuidora age de forma explícita
+        (
+            "§ 4º Indeferida a migração, a solicitação feita pelo consumidor conforme art. 166 será encerrada pela distribuidora, não ocorrendo o encerramento do CCER.",
+            True,
+        ),
+        (
+            "Parágrafo único. Em caso de desistência da migração o CCER será mantido, devendo a distribuidora efetuar a cobrança no faturamento.",
+            True,
+        ),
+        (
+            "§ 5º A efetivação para retorno ao ACR somente será realizada pela distribuidora após notificação pela CCEE.",
+            True,
+        ),
+        ("§ 3º A distribuidora efetuará a conciliação dos montantes no mês seguinte.", True),
+        # futuro sem a distribuidora como agente: NÃO vira dever
+        (
+            "§ 4º Cada membro do grupo de trabalho terá dois suplentes, para efeitos de substituição em suas ausências.",
+            False,
+        ),
+        (
+            "§ 7º As despesas relacionadas à participação dos representantes correrão por conta de dotações orçamentárias.",
+            False,
+        ),
+        (
+            "§ 10. Até que a coordenação do grupo seja definida pelos participantes, a Abradee exercerá a coordenação de forma temporária.",
+            False,
+        ),
+        (
+            "§ 2º O grupo de trabalho será composto por, no mínimo, representantes das seguintes instituições:",
+            False,
+        ),
+        # a distribuidora é só o objeto/lugar, quem age é a ANEEL
+        (
+            "114. A ANEEL estabelecerá procedimento para comunicação das situações de crise enfrentadas pelas distribuidoras.",
+            False,
+        ),
+        ("II - pelas distribuidoras:", False),
+        (
+            "I - do recebimento da notificação eletrônica pela distribuidora feita pelo sistema da CCEE; e",
+            False,
+        ),
+    ],
+)
+def test_futuro_so_vira_dever_quando_a_distribuidora_age_explicitamente(texto, vira_dever):
+    from athenix import proposals
+
+    unidade = {"id": "u1", "parent": None, "kind": "paragraph", "text": texto}
+    candidatos = proposals.rule_candidates({"units": [unidade]})
+    assert bool(candidatos) is vira_dever
+    if vira_dever:
+        assert candidatos[0]["subject"] == "a distribuidora" or proposals.DUTY.search(texto)
+
+
+def test_nada_some_em_silencio_na_ren_1174_e_a_rn_1137_nao_muda_de_contagem():
+    assert P1137["resumo"]["aplicaveis"] == 155
+    assert P1174["resumo"]["aplicaveis"] == 83
+    s10 = [
+        o
+        for o in P1174["sem_dever_identificado"]
+        if "Abradee exercerá a coordenação" in o["trecho"]
+    ]
+    assert len(s10) == 1 and s10[0]["motivo"] == "sem dever identificado"
+    assert s10[0]["dispositivo"] == "Art. 12, § 10"
+    ids = [
+        o["id"]
+        for p in (P1137, P1174)
+        for k in ("obrigacoes", "outros_dispositivos", "sem_dever_identificado")
+        for o in p[k]
+    ]
+    assert len(ids) == len(set(ids))

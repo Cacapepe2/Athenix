@@ -17,9 +17,9 @@ interface Props {
 export function DocumentView({ marks = {}, markLabels = {}, focusId, animateMarks, articles, className = '' }: Props) {
   const list = articles ?? demoNorm.articles
   return (
-    <div className={`paper rounded-xl border border-line p-5 text-[0.8rem] leading-relaxed text-ink-soft ${className}`}>
+    <div className={` rounded-xl border border-line p-5 text-[0.8rem] leading-relaxed text-ink-soft ${className}`}>
       <div className="mb-3 border-b border-line pb-3">
-        <p className="text-[0.62rem] font-semibold tracking-[0.18em] text-bronze-deep uppercase">
+        <p className="text-[0.62rem] font-semibold text-bronze-deep ">
           {demoNorm.issuer}
         </p>
         <p className="font-display mt-1 text-[1.05rem] leading-tight text-obsidian">
@@ -40,7 +40,7 @@ export function DocumentView({ marks = {}, markLabels = {}, focusId, animateMark
                   <span>
                     {/* background-size atravessa quebras de linha, ao contrário de um overlay absoluto */}
                     <motion.mark
-                      className="rounded-[2px] bg-transparent bg-[linear-gradient(rgb(182_163_139/0.4),rgb(182_163_139/0.4))] bg-no-repeat text-obsidian"
+                      className="bg-transparent bg-[linear-gradient(var(--cor-hover),var(--cor-hover))] bg-no-repeat text-obsidian"
                       initial={animateMarks ? { backgroundSize: '0% 100%' } : false}
                       animate={{ backgroundSize: '100% 100%' }}
                       transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}

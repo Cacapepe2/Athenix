@@ -6,4 +6,4 @@ Athenix · processar ren20251137.pdf para distribuidora
   3. Prazos: 6 vencidas · 0 nos próximos 90 dias · 2 recorrentes · 147 sem data
   4. Enquadramento na REN 846: 43 identificados no texto · 112 a confirmar (103 com sugestão da IA em cache, marcadas) · 0 sem multa
   5. Temas: 8 · plano gravado em landing/src/content/plano-rn1137.json
-Tempo total: 13.5 s
+Tempo total: 14.9 s

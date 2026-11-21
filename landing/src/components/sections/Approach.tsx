@@ -13,7 +13,7 @@ function Pillar({ i, title, text, scope }: { i: number; title: string; text: str
   const now = scope !== 'futuro'
   const mx = useMotionValue(-200)
   const my = useMotionValue(-200)
-  const glow = useMotionTemplate`radial-gradient(260px circle at ${mx}px ${my}px, rgb(182 163 139 / 0.16), transparent 70%)`
+  const glow = useMotionTemplate`radial-gradient(260px circle at ${mx}px ${my}px, var(--cor-hover), transparent 70%)`
   const Icon = icons[i]
   const onMove = (e: PointerEvent<HTMLLIElement>) => {
     const r = e.currentTarget.getBoundingClientRect()
@@ -55,7 +55,7 @@ function Pillar({ i, title, text, scope }: { i: number; title: string; text: str
         <h3 className={`font-display mt-6 text-[1.35rem] leading-tight ${now ? 'text-ivory' : 'text-ivory/75'}`}>{title}</h3>
         <p className={`mt-2.5 text-[0.9rem] leading-relaxed ${now ? 'text-ivory/70' : 'text-ivory/55'}`}>{text}</p>
         <p
-          className={`mt-5 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[0.68rem] font-medium ${
+          className={`mt-5 inline-flex items-center gap-1.5 px-2.5 py-1 text-[0.68rem] font-medium ${
             scope === 'foco'
               ? 'bg-bronze text-obsidian'
               : now
@@ -73,11 +73,7 @@ function Pillar({ i, title, text, scope }: { i: number; title: string; text: str
 export function Approach() {
   return (
     <section id="abordagem" className="on-dark px-3 py-6 sm:px-5">
-      <div data-dark className="relative overflow-hidden rounded-[32px] bg-obsidian py-24 text-ivory sm:py-28">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -top-1/2 -left-1/4 h-full w-3/4 rounded-full bg-[radial-gradient(circle,rgb(40_75_99/0.55),transparent_65%)]"
-        />
+      <div data-dark className="relative overflow-hidden  bg-obsidian py-24 text-ivory sm:py-28">
         <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
           <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
             <div>
@@ -93,7 +89,7 @@ export function Approach() {
           </div>
 
           {/* Linha de escopo: preenchida no MVP, tracejada na visão futura */}
-          <div aria-hidden="true" className="mt-16 hidden gap-4 text-[0.7rem] font-semibold tracking-[0.16em] uppercase lg:grid lg:grid-cols-4">
+          <div aria-hidden="true" className="mt-16 hidden gap-4 text-[0.7rem] font-semibold lg:grid lg:grid-cols-4">
             {[approach.scopeLabels.base, approach.scopeLabels.foco, approach.scopeLabels.futuro].map((label, i) => (
               <div key={label} className={i === 0 ? 'col-span-2' : ''}>
                 <p className={i < 2 ? 'text-bronze' : 'text-ivory/45'}>{label}</p>
@@ -104,7 +100,7 @@ export function Approach() {
                     viewport={{ once: true }}
                     transition={{ duration: 1.4, ease, delay: 0.2 + i * 0.5 }}
                     className={`absolute inset-0 origin-left ${
-                      i < 2 ? 'bg-bronze' : 'bg-[repeating-linear-gradient(90deg,rgb(250_249_246/0.35)_0_6px,transparent_6px_12px)]'
+                      i < 2 ? 'bg-bronze' : 'bg-[repeating-linear-gradient(90deg,var(--cor-fundo)_0_6px,transparent_6px_12px)]'
                     }`}
                   />
                 </div>

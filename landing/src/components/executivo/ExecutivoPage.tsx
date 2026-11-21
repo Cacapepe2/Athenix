@@ -1,233 +1,174 @@
-import { useRef, useState, type ReactNode, type Ref } from 'react'
-import { Logo } from '../ui/Logo'
-import { Chevron } from '../ui/Chevron'
-import { Tag } from '../product/Tag'
-import { BOTAO_AJUDA } from '../plano/AjudaGrupos'
-import {
-  NORMA_PADRAO, NORMAS, contagemDeEnquadramentos, destaqueDaNorma, norma as dadosDa, prazos, queda, referenciaDoSetor, tabelaDeGrupos, top5, urlPlanoCompleto, valorGeral,
-  type LinhaTop5,
-} from '../../content/executivo'
-import { rotuloDoGrupo } from '../../content/gravidade'
-import { brlCurto, dataBR, normaDaUrl, pct, type NormaId, type PlanoDados, type Simulacao } from '../../content/plano'
+import { useEffect, useRef, useState } from 'react'
+import { NORMA_PADRAO, NORMAS, norma as dadosDa, prazos, queda, top5, urlPlanoCompleto, urlRelatorio, valorGeral, type LinhaTop5 } from '../../content/executivo'
+import { RespostasProvider, useRespostas } from '../plano/Respostas'
+import { prontidao } from '../../content/prontidao'
+import { hojeISO } from '../../content/datas'
+import { brlCurto, dataBR, normaDaUrl, type NormaId, type Simulacao } from '../../content/plano'
 
-// Visão executiva (/demo/executivo): quanto custa, o que vence e o que fazer, numa tela. Todos os números
-// vêm de content/executivo.ts (planos gerados pelo motor); aqui só há apresentação.
+// Visão executiva (/demo/executivo): três números e até cinco blocos clicáveis. Muito pouco texto; o resto
+// fica no plano completo. Todos os números vêm de content/executivo.ts (planos gerados pelo motor).
 const MODO = 'preliminar' as const
 const PORTE_PADRAO = 'media'
-const IA = 'Interpretação da IA · aguarda revisão humana'
-// Terracota só no fundo de botões e do item escolhido; texto, bordas e foco em azul (index.css).
-const BOTAO_ACENTO = 'inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-full bg-acento-escuro px-5 text-sm font-semibold whitespace-nowrap text-white shadow-sm hover:bg-acento-hover print:hidden'
-const LINK = 'font-semibold text-slate-blue underline decoration-slate-blue/40 underline-offset-4 hover:decoration-slate-blue'
-// Mesma aparência dos chips de porte da /demo: escolhido em terracota com texto branco.
-const CHIP = 'inline-flex min-h-11 cursor-pointer items-center justify-center gap-1 rounded-full text-center'
-const CHIP_COR = 'border border-slate-blue/40 bg-white px-4 py-1 text-sm leading-tight text-obsidian hover:border-slate-blue hover:bg-slate-blue/5 has-checked:border-transparent has-checked:bg-acento-escuro has-checked:font-semibold has-checked:text-white has-checked:shadow-sm has-checked:hover:bg-acento-escuro has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-slate-blue'
-const CARTAO = 'flex flex-col rounded-2xl border border-slate-blue/30 bg-white px-4 py-3 shadow-soft sm:px-5'
-const NUMERO = 'font-display mt-1 text-[2.25rem] leading-none text-obsidian sm:text-[2.6rem]'
-const ROTULO_CARTAO = 'text-sm font-semibold text-slate-blue'
+const LINK = 'font-semibold underline underline-offset-4 hover:text-acento'
+const GRANDE = 'block text-[64px] leading-[0.95] font-bold sm:text-[80px] lg:text-[96px]'
+const GRANDE_4 = 'block text-[56px] leading-[0.95] font-bold sm:text-[64px] lg:text-[72px]' // com o 4º número a linha tem 4 colunas
+const LEGENDA = 'text-[17px] font-semibold'
 
-const emReais = (reais: number | null, p: number) => (reais != null ? brlCurto(reais) : `${pct(p)} da receita`)
-const art = (d: string) => d.replace(/^Art\./, 'art.')
+const valorDoBloco = (l: LinhaTop5) => (l.valor?.reais != null ? `${brlCurto(l.valor.reais)}${l.preliminar ? '*' : ''}` : 'a enquadrar')
 
 export function ExecutivoPage() {
   const [normaId, setNormaId] = useState<NormaId>(normaDaUrl)
+  return <RespostasProvider norma={normaId}><Executiva normaId={normaId} setNormaId={setNormaId} /></RespostasProvider>
+}
+
+function Executiva({ normaId, setNormaId }: { normaId: NormaId; setNormaId: (id: NormaId) => void }) {
+  const { respostas } = useRespostas()
   const [porteId, setPorteId] = useState(PORTE_PADRAO)
-  const como = useRef<HTMLDetailsElement>(null)
+  const [aberto, setAberto] = useState<string | null>(null)
+  const [ultimo, setUltimo] = useState<string | null>(null) // o painel, ao fechar, mantém o último conteúdo
   const n = dadosDa(normaId)
   const p = n.dados
-  const faixas = p.simulador.faixas
-  const faixa = faixas.find((f) => f.id === porteId) ?? faixas[1]
+  const faixa = p.simulador.faixas.find((f) => f.id === porteId) ?? p.simulador.faixas[1]
   const sim: Simulacao = { base: faixa.base, faturamento: null }
   const v = valorGeral(p, sim, MODO)
   const q = queda(p, sim, MODO)
   const pz = prazos(p)
   const linhas = top5(normaId, sim, MODO)
-  const ref = referenciaDoSetor(p, v?.grupo)
-  const destaque = destaqueDaNorma(p)
-  const enq = contagemDeEnquadramentos(p)
+  const sel = linhas.find((l) => l.id === ultimo) ?? null
+  const painelRef = useRef<HTMLDivElement>(null)
+  const blocos = useRef<Record<string, HTMLButtonElement | null>>({})
+  // Ao abrir, traz o painel para a tela (no celular ele fica abaixo dos cinco blocos).
+  useEffect(() => {
+    if (aberto) painelRef.current?.scrollIntoView({ block: 'nearest', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })
+  }, [aberto])
+  const preliminar = v?.origem === 'sugerido'
+  const pr = prontidao(p, respostas, sim, MODO) // o quarto número só aparece depois de marcar provas no plano
+  const grande = pr.algumaMarcada ? GRANDE_4 : GRANDE
 
   const trocarNorma = (id: NormaId) => {
     setNormaId(id)
-    // Link compartilhável sem recarregar a página.
-    history.replaceState(history.state, '', `${location.pathname}${id === NORMA_PADRAO ? '' : `?norma=${id}`}`)
+    setAberto(null)
+    setUltimo(null)
+    const q = new URLSearchParams(location.search)
+    if (id === NORMA_PADRAO) q.delete('norma')
+    else q.set('norma', id)
+    history.replaceState(history.state, '', `${location.pathname}${q.size ? `?${q}` : ''}${location.hash}`)
   }
-  const abrirComo = () => {
-    const d = como.current
-    if (!d) return
-    d.open = true
-    d.scrollIntoView({ block: 'start' })
-    d.querySelector('summary')?.focus({ preventScroll: true })
+  const alternar = (id: string) => {
+    setAberto(aberto === id ? null : id)
+    setUltimo(id)
   }
-  const ajuda = <button type="button" onClick={abrirComo} aria-controls="como-calculamos" aria-label="O que são os grupos de infração: abre Como calculamos" className={BOTAO_AJUDA}>?</button>
-  const preliminar = <Tag kind="pending" label="preliminar" />
 
-  return <>
-    <header className="border-b border-line bg-ivory">
-      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-4 gap-y-1 px-4 py-2 sm:px-8">
-        <div className="flex min-w-0 flex-wrap items-center gap-x-2.5">
-          <a href="/" aria-label="Athenix, voltar ao início" className="inline-flex min-h-11 items-center"><Logo /></a>
-          <span aria-hidden="true" className="text-2xl text-bronze-deep">·</span>
-          <h1 className="font-display text-[1.6rem] leading-none whitespace-nowrap">Visão executiva</h1>
-          <p className="text-sm text-ink-soft max-lg:basis-full lg:ml-3">quanto custa, o que vence e o que fazer · {p.perfil.rotulo.toLowerCase()} (não é empresa real)</p>
+  return <main id="executivo" className="mx-auto flex max-w-[1200px] flex-col gap-10 px-4 pt-6 pb-12 sm:px-8">
+    <header className="flex flex-wrap items-center justify-between gap-4 border-b-[length:var(--borda-titulo)] border-obsidian pb-4">
+      <a href="/" aria-label="Athenix, voltar ao início" className="text-[28px] font-bold ">Athenix</a>
+      <div className="flex flex-wrap items-center gap-3.5">
+        <div role="group" aria-label="Norma" className="flex">
+          {NORMAS.map((x) => <button key={x.id} type="button" className="seg" aria-pressed={normaId === x.id} onClick={() => trocarNorma(x.id)}>{x.rotulo.replace('/2025', '').replace('/2026', '')}</button>)}
         </div>
-        <a href={urlPlanoCompleto(normaId)} className={BOTAO_ACENTO}>Ver plano completo →</a>
+        <div role="group" aria-label="Porte da distribuidora (receita operacional líquida anual)" className="flex">
+          {p.simulador.faixas.map((x) => <button key={x.id} type="button" className="seg" aria-pressed={faixa.id === x.id} onClick={() => setPorteId(x.id)}>R$ {x.base / 1e9} bi</button>)}
+        </div>
       </div>
+      <a href={urlPlanoCompleto(normaId)} className={`text-[15px] ${LINK}`}>Plano completo →</a>
     </header>
 
-    <main id="executivo" className="mx-auto max-w-7xl space-y-4 px-4 pt-3 pb-8 sm:px-8 print:space-y-3 print:pt-0">
-      <p className="hidden text-sm print:block">{n.rotulo} · {n.resumo} · porte {faixa.rotulo} (~{brlCurto(faixa.base)} de receita operacional líquida anual, faixa ilustrativa)</p>
+    <section aria-label="Resumo" aria-live="polite" className="grid gap-8 [grid-template-columns:repeat(auto-fit,minmax(260px,1fr))]">
+      <div className="flex flex-col gap-1.5">
+        <span className={`${grande} text-acento`}>{v?.reais != null ? <><span className="mr-2 text-[0.4em] align-baseline">R$</span>{brlCurto(v.reais).replace('R$ ', '')}</> : 'a enquadrar'}</span>
+        <span className={LEGENDA}>por infração{preliminar ? '*' : ''}</span>
+      </div>
+      <div className="flex flex-col gap-1.5">
+        <span className={grande}>{q ? `−${Math.round(q.reducaoPct)}%` : '—'}</span>
+        <span className={LEGENDA}>se agir antes da fiscalização</span>
+      </div>
+      <div className="flex flex-col gap-1.5">
+        {pz.vencidas > 0
+          ? <><span className={grande}>{pz.vencidas}</span><span className={LEGENDA}>{pz.vencidas === 1 ? 'obrigação vencida' : 'obrigações vencidas'}</span></>
+          : pz.proxima
+            ? <><span className={grande}>{pz.proxima.dias} dias</span><span className={LEGENDA}>até o próximo prazo</span></>
+            : <><span className={grande}>—</span><span className={LEGENDA}>nenhum prazo a vencer</span></>}
+      </div>
+      {pr.algumaMarcada && <div className="flex flex-col gap-1.5"><span className={grande}>{pr.geral.x} de {pr.geral.y}</span><span className={LEGENDA}>provas em mãos · checklist sugerido</span></div>}
+    </section>
 
-      <div className="flex flex-wrap items-end gap-x-8 gap-y-3 print:hidden">
-        <fieldset className="min-w-0 max-sm:w-full">
-          <legend className="text-xs font-semibold text-ink-soft">Norma</legend>
-          <div className="mt-1 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
-            {NORMAS.map((x) => <label key={x.id} className={`flex min-h-11 cursor-pointer flex-col justify-center rounded-2xl text-left ${CHIP_COR}`}>
-              <input type="radio" className="sr-only" name="norma" value={x.id} checked={normaId === x.id} onChange={() => trocarNorma(x.id)} />
-              <span className="font-semibold">{x.rotulo}</span><span className="text-xs">{x.resumo}</span>
-            </label>)}
-          </div>
-        </fieldset>
-        <fieldset className="min-w-0 max-sm:w-full">
-          <legend className="flex flex-wrap items-center gap-2 text-xs font-semibold text-ink-soft">Porte da distribuidora (receita operacional líquida anual) <Tag kind="estimate" label="faixa ilustrativa" /></legend>
-          <div className="mt-1 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
-            {faixas.map((x) => <label key={x.id} className={`${CHIP} ${CHIP_COR}`}>
-              <input type="radio" className="sr-only" name="porte" value={x.id} checked={faixa.id === x.id} onChange={() => setPorteId(x.id)} />
-              <span>{x.rotulo}</span> <span className="whitespace-nowrap">~{brlCurto(x.base)}</span>
-            </label>)}
-          </div>
-        </fieldset>
+    <section aria-labelledby="comece-por" className="flex flex-col gap-3.5">
+      <div className="flex flex-wrap items-baseline justify-between gap-2">
+        <h2 id="comece-por" className="text-[17px] font-bold">Comece por</h2>
+        <span className="text-sm">Toque num item para ver o que fazer</span>
+      </div>
+      <div className="grid gap-3 [grid-template-columns:repeat(auto-fill,minmax(190px,1fr))]">
+        {linhas.map((l) => {
+          const aberta = aberto === l.id
+          const vencida = l.situacao === 'vencida'
+          return <button key={l.id} ref={(el) => { blocos.current[l.id] = el }} type="button" className="bloco flex min-h-[196px] flex-col gap-2.5 p-4 text-left" aria-expanded={aberta} aria-controls="painel" onClick={() => alternar(l.id)}>
+            <span className={`inline-flex items-center gap-1.5 text-xs font-bold ${vencida && !aberta ? 'text-bronze-deep' : ''}`}>
+              <span aria-hidden="true" className={`inline-block h-2 w-2 rounded-full ${vencida ? 'bg-acento' : aberta ? 'bg-white' : 'bg-obsidian'}`} />{l.prazoCurto}
+            </span>
+            <span className="text-base leading-tight font-semibold">{l.titulo}</span>
+            <span className="mt-auto text-[30px] font-bold ">{valorDoBloco(l)}</span>
+            <span className="flex items-center justify-between border-t border-current pt-2.5 text-[13px] font-semibold">
+              <span>{aberta ? 'Fechar' : 'Ver o que fazer'}</span><span aria-hidden="true" className="seta text-lg">{aberta ? '↑' : '↓'}</span>
+            </span>
+          </button>
+        })}
       </div>
 
-      <p className="rounded-2xl border-2 border-slate-blue bg-white px-4 py-2 text-base font-semibold text-slate-blue sm:text-lg" aria-label="Sobre a norma escolhida"><span className="text-ink-soft">{n.rotulo}:</span> {destaque.texto}</p>
-
-      <section aria-label="Os três números" aria-live="polite" className="grid gap-3 md:grid-cols-3">
-        <article className={CARTAO} aria-labelledby="cartao-exposicao">
-          <h2 id="cartao-exposicao" className={ROTULO_CARTAO}>Exposição por infração</h2>
-          {v ? <>
-            <p className={NUMERO}>até {emReais(v.reais, v.pct)} <span className="font-sans text-base text-ink-soft">por infração</span></p>
-            <p className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-ink-soft"><span>{rotuloDoGrupo(v.grupo)} · até {pct(v.pct)} da receita</span>{ajuda}{v.origem === 'sugerido' && preliminar}</p>
-            {v.origem === 'sugerido' && <p className="mt-2"><Tag kind="ai" label={IA} /></p>}
-          </> : <>
-            <p className={NUMERO}>a enquadrar</p>
-            <p className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-ink-soft"><span>o texto desta norma não nomeia a infração e não há sugestão de enquadramento: sem valor a mostrar</span>{ajuda}</p>
-          </>}
-        </article>
-
-        <article className={CARTAO} aria-labelledby="cartao-queda">
-          <h2 id="cartao-queda" className={ROTULO_CARTAO}>Quanto pode cair agindo agora</h2>
-          {q && v ? <>
-            <p className={NUMERO}>até {pct(q.reducaoPct)} menos</p>
-            <p className="mt-2 text-sm text-ink-soft">{q.de != null ? brlCurto(q.de) : '—'} → {q.para != null ? brlCurto(q.para) : '—'} por infração se cessar a infração e reparar todo o dano antes da fiscalização{v.origem !== 'identificado' && <> {preliminar}</>}</p>
-            <details className="mt-1 text-sm">
-              <summary className={`inline-flex min-h-11 cursor-pointer items-center gap-1 ${LINK} print:hidden`}>ver a norma: {art(q.dispositivo)} da REN 846<Chevron className="h-4 w-4" /></summary>
-              <blockquote className="border-l-2 border-bronze bg-ivory p-2 text-xs">“{q.trecho.trim()}”</blockquote>
-              <p className="mt-1 text-xs break-all text-ink-soft">{q.dispositivo} · {q.fonte} · SHA-256 {q.sha256}</p>
-            </details>
-          </> : <p className={NUMERO}>a avaliar</p>}
-        </article>
-
-        <article className={CARTAO} aria-labelledby="cartao-prazos">
-          <h2 id="cartao-prazos" className={ROTULO_CARTAO}>Prazos</h2>
-          <p className={NUMERO}>{pz.vencidas} {pz.vencidas === 1 ? 'vencida' : 'vencidas'}</p>
-          <p className="mt-2 text-sm text-ink-soft">{pz.vencidas === 1 ? 'obrigação com prazo já vencido' : 'obrigações com prazo já vencido'}; {pz.proxima ? `próxima vence em ${pz.proxima.dias} dias (${dataBR(pz.proxima.data)})` : 'nenhuma com data a vencer'}</p>
-          <p className="mt-1 text-xs text-ink-soft">datas provisórias, a confirmar; dias contados até {dataBR(p.perfil.data_referencia)}</p>
-        </article>
-      </section>
-
-      <section aria-labelledby="top5">
-        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-          <h2 id="top5" className="font-display text-2xl leading-tight">{linhas.length} obrigações para olhar primeiro</h2>
-          <p className="text-xs text-ink-soft">vencidas primeiro, depois o maior valor por infração</p>
+      <div id="painel" ref={painelRef} role="region" aria-label="Detalhes da obrigação" className="painel" data-aberto={aberto ? 'true' : 'false'}>
+        <div className="painel-miolo" inert={!aberto}>
+          {sel && <Painel l={sel} fechar={() => { setAberto(null); blocos.current[sel.id]?.focus() }} />}
         </div>
-        <div className="mt-2 md:rounded-2xl md:border md:border-slate-blue/30 md:bg-white md:px-4">
-          <table className="w-full border-collapse text-left text-sm max-md:block md:table-fixed">
-            <thead className="max-md:sr-only">
-              <tr className="border-b border-slate-blue/30 text-xs text-ink-soft">
-                <th scope="col" className="w-[28%] py-2 pr-3 font-semibold">Obrigação</th>
-                <th scope="col" className="w-[10%] py-2 pr-3 font-semibold">Prazo</th>
-                <th scope="col" className="w-[19%] py-2 pr-3 font-semibold"><span className="inline-flex items-center gap-2 whitespace-nowrap">Gravidade e valor por infração{ajuda}</span></th>
-                <th scope="col" className="w-[24%] py-2 pr-3 font-semibold">O que fazer</th>
-                <th scope="col" className="w-[12%] py-2 pr-3 font-semibold">Defesa possível</th>
-                <th scope="col" className="w-[7%] py-2 font-semibold"><span className="sr-only">Detalhes</span></th>
-              </tr>
-            </thead>
-            <tbody className="max-md:block max-md:space-y-3">{linhas.map((l) => <Linha key={l.id} l={l} preliminar={preliminar} />)}</tbody>
-          </table>
-        </div>
-        <Legenda linhas={linhas} preliminar={preliminar} />
-        <p className="mt-2 text-sm text-slate-blue">{enq.texto}</p>
-      </section>
+      </div>
+    </section>
 
-      <p className="text-sm"><span className="font-semibold">Referência do setor:</span> {ref.texto}. <span className="text-xs text-ink-soft">{ref.nota[0].toUpperCase() + ref.nota.slice(1)}.</span></p>
-
-      <ComoCalculamos ref={como} p={p} />
-
-      <footer className="flex flex-wrap items-center justify-between gap-3 border-t border-line pt-4 text-sm text-ink-soft">
-        <p>Iniciativa em validação · valores ilustrativos · não constitui parecer jurídico. {p.perfil.aviso}</p>
-        <a href={urlPlanoCompleto(normaId)} className={BOTAO_ACENTO}>Ver plano completo →</a>
-      </footer>
-    </main>
-  </>
+    <footer className="flex flex-wrap justify-between gap-3 border-t border-obsidian pt-3.5 text-[13px]">
+      <span>* preliminar · valores ilustrativos · não é parecer jurídico · dias contados até {dataBR(hojeISO())}</span>
+      <span className="flex gap-4"><a href={urlRelatorio(normaId)} className="font-semibold">Baixar meu relatório</a><a href={urlPlanoCompleto(normaId)} className="font-semibold">Plano completo →</a></span>
+    </footer>
+  </main>
 }
 
-const CELULA = 'align-top leading-snug max-md:block md:py-2 md:pr-3'
-const ROTULO_MOBILE = 'block text-xs font-semibold text-ink-soft md:hidden'
+const COLUNA = 'flex flex-col gap-2 border-r border-line px-6 py-5 last:border-r-0'
+const TITULO_COLUNA = 'text-[13px] font-bold'
 
-/** Uma obrigação: linha da tabela no desktop, cartão com rótulos abaixo de 768 px. */
-function Linha({ l, preliminar }: { l: LinhaTop5; preliminar: ReactNode }) {
-  const grupo = l.valor ? rotuloDoGrupo(l.valor.grupo) : undefined
-  return <tr className="border-b border-line last:border-b-0 max-md:block max-md:space-y-2 max-md:rounded-2xl max-md:border max-md:border-slate-blue/30 max-md:bg-white max-md:p-4 max-md:last:border-b">
-    <td className={CELULA}>
-      <span className={ROTULO_MOBILE}>Obrigação</span>
-      <span className="leading-snug font-medium [overflow-wrap:anywhere]" title={l.fraseOriginal}>{l.frase}</span>
-      <span className="text-xs whitespace-nowrap text-ink-soft"> · {l.dispositivo ?? 'dispositivo a confirmar'}</span>
-    </td>
-    <td className={CELULA}><span className={ROTULO_MOBILE}>Prazo</span><span className={l.situacao === 'vencida' ? 'font-semibold' : ''}>{l.prazo}</span></td>
-    <td className={CELULA}><span className={ROTULO_MOBILE}>Gravidade e valor por infração</span>
-      <span title={grupo}>{l.gravidade} · {l.textoValor}</span>{l.preliminar && <> {preliminar}</>}</td>
-    <td className={CELULA}><span className={ROTULO_MOBILE}>O que fazer</span>
-      {l.fazer ? <>{l.fazer.texto}{l.fazer.preliminar && <> {preliminar}</>}</> : <span className="text-ink-soft">definir com a equipe responsável</span>}</td>
-    <td className={CELULA}><span className={ROTULO_MOBILE}>Defesa possível</span>
-      {l.defesa.texto}{l.defesa.origem && <> <Tag kind={l.defesa.origem === 'no texto' ? 'source' : 'review'} label={l.defesa.origem} /></>}</td>
-    <td className="align-top max-md:block md:py-1.5">
-      <a href={l.link} className={`inline-flex min-h-11 items-center whitespace-nowrap ${LINK} print:hidden`}>detalhes →<span className="sr-only"> da obrigação {l.dispositivo ?? ''}</span></a>
-    </td>
-  </tr>
-}
-
-/** O que cada etiqueta quer dizer, só quando ela aparece. */
-function Legenda({ linhas, preliminar }: { linhas: LinhaTop5[]; preliminar: ReactNode }) {
-  const sugerido = linhas.some((l) => l.valor?.origem === 'sugerido')
-  const semValor = linhas.some((l) => !l.valor)
-  const fazer = linhas.some((l) => l.fazer?.preliminar)
-  if (!sugerido && !semValor && !fazer) return null
-  return <p className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-ink-soft">
-    {preliminar}
-    {sugerido && <span className="inline-flex flex-wrap items-center gap-1">no valor: enquadramento sugerido pela IA <Tag kind="ai" label={IA} />;</span>}
-    {semValor && <span>“a enquadrar”: o texto não nomeia a infração e não há sugestão, então não mostramos valor;</span>}
-    {fazer && <span>em “O que fazer”: tipo da obrigação ainda a revisar.</span>}
-  </p>
-}
-
-/** Grupos de gravidade, teto de cada um (com o dispositivo) e atenuantes, todos vindos do plano. */
-function ComoCalculamos({ ref, p }: { ref: Ref<HTMLDetailsElement>; p: PlanoDados }) {
-  const t = tabelaDeGrupos(p)
-  const espontanea = p.reducao.medidas.find((m) => m.cenario === 'espontanea')
-  const ateTn = p.reducao.medidas.find((m) => m.cenario === 'ate_tn')
-  return <details ref={ref} id="como-calculamos" className="rounded-2xl border border-slate-blue/30 bg-white hover:border-slate-blue open:border-line print:hidden">
-    <summary className="flex min-h-11 cursor-pointer items-center gap-3 rounded-2xl px-4 py-2 hover:bg-slate-blue/5">
-      <span className="flex min-w-0 flex-wrap items-baseline gap-x-3"><span className="font-semibold text-slate-blue">Como calculamos</span><span className="text-xs text-ink-soft">grupos de gravidade, teto de cada um e atenuantes</span></span><Chevron />
-    </summary>
-    <div className="space-y-3 px-4 pb-4 text-sm leading-relaxed">
-      <p>A ANEEL (a agência que regula o setor elétrico) classifica cada infração em 5 grupos de gravidade (REN 846, o regulamento de multas). Cada grupo tem um teto de multa em % da receita da empresa.</p>
-      <ul className="grid gap-2 sm:grid-cols-5" aria-label="Teto de multa por grupo">
-        {t.grupos.map((g) => <li key={g.grupo} className="rounded-xl border border-line bg-ivory px-3 py-2" title={g.trecho ?? undefined}>
-          <span className="block">{g.rotulo}</span>
-          <strong className="block">{g.pct != null ? `até ${pct(g.pct)} da receita` : 'sem teto citado'}</strong>
-          <span className="block text-xs text-ink-soft">REN 846, {g.dispositivo ?? 'dispositivo a confirmar'}</span>
-        </li>)}
-      </ul>
-      {t.tetoLegal && <p>Por infração, nunca somadas. Acima de todos, o limite legal de {t.tetoLegal.pct != null ? pct(t.tetoLegal.pct) : '—'} do faturamento ({t.tetoLegal.dispositivo}). O valor de cada obrigação é o teto do grupo sobre a receita operacional líquida do porte escolhido, sem agravantes. “Preliminar”: enquadramento sugerido pela IA (<Tag kind="ai" label={IA} />), ainda sem revisão humana. Sem enquadramento, não há valor.</p>}
-      {espontanea?.percentual != null && <p>Atenuantes da própria norma reduzem o valor: até {pct(espontanea.percentual)} se cessar a infração e reparar todo o dano antes de a ANEEL comunicar a fiscalização ou lavrar o Termo de Notificação ({espontanea.dispositivo}){ateTn?.percentual != null && <>; {pct(ateTn.percentual)} até o prazo do Termo de Notificação, a notificação que a ANEEL envia antes do auto ({ateTn.dispositivo})</>}. Vale um atenuante só.</p>}
+function Painel({ l, fechar }: { l: LinhaTop5; fechar: () => void }) {
+  return <div className="painel-in">
+    <div className="flex flex-wrap items-start justify-between gap-4 border-b-[length:var(--borda-forte)] border-obsidian px-6 py-5">
+      <div className="flex min-w-0 flex-1 flex-col gap-1">
+        <span className="text-[13px] font-semibold">{l.dispositivo ?? 'dispositivo a confirmar'}</span>
+        <span className="text-[22px] leading-tight font-bold">{l.frase}</span>
+        <span className="text-xs">Título do bloco: resumo gerado por IA, a revisar.</span>
+      </div>
+      <button type="button" onClick={fechar} aria-label="Fechar detalhes" className="seg">Fechar ✕</button>
     </div>
-  </details>
+    <div className="grid [grid-template-columns:repeat(auto-fit,minmax(220px,1fr))]">
+      <div className={COLUNA}>
+        <span className={TITULO_COLUNA}>Prazo</span>
+        <span className="text-lg font-bold">{l.prazoCurto}</span>
+        {l.prazoBase && <span className="text-[13px]">{l.prazoBase}</span>}
+      </div>
+      <div className={COLUNA}>
+        <span className={TITULO_COLUNA}>Gravidade e valor por infração</span>
+        <span className="text-[15px]">{l.valor ? `${l.gravidadeRotulo} · ${l.preliminar ? 'sugerida pela IA, aguarda revisão humana' : 'identificada no texto'}` : 'gravidade a enquadrar'}</span>
+        {l.barras.length > 0 && <span className="text-xs">Atenuantes do art. 24: valem se a infração cessar e o dano for reparado antes da fiscalização.</span>}
+        {l.barras.map((b) => <div key={b.rotulo} className="grid grid-cols-[70px_minmax(0,1fr)_72px] items-center gap-2 text-xs">
+          <span>{b.rotulo}</span>
+          <span className="block h-2 bg-trilho"><span className="barra" style={{ width: `${Math.max(b.fracao * 100, 2)}%`, background: b.cor === 'teto' ? 'var(--cor-barra-teto)' : b.cor === 'media' ? 'var(--cor-barra-media)' : 'var(--cor-barra-reducao)' }} /></span>
+          <span className="text-right font-bold">{b.reais != null ? brlCurto(b.reais) : '—'}</span>
+        </div>)}
+      </div>
+      <div className={COLUNA}>
+        <span className={TITULO_COLUNA}>O que fazer</span>
+        {l.fazer ? <span className="text-[15px] leading-snug">✓ {l.fazer.texto} <span className="text-xs font-semibold">Sugestão</span></span> : <span className="text-[15px]">recomendação em revisão</span>}
+        {l.evite && <span className="text-[15px] leading-snug text-evite">✕ {l.evite} <span className="text-xs font-semibold">Sugestão</span></span>}
+        {l.proveCom && <span className="mt-1 text-[13px] leading-snug"><strong>Prove com:</strong> {l.proveCom}</span>}
+      </div>
+      <div className={COLUNA}>
+        <span className={TITULO_COLUNA}>Defesa possível</span>
+        <span className="text-[15px] leading-snug">{l.defesa.texto}</span>
+        {l.defesa.origem && <span className="self-start border border-obsidian px-2 py-0.5 text-xs font-semibold">{l.defesa.origem}</span>}
+        <a href={l.link} className="mt-auto text-[15px] font-semibold underline underline-offset-4">Detalhes no plano →</a>
+      </div>
+    </div>
+  </div>
 }

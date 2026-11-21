@@ -73,7 +73,7 @@ export function MaskedTitle({
 export function Eyebrow({ children, tone = 'dark' }: { children: string; tone?: 'dark' | 'light' }) {
   return (
     <p
-      className={`flex items-center gap-3 text-[0.72rem] font-semibold tracking-[0.2em] uppercase ${
+      className={`flex items-center gap-3 text-[0.72rem] font-semibold ${
         tone === 'dark' ? 'text-bronze-deep' : 'text-bronze'
       }`}
     >

@@ -1,10 +1,18 @@
-import { createContext, useContext, useEffect, useMemo, useRef, useState, type ReactNode, type Ref } from 'react'
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode, type Ref } from 'react'
 import { AlertTriangle, ArrowDown, ArrowUp, ChevronDown, ClipboardList, Download, FileText, Printer, Sparkles } from 'lucide-react'
 import { Logo } from '../ui/Logo'
 import { Tag } from '../product/Tag'
 import { Chevron } from '../ui/Chevron'
 import { AjudaGrupos } from './AjudaGrupos'
-import { idDaObrigacao } from '../../content/executivo'
+import { BlocosObrigacoes } from './BlocosObrigacoes'
+import { RespostasProvider, useRespostas } from './Respostas'
+import { Relatorio } from './Relatorio'
+import { LIMITE_JA_FAZEMOS, type Respostas } from '../../content/respostas'
+import { extrasDoCsv } from '../../content/relatorio'
+import { recomendacoesDoTema } from '../../content/recomendacoes'
+import { ABERTURA_PERGUNTAS, perguntasParaOJuridico } from '../../content/perguntas'
+import { CRITERIO_PRONTIDAO, fraseProntidao, prontidao } from '../../content/prontidao'
+import { contagemDeEnquadramentos, destaqueDaNorma, idDaObrigacao, tabelaDeGrupos, textoMaiorMulta, textoPrazoDoTema } from '../../content/executivo'
 import { rotuloDoGrupo } from '../../content/gravidade'
 import {
   brl, brlCurto, comAtenuantePct, csvPlano, dataBR, decisoesDaSemana, exposicaoTema, lacuna, lerReais, manchete, NOTA_ADVERTENCIA, textoVencidas, nomeDiag,
@@ -16,7 +24,7 @@ const r = plano.resumo
 /** A visão executiva da mesma norma (/demo/executivo, ou com ?norma=). */
 const URL_EXECUTIVO = normaDaUrl() === 'rn1137' ? '/demo/executivo' : `/demo/executivo?norma=${normaDaUrl()}`
 const semData = r.por_situacao.evento + r.por_situacao.sem_prazo
-const kicker = 'text-xs font-semibold tracking-widest text-bronze-deep uppercase'
+const kicker = 'text-xs font-semibold text-bronze-deep '
 const PRELIMINAR = 'cenário preliminar: inclui sugestões aguardando confirmação'
 const ATENUANTES = plano.reducao.medidas.filter((m) => m.cenario)
 const ATEN_I = ATENUANTES.find((m) => m.cenario === 'espontanea')
@@ -24,19 +32,19 @@ const ATEN_II = ATENUANTES.find((m) => m.cenario === 'ate_tn')
 // Terracota só no fundo das ações principais, no porte escolhido e em etiquetas muito relevantes
 // (data-acento). Texto, bordas, links e foco ficam no azul escuro do site (contrastes em index.css).
 // No diagnóstico tudo é azul, menos os clicáveis: botões em terracota (principal preenchido, secundário claro).
-const BOTAO_ACENTO = 'inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-full bg-acento-escuro px-5 text-sm font-semibold text-white shadow-sm hover:bg-acento-hover'
-const BOTAO_DIAG_SEC = 'inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-full border border-acento-escuro bg-acento-claro px-5 text-sm font-semibold text-acento-escuro hover:bg-acento-escuro hover:text-white print:hidden'
-const BOTAO_SEC = 'inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-full border border-slate-blue/40 bg-white px-5 text-sm font-medium text-slate-blue hover:border-slate-blue hover:bg-slate-blue/5'
+const BOTAO_ACENTO = 'inline-flex min-h-11 cursor-pointer items-center gap-2 bg-acento-escuro px-5 text-sm font-semibold text-white hover:bg-acento-hover'
+const BOTAO_DIAG_SEC = 'inline-flex min-h-11 cursor-pointer items-center gap-2 border border-acento-escuro bg-acento-claro px-5 text-sm font-semibold text-acento-escuro hover:bg-acento-escuro hover:text-white print:hidden'
+const BOTAO_SEC = 'inline-flex min-h-11 cursor-pointer items-center gap-2 border border-slate-blue/40 bg-white px-5 text-sm font-medium text-slate-blue hover:border-slate-blue hover:bg-slate-blue/5'
 const LINK = 'font-semibold text-slate-blue underline decoration-slate-blue/40 underline-offset-4 hover:decoration-slate-blue'
 // Linha clicável de um <details>: borda, fundo ao passar o mouse e chevron que gira (index.css).
 const SUMARIO = 'flex min-h-11 cursor-pointer items-center gap-3 rounded-xl border border-slate-blue/30 bg-white px-4 py-2 font-semibold text-slate-blue hover:border-slate-blue hover:bg-slate-blue/5'
 
 // Receita simulada (null: valor digitado inválido, mostra só percentuais) e modo do cenário. Nada sai do navegador.
-const Cenario = createContext<{ sim: Simulacao | null; modo: Modo }>({ sim: SIM_INICIAL, modo: 'preliminar' })
+const Cenario = createContext<{ sim: Simulacao | null; modo: Modo; relatorio: () => void }>({ sim: SIM_INICIAL, modo: 'preliminar', relatorio: () => {} })
 
-function baixarCsv(diag: Diagnosticos, sim: Simulacao | null) {
-  const url = URL.createObjectURL(new Blob([csvPlano(diag, sim)], { type: 'text/csv;charset=utf-8' }))
-  const a = Object.assign(document.createElement('a'), { href: url, download: 'athenix-plano-rn1137-ilustrativo.csv' })
+function baixarCsv(diag: Diagnosticos, sim: Simulacao | null, respostas: Respostas) {
+  const url = URL.createObjectURL(new Blob([csvPlano(diag, sim, extrasDoCsv(respostas, diag))], { type: 'text/csv;charset=utf-8' }))
+  const a = Object.assign(document.createElement('a'), { href: url, download: `athenix-plano-${normaDaUrl()}-ilustrativo.csv` })
   a.click()
   URL.revokeObjectURL(url)
 }
@@ -71,6 +79,14 @@ export function PlanoPage() {
   // Diagnóstico gerado na própria página (contagem de cliques: cada clique rola até ele de novo).
   const [geracao, setGeracao] = useState(0)
   const [soDiagnostico, setSoDiagnostico] = useState(false)
+  const [imprimindo, setImprimindo] = useState(() => typeof location !== 'undefined' && new URLSearchParams(location.search).has('relatorio'))
+  const fimRelatorio = useCallback(() => {
+    setImprimindo(false)
+    const q = new URLSearchParams(location.search)
+    const tinha = q.has('relatorio')
+    q.delete('relatorio')
+    if (tinha) history.replaceState(history.state, '', `${location.pathname}${q.size ? `?${q}` : ''}${location.hash}`)
+  }, [])
   const refDiag = useRef<HTMLElement>(null)
   const temas = useMemo(() => ordenarTemas(plano.temas, diag, sim, modo), [diag, sim, modo])
   const decisoes = decisoesDaSemana(plano.temas, diag, sim, modo)
@@ -111,14 +127,14 @@ export function PlanoPage() {
     return () => window.removeEventListener('afterprint', fim)
   }, [soDiagnostico])
 
-  return <Cenario.Provider value={{ sim, modo }}>
+  return <RespostasProvider norma={normaDaUrl()}><Cenario.Provider value={{ sim, modo, relatorio: () => setImprimindo(true) }}>
     <header className="border-b border-line bg-ivory print:hidden"><div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-8"><a href="/" aria-label="Athenix, voltar ao início"><Logo /></a><nav aria-label="Páginas da demonstração" className="flex flex-wrap items-center justify-end gap-x-5 gap-y-1"><a href={URL_EXECUTIVO} className={`inline-flex min-h-11 items-center text-sm ${LINK}`}>Visão executiva →</a><a href="/" className={`inline-flex min-h-11 items-center text-sm ${LINK}`}>← Voltar ao site</a></nav></div></header>
-    <main id="plano" className={`mx-auto max-w-7xl space-y-14 px-4 pt-6 pb-8 sm:px-8 sm:pt-10 md:pb-28 print:pb-10 ${soDiagnostico ? 'so-diagnostico' : ''}`}>
+    <main id="plano" className={`mx-auto max-w-7xl space-y-14 px-4 pt-6 pb-8 sm:px-8 sm:pt-10 md:pb-28 print:pb-10 ${soDiagnostico ? 'so-diagnostico' : ''} ${imprimindo ? 'so-relatorio' : ''}`}>
       <section aria-labelledby="titulo-plano" className="space-y-6">
         <p className={kicker}>Plano de ação · RN 1.137/2025 · {plano.perfil.rotulo.toLowerCase()} (não é empresa real)</p>
         <Porte setSim={setSim} />
         <p className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-2xl border border-slate-blue/40 border-l-4 border-l-slate-blue bg-acento-claro py-2 pr-4 pl-3 text-sm text-obsidian print:hidden">
-          <span data-acento="etiqueta" className="inline-flex shrink-0 items-center rounded-full bg-acento-escuro px-3 py-1 text-xs leading-none font-bold tracking-wide text-white uppercase">Novo</span>
+          <span data-acento="etiqueta" className="inline-flex shrink-0 items-center bg-acento-escuro px-3 py-1 text-xs leading-none font-bold text-white ">Novo</span>
           <span className="min-w-0 lg:hidden">Marque os temas e gere o diagnóstico.</span>
           <span className="hidden min-w-0 lg:inline">Abaixo dos temas há um card de diagnóstico com o resultado ao lado: marque a situação de cada tema e gere aqui mesmo.</span>
           <a href="#seu-diagnostico" className={`inline-flex min-h-11 items-center gap-1.5 whitespace-nowrap ${LINK}`}>Ir para o diagnóstico<ArrowDown aria-hidden="true" className="h-4 w-4 shrink-0" /></a>
@@ -126,7 +142,7 @@ export function PlanoPage() {
 
         <div className="grid items-start gap-5 lg:grid-cols-[1.45fr_1fr]">
           <div className="space-y-3">
-          <div className="rounded-2xl border border-line bg-white p-5 shadow-soft sm:p-7">
+          <div className="rounded-2xl border border-line bg-white p-5 sm:p-7">
             <p className="flex flex-wrap items-center gap-2 text-sm text-ink-soft">
               <Tag kind="pending" label="preliminar" />
               <span>Distribuidora de {sim ? brlCurto(sim.base) : 'receita a informar'} · RN 1.137/2025</span>
@@ -148,7 +164,7 @@ export function PlanoPage() {
             <h2 id="decisoes" className="font-display text-2xl sm:text-3xl">{`${decisoes.length} ${decisoes.length === 1 ? 'decisão' : 'decisões'} para esta semana`}</h2>
             <ol className="mt-5 space-y-4">
               {decisoes.map((t, n) => { const e = exposicaoTema(t, sim, modo); return <li key={t.id} className="flex gap-3">
-                <span aria-hidden="true" className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-slate-blue font-semibold text-ivory">{n + 1}</span>
+                <span aria-hidden="true" className="grid h-8 w-8 shrink-0 place-items-center bg-slate-blue font-semibold text-ivory">{n + 1}</span>
                 <div className="-mt-1.5 min-w-0">
                   <a href={`#tema-${t.id}`} className={`inline-block py-3 leading-snug ${LINK}`}>{t.nome}<ArrowDown aria-hidden="true" className="ml-1 inline h-4 w-4 align-[-0.15em]" /></a>
                   <p className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
@@ -165,11 +181,15 @@ export function PlanoPage() {
         </div>
       </section>
 
+      <Prontidao sim={sim} modo={modo} />
+
+      <BlocosObrigacoes sim={sim} modo={modo} />
+
       <section aria-labelledby="temas" className={gerado ? 'print:hidden' : ''}>
         <p className={kicker}>Plano por tema</p>
         <h2 id="temas" className="font-display mt-2 text-3xl sm:text-4xl">Temas por valor em risco</h2>
         <details className="mt-3 max-w-3xl text-sm print:hidden">
-          <summary className={`${SUMARIO} inline-flex rounded-full text-sm`}>Como ordenamos<Chevron /></summary>
+          <summary className={`${SUMARIO} inline-flex text-sm`}>Como ordenamos<Chevron /></summary>
           <p className="mt-2 leading-relaxed text-ink-soft">{plano.regra_ordem}</p>
         </details>
         <ol className="mt-6 space-y-5">{temas.map((t, n) => <CartaoTema key={t.id} tema={t} posicao={n + 1} diag={diag[t.id]} marcar={marcar} maiorPct={maiorPct} />)}</ol>
@@ -192,16 +212,20 @@ export function PlanoPage() {
       <div className="space-y-4 print:hidden">
         <Expansivel id="reduzir" titulo="Como reduzir a exposição" resumo="atenuantes do art. 24 da REN 846, regras comuns e valores por tema">{() => <ComoReduzir temas={temas} />}</Expansivel>
         <Expansivel id="linha" titulo="Quando cada coisa vence" resumo={`${r.por_situacao.vencida} vencidas, ${r.por_situacao['90dias']} em 90 dias, ${r.por_situacao.recorrente} recorrentes, ${semData} sem data`}>{() => <LinhaDoTempo />}</Expansivel>
-        <Expansivel id="outros" titulo="Outros dispositivos relevantes" resumo={`${plano.outros_dispositivos.length} dispositivos que não são deveres da distribuidora (faculdades, direitos de terceiros, competências da ANEEL e deveres de outros agentes)`}>{() => <OutrosDispositivos />}</Expansivel>
+        <Expansivel id="outros" titulo="Outros dispositivos relevantes" resumo={`${plano.outros_dispositivos.length + plano.sem_dever_identificado.length} dispositivos que não são deveres da distribuidora (faculdades, direitos de terceiros, competências da ANEEL e deveres de outros agentes)`}>{() => <OutrosDispositivos />}</Expansivel>
         <Expansivel id="metodo" titulo="Como chegamos aqui" resumo="contagens, prazos, cálculo da exposição, premissas e fontes">{() => <Metodo />}</Expansivel>
+        <Expansivel id="perguntas-juridico" titulo="Perguntas para levar ao jurídico" resumo="geradas do que o Athenix marca como incerto: enquadramentos, redações do art. 11, XXIII, excludentes e prazos que dependem da ANEEL">{() => <PerguntasJuridico />}</Expansivel>
+        <Expansivel id="como-calculamos" titulo="Como calculamos" resumo="grupos de gravidade, teto de cada um e contagem de deveres">{() => <ComoCalculamos />}</Expansivel>
         <Expansivel id="referencia" titulo="Referência do setor" resumo={`autos de infração publicados em distribuição (${plano.referencia_escala.autos}, amostra pequena)`}>{() => <ReferenciaSetor />}</Expansivel>
       </div>
+      <div className="print:hidden"><button type="button" onClick={() => setImprimindo(true)} className={BOTAO_ACENTO}><FileText aria-hidden="true" className="h-4 w-4" />Baixar meu relatório</button> <span className="text-sm">Página para imprimir ou salvar em PDF, com o que vocês escreveram e marcaram. Nada é enviado.</span></div>
       <footer className="border-t border-line pt-6 text-sm text-ink-soft">{plano.aviso} Iniciativa em validação. Valores ilustrativos, que não indicam descumprimento de uma empresa real. Não constitui parecer jurídico. <a className={`ml-2 inline-flex min-h-11 items-center ${LINK} print:hidden`} href="/">Voltar à Athenix</a></footer>
     </main>
+    <Relatorio ativo={imprimindo} fim={fimRelatorio} diag={diag} sim={sim} modo={modo} />
     <div role="note" className="z-30 border-t md:fixed md:inset-x-0 md:bottom-0 border-line bg-obsidian/95 px-4 py-2.5 text-center text-xs leading-snug text-ivory print:hidden">
       Iniciativa em validação · valores ilustrativos · não constitui parecer jurídico
     </div>
-  </Cenario.Provider>
+  </Cenario.Provider></RespostasProvider>
 }
 
 /** Abre o <details> do tema e o da obrigação do hash, rola até ela e dá foco com realce azul (index.css). */
@@ -222,10 +246,11 @@ function abrirObrigacao(hash: string) {
 /** Card de controles do diagnóstico (à esquerda do painel de resultado; no celular, acima dele). Não acompanha a rolagem. */
 function ControlesDiagnostico({ diag, gap, gerar }: { diag: Diagnosticos; gap: ReturnType<typeof lacuna>; gerar: () => void }) {
   const { sim } = useContext(Cenario)
+  const { respostas } = useRespostas()
   const marcados = plano.temas.length - gap.semResposta
-  return <div className="rounded-2xl border-2 border-slate-blue bg-diag-fundo p-5 text-obsidian shadow-soft sm:p-6 print:hidden">
+  return <div className="rounded-2xl border-2 border-slate-blue bg-diag-fundo p-5 text-obsidian sm:p-6 print:hidden">
     <h2 id="titulo-seu-diagnostico" className="font-display flex items-center gap-3 text-2xl text-slate-blue">
-      <span aria-hidden="true" className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-slate-blue text-white"><ClipboardList className="h-5 w-5" /></span>
+      <span aria-hidden="true" className="grid h-10 w-10 shrink-0 place-items-center bg-slate-blue text-white"><ClipboardList className="h-5 w-5" /></span>
       Diagnóstico da regulação
     </h2>
     <p className="mt-3 text-sm">Marque a situação em cada tema acima e gere o resultado aqui, na própria página. Nada é enviado.</p>
@@ -234,10 +259,10 @@ function ControlesDiagnostico({ diag, gap, gerar }: { diag: Diagnosticos; gap: R
       <div><dt className="text-ink-soft">Situação por tema</dt>
         <dd aria-live="polite">{marcados === 0 ? <>Nenhum tema marcado ainda.</> : <>{marcados} de {plano.temas.length} temas marcados. Lacuna: <strong>{gap.nao} obrigações</strong> em temas que vocês não atendem e <strong>{gap.parcial}</strong> em temas parciais.</>}</dd></div>
     </dl>
-    <p className="mt-3 text-xs text-ink-soft">“Já temos”, “Parcial” ou “Não temos” em cada tema. As marcações ficam só nesta aba: nada é salvo.</p>
-    <button type="button" onClick={gerar} aria-controls="painel-diagnostico" className="mt-4 inline-flex min-h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-acento px-5 text-[1.1875rem] font-bold text-white shadow-sm hover:bg-acento-hover"><FileText aria-hidden="true" className="h-5 w-5" />Gerar diagnóstico</button>
+    <p className="mt-3 text-xs text-ink-soft">“Já temos”, “Parcial” ou “Não temos” em cada tema. As marcações ficam só nesta aba. O texto de “O que sua empresa já faz” fica só no seu navegador.</p>
+    <button type="button" onClick={gerar} aria-controls="painel-diagnostico" className="mt-4 inline-flex min-h-12 w-full cursor-pointer items-center justify-center gap-2 bg-acento px-5 text-[1.1875rem] font-bold text-white hover:bg-acento-hover"><FileText aria-hidden="true" className="h-5 w-5" />Gerar diagnóstico</button>
     <div className="mt-3 grid gap-2">
-      <button type="button" onClick={() => baixarCsv(diag, sim)} className={`${BOTAO_DIAG_SEC} justify-center`}><Download aria-hidden="true" className="h-4 w-4" />Baixar planilha (CSV)</button>
+      <button type="button" onClick={() => baixarCsv(diag, sim, respostas)} className={`${BOTAO_DIAG_SEC} justify-center`}><Download aria-hidden="true" className="h-4 w-4" />Baixar planilha (CSV)</button>
       <button type="button" onClick={() => window.print()} className={`${BOTAO_DIAG_SEC} justify-center`}><Printer aria-hidden="true" className="h-4 w-4" />Imprimir ou salvar PDF</button>
     </div>
   </div>
@@ -245,15 +270,17 @@ function ControlesDiagnostico({ diag, gap, gerar }: { diag: Diagnosticos; gap: R
 
 /** Diagnóstico gerado no navegador, em forma de boletim. Nada é enviado. */
 function DiagnosticoGerado({ ref, diag, temas, decisoes, m, imprimir, fechar }: { ref: Ref<HTMLElement>; diag: Diagnosticos; temas: Tema[]; decisoes: Tema[]; m: Manchete; imprimir: () => void; fechar: () => void }) {
-  const { sim, modo } = useContext(Cenario)
+  const { sim, modo, relatorio } = useContext(Cenario)
+  const { respostas } = useRespostas()
   const gap = lacuna(plano.temas, diag)
   const algumSugerido = temas.some((t) => exposicaoTema(t, sim, modo)?.origem === 'sugerido')
-  return <section ref={ref} id="diagnostico-gerado" tabIndex={-1} aria-labelledby="titulo-diagnostico" className="rounded-2xl border-2 border-slate-blue bg-diag-fundo p-5 text-obsidian shadow-soft sm:p-8 print:border-0 print:bg-white print:p-0 print:shadow-none">
+  return <section ref={ref} id="diagnostico-gerado" tabIndex={-1} aria-labelledby="titulo-diagnostico" className="rounded-2xl border-2 border-slate-blue bg-diag-fundo p-5 text-obsidian sm:p-8 print:border-0 print:bg-white print:p-0 print:shadow-none">
     <div className="flex flex-wrap items-start justify-between gap-3">
-      <p className="text-xs font-bold tracking-[0.2em] text-slate-blue uppercase">Diagnóstico da regulação</p>
+      <p className="text-xs font-bold text-slate-blue ">Diagnóstico da regulação</p>
       <div className="flex flex-wrap gap-2 print:hidden">
         <button type="button" onClick={imprimir} className={BOTAO_ACENTO}><Printer aria-hidden="true" className="h-4 w-4" />Imprimir este diagnóstico</button>
-        <button type="button" onClick={() => baixarCsv(diag, sim)} className={BOTAO_DIAG_SEC}><Download aria-hidden="true" className="h-4 w-4" />Planilha (CSV)</button>
+        <button type="button" onClick={() => baixarCsv(diag, sim, respostas)} className={BOTAO_DIAG_SEC}><Download aria-hidden="true" className="h-4 w-4" />Planilha (CSV)</button>
+        <button type="button" onClick={relatorio} className={BOTAO_DIAG_SEC}><FileText aria-hidden="true" className="h-4 w-4" />Baixar meu relatório</button>
         <button type="button" onClick={fechar} className={BOTAO_DIAG_SEC}>Fechar</button>
       </div>
     </div>
@@ -296,7 +323,7 @@ function Expansivel({ id, titulo, resumo, children }: { id: string; titulo: stri
         <h2 id={id} className="font-display text-2xl text-obsidian sm:text-3xl">{titulo}</h2>
         <span className="text-sm text-ink-soft">{resumo}</span>
       </span>
-      <span className="inline-flex min-h-11 shrink-0 items-center gap-1 rounded-full border border-slate-blue/40 bg-white px-3 text-sm font-semibold text-slate-blue group-hover:border-slate-blue"><span className="group-open:hidden">Abrir</span><span className="hidden group-open:inline">Fechar</span><ChevronDown aria-hidden="true" className="h-5 w-5 transition-transform group-open:rotate-180" /></span>
+      <span className="inline-flex min-h-11 shrink-0 items-center gap-1 border border-slate-blue/40 bg-white px-3 text-sm font-semibold text-slate-blue group-hover:border-slate-blue"><span className="group-open:hidden">Abrir</span><span className="hidden group-open:inline">Fechar</span><ChevronDown aria-hidden="true" className="h-5 w-5 transition-transform group-open:rotate-180" /></span>
     </summary>
     {aberto && <div className="px-5 pb-6 sm:px-7">{children()}</div>}
   </details></section>
@@ -313,7 +340,7 @@ function ProvInfracao({ d }: { d: string }) {
 function SucessaoNoTempo({ dispositivo }: { dispositivo: string }) {
   const s = plano.sucessao_no_tempo.find((x) => x.dispositivo === dispositivo)
   if (!s) return null
-  return <div className="mt-2 rounded-lg border border-pending/50 bg-[#f6ecd9] p-3 text-xs">
+  return <div className="mt-2 rounded-lg border border-pending/50 bg-stone p-3 text-xs">
     <p className="font-semibold text-obsidian">{s.dispositivo}: duas redações em sucessão no tempo (dúvida {s.duvida}, para especialista)</p>
     <ul className="mt-2 space-y-2">{s.redacoes.map((r) => <li key={r.ato}>
       <p className="font-semibold">{r.ato} · {r.vigencia_ate ? `de ${dataBR(r.vigencia_de)} até ${dataBR(r.vigencia_ate)}` : `a partir de ${dataBR(r.vigencia_de)}`} · {r.estado === 'verified' ? 'redação conferida na fonte' : 'INCERTA: não confirmada por leitura independente'}</p>
@@ -326,15 +353,17 @@ function SucessaoNoTempo({ dispositivo }: { dispositivo: string }) {
 
 /** Faculdades, direitos de terceiros e competências da ANEEL: não entram na contagem de deveres. */
 function OutrosDispositivos() {
-  const por = (n: OutroDispositivo['natureza']) => plano.outros_dispositivos.filter((o) => o.natureza === n)
-  const grupos: [OutroDispositivo['natureza'], string][] = [['faculdade', 'Faculdades (a norma diz que pode, não que deve)'], ['direito_de_terceiro', 'Direitos de consumidores e usuários'], ['competencia_aneel', 'Competências da ANEEL'], ['dever_de_outro_agente', 'Deveres de outros agentes (não são da distribuidora)']]
+  const por = (n: OutroDispositivo['natureza']) => [...plano.outros_dispositivos, ...plano.sem_dever_identificado].filter((o) => o.natureza === n)
+  const grupos: [OutroDispositivo['natureza'], string][] = [['faculdade', 'Faculdades (a norma diz que pode, não que deve)'], ['direito_de_terceiro', 'Direitos de consumidores e usuários'], ['competencia_aneel', 'Competências da ANEEL'], ['dever_de_outro_agente', 'Deveres de outros agentes (não são da distribuidora)'], ['regra_de_transicao', 'Regras de transição (prazo de adequação a outros dispositivos)']]
+  grupos.push(['sem_dever_identificado', 'Sem dever identificado (lidos pela extração, sem verbo de dever e sem a distribuidora agindo; nada some em silêncio)'])
   return <div className="space-y-5 text-sm">
     <p className="text-ink-soft">Dispositivos lidos pela mesma extração que não são deveres da distribuidora. Ficam fora da contagem do plano e do cálculo de multa. Cada um mostra o trecho literal e o dispositivo.</p>
+    {Object.entries(plano.notas_outros).map(([art, nota]) => <p key={art} className="border-[length:var(--borda-forte)] border-obsidian p-3 font-semibold">{art}: {nota}</p>)}
     {grupos.map(([n, titulo]) => por(n).length > 0 && <div key={n}>
       <h3 className="font-semibold">{titulo} <span className="text-ink-soft">({por(n).length})</span></h3>
       <ul className="mt-2 space-y-3">{por(n).map((o) => <li key={o.id}>
         <blockquote className="border-l-2 border-bronze bg-ivory p-3">“{o.trecho ?? 'sem citação verificada'}”</blockquote>
-        <p className="mt-1 text-xs text-ink-soft">{o.dispositivo ?? 'dispositivo a confirmar'} · sujeito: {o.sujeito}</p>
+        <p className="mt-1 text-xs text-ink-soft">{o.dispositivo ?? 'dispositivo a confirmar'} · {o.natureza === 'sem_dever_identificado' ? o.motivo : `sujeito: ${o.sujeito}`}</p>
       </li>)}</ul>
     </div>)}
   </div>
@@ -359,10 +388,49 @@ function Metodo() {
   </div>
 }
 
+/** Grupos de gravidade e teto de cada um (com o dispositivo da REN 846), tudo vindo do plano. */
+/** Indicador geral de prontidão: só aparece depois de o usuário marcar alguma prova. */
+function Prontidao({ sim, modo }: { sim: Simulacao | null; modo: Modo }) {
+  const { respostas } = useRespostas()
+  const p = prontidao(plano, respostas, sim, modo)
+  if (!p.algumaMarcada) return null
+  return <p className="border-[length:var(--borda-forte)] border-obsidian p-4 text-lg font-bold print:hidden" aria-live="polite">{fraseProntidao(p.geral.x, p.geral.y)} <a href="#como-calculamos" className={`text-sm ${LINK}`}>como contamos</a></p>
+}
+
+/** Perguntas para o jurídico, geradas do que o plano marca como incerto. */
+function PerguntasJuridico() {
+  const { sim, modo } = useContext(Cenario)
+  const qs = perguntasParaOJuridico(plano, normaDaUrl(), sim, modo)
+  return <div className="max-w-4xl space-y-3 text-sm">
+    <p className="font-semibold">{ABERTURA_PERGUNTAS}</p>
+    <ol className="space-y-3">{qs.map((q, i) => <li key={i} className="border-l-[length:var(--borda-titulo)] border-obsidian pl-3.5">
+      <p>{q.pergunta}</p><p className="mt-1 text-xs text-ink-soft">{q.dispositivo} · {q.citacao}</p></li>)}</ol>
+    {qs.length === 0 && <p>Nada marcado como incerto neste plano.</p>}
+  </div>
+}
+
+function ComoCalculamos() {
+  const t = tabelaDeGrupos(plano)
+  return <div className="max-w-4xl space-y-3 text-sm leading-relaxed">
+    <p>{destaqueDaNorma(plano).texto}. {contagemDeEnquadramentos(plano).texto}.</p>
+    <p><strong>Prontidão para fiscalização.</strong> {CRITERIO_PRONTIDAO}</p>
+    <p>A ANEEL classifica cada infração em 5 grupos de gravidade (REN 846, o regulamento de multas). Cada grupo tem um teto de multa em % da receita da empresa.</p>
+    <ul className="grid gap-2 sm:grid-cols-5" aria-label="Teto de multa por grupo">
+      {t.grupos.map((g) => <li key={g.grupo} className="border border-line px-3 py-2" title={g.trecho ?? undefined}>
+        <span className="block">{g.rotulo}</span>
+        <strong className="block">{g.pct != null ? `até ${pct(g.pct)} da receita` : 'sem teto citado'}</strong>
+        <span className="block text-xs text-ink-soft">REN 846, {g.dispositivo ?? 'dispositivo a confirmar'}</span>
+      </li>)}
+    </ul>
+    {t.tetoLegal && <p>Por infração, nunca somadas. Acima de todos, o limite legal de {t.tetoLegal.pct != null ? pct(t.tetoLegal.pct) : '—'} do faturamento ({t.tetoLegal.dispositivo}).</p>}
+  </div>
+}
+
 function ReferenciaSetor() {
   const esc = plano.referencia_escala
   return <div className="max-w-3xl text-sm">
     <p>Mediana de {esc.autos} autos de infração publicados em distribuição (amostra pequena) ≈ <strong>{brlCurto(esc.mediana_reais)}</strong>; maior na amostra ≈ <strong>{brlCurto(esc.maximo_reais)}</strong>.</p>
+    <p className="mt-2">{textoMaiorMulta(plano)} <span className="text-xs text-ink-soft">(fonte: {esc.maior_multa.fonte})</span>.</p>
     <p className="mt-1 text-xs text-ink-soft">{esc.rotulo}. É valor do auto inteiro, que pode reunir várias infrações; não é comparável ao valor por infração. Limites da amostra em “Como chegamos aqui”.</p>
   </div>
 }
@@ -388,7 +456,7 @@ function Porte({ setSim }: { setSim: (s: Simulacao | null) => void }) {
     <fieldset id="porte">
       <legend className="flex flex-wrap items-center gap-2 text-sm font-semibold">Porte da distribuidora (receita operacional líquida anual) <Tag kind="estimate" label="Faixa ilustrativa" /></legend>
       <div className="mt-2 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
-        {faixas.map((x) => <label key={x.id} className="inline-flex min-h-11 cursor-pointer flex-col items-center justify-center rounded-2xl border border-slate-blue/40 bg-white px-3 py-1 text-center text-sm leading-tight text-obsidian hover:border-slate-blue hover:bg-slate-blue/5 sm:flex-row sm:gap-1 sm:rounded-full sm:px-4 has-checked:border-transparent has-checked:bg-acento-escuro has-checked:font-semibold has-checked:text-white has-checked:shadow-sm has-checked:hover:bg-acento-escuro has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-slate-blue">
+        {faixas.map((x) => <label key={x.id} className="inline-flex min-h-11 cursor-pointer flex-col items-center justify-center rounded-2xl border border-slate-blue/40 bg-white px-3 py-1 text-center text-sm leading-tight text-obsidian hover:border-slate-blue hover:bg-slate-blue/5 sm:flex-row sm:gap-1 sm:sm:px-4 has-checked:border-transparent has-checked:bg-acento-escuro has-checked:font-semibold has-checked:text-white has-checked:has-checked:hover:bg-acento-escuro has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-slate-blue">
           <input type="radio" className="sr-only" name="porte" value={x.id} checked={porte === x.id} onChange={() => { setPorte(x.id); const t = numeroBR(x.base); setRol(t); aplicar(t, fat) }} />
           <span className="font-medium sm:font-normal">{x.rotulo}</span> <span className="text-xs whitespace-nowrap sm:text-sm">~{brlCurto(x.base)}</span>
         </label>)}
@@ -413,10 +481,45 @@ function Porte({ setSim }: { setSim: (s: Simulacao | null) => void }) {
   </div>
 }
 
+/** "O que recomendamos": ações, provas, defesa, "Evite" e o efeito de agir; e o campo "O que sua empresa já faz". */
+function Recomendamos({ t }: { t: Tema }) {
+  const { sim, modo } = useContext(Cenario)
+  const { respostas, persistente, escrever, marcarProva } = useRespostas()
+  const rec = recomendacoesDoTema(plano, t, sim, modo)
+  const pr = prontidao(plano, respostas, sim, modo)
+  const marcadas = respostas.provas[t.id] ?? []
+  const texto = respostas.jaFazemos[t.id] ?? ''
+  return <section aria-labelledby={`rec-${t.id}`} className="mt-5 border-[length:var(--borda-forte)] border-obsidian p-4 sm:p-5">
+    <h4 id={`rec-${t.id}`} className="flex flex-wrap items-center gap-2 text-xl font-bold">O que recomendamos <Tag kind="review" label="Sugestão" /></h4>
+    {rec.acoes.length ? <ol className="mt-3 space-y-2">{rec.acoes.map((a) => <li key={a} className="border-l-[length:var(--borda-titulo)] border-obsidian pl-3.5 text-base leading-snug">{a}</li>)}</ol>
+      : <p className="mt-3 text-sm">Recomendação em revisão: a IA não deu uma ação de nível gerencial válida para este tema.</p>}
+    {rec.operacionais.length > 0 && <details className="mt-3 text-sm print:hidden"><summary className="min-h-11 cursor-pointer py-2 font-semibold underline underline-offset-4">Detalhe operacional (sugestão)</summary>
+      <ul className="mt-1 list-disc space-y-1 pl-5">{rec.operacionais.map((a) => <li key={a}>{a}</li>)}</ul></details>}
+    <div className="mt-4 grid gap-4 text-sm sm:grid-cols-2">
+      <div><h5 className="font-bold">O que guardar como prova</h5>
+        {rec.provas.length ? <ul className="mt-1 space-y-1">{rec.provas.map((x) => <li key={x.id}><label className="flex min-h-11 cursor-pointer items-start gap-2 py-1">
+          <input type="checkbox" className="mt-1 h-5 w-5 shrink-0 accent-[var(--cor-texto)]" checked={marcadas.includes(x.id)} onChange={() => marcarProva(t.id, x.id)} /><span>{x.texto}</span></label></li>)}</ul> : <p className="mt-1">—</p>}
+        {rec.provas.length > 0 && <p className="mt-1 text-xs" aria-live="polite">Marque o que vocês já têm. {marcadas.length > 0 ? <strong>Provas em mãos neste tema: {pr.porTema[t.id].x} de {pr.porTema[t.id].y}.</strong> : 'Fica só no seu navegador.'}</p>}</div>
+      <div className="space-y-3">
+        {rec.efeito && <div><h5 className="font-bold">Efeito financeiro de agir</h5>
+          <p className="mt-1">Regularizar antes da fiscalização pode reduzir até {pct(rec.efeito.reducaoPct)}{rec.efeito.de != null && rec.efeito.para != null ? ` (${brlCurto(rec.efeito.de)} → ${brlCurto(rec.efeito.para)})` : ''} <span className="text-xs text-ink-soft">({rec.efeito.dispositivo} da REN 846; exige cessar a infração e reparar o dano)</span></p></div>}
+        {rec.defesa && <div><h5 className="font-bold">Defesa possível</h5><p className="mt-1">{rec.defesa.texto} <span className="text-xs text-ink-soft">({rec.defesa.origem})</span></p></div>}
+        {rec.evite && <div><h5 className="font-bold text-evite">Evite</h5><p className="mt-1">{rec.evite} <span className="text-xs text-ink-soft">(Sugestão)</span></p></div>}
+      </div>
+    </div>
+    <div className="mt-4 border-t border-line pt-4 print:hidden">
+      <label htmlFor={`ja-${t.id}`} className="text-sm font-bold">O que sua empresa já faz</label>
+      <textarea id={`ja-${t.id}`} rows={3} maxLength={LIMITE_JA_FAZEMOS} value={texto} onChange={(e) => escrever(t.id, e.target.value)} aria-describedby={`ja-aj-${t.id}`}
+        className="mt-1 block w-full border-[length:var(--borda-forte)] border-obsidian bg-white p-2.5 text-sm" placeholder="Ex.: plano aprovado em 2025, sem revisão anual ainda" />
+      <p id={`ja-aj-${t.id}`} className="mt-1 flex flex-wrap justify-between gap-2 text-xs"><span>{texto.length}/{LIMITE_JA_FAZEMOS} · Fica só no seu navegador. Nada é enviado.</span>
+        {!persistente && <span role="status" className="font-semibold text-bronze-deep">Este navegador não deixou gravar: o texto se perde ao fechar a página.</span>}</p>
+    </div>
+  </section>
+}
+
 const OPCOES: [Diagnostico, string][] = [['sim', 'Já temos'], ['parcial', 'Parcial'], ['nao', 'Não temos']]
 
 function CartaoTema({ tema: t, posicao, diag, marcar, maiorPct }: { tema: Tema; posicao: number; diag?: Diagnostico; marcar: (id: string, d: Diagnostico) => void; maiorPct: number }) {
-  const urgente = t.prazo_mais_urgente
   const { sim, modo } = useContext(Cenario)
   const e = exposicaoTema(t, sim, modo)
   const grupo = e && maisGrave(e.origem === 'confirmado' ? t.grupos : t.grupos_sugeridos)
@@ -424,26 +527,28 @@ function CartaoTema({ tema: t, posicao, diag, marcar, maiorPct }: { tema: Tema; 
   return <li id={`tema-${t.id}`} className={`rounded-2xl border border-line bg-white p-5 sm:p-7 ${diag === 'sim' ? 'opacity-80' : ''}`}>
     <div className="flex flex-wrap items-start justify-between gap-4">
       <div className="flex min-w-0 items-start gap-3">
-        <span aria-label={`Posição ${posicao}`} className="font-display grid h-10 w-10 shrink-0 place-items-center rounded-full bg-stone text-xl">{posicao}</span>
+        <span aria-label={`Posição ${posicao}`} className="font-display grid h-10 w-10 shrink-0 place-items-center bg-stone text-xl">{posicao}</span>
         <div className="min-w-0"><h3 className="font-display text-2xl leading-tight">{t.nome}</h3>
           <p className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-ink-soft">
             <span>{situacaoPrazo(t)}</span><span aria-hidden="true">·</span>
             <span>{t.n} {t.n === 1 ? 'obrigação' : 'obrigações'}</span>
-            {grupo && <><span aria-hidden="true">·</span><span className="inline-flex items-center gap-1.5">{rotuloDoGrupo(grupo)}<AjudaGrupos p={plano} /></span>{e!.origem === 'confirmado' ? <span className="rounded-full bg-slate-blue px-2 py-0.5 text-xs font-medium text-ivory">identificado no texto ({t.na_fila} de {t.n} {t.n === 1 ? 'obrigação' : 'obrigações'})</span> : <Sugerido />}</>}
+            {grupo && <><span aria-hidden="true">·</span><span className="inline-flex items-center gap-1.5">{rotuloDoGrupo(grupo)}<AjudaGrupos p={plano} /></span>{e!.origem === 'confirmado' ? <span className="bg-slate-blue px-2 py-0.5 text-xs font-medium text-ivory">identificado no texto ({t.na_fila} de {t.n} {t.n === 1 ? 'obrigação' : 'obrigações'})</span> : <Sugerido />}</>}
             {diag === 'sim' && <><span aria-hidden="true">·</span><span>você marcou como já atendido</span></>}
           </p>
         </div>
       </div>
       <fieldset className="print:hidden">
         <legend className="mb-1 text-xs text-ink-soft">Sua situação hoje</legend>
-        <div className="inline-flex gap-1 rounded-full border border-line bg-ivory p-1">
-          {OPCOES.map(([v, rotulo]) => <label key={v} className="inline-flex min-h-11 cursor-pointer items-center rounded-full border border-slate-blue/40 bg-white px-3 text-sm text-obsidian hover:border-slate-blue hover:bg-slate-blue/5 has-checked:border-slate-blue has-checked:bg-slate-blue has-checked:font-semibold has-checked:text-white has-checked:hover:bg-slate-blue has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-slate-blue">
+        <div className="inline-flex gap-1 border border-line bg-ivory p-1">
+          {OPCOES.map(([v, rotulo]) => <label key={v} className="inline-flex min-h-11 cursor-pointer items-center border border-slate-blue/40 bg-white px-3 text-sm text-obsidian hover:border-slate-blue hover:bg-slate-blue/5 has-checked:border-slate-blue has-checked:bg-slate-blue has-checked:font-semibold has-checked:text-white has-checked:hover:bg-slate-blue has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-slate-blue">
             <input type="radio" className="sr-only" name={`diag-${t.id}`} value={v} checked={diag === v} onChange={() => marcar(t.id, v)} />{rotulo}
           </label>)}
         </div>
       </fieldset>
       <p className="hidden text-sm print:block">Situação informada: {nomeDiag(diag)}</p>
     </div>
+
+    <Recomendamos t={t} />
 
     <div className="mt-5">
       {e ? <>
@@ -454,7 +559,7 @@ function CartaoTema({ tema: t, posicao, diag, marcar, maiorPct }: { tema: Tema; 
     </div>
 
     <dl className="mt-5 grid gap-4 border-y border-line py-5 text-sm sm:grid-cols-3">
-      <div><dt className="text-ink-soft">Prazo mais urgente</dt><dd className="mt-1 font-semibold">{urgente ? urgente.texto : 'Sem data no texto'}</dd>
+      <div><dt className="text-ink-soft">Prazo mais urgente</dt><dd className="mt-1 font-semibold">{textoPrazoDoTema(plano, t)}</dd>
         <dd className="mt-1 text-xs text-ink-soft">{[cont('vencida') && `${cont('vencida')} vencida(s)`, cont('recorrente') && `${cont('recorrente')} recorrente(s)`, cont('evento') && `${cont('evento')} dependem de evento`, cont('sem_prazo') && `${cont('sem_prazo')} sem prazo`].filter(Boolean).join(' · ')}</dd></div>
       <div><dt className="text-ink-soft">Enquadramento na REN 846</dt>
         {t.grupo_mais_grave ? <><dd className="mt-1 font-semibold">{t.grupos.map(rotuloDoGrupo).join(', ')} <AjudaGrupos p={plano} /> · {t.infracoes.join('; ')}</dd><dd className="mt-1 text-xs text-ink-soft">Identificado pelo texto em {t.na_fila} de {t.n}; {t.a_confirmar} a confirmar.</dd></>
@@ -494,8 +599,8 @@ function Escada({ e, maiorPct }: { e: Exposicao; maiorPct: number }) {
     <ul className="mt-3 space-y-1.5" aria-label="Do teto aos atenuantes do art. 24">
       {passos.map((x) => <li key={x.rotulo} className="grid grid-cols-[6.5rem_1fr_auto] items-center gap-2 text-xs sm:grid-cols-[8rem_1fr_auto]">
         <span className="text-ink-soft">{x.rotulo}</span>
-        <span aria-hidden="true" className="h-3 overflow-hidden rounded-full bg-stone print:border print:border-line">
-          <span className={`block h-full rounded-full ${e.origem === 'sugerido' ? 'hachura' : 'bg-slate-blue'}`} style={{ width: `${maiorPct ? Math.max(2, (x.p / maiorPct) * 100) : 0}%` }} />
+        <span aria-hidden="true" className="h-3 overflow-hidden bg-stone print:border print:border-line">
+          <span className={`block h-full ${e.origem === 'sugerido' ? 'hachura' : 'bg-slate-blue'}`} style={{ width: `${maiorPct ? Math.max(2, (x.p / maiorPct) * 100) : 0}%` }} />
         </span>
         <span className="tabular-nums font-medium text-obsidian">{emReais(x.p, sim)}</span>
       </li>)}
@@ -559,7 +664,7 @@ function AnalisePreliminar({ t }: { t: Tema }) {
 function DependenciaAto({ itens }: { itens: { obrigacao?: string; id: string; trecho_literal: string }[] }) {
   const ato = itens.filter((d) => d.id === 'ato_da_aneel')
   const outros = itens.filter((d) => d.id !== 'ato_da_aneel')
-  const bloco = (titulo: string, lista: typeof itens) => lista.length > 0 && <div className="rounded-lg border border-pending/50 bg-[#f6ecd9] p-3">
+  const bloco = (titulo: string, lista: typeof itens) => lista.length > 0 && <div className="rounded-lg border border-pending/50 bg-stone p-3">
     <p className="flex items-start gap-2 font-semibold text-obsidian"><AlertTriangle aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-pending" />{titulo}</p>
     {lista.map((d) => <figure key={`${d.obrigacao ?? ''}${d.trecho_literal}`} className="mt-2">
       <blockquote className="border-l-2 border-bronze bg-white p-2 text-sm">“{d.trecho_literal}”</blockquote>
@@ -576,7 +681,7 @@ function ConteudoAnalise({ t }: { t: Tema }) {
   const a = plano.analise
   const pratica = a.pratica_por_tema[t.id] ? a.dependencias[a.pratica_por_tema[t.id]] : undefined
   return <div className="space-y-5 px-4 pb-4 text-sm leading-relaxed">
-    <p className="inline-block rounded-md border border-pending/50 bg-[#f6ecd9] px-2.5 py-1 text-xs font-semibold text-pending">{SELO_ANALISE}</p>
+    <p className="inline-block rounded-md border border-pending/50 bg-stone px-2.5 py-1 text-xs font-semibold text-pending">{SELO_ANALISE}</p>
     {t.dependencias_no_texto.length > 0 && <DependenciaAto itens={t.dependencias_no_texto} />}
     {t.principais.map((id) => <AnaliseObrigacao key={id} o={obrigacao(id)} />)}
     {pratica && <div className="rounded-lg border border-dashed border-line p-3 text-xs">
@@ -612,7 +717,7 @@ function AnaliseObrigacao({ o }: { o: Obrigacao }) {
         : tipo.situacao === 'a_revisar' ? 'tipo a revisar' : 'sem tipo próprio'
   return <article className="border-t border-line pt-4">
     <h5 className="font-semibold"><Titulo o={o} /> <span className="text-xs font-normal text-ink-soft">· {o.dispositivo ?? 'dispositivo a confirmar'}</span></h5>
-    <p className="mt-2 text-xs font-semibold tracking-wide text-ink-soft uppercase">O que a norma exige <Tag kind="source" /></p>
+    <p className="mt-2 text-xs font-semibold text-ink-soft ">O que a norma exige <Tag kind="source" /></p>
     {o.trecho ? <><blockquote className="mt-1 border-l-2 border-bronze bg-white p-3">“{o.trecho}”</blockquote><p className="mt-1 text-xs text-ink-soft">{o.dispositivo} · trecho literal conferido na fonte</p></>
       : <p className="mt-1">Sem citação verificada: confira o dispositivo na fonte.</p>}
     {an && an.dependencias_no_texto.some((d) => d.id === 'ato_da_aneel') && <p className="mt-2 flex items-start gap-2 text-xs font-semibold text-pending"><AlertTriangle aria-hidden="true" className="mt-0.5 h-3.5 w-3.5 shrink-0" />Prazo condicionado a ato da ANEEL: verificar se as instruções foram publicadas.</p>}
@@ -665,7 +770,7 @@ function Interpretacao({ children }: { children: ReactNode }) {
 function ComoReduzir({ temas }: { temas: Tema[] }) {
   const red = plano.reducao
   return <div>
-    <p className="inline-block rounded-full border border-bronze/50 bg-stone/60 px-3 py-1 text-xs font-semibold">{red.rotulo}</p>
+    <p className="inline-block border border-bronze/50 bg-stone/60 px-3 py-1 text-xs font-semibold">{red.rotulo}</p>
     <p className="mt-3 max-w-3xl text-sm leading-relaxed text-ink-soft">O que a REN 846 prevê para reduzir ou trocar a multa. Cada medida traz o texto da norma e, separada em caixa tracejada, a nossa leitura da condição e do efeito.</p>
     <div className="mt-6 grid gap-4 lg:grid-cols-2">{red.medidas.map((m) => <CartaoMedida key={m.parametro} m={m} />)}</div>
     <details className="mt-4">
@@ -683,7 +788,7 @@ function CartaoMedida({ m }: { m: Medida }) {
   return <article className="rounded-2xl border border-line bg-white p-5">
     <div className="flex flex-wrap items-baseline justify-between gap-2">
       <h3 className="font-semibold leading-snug">{m.nome}</h3>
-      <span className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${m.percentual != null ? 'bg-slate-blue text-ivory' : 'bg-stone text-ink-soft'}`}>{m.percentual != null ? `−${pct(m.percentual)}` : 'o texto não fixa percentual'}</span>
+      <span className={`px-2.5 py-0.5 text-xs font-semibold ${m.percentual != null ? 'bg-slate-blue text-ivory' : 'bg-stone text-ink-soft'}`}>{m.percentual != null ? `−${pct(m.percentual)}` : 'o texto não fixa percentual'}</span>
     </div>
     <p className="mt-2"><Tag kind="source" /></p>
     <Citado c={m} />
