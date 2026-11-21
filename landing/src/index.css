@@ -265,7 +265,7 @@
   display: none;
 }
 @page {
-  size: A4;
+  size: A4 landscape;
   margin: 14mm;
 }
 @media print {

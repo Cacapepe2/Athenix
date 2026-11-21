@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { montarRelatorio } from '../../content/relatorio'
+import { ABERTURA_PERGUNTAS } from '../../content/perguntas'
 import type { Diagnosticos, Modo, Simulacao } from '../../content/plano'
 import { useRespostas } from './Respostas'
 
@@ -29,6 +30,7 @@ export function Relatorio({ ativo, fim, diag, sim, modo }: { ativo: boolean; fim
       <p><span>{r.numeros.reducao}</span>se agir antes da fiscalização</p>
       <p><span>{r.numeros.prazo.valor}</span>{r.numeros.prazo.legenda}</p>
     </div>
+    {r.prontidao && <p><strong>{r.prontidao}</strong></p>}
     <h3>3 decisões para esta semana</h3>
     <ol>{r.decisoes.map((d) => <li key={d.nome}><strong>{d.nome}</strong> · {d.porque}</li>)}</ol>
     {vazio && <p className="rel-nota">Nada foi preenchido ainda: as colunas “O que vocês já fazem” e “Situação” ficam em branco para completar à mão ou no site.</p>}
@@ -53,5 +55,9 @@ export function Relatorio({ ativo, fim, diag, sim, modo }: { ativo: boolean; fim
 
     <h2>Quem faz o quê <small>(áreas sugeridas)</small></h2>
     <ul>{r.areas.map((a) => <li key={a.area}>{a.frase}</li>)}</ul>
+
+    <h2>Perguntas para levar ao jurídico</h2>
+    <p>{ABERTURA_PERGUNTAS}</p>
+    <ol>{r.perguntas.map((q, i) => <li key={i}>{q.pergunta} <small>({q.dispositivo}) {q.citacao}</small></li>)}</ol>
   </section>
 }

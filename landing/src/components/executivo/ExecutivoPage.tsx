@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { NORMA_PADRAO, NORMAS, norma as dadosDa, prazos, queda, top5, urlPlanoCompleto, urlRelatorio, valorGeral, type LinhaTop5 } from '../../content/executivo'
+import { RespostasProvider, useRespostas } from '../plano/Respostas'
+import { prontidao } from '../../content/prontidao'
 import { brlCurto, normaDaUrl, type NormaId, type Simulacao } from '../../content/plano'
 
 // Visão executiva (/demo/executivo): três números e até cinco blocos clicáveis. Muito pouco texto; o resto
@@ -14,6 +16,11 @@ const valorDoBloco = (l: LinhaTop5) => (l.valor?.reais != null ? `${brlCurto(l.v
 
 export function ExecutivoPage() {
   const [normaId, setNormaId] = useState<NormaId>(normaDaUrl)
+  return <RespostasProvider norma={normaId}><Executiva normaId={normaId} setNormaId={setNormaId} /></RespostasProvider>
+}
+
+function Executiva({ normaId, setNormaId }: { normaId: NormaId; setNormaId: (id: NormaId) => void }) {
+  const { respostas } = useRespostas()
   const [porteId, setPorteId] = useState(PORTE_PADRAO)
   const [aberto, setAberto] = useState<string | null>(null)
   const [ultimo, setUltimo] = useState<string | null>(null) // o painel, ao fechar, mantém o último conteúdo
@@ -33,6 +40,7 @@ export function ExecutivoPage() {
     if (aberto) painelRef.current?.scrollIntoView({ block: 'nearest', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })
   }, [aberto])
   const preliminar = v?.origem === 'sugerido'
+  const pr = prontidao(p, respostas, sim, MODO) // o quarto número só aparece depois de marcar provas no plano
 
   const trocarNorma = (id: NormaId) => {
     setNormaId(id)
@@ -78,6 +86,7 @@ export function ExecutivoPage() {
             ? <><span className={GRANDE}>{pz.proxima.dias} dias</span><span className={LEGENDA}>até o próximo prazo</span></>
             : <><span className={GRANDE}>—</span><span className={LEGENDA}>nenhum prazo a vencer</span></>}
       </div>
+      {pr.algumaMarcada && <div className="flex flex-col gap-1.5"><span className={GRANDE}>{pr.geral.x} de {pr.geral.n}</span><span className={LEGENDA}>obrigações com prova em mãos</span></div>}
     </section>
 
     <section aria-labelledby="comece-por" className="flex flex-col gap-3.5">

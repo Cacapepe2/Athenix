@@ -3,7 +3,9 @@
 // Lógica pura, testada em relatorio.test.ts. Nada sai do navegador.
 import { prazos, queda, tituloCurto, valorGeral } from './executivo.ts'
 import { provasDoTema, recomendacoesDoTema } from './recomendacoes.ts'
-import { decisoesDaSemana, nomeDiag, brlCurto, comAtenuantePct, dataBR, exposicaoTema, ordenarTemas, pct, plano, reaisDe, SIM_INICIAL, type Diagnosticos, type ExtrasCsv, type Modo, type Obrigacao, type Simulacao, type Tema } from './plano.ts'
+import { normaDaUrl, decisoesDaSemana, nomeDiag, brlCurto, comAtenuantePct, dataBR, exposicaoTema, ordenarTemas, pct, plano, reaisDe, SIM_INICIAL, type Diagnosticos, type ExtrasCsv, type Modo, type Obrigacao, type Simulacao, type Tema } from './plano.ts'
+import { fraseProntidao, prontidao } from './prontidao.ts'
+import { perguntasParaOJuridico, type Pergunta } from './perguntas.ts'
 import type { Respostas } from './respostas.ts'
 
 export const AVISO_RELATORIO = 'Análise regulatória preliminar · não constitui parecer jurídico'
@@ -39,10 +41,16 @@ export interface Relatorio {
   cabecalho: { norma: string; porte: string; data: string; aviso: string }
   numeros: { exposicao: string; porInfracao: string; reducao: string; prazo: { valor: string; legenda: string } }
   decisoes: { nome: string; porque: string }[]
+  /** Só existe depois de o usuário marcar alguma prova. */
+  prontidao: string | null
   temas: LinhaTemaRelatorio[]
   lacunas: { nome: string; motivo: string }[]
   areas: AreaRelatorio[]
+  perguntas: Pergunta[]
 }
+
+/** AAAA-MM-DD no fuso do navegador (toISOString usaria UTC e trocaria o dia à noite). */
+const diaLocal = (d: Date) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
 
 const curta = (t: string, n = 220) => (t.length <= n ? t : `${t.slice(0, n).replace(/\s+\S*$/, '')}…`)
 
@@ -96,7 +104,7 @@ export function montarRelatorio(args: { sim: Simulacao | null; modo: Modo; diag:
     cabecalho: {
       norma: plano.norma.titulo,
       porte: sim ? `distribuidora de ${brlCurto(sim.base)} de receita operacional líquida (ilustrativo)` : 'receita não informada (valores em % da receita)',
-      data: dataBR((args.hoje ?? new Date()).toISOString().slice(0, 10)),
+      data: dataBR(diaLocal(args.hoje ?? new Date())),
       aviso: AVISO_RELATORIO,
     },
     numeros: {
@@ -107,6 +115,8 @@ export function montarRelatorio(args: { sim: Simulacao | null; modo: Modo; diag:
         : pz.proxima ? { valor: `${pz.proxima.dias} dias`, legenda: 'até o próximo prazo' } : { valor: '—', legenda: 'nenhum prazo a vencer' },
     },
     decisoes: decisoesDaSemana(plano.temas, diag, sim, modo).map((t) => ({ nome: t.nome, porque: t.prazo_mais_urgente?.texto ?? 'sem data no texto' })),
+    prontidao: (() => { const p = prontidao(plano, respostas, sim, modo); return p.algumaMarcada ? fraseProntidao(p.geral.x, p.geral.n) : null })(),
     temas, lacunas, areas,
+    perguntas: perguntasParaOJuridico(plano, normaDaUrl(), sim, modo),
   }
 }

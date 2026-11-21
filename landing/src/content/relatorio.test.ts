@@ -8,7 +8,7 @@ import { provasDoTema } from './recomendacoes.ts'
 import { prazos, queda, valorGeral } from './executivo.ts'
 
 const sim = { base: 5e9, faturamento: null }
-const hoje = new Date('2026-11-20T12:00:00Z')
+const hoje = new Date(2026, 10, 20, 23, 30) // 20/11/2026, 23h30 no fuso local
 
 test('relatório vazio é legível: cabeçalho, números, temas, áreas e aviso, sem nada preenchido', () => {
   const r = montarRelatorio({ sim, modo: 'preliminar', diag: {}, respostas: RESPOSTAS_VAZIAS, hoje })

@@ -10,6 +10,8 @@ import { Relatorio } from './Relatorio'
 import { LIMITE_JA_FAZEMOS, type Respostas } from '../../content/respostas'
 import { extrasDoCsv } from '../../content/relatorio'
 import { recomendacoesDoTema } from '../../content/recomendacoes'
+import { ABERTURA_PERGUNTAS, perguntasParaOJuridico } from '../../content/perguntas'
+import { CRITERIO_PRONTIDAO, fraseProntidao, prontidao } from '../../content/prontidao'
 import { contagemDeEnquadramentos, destaqueDaNorma, idDaObrigacao, tabelaDeGrupos, textoMaiorMulta } from '../../content/executivo'
 import { rotuloDoGrupo } from '../../content/gravidade'
 import {
@@ -179,6 +181,8 @@ export function PlanoPage() {
         </div>
       </section>
 
+      <Prontidao sim={sim} modo={modo} />
+
       <BlocosObrigacoes sim={sim} modo={modo} />
 
       <section aria-labelledby="temas" className={gerado ? 'print:hidden' : ''}>
@@ -210,6 +214,7 @@ export function PlanoPage() {
         <Expansivel id="linha" titulo="Quando cada coisa vence" resumo={`${r.por_situacao.vencida} vencidas, ${r.por_situacao['90dias']} em 90 dias, ${r.por_situacao.recorrente} recorrentes, ${semData} sem data`}>{() => <LinhaDoTempo />}</Expansivel>
         <Expansivel id="outros" titulo="Outros dispositivos relevantes" resumo={`${plano.outros_dispositivos.length} dispositivos que não são deveres da distribuidora (faculdades, direitos de terceiros, competências da ANEEL e deveres de outros agentes)`}>{() => <OutrosDispositivos />}</Expansivel>
         <Expansivel id="metodo" titulo="Como chegamos aqui" resumo="contagens, prazos, cálculo da exposição, premissas e fontes">{() => <Metodo />}</Expansivel>
+        <Expansivel id="perguntas-juridico" titulo="Perguntas para levar ao jurídico" resumo="geradas do que o Athenix marca como incerto: enquadramentos, redações do art. 11, XXIII, excludentes e prazos que dependem da ANEEL">{() => <PerguntasJuridico />}</Expansivel>
         <Expansivel id="como-calculamos" titulo="Como calculamos" resumo="grupos de gravidade, teto de cada um e contagem de deveres">{() => <ComoCalculamos />}</Expansivel>
         <Expansivel id="referencia" titulo="Referência do setor" resumo={`autos de infração publicados em distribuição (${plano.referencia_escala.autos}, amostra pequena)`}>{() => <ReferenciaSetor />}</Expansivel>
       </div>
@@ -383,10 +388,31 @@ function Metodo() {
 }
 
 /** Grupos de gravidade e teto de cada um (com o dispositivo da REN 846), tudo vindo do plano. */
+/** Indicador geral de prontidão: só aparece depois de o usuário marcar alguma prova. */
+function Prontidao({ sim, modo }: { sim: Simulacao | null; modo: Modo }) {
+  const { respostas } = useRespostas()
+  const p = prontidao(plano, respostas, sim, modo)
+  if (!p.algumaMarcada) return null
+  return <p className="border-[length:var(--borda-forte)] border-obsidian p-4 text-lg font-bold print:hidden" aria-live="polite">{fraseProntidao(p.geral.x, p.geral.n)} <a href="#como-calculamos" className={`text-sm ${LINK}`}>como contamos</a></p>
+}
+
+/** Perguntas para o jurídico, geradas do que o plano marca como incerto. */
+function PerguntasJuridico() {
+  const { sim, modo } = useContext(Cenario)
+  const qs = perguntasParaOJuridico(plano, normaDaUrl(), sim, modo)
+  return <div className="max-w-4xl space-y-3 text-sm">
+    <p className="font-semibold">{ABERTURA_PERGUNTAS}</p>
+    <ol className="space-y-3">{qs.map((q, i) => <li key={i} className="border-l-[length:var(--borda-titulo)] border-obsidian pl-3.5">
+      <p>{q.pergunta}</p><p className="mt-1 text-xs text-ink-soft">{q.dispositivo} · {q.citacao}</p></li>)}</ol>
+    {qs.length === 0 && <p>Nada marcado como incerto neste plano.</p>}
+  </div>
+}
+
 function ComoCalculamos() {
   const t = tabelaDeGrupos(plano)
   return <div className="max-w-4xl space-y-3 text-sm leading-relaxed">
     <p>{destaqueDaNorma(plano).texto}. {contagemDeEnquadramentos(plano).texto}.</p>
+    <p><strong>Prontidão para fiscalização.</strong> {CRITERIO_PRONTIDAO}</p>
     <p>A ANEEL classifica cada infração em 5 grupos de gravidade (REN 846, o regulamento de multas). Cada grupo tem um teto de multa em % da receita da empresa.</p>
     <ul className="grid gap-2 sm:grid-cols-5" aria-label="Teto de multa por grupo">
       {t.grupos.map((g) => <li key={g.grupo} className="border border-line px-3 py-2" title={g.trecho ?? undefined}>
@@ -457,8 +483,10 @@ function Porte({ setSim }: { setSim: (s: Simulacao | null) => void }) {
 /** "O que recomendamos": ações, provas, defesa, "Evite" e o efeito de agir; e o campo "O que sua empresa já faz". */
 function Recomendamos({ t }: { t: Tema }) {
   const { sim, modo } = useContext(Cenario)
-  const { respostas, persistente, escrever } = useRespostas()
+  const { respostas, persistente, escrever, marcarProva } = useRespostas()
   const rec = recomendacoesDoTema(plano, t, sim, modo)
+  const pr = prontidao(plano, respostas, sim, modo)
+  const marcadas = respostas.provas[t.id] ?? []
   const texto = respostas.jaFazemos[t.id] ?? ''
   return <section aria-labelledby={`rec-${t.id}`} className="mt-5 border-[length:var(--borda-forte)] border-obsidian p-4 sm:p-5">
     <h4 id={`rec-${t.id}`} className="flex flex-wrap items-center gap-2 text-xl font-bold">O que recomendamos <Tag kind="review" label="Sugestão" /></h4>
@@ -466,7 +494,9 @@ function Recomendamos({ t }: { t: Tema }) {
       : <p className="mt-3 text-sm">Recomendação em revisão: a IA não deu uma ação específica válida para este tema.</p>}
     <div className="mt-4 grid gap-4 text-sm sm:grid-cols-2">
       <div><h5 className="font-bold">O que guardar como prova</h5>
-        {rec.provas.length ? <ul className="mt-1 list-disc space-y-1 pl-4">{rec.provas.map((x) => <li key={x.id}>{x.texto}</li>)}</ul> : <p className="mt-1">—</p>}</div>
+        {rec.provas.length ? <ul className="mt-1 space-y-1">{rec.provas.map((x) => <li key={x.id}><label className="flex min-h-11 cursor-pointer items-start gap-2 py-1">
+          <input type="checkbox" className="mt-1 h-5 w-5 shrink-0 accent-[var(--cor-texto)]" checked={marcadas.includes(x.id)} onChange={() => marcarProva(t.id, x.id)} /><span>{x.texto}</span></label></li>)}</ul> : <p className="mt-1">—</p>}
+        {rec.provas.length > 0 && <p className="mt-1 text-xs" aria-live="polite">Marque o que vocês já têm. {marcadas.length > 0 ? <strong>Prova para {pr.porTema[t.id].x} de {pr.porTema[t.id].n} obrigações deste tema.</strong> : 'Fica só no seu navegador.'}</p>}</div>
       <div className="space-y-3">
         {rec.efeito && <div><h5 className="font-bold">Efeito financeiro de agir</h5>
           <p className="mt-1">Regularizar antes da fiscalização pode reduzir até {pct(rec.efeito.reducaoPct)}{rec.efeito.de != null && rec.efeito.para != null ? ` (${brlCurto(rec.efeito.de)} → ${brlCurto(rec.efeito.para)})` : ''} <span className="text-xs text-ink-soft">({rec.efeito.dispositivo} da REN 846; exige cessar a infração e reparar o dano)</span></p></div>}

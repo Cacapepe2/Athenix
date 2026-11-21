@@ -37,7 +37,9 @@ test('as vencidas vêm antes das demais, na ordem da executiva', () => {
 
 test('filtros na URL: ida e volta, "todas" sai da URL e os outros parâmetros ficam', () => {
   const f = filtrosDaUrl('?so_norma=ren1174&situacao=a-vencer&gravidade=grave&enquadramento=sugerido')
-  assert.deepEqual(f, { norma: 'ren1174', situacao: 'a-vencer', gravidade: 'grave', enquadramento: 'sugerido' })
+  assert.deepEqual(f, { norma: 'ren1174', situacao: 'a-vencer', gravidade: 'grave', enquadramento: 'sugerido', area: 'todas' })
+  assert.equal(filtrosDaUrl('?area=Jur%C3%ADdico').area, 'Jurídico')
+  assert.equal(filtrosDaUrl('?area=Inventada').area, 'todas')
   assert.equal(urlComFiltros('', f), '?so_norma=ren1174&situacao=a-vencer&gravidade=grave&enquadramento=sugerido')
   // ?norma= escolhe o plano da página e nunca é tocado pelos filtros
   assert.equal(urlComFiltros('?norma=ren1174&so_norma=rn1137', { ...FILTROS_INICIAIS }), '?norma=ren1174')
