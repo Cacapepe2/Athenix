@@ -1,6 +1,6 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "4cdd438",
+ "commit_origem": "1971ae2",
  "gerado_em": "2026-11-20",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
@@ -47,7 +47,9 @@
    "valor_reais": 165800000,
    "ano": 2024,
    "motivo": "falhas no restabelecimento após evento climático",
-   "fonte": "Informado pelo fundador em 21/11/2026; a confirmar (decisão e processo não conferidos pelo Athenix). Sem nome de empresa."
+   "fonte": "fonte pública",
+   "fonte_detalhe": "Agência Brasil, 09/02/2024 (multa aplicada); a diretoria da ANEEL manteve a multa em 09/04/2024. Sem nome de empresa na tela.",
+   "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2024-02/aneel-multa-enel-em-r-1658-mi-por-apagao-em-sp-em-sao-paulo"
   }
  },
  "simulador": {
@@ -1473,10 +1475,6 @@
      "trecho_citado": "planos de manejo vegetal"
     },
     {
-     "acao": "Publicar no sítio eletrônico o plano de comunicação revisado com templates de SMS, e-mail e mensagens para consumidores.",
-     "trecho_citado": "de comunicação"
-    },
-    {
      "acao": "Publicar no sítio eletrônico o plano de contingência revisado com pontos de concentração e procedimentos de restabelecimento.",
      "trecho_citado": "de contingência"
     }
@@ -1657,16 +1655,8 @@
    "titulo_completo": "Implementar os mecanismos de comunicação ao consumidor sobre a previsão de reestabelecimento do serviço e demais informações de que trata o item 105 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa",
    "recomendacoes": [
     {
-     "acao": "Enviar SMS aos consumidores afetados informando a previsão de reestabelecimento do serviço e link para a página da ocorrência.",
-     "trecho_citado": "previsão de reestabelecimento do serviço"
-    },
-    {
      "acao": "Publicar no portal web e no app as demais informações de atendimento previstas no item 105, com link em cada ocorrência.",
      "trecho_citado": "demais informações de que trata o item 105"
-    },
-    {
-     "acao": "Ativar mensagem automática em URA e gravação de voz informando situação aos consumidores (mecanismos digitais e telefônicos).",
-     "trecho_citado": "mecanismos de comunicação ao consumidor"
     }
    ],
    "contexto": "Art. 13. As distribuidoras devem observar os seguintes prazos para implementação das disposições desta Resolução Normativa, contados da publicação:",
@@ -1921,10 +1911,6 @@
    "titulo_completo": "Iniciar as apurações do Duração da Interrupção Individual ocorrida em Situação de Emergência por Unidade Consumidora ou por Ponto de Conexão – DISE e observar as disposições da Seção 8.2 do Módulo 8 do PRODIST com o corresponde pagamento de compensações por transgressão desse indicador, com efeitos retroativos a 2 meses após a publicação da norma",
    "recomendacoes": [
     {
-     "acao": "Implemente script que calcule DISE por Unidade Consumidora e Ponto de Conexão a partir de registros de interrupção SCADA, exportando CSV mensal.",
-     "trecho_citado": "Duração da Interrupção Individual"
-    },
-    {
      "acao": "Crie relatório por consumidor relacionando DISE apurada e status 'Situação de Emergência', gerando arquivo para cálculo de compensações retroativas.",
      "trecho_citado": "Situação de Emergência"
     },
@@ -2013,10 +1999,6 @@
    "titulo_completo": "Realizar comunicações formais, com periodicidade anual, aos representantes do Poder Público, detalhando a execução dos protocolos estabelecidos de modo a garantir que todos os envolvidos estejam familiarizados com os procedimentos de comunicação",
    "recomendacoes": [
     {
-     "acao": "Envie anualmente e-mail formal em PDF aos representantes do Poder Público com evidências da execução dos protocolos.",
-     "trecho_citado": "aos representantes do Poder Público"
-    },
-    {
      "acao": "Publique no sítio eletrônico relatório anual detalhado com fluxogramas e registros operacionais da execução dos protocolos.",
      "trecho_citado": "detalhando a execução dos protocolos"
     }
@@ -2096,16 +2078,7 @@
    "titulo": "Os indicadores devem ser apurados mensalmente, considerando o mês civil, com exceção…",
    "titulo_origem": "regra",
    "titulo_completo": "Os indicadores devem ser apurados mensalmente, considerando o mês civil, com exceção dos indicadores DICRI e DISE, que devem ser apurados por interrupção ocorrida em Dia Crítico ou em Situação de Emergência, respectivamente",
-   "recomendacoes": [
-    {
-     "acao": "Apurar o indicador DISE por interrupção, registrando data, hora, duração e causa no arquivo CSV do sistema de indicadores.",
-     "trecho_citado": "apurados por interrupção ocorrida em Dia Crítico ou em Situação de Emergência"
-    },
-    {
-     "acao": "Consolidar indicadores mensalmente, considerando o mês civil, em planilha eletrônica única (XLSX) e enviar ao repositório regulatório.",
-     "trecho_citado": "mensalmente, considerando o mês civil"
-    }
-   ],
+   "recomendacoes": [],
    "contexto": "",
    "tema": "dise",
    "motivo_tema": "Seção IV da norma",
@@ -2179,12 +2152,7 @@
    "titulo": "Manter dossiê individualizado em sua sede contendo os documentos comprobatórios que…",
    "titulo_origem": "regra",
    "titulo_completo": "Manter dossiê individualizado em sua sede contendo os documentos comprobatórios que evidenciem a neutralidade de custos e despesas reembolsados à cedente",
-   "recomendacoes": [
-    {
-     "acao": "Digitalize e arquive no dossiê individualizado em sede, em PDF/A, notas fiscais e recibos dos reembolsos por evento emergencial.",
-     "trecho_citado": "manter dossiê individualizado em sua sede"
-    }
-   ],
+   "recomendacoes": [],
    "contexto": "",
    "tema": "outros",
    "motivo_tema": "Sem seção temática nem assunto reconhecido",
@@ -3639,12 +3607,7 @@
    "titulo": "Informar e manter, por até cinco anos, em seu sítio eletrônico, os indicadores…",
    "titulo_origem": "regra",
    "titulo_completo": "Informar e manter, por até cinco anos, em seu sítio eletrônico, os indicadores estabelecidos nos incisos V e VI do caput do art. 4º; do Decreto 12.068, de 20 de julho de 2024, em até 30 dias, contados da publicação das instruções pela ANEEL",
-   "recomendacoes": [
-    {
-     "acao": "Publique no sítio eletrônico página com os indicadores incisos V e VI, em CSV e gráficos interativos para consulta pública.",
-     "trecho_citado": "incisos V e VI"
-    }
-   ],
+   "recomendacoes": [],
    "contexto": "",
    "tema": "outros",
    "motivo_tema": "Sem seção temática nem assunto reconhecido",
@@ -3918,10 +3881,6 @@
    "titulo_origem": "ia",
    "titulo_completo": "Disponibilizar versão atualizada do plano de manejo vegetal",
    "recomendacoes": [
-    {
-     "acao": "Publique a versão mais atualizada do plano de manejo vegetal em PDF no sítio eletrônico, link visível na página principal.",
-     "trecho_citado": "versão mais atualizada de seu plano de manejo vegetal"
-    },
     {
      "acao": "Disponibilize cópias impressas do plano atual nos postos de atendimento presencial em local visível e acessível ao público.",
      "trecho_citado": "nos postos de atendimento presencial"
@@ -4311,10 +4270,6 @@
     {
      "acao": "Publique checklists de mitigação de impacto no portal operacional para minimizar os impactos das contingências.",
      "trecho_citado": "minimizar os impactos das contingências"
-    },
-    {
-     "acao": "Disponibilize procedimentos de isolamento e orientações de evacuação via SMS e totens, assegurando a segurança dos colaboradores e da população.",
-     "trecho_citado": "assegurando a segurança dos colaboradores e da população"
     }
    ],
    "contexto": "",
@@ -4404,10 +4359,6 @@
    "titulo_origem": "ia",
    "titulo_completo": "Incluir nomes e telefones de contato dos responsáveis",
    "recomendacoes": [
-    {
-     "acao": "Anexe ao plano tabela em PDF com nomes, cargos e telefones (fixo e celular) e deixe cópias nos postos de atendimento.",
-     "trecho_citado": "nomes e telefones de contato dos responsáveis"
-    },
     {
      "acao": "Integre a lista de nomes e telefones de contato dos responsáveis ao sistema de despacho para uso imediato pela operação.",
      "trecho_citado": "nomes e telefones de contato dos responsáveis"
@@ -4502,10 +4453,6 @@
     {
      "acao": "Inclua checklist de EPI e procedimentos de bloqueio (LOTO) no manual do plano e no app de inspeção para priorizar a segurança de todos os colaboradores.",
      "trecho_citado": "priorizar a segurança de todos os colaboradores"
-    },
-    {
-     "acao": "Envie SMS e publique orientações públicas e mapas de exclusão para moradores vizinhos, priorizando a segurança de todos os colaboradores e da população.",
-     "trecho_citado": "segurança de todos os colaboradores e da população"
     }
    ],
    "contexto": "142. O plano de contingência deve ser baseado nos seguintes princípios norteadores:",
@@ -7037,10 +6984,6 @@
    "titulo_completo": "Disponibilizar o Plano de Manejo Vegetal em sítio eletrônico e postos",
    "recomendacoes": [
     {
-     "acao": "Publique PDF do Plano de Manejo Vegetal no sítio eletrônico e deixe versão impressa legível em cada posto de atendimento presencial.",
-     "trecho_citado": "em sítio eletrônico e nos postos de atendimento presencial"
-    },
-    {
      "acao": "Disponibilize resumo em linguagem clara na página do plano e nos balcões, incluindo perguntas frequentes e contatos para esclarecimento.",
      "trecho_citado": "com uso de linguagem clara e adequada"
     }
@@ -7134,12 +7077,7 @@
    "titulo": "Disponibilizar o Plano de Contingência em sítio eletrônico e postos",
    "titulo_origem": "ia",
    "titulo_completo": "Disponibilizar o Plano de Contingência em sítio eletrônico e postos",
-   "recomendacoes": [
-    {
-     "acao": "Publique o Plano de Contingência em PDF no sítio eletrônico e deixe cópias impressas nos postos de atendimento presencial.",
-     "trecho_citado": "Plano de Contingência"
-    }
-   ],
+   "recomendacoes": [],
    "contexto": "",
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
@@ -7229,16 +7167,7 @@
    "titulo": "Enviar regularmente à ANEEL alertas meteorológicos que justifiquem acionamento",
    "titulo_origem": "ia",
    "titulo_completo": "Enviar regularmente à ANEEL alertas meteorológicos que justifiquem acionamento",
-   "recomendacoes": [
-    {
-     "acao": "Enviar ao sistema eletrônico da ANEEL PDF contendo o alerta meteorológico, justificativa do acionamento e nível do plano de contingência.",
-     "trecho_citado": "enviar regularmente à ANEEL os alertas meteorológicos"
-    },
-    {
-     "acao": "Enviar por e‑mail oficial à ANEEL resumo CSV com datas, origem do alerta e indicação do nível acionado.",
-     "trecho_citado": "enviar regularmente à ANEEL os alertas meteorológicos"
-    }
-   ],
+   "recomendacoes": [],
    "contexto": "",
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
@@ -11360,10 +11289,6 @@
    "titulo_completo": "Possuir capacitação e experiência compatíveis com as atividades a serem desenvolvidas na distribuidora cedente",
    "recomendacoes": [
     {
-     "acao": "Enviar à cedente ficha técnica por profissional em PDF com certificados de treinamento, cursos e comprovação de experiência relevante.",
-     "trecho_citado": "capacitação e experiência compatíveis"
-    },
-    {
      "acao": "Incluir no dossiê de pessoal cópias digitais de certificados e relatórios de experiência compatível com as atividades a desempenhar.",
      "trecho_citado": "capacitação e experiência compatíveis"
     }
@@ -11440,10 +11365,6 @@
    "titulo_origem": "regra",
    "titulo_completo": "Prover condições adequadas de trabalho, como alimentação, transporte, hospedagem e segurança para as equipes objeto da Cessão Emergencial",
    "recomendacoes": [
-    {
-     "acao": "Registrar e enviar à cedente confirmações de hospedagem em hotel próximo à operação, com datas e comprovantes de reserva em PDF.",
-     "trecho_citado": "alimentação, transporte, hospedagem e segurança"
-    },
     {
      "acao": "Emitir vouchers de alimentação ou contratar catering e registrar contrato de segurança privada para proteção das equipes.",
      "trecho_citado": "alimentação, transporte, hospedagem e segurança"
@@ -11892,10 +11813,6 @@
    "titulo_origem": "regra",
    "titulo_completo": "Enviar às áreas de fiscalização da ANEEL relatório contendo discriminação das despesas ou custos incorridos a serem reembolsados à cedente relativos à Cessão Emergencial de recursos humanos, equipamentos e materiais utilizados, além de outras informações pertinentes",
    "recomendacoes": [
-    {
-     "acao": "Gerar relatório Excel com discriminação itemizada de despesas, incorporar cópias digitais das notas fiscais e anexar ao arquivo PDF.",
-     "trecho_citado": "relatório contendo discriminação das despesas"
-    },
     {
      "acao": "Enviar o relatório e anexos à área de fiscalização da ANEEL via portal de envio ou e‑mail institucional, com identificação da cedente.",
      "trecho_citado": "relatório contendo discriminação das despesas"

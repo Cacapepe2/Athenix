@@ -21,6 +21,8 @@
   "valor_reais": 165800000,
   "ano": 2024,
   "motivo": "falhas no restabelecimento após evento climático",
-  "fonte": "Informado pelo fundador em 21/11/2026; a confirmar (decisão e processo não conferidos pelo Athenix). Sem nome de empresa."
+  "fonte": "fonte pública",
+  "fonte_detalhe": "Agência Brasil, 09/02/2024 (multa aplicada); a diretoria da ANEEL manteve a multa em 09/04/2024. Sem nome de empresa na tela.",
+  "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2024-02/aneel-multa-enel-em-r-1658-mi-por-apagao-em-sp-em-sao-paulo"
  }
 }

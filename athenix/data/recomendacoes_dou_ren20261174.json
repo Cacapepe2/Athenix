@@ -22,14 +22,6 @@
   ],
   "5f2cad17305d09c9": [
    {
-    "acao": "Preparar proposta de aprimoramento regulatório em PDF e submeter à ANEEL pelo protocolo eletrônico.",
-    "trecho_citado": "apresentar a ANEEL proposta de aprimoramento regulatório"
-   },
-   {
-    "acao": "Elaborar manual de instruções com o detalhamento operacional em DOCX e anexar ao protocolo de submissão à ANEEL.",
-    "trecho_citado": "manual de instruções com o detalhamento operacional"
-   },
-   {
     "acao": "Protocolar submissões no sistema eletrônico indicando versão e data, observando prazo de até 1 ano da publicação desta Resolução.",
     "trecho_citado": "no prazo de até 1 ano da publicação desta Resolução"
    }
@@ -70,16 +62,6 @@
    {
     "acao": "Atualize perfis em mídias sociais colocando 'Distribuição de Energia Elétrica' como atividade visível na bio e na capa.",
     "trecho_citado": "inclusão visível do termo relativo à atividade de distribuição"
-   }
-  ],
-  "728895c11bbe26d8": [
-   {
-    "acao": "Enviar à SFF da ANEEL, na concretização da operação, relatório PDF com quadro societário indicando controladores e participações diretas e indiretas.",
-    "trecho_citado": "na concretização da operação de transferência acionária"
-   },
-   {
-    "acao": "Enviar à SFF da ANEEL até o último dia de cada trimestre civil planilha Excel com composição societária atualizada e percentuais das participações.",
-    "trecho_citado": "último dia de cada trimestre civil"
    }
   ],
   "5601d7cf3867bf32": [
@@ -202,10 +184,6 @@
    {
     "acao": "Verifique elegibilidade e, se aplicável, ative o benefício tarifário do art. 195 no cadastro tarifário e gere registro de alteração.",
     "trecho_citado": "benefício tarifário do art. 195"
-   },
-   {
-    "acao": "Notifique o consumidor via e-mail e SMS sobre a cessação do benefício e eventual aplicação do benefício alternativo.",
-    "trecho_citado": "Em caso de não manifestação do consumidor"
    }
   ],
   "144816bda2da3a17": [

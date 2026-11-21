@@ -1,6 +1,6 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "4cdd438",
+ "commit_origem": "1971ae2",
  "gerado_em": "2026-11-20",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
@@ -47,7 +47,9 @@
    "valor_reais": 165800000,
    "ano": 2024,
    "motivo": "falhas no restabelecimento após evento climático",
-   "fonte": "Informado pelo fundador em 21/11/2026; a confirmar (decisão e processo não conferidos pelo Athenix). Sem nome de empresa."
+   "fonte": "fonte pública",
+   "fonte_detalhe": "Agência Brasil, 09/02/2024 (multa aplicada); a diretoria da ANEEL manteve a multa em 09/04/2024. Sem nome de empresa na tela.",
+   "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2024-02/aneel-multa-enel-em-r-1658-mi-por-apagao-em-sp-em-sao-paulo"
   }
  },
  "simulador": {
@@ -78,7 +80,7 @@
    {
     "base": 1000000000.0,
     "faturamento": null,
-    "obrigacao": "44e6f2493416fd04",
+    "obrigacao": "59c5496d841c8794",
     "maximo_reais": 5000000.0,
     "com_atenuante_reais": {
      "espontanea": 250000.00000000023,
@@ -88,7 +90,7 @@
    {
     "base": 5000000000.0,
     "faturamento": null,
-    "obrigacao": "44e6f2493416fd04",
+    "obrigacao": "59c5496d841c8794",
     "maximo_reais": 25000000.0,
     "com_atenuante_reais": {
      "espontanea": 1250000.0000000012,
@@ -98,7 +100,7 @@
    {
     "base": 10000000000.0,
     "faturamento": null,
-    "obrigacao": "44e6f2493416fd04",
+    "obrigacao": "59c5496d841c8794",
     "maximo_reais": 50000000.0,
     "com_atenuante_reais": {
      "espontanea": 2500000.0000000023,
@@ -108,7 +110,7 @@
    {
     "base": 20000000000.0,
     "faturamento": null,
-    "obrigacao": "44e6f2493416fd04",
+    "obrigacao": "59c5496d841c8794",
     "maximo_reais": 100000000.0,
     "com_atenuante_reais": {
      "espontanea": 5000000.000000005,
@@ -118,7 +120,7 @@
    {
     "base": 5000000000.0,
     "faturamento": 500000000.0,
-    "obrigacao": "44e6f2493416fd04",
+    "obrigacao": "59c5496d841c8794",
     "maximo_reais": 15000000.0,
     "com_atenuante_reais": {
      "espontanea": 1250000.0000000012,
@@ -129,19 +131,19 @@
  },
  "resumo": {
   "identificadas": 153,
-  "aplicaveis": 83,
-  "outros_dispositivos": 70,
+  "aplicaveis": 80,
+  "outros_dispositivos": 73,
   "fora_do_perfil": 0,
   "por_situacao": {
    "vencida": 0,
-   "90dias": 1,
-   "depois": 2,
+   "90dias": 0,
+   "depois": 1,
    "recorrente": 2,
    "evento": 0,
-   "sem_prazo": 78
+   "sem_prazo": 77
   },
   "na_fila": 0,
-  "a_confirmar": 83,
+  "a_confirmar": 80,
   "sem_multa": 0,
   "grupo_mais_grave": null,
   "temas": 4
@@ -154,13 +156,13 @@
     "exposicao_pct": 1.0,
     "origem": "sugerido",
     "prazo": {
-     "obrigacao": "44e6f2493416fd04",
-     "data": "2027-01-03",
-     "texto": "Vence em 03/01/2027",
-     "dias": 47,
+     "obrigacao": "59c5496d841c8794",
+     "data": "2027-11-04",
+     "texto": "Vence em 04/11/2027",
+     "dias": 352,
      "provisorio": true,
      "base": "2026-11-04",
-     "situacao": "90dias"
+     "situacao": "depois"
     },
     "obrigacoes_vencidas": 0
    },
@@ -182,7 +184,7 @@
    }
   ],
   "confirmar": {
-   "obrigacoes": 83,
+   "obrigacoes": 80,
    "temas_sem_calculo_confirmado": 4
   }
  },
@@ -191,26 +193,26 @@
    "id": "capítulo_iv_4",
    "nome": "Capítulo IV: Das disposições transitórias",
    "fontes": [],
-   "n": 25,
+   "n": 22,
    "contagem": {
     "vencida": 0,
-    "90dias": 1,
-    "depois": 2,
+    "90dias": 0,
+    "depois": 1,
     "recorrente": 2,
     "evento": 0,
-    "sem_prazo": 20
+    "sem_prazo": 19
    },
    "prazo_mais_urgente": {
-    "obrigacao": "44e6f2493416fd04",
-    "data": "2027-01-03",
-    "texto": "Vence em 03/01/2027",
-    "dias": 47,
+    "obrigacao": "59c5496d841c8794",
+    "data": "2027-11-04",
+    "texto": "Vence em 04/11/2027",
+    "dias": 352,
     "provisorio": true,
     "base": "2026-11-04",
-    "situacao": "90dias"
+    "situacao": "depois"
    },
    "na_fila": 0,
-   "a_confirmar": 25,
+   "a_confirmar": 22,
    "grupos": [],
    "grupo_mais_grave": null,
    "infracoes": [],
@@ -247,9 +249,9 @@
     "IV"
    ],
    "ia": {
-    "dispositivo": "Art. 11, XIV",
-    "n": 4,
-    "de": 25
+    "dispositivo": "Art. 12, XV",
+    "n": 3,
+    "de": 22
    },
    "evidencias": [
     {
@@ -280,7 +282,7 @@
    "guardar": [
     {
      "id": "aneel",
-     "n": 9
+     "n": 8
     },
     {
      "id": "protocolos",
@@ -294,14 +296,12 @@
    "excludentes": [],
    "causa_externa": "argumento a confirmar com advogado",
    "principais": [
-    "5f2cad17305d09c9",
-    "b9ec4a3959208f38",
     "91c26ed1a77c413a",
-    "33f462f47b99eeab"
+    "33f462f47b99eeab",
+    "59c5496d841c8794",
+    "be6a76133085cee8"
    ],
    "obrigacoes": [
-    "44e6f2493416fd04",
-    "5f2cad17305d09c9",
     "59c5496d841c8794",
     "be6a76133085cee8",
     "de259c2eb695201e",
@@ -313,7 +313,6 @@
     "5609080c03fdcb67",
     "acc78339ce7532ff",
     "0ebb4ed9ace89a7e",
-    "b9ec4a3959208f38",
     "3c31e7c6948c4d3e",
     "6e56e83f4405c837",
     "e9484bb6aff3edc1",
@@ -645,170 +644,6 @@
   "capítulo_iv_a_2"
  ],
  "obrigacoes": [
-  {
-   "id": "44e6f2493416fd04",
-   "titulo": "A primeira reunião deve ocorrer em até 60 dias da publicação desta Resolução",
-   "titulo_origem": "regra",
-   "titulo_completo": "A primeira reunião deve ocorrer em até 60 dias da publicação desta Resolução",
-   "recomendacoes": [
-    {
-     "acao": "Realizar a primeira reunião presencial, registrar ata eletrônica com data, lista de presença e decisões, em até 60 dias da publicação desta Resolução.",
-     "trecho_citado": "em até 60 dias da publicação desta Resolução"
-    }
-   ],
-   "contexto": "",
-   "tema": "capítulo_iv_4",
-   "motivo_tema": "Capítulo da norma",
-   "unidade": "u0321",
-   "trecho": "§ 11. A primeira reunião deverá ocorrer em até 60 dias da publicação desta Resolução.",
-   "situacao": "90dias",
-   "prazo": {
-    "data": "2027-01-03",
-    "texto": "Vence em 03/01/2027",
-    "dias": 47,
-    "provisorio": true,
-    "base": "2026-11-04"
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 11, I",
-    "grupo": "III",
-    "justificativa": "A obrigação impõe realização da primeira reunião em prazo fixo ('em até 60 dias da publicação desta Resolução'); se tal reunião se refere à Ouvidoria ou ao Conselho de Consumidores, a sua não realização configura deixar de instituir ou prover condições para o adequado funcionamento desses órgãos.",
-    "duvida": null
-   },
-   "grupo": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "III"
-    ],
-    "teto_grupo_pct": 0.5,
-    "maximo_pct": {
-     "com_teto": 0.5,
-     "sem_teto": 0.5
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.025000000000000022,
-     "ate_tn": 0.25
-    },
-    "maximo_reais": {
-     "com_teto": 25000000.0,
-     "sem_teto": 25000000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 1250000.0000000012,
-     "ate_tn": 12500000.0
-    }
-   },
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [],
-   "guardar": [],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": null,
-     "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
-     "regra_id": null
-    },
-    "dependencias_no_texto": []
-   },
-   "dispositivo": "Art. 12, § 11"
-  },
-  {
-   "id": "5f2cad17305d09c9",
-   "titulo": "Apresentar a ANEEL proposta de aprimoramento regulatório e, caso necessário, manual…",
-   "titulo_origem": "regra",
-   "titulo_completo": "Apresentar a ANEEL proposta de aprimoramento regulatório e, caso necessário, manual de instruções com o detalhamento operacional",
-   "recomendacoes": [
-    {
-     "acao": "Preparar proposta de aprimoramento regulatório em PDF e submeter à ANEEL pelo protocolo eletrônico.",
-     "trecho_citado": "apresentar a ANEEL proposta de aprimoramento regulatório"
-    },
-    {
-     "acao": "Elaborar manual de instruções com o detalhamento operacional em DOCX e anexar ao protocolo de submissão à ANEEL.",
-     "trecho_citado": "manual de instruções com o detalhamento operacional"
-    },
-    {
-     "acao": "Protocolar submissões no sistema eletrônico indicando versão e data, observando prazo de até 1 ano da publicação desta Resolução.",
-     "trecho_citado": "no prazo de até 1 ano da publicação desta Resolução"
-    }
-   ],
-   "contexto": "",
-   "tema": "capítulo_iv_4",
-   "motivo_tema": "Capítulo da norma",
-   "unidade": "u0300",
-   "trecho": "§ 1º O grupo de trabalho deverá apresentar a ANEEL proposta de aprimoramento regulatório e, caso necessário, manual de instruções com o detalhamento operacional, com vistas a contemplar o objetivo disposto no caput, no prazo de até 1 ano da publicação desta Resolução.",
-   "situacao": "depois",
-   "prazo": {
-    "data": "2027-11-04",
-    "texto": "Vence em 04/11/2027",
-    "dias": 352,
-    "provisorio": true,
-    "base": "2026-11-04"
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 10, XX",
-    "grupo": "II",
-    "justificativa": "A obrigação impõe apresentar à ANEEL proposta e, se necessário, manual com detalhamento operacional \"no prazo de até 1 ano\"; o Art. 10, XX tipifica \"deixar de enviar ou disponibilizar à ANEEL informações ou documentos, nos prazos e nas condições estabelecidas na legislação\", sendo o não encaminhamento dentro do prazo compatível com esse dispositivo.",
-    "duvida": null
-   },
-   "grupo": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "II"
-    ],
-    "teto_grupo_pct": 0.25,
-    "maximo_pct": {
-     "com_teto": 0.25,
-     "sem_teto": 0.25
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.012500000000000011,
-     "ate_tn": 0.125
-    },
-    "maximo_reais": {
-     "com_teto": 12500000.0,
-     "sem_teto": 12500000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 625000.0000000006,
-     "ate_tn": 6250000.0
-    }
-   },
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [],
-   "guardar": [
-    "aneel"
-   ],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": null,
-     "nome": null,
-     "situacao": "a_revisar",
-     "por": "regra: Enviar informação à ANEEL; IA: sem resposta válida",
-     "regra_id": "enviar_informacao_aneel"
-    },
-    "dependencias_no_texto": []
-   },
-   "dispositivo": "Art. 12, § 1º"
-  },
   {
    "id": "59c5496d841c8794",
    "titulo": "A aplicação do benefício tarifário deve ser realizada até o maior prazo entre o…",
@@ -5339,16 +5174,7 @@
    "titulo": "Enviar à Superintendência de Fiscalização Econômica, Financeira e de Mercado - SFF,…",
    "titulo_origem": "regra",
    "titulo_completo": "Enviar à Superintendência de Fiscalização Econômica, Financeira e de Mercado - SFF, da ANEEL, na concretização da operação de transferência acionária e periodicamente, no último dia de cada trimestre civil, informação atualizada relativa à respectiva composição societária; identificado o grupo de controle e explicitando todas as participações societárias diretas e indiretas dos respectivos controladores. .........................................................................\" (NR)",
-   "recomendacoes": [
-    {
-     "acao": "Enviar à SFF da ANEEL, na concretização da operação, relatório PDF com quadro societário indicando controladores e participações diretas e indiretas.",
-     "trecho_citado": "na concretização da operação de transferência acionária"
-    },
-    {
-     "acao": "Enviar à SFF da ANEEL até o último dia de cada trimestre civil planilha Excel com composição societária atualizada e percentuais das participações.",
-     "trecho_citado": "último dia de cada trimestre civil"
-    }
-   ],
+   "recomendacoes": [],
    "contexto": "",
    "tema": "capítulo_iii_3",
    "motivo_tema": "Capítulo da norma",
@@ -6077,78 +5903,6 @@
    "dispositivo": "Art. 11, inciso III"
   },
   {
-   "id": "b9ec4a3959208f38",
-   "titulo": "Definir a coordenação do grupo e demais aspectos relacionados à elaboração do trabalho",
-   "titulo_origem": "regra",
-   "titulo_completo": "Definir a coordenação do grupo e demais aspectos relacionados à elaboração do trabalho",
-   "recomendacoes": [],
-   "contexto": "",
-   "tema": "capítulo_iv_4",
-   "motivo_tema": "Capítulo da norma",
-   "unidade": "u0315",
-   "trecho": "§ 5º As instituições participantes deverão definir a coordenação do grupo e demais aspectos relacionados à elaboração do trabalho.",
-   "situacao": "sem_prazo",
-   "prazo": {
-    "data": null,
-    "texto": "Sem prazo identificado no texto",
-    "dias": null,
-    "provisorio": false,
-    "base": null
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 11, XIV",
-    "grupo": "III",
-    "justificativa": "A obrigação impõe dever regulatório explícito de definir a coordenação do grupo; o dispositivo pune quem 'deixar de cumprir... resoluções da ANEEL', sendo aplicável quando a obrigação provém de norma/rezolução e não é observada.",
-    "duvida": null
-   },
-   "grupo": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "III"
-    ],
-    "teto_grupo_pct": 0.5,
-    "maximo_pct": {
-     "com_teto": 0.5,
-     "sem_teto": 0.5
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.025000000000000022,
-     "ate_tn": 0.25
-    },
-    "maximo_reais": {
-     "com_teto": 25000000.0,
-     "sem_teto": 25000000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 1250000.0000000012,
-     "ate_tn": 12500000.0
-    }
-   },
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [],
-   "guardar": [],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": null,
-     "nome": null,
-     "situacao": "a_revisar",
-     "por": "regra: Estabelecer critérios, regras ou responsáveis; IA: sem resposta válida",
-     "regra_id": "estabelecer_criterios_e_papeis"
-    },
-    "dependencias_no_texto": []
-   },
-   "dispositivo": "Art. 12, § 5º"
-  },
-  {
    "id": "3c31e7c6948c4d3e",
    "titulo": "O CCER não poderá ter acréscimo do montante de energia elétrica",
    "titulo_origem": "regra",
@@ -6857,10 +6611,6 @@
     {
      "acao": "Verifique elegibilidade e, se aplicável, ative o benefício tarifário do art. 195 no cadastro tarifário e gere registro de alteração.",
      "trecho_citado": "benefício tarifário do art. 195"
-    },
-    {
-     "acao": "Notifique o consumidor via e-mail e SMS sobre a cessação do benefício e eventual aplicação do benefício alternativo.",
-     "trecho_citado": "Em caso de não manifestação do consumidor"
     }
    ],
    "contexto": "Art. 14. No caso de unidade consumidora que receba o benefício tarifário do art. 186 da Resolução Normativa nº 1.000, de 2021, e que tenha exercido a opção do art. 166 da Resolução Normativa nº 1.000, de 2021, para adquirir energia elétrica com outro fornecedor para fins de migração ao ACL antes da ",
@@ -7584,6 +7334,16 @@
    "dispositivo": "Art. 11, Parágrafo único"
   },
   {
+   "id": "5f2cad17305d09c9",
+   "natureza": "dever_de_outro_agente",
+   "rotulo": "Dever de outro agente (não é da distribuidora)",
+   "sujeito": "O grupo de trabalho",
+   "unidade": "u0300",
+   "trecho": "§ 1º O grupo de trabalho deverá apresentar a ANEEL proposta de aprimoramento regulatório e, caso necessário, manual de instruções com o detalhamento operacional, com vistas a contemplar o objetivo disposto no caput, no prazo de até 1 ano da publicação desta Resolução.",
+   "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
+   "dispositivo": "Art. 12, § 1º"
+  },
+  {
    "id": "07ab3372c0fc81ef",
    "natureza": "competencia_aneel",
    "rotulo": "Competência da ANEEL",
@@ -7592,6 +7352,16 @@
    "trecho": "§ 3º A ANEEL e a CCEE deverão ser convidadas para participar das reuniões.",
    "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
    "dispositivo": "Art. 12, § 3º"
+  },
+  {
+   "id": "b9ec4a3959208f38",
+   "natureza": "dever_de_outro_agente",
+   "rotulo": "Dever de outro agente (não é da distribuidora)",
+   "sujeito": "As instituições participantes",
+   "unidade": "u0315",
+   "trecho": "§ 5º As instituições participantes deverão definir a coordenação do grupo e demais aspectos relacionados à elaboração do trabalho.",
+   "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
+   "dispositivo": "Art. 12, § 5º"
   },
   {
    "id": "84a9433375ad8be8",
@@ -7612,6 +7382,16 @@
    "trecho": "§ 9º O prazo disposto no caput poderá ser prorrogado mediante solicitação fundamentada do grupo de trabalho e aprovação da ANEEL.",
    "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
    "dispositivo": "Art. 12, § 9º"
+  },
+  {
+   "id": "44e6f2493416fd04",
+   "natureza": "dever_de_outro_agente",
+   "rotulo": "Dever de outro agente (não é da distribuidora)",
+   "sujeito": "A primeira reunião",
+   "unidade": "u0321",
+   "trecho": "§ 11. A primeira reunião deverá ocorrer em até 60 dias da publicação desta Resolução.",
+   "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
+   "dispositivo": "Art. 12, § 11"
   },
   {
    "id": "c761a9e6c006d990",
@@ -7969,17 +7749,6 @@
    },
    "conferido_na_fonte": true
   },
-  "Art. 11, I": {
-   "grupo": "III",
-   "trecho": "I - deixar de instituir ou de prover condições para o adequado funcionamento da Ouvidoria ou do Conselho de Consumidores;",
-   "origem_da_redacao": "redação original",
-   "fonte": {
-    "titulo": "REN 846/2019 (texto compilado oficial até a RN 1.137/2025)",
-    "arquivo": "tests/fontes_impacto/atren2019846.pdf",
-    "sha256": "efe4e35fb41aa1306846677ffc32a0c2a150ee6ac44aafe5f15e475e6ad05ad9"
-   },
-   "conferido_na_fonte": true
-  },
   "Art. 12, VI": {
    "grupo": "IV",
    "trecho": "VI - deixar de realizar a contabilização em conformidade com as normas, procedimentos ou instruções legais ou regulamentares;",
@@ -8005,11 +7774,8 @@
  },
  "linha_do_tempo": {
   "vencida": [],
-  "90dias": [
-   "44e6f2493416fd04"
-  ],
+  "90dias": [],
   "depois": [
-   "5f2cad17305d09c9",
    "59c5496d841c8794"
   ],
   "recorrente": [
@@ -8084,7 +7850,6 @@
    "5609080c03fdcb67",
    "acc78339ce7532ff",
    "0ebb4ed9ace89a7e",
-   "b9ec4a3959208f38",
    "3c31e7c6948c4d3e",
    "6e56e83f4405c837",
    "e9484bb6aff3edc1",
@@ -8329,21 +8094,6 @@
     ],
     "status": "rascunho — revisar"
    },
-   "estabelecer_criterios_e_papeis": {
-    "nome": "Estabelecer critérios, regras ou responsáveis",
-    "ideias_cumprimento": [
-     "Transformar a norma em regra interna escrita, com responsável por cada decisão.",
-     "Definir quem aprova exceções e como são registradas.",
-     "Dar ciência formal às áreas envolvidas.",
-     "Revisar a regra quando a norma mudar."
-    ],
-    "evidencias": [
-     "Norma interna aprovada, com data e versão.",
-     "Registro de ciência das áreas.",
-     "Registro das exceções aprovadas."
-    ],
-    "status": "rascunho — revisar"
-   },
    "manter_registro_historico": {
     "nome": "Manter registro ou histórico",
     "ideias_cumprimento": [
@@ -8371,6 +8121,21 @@
      "Log de envio com data, hora, canal e destinatários.",
      "Modelo da mensagem na versão vigente e histórico de versões.",
      "Relatório de alcance e de falhas de entrega."
+    ],
+    "status": "rascunho — revisar"
+   },
+   "estabelecer_criterios_e_papeis": {
+    "nome": "Estabelecer critérios, regras ou responsáveis",
+    "ideias_cumprimento": [
+     "Transformar a norma em regra interna escrita, com responsável por cada decisão.",
+     "Definir quem aprova exceções e como são registradas.",
+     "Dar ciência formal às áreas envolvidas.",
+     "Revisar a regra quando a norma mudar."
+    ],
+    "evidencias": [
+     "Norma interna aprovada, com data e versão.",
+     "Registro de ciência das áreas.",
+     "Registro das exceções aprovadas."
     ],
     "status": "rascunho — revisar"
    },

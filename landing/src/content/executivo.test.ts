@@ -147,7 +147,7 @@ test('referência do setor: infração grave (Grupo IV, n = 10) quando o valor �
 
 test('destaque da norma: data, deveres identificados e quantos têm prazo, tudo dos dados', () => {
   const d = destaqueDaNorma(planos.ren1174)
-  assert.equal(d.texto, 'publicada em 04/11/2026 · 83 deveres identificados · 3 com prazo · 2 recorrentes')  // dados reprocessados
+  assert.equal(d.texto, 'publicada em 04/11/2026 · 80 deveres identificados · 1 com prazo · 2 recorrentes')  // dados reprocessados
   assert.equal(d.deveres, planos.ren1174.resumo.aplicaveis)
   assert.equal(d.comPrazo, planos.ren1174.obrigacoes.filter((o) => o.prazo.data).length)
   assert.match(destaqueDaNorma(planos.rn1137).texto, /^em vigor desde 30\/10\/2025 · 155 deveres identificados · \d+ com prazo · \d+ recorrentes?$/)
@@ -196,11 +196,15 @@ test('Art. 13, § 3º da REN 1.174 é recorrente, não prazo único', () => {
   assert.equal(o.prazo.data, null)
 })
 
-test('REN 1.174: o prazo de 03/01/2027 aparece no top 5, em primeiro entre as a vencer', () => {
+test('REN 1.174: a primeira reunião do grupo de trabalho (art. 12, § 11) não é dever da distribuidora', () => {
+  const p = planos.ren1174
   const l = top5('ren1174', SIM_INICIAL, 'preliminar')
-  const por = new Map(planos.ren1174.obrigacoes.map((o) => [o.id, o]))
-  assert.equal(por.get(l[0].id)!.prazo.data, '2027-01-03')
-  assert.match(l[0].frase, /^A primeira reunião deve ocorrer/)
+  assert.ok(!p.obrigacoes.some((o) => o.dispositivo === 'Art. 12, § 11'))
+  assert.ok(p.outros_dispositivos.some((o) => o.dispositivo === 'Art. 12, § 11'))
+  assert.ok(!l.some((x) => /primeira reunião/i.test(x.frase)))
+  // o próximo prazo é o de um dever da distribuidora (art. 14, § 1º, II)
+  assert.equal(prazos(p).proxima?.data, '2027-11-04')
+  assert.equal(p.resumo.aplicaveis, 80)
 })
 
 test('títulos com contexto: nada de título que comece por "Ser ", "Até " ou "Em até " no top 5', () => {
@@ -227,5 +231,9 @@ test('defesa possível coerente: obrigação que envolve a prefeitura mostra a a
 
 test('maior multa já aplicada a uma distribuidora, sem nome de empresa', () => {
   assert.equal(textoMaiorMulta(planos.rn1137), 'maior multa já aplicada a uma distribuidora: R$ 165,8 mi (2024), por falhas no restabelecimento após evento climático')
-  assert.match(planos.rn1137.referencia_escala.maior_multa.fonte, /a confirmar/)
+  const m = planos.rn1137.referencia_escala.maior_multa
+  assert.equal(m.fonte, 'fonte pública')
+  assert.match(m.link, /^https:\/\/agenciabrasil\.ebc\.com\.br\//)
+  assert.match(m.fonte_detalhe, /09\/02\/2024.*09\/04\/2024/)
+  assert.doesNotMatch(`${textoMaiorMulta(planos.rn1137)} ${m.fonte} ${m.fonte_detalhe}`, /enel|light|cemig|copel|cpfl/i)
 })

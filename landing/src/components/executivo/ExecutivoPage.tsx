@@ -128,7 +128,7 @@ export function ExecutivoPage() {
         <article className={CARTAO} aria-labelledby="cartao-prazos">
           <h2 id="cartao-prazos" className={ROTULO_CARTAO}>Prazos</h2>
           <p className={NUMERO}>{pz.vencidas} {pz.vencidas === 1 ? 'vencida' : 'vencidas'}</p>
-          <p className="mt-2 text-sm text-ink-soft">{pz.vencidas === 1 ? 'obrigação com prazo já vencido' : 'obrigações com prazo já vencido'}; {pz.proxima ? `próxima vence em ${pz.proxima.dias} dias (${dataBR(pz.proxima.data)})` : 'nenhuma com data a vencer'}</p>
+          <p className="mt-2 text-sm text-ink-soft">{pz.vencidas === 1 ? 'obrigação com prazo já vencido' : 'obrigações com prazo já vencido'}; {pz.proxima ? `próxima vence em ${pz.proxima.dias} dias (${dataBR(pz.proxima.data)})` : 'nenhum prazo a vencer'}</p>
           <p className="mt-1 text-xs text-ink-soft">datas provisórias, a confirmar; dias contados até {dataBR(p.perfil.data_referencia)}</p>
         </article>
       </section>
@@ -158,7 +158,7 @@ export function ExecutivoPage() {
       </section>
 
       <p className="text-sm"><span className="font-semibold">Referência do setor:</span> {ref.texto}. <span className="text-xs text-ink-soft">{ref.nota[0].toUpperCase() + ref.nota.slice(1)}.</span></p>
-      <p className="text-sm"><span className="font-semibold">Referência do setor:</span> {ref.maiorMulta} <span className="text-xs text-ink-soft">(informado; a confirmar)</span></p>
+      <p className="text-sm"><span className="font-semibold">Referência do setor:</span> {ref.maiorMulta} <a href={p.referencia_escala.maior_multa.link} target="_blank" rel="noopener noreferrer" title={p.referencia_escala.maior_multa.fonte_detalhe} className={`text-xs ${LINK}`}>({p.referencia_escala.maior_multa.fonte})</a></p>
 
       <ComoCalculamos ref={como} p={p} />
 

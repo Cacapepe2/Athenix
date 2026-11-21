@@ -82,7 +82,7 @@ SUJEITO_ANEEL = re.compile(r"^\W*(?:a\s+)?(?:ag[êe]ncia|aneel)\b", re.I)
 SUJEITO_OUTRO_AGENTE = re.compile(
     r"^\W*(?:[oa]s?\s+)?(?:ccee\b|c[âa]mara de comercializa|ons\b|operador nacional|sandbox|"
     r"representante da comercializa|(?:agente\s+)?comercializador|gerador|autoprodutor|"
-    r"consumidor|interessado)",
+    r"consumidor|interessado|(?:primeira\s+)?reuni[ãa]o|grupo de trabalho|institui[çc][õo]es participantes)",
     re.I,
 )
 # "A adequação às alterações promovidas por esta Resolução deve ser realizada nos seguintes prazos": o

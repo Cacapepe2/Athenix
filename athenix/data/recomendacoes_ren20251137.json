@@ -16,16 +16,8 @@
  "recomendacoes": {
   "a002094347c42776": [
    {
-    "acao": "Enviar SMS aos consumidores afetados informando a previsão de reestabelecimento do serviço e link para a página da ocorrência.",
-    "trecho_citado": "previsão de reestabelecimento do serviço"
-   },
-   {
     "acao": "Publicar no portal web e no app as demais informações de atendimento previstas no item 105, com link em cada ocorrência.",
     "trecho_citado": "demais informações de que trata o item 105"
-   },
-   {
-    "acao": "Ativar mensagem automática em URA e gravação de voz informando situação aos consumidores (mecanismos digitais e telefônicos).",
-    "trecho_citado": "mecanismos de comunicação ao consumidor"
    }
   ],
   "b758c9c169c145ec": [
@@ -64,10 +56,6 @@
     "trecho_citado": "planos de manejo vegetal"
    },
    {
-    "acao": "Publicar no sítio eletrônico o plano de comunicação revisado com templates de SMS, e-mail e mensagens para consumidores.",
-    "trecho_citado": "de comunicação"
-   },
-   {
     "acao": "Publicar no sítio eletrônico o plano de contingência revisado com pontos de concentração e procedimentos de restabelecimento.",
     "trecho_citado": "de contingência"
    }
@@ -93,10 +81,6 @@
    }
   ],
   "4bc7805026308769": [
-   {
-    "acao": "Publique a versão mais atualizada do plano de manejo vegetal em PDF no sítio eletrônico, link visível na página principal.",
-    "trecho_citado": "versão mais atualizada de seu plano de manejo vegetal"
-   },
    {
     "acao": "Disponibilize cópias impressas do plano atual nos postos de atendimento presencial em local visível e acessível ao público.",
     "trecho_citado": "nos postos de atendimento presencial"
@@ -136,17 +120,9 @@
    {
     "acao": "Publique checklists de mitigação de impacto no portal operacional para minimizar os impactos das contingências.",
     "trecho_citado": "minimizar os impactos das contingências"
-   },
-   {
-    "acao": "Disponibilize procedimentos de isolamento e orientações de evacuação via SMS e totens, assegurando a segurança dos colaboradores e da população.",
-    "trecho_citado": "assegurando a segurança dos colaboradores e da população"
    }
   ],
   "5a66534ae45af0c6": [
-   {
-    "acao": "Anexe ao plano tabela em PDF com nomes, cargos e telefones (fixo e celular) e deixe cópias nos postos de atendimento.",
-    "trecho_citado": "nomes e telefones de contato dos responsáveis"
-   },
    {
     "acao": "Integre a lista de nomes e telefones de contato dos responsáveis ao sistema de despacho para uso imediato pela operação.",
     "trecho_citado": "nomes e telefones de contato dos responsáveis"
@@ -156,10 +132,6 @@
    {
     "acao": "Inclua checklist de EPI e procedimentos de bloqueio (LOTO) no manual do plano e no app de inspeção para priorizar a segurança de todos os colaboradores.",
     "trecho_citado": "priorizar a segurança de todos os colaboradores"
-   },
-   {
-    "acao": "Envie SMS e publique orientações públicas e mapas de exclusão para moradores vizinhos, priorizando a segurança de todos os colaboradores e da população.",
-    "trecho_citado": "segurança de todos os colaboradores e da população"
    }
   ],
   "98f4753768bef99f": [
@@ -174,35 +146,11 @@
   ],
   "59a3e694522c005b": [
    {
-    "acao": "Publique PDF do Plano de Manejo Vegetal no sítio eletrônico e deixe versão impressa legível em cada posto de atendimento presencial.",
-    "trecho_citado": "em sítio eletrônico e nos postos de atendimento presencial"
-   },
-   {
     "acao": "Disponibilize resumo em linguagem clara na página do plano e nos balcões, incluindo perguntas frequentes e contatos para esclarecimento.",
     "trecho_citado": "com uso de linguagem clara e adequada"
    }
   ],
-  "0471327d7eda3834": [
-   {
-    "acao": "Publique o Plano de Contingência em PDF no sítio eletrônico e deixe cópias impressas nos postos de atendimento presencial.",
-    "trecho_citado": "Plano de Contingência"
-   }
-  ],
-  "7f63a33087eca2b1": [
-   {
-    "acao": "Enviar ao sistema eletrônico da ANEEL PDF contendo o alerta meteorológico, justificativa do acionamento e nível do plano de contingência.",
-    "trecho_citado": "enviar regularmente à ANEEL os alertas meteorológicos"
-   },
-   {
-    "acao": "Enviar por e‑mail oficial à ANEEL resumo CSV com datas, origem do alerta e indicação do nível acionado.",
-    "trecho_citado": "enviar regularmente à ANEEL os alertas meteorológicos"
-   }
-  ],
   "1b3991405c9d043c": [
-   {
-    "acao": "Gerar relatório Excel com discriminação itemizada de despesas, incorporar cópias digitais das notas fiscais e anexar ao arquivo PDF.",
-    "trecho_citado": "relatório contendo discriminação das despesas"
-   },
    {
     "acao": "Enviar o relatório e anexos à área de fiscalização da ANEEL via portal de envio ou e‑mail institucional, com identificação da cedente.",
     "trecho_citado": "relatório contendo discriminação das despesas"
@@ -226,28 +174,14 @@
   ],
   "33981a4c29c4c4db": [
    {
-    "acao": "Enviar à cedente ficha técnica por profissional em PDF com certificados de treinamento, cursos e comprovação de experiência relevante.",
-    "trecho_citado": "capacitação e experiência compatíveis"
-   },
-   {
     "acao": "Incluir no dossiê de pessoal cópias digitais de certificados e relatórios de experiência compatível com as atividades a desempenhar.",
     "trecho_citado": "capacitação e experiência compatíveis"
    }
   ],
   "c8fa6b48cf963d61": [
    {
-    "acao": "Registrar e enviar à cedente confirmações de hospedagem em hotel próximo à operação, com datas e comprovantes de reserva em PDF.",
-    "trecho_citado": "alimentação, transporte, hospedagem e segurança"
-   },
-   {
     "acao": "Emitir vouchers de alimentação ou contratar catering e registrar contrato de segurança privada para proteção das equipes.",
     "trecho_citado": "alimentação, transporte, hospedagem e segurança"
-   }
-  ],
-  "0a7ca3ffa419b877": [
-   {
-    "acao": "Digitalize e arquive no dossiê individualizado em sede, em PDF/A, notas fiscais e recibos dos reembolsos por evento emergencial.",
-    "trecho_citado": "manter dossiê individualizado em sua sede"
    }
   ],
   "aa970d563840ad15": [
@@ -276,37 +210,13 @@
     "trecho_citado": "interrupção ocorrida em Situação de Emergência"
    }
   ],
-  "ef8c0e08544c2dc6": [
-   {
-    "acao": "Apurar o indicador DISE por interrupção, registrando data, hora, duração e causa no arquivo CSV do sistema de indicadores.",
-    "trecho_citado": "apurados por interrupção ocorrida em Dia Crítico ou em Situação de Emergência"
-   },
-   {
-    "acao": "Consolidar indicadores mensalmente, considerando o mês civil, em planilha eletrônica única (XLSX) e enviar ao repositório regulatório.",
-    "trecho_citado": "mensalmente, considerando o mês civil"
-   }
-  ],
   "e863a4cbf5a00dd2": [
-   {
-    "acao": "Envie anualmente e-mail formal em PDF aos representantes do Poder Público com evidências da execução dos protocolos.",
-    "trecho_citado": "aos representantes do Poder Público"
-   },
    {
     "acao": "Publique no sítio eletrônico relatório anual detalhado com fluxogramas e registros operacionais da execução dos protocolos.",
     "trecho_citado": "detalhando a execução dos protocolos"
    }
   ],
-  "6a75e130ecf1cdda": [
-   {
-    "acao": "Publique no sítio eletrônico página com os indicadores incisos V e VI, em CSV e gráficos interativos para consulta pública.",
-    "trecho_citado": "incisos V e VI"
-   }
-  ],
   "6c0622d9f1615d32": [
-   {
-    "acao": "Implemente script que calcule DISE por Unidade Consumidora e Ponto de Conexão a partir de registros de interrupção SCADA, exportando CSV mensal.",
-    "trecho_citado": "Duração da Interrupção Individual"
-   },
    {
     "acao": "Crie relatório por consumidor relacionando DISE apurada e status 'Situação de Emergência', gerando arquivo para cálculo de compensações retroativas.",
     "trecho_citado": "Situação de Emergência"
