@@ -148,6 +148,7 @@ function Painel({ l, fechar }: { l: LinhaTop5; fechar: () => void }) {
       <div className={COLUNA}>
         <span className={TITULO_COLUNA}>O que fazer</span>
         {l.fazer ? <span className="text-[15px] leading-snug">✓ {l.fazer.texto} <span className="text-xs font-semibold">Sugestão</span></span> : <span className="text-[15px]">recomendação em revisão</span>}
+        {l.evite && <span className="text-[15px] leading-snug text-evite">✕ {l.evite} <span className="text-xs font-semibold">Sugestão</span></span>}
         {l.proveCom && <span className="mt-1 text-[13px] leading-snug"><strong>Prove com:</strong> {l.proveCom}</span>}
       </div>
       <div className={COLUNA}>

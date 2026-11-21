@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
-import { brlCurto, pct, type Modo, type Simulacao } from '../../content/plano'
+import { brlCurto, normaDaUrl, pct, type Modo, type Simulacao } from '../../content/plano'
+import { norma as dadosDa, urlPlanoCompleto } from '../../content/executivo'
 import { FILTROS_INICIAIS, OPCOES, blocosDoPlano, filtrar, filtrosDaUrl, urlComFiltros, type BlocoPlano, type Filtros } from '../../content/filtros'
 
 // Plano completo, por obrigação: filtros à esquerda (empilham no celular) e blocos clicáveis. Mesma lógica
@@ -17,6 +18,8 @@ export function BlocosObrigacoes({ sim, modo }: { sim: Simulacao | null; modo: M
     setAberto(null)
     history.replaceState(history.state, '', `${location.pathname}${urlComFiltros(location.search, novo)}${location.hash}`)
   }
+  const naPagina = normaDaUrl()
+  const outra = filtros.norma !== 'todas' && filtros.norma !== naPagina ? filtros.norma : null
   const temFiltro = OPCOES.some((o) => filtros[o.chave] !== 'todas')
 
   return <section id="obrigacoes" aria-labelledby="titulo-obrigacoes" className="space-y-4 print:hidden">
@@ -31,6 +34,7 @@ export function BlocosObrigacoes({ sim, modo }: { sim: Simulacao | null; modo: M
       </aside>
 
       <div className="flex min-w-0 flex-[999_1_560px] flex-col gap-3.5">
+        {outra && <p className="border-[length:var(--borda-forte)] border-obsidian px-4 py-2.5 text-sm font-semibold">Mostrando obrigações da {dadosDa(outra).rotulo.replace('/2025', '').replace('/2026', '')}. O resto da página é da {dadosDa(naPagina).rotulo.replace('/2025', '').replace('/2026', '')} · <a href={urlPlanoCompleto(outra)} className="underline underline-offset-4 hover:text-acento">Ver a página da {dadosDa(outra).rotulo.replace('/2025', '').replace('/2026', '')} →</a></p>}
         <p className="text-sm" aria-live="polite">Mostrando <strong>{visiveis.length}</strong> de {todos.length} obrigações · clique num bloco para abrir</p>
         <div className="grid gap-3 [grid-template-columns:repeat(auto-fill,minmax(220px,1fr))]">
           {visiveis.map((b) => <Bloco key={`${b.norma}-${b.id}`} b={b} aberta={aberto === `${b.norma}-${b.id}`} alternar={() => setAberto(aberto === `${b.norma}-${b.id}` ? null : `${b.norma}-${b.id}`)} />)}
@@ -68,6 +72,7 @@ function Bloco({ b, aberta, alternar }: { b: BlocoPlano; aberta: boolean; altern
           <span className="text-[13px] font-bold">Faça</span>
           {b.fazer ? b.fazer.todas.slice(0, 2).map((a) => <span key={a} className="border-l-[length:var(--borda-titulo)] border-obsidian pl-3.5 text-[15px] leading-snug">{a}</span>) : <span className="text-[15px]">recomendação em revisão</span>}
           {b.fazer && <span className="text-xs font-semibold">Sugestão (IA), aguarda revisão humana</span>}
+          {b.evite && <><span className="mt-2 text-[13px] font-bold text-evite">Evite</span><span className="border-l-[length:var(--borda-titulo)] border-evite pl-3.5 text-[15px] leading-snug">{b.evite}</span><span className="text-xs font-semibold">Sugestão (IA), aguarda revisão humana</span></>}
         </div>
         <div className="flex flex-col gap-2">
           <span className="text-[13px] font-bold">O que provar</span>

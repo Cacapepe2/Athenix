@@ -45,6 +45,8 @@ export interface Obrigacao {
   titulo_origem: 'regra' | 'ia'
   /** Rótulo de até 5 palavras (IA, linguagem simples); null: usa o título encurtado. */
   titulo_curto: string | null
+  /** "Evite" sugerido pela IA (cita trecho do dispositivo); null: a tela não mostra a linha. */
+  evite: { acao: string; trecho_citado: string } | null
   /** Ações específicas sugeridas pela IA para este dispositivo (cada uma cita uma expressão literal dele). */
   recomendacoes: { acao: string; trecho_citado: string }[]
   /** Caput do inciso ou parágrafo (até 300 caracteres); vazio quando o dispositivo é o próprio caput. */
@@ -188,7 +190,7 @@ export interface PlanoDados {
     causas_por_tema: Record<string, { nome: string; nota: string }>
     contraponto: { titulo: string; urls: string[]; o_que_e: string; a_confirmar: string }
   }
-  referencia_escala: { maior_multa: { rotulo: string; valor_reais: number; ano: number; motivo: string; fonte: string; fonte_detalhe: string; link: string }; infracao_grave: { rotulo: string; autos: number; mediana_reais: number; maximo_reais: number; fonte: string; limites: string }; rotulo: string; segmento: string; unidade: string; autos: number; empresas: number; mediana_reais: number; maximo_reais: number; fonte: string; limites: string }
+  referencia_escala: { maior_multa: { rotulo: string; valor_reais: number; ano: number; motivo: string; fonte: string }; infracao_grave: { rotulo: string; autos: number; mediana_reais: number; maximo_reais: number; fonte: string; limites: string }; rotulo: string; segmento: string; unidade: string; autos: number; empresas: number; mediana_reais: number; maximo_reais: number; fonte: string; limites: string }
   simulador: {
     faixas: { id: string; rotulo: string; base: number }[]
     origem_faixas: string

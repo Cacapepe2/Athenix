@@ -1,0 +1,141 @@
+{
+ "aviso": "Sugestões da IA (Sugestão · aguarda revisão humana). Cada frase cita uma expressão literal do dispositivo.",
+ "modelo": "gpt-5-mini",
+ "versao_do_prompt": "evite-1",
+ "prompt_hash": "831cc488830718b25f42993ce035019efb99b6066ee2a13c23e0c9ddb6c391de",
+ "gerado_em": "2026-11-20",
+ "preco_usd_por_milhao": {
+  "input": "0.275",
+  "output": "2.20",
+  "source": "https://azure.microsoft.com/pt-br/pricing/details/azure-openai/",
+  "date": "2026-11-17",
+  "currency": "USD"
+ },
+ "custo_total_da_execucao_usd": "0.0586",
+ "evite": {
+  "a002094347c42776": {
+   "acao": "Divulgar previsão vaga de reestabelecimento sem justificativa técnica e sem estimativa confiável.",
+   "trecho_citado": "previsão de reestabelecimento do serviço"
+  },
+  "b758c9c169c145ec": {
+   "acao": "Publicar mapa online sem exibir o número total de unidades consumidoras afetadas.",
+   "trecho_citado": "número total de unidades consumidoras afetadas"
+  },
+  "d61df9955ff31362": {
+   "acao": "Divulgar ocorrências abertas sem os campos exigidos pelo item 107 do Anexo IV.",
+   "trecho_citado": "informações relacionadas às ocorrências abertas"
+  },
+  "7d0919bce4ef3fe9": {
+   "acao": "Omitir o estágio da operação ou usar descrição ambígua não alinhada ao plano de contingência.",
+   "trecho_citado": "Estágio da operação"
+  },
+  "f0ee215c5b31a957": {
+   "acao": "Revisar planos sem publicar versão atualizada e acessível ao público.",
+   "trecho_citado": "revisar e publicar os planos de manejo vegetal"
+  },
+  "def2aafb6310db09": {
+   "acao": "Elaborar plano sem coordenação com o Poder Público Municipal e órgãos estaduais competentes.",
+   "trecho_citado": "coordenação com o Poder Público Municipal"
+  },
+  "4e4622fc78c94514": {
+   "acao": "Aguardar autorização externa antes de remover árvores ou galhos caídos sobre a rede.",
+   "trecho_citado": "rápida remoção de árvores ou galhos caídos sobre a rede"
+  },
+  "4bc7805026308769": {
+   "acao": "Disponibilizar no site versão desatualizada do plano de manejo vegetal ou em linguagem inacessível.",
+   "trecho_citado": "versão mais atualizada de seu plano de manejo vegetal"
+  },
+  "868bbdfdd6ed7ce7": {
+   "acao": "Omitir interações sobre manejo da vegetação no registro.",
+   "trecho_citado": "registro das interações com o Poder Público Municipal"
+  },
+  "e863a4cbf5a00dd2": {
+   "acao": "Enviar comunicações formais sem detalhar execução dos protocolos.",
+   "trecho_citado": "detalhando a execução dos protocolos estabelecidos"
+  },
+  "dd9e67e41aa4ea38": {
+   "acao": "Registrar mais de dois representantes oficiais por ente.",
+   "trecho_citado": "até dois representantes oficiais de cada ente"
+  },
+  "c730ffb2caee9101": {
+   "acao": "Manter canais oficiais inacessíveis ou inoperantes em situações de emergência.",
+   "trecho_citado": "acessíveis e operacionais em situações de emergência"
+  },
+  "b7c2d81bf787af70": {
+   "acao": "Elaborar plano sem medidas que assegurem segurança de colaboradores e população.",
+   "trecho_citado": "assegurando a segurança dos colaboradores e da população"
+  },
+  "5a66534ae45af0c6": {
+   "acao": "Listar apenas cargos sem nomes ou telefones de contato.",
+   "trecho_citado": "nomes e telefones de contato dos responsáveis"
+  },
+  "db13351273cc2a40": {
+   "acao": "Priorizar operações sobre medidas de proteção à segurança de colaboradores e população.",
+   "trecho_citado": "priorizar a segurança de todos os colaboradores e da população"
+  },
+  "98f4753768bef99f": {
+   "acao": "Adotar respostas que elevem, em vez de minimizar, o impacto das contingências.",
+   "trecho_citado": "minimizar o impacto das contingências nas operações"
+  },
+  "59a3e694522c005b": {
+   "acao": "Publicar Plano de Manejo Vegetal apenas online, omitindo postos de atendimento presencial.",
+   "trecho_citado": "disponibilizar em sítio eletrônico e nos postos"
+  },
+  "0471327d7eda3834": {
+   "acao": "Publicar Plano de Contingência apenas no sítio eletrônico, omitindo disponibilidade presencial.",
+   "trecho_citado": "o seu Plano de Contingência"
+  },
+  "7f63a33087eca2b1": {
+   "acao": "Enviar alertas meteorológicos somente depois do início do evento, não justificando acionamento preventivo.",
+   "trecho_citado": "enviar regularmente à ANEEL os alertas meteorológicos"
+  },
+  "1b3991405c9d043c": {
+   "acao": "Enviar relatório sem discriminar despesas reembolsáveis, consolidando todos os custos sem detalhamento.",
+   "trecho_citado": "discriminação das despesas ou custos incorridos"
+  },
+  "ef6845fb40369ad2": {
+   "acao": "Consolidar informações sem evidenciar a proporção de cada cedente nas despesas e registros contábeis.",
+   "trecho_citado": "evidenciar a proporção de cada distribuidora ou transmissora cedente"
+  },
+  "33981a4c29c4c4db": {
+   "acao": "Escalar equipes sem comprovada capacitação e experiência compatíveis com as atividades.",
+   "trecho_citado": "capacitação e experiência compatíveis"
+  },
+  "c8fa6b48cf963d61": {
+   "acao": "Não prover alimentação, transporte, hospedagem e segurança adequados às equipes cedidas.",
+   "trecho_citado": "alimentação, transporte, hospedagem e segurança"
+  },
+  "0a7ca3ffa419b877": {
+   "acao": "Guardar dossiê sem documentos comprobatórios da neutralidade de custos.",
+   "trecho_citado": "neutralidade de custos e despesas reembolsados"
+  },
+  "aa970d563840ad15": {
+   "acao": "Implantar processo apenas documental, sem acompanhamento da evolução dos eventos climáticos.",
+   "trecho_citado": "processo de comunicação e acompanhamento da evolução"
+  },
+  "49c69256fe352127": {
+   "acao": "Disponibilizar a API sem documentação dos endpoints e métodos.",
+   "trecho_citado": "disponibilizar a API"
+  },
+  "6a75e130ecf1cdda": {
+   "acao": "Publicar indicadores de maneira temporária sem manter por cinco anos no sítio eletrônico.",
+   "trecho_citado": "manter, por até cinco anos, em seu sítio eletrônico"
+  },
+  "6c0622d9f1615d32": {
+   "acao": "Iniciar apurações sem seguir as disposições da Seção 8.2 do Módulo 8 do PRODIST.",
+   "trecho_citado": "Seção 8.2 do Módulo 8 do PRODIST"
+  },
+  "fa76d96bea74ec08": {
+   "acao": "Calcular compensação omitindo consumidores ou centrais conectados em DIT.",
+   "trecho_citado": "inclusive aqueles conectados em DIT"
+  },
+  "1c9deb8e873af795": {
+   "acao": "Efetuar compensação somente para interrupções fora de Situação de Emergência.",
+   "trecho_citado": "cada interrupção ocorrida em Situação de Emergência"
+  },
+  "ef8c0e08544c2dc6": {
+   "acao": "Apurar DISE mensalmente em lugar de por interrupção ocorrida em Situação de Emergência.",
+   "trecho_citado": "apurados por interrupção ocorrida em Dia Crítico ou em Situação de Emergência"
+  }
+ }
+}

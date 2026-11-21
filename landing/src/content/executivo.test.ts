@@ -232,10 +232,9 @@ test('defesa possível coerente: obrigação que envolve a prefeitura mostra a a
 test('maior multa já aplicada a uma distribuidora, sem nome de empresa', () => {
   assert.equal(textoMaiorMulta(planos.rn1137), 'maior multa já aplicada a uma distribuidora: R$ 165,8 mi (2024), por falhas no restabelecimento após evento climático')
   const m = planos.rn1137.referencia_escala.maior_multa
-  assert.equal(m.fonte, 'fonte pública')
-  assert.match(m.link, /^https:\/\/agenciabrasil\.ebc\.com\.br\//)
-  assert.match(m.fonte_detalhe, /09\/02\/2024.*09\/04\/2024/)
-  assert.doesNotMatch(`${textoMaiorMulta(planos.rn1137)} ${m.fonte} ${m.fonte_detalhe}`, /enel|light|cemig|copel|cpfl/i)
+  assert.equal(m.fonte, 'notícia pública, Agência Brasil, 09/02/2024; multa mantida pela diretoria da ANEEL em 09/04/2024')
+  assert.ok(!('link' in m) && !/https?:|www\./.test(JSON.stringify(m)), 'sem URL')
+  assert.doesNotMatch(`${textoMaiorMulta(planos.rn1137)} ${m.fonte}`, /enel|light|cemig|copel|cpfl/i)
 })
 
 test('blocos da executiva: título curto (até 5 palavras), prazo, valor e barras, sem somar infrações', () => {

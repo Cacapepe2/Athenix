@@ -519,6 +519,7 @@ def montar(
     tema_por_unidade=None,
     recomendacoes=None,
     titulos_curtos=None,
+    evite=None,
 ):
     """Plano para o perfil `p`. `chave(row)` identifica a obrigação no cache da IA. `cenarios`:
     {atenuante: resultado de impacto.avaliar com esse atenuante e fração do valor base 100%}."""
@@ -598,6 +599,8 @@ def montar(
             "titulo_completo": completo,
             # Rótulo de até 5 palavras (IA, linguagem simples) para os blocos; None: a tela encurta o título.
             "titulo_curto": (titulos_curtos or {}).get(item["chave"]),
+            # "Evite" sugerido pela IA (valida: cita trecho do dispositivo); None: a tela não mostra a linha.
+            "evite": (evite or {}).get(item["chave"]),
             # Ações específicas sugeridas pela IA para ESTE dispositivo (validadas: citam o próprio texto).
             "recomendacoes": (recomendacoes or {}).get(item["chave"], []),
             "contexto": caput_do_dispositivo(unidade, by_id)[:300],  # caput do inciso/parágrafo, para o leitor e a IA

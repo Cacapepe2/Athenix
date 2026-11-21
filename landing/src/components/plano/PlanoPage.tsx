@@ -384,7 +384,7 @@ function ReferenciaSetor() {
   const esc = plano.referencia_escala
   return <div className="max-w-3xl text-sm">
     <p>Mediana de {esc.autos} autos de infração publicados em distribuição (amostra pequena) ≈ <strong>{brlCurto(esc.mediana_reais)}</strong>; maior na amostra ≈ <strong>{brlCurto(esc.maximo_reais)}</strong>.</p>
-    <p className="mt-2">{textoMaiorMulta(plano)} <a href={esc.maior_multa.link} target="_blank" rel="noopener noreferrer" title={esc.maior_multa.fonte_detalhe} className={LINK}>({esc.maior_multa.fonte})</a>.</p>
+    <p className="mt-2">{textoMaiorMulta(plano)} <span className="text-xs text-ink-soft">(fonte: {esc.maior_multa.fonte})</span>.</p>
     <p className="mt-1 text-xs text-ink-soft">{esc.rotulo}. É valor do auto inteiro, que pode reunir várias infrações; não é comparável ao valor por infração. Limites da amostra em “Como chegamos aqui”.</p>
   </div>
 }

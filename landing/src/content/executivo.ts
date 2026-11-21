@@ -221,6 +221,7 @@ export interface LinhaTop5 {
   prazoBase: string | null
   barras: BarraDeValor[]
   proveCom: string | null
+  evite: string | null
   gravidadeRotulo: string
   normaId: NormaId
   frase: string
@@ -268,7 +269,7 @@ export function top5(normaId: NormaId, s: Simulacao | null, modo: Modo, n = 5): 
     const t = textoDoValor(v)
     return {
       id: o.id, trecho: o.trecho, situacaoPrazo: o.situacao, reduzidoReais: barrasDeValor(p, v, s).find((b) => b.cor === 'reducao')?.reais ?? null, titulo: tituloCurto(o), prazoCurto: prazoCurto(o), prazoBase: prazoBase(o), barras: barrasDeValor(p, v, s),
-      proveCom: proveCom(p, o), gravidadeRotulo: rotuloDoGrupo(v?.grupo), normaId, frase: frase(o), fraseOriginal: o.titulo_completo, dispositivo: o.dispositivo,
+      proveCom: proveCom(p, o), evite: o.evite?.acao ?? null, gravidadeRotulo: rotuloDoGrupo(v?.grupo), normaId, frase: frase(o), fraseOriginal: o.titulo_completo, dispositivo: o.dispositivo,
       prazo: prazoTexto(o), situacao: o.situacao, valor: v, gravidade: t.gravidade, textoValor: t.valor,
       preliminar: t.preliminar, fazer: oQueFazer(p, o), defesa: defesa(p, o), link: urlDetalhe(normaId, o.id),
     }
