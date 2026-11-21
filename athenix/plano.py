@@ -199,14 +199,9 @@ def caput_do_dispositivo(unit, by_id):
     return ""
 
 
-def natureza(row, caput=""):
-    """Natureza do dispositivo pelo SUJEITO e pela MODALIDADE da oração principal (modality vem de
-    proposals.modality): "dever" da distribuidora; "competencia_aneel" quando o sujeito é a Agência;
-    "direito_de_terceiro" quando consumidor ou usuário é o sujeito de uma permissão; "faculdade" para
-    qualquer outra permissão; "dever_de_outro_agente" quando o sujeito é outro agente (CCEE, Sandbox,
-    comercializador, consumidor). Só "dever" entra na contagem principal."""
+def _sujeito_efetivo(row, caput):
+    """Sujeito do dispositivo: o próprio ou, quando não há (fragmento, verbo no início), o do caput."""
     sujeito = row.get("subject", "") or ""
-    # Inciso sem sujeito próprio ("não identificado", fragmento sem substantivo) HERDA o sujeito do caput.
     if caput and (
         not sujeito
         or sujeito == "não identificado"
@@ -215,7 +210,40 @@ def natureza(row, caput=""):
             r"\s*[a-zà-ú]+(?:ar|er|ir)\b", sujeito
         )  # começa por verbo ("celebrar o Contrato...")
     ):
-        sujeito = proposals.subject_of(caput)
+        return proposals.subject_of(caput)
+    return sujeito
+
+
+def _distribuidora_age(row, caput):
+    texto = f"{caput} {row.get('action', '')}"
+    return re.search(
+        r"\bpel[oa]s?\s+(?:distribuidor|concession)|\b(?:a|as)\s+distribuidor\w*\s+(?:dever|deve|poder|pode|fica)",
+        texto,
+        re.I,
+    )
+
+
+def sujeito_implicito(row, caput=""):
+    """Dever contado para a distribuidora SEM ela escrita no texto: nem como sujeito (próprio ou herdado do caput)
+    nem agindo de forma explícita ("pela distribuidora"). É sujeito de norma dirigida às distribuidoras ("O plano de
+    contingência deve ser elaborado"): vai marcado "sujeito implícito (a revisar)"."""
+    sujeito = _sujeito_efetivo(row, caput)
+    do_caput = proposals.subject_of(caput) if caput else ""
+    return not (
+        SUJEITO_DISTRIBUIDORA.search(sujeito)
+        or SUJEITO_DISTRIBUIDORA.search(do_caput)
+        or _distribuidora_age(row, caput)
+    )
+
+
+def natureza(row, caput=""):
+    """Natureza do dispositivo pelo SUJEITO e pela MODALIDADE da oração principal (modality vem de
+    proposals.modality): "dever" da distribuidora; "competencia_aneel" quando o sujeito é a Agência;
+    "direito_de_terceiro" quando consumidor ou usuário é o sujeito de uma permissão; "faculdade" para
+    qualquer outra permissão; "dever_de_outro_agente" quando o sujeito é outro agente (CCEE, Sandbox,
+    comercializador, consumidor). Só "dever" entra na contagem principal."""
+    # Inciso sem sujeito próprio ("não identificado", fragmento sem substantivo) HERDA o sujeito do caput.
+    sujeito = _sujeito_efetivo(row, caput)
     if TRANSICAO.search(sujeito) or TRANSICAO.search(caput[:140]):
         return "regra_de_transicao"
     if SUJEITO_ANEEL.match(sujeito) or SUJEITO_EMISSOR.match(sujeito):
@@ -226,11 +254,7 @@ def natureza(row, caput=""):
         return "dever_de_outro_agente"
     # Sujeito impessoal ("A solicitação de redução...") mas o caput diz quem age: "por consumidor livre".
     texto = f"{caput} {row.get('action', '')}"
-    distribuidora_age = re.search(
-        r"\bpel[oa]s?\s+(?:distribuidor|concession)|\b(?:a|as)\s+distribuidor\w*\s+(?:dever|deve|poder|pode|fica)",
-        texto,
-        re.I,
-    )
+    distribuidora_age = _distribuidora_age(row, caput)
     if (
         not SUJEITO_DISTRIBUIDORA.search(sujeito)
         and not distribuidora_age
@@ -669,6 +693,8 @@ def montar(
             "titulo": titulo,
             "titulo_origem": origem_titulo,
             "titulo_completo": completo,
+            # Distribuidora ausente do texto (nem como sujeito, nem pelo caput): "sujeito implícito (a revisar)".
+            "sujeito_implicito": sujeito_implicito(row, caput_do_dispositivo(unidade, by_id)),
             # Rótulo de até 5 palavras (IA, linguagem simples) para os blocos; None: a tela encurta o título.
             "titulo_curto": (titulos_curtos or {}).get(item["chave"]),
             # "Evite" sugerido pela IA (valida: cita trecho do dispositivo); None: a tela não mostra a linha.
