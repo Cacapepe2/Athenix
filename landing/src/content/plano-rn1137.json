@@ -1,6 +1,6 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "1672aeb",
+ "commit_origem": "ee4281f",
  "gerado_em": "2026-11-21",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
@@ -43,7 +43,7 @@
    "limites": "n = 10 (pequena). O campo do auto traz só o grupo e o artigo, sem o inciso: não separa XXVI, XXVII ou XXVIII."
   },
   "maior_multa": {
-   "rotulo": "maior multa já aplicada a uma distribuidora",
+   "rotulo": "maior multa aplicada a uma distribuidora até fev/2024, segundo a ANEEL",
    "valor_reais": 165800000,
    "ano": 2024,
    "motivo": "falhas no restabelecimento após evento climático",
@@ -130,19 +130,19 @@
  },
  "resumo": {
   "identificadas": 168,
-  "aplicaveis": 155,
-  "outros_dispositivos": 12,
+  "aplicaveis": 153,
+  "outros_dispositivos": 14,
   "fora_do_perfil": 1,
   "por_situacao": {
-   "vencida": 6,
+   "vencida": 7,
    "90dias": 0,
    "depois": 0,
    "recorrente": 2,
    "evento": 20,
-   "sem_prazo": 127
+   "sem_prazo": 124
   },
   "na_fila": 43,
-  "a_confirmar": 112,
+  "a_confirmar": 110,
   "sem_multa": 0,
   "grupo_mais_grave": "IV",
   "temas": 8
@@ -160,6 +160,7 @@
      "texto": "Vencido desde 28/04/2026 (203 dias)",
      "dias": -203,
      "provisorio": true,
+     "condicional": false,
      "base": "2025-10-30",
      "situacao": "vencida"
     },
@@ -176,6 +177,7 @@
      "texto": "Vencido desde 28/01/2026 (293 dias)",
      "dias": -293,
      "provisorio": true,
+     "condicional": false,
      "base": "2025-10-30",
      "situacao": "vencida"
     },
@@ -192,6 +194,7 @@
      "texto": "Vencido desde 28/04/2026 (203 dias)",
      "dias": -203,
      "provisorio": true,
+     "condicional": false,
      "base": "2025-10-30",
      "situacao": "vencida"
     },
@@ -199,7 +202,7 @@
    }
   ],
   "confirmar": {
-   "obrigacoes": 112,
+   "obrigacoes": 110,
    "temas_sem_calculo_confirmado": 2
   }
  },
@@ -229,6 +232,7 @@
     "texto": "Vencido desde 28/04/2026 (203 dias)",
     "dias": -203,
     "provisorio": true,
+    "condicional": false,
     "base": "2025-10-30",
     "situacao": "vencida"
    },
@@ -401,6 +405,7 @@
     "texto": "Vencido desde 28/01/2026 (293 dias)",
     "dias": -293,
     "provisorio": true,
+    "condicional": false,
     "base": "2025-10-30",
     "situacao": "vencida"
    },
@@ -576,6 +581,7 @@
     "texto": "Vencido desde 28/04/2026 (203 dias)",
     "dias": -203,
     "provisorio": true,
+    "condicional": false,
     "base": "2025-10-30",
     "situacao": "vencida"
    },
@@ -1040,170 +1046,28 @@
    "dependencias_no_texto": []
   },
   {
-   "id": "cessao",
-   "nome": "Cessão emergencial entre distribuidoras",
-   "fontes": [
-    {
-     "rotulo": "Seção 4.10",
-     "titulo": "Cessão Emergencial de recursos humanos, equipamentos e materiais entre distribuidoras",
-     "unidade": "u0086"
-    },
-    {
-     "rotulo": "Seção VIII",
-     "titulo": "Das Medidas Administrativas e de Cessão Emergencial",
-     "unidade": "u0283"
-    }
-   ],
-   "n": 32,
-   "contagem": {
-    "vencida": 0,
-    "90dias": 0,
-    "depois": 0,
-    "recorrente": 0,
-    "evento": 15,
-    "sem_prazo": 17
-   },
-   "prazo_mais_urgente": null,
-   "na_fila": 0,
-   "a_confirmar": 32,
-   "grupos": [],
-   "grupo_mais_grave": null,
-   "infracoes": [],
-   "faixa": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "IV"
-    ],
-    "teto_grupo_pct": 1.0,
-    "maximo_pct": {
-     "com_teto": 1.0,
-     "sem_teto": 1.0
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.050000000000000044,
-     "ate_tn": 0.5
-    },
-    "maximo_reais": {
-     "com_teto": 50000000.0,
-     "sem_teto": 50000000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 2500000.0000000023,
-     "ate_tn": 25000000.0
-    }
-   },
-   "grupos_sugeridos": [
-    "I",
-    "II",
-    "III",
-    "IV"
-   ],
-   "ia": {
-    "dispositivo": "Art. 11, V",
-    "n": 13,
-    "de": 28
-   },
-   "evidencias": [
-    {
-     "id": "relatorio",
-     "n": 13,
-     "exemplo": {
-      "obrigacao": "eeabcc619985bac4",
-      "trecho": "a ANEEL, em até 60 dias após o fim da situação emergencial, relatório contendo discriminação das despesas ou custos incorridos a"
-     }
-    },
-    {
-     "id": "registro",
-     "n": 2,
-     "exemplo": {
-      "obrigacao": "ca89c86c91fab439",
-      "trecho": "j) atividades desenvolvidas pelas equipes cedidas, registradas detalhadamente, por localidade;"
-     }
-    },
-    {
-     "id": "simulacao",
-     "n": 1,
-     "exemplo": {
-      "obrigacao": "3b0f6e7ae5d7a5cb",
-      "trecho": "f) Realização de testes regulares de Cessão Emergencial, simulando cenários de cris"
-     }
-    }
-   ],
-   "guardar": [
-    {
-     "id": "terceiros",
-     "n": 25
-    },
-    {
-     "id": "protocolos",
-     "n": 14
-    },
-    {
-     "id": "aneel",
-     "n": 13
-    }
-   ],
-   "excludentes": [],
-   "causa_externa": "argumento a confirmar com advogado",
-   "principais": [
-    "67dac8ada9048f75",
-    "ef6845fb40369ad2",
-    "33981a4c29c4c4db",
-    "c8fa6b48cf963d61"
-   ],
-   "obrigacoes": [
-    "eeabcc619985bac4",
-    "743176314038e1bc",
-    "63d080f10ea001db",
-    "5f85b262f557ee25",
-    "deeab00be5f0f68f",
-    "189be3218a0cbccf",
-    "4b62fdd082d510d6",
-    "002b589ec9ac2f4f",
-    "2be47277983ff641",
-    "ca89c86c91fab439",
-    "aacda5a99abb796e",
-    "88b6fa7ef4189740",
-    "768ca43e4161c231",
-    "610cc5d8b942d8ac",
-    "67dac8ada9048f75",
-    "cea10544cc62dbe7",
-    "5c34e0b541763f48",
-    "ef6845fb40369ad2",
-    "a99fead68b4bd135",
-    "7de834f7377be0f9",
-    "75da33f12b23776b",
-    "3b0f6e7ae5d7a5cb",
-    "7a8218ee951a3605",
-    "7c1a7f748434daf2",
-    "51d4035c89333aa8",
-    "9596972c305943ee",
-    "921c74abaa653d5d",
-    "33981a4c29c4c4db",
-    "c8fa6b48cf963d61",
-    "dace5661de038677",
-    "7dff368ce09aa0a5",
-    "eadfd60af5f29b5e"
-   ],
-   "dependencias_no_texto": []
-  },
-  {
    "id": "outros",
    "nome": "Outras obrigações",
    "fontes": [],
    "n": 6,
    "contagem": {
-    "vencida": 0,
+    "vencida": 1,
     "90dias": 0,
     "depois": 0,
     "recorrente": 0,
     "evento": 4,
-    "sem_prazo": 2
+    "sem_prazo": 1
    },
-   "prazo_mais_urgente": null,
+   "prazo_mais_urgente": {
+    "obrigacao": "2c00dc4ce9434217",
+    "data": "2025-10-30",
+    "texto": "Vencido desde 30/10/2025 (383 dias)",
+    "dias": -383,
+    "provisorio": true,
+    "condicional": false,
+    "base": "2025-10-30",
+    "situacao": "vencida"
+   },
    "na_fila": 1,
    "a_confirmar": 5,
    "grupos": [
@@ -1307,12 +1171,12 @@
     "6a75e130ecf1cdda"
    ],
    "obrigacoes": [
+    "2c00dc4ce9434217",
     "0a7ca3ffa419b877",
     "aa970d563840ad15",
     "49c69256fe352127",
     "6a75e130ecf1cdda",
-    "d6664266cb6f2dc2",
-    "2c00dc4ce9434217"
+    "d6664266cb6f2dc2"
    ],
    "dependencias_no_texto": [
     {
@@ -1331,6 +1195,155 @@
      "trecho_literal": "do Decreto 12.068, de 20 de julho de 2024, em até 30 dias, contados da publicação das instruções pela ANEEL"
     }
    ]
+  },
+  {
+   "id": "cessao",
+   "nome": "Cessão emergencial entre distribuidoras",
+   "fontes": [
+    {
+     "rotulo": "Seção 4.10",
+     "titulo": "Cessão Emergencial de recursos humanos, equipamentos e materiais entre distribuidoras",
+     "unidade": "u0086"
+    },
+    {
+     "rotulo": "Seção VIII",
+     "titulo": "Das Medidas Administrativas e de Cessão Emergencial",
+     "unidade": "u0283"
+    }
+   ],
+   "n": 30,
+   "contagem": {
+    "vencida": 0,
+    "90dias": 0,
+    "depois": 0,
+    "recorrente": 0,
+    "evento": 15,
+    "sem_prazo": 15
+   },
+   "prazo_mais_urgente": null,
+   "na_fila": 0,
+   "a_confirmar": 30,
+   "grupos": [],
+   "grupo_mais_grave": null,
+   "infracoes": [],
+   "faixa": null,
+   "faixa_preliminar": {
+    "grupos": [
+     "IV"
+    ],
+    "teto_grupo_pct": 1.0,
+    "maximo_pct": {
+     "com_teto": 1.0,
+     "sem_teto": 1.0
+    },
+    "teto_legal_pct": 3.0,
+    "teto_legal_lei_pct": 3.0,
+    "teto_legal_subestimado": true,
+    "com_atenuante_pct": {
+     "espontanea": 0.050000000000000044,
+     "ate_tn": 0.5
+    },
+    "maximo_reais": {
+     "com_teto": 50000000.0,
+     "sem_teto": 50000000.0
+    },
+    "com_atenuante_reais": {
+     "espontanea": 2500000.0000000023,
+     "ate_tn": 25000000.0
+    }
+   },
+   "grupos_sugeridos": [
+    "I",
+    "II",
+    "III",
+    "IV"
+   ],
+   "ia": {
+    "dispositivo": "Art. 11, V",
+    "n": 13,
+    "de": 27
+   },
+   "evidencias": [
+    {
+     "id": "relatorio",
+     "n": 13,
+     "exemplo": {
+      "obrigacao": "eeabcc619985bac4",
+      "trecho": "a ANEEL, em até 60 dias após o fim da situação emergencial, relatório contendo discriminação das despesas ou custos incorridos a"
+     }
+    },
+    {
+     "id": "registro",
+     "n": 2,
+     "exemplo": {
+      "obrigacao": "ca89c86c91fab439",
+      "trecho": "j) atividades desenvolvidas pelas equipes cedidas, registradas detalhadamente, por localidade;"
+     }
+    },
+    {
+     "id": "simulacao",
+     "n": 1,
+     "exemplo": {
+      "obrigacao": "3b0f6e7ae5d7a5cb",
+      "trecho": "f) Realização de testes regulares de Cessão Emergencial, simulando cenários de cris"
+     }
+    }
+   ],
+   "guardar": [
+    {
+     "id": "terceiros",
+     "n": 25
+    },
+    {
+     "id": "protocolos",
+     "n": 14
+    },
+    {
+     "id": "aneel",
+     "n": 13
+    }
+   ],
+   "excludentes": [],
+   "causa_externa": "argumento a confirmar com advogado",
+   "principais": [
+    "67dac8ada9048f75",
+    "ef6845fb40369ad2",
+    "33981a4c29c4c4db",
+    "c8fa6b48cf963d61"
+   ],
+   "obrigacoes": [
+    "eeabcc619985bac4",
+    "743176314038e1bc",
+    "63d080f10ea001db",
+    "5f85b262f557ee25",
+    "deeab00be5f0f68f",
+    "189be3218a0cbccf",
+    "4b62fdd082d510d6",
+    "002b589ec9ac2f4f",
+    "2be47277983ff641",
+    "ca89c86c91fab439",
+    "aacda5a99abb796e",
+    "88b6fa7ef4189740",
+    "768ca43e4161c231",
+    "610cc5d8b942d8ac",
+    "67dac8ada9048f75",
+    "cea10544cc62dbe7",
+    "5c34e0b541763f48",
+    "ef6845fb40369ad2",
+    "a99fead68b4bd135",
+    "7de834f7377be0f9",
+    "75da33f12b23776b",
+    "3b0f6e7ae5d7a5cb",
+    "7a8218ee951a3605",
+    "7c1a7f748434daf2",
+    "51d4035c89333aa8",
+    "9596972c305943ee",
+    "921c74abaa653d5d",
+    "33981a4c29c4c4db",
+    "c8fa6b48cf963d61",
+    "dace5661de038677"
+   ],
+   "dependencias_no_texto": []
   },
   {
    "id": "dise",
@@ -1357,6 +1370,7 @@
     "texto": "Vencido desde 28/04/2026 (203 dias)",
     "dias": -203,
     "provisorio": true,
+    "condicional": false,
     "base": "2025-10-30",
     "situacao": "vencida"
    },
@@ -1458,11 +1472,59 @@
   "poder_publico",
   "contingencia",
   "informacoes",
-  "cessao",
   "outros",
+  "cessao",
   "dise"
  ],
  "obrigacoes": [
+  {
+   "id": "2c00dc4ce9434217",
+   "titulo": "As disposições não listadas nos artigos 13, 14, 15 e 16 devem ser implementadas na…",
+   "titulo_origem": "regra",
+   "titulo_completo": "As disposições não listadas nos artigos 13, 14, 15 e 16 devem ser implementadas na data de publicação desta Resolução Normativa",
+   "titulo_curto": "Implementar disposições não listadas",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
+   "tema": "outros",
+   "motivo_tema": "Sem seção temática nem assunto reconhecido",
+   "unidade": "u0311",
+   "trecho": "Art. 18. As disposições não listadas nos artigos 13, 14, 15 e 16 devem ser implementadas na data de publicação desta Resolução Normativa.",
+   "situacao": "vencida",
+   "prazo": {
+    "data": "2025-10-30",
+    "texto": "Vencido desde 30/10/2025 (383 dias)",
+    "dias": -383,
+    "provisorio": true,
+    "condicional": false,
+    "base": "2025-10-30"
+   },
+   "calculo": "verificar",
+   "posicao_fila": null,
+   "enquadramento": [],
+   "ia": null,
+   "grupo": null,
+   "faixa_preliminar": null,
+   "faixa": null,
+   "premissas": [],
+   "motivo_sem_calculo": null,
+   "evidencias": [],
+   "guardar": [],
+   "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "implantar_sistema_processo",
+     "nome": "Implantar sistema ou processo",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "implantar_sistema_processo"
+    },
+    "dependencias_no_texto": []
+   },
+   "area": "TI/Sistemas",
+   "area_origem": "regra",
+   "dispositivo": "Art. 18"
+  },
   {
    "id": "f0ee215c5b31a957",
    "titulo": "Revisar e publicar planos de manejo, comunicação e contingência",
@@ -1494,6 +1556,7 @@
     "texto": "Vencido desde 28/01/2026 (293 dias)",
     "dias": -293,
     "provisorio": true,
+    "condicional": false,
     "base": "2025-10-30"
    },
    "calculo": "fila",
@@ -1588,6 +1651,7 @@
     "texto": "Vencido desde 28/04/2026 (203 dias)",
     "dias": -203,
     "provisorio": true,
+    "condicional": false,
     "base": "2025-10-30"
    },
    "calculo": "verificar",
@@ -1674,6 +1738,7 @@
     "texto": "Vencido desde 28/04/2026 (203 dias)",
     "dias": -203,
     "provisorio": true,
+    "condicional": false,
     "base": "2025-10-30"
    },
    "calculo": "verificar",
@@ -1764,6 +1829,7 @@
     "texto": "Vencido desde 28/04/2026 (203 dias)",
     "dias": -203,
     "provisorio": true,
+    "condicional": false,
     "base": "2025-10-30"
    },
    "calculo": "verificar",
@@ -1859,6 +1925,7 @@
     "texto": "Vencido desde 28/04/2026 (203 dias)",
     "dias": -203,
     "provisorio": true,
+    "condicional": false,
     "base": "2025-10-30"
    },
    "calculo": "verificar",
@@ -1955,6 +2022,7 @@
     "texto": "Vencido desde 28/04/2026 (203 dias)",
     "dias": -203,
     "provisorio": true,
+    "condicional": false,
     "base": "2025-10-30"
    },
    "calculo": "verificar",
@@ -2046,6 +2114,7 @@
     "texto": "Obrigação recorrente: próxima ocorrência não calculada",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -2129,6 +2198,7 @@
     "texto": "Obrigação recorrente: próxima ocorrência não calculada",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -2210,6 +2280,7 @@
     "texto": "Prazo conta de um evento ainda sem data",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -2295,6 +2366,7 @@
     "texto": "Prazo conta de um evento ainda sem data",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -2380,6 +2452,7 @@
     "texto": "Prazo conta de um evento ainda sem data",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -2436,6 +2509,7 @@
     "texto": "Prazo conta de um evento ainda sem data",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -2521,6 +2595,7 @@
     "texto": "Prazo conta de um evento ainda sem data",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -2606,6 +2681,7 @@
     "texto": "Prazo conta de um evento ainda sem data",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -2691,6 +2767,7 @@
     "texto": "Prazo conta de um evento ainda sem data",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -2776,6 +2853,7 @@
     "texto": "Prazo conta de um evento ainda sem data",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -2861,6 +2939,7 @@
     "texto": "Prazo conta de um evento ainda sem data",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -2946,6 +3025,7 @@
     "texto": "Prazo conta de um evento ainda sem data",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -3031,6 +3111,7 @@
     "texto": "Prazo conta de um evento ainda sem data",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -3120,6 +3201,7 @@
     "texto": "Prazo conta de um evento ainda sem data",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -3205,6 +3287,7 @@
     "texto": "Prazo conta de um evento ainda sem data",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -3290,6 +3373,7 @@
     "texto": "Prazo conta de um evento ainda sem data",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -3375,6 +3459,7 @@
     "texto": "Prazo conta de um evento ainda sem data",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -3462,6 +3547,7 @@
     "texto": "Prazo conta de um evento ainda sem data",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -3519,6 +3605,7 @@
     "texto": "Prazo conta de um evento ainda sem data",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -3574,6 +3661,7 @@
     "texto": "Prazo conta de um evento ainda sem data",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -3662,6 +3750,7 @@
     "texto": "Prazo conta de um evento ainda sem data",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -3748,6 +3837,7 @@
     "texto": "Prazo conta de um evento ainda sem data",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -3854,6 +3944,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -3953,6 +4044,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -4051,6 +4143,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -4162,6 +4255,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -4261,6 +4355,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -4351,6 +4446,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -4442,6 +4538,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -4541,6 +4638,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -4634,6 +4732,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -4727,6 +4826,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -4817,6 +4917,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -4907,6 +5008,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -4998,6 +5100,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -5088,6 +5191,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -5179,6 +5283,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -5271,6 +5376,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -5361,6 +5467,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -5451,6 +5558,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -5543,6 +5651,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -5637,6 +5746,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -5731,6 +5841,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -5821,6 +5932,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -5912,6 +6024,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -6002,6 +6115,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -6088,6 +6202,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -6179,6 +6294,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -6269,6 +6385,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -6359,6 +6476,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -6451,6 +6569,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -6541,6 +6660,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -6635,6 +6755,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -6725,6 +6846,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -6819,6 +6941,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -6910,6 +7033,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -6993,6 +7117,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -7083,6 +7208,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -7182,6 +7308,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -7280,6 +7407,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -7377,6 +7505,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -7474,6 +7603,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -7570,6 +7700,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "fila",
@@ -7665,6 +7796,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -7743,6 +7875,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -7819,6 +7952,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -7898,6 +8032,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -7976,6 +8111,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -8055,6 +8191,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -8138,6 +8275,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -8214,6 +8352,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -8290,6 +8429,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -8368,6 +8508,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -8444,6 +8585,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -8520,6 +8662,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -8596,6 +8739,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -8672,6 +8816,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -8751,6 +8896,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -8838,6 +8984,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -8922,6 +9069,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -9001,6 +9149,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -9084,6 +9233,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -9160,6 +9310,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -9244,6 +9395,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -9328,6 +9480,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -9412,6 +9565,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -9496,6 +9650,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -9580,6 +9735,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -9664,6 +9820,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -9748,6 +9905,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -9832,6 +9990,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -9916,6 +10075,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -10000,6 +10160,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -10093,6 +10254,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -10171,6 +10333,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -10249,6 +10412,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -10327,6 +10491,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -10405,6 +10570,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -10489,6 +10655,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -10567,6 +10734,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -10651,6 +10819,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -10730,6 +10899,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -10811,6 +10981,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -10891,6 +11062,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -10969,6 +11141,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -11026,6 +11199,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -11110,6 +11284,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -11188,6 +11363,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -11266,6 +11442,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -11344,6 +11521,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -11427,6 +11605,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -11505,6 +11684,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -11581,6 +11761,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -11657,6 +11838,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -11735,6 +11917,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -11821,6 +12004,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -11905,6 +12089,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -11983,6 +12168,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -12059,6 +12245,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -12142,6 +12329,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -12218,6 +12406,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -12294,6 +12483,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -12380,6 +12570,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -12465,6 +12656,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -12544,6 +12736,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -12620,6 +12813,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -12704,6 +12898,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -12791,6 +12986,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -12847,6 +13043,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -12903,6 +13100,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -12990,6 +13188,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -13074,6 +13273,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -13155,6 +13355,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -13247,6 +13448,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -13301,6 +13503,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -13389,6 +13592,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -13470,6 +13674,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -13549,6 +13754,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -13627,6 +13833,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -13705,6 +13912,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -13784,6 +13992,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -13862,6 +14071,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -13938,6 +14148,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -14017,6 +14228,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -14093,6 +14305,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -14154,129 +14367,6 @@
    "dispositivo": "Art. 371-A, § 7º"
   },
   {
-   "id": "7dff368ce09aa0a5",
-   "titulo": "O Comitê de Crise deve ser estabelecido por Portaria emitida pelo Diretor-Geral",
-   "titulo_origem": "regra",
-   "titulo_completo": "O Comitê de Crise deve ser estabelecido por Portaria emitida pelo Diretor-Geral",
-   "titulo_curto": "Instituição do Comitê de Crise",
-   "evite": null,
-   "recomendacoes": [],
-   "contexto": "Art 10. A Agência poderá instituir Comitê de Crise quando da ocorrência de eventos climáticos severos, com no mínimo os seguintes objetivos:",
-   "tema": "cessao",
-   "motivo_tema": "Seção VIII da norma",
-   "unidade": "u0288",
-   "trecho": "§ 2º O Comitê de Crise deverá ser estabelecido por Portaria emitida pelo Diretor-Geral.",
-   "situacao": "sem_prazo",
-   "prazo": {
-    "data": null,
-    "texto": "Sem prazo identificado no texto",
-    "dias": null,
-    "provisorio": false,
-    "base": null
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": null,
-   "grupo": null,
-   "faixa_preliminar": null,
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [],
-   "guardar": [],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": "estabelecer_criterios_e_papeis",
-     "nome": "Estabelecer critérios, regras ou responsáveis",
-     "situacao": "concordam",
-     "por": "regra e IA concordam",
-     "regra_id": "estabelecer_criterios_e_papeis"
-    },
-    "dependencias_no_texto": []
-   },
-   "area": "Regulatório",
-   "area_origem": "regra",
-   "dispositivo": "Art. 10, § 2º"
-  },
-  {
-   "id": "eadfd60af5f29b5e",
-   "titulo": "Atender as demais disposições da Portaria nº 6.803, de 30 de janeiro de 2023, no que…",
-   "titulo_origem": "regra",
-   "titulo_completo": "Atender as demais disposições da Portaria nº 6.803, de 30 de janeiro de 2023, no que couber",
-   "titulo_curto": "Portaria atender norma aplicável",
-   "evite": null,
-   "recomendacoes": [],
-   "contexto": "Art 10. A Agência poderá instituir Comitê de Crise quando da ocorrência de eventos climáticos severos, com no mínimo os seguintes objetivos:",
-   "tema": "cessao",
-   "motivo_tema": "Seção VIII da norma",
-   "unidade": "u0289",
-   "trecho": "§3º A Portaria que instituir Comitê de Crise deverá atender as demais disposições da Portaria nº 6.803, de 30 de janeiro de 2023, no que couber.",
-   "situacao": "sem_prazo",
-   "prazo": {
-    "data": null,
-    "texto": "Sem prazo identificado no texto",
-    "dias": null,
-    "provisorio": false,
-    "base": null
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 12, XXVI",
-    "grupo": "IV",
-    "justificativa": "A obrigação exige que a Portaria que institui o Comitê de Crise atenda às disposições da Portaria nº 6.803/2023; se essa Portaria não incorporar as previsões sobre plano de contingência previstas na regulação aplicável, configura a ausência, inadequação ou descumprimento do Plano de Contingência previsto no dispositivo.",
-    "duvida": null
-   },
-   "grupo": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "IV"
-    ],
-    "teto_grupo_pct": 1.0,
-    "maximo_pct": {
-     "com_teto": 1.0,
-     "sem_teto": 1.0
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.050000000000000044,
-     "ate_tn": 0.5
-    },
-    "maximo_reais": {
-     "com_teto": 50000000.0,
-     "sem_teto": 50000000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 2500000.0000000023,
-     "ate_tn": 25000000.0
-    }
-   },
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [],
-   "guardar": [],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": null,
-     "nome": null,
-     "situacao": "a_revisar",
-     "por": "regra: sem tipo próprio; IA: Adequar contrato ou documento",
-     "regra_id": null
-    },
-    "dependencias_no_texto": []
-   },
-   "area": "Jurídico",
-   "area_origem": "ia",
-   "dispositivo": "Art. 10, §3º"
-  },
-  {
    "id": "d6664266cb6f2dc2",
    "titulo": "As cessões emergenciais de recursos humanos, equipamentos e materiais…",
    "titulo_origem": "regra",
@@ -14295,6 +14385,7 @@
     "texto": "Sem prazo identificado no texto",
     "dias": null,
     "provisorio": false,
+    "condicional": false,
     "base": null
    },
    "calculo": "verificar",
@@ -14351,53 +14442,6 @@
    "area": "Comunicação/Atendimento",
    "area_origem": "regra",
    "dispositivo": "Art. 19, inciso XIII, alínea c"
-  },
-  {
-   "id": "2c00dc4ce9434217",
-   "titulo": "As disposições não listadas nos artigos 13, 14, 15 e 16 devem ser implementadas na…",
-   "titulo_origem": "regra",
-   "titulo_completo": "As disposições não listadas nos artigos 13, 14, 15 e 16 devem ser implementadas na data de publicação desta Resolução Normativa",
-   "titulo_curto": "Implementar disposições não listadas",
-   "evite": null,
-   "recomendacoes": [],
-   "contexto": "",
-   "tema": "outros",
-   "motivo_tema": "Sem seção temática nem assunto reconhecido",
-   "unidade": "u0311",
-   "trecho": "Art. 18. As disposições não listadas nos artigos 13, 14, 15 e 16 devem ser implementadas na data de publicação desta Resolução Normativa.",
-   "situacao": "sem_prazo",
-   "prazo": {
-    "data": null,
-    "texto": "Sem prazo identificado no texto",
-    "dias": null,
-    "provisorio": false,
-    "base": null
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": null,
-   "grupo": null,
-   "faixa_preliminar": null,
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [],
-   "guardar": [],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": "implantar_sistema_processo",
-     "nome": "Implantar sistema ou processo",
-     "situacao": "concordam",
-     "por": "regra e IA concordam",
-     "regra_id": "implantar_sistema_processo"
-    },
-    "dependencias_no_texto": []
-   },
-   "area": "TI/Sistemas",
-   "area_origem": "regra",
-   "dispositivo": "Art. 18"
   }
  ],
  "outros_dispositivos": [
@@ -14510,6 +14554,26 @@
    "trecho": "II - interagir com demais autoridades e instituições públicas e privadas no endereçamento de ações e no compartilhamento de informações;",
    "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
    "dispositivo": "Art. 10, inciso II"
+  },
+  {
+   "id": "7dff368ce09aa0a5",
+   "natureza": "competencia_aneel",
+   "rotulo": "Competência da ANEEL",
+   "sujeito": "O Comitê de Crise",
+   "unidade": "u0288",
+   "trecho": "§ 2º O Comitê de Crise deverá ser estabelecido por Portaria emitida pelo Diretor-Geral.",
+   "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
+   "dispositivo": "Art. 10, § 2º"
+  },
+  {
+   "id": "eadfd60af5f29b5e",
+   "natureza": "competencia_aneel",
+   "rotulo": "Competência da ANEEL",
+   "sujeito": "A Portaria que instituir Comitê de Crise",
+   "unidade": "u0289",
+   "trecho": "§3º A Portaria que instituir Comitê de Crise deverá atender as demais disposições da Portaria nº 6.803, de 30 de janeiro de 2023, no que couber.",
+   "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
+   "dispositivo": "Art. 10, §3º"
   },
   {
    "id": "ad9bf6aeb63fcb5a",
@@ -15413,6 +15477,7 @@
  },
  "linha_do_tempo": {
   "vencida": [
+   "2c00dc4ce9434217",
    "f0ee215c5b31a957",
    "868bbdfdd6ed7ce7",
    "a002094347c42776",
@@ -15572,10 +15637,7 @@
    "74974c33b8c6f524",
    "2d90cfedd6fa12bb",
    "94541d2019cf4f5c",
-   "7dff368ce09aa0a5",
-   "eadfd60af5f29b5e",
-   "d6664266cb6f2dc2",
-   "2c00dc4ce9434217"
+   "d6664266cb6f2dc2"
   ]
  },
  "nomes_situacao": {
@@ -15943,21 +16005,6 @@
     ],
     "status": "rascunho — revisar"
    },
-   "adequar_contrato_documento": {
-    "nome": "Adequar contrato ou documento",
-    "ideias_cumprimento": [
-     "Listar os itens que a norma manda constar e conferir cláusula por cláusula.",
-     "Usar modelo padrão revisado pelo jurídico.",
-     "Controlar a data de adequação de cada contrato existente.",
-     "Guardar a versão assinada e a anterior."
-    ],
-    "evidencias": [
-     "Contrato ou aditivo assinado, com data.",
-     "Matriz de aderência entre a norma e as cláusulas.",
-     "Registro de revisão pelo jurídico."
-    ],
-    "status": "rascunho — revisar"
-   },
    "implantar_sistema_processo": {
     "nome": "Implantar sistema ou processo",
     "ideias_cumprimento": [
@@ -15970,6 +16017,21 @@
      "Cronograma com marcos e entregas.",
      "Registro dos testes e da homologação.",
      "Manual do processo e lista de treinados."
+    ],
+    "status": "rascunho — revisar"
+   },
+   "adequar_contrato_documento": {
+    "nome": "Adequar contrato ou documento",
+    "ideias_cumprimento": [
+     "Listar os itens que a norma manda constar e conferir cláusula por cláusula.",
+     "Usar modelo padrão revisado pelo jurídico.",
+     "Controlar a data de adequação de cada contrato existente.",
+     "Guardar a versão assinada e a anterior."
+    ],
+    "evidencias": [
+     "Contrato ou aditivo assinado, com data.",
+     "Matriz de aderência entre a norma e as cláusulas.",
+     "Registro de revisão pelo jurídico."
     ],
     "status": "rascunho — revisar"
    },

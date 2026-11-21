@@ -306,7 +306,16 @@ def urgencia(row, hoje):
             "detalhe": f"Faltam {dias} dias; prazo {estado}.",
         }
     estados = {d.get("state") for d in row.get("deadlines", [])}
-    if "recurring" in estados:
+    condicional = next(
+        (d for d in row.get("deadlines", []) if d.get("state") == "conditional"), None
+    )
+    if condicional:
+        parcela = date.fromisoformat(condicional["parcela_conhecida"]).strftime("%d/%m/%Y")
+        texto = (
+            f"o maior entre {condicional['quantity']} {condicional['unit']} da publicação ({parcela}) "
+            "e o prazo informado pela distribuidora; sem data única"
+        )
+    elif "recurring" in estados:
         texto = "obrigação recorrente: próxima ocorrência não calculada"
     elif "awaiting_event" in estados:
         texto = "prazo conta de um evento ainda sem data"

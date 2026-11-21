@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { pages } from './page-meta.mjs'
+import { gruposSemNome } from '../src/content/trava.ts'
 for (const p of pages) {
   const html = await readFile(`dist/${p.file}`, 'utf8')
   assert.ok(html.includes(p.description), `Metadados antigos em ${p.path}`)
@@ -10,7 +11,7 @@ for (const p of pages) {
   const chaves = { '/': ['Ver demonstração', '/demo/executivo'], '/demo': ['3 decisões para esta semana', 'Visão executiva →', 'Limpar filtros', 'Mostrando'], '/demo/executivo': ['Comece por', 'Plano completo →', 'Toque num item', 'por infração', 'se agir antes da fiscalização', '* preliminar · valores ilustrativos · não é parecer jurídico'] }[p.path]
   for (const c of chaves) assert.ok(html.includes(c), `Falta "${c}" em ${p.path}`)
   // Nunca "Grupo IV" sozinho na visão executiva: sempre "infração grave (Grupo IV)".
-  if (p.path === '/demo/executivo') assert.ok([...html.matchAll(/Grupo (?:I|II|III|IV|V)/g)].every((m) => html[m.index - 1] === '('), 'Grupo sem o nome da gravidade')
+  if (p.path === '/demo/executivo') assert.deepEqual(gruposSemNome(html), [], 'Grupo sem o nome da gravidade')
   if (p.path === '/demo/executivo') {
     assert.equal([...html.matchAll(/aria-controls="painel"/g)].length, 5, 'cinco blocos clicáveis')
     assert.ok(html.includes('role="region"') && html.includes('aria-expanded="false"'))

@@ -2,8 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { NORMA_PADRAO, NORMAS, norma as dadosDa, prazos, queda, top5, urlPlanoCompleto, urlRelatorio, valorGeral, type LinhaTop5 } from '../../content/executivo'
 import { RespostasProvider, useRespostas } from '../plano/Respostas'
 import { prontidao } from '../../content/prontidao'
-import { hojeISO } from '../../content/datas'
-import { brlCurto, dataBR, normaDaUrl, type NormaId, type Simulacao } from '../../content/plano'
+import { brlCurto, dataBR, HOJE, normaDaUrl, type NormaId, type Simulacao } from '../../content/plano'
 
 // Visão executiva (/demo/executivo): três números e até cinco blocos clicáveis. Muito pouco texto; o resto
 // fica no plano completo. Todos os números vêm de content/executivo.ts (planos gerados pelo motor).
@@ -32,8 +31,8 @@ function Executiva({ normaId, setNormaId }: { normaId: NormaId; setNormaId: (id:
   const sim: Simulacao = { base: faixa.base, faturamento: null }
   const v = valorGeral(p, sim, MODO)
   const q = queda(p, sim, MODO)
-  const pz = prazos(p)
-  const linhas = top5(normaId, sim, MODO)
+  const pz = prazos(p, HOJE)
+  const linhas = top5(normaId, sim, MODO, 5, HOJE)
   const sel = linhas.find((l) => l.id === ultimo) ?? null
   const painelRef = useRef<HTMLDivElement>(null)
   const blocos = useRef<Record<string, HTMLButtonElement | null>>({})
@@ -122,7 +121,7 @@ function Executiva({ normaId, setNormaId }: { normaId: NormaId; setNormaId: (id:
     </section>
 
     <footer className="flex flex-wrap justify-between gap-3 border-t border-obsidian pt-3.5 text-[13px]">
-      <span>* preliminar · valores ilustrativos · não é parecer jurídico · dias contados até {dataBR(hojeISO())}</span>
+      <span>* preliminar · valores ilustrativos · não é parecer jurídico · dias contados até {dataBR(HOJE)}</span>
       <span className="flex gap-4"><a href={urlRelatorio(normaId)} className="font-semibold">Baixar meu relatório</a><a href={urlPlanoCompleto(normaId)} className="font-semibold">Plano completo →</a></span>
     </footer>
   </main>

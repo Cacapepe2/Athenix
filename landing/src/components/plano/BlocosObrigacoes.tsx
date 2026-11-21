@@ -1,6 +1,5 @@
 import { useMemo, useState } from 'react'
-import { hojeISO } from '../../content/datas'
-import { brlCurto, dataBR, normaDaUrl, pct, type Modo, type Simulacao } from '../../content/plano'
+import { brlCurto, dataBR, HOJE, normaDaUrl, pct, type Modo, type Simulacao } from '../../content/plano'
 import { norma as dadosDa, NORMAS, urlPlanoCompleto } from '../../content/executivo'
 import { calendarioIcs, tarefasCsv } from '../../content/tarefas'
 import { FILTROS_INICIAIS, OPCOES, blocosDoPlano, filtrar, filtrosDaUrl, urlComFiltros, type BlocoPlano, type Filtros } from '../../content/filtros'
@@ -20,7 +19,7 @@ const slug = (t: string) => t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,
 export function BlocosObrigacoes({ sim, modo }: { sim: Simulacao | null; modo: Modo }) {
   const [filtros, setFiltros] = useState<Filtros>(() => (typeof location === 'undefined' ? FILTROS_INICIAIS : filtrosDaUrl(location.search)))
   const [aberto, setAberto] = useState<string | null>(null)
-  const todos = useMemo(() => blocosDoPlano(sim, modo), [sim, modo])
+  const todos = useMemo(() => blocosDoPlano(sim, modo, HOJE), [sim, modo])
   const visiveis = filtrar(todos, filtros)
 
   const mudar = (novo: Filtros) => {
@@ -51,7 +50,7 @@ export function BlocosObrigacoes({ sim, modo }: { sim: Simulacao | null; modo: M
 
       <div className="flex min-w-0 flex-[999_1_560px] flex-col gap-3.5">
         {outra && <p className="border-[length:var(--borda-forte)] border-obsidian px-4 py-2.5 text-sm font-semibold">Mostrando obrigações da {dadosDa(outra).rotulo.replace('/2025', '').replace('/2026', '')}. O resto da página é da {dadosDa(naPagina).rotulo.replace('/2025', '').replace('/2026', '')} · <a href={urlPlanoCompleto(outra)} className="underline underline-offset-4 hover:text-acento">Ver a página da {dadosDa(outra).rotulo.replace('/2025', '').replace('/2026', '')} →</a></p>}
-        <p className="text-sm" aria-live="polite">Mostrando <strong>{visiveis.length}</strong> de {todos.length} obrigações · clique num bloco para abrir · dias contados até {dataBR(hojeISO())}</p>
+        <p className="text-sm" aria-live="polite">Mostrando <strong>{visiveis.length}</strong> de {todos.length} obrigações · clique num bloco para abrir · dias contados até {dataBR(HOJE)}</p>
         <div className="grid gap-3 [grid-template-columns:repeat(auto-fill,minmax(220px,1fr))]">
           {visiveis.map((b) => <Bloco key={`${b.norma}-${b.id}`} b={b} aberta={aberto === `${b.norma}-${b.id}`} alternar={() => setAberto(aberto === `${b.norma}-${b.id}` ? null : `${b.norma}-${b.id}`)} />)}
         </div>

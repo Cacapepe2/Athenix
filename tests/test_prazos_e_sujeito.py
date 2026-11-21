@@ -53,14 +53,57 @@ def test_trava_prazo_com_data_base_anterior_a_publicacao_gera_erro():
 def test_json_da_ren_1174_nao_tem_prazo_contado_de_antes_da_publicacao():
     pub = P1174["norma"]["vigencia"]
     assert pub == "2026-11-04"
-    com_base = [o for o in P1174["obrigacoes"] if o["prazo"]["data"]]
-    assert com_base
-    for o in com_base:
-        assert o["prazo"]["base"] and o["prazo"]["base"] >= pub, o["dispositivo"]
-        assert (
-            o["prazo"]["base"] != "2026-08-12"
-        )  # a data do Decreto nº 13.097, lida antes como vigência
-    assert P1137["resumo"]["por_situacao"]["vencida"] == 6  # a RN 1.137 não mudou
+    for o in P1174["obrigacoes"]:
+        if o["prazo"]["data"]:
+            assert o["prazo"]["base"] and o["prazo"]["base"] >= pub, o["dispositivo"]
+            assert (
+                o["prazo"]["base"] != "2026-08-12"
+            )  # a data do Decreto nº 13.097, lida antes como vigência
+    assert (
+        P1137["resumo"]["por_situacao"]["vencida"] == 7
+    )  # os 6 de antes + o art. 18 (na data de publicação)
+
+
+def test_marco_direto_na_data_de_publicacao_vira_prazo_e_o_maior_entre_vira_condicional():
+    # RN 1.137, art. 18: "devem ser implementadas na data de publicação" -> vencido desde 30/10/2025
+    a18 = next(o for o in P1137["obrigacoes"] if o["dispositivo"] == "Art. 18")
+    assert a18["situacao"] == "vencida" and a18["prazo"]["data"] == "2025-10-30"
+    assert a18["prazo"]["base"] == "2025-10-30" and a18["prazo"]["texto"].startswith(
+        "Vencido desde 30/10/2025"
+    )
+    # "entra em vigor na data de sua publicação" é vigência: não vira prazo de obrigação
+    from athenix import temporal
+
+    datas = [{"kind": "publication", "date": "2025-10-30"}]
+    assert not temporal.rules(
+        "Esta Resolução entra em vigor na data de sua publicação.", "u", datas
+    )
+    assert (
+        temporal.rules(
+            "As disposições devem ser implementadas na data de publicação desta Resolução Normativa.",
+            "u",
+            datas,
+        )[0]["date"]
+        == "2025-10-30"
+    )
+    # REN 1.174, art. 14, § 1º, II: o maior entre 12 meses da publicação e o prazo informado: sem data única
+    a14 = next(o for o in P1174["obrigacoes"] if o["dispositivo"] == "Art. 14, § 1º, inciso II")
+    assert (
+        a14["prazo"]["data"] is None
+        and a14["prazo"]["condicional"] is True
+        and a14["situacao"] == "evento"
+    )
+    assert (
+        "maior entre 12 meses da publicação (04/11/2027) e o prazo informado pela distribuidora"
+        in a14["prazo"]["texto"]
+    )
+    texto = "a aplicação deve ser realizada até o maior prazo entre o prazo de doze meses da publicação desta Resolução e o prazo reduzido informado pela distribuidora"
+    regra = temporal.rules(texto, "u", [{"kind": "publication", "date": "2026-11-04"}])[0]
+    assert (
+        regra["state"] == "conditional"
+        and regra["date"] is None
+        and regra["parcela_conhecida"] == "2027-11-04"
+    )
 
 
 def caput(texto, sujeito, modalidade="duty"):
@@ -147,7 +190,9 @@ def test_inciso_sem_sujeito_proprio_herda_o_do_caput(caput_texto, linha, esperad
 
 
 def test_totais_reprocessados_das_duas_normas():
-    assert P1137["resumo"]["aplicaveis"] == 155  # igual ao total anterior à herança do caput
+    assert (
+        P1137["resumo"]["aplicaveis"] == 153
+    )  # 155 menos o art. 10, §§ 2º e 3º (competência da ANEEL)
     assert P1174["resumo"]["aplicaveis"] == len(P1174["obrigacoes"])
     r = P1174["resumo"]
     assert r["identificadas"] == r["aplicaveis"] + r["fora_do_perfil"] + r["outros_dispositivos"]
@@ -192,7 +237,7 @@ def test_art_13_par_3_da_ren_1174_e_recorrente_no_plano():
     r = P1174["resumo"]["por_situacao"]
     assert r["recorrente"] == 2  # art. 11, VIII (semestral) e art. 13, § 3º (12 meses)
     assert (
-        sum(1 for x in P1174["obrigacoes"] if x["prazo"]["data"]) == 1
+        sum(1 for x in P1174["obrigacoes"] if x["prazo"]["data"]) == 0
     )  # as 2 de adequação (art. 16) viraram transição; a reunião do grupo (art. 12, § 11) não é da distribuidora
 
 
@@ -253,7 +298,7 @@ def test_futuro_so_vira_dever_quando_a_distribuidora_age_explicitamente(texto, v
 
 
 def test_nada_some_em_silencio_na_ren_1174_e_a_rn_1137_nao_muda_de_contagem():
-    assert P1137["resumo"]["aplicaveis"] == 155
+    assert P1137["resumo"]["aplicaveis"] == 153
     assert P1174["resumo"]["aplicaveis"] == 83
     s10 = [
         o
@@ -269,3 +314,46 @@ def test_nada_some_em_silencio_na_ren_1174_e_a_rn_1137_nao_muda_de_contagem():
         for o in p[k]
     ]
     assert len(ids) == len(set(ids))
+
+
+ART_10_3 = "§3º A Portaria que instituir Comitê de Crise deverá atender as demais disposições da Portaria nº 6.803, de 30 de janeiro de 2023, no que couber."
+CAPUT_ART_10 = "Art. 10. A Agência poderá instituir Comitê de Crise para articular, coordenar e monitorar as providências em eventos climáticos extremos."
+
+
+def test_art_10_par_3_da_rn_1137_e_competencia_da_aneel_nao_dever_da_distribuidora():
+    # o emissor é a Portaria da Agência (o caput: "A Agência poderá instituir..."); nada de R$ 50 mi para a distribuidora
+    linha = {
+        "subject": "A Portaria que instituir Comitê de Crise",
+        "modality": "duty",
+        "action": ART_10_3,
+    }
+    assert plano.natureza(linha, CAPUT_ART_10) == "competencia_aneel"
+    assert (
+        plano.natureza({"subject": "A Portaria", "modality": "duty", "action": ART_10_3}, "")
+        == "competencia_aneel"
+    )
+    # § 2º: "O Comitê de Crise deverá ser estabelecido por Portaria emitida pelo Diretor-Geral": herda o emissor do caput
+    p2 = {
+        "subject": "O Comitê de Crise",
+        "modality": "duty",
+        "action": "§ 2º O Comitê de Crise deverá ser estabelecido por Portaria emitida pelo Diretor-Geral.",
+    }
+    assert plano.natureza(p2, CAPUT_ART_10) == "competencia_aneel"
+    # a distribuidora como sujeito continua dever, mesmo sob caput da Agência
+    assert (
+        plano.natureza(
+            {
+                "subject": "As distribuidoras",
+                "modality": "duty",
+                "action": "As distribuidoras deverão informar",
+            },
+            CAPUT_ART_10,
+        )
+        == "dever"
+    )
+    # no plano real: sai dos deveres e vai para "Outros dispositivos" (competência da ANEEL), com a citação
+    deveres = {o["dispositivo"] for o in P1137["obrigacoes"]}
+    assert "Art. 10, §3º" not in deveres and "Art. 10, § 2º" not in deveres
+    outros = {o["dispositivo"]: o for o in P1137["outros_dispositivos"]}
+    assert outros["Art. 10, §3º"]["natureza"] == "competencia_aneel"
+    assert "Portaria nº 6.803" in outros["Art. 10, §3º"]["trecho"]

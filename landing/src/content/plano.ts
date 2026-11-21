@@ -3,6 +3,8 @@
 // Interpretações da IA vêm de um cache revisável, aparecem marcadas e nunca entram no cálculo.
 import dados1137 from './plano-rn1137.json' with { type: 'json' }
 import dados1174 from './plano-ren1174.json' with { type: 'json' }
+import { hojeISO } from './datas.ts'
+import { planoEm } from './referencia.ts'
 
 export type Situacao = 'vencida' | '90dias' | 'depois' | 'recorrente' | 'evento' | 'sem_prazo'
 export type Diagnostico = 'sim' | 'parcial' | 'nao'
@@ -63,7 +65,7 @@ export interface Obrigacao {
   dispositivo: string | null
   trecho: string | null
   situacao: Situacao
-  prazo: { data: string | null; texto: string; dias: number | null; provisorio: boolean; base?: string | null }
+  prazo: { data: string | null; texto: string; dias: number | null; provisorio: boolean; base?: string | null; /** "o maior entre 12 meses da publicação e o prazo informado": sem data única. */ condicional?: boolean }
   calculo: 'fila' | 'verificar' | 'sem_multa'
   posicao_fila: number | null
   enquadramento: { dispositivo: string; grupo: string }[]
@@ -208,7 +210,9 @@ export interface PlanoDados {
 }
 
 /** Os dois planos, gerados pelo mesmo comando (python -m athenix processar). */
-export const planos = { rn1137: dados1137 as unknown as PlanoDados, ren1174: dados1174 as unknown as PlanoDados }
+/** A data de referência desta renderização (uma só): situação, dias e textos de prazo são recalculados a partir dela. */
+export const HOJE = hojeISO()
+export const planos = { rn1137: planoEm(dados1137 as unknown as PlanoDados, HOJE), ren1174: planoEm(dados1174 as unknown as PlanoDados, HOJE) }
 export type NormaId = keyof typeof planos
 /** Norma da página completa: ?norma=ren1174 na URL do navegador; sem parâmetro (e no build), a RN 1.137. */
 export function normaDaUrl(): NormaId {
