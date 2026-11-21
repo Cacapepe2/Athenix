@@ -11,6 +11,13 @@ ação dividido por área, com prazo, valor em risco e o que guardar como prova.
 - **Plano completo:** <https://athenix-two.vercel.app/demo> (RN ANEEL 1.137/2025) e
   <https://athenix-two.vercel.app/demo?norma=ren1174> (REN ANEEL 1.174/2026)
 
+> **Problema:** acompanhar as normas da ANEEL e saber o que cada uma exige (obrigações, prazos, a
+> fonte exata) ainda é leitura manual, espalhada em arquivos, e-mails e planilhas.<br>
+> **Para quem:** Assuntos Regulatórios de distribuidoras e transmissoras; decide a gerência ou
+> diretoria de Regulação, Compliance ou Riscos.<br>
+> **Impacto:** quanto cada norma pode custar à empresa e o que priorizar, com cada conclusão ligada
+> ao trecho exato da fonte. Mais em [docs/POSICIONAMENTO.md](docs/POSICIONAMENTO.md).
+
 Começa pelo setor elétrico (normas da ANEEL, perfil de distribuidora). É um MVP técnico: funciona
 de ponta a ponta em duas normas reais, ainda sem validação comercial nem revisão jurídica humana.
 
@@ -138,7 +145,5 @@ para fins não comerciais; uso comercial depende de autorização do titular. Co
 > Os resultados são auxiliares e devem ser revisados por profissionais habilitados. O Athenix não
 > oferece parecer jurídico nem garante conformidade regulatória. Valores calculados sobre um perfil
 > ilustrativo, que não corresponde a nenhuma empresa real.
-
-Produto e posicionamento: [docs/POSICIONAMENTO.md](docs/POSICIONAMENTO.md).
 
 <img src="assets/footer.svg" alt="" width="100%">
