@@ -212,7 +212,7 @@ export function PlanoPage() {
       <div className="space-y-4 print:hidden">
         <Expansivel id="reduzir" titulo="Como reduzir a exposição" resumo="atenuantes do art. 24 da REN 846, regras comuns e valores por tema">{() => <ComoReduzir temas={temas} />}</Expansivel>
         <Expansivel id="linha" titulo="Quando cada coisa vence" resumo={`${r.por_situacao.vencida} vencidas, ${r.por_situacao['90dias']} em 90 dias, ${r.por_situacao.recorrente} recorrentes, ${semData} sem data`}>{() => <LinhaDoTempo />}</Expansivel>
-        <Expansivel id="outros" titulo="Outros dispositivos relevantes" resumo={`${plano.outros_dispositivos.length} dispositivos que não são deveres da distribuidora (faculdades, direitos de terceiros, competências da ANEEL e deveres de outros agentes)`}>{() => <OutrosDispositivos />}</Expansivel>
+        <Expansivel id="outros" titulo="Outros dispositivos relevantes" resumo={`${plano.outros_dispositivos.length + plano.sem_dever_identificado.length} dispositivos que não são deveres da distribuidora (faculdades, direitos de terceiros, competências da ANEEL e deveres de outros agentes)`}>{() => <OutrosDispositivos />}</Expansivel>
         <Expansivel id="metodo" titulo="Como chegamos aqui" resumo="contagens, prazos, cálculo da exposição, premissas e fontes">{() => <Metodo />}</Expansivel>
         <Expansivel id="perguntas-juridico" titulo="Perguntas para levar ao jurídico" resumo="geradas do que o Athenix marca como incerto: enquadramentos, redações do art. 11, XXIII, excludentes e prazos que dependem da ANEEL">{() => <PerguntasJuridico />}</Expansivel>
         <Expansivel id="como-calculamos" titulo="Como calculamos" resumo="grupos de gravidade, teto de cada um e contagem de deveres">{() => <ComoCalculamos />}</Expansivel>
@@ -353,8 +353,9 @@ function SucessaoNoTempo({ dispositivo }: { dispositivo: string }) {
 
 /** Faculdades, direitos de terceiros e competências da ANEEL: não entram na contagem de deveres. */
 function OutrosDispositivos() {
-  const por = (n: OutroDispositivo['natureza']) => plano.outros_dispositivos.filter((o) => o.natureza === n)
+  const por = (n: OutroDispositivo['natureza']) => [...plano.outros_dispositivos, ...plano.sem_dever_identificado].filter((o) => o.natureza === n)
   const grupos: [OutroDispositivo['natureza'], string][] = [['faculdade', 'Faculdades (a norma diz que pode, não que deve)'], ['direito_de_terceiro', 'Direitos de consumidores e usuários'], ['competencia_aneel', 'Competências da ANEEL'], ['dever_de_outro_agente', 'Deveres de outros agentes (não são da distribuidora)'], ['regra_de_transicao', 'Regras de transição (prazo de adequação a outros dispositivos)']]
+  grupos.push(['sem_dever_identificado', 'Sem dever identificado (lidos pela extração, sem verbo de dever e sem a distribuidora agindo; nada some em silêncio)'])
   return <div className="space-y-5 text-sm">
     <p className="text-ink-soft">Dispositivos lidos pela mesma extração que não são deveres da distribuidora. Ficam fora da contagem do plano e do cálculo de multa. Cada um mostra o trecho literal e o dispositivo.</p>
     {Object.entries(plano.notas_outros).map(([art, nota]) => <p key={art} className="border-[length:var(--borda-forte)] border-obsidian p-3 font-semibold">{art}: {nota}</p>)}
@@ -362,7 +363,7 @@ function OutrosDispositivos() {
       <h3 className="font-semibold">{titulo} <span className="text-ink-soft">({por(n).length})</span></h3>
       <ul className="mt-2 space-y-3">{por(n).map((o) => <li key={o.id}>
         <blockquote className="border-l-2 border-bronze bg-ivory p-3">“{o.trecho ?? 'sem citação verificada'}”</blockquote>
-        <p className="mt-1 text-xs text-ink-soft">{o.dispositivo ?? 'dispositivo a confirmar'} · sujeito: {o.sujeito}</p>
+        <p className="mt-1 text-xs text-ink-soft">{o.dispositivo ?? 'dispositivo a confirmar'} · {o.natureza === 'sem_dever_identificado' ? o.motivo : `sujeito: ${o.sujeito}`}</p>
       </li>)}</ul>
     </div>)}
   </div>

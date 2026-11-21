@@ -14,6 +14,7 @@ import re
 from pathlib import Path
 
 from . import impacto, proposals
+from .db import digest
 from .evidence import verify
 from .enquadramento import chave as chave_texto
 from .enquadramento import infracoes_validas
@@ -75,6 +76,48 @@ NOMES_NATUREZA = {
     "dever_de_outro_agente": "Dever de outro agente (não é da distribuidora)",
     "regra_de_transicao": "Regra de transição: prazo de adequação a outro dispositivo",
 }
+MOTIVO_SEM_DEVER = "sem dever identificado"
+KINDS_SEM_DEVER = {"article", "paragraph", "clause", "item", "letter"}
+
+
+def sem_dever_identificado(units, resultado):
+    """Unidades lidas pela extração que NÃO viraram obrigação nem outro dispositivo classificado (sem marcador
+    deôntico e sem a distribuidora agindo de forma explícita). Nada some em silêncio: vão para "Outros dispositivos"
+    com o motivo "sem dever identificado". Ficam de fora só o título/anexo/tabela, o texto revogado, o rótulo
+    muito curto e a frase que apenas introduz uma enumeração (os filhos carregam o sentido)."""
+    ancoradas = {
+        a["unit_id"]
+        for i in resultado["itens"]
+        for a in i["row"].get("anchors", [])
+        if a.get("unit_id")
+    }
+    com_filhos = {u["parent"] for u in units if u.get("parent")}
+    vistos, saida = {}, []
+    for u in units:
+        texto = espacos(u["text"])
+        if (
+            u["kind"] not in KINDS_SEM_DEVER
+            or u["id"] in ancoradas
+            or u.get("struck") == "revoked"
+            or len(texto) < 25
+            or (texto.endswith(":") and u["id"] in com_filhos)
+        ):
+            continue
+        base = "sd-" + digest(texto.encode())[:12]
+        n = vistos.get(base, 0)
+        vistos[base] = n + 1
+        saida.append({
+            "id": base if n == 0 else f"{base}-{n}",
+            "natureza": "sem_dever_identificado",
+            "rotulo": "Sem dever identificado",
+            "sujeito": "",
+            "unidade": u["id"],
+            "trecho": texto,
+            "motivo": MOTIVO_SEM_DEVER,
+        })  # fmt: skip
+    return saida
+
+
 SUJEITO_ANEEL = re.compile(r"^\W*(?:a\s+)?(?:ag[êe]ncia|aneel)\b", re.I)
 # Sujeito que é OUTRO agente do setor (CCEE, Sandbox, comercializador, consumidor...): o dever não é da
 # distribuidora. Só vale quando o sujeito COMEÇA por ele; sujeito impessoal ("O plano de contingência")
@@ -645,7 +688,8 @@ def montar(
             o["posicao_fila"] or 999,
         )
     )
-    ids = [o["id"] for o in obrigacoes] + [o["id"] for o in outros]
+    sem_dever = sem_dever_identificado(units, resultado)
+    ids = [o["id"] for o in obrigacoes] + [o["id"] for o in outros] + [o["id"] for o in sem_dever]
     assert len(set(ids)) == len(ids), "chave de obrigação repetida: o id estável não é único"
     temas = [_tema(t, obrigacoes, fontes_temas.get(t["id"], []), cfg) for t in cfg["temas"]]
     temas = ordenar_temas([t for t in temas if t["n"]])
@@ -656,6 +700,7 @@ def montar(
         "ordem_inicial": [t["id"] for t in temas],
         "obrigacoes": obrigacoes,
         "outros_dispositivos": outros,
+        "sem_dever_identificado": sem_dever,
         "infracoes": infracoes,
         "linha_do_tempo": {
             s: [o["id"] for o in obrigacoes if o["situacao"] == s] for s in SITUACOES

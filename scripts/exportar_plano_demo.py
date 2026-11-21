@@ -150,7 +150,7 @@ def montar(
     )
     out["analise"] = analise.montar(out, rows, extraction)
     by_id = {u["id"]: u for u in units}
-    for o in out["obrigacoes"] + out["outros_dispositivos"]:
+    for o in out["obrigacoes"] + out["outros_dispositivos"] + out["sem_dever_identificado"]:
         o["dispositivo"] = rotulo(by_id[o["unidade"]], by_id) if o["unidade"] else None
         assert o["trecho"] is None or o["trecho"] in espacos(by_id[o["unidade"]]["text"])
     return out, params, p

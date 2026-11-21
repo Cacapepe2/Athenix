@@ -89,7 +89,7 @@ export interface Infracao {
 }
 export interface OutroDispositivo {
   id: string
-  natureza: 'faculdade' | 'direito_de_terceiro' | 'competencia_aneel' | 'dever_de_outro_agente' | 'regra_de_transicao'
+  natureza: 'faculdade' | 'direito_de_terceiro' | 'competencia_aneel' | 'dever_de_outro_agente' | 'regra_de_transicao' | 'sem_dever_identificado'
   rotulo: string
   sujeito: string
   unidade: string | null
@@ -172,6 +172,8 @@ export interface PlanoDados {
   infracoes: Record<string, Infracao>
   /** Faculdades, direitos de terceiros e competências da ANEEL: fora da contagem de deveres. */
   outros_dispositivos: OutroDispositivo[]
+  /** Unidades lidas sem marcador de dever e sem a distribuidora agindo: nada some em silêncio (motivo: "sem dever identificado"). */
+  sem_dever_identificado: OutroDispositivo[]
   /** Redações datadas de um mesmo dispositivo (hoje o art. 11, XXIII), com fonte e estado. */
   sucessao_no_tempo: Sucessao[]
   linha_do_tempo: Record<Situacao, string[]>

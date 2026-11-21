@@ -147,7 +147,7 @@ test('referência do setor: infração grave (Grupo IV, n = 10) quando o valor �
 
 test('destaque da norma: data, deveres identificados e quantos têm prazo, tudo dos dados', () => {
   const d = destaqueDaNorma(planos.ren1174)
-  assert.equal(d.texto, 'publicada em 04/11/2026 · 80 deveres identificados · 1 com prazo · 2 recorrentes')  // dados reprocessados
+  assert.equal(d.texto, 'publicada em 04/11/2026 · 83 deveres identificados · 1 com prazo · 2 recorrentes')  // dados reprocessados
   assert.equal(d.deveres, planos.ren1174.resumo.aplicaveis)
   assert.equal(d.comPrazo, planos.ren1174.obrigacoes.filter((o) => o.prazo.data).length)
   assert.match(destaqueDaNorma(planos.rn1137).texto, /^em vigor desde 30\/10\/2025 · 155 deveres identificados · \d+ com prazo · \d+ recorrentes?$/)
@@ -204,7 +204,7 @@ test('REN 1.174: a primeira reunião do grupo de trabalho (art. 12, § 11) não 
   assert.ok(!l.some((x) => /primeira reunião/i.test(x.frase)))
   // o próximo prazo é o de um dever da distribuidora (art. 14, § 1º, II)
   assert.equal(prazos(p).proxima?.data, '2027-11-04')
-  assert.equal(p.resumo.aplicaveis, 80)
+  assert.equal(p.resumo.aplicaveis, 83)
 })
 
 test('títulos com contexto: nada de título que comece por "Ser ", "Até " ou "Em até " no top 5', () => {
@@ -283,7 +283,7 @@ test('REN 1.174, Art. 12 (grupo de trabalho): fora dos deveres, com nota; Art. 1
   for (const d of ['Art. 12, § 1º', 'Art. 12, § 5º', 'Art. 12, § 11']) assert.ok(p.outros_dispositivos.some((o) => o.dispositivo === d), d)
   assert.equal(p.notas_outros['Art. 12'], 'Grupo de trabalho sobre faturas, coordenado provisoriamente pela Abradee; primeira reunião até 03/01/2027 (§ 11).')
   assert.ok(p.obrigacoes.some((o) => o.dispositivo === 'Art. 13, § 1º' && /celebrado entre o consumidor parcialmente livre e a distribuidora/.test(o.trecho ?? '')))
-  assert.equal(p.resumo.aplicaveis, 80)
+  assert.equal(p.resumo.aplicaveis, 83)
 })
 
 test('executiva: recomendação de nível gerencial; detalhe operacional só no plano completo', () => {
@@ -300,4 +300,25 @@ test('executiva: recomendação de nível gerencial; detalhe operacional só no 
       assert.ok(l.fazer.todas.includes(l.fazer.texto)) // continua sendo uma ação validada, não texto novo
     }
   }
+})
+
+test('motor: futuro só vira dever quando a distribuidora age explicitamente; o resto vai para "sem dever identificado"', () => {
+  const p = planos.ren1174
+  const deveres = new Map(p.obrigacoes.map((o) => [o.dispositivo, o.trecho ?? '']))
+  // entraram (REN 1.174), com citação
+  assert.match(deveres.get('Art. 166-A, § 4º') ?? '', /será encerrada pela distribuidora/)
+  assert.match(deveres.get('Art. 167-A, Parágrafo único') ?? '', /devendo a distribuidora efetuar a cobrança/)
+  assert.match(deveres.get('Art. 170, § 5º') ?? '', /somente será realizada pela distribuidora/)
+  // não entraram: futuro sem a distribuidora como agente
+  const textoDeveres = p.obrigacoes.map((o) => o.trecho ?? '').join(' ')
+  for (const frag of ['terá dois suplentes', 'correrão por conta', 'a Abradee exercerá', 'será composto', 'A ANEEL estabelecerá']) assert.ok(!textoDeveres.includes(frag), frag)
+  // nada some em silêncio: o § 10 do Art. 12 está em "sem dever identificado", com o motivo
+  const s10 = p.sem_dever_identificado.find((o) => /Abradee exercerá a coordenação/.test(o.trecho ?? ''))!
+  assert.ok(s10 && s10.motivo === 'sem dever identificado' && s10.dispositivo === 'Art. 12, § 10')
+  for (const o of p.sem_dever_identificado) assert.ok(o.trecho && o.dispositivo && o.motivo === 'sem dever identificado')
+  // um dispositivo nunca está em duas listas
+  const ids = [...p.obrigacoes, ...p.outros_dispositivos, ...p.sem_dever_identificado].map((o) => o.id)
+  assert.equal(new Set(ids).size, ids.length)
+  // RN 1.137 não muda de contagem
+  assert.equal(planos.rn1137.resumo.aplicaveis, 155)
 })

@@ -1,7 +1,7 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "8286a30",
- "gerado_em": "2026-11-20",
+ "commit_origem": "72c0931",
+ "gerado_em": "2026-11-21",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
   "titulo": "RN ANEEL 1.137/2025",
@@ -14379,6 +14379,618 @@
    "trecho": "Art 11. A Cessão Emergencial de recursos humanos, equipamentos e materiais poderá ser realizada também entre distribuidoras e transmissoras, visando garantir a continuidade do serviço em situações de crise, sem comprometer a segurança operacional do cedente.",
    "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
    "dispositivo": "Art. 11"
+  }
+ ],
+ "sem_dever_identificado": [
+  {
+   "id": "sd-b36d60498649",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0008",
+   "trecho": "Art. 1º Estabelece disposições para o aumento da resiliência do sistema de distribuição e de transmissão a eventos climáticos severos, altera as Resoluções Normativas nº 846, de 11 de junho de 2019, nº 905, de 08 de dezembro de 2020, nº 948, de 21 de novembro de 2021, nº 956, de 7 de dezembro de 2021, nº 1.000, de 7 de dezembro de 2021, e dá outras providências.",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 1º"
+  },
+  {
+   "id": "sd-aa40a91faba9",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0010",
+   "trecho": "Art. 2º O Anexo I da Resolução Normativa nº 956, de 7 de dezembro de 2021, passa a vigorar com a seguinte redação:",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 2º"
+  },
+  {
+   "id": "sd-71ad698898e8",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0011",
+   "trecho": "“134. ..............................................................................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 134"
+  },
+  {
+   "id": "sd-ce6877d1adba",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0012",
+   "trecho": "134-A. Duração da Interrupção Individual ocorrida em Situação de Emergência por Unidade Consumidora ou por Ponto de Conexão – DISE: corresponde à duração de cada interrupção ocorrida em Situação de Emergência, para cada unidade consumidora ou ponto de conexão. ....................................................................................................”(NR)",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 134-A"
+  },
+  {
+   "id": "sd-2a6161821bee",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0014",
+   "trecho": "Art. 3º O Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, passa a vigorar com a seguinte redação: “",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 3º"
+  },
+  {
+   "id": "sd-e3161ee4388a",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0015",
+   "trecho": "1. .............................................................................................. ..............................................................................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 1"
+  },
+  {
+   "id": "sd-bf03ca4857fc",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0016",
+   "trecho": "e) Seção 4.5 – Coordenação operacional: apresenta os requisitos mínimos para o relacionamento operacional entre os Centros de Operação da Distribuição - COD, do agente de transmissão detentor de DIT, do Centro de Despacho de Geração Distribuída - CDGD e demais órgãos de operação de instalações dos usuários;",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 1, alínea e"
+  },
+  {
+   "id": "sd-a4f894d923a0",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0017",
+   "trecho": "f) Seção 4.6 – Recursos de comunicação de voz e dados: estabelece os recursos mínimos de comunicação de voz e de dados do COD com o Centro de Operação do agente de transmissão detentor de DIT, com o CDGD e com os usuários;",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 1, alínea f"
+  },
+  {
+   "id": "sd-14104f46a543",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0018",
+   "trecho": "g) Seção 4.7 – Poda e manejo vegetal: define os procedimentos e as responsabilidades quanto à supressão e o manejo da vegetação;",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 1, alínea g"
+  },
+  {
+   "id": "sd-5c4329009457",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0019",
+   "trecho": "h) Seção 4.8 – Comunicação entre Distribuidoras e Consumidores em casos de interrupção no fornecimento: apresentar os critérios para comunicação com os consumidores durante situações de interrupção emergencial do fornecimento de energia elétrica de longa duração, garantindo transparência, agilidade e precisão nas informações prestadas;",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 1, alínea h"
+  },
+  {
+   "id": "sd-19fa2b29555b",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0020",
+   "trecho": "i) Seção 4.9 - Comunicação entre Distribuidoras e Poder Público em Situações de Emergência: apresentar os critérios para comunicação com o Poder Público em geral durante situações de interrupção emergencial do fornecimento de energia elétrica de longa duração, garantindo transparência, agilidade e precisão nas informações prestadas;",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 1, alínea i"
+  },
+  {
+   "id": "sd-22411277529e",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0021",
+   "trecho": "j) Seção 4.10 - Cessão Emergencial de recursos humanos, equipamentos e materiais entre distribuidoras: estabelecer as condições para a realização de cessão de recursos humanos, equipamentos e materiais entre distribuidoras, visando garantir a continuidade do serviço em situações de crise, sem comprometer a segurança operacional ou o atendimento aos consumidores por parte da distribuidora cedente; e",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 1, alínea j"
+  },
+  {
+   "id": "sd-0b6970133c97",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0022",
+   "trecho": "k) Seção 4.11 - Planos de Contingência: estabelece os princípios norteadores, diretrizes e requisitos mínimos para a elaboração e implementação de planos de contingência por empresas de distribuição de energia elétrica.”(NR)",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 1, alínea k"
+  },
+  {
+   "id": "sd-5e53de2ef1d3",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0023",
+   "trecho": "“93. ..............................................................................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 93"
+  },
+  {
+   "id": "sd-b89eb851a15c",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0030",
+   "trecho": "98. As distribuidoras são responsáveis pela realização de ações preventivas, devendo atuar junto ao Poder Público Estadual, Distrital e Municipal e manter os registros das solicitações conforme dispõe o item 104, e corretivas, visando garantir a segurança da rede de distribuição, a qualidade, a eficiência e a continuidade do fornecimento de energia elétrica, por meio do manejo adequado da vegetação, sempre seguindo às legislações pertinentes. 98.1. A notificação da distribuidora ao Poder Público Municipal não a exime de suas obrigações quanto à qualidade, eficiência e continuidade na prestação do serviço de distribuição de energia elétrica, devendo manter atuação diligente e tempestiva. Diretrizes para o manejo vegetal",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 98"
+  },
+  {
+   "id": "sd-b4203df58a4b",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0078",
+   "trecho": "114. A ANEEL estabelecerá procedimento para comunicação e acompanhamento das situações de crise enfrentadas pelas distribuidoras. Diretrizes de Comunicação",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 114"
+  },
+  {
+   "id": "sd-c2dfa4c575b0",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0087",
+   "trecho": "121. Estabelecer as condições para a realização de Cessão Emergencial de recursos humanos, equipamentos e materiais entre distribuidoras e transmissoras, visando garantir a continuidade do serviço em situações de crise, sem comprometer a segurança operacional ou o atendimento aos consumidores por parte da distribuidora cedente. Definições",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 121"
+  },
+  {
+   "id": "sd-11924f5ef6bf",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0088",
+   "trecho": "122. Situação de Crise: Evento que afeta significativamente a capacidade operacional da distribuidora, relacionado a eventos extraordinários e cuja caracterização esteja objetivamente definida no Plano de Contingência.",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 122"
+  },
+  {
+   "id": "sd-8d38798d9628",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0089",
+   "trecho": "123. Cessão Emergencial de Recursos: Cessão temporária de profissionais técnicos ou operacionais ou de equipamentos e materiais de uma distribuidora ou transmissora para uma distribuidora para auxiliar em situações de crise.",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 123"
+  },
+  {
+   "id": "sd-bb3108b3e90d",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0090",
+   "trecho": "124. Recursos Disponíveis: Totalidade dos recursos humanos (próprios ou terceirizados), material ou equipamento à disposição da distribuidora mediante contrato. Princípios da Cessão Emergencial",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 124"
+  },
+  {
+   "id": "sd-07bd4d30f7c5",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0094",
+   "trecho": "128. Neutralidade: os valores referentes aos custos ou despesas incorridos pela cedente em função da Cessão Emergencial de recursos serão reembolsados pela cessionária à cedente pelo valor incorrido, proporcional à folha de pagamento de pessoal ou despesa ou custo pelo uso de equipamento ou materiais, sem que haja lucro, remuneração ou rentabilidade de qualquer tipo, tendo em vista o caráter de colaboração e solidariedade.",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 128"
+  },
+  {
+   "id": "sd-492b21808d1b",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0097",
+   "trecho": "131. A Cessão Emergencial de recursos somente pode ser realizada em situações em que a distribuidora tenha atingido limite operacional crítico em relação aos seus recursos disponíveis no atendimento direto à situação de crise, devendo tal situação ser devidamente demonstrada e documentada em relatório circunstanciado do evento que gerou a situação de crise. Intercâmbio de Informações",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 131"
+  },
+  {
+   "id": "sd-dacd1fc74886",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0127",
+   "trecho": "137. O tempo de cessão das equipes não pode comprometer significativamente o atendimento aos consumidores da distribuidora cedente.",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 137"
+  },
+  {
+   "id": "sd-77db89c4acdc",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0130",
+   "trecho": "a) sejam comunicados à ANEEL em até 60 (sessenta) dias após o fim da situação emergencial, mediante relatório contendo a discriminação das despesas ou custos incorridos a serem reembolsados pela cessionária à cedente;",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 139, alínea a"
+  },
+  {
+   "id": "sd-4a4b41b7ba1b",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0174",
+   "trecho": "Art. 4º O Anexo VI da Resolução Normativa nº 956, de 7 de dezembro de 2021, passa a vigorar com a seguinte redação:",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 4º"
+  },
+  {
+   "id": "sd-16d07def5459",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0175",
+   "trecho": "“23. ..............................................................................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 23"
+  },
+  {
+   "id": "sd-fb6e98e88089",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0200",
+   "trecho": "“44. ..............................................................................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 44"
+  },
+  {
+   "id": "sd-9a2950f4d8b7",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0202",
+   "trecho": "“45. ..............................................................................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 45"
+  },
+  {
+   "id": "sd-49b60adf1bd7",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0204",
+   "trecho": "“46. ..............................................................................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 46"
+  },
+  {
+   "id": "sd-485c789dcf55",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0207",
+   "trecho": "Art. 5º O Anexo VIII da Resolução Normativa nº 956, de 7 de dezembro de 2021, passa a vigorar com a seguinte redação:",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 5º"
+  },
+  {
+   "id": "sd-4cddd02d9644",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0208",
+   "trecho": "“171. ..............................................................................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 171"
+  },
+  {
+   "id": "sd-61c26fadad94",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0210",
+   "trecho": "173. .............................................................................................. ..............................................................................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 173"
+  },
+  {
+   "id": "sd-fcc8aa1a8bf7",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0211",
+   "trecho": "e) Duração da Interrupção Individual ocorrida em Situação de Emergência por Unidade Consumidora ou por Ponto de Conexão – DISE, utilizando a seguinte fórmula:",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 173, alínea e"
+  },
+  {
+   "id": "sd-fde9d4a9ed59",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0224",
+   "trecho": "“180. ..............................................................................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 180"
+  },
+  {
+   "id": "sd-bd8c2c949fa4",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0226",
+   "trecho": "181. Os indicadores DICRI e DISE não se aplicam às unidades consumidoras e centrais geradoras atendidas em AT, nem aos pontos de conexão de DIT ou de distribuidoras acessados por outras distribuidoras. ..............................................................................................”(NR)",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 181"
+  },
+  {
+   "id": "sd-36b3f669bbb4",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0227",
+   "trecho": "“214. Os limites dos indicadores de continuidade individuais DIC, FIC, DMIC, DICRI e DISE para as unidades consumidoras e centrais geradoras são estabelecidos nas tabelas 1 a 5 do Anexo 8.B, de acordo com a localização e com a tensão contratada.”(NR)",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 214"
+  },
+  {
+   "id": "sd-3c0e0fabd415",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0228",
+   "trecho": "“216. Os limites dos indicadores DIC, DMIC, DICRI e DISE são vinculados ao limite anual do indicador DEC, enquanto os limites do indicador FIC são vinculados ao limite anual do indicador FEC.”(NR)",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 216"
+  },
+  {
+   "id": "sd-1199636f238b",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0230",
+   "trecho": "220. ..............................................................................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 220"
+  },
+  {
+   "id": "sd-0d52b36b12da",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0232",
+   "trecho": "“225. .............................................................................................. ..............................................................................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 225"
+  },
+  {
+   "id": "sd-4d342f94521e",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0248",
+   "trecho": "227. .............................................................................................. ..............................................................................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "item 227"
+  },
+  {
+   "id": "sd-dfeed4d393f1",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0256",
+   "trecho": "Art. 6º Aprovar a revisão do Módulo 4 – Prestação do Serviço, disposto no Anexo IV da Resolução Normativa ANEEL nº 905, de 8 de dezembro de 2020.",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 6º"
+  },
+  {
+   "id": "sd-3567ce545451",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0257",
+   "trecho": "Art. 7º Aprovar a revisão do Módulo 6 – Coordenação e Controle da Operação, disposto no Anexo VI da Resolução Normativa ANEEL nº 905, de 8 de dezembro de 2020.",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 7º"
+  },
+  {
+   "id": "sd-a3576b61d76e",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0259",
+   "trecho": "Art. 8º A Resolução Normativa nº 1.000, de 7 de dezembro de 2021, passa a vigorar com a seguinte redação:",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 8º"
+  },
+  {
+   "id": "sd-c63c9852c188",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0260",
+   "trecho": "“Art. 371. ..............................................................................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 371"
+  },
+  {
+   "id": "sd-1020dc665a46",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0273",
+   "trecho": "Art. 9º A Resolução Normativa nº 846, de 11 de junho de 2019, passa a vigorar com a seguinte redação:",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 9º"
+  },
+  {
+   "id": "sd-531d74a304a0",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0274",
+   "trecho": "“Art. 11. Constitui infração do Grupo III: (...)",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 11"
+  },
+  {
+   "id": "sd-16ebb9df0b49",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0275",
+   "trecho": "XXIII - deixar de prestar informações decorrentes de interrupções no fornecimento de energia elétrica aos consumidores ou usuários, nos termos da regulação vigente.” .............................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 11, inciso XXIII"
+  },
+  {
+   "id": "sd-147e84fa0bfd",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0276",
+   "trecho": "“Art. 12. Constitui infração do Grupo IV: ............................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 12"
+  },
+  {
+   "id": "sd-23d2096f80ee",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0277",
+   "trecho": "XXVI - a ausência, inadequação ou descumprimento do Plano de Contingência, nos termos da regulação vigente;",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 12, inciso XXVI"
+  },
+  {
+   "id": "sd-09072318f88c",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0278",
+   "trecho": "XXVII - a ausência, inadequação ou descumprimento do Plano de Manejo Vegetal, nos termos da regulação vigente; e",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 12, inciso XXVII"
+  },
+  {
+   "id": "sd-b5771e01648b",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0279",
+   "trecho": "XXVIII - comunicar-se de forma ineficiente com o Poder Público em Situações de Emergência, nos termos da regulação vigente.” .........................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 12, inciso XXVIII"
+  },
+  {
+   "id": "sd-279db54fe2e8",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0280",
+   "trecho": "“Art. 13. Constitui infração do Grupo V: (...)",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 13"
+  },
+  {
+   "id": "sd-fe14bc403e90",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0281",
+   "trecho": "XIX - atuar de forma inadequada no restabelecimento do fornecimento de energia elétrica nos sistemas de distribuição; e",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 13, inciso XIX"
+  },
+  {
+   "id": "sd-72367bab6d98",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0282",
+   "trecho": "XX - atuar de forma inadequada no retorno à disponibilidade das instalações sob responsabilidade de concessionária de transmissão.”(NR)",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 13, inciso XX"
+  },
+  {
+   "id": "sd-aaa3595e7870",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0287",
+   "trecho": "§ 1º O Comitê de Crise será composto por membros indicados pela Diretoria, pela Área de Assessoria Institucional da Diretoria, pela Área de Fiscalização Técnica dos Serviços de Energia Elétrica, pela Área de Mediação Administrativa e das Relações de Consumo e pela Área de Regulação dos Serviços de Transmissão e Distribuição de Energia Elétrica.",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 10, § 1º"
+  },
+  {
+   "id": "sd-615aee6836bb",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0292",
+   "trecho": "Art. 12 O Anexo V – Módulo V da Resolução Normativa nº 948, de 21 de novembro, passa a vigorar com a seguinte redação:",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 12"
+  },
+  {
+   "id": "sd-3c9ac5cd8d00",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0293",
+   "trecho": "“Art. 19. ..............................................................................................",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 19"
+  },
+  {
+   "id": "sd-13ab10c8cbe1",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0295",
+   "trecho": "a) sejam comunicados à ANEEL em até 60 (sessenta) dias após o fim da situação emergencial, mediante relatório contendo discriminação das despesas ou custos incorridos a serem reembolsados pela cessionária à cedente;",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 19, inciso XIII, alínea a"
+  },
+  {
+   "id": "sd-6d92af9a116b",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0312",
+   "trecho": "Art. 19. Revoga-se o inciso VIII do art. 621 da Resolução Normativa nº 1.000 de 2021.",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 19"
+  },
+  {
+   "id": "sd-32cab4ef9137",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0313",
+   "trecho": "Art. 20. Revoga-se a alínea b do item 14 do Módulo 9 do PRODIST, constante do anexo IX da Resolução Normativa nº 956 de 2021.",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 20"
+  },
+  {
+   "id": "sd-5eb2bb5abe55",
+   "natureza": "sem_dever_identificado",
+   "rotulo": "Sem dever identificado",
+   "sujeito": "",
+   "unidade": "u0314",
+   "trecho": "Art. 21. Esta Resolução entra em vigor na data de sua publicação. SANDOVAL DE ARAÚJO FEITOSA NETO Este texto não substitui o publicado no D.O. de 30.10.2025, seção 1, p. 89, v. 163, n. 207.",
+   "motivo": "sem dever identificado",
+   "dispositivo": "Art. 21"
   }
  ],
  "infracoes": {

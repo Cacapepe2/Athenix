@@ -3,7 +3,7 @@
  "modelo": "gpt-5-mini",
  "versao_do_prompt": "titulos-curtos-1",
  "prompt_hash": "88824c19d3988b48d13e3a5d7f4891184c4f8c7ebfe45368556791e26064df51",
- "gerado_em": "2026-11-20",
+ "gerado_em": "2026-11-21",
  "preco_usd_por_milhao": {
   "input": "0.275",
   "output": "2.20",
@@ -11,7 +11,7 @@
   "date": "2026-11-17",
   "currency": "USD"
  },
- "custo_total_da_execucao_usd": "0.0013",
+ "custo_total_da_execucao_usd": "0.0028",
  "titulos_curtos": {
   "f0ee215c5b31a957": "Publicar planos revisados",
   "868bbdfdd6ed7ce7": "Registrar interações com prefeituras",
