@@ -17,11 +17,11 @@ const obrigacoesDoTema = (t: Tema): Obrigacao[] => t.obrigacoes.map((id) => plan
 /** Colunas novas do CSV do plano: o que já fazem, situação informada, provas marcadas e área sugerida. */
 export function extrasDoCsv(r: Respostas, diag: Diagnosticos = {}): ExtrasCsv {
   return {
-    colunas: ['o_que_ja_fazemos', 'situacao', 'provas_marcadas', 'area'],
+    colunas: ['o_que_ja_fazemos', 'situacao', 'provas_marcadas', 'area', 'sujeito'],
     linha: (t, o) => {
       const marcadas = new Set(r.provas[t.id] ?? [])
       const texto = provasDoTema(planoDaPagina, obrigacoesDoTema(t)).filter((p) => marcadas.has(p.id)).map((p) => p.texto).join('; ')
-      return [r.jaFazemos[t.id] ?? '', diag[t.id] ? nomeDiag(diag[t.id]) : '', texto, o.area]
+      return [r.jaFazemos[t.id] ?? '', diag[t.id] ? nomeDiag(diag[t.id]) : '', texto, o.area, o.sujeito_implicito ? 'sujeito implícito (a revisar)' : 'distribuidora (no texto)']
     },
   }
 }

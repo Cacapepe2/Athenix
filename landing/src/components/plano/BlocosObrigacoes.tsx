@@ -80,6 +80,7 @@ function Bloco({ b, aberta, alternar }: { b: BlocoPlano; aberta: boolean; altern
         <div className="flex flex-col gap-2">
           <span className="text-[13px] font-bold">O que a norma exige</span>
           <span className="text-[15px] leading-normal">{b.trecho ? `“${b.trecho.trim()}”` : b.frase}</span>
+          {b.sujeitoImplicito && <span className="text-xs font-semibold">Sujeito implícito (a revisar): o texto não diz “a distribuidora”; contamos como dever dela por ser norma dirigida às distribuidoras.</span>}
           <span className="text-[13px]">{b.dispositivo}{b.valor ? ` · ${b.gravidadeRotulo} (${b.preliminar ? 'sugerida pela IA, aguarda revisão humana' : 'identificada no texto'})` : ' · gravidade a enquadrar'}</span>
           <span className="text-xs">Título do bloco: resumo gerado por IA, a revisar.</span>
         </div>
