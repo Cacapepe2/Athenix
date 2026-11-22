@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { brl, brlCurto, textoVencidas, celula, comAtenuantePct, csvPlano, decisoesDaSemana, exposicaoTema, lacuna, lerReais, manchete, maximoPct, resumoDiagnostico, obrigacao, ordenarTemas, plano, reaisDe, SIM_INICIAL, situacaoPrazo, textoFaixa, type Cenario, type Simulacao } from './plano.ts'
+import { brl, brlCurto, textoVencidas, textoVencidasComDetalhe, celula, comAtenuantePct, csvPlano, decisoesDaSemana, exposicaoTema, lacuna, lerReais, manchete, maximoPct, resumoDiagnostico, obrigacao, ordenarTemas, plano, reaisDe, SIM_INICIAL, situacaoPrazo, textoFaixa, type Cenario, type Simulacao } from './plano.ts'
 
 test('plano vem do produto, com perfil ilustrativo e sem números soltos', () => {
   assert.equal(plano.gerado_por, 'scripts/exportar_plano_demo.py')
@@ -214,7 +214,9 @@ test('empate de R$: confirmado antes de sugerido, depois mais obrigações venci
     }
   }
   const m = manchete(plano.temas, {}, SIM_INICIAL, 'preliminar')
-  assert.equal(m.obrigacoesVencidas, plano.resumo.por_situacao.vencida)
+  // manchete conta obrigações principais; alíneas de detalhe à parte; as duas somam os deveres vencidos
+  assert.equal(m.obrigacoesVencidas + m.detalhesVencidos, plano.resumo.por_situacao.vencida)
+  assert.equal(textoVencidasComDetalhe({ obrigacoes: 14, detalhes: 11 }), '14 obrigações vencidas · 11 itens de detalhe')
   assert.equal(textoVencidas(1), '1 obrigação vencida')
   assert.equal(textoVencidas(3), '3 obrigações vencidas')
 })

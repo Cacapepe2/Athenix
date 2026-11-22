@@ -1,6 +1,6 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "d2b058b",
+ "commit_origem": "9aecbc9",
  "gerado_em": "2026-11-22",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
@@ -219,8 +219,8 @@
    "adequacao": 1,
    "adequacao:2026-01-28": 3,
    "adequacao:2026-04-28": 15,
-   "em_vigor:2025-10-30": 123,
-   "sem_marco": 11
+   "em_vigor:2025-10-30": 124,
+   "sem_marco": 10
   }
  },
  "resumo": {
@@ -1594,6 +1594,8 @@
    "tema": "outros",
    "motivo_tema": "Sem seção temática nem assunto reconhecido",
    "unidade": "u0311",
+   "principal": "u0311",
+   "detalhe": false,
    "trecho": "Art. 18. As disposições não listadas nos artigos 13, 14, 15 e 16 devem ser implementadas na data de publicação desta Resolução Normativa.",
    "situacao": "vencida",
    "marco": null,
@@ -1656,6 +1658,8 @@
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0046",
+   "principal": "u0046",
+   "detalhe": false,
    "trecho": "103. As distribuidoras devem disponibilizar a versão mais atualizada de seu plano de manejo vegetal em seu sítio eletrônico na Internet e nos postos de atendimento presencial, de forma acessível ao público, com uso de linguagem clara e adequada, conforme prazo constante do Módulo 6.",
    "situacao": "vencida",
    "marco": {
@@ -1765,6 +1769,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0172",
+   "principal": "u0172",
+   "detalhe": false,
    "trecho": "148. O plano de contingência deve possuir versão do documento, data de aprovação e identificação e assinatura do(s) responsável(is) técnico(s), sendo passível de fiscalização.” (NR)",
    "situacao": "vencida",
    "marco": {
@@ -1877,6 +1883,8 @@
    "tema": "manejo",
    "motivo_tema": "O texto nomeia \"manejo\"",
    "unidade": "u0300",
+   "principal": "u0300",
+   "detalhe": false,
    "trecho": "I - Até 90 (noventa) dias para revisar e publicar os planos de manejo vegetal, de comunicação e de contingência de que tratam os itens 103, 108 e 148 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa;",
    "situacao": "vencida",
    "marco": null,
@@ -1971,6 +1979,8 @@
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0064",
+   "principal": "u0064",
+   "detalhe": false,
    "trecho": "108. As distribuidoras devem disponibilizar a versão mais atualizada de seu plano de comunicação em seu sítio eletrônico na Internet e nos postos de atendimento presencial, de forma acessível ao público, com uso de linguagem clara e adequada. Informações Detalhadas",
    "situacao": "vencida",
    "marco": {
@@ -2086,6 +2096,8 @@
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0063",
+   "principal": "u0052",
+   "detalhe": true,
    "trecho": "k) Estágio da operação (conforme etapas definidas no plano de contingência).",
    "situacao": "vencida",
    "marco": {
@@ -2192,6 +2204,8 @@
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0047",
+   "principal": "u0047",
+   "detalhe": false,
    "trecho": "104. As distribuidoras devem manter registro detalhado durante o período de 05 anos de todas as solicitações relacionadas ao serviço de manejo da vegetação que ofereça risco à segurança das redes elétricas e à continuidade do fornecimento de energia elétrica, incluídas tanto as solicitações realizadas pelo Poder Público Municipal quanto aquelas registradas pelas próprias distribuidoras e enviadas ao Poder Público Municipal, devendo o compartilhamento de informações estar em conformidade com as disposições da Lei Geral de Proteção de Dados (LGPD).",
    "situacao": "vencida",
    "marco": {
@@ -2286,6 +2300,8 @@
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0050",
+   "principal": "u0050",
+   "detalhe": false,
    "trecho": "105. As distribuidoras devem comunicar aos consumidores, por meio dos canais disponíveis, a provável causa da interrupção, a área afetada e o tempo previsto para a normalização do fornecimento em até 15 (quinze) minutos após o conhecimento da causa da interrupção. Independentemente do momento em que a causa for identificada, a comunicação contendo essas informações deve ser realizada em até 1 (uma) hora após o reconhecimento da ocorrência da interrupção no fornecimento de energia elétrica.",
    "situacao": "vencida",
    "marco": {
@@ -2375,6 +2391,8 @@
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0051",
+   "principal": "u0051",
+   "detalhe": false,
    "trecho": "106. As distribuidoras de energia devem disponibilizar em sítio eletrônico, com atualização a cada 30 minutos, o número total de unidades consumidoras afetadas por interrupções, discriminado em mapa por bairro, no mínimo.",
    "situacao": "vencida",
    "marco": {
@@ -2468,6 +2486,8 @@
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0051",
+   "principal": "u0051",
+   "detalhe": false,
    "trecho": "Além disso, o número total de unidades consumidoras afetadas deve ser apresentado por tempo de interrupção, com as seguintes faixas de duração:",
    "situacao": "vencida",
    "marco": {
@@ -2554,6 +2574,8 @@
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0053",
+   "principal": "u0052",
+   "detalhe": true,
    "trecho": "a) Número da ocorrência;",
    "situacao": "vencida",
    "marco": {
@@ -2648,6 +2670,8 @@
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0054",
+   "principal": "u0052",
+   "detalhe": true,
    "trecho": "b) Município/bairro da ocorrência aberta;",
    "situacao": "vencida",
    "marco": {
@@ -2742,6 +2766,8 @@
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0055",
+   "principal": "u0052",
+   "detalhe": true,
    "trecho": "c) Data e hora de início da ocorrência aberta;",
    "situacao": "vencida",
    "marco": {
@@ -2836,6 +2862,8 @@
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0056",
+   "principal": "u0052",
+   "detalhe": true,
    "trecho": "d) Tipo de ocorrência aberta (programada e não programada);",
    "situacao": "vencida",
    "marco": {
@@ -2930,6 +2958,8 @@
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0057",
+   "principal": "u0052",
+   "detalhe": true,
    "trecho": "e) Sinalização do status da ocorrência aberta (Em preparação/Em Deslocamento/Em Execução);",
    "situacao": "vencida",
    "marco": {
@@ -3024,6 +3054,8 @@
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0058",
+   "principal": "u0052",
+   "detalhe": true,
    "trecho": "f) Quantidade de unidades consumidoras interrompidas da ocorrência aberta e o total da área de atuação;",
    "situacao": "vencida",
    "marco": {
@@ -3118,6 +3150,8 @@
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0059",
+   "principal": "u0052",
+   "detalhe": true,
    "trecho": "g) Duração da ocorrência (hh:mm);",
    "situacao": "vencida",
    "marco": {
@@ -3212,6 +3246,8 @@
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0060",
+   "principal": "u0052",
+   "detalhe": true,
    "trecho": "h) Consumidor Hora Interrompido (CHI) da ocorrência aberta e o total da área de atuação;",
    "situacao": "vencida",
    "marco": {
@@ -3306,6 +3342,8 @@
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0061",
+   "principal": "u0052",
+   "detalhe": true,
    "trecho": "i) Quantidade de ocorrências abertas segregadas por município e o total na área de atuação;",
    "situacao": "vencida",
    "marco": {
@@ -3400,6 +3438,8 @@
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0062",
+   "principal": "u0052",
+   "detalhe": true,
    "trecho": "j) Quantidade de equipes em atividade, segregadas por município e o total na área de atuação; e",
    "situacao": "vencida",
    "marco": {
@@ -3497,6 +3537,8 @@
    "tema": "poder_publico",
    "motivo_tema": "O texto nomeia \"Poder Público\"",
    "unidade": "u0301",
+   "principal": "u0301",
+   "detalhe": false,
    "trecho": "II - Até 180 (cento e oitenta) dias para implementar o registro das interações com o Poder Público Municipal em relação ao serviço de manejo da vegetação que apresente risco à segurança das redes elétricas e a continuidade do fornecimento, conforme dispõe o item 104 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa;",
    "situacao": "vencida",
    "marco": null,
@@ -3586,6 +3628,8 @@
    "tema": "consumidor",
    "motivo_tema": "O texto nomeia \"consumidor\"",
    "unidade": "u0302",
+   "principal": "u0302",
+   "detalhe": false,
    "trecho": "III - Até 180 (cento e oitenta) dias para implementar os mecanismos de comunicação ao consumidor sobre a previsão de reestabelecimento do serviço e demais informações de que trata o item 105 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa;",
    "situacao": "vencida",
    "marco": null,
@@ -3679,6 +3723,8 @@
    "tema": "consumidor",
    "motivo_tema": "O texto nomeia \"consumidor\"",
    "unidade": "u0303",
+   "principal": "u0303",
+   "detalhe": false,
    "trecho": "IV - Até 180 (cento e oitenta) dias para disponibilizar em sítio eletrônico o número total de unidades consumidoras afetadas por interrupções em mapa, conforme dispõe o item 106 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa;",
    "situacao": "vencida",
    "marco": null,
@@ -3777,6 +3823,8 @@
    "tema": "consumidor",
    "motivo_tema": "O texto nomeia \"ocorrências abertas\"",
    "unidade": "u0304",
+   "principal": "u0304",
+   "detalhe": false,
    "trecho": "V - Até 180 (cento e oitenta) dias para disponibilizar em sítio eletrônico as informações relacionadas às ocorrências abertas, conforme dispõe o item 107 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa;",
    "situacao": "vencida",
    "marco": null,
@@ -3876,6 +3924,8 @@
    "tema": "dise",
    "motivo_tema": "O texto nomeia \"DISE\"",
    "unidade": "u0305",
+   "principal": "u0305",
+   "detalhe": false,
    "trecho": "VI - Até 180 (cento e oitenta) dias mês para iniciar as apurações do Duração da Interrupção Individual ocorrida em Situação de Emergência por Unidade Consumidora ou por Ponto de Conexão – DISE e observar as disposições da Seção 8.2 do Módulo 8 do PRODIST com o corresponde pagamento de compensações por transgressão desse indicador, com efeitos retroativos a 2 meses após a publicação da norma;",
    "situacao": "vencida",
    "marco": null,
@@ -3970,6 +4020,8 @@
    "tema": "poder_publico",
    "motivo_tema": "Seção 4.9 da norma",
    "unidade": "u0084",
+   "principal": "u0084",
+   "detalhe": false,
    "trecho": "120. As distribuidoras devem realizar comunicações formais, com periodicidade anual, aos representantes do Poder Público, detalhando a execução dos protocolos estabelecidos de modo a garantir que todos os envolvidos estejam familiarizados com os procedimentos de comunicação.",
    "situacao": "recorrente",
    "marco": {
@@ -4063,6 +4115,8 @@
    "tema": "dise",
    "motivo_tema": "Seção IV da norma",
    "unidade": "u0209",
+   "principal": "u0209",
+   "detalhe": false,
    "trecho": "172. Os indicadores devem ser apurados mensalmente, considerando o mês civil, com exceção dos indicadores DICRI e DISE, que devem ser apurados por interrupção ocorrida em Dia Crítico ou em Situação de Emergência, respectivamente.",
    "situacao": "recorrente",
    "marco": {
@@ -4154,6 +4208,8 @@
    "tema": "outros",
    "motivo_tema": "Sem seção temática nem assunto reconhecido",
    "unidade": "u0296",
+   "principal": "u0294",
+   "detalhe": true,
    "trecho": "b) a cessionária deverá manter dossiê individualizado em sua sede contendo os documentos comprobatórios que evidenciem a neutralidade de custos e despesas reembolsados à cedente, nos termos dos Procedimentos de Distribuição de Energia Elétrica no Sistema Elétrico Nacional – PRODIST e das Regras dos Serviços de Transmissão de Energia Elétrica, os quais poderão ser requisitados pela fiscalização por até 5 (cinco) anos após fim do evento emergencial.",
    "situacao": "evento",
    "marco": {
@@ -4249,6 +4305,8 @@
    "tema": "poder_publico",
    "motivo_tema": "Seção 4.9 da norma",
    "unidade": "u0077",
+   "principal": "u0077",
+   "detalhe": false,
    "trecho": "113. As distribuidoras de energia devem disponibilizar uma API (Application Programming Interface) ou outra solução tecnológica segura, conforme instrução técnica emitida pela ANEEL, permitindo que a ANEEL extraia os dados de interrupção do fornecimento diretamente da fonte, com observância aos critérios de segurança cibernética, disponibilidade e integridade de sistemas.",
    "situacao": "evento",
    "marco": {
@@ -4343,6 +4401,8 @@
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0099",
+   "principal": "u0098",
+   "detalhe": true,
    "trecho": "a) valor global da contratação com detalhamento dos recursos envolvidos, segregados por tipo de gasto;",
    "situacao": "evento",
    "marco": {
@@ -4438,6 +4498,8 @@
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0100",
+   "principal": "u0098",
+   "detalhe": true,
    "trecho": "b) duração do Contrato de Cessão Emergencial para execução dos serviços realizados;",
    "situacao": "evento",
    "marco": {
@@ -4504,6 +4566,8 @@
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0101",
+   "principal": "u0098",
+   "detalhe": true,
    "trecho": "c) relação das matrículas dos profissionais que realizaram os atendimentos, discriminando função, remuneração, cargos e encargos totais conforme folha de pagamento da cedente, horário do despacho, local do atendimento e o total de horas empregadas em serviço;",
    "situacao": "evento",
    "marco": {
@@ -4599,6 +4663,8 @@
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0102",
+   "principal": "u0098",
+   "detalhe": true,
    "trecho": "d) valor individualizado por frente de serviço e montante total dos serviços realizados;",
    "situacao": "evento",
    "marco": {
@@ -4694,6 +4760,8 @@
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0103",
+   "principal": "u0098",
+   "detalhe": true,
    "trecho": "e) documentação comprobatória e discriminação detalhada de despesas com equipamentos e materiais;",
    "situacao": "evento",
    "marco": {
@@ -4789,6 +4857,8 @@
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0104",
+   "principal": "u0098",
+   "detalhe": true,
    "trecho": "f) documentação comprobatória e discriminação detalhada de outras despesas realizadas na operação emergencial;",
    "situacao": "evento",
    "marco": {
@@ -4884,6 +4954,8 @@
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0105",
+   "principal": "u0098",
+   "detalhe": true,
    "trecho": "g) forma de pagamento, observando o que dispõe o item 138;",
    "situacao": "evento",
    "marco": {
@@ -4979,6 +5051,8 @@
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0106",
+   "principal": "u0098",
+   "detalhe": true,
    "trecho": "h) informações separadas por cedente, resguardando a respectiva proporcionalidade na Cessão Emergencial e a individualidade das concessões;",
    "situacao": "evento",
    "marco": {
@@ -5074,6 +5148,8 @@
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0107",
+   "principal": "u0098",
+   "detalhe": true,
    "trecho": "i) apresentação das razões da opção pela utilização de recursos humanos pertencentes a outras empresas;",
    "situacao": "evento",
    "marco": {
@@ -5169,6 +5245,8 @@
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0108",
+   "principal": "u0098",
+   "detalhe": true,
    "trecho": "j) atividades desenvolvidas pelas equipes cedidas, registradas detalhadamente, por localidade;",
    "situacao": "evento",
    "marco": {
@@ -5268,6 +5346,8 @@
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0109",
+   "principal": "u0098",
+   "detalhe": true,
    "trecho": "k) detalhamento das tarefas de campo, com dia, data e hora;",
    "situacao": "evento",
    "marco": {
@@ -5363,6 +5443,8 @@
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0110",
+   "principal": "u0098",
+   "detalhe": true,
    "trecho": "l) detalhamento dos tipos de estruturas utilizadas nos atendimentos, com quantidade de turmas e veículos (leves e pesados); e",
    "situacao": "evento",
    "marco": {
@@ -5458,6 +5540,8 @@
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0111",
+   "principal": "u0098",
+   "detalhe": true,
    "trecho": "m) outras informações que julgar relevante sobre a Cessão Emergencial. Acordo de Cessão Emergencial Prévio.",
    "situacao": "evento",
    "marco": {
@@ -5553,6 +5637,8 @@
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0128",
+   "principal": "u0128",
+   "detalhe": false,
    "trecho": "138. O ressarcimento à cedente não deve ultrapassar o prazo de doze meses contados do final da Cessão Emergencial. Contratos de Cessão Emergencial de recursos humanos, equipamentos e materiais entre Partes Relacionadas",
    "situacao": "evento",
    "marco": {
@@ -5650,6 +5736,8 @@
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0131",
+   "principal": "u0129",
+   "detalhe": true,
    "trecho": "b) a cessionária deverá manter dossiê individualizado em sua sede contendo os documentos comprobatórios que evidenciem a neutralidade de custos e despesas reembolsados à cedente, os quais poderão ser requisitados pela fiscalização por até 5 (cinco) anos após fim do evento emergencial.",
    "situacao": "evento",
    "marco": {
@@ -5717,6 +5805,8 @@
    "tema": "dise",
    "motivo_tema": "Seção IV da norma",
    "unidade": "u0229",
+   "principal": "u0229",
+   "detalhe": false,
    "trecho": "“219. No caso de violação do limite de continuidade individual dos indicadores DIC, FIC, DMIC, DICRI e DISE a distribuidora deve calcular a compensação ao consumidor ou central geradora, inclusive aqueles conectados em DIT, e efetuar o crédito na fatura apresentada em até 2 meses após o período de apuração.",
    "situacao": "evento",
    "marco": {
@@ -5782,6 +5872,8 @@
    "tema": "outros",
    "motivo_tema": "Sem seção temática nem assunto reconhecido",
    "unidade": "u0307",
+   "principal": "u0307",
+   "detalhe": false,
    "trecho": "Art. 14. As distribuidoras devem implantar processo de comunicação e acompanhamento da evolução dos eventos climáticos severos de que trata o item 114 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, em até 30 (trinta) dias, contados da publicação das instruções pela ANEEL.",
    "situacao": "evento",
    "marco": null,
@@ -5873,6 +5965,8 @@
    "tema": "outros",
    "motivo_tema": "Sem seção temática nem assunto reconhecido",
    "unidade": "u0308",
+   "principal": "u0308",
+   "detalhe": false,
    "trecho": "Art. 15. As distribuidoras devem disponibilizar a API de que trata item 113 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa em até 60 (sessenta) dias, contados da publicação das instruções pela ANEEL.",
    "situacao": "evento",
    "marco": null,
@@ -5962,6 +6056,8 @@
    "tema": "outros",
    "motivo_tema": "Sem seção temática nem assunto reconhecido",
    "unidade": "u0309",
+   "principal": "u0309",
+   "detalhe": false,
    "trecho": "Art. 16 As distribuidoras deverão informar e manter, por até cinco anos, em seu sítio eletrônico, os indicadores estabelecidos nos incisos V e VI do caput do art. 4º; do Decreto 12.068, de 20 de julho de 2024, em até 30 dias, contados da publicação das instruções pela ANEEL.",
    "situacao": "evento",
    "marco": null,
@@ -6071,6 +6167,8 @@
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0026",
+   "principal": "u0026",
+   "detalhe": false,
    "trecho": "94. As distribuidoras devem estabelecer um plano de manejo vegetal na sua área de atuação, que contemple a vegetação que interfira em suas redes de distribuição, em coordenação com o Poder Público Municipal e em articulação com os órgãos competentes do Poder Público Estadual e Distrital, e com vistas a garantir a segurança da rede de distribuição, a qualidade, eficiência e a continuidade do fornecimento de energia elétrica.",
    "situacao": "sem_prazo",
    "marco": {
@@ -6180,6 +6278,8 @@
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0028",
+   "principal": "u0028",
+   "detalhe": false,
    "trecho": "96. As distribuidoras devem garantir a rápida remoção de árvores ou galhos caídos sobre a rede, atuando de forma coordenada com o Poder Público Estadual, Distrital ou Municipal, dispondo de autonomia necessária para adotar medidas urgentes que assegurem a rápida recuperação do serviço em situações de emergência.",
    "situacao": "sem_prazo",
    "marco": {
@@ -6279,6 +6379,8 @@
    "tema": "poder_publico",
    "motivo_tema": "Seção 4.9 da norma",
    "unidade": "u0079",
+   "principal": "u0079",
+   "detalhe": false,
    "trecho": "115. A comunicação deve ser clara e transparente com o intuito de gerar confiança no relacionamento entre as distribuidoras e o Poder Público, essencial para a efetividade das ações em conjunto. Para esse fim, a distribuidora deve solicitar aos Poderes Públicos municipal, estadual e distrital que informem previamente até dois representantes oficiais de cada ente, que serão os responsáveis pelo recebimento das comunicações em situações de emergência.",
    "situacao": "sem_prazo",
    "marco": {
@@ -6379,6 +6481,8 @@
    "tema": "poder_publico",
    "motivo_tema": "Seção 4.9 da norma",
    "unidade": "u0082",
+   "principal": "u0082",
+   "detalhe": false,
    "trecho": "118. As distribuidoras devem garantir que os canais de comunicação oficiais estejam acessíveis e operacionais em situações de emergência em comum acordo com o Poder Público.",
    "situacao": "sem_prazo",
    "marco": {
@@ -6480,6 +6584,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0135",
+   "principal": "u0135",
+   "detalhe": false,
    "trecho": "140. O plano de contingência deve ser elaborado de forma a garantir a continuidade do fornecimento de energia elétrica, minimizar os impactos das contingências e responder a eventos críticos de forma eficaz, sempre assegurando a segurança dos colaboradores e da população.",
    "situacao": "sem_prazo",
    "marco": {
@@ -6589,6 +6695,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0136",
+   "principal": "u0136",
+   "detalhe": false,
    "trecho": "141. O plano de contingência deve conter os nomes e telefones de contato dos responsáveis. Princípios Norteadores",
    "situacao": "sem_prazo",
    "marco": {
@@ -6692,6 +6800,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0138",
+   "principal": "u0137",
+   "detalhe": true,
    "trecho": "a) Segurança: priorizar a segurança de todos os colaboradores e da população;",
    "situacao": "sem_prazo",
    "marco": {
@@ -6795,6 +6905,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0139",
+   "principal": "u0137",
+   "detalhe": true,
    "trecho": "b) Eficiência: minimizar o impacto das contingências nas operações e na prestação dos serviços;",
    "situacao": "sem_prazo",
    "marco": {
@@ -6895,6 +7007,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0140",
+   "principal": "u0137",
+   "detalhe": true,
    "trecho": "c) Responsabilidade: cumprir com as obrigações legais e regulamentares;",
    "situacao": "sem_prazo",
    "marco": {
@@ -6995,6 +7109,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0141",
+   "principal": "u0137",
+   "detalhe": true,
    "trecho": "d) Transparência: manter uma comunicação clara e aberta com todos os setores afetados;",
    "situacao": "sem_prazo",
    "marco": {
@@ -7096,6 +7212,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0142",
+   "principal": "u0137",
+   "detalhe": true,
    "trecho": "e) Prevenção: antecipar problemas e definir protocolos de atuação para o enfrentamento de situações críticas;",
    "situacao": "sem_prazo",
    "marco": {
@@ -7196,6 +7314,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0143",
+   "principal": "u0137",
+   "detalhe": true,
    "trecho": "f) Adaptabilidade: garantir a capacidade de adaptação frente às mudanças nas condições climáticas e operacionais, ajustando as estratégias conforme as circunstâncias específicas de cada evento; e",
    "situacao": "sem_prazo",
    "marco": {
@@ -7297,6 +7417,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0146",
+   "principal": "u0145",
+   "detalhe": true,
    "trecho": "a) Monitoramento Climático e Meteorológico: Realizar monitoramento periódico das condições climáticas e meteorológicas informando as equipes internas sobre possíveis alertas de risco;",
    "situacao": "sem_prazo",
    "marco": {
@@ -7399,6 +7521,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0147",
+   "principal": "u0145",
+   "detalhe": true,
    "trecho": "b) Gestão de Ocorrências: Implementar ações específicas conforme os níveis de contingência;",
    "situacao": "sem_prazo",
    "marco": {
@@ -7499,6 +7623,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0148",
+   "principal": "u0145",
+   "detalhe": true,
    "trecho": "c) Mobilização de Recursos: Definir procedimentos para a mobilização de equipes e recursos adicionais em diferentes níveis de contingência, garantindo a atuação mesmo em feriados e dias não úteis, de forma a assegurar a continuidade e a eficiência nas ações de resposta;",
    "situacao": "sem_prazo",
    "marco": {
@@ -7599,6 +7725,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0149",
+   "principal": "u0145",
+   "detalhe": true,
    "trecho": "d) Comunicação Interna: Estabelecer canais eficientes de comunicação interna para informar e coordenar ações durante contingências;",
    "situacao": "sem_prazo",
    "marco": {
@@ -7701,6 +7829,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0150",
+   "principal": "u0145",
+   "detalhe": true,
    "trecho": "e) Relatórios e Documentação: Manter registros detalhados das ações tomadas e dos resultados durante as contingências de modo a avaliar se as medidas tomadas estão aderentes ao planejado;",
    "situacao": "sem_prazo",
    "marco": {
@@ -7805,6 +7935,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0151",
+   "principal": "u0145",
+   "detalhe": true,
    "trecho": "f) Treinamentos e Simulações: Realizar treinamentos periódicos e simulações para preparar as equipes para situações de contingência;",
    "situacao": "sem_prazo",
    "marco": {
@@ -7909,6 +8041,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0152",
+   "principal": "u0145",
+   "detalhe": true,
    "trecho": "g) Atendimento ao Consumidor: Estabelecer procedimentos para a tratamento e resolução de demandas extraordinárias durante contingências;",
    "situacao": "sem_prazo",
    "marco": {
@@ -8009,6 +8143,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0153",
+   "principal": "u0145",
+   "detalhe": true,
    "trecho": "h) Coordenação com Órgãos Externos: Definir ações para comunicação e coordenação com autoridades públicas e órgãos reguladores;",
    "situacao": "sem_prazo",
    "marco": {
@@ -8110,6 +8246,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0154",
+   "principal": "u0145",
+   "detalhe": true,
    "trecho": "i) Apoio Interdepartamental: Estabelecer diretrizes para a colaboração entre diferentes departamentos e áreas da empresa durante situações de contingência;",
    "situacao": "sem_prazo",
    "marco": {
@@ -8210,6 +8348,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0155",
+   "principal": "u0145",
+   "detalhe": true,
    "trecho": "j) Formalização e Divulgação do Plano: O Plano de Contingência deve ser formalizado e documentado de maneira clara e detalhada, sendo amplamente divulgado por meio de canais internos de modo a garantir sua acessibilidade a todos os colaboradores e partes interessadas; e",
    "situacao": "sem_prazo",
    "marco": {
@@ -8306,6 +8446,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0156",
+   "principal": "u0145",
+   "detalhe": true,
    "trecho": "k) Cadeia de governança: Estabelecer comando nos níveis estratégico, tático e operacional para o gerenciamento de crises e contingências, definindo responsabilidades e fluxos de comunicação que garantam uma resposta coordenada, eficiente e segura, de forma que, em situações de crise, todos os níveis de comando estejam claramente definidos e operacionalmente disponíveis. Requisitos Mínimos",
    "situacao": "sem_prazo",
    "marco": {
@@ -8407,6 +8549,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0159",
+   "principal": "u0157",
+   "detalhe": true,
    "trecho": "b) Definição de Níveis de Contingência: Definir níveis de contingência por critérios objetivos, devendo ser atualizados de acordo com a evolução das condições operativas e meteorológicas;",
    "situacao": "sem_prazo",
    "marco": {
@@ -8507,6 +8651,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0160",
+   "principal": "u0157",
+   "detalhe": true,
    "trecho": "c) Plano de Ação para Cada Nível de Contingência: Desenvolver planos de ação específicos para cada nível de contingência, incluindo as responsabilidades e os procedimentos a serem seguidos;",
    "situacao": "sem_prazo",
    "marco": {
@@ -8607,6 +8753,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0161",
+   "principal": "u0157",
+   "detalhe": true,
    "trecho": "d) Infraestrutura de Apoio: Garantir a disponibilidade de recursos e infraestrutura necessários para a execução do plano de contingência, em relação à equipamentos, sistemas de comunicação e transporte, incluindo inventário, especificação e localização de equipamentos disponíveis e sobressalentes, bem como veículos operacionais;",
    "situacao": "sem_prazo",
    "marco": {
@@ -8709,6 +8857,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0162",
+   "principal": "u0157",
+   "detalhe": true,
    "trecho": "e) Treinamento e Capacitação: Implementar programas de treinamento e capacitação contínuos para todos os colaboradores envolvidos na execução do plano de contingência;",
    "situacao": "sem_prazo",
    "marco": {
@@ -8809,6 +8959,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0163",
+   "principal": "u0157",
+   "detalhe": true,
    "trecho": "f) Simulações e Testes Regulares: Realizar simulações ou testes periódicos para avaliar a eficácia do plano de contingência e identificar áreas de melhoria, inclusive com a participação de Órgãos Públicos;",
    "situacao": "sem_prazo",
    "marco": {
@@ -8913,6 +9065,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0164",
+   "principal": "u0157",
+   "detalhe": true,
    "trecho": "g) Atualização do plano: Manter a documentação do plano de contingência atualizada e disponível para todos os colaboradores, devendo constar a data e o número da versão, bem como assinatura do responsável;",
    "situacao": "sem_prazo",
    "marco": {
@@ -9013,6 +9167,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0165",
+   "principal": "u0157",
+   "detalhe": true,
    "trecho": "h) Avaliação e Melhoria Contínua: Realizar avaliações regulares do plano de contingência e implementar melhorias com base nos resultados das simulações, testes e experiências reais de contingência, visando aperfeiçoar a efetividade do plano; e",
    "situacao": "sem_prazo",
    "marco": {
@@ -9117,6 +9273,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0166",
+   "principal": "u0157",
+   "detalhe": true,
    "trecho": "i) Tratamento para unidades consumidoras específicas: Possuir medidas relacionadas ao tratamento para unidades consumidoras cadastradas como usuários de equipamentos de autonomia limitada (sobrevida) e para aquelas que prestem serviço essencial, incluindo aspectos referentes ao cadastro, comunicação e atendimento emergencial para mitigar os efeitos das interrupções do fornecimento de energia elétrica.",
    "situacao": "sem_prazo",
    "marco": {
@@ -9218,6 +9376,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0170",
+   "principal": "u0170",
+   "detalhe": false,
    "trecho": "146. A revisão do plano de contingência deverá ser feita sempre que necessário e com periodicidade máxima de um ano.",
    "situacao": "sem_prazo",
    "marco": {
@@ -9318,6 +9478,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0171",
+   "principal": "u0171",
+   "detalhe": false,
    "trecho": "147. As distribuidoras devem disponibilizar a versão mais atualizada, sem a identificação e contato dos seus responsáveis pelo seu plano de contingência, em seu sítio eletrônico na Internet e nos postos de atendimento presencial, de forma acessível ao público com uso de linguagem clara e adequada.",
    "situacao": "sem_prazo",
    "marco": {
@@ -9435,6 +9597,8 @@
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
    "unidade": "u0186",
+   "principal": "u0186",
+   "detalhe": false,
    "trecho": "23-F. A distribuidora deve disponibilizar em sítio eletrônico e nos postos de atendimento presencial, com uso de linguagem clara e adequada, o seu Plano de Manejo Vegetal.",
    "situacao": "sem_prazo",
    "marco": {
@@ -9542,6 +9706,8 @@
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
    "unidade": "u0192",
+   "principal": "u0192",
+   "detalhe": false,
    "trecho": "23-J. A distribuidora deve disponibilizar em sítio eletrônico e nos postos de atendimento presencial, com uso de linguagem clara e adequada, o seu Plano de Contingência.",
    "situacao": "sem_prazo",
    "marco": {
@@ -9649,6 +9815,8 @@
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
    "unidade": "u0198",
+   "principal": "u0198",
+   "detalhe": false,
    "trecho": "23-M. A distribuidora deve enviar regularmente à ANEEL os alertas meteorológicos que justifiquem o acionamento de plano de contingência, em qualquer nível.",
    "situacao": "sem_prazo",
    "marco": {
@@ -9755,12 +9923,21 @@
    "tema": "contingencia",
    "motivo_tema": "O texto nomeia \"contingência\"",
    "unidade": "u0306",
+   "principal": "u0306",
+   "detalhe": false,
    "trecho": "Parágrafo único. Os planos de contingência em vigor na data desta Resolução devem ser publicados em seu sítio eletrônico na Internet, respeitadas as disposições legais.",
    "situacao": "sem_prazo",
-   "marco": null,
+   "marco": {
+    "tipo": "em_vigor",
+    "data": "2025-10-30",
+    "dispositivo": "Art. 18",
+    "trecho": "Art. 18. As disposições não listadas nos artigos 13, 14, 15 e 16 devem ser implementadas na data de publicação desta Resolução Normativa.",
+    "nota": null,
+    "candidatos": null
+   },
    "prazo": {
     "data": null,
-    "texto": "Sem prazo identificado no texto",
+    "texto": "Em vigor desde 30/10/2025 (sem período de adequação)",
     "dias": null,
     "provisorio": false,
     "condicional": false,
@@ -9853,6 +10030,8 @@
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0027",
+   "principal": "u0027",
+   "detalhe": false,
    "trecho": "95. As distribuidoras deverão celebrar convênios, acordos de cooperação ou outros instrumentos formais com os entes públicos municipais, distritais e estaduais, com vistas à definição de protocolos de atuação coordenada para o manejo da vegetação que interfira na segurança e continuidade do serviço público de distribuição de energia elétrica, devendo prever, de forma clara, as responsabilidades de cada parte quanto à inspeção, poda preventiva, remoção e substituição de árvores, respeitando as competências legais e ambientais de cada ente federativo, bem como os procedimentos técnicos e operacionais necessários à execução das ações.",
    "situacao": "sem_prazo",
    "marco": {
@@ -9941,6 +10120,8 @@
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0029",
+   "principal": "u0029",
+   "detalhe": false,
    "trecho": "97. A escolha de tecnologias, projetos e estratégias operacionais pelas distribuidoras deve considerar os desafios específicos da vegetação local, incluindo aspectos como espécies predominantes, sazonalidade e características de crescimento de forma a garantir a prestação do serviço adequado.",
    "situacao": "sem_prazo",
    "marco": {
@@ -10027,6 +10208,8 @@
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0032",
+   "principal": "u0031",
+   "detalhe": true,
    "trecho": "a) Inspeção regular: realizar a inspeção visual periódica das redes elétricas e da vegetação próxima ou utilizar de sistema de gestão que possibilite a criação de ciclos de podas reduzindo a necessidade de deslocamento de equipe, a fim de identificar árvores ou galhos que possam representar risco de queda sobre a rede de distribuição;",
    "situacao": "sem_prazo",
    "marco": {
@@ -10116,6 +10299,8 @@
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0033",
+   "principal": "u0031",
+   "detalhe": true,
    "trecho": "b) Poda preventiva: realizar, em articulação com o Poder Público Estadual, Distrital e Municipal e em conformidade com as normas técnicas, podas preventivas para manter distância de segurança entre a vegetação e a rede elétrica, minimizando o risco de acidentes e interrupções no fornecimento de energia;",
    "situacao": "sem_prazo",
    "marco": {
@@ -10204,6 +10389,8 @@
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0034",
+   "principal": "u0031",
+   "detalhe": true,
    "trecho": "c) Remoção de vegetação de risco: quando identificadas árvores ou partes da vegetação que, devido ao seu estado, porte ou localização, apresentem risco iminente à segurança das redes elétricas, as distribuidoras deverão comunicar imediatamente a necessidade de eliminação do risco ao órgão competente do Poder Público Estadual, Distrital ou Municipal, e articular as ações necessárias para eliminação do risco, prestando apoio técnico necessário, inclusive com o desligamento da rede elétrica, quando aplicável, observando os convênios de cooperação entre os entes envolvidos, respeitando as competências legais e a legislação pertinente;",
    "situacao": "sem_prazo",
    "marco": {
@@ -10293,6 +10480,8 @@
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0035",
+   "principal": "u0031",
+   "detalhe": true,
    "trecho": "d) Substituição de árvores: as distribuidoras devem por meio de programas estimular o plantio de novas espécies adequadas ao convívio com as redes elétricas, em conformidade com os planos municipais de arborização.",
    "situacao": "sem_prazo",
    "marco": {
@@ -10386,6 +10575,8 @@
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0036",
+   "principal": "u0036",
+   "detalhe": false,
    "trecho": "100. As distribuidoras devem elaborar Relatório Anual de Gestão do Manejo Vegetal, documentando de forma detalhada todas as atividades relacionadas à gestão da vegetação que interfira na rede de distribuição de energia, que servirá como ferramenta de transparência e controle para assegurar que as ações de manejo vegetal sejam realizadas de forma eficaz, em conformidade com as normas técnicas e ambientais, e com o objetivo de garantir a segurança e a continuidade do fornecimento de energia elétrica.",
    "situacao": "sem_prazo",
    "marco": {
@@ -10472,6 +10663,8 @@
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0038",
+   "principal": "u0037",
+   "detalhe": true,
    "trecho": "a) Inspeções Visuais: relatar o número de inspeções realizadas nas redes elétricas e vegetação, bem como a extensão das redes inspecionadas, destacando as áreas de risco identificadas por conjunto elétrico;",
    "situacao": "sem_prazo",
    "marco": {
@@ -10558,6 +10751,8 @@
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0039",
+   "principal": "u0037",
+   "detalhe": true,
    "trecho": "b) Podas Preventivas: descrever as ações de poda realizadas e as ações indicadas ao Poder Público Municipal, incluindo o número de árvores podadas por conjunto elétrico;",
    "situacao": "sem_prazo",
    "marco": {
@@ -10646,6 +10841,8 @@
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0040",
+   "principal": "u0037",
+   "detalhe": true,
    "trecho": "c) Podas Corretivas: descrever as ações de poda realizadas, incluindo o número de árvores podadas por conjunto elétrico;",
    "situacao": "sem_prazo",
    "marco": {
@@ -10732,6 +10929,8 @@
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0041",
+   "principal": "u0037",
+   "detalhe": true,
    "trecho": "d) Remoção de Árvores: relatar os casos de remoção de árvores, detalhando a localização, o motivo da remoção (risco iminente, doenças, porte inadequado) por conjunto elétrico;",
    "situacao": "sem_prazo",
    "marco": {
@@ -10818,6 +11017,8 @@
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0042",
+   "principal": "u0037",
+   "detalhe": true,
    "trecho": "e) Programas de Substituição de Espécies: incluir dados sobre o número de substituição de árvores inadequadas por espécies mais apropriadas por conjunto elétrico;",
    "situacao": "sem_prazo",
    "marco": {
@@ -10904,6 +11105,8 @@
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0043",
+   "principal": "u0037",
+   "detalhe": true,
    "trecho": "f) Aceiro de faixas de servidão: relatar o aceiro da vegetação realizado em faixas de servidão das redes e linhas de distribuição por conjunto elétrico; e",
    "situacao": "sem_prazo",
    "marco": {
@@ -10990,6 +11193,8 @@
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0044",
+   "principal": "u0037",
+   "detalhe": true,
    "trecho": "g) Convênios Celebrados: informar os convênios celebrados com o Poder Público Estadual, Distrital ou Municipal da sua área de atuação, bem como as tratativas com esses entes para a celebração de convênios.",
    "situacao": "sem_prazo",
    "marco": {
@@ -11079,6 +11284,8 @@
    "tema": "manejo",
    "motivo_tema": "Seção 4.7 da norma",
    "unidade": "u0045",
+   "principal": "u0045",
+   "detalhe": false,
    "trecho": "102. As distribuidoras devem disponibilizar a versão mais atualizada de seu Relatório Anual de Gestão do Manejo Vegetal em seu sítio eletrônico na Internet e nos postos de atendimento presencial, de forma acessível ao público, com uso de linguagem clara e adequada, conforme prazo constante do Módulo 6.",
    "situacao": "sem_prazo",
    "marco": {
@@ -11176,6 +11383,8 @@
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0066",
+   "principal": "u0065",
+   "detalhe": true,
    "trecho": "a) Motivo da Interrupção: informação sobre a causa da falha, conforme “ANEXO 8.C: Lista de fatos geradores para classificação de interrupções do fornecimento de energia elétrica” do Módulo 8 (se disponível);",
    "situacao": "sem_prazo",
    "marco": {
@@ -11264,6 +11473,8 @@
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0067",
+   "principal": "u0065",
+   "detalhe": true,
    "trecho": "b) Área Afetada: delimitação geográfica da interrupção;",
    "situacao": "sem_prazo",
    "marco": {
@@ -11352,6 +11563,8 @@
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0068",
+   "principal": "u0065",
+   "detalhe": true,
    "trecho": "c) Unidades Consumidoras Impactadas: Número de unidades consumidoras afetadas; e",
    "situacao": "sem_prazo",
    "marco": {
@@ -11440,6 +11653,8 @@
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0069",
+   "principal": "u0065",
+   "detalhe": true,
    "trecho": "d) Previsão de Restabelecimento: estimativa de retorno do fornecimento, com base na melhor informação disponível. Canais de Comunicação",
    "situacao": "sem_prazo",
    "marco": {
@@ -11528,6 +11743,8 @@
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0070",
+   "principal": "u0070",
+   "detalhe": false,
    "trecho": "110. A comunicação de que trata o item 105 deve ser realizada, obrigatoriamente, por meio de SMS e aplicativos de mensagens, com envio de mensagens automáticas aos consumidores afetados.",
    "situacao": "sem_prazo",
    "marco": {
@@ -11622,6 +11839,8 @@
    "tema": "consumidor",
    "motivo_tema": "Seção 4.8 da norma",
    "unidade": "u0074",
+   "principal": "u0074",
+   "detalhe": false,
    "trecho": "112. A distribuidora deve atualizar as informações referentes à interrupção de que trata o item 105, incluindo alterações no tempo estimado de restabelecimento e outras informações relevantes para o consumidor.",
    "situacao": "sem_prazo",
    "marco": {
@@ -11710,6 +11929,8 @@
    "tema": "poder_publico",
    "motivo_tema": "Seção 4.9 da norma",
    "unidade": "u0080",
+   "principal": "u0080",
+   "detalhe": false,
    "trecho": "116. A comunicação deve facilitar a coordenação entre as distribuidoras e os órgãos governamentais, permitindo uma resposta integrada a crises e eventos adversos. Critérios de Comunicação",
    "situacao": "sem_prazo",
    "marco": {
@@ -11799,6 +12020,8 @@
    "tema": "poder_publico",
    "motivo_tema": "Seção 4.9 da norma",
    "unidade": "u0081",
+   "principal": "u0081",
+   "detalhe": false,
    "trecho": "117. As distribuidoras devem notificar o Poder Público imediatamente após a identificação de um evento crítico, utilizando canais de comunicação oficiais previamente estabelecidos.",
    "situacao": "sem_prazo",
    "marco": {
@@ -11890,6 +12113,8 @@
    "tema": "poder_publico",
    "motivo_tema": "Seção 4.9 da norma",
    "unidade": "u0083",
+   "principal": "u0083",
+   "detalhe": false,
    "trecho": "119. As distribuidoras devem estabelecer protocolos de alertas para notificar rapidamente o Poder Público, conforme previsto no item 115, sobre interrupções de energia e situações que demandem apoio imediato para a atuação em cenários de emergência.",
    "situacao": "sem_prazo",
    "marco": {
@@ -11980,6 +12205,8 @@
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0092",
+   "principal": "u0092",
+   "detalhe": false,
    "trecho": "126. Segurança Operacional: A Cessão Emergencial de recursos não deve comprometer a segurança das operações das distribuidoras envolvidas.",
    "situacao": "sem_prazo",
    "marco": {
@@ -12068,6 +12295,8 @@
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0093",
+   "principal": "u0093",
+   "detalhe": false,
    "trecho": "127. Proporcionalidade e Necessidade: A Cessão Emergencial deve ser limitada à necessidade demonstrada pela situação de crise e proporcional à capacidade operacional disponível de cada distribuidora.",
    "situacao": "sem_prazo",
    "marco": {
@@ -12135,6 +12364,8 @@
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0095",
+   "principal": "u0095",
+   "detalhe": false,
    "trecho": "129. Individualidade das concessionárias: todas as informações, documentações, arquivos e registros contábeis relacionados à Cessão Emergencial deverão evidenciar a proporção de cada distribuidora ou transmissora cedente. Situações Aplicáveis",
    "situacao": "sem_prazo",
    "marco": {
@@ -12229,6 +12460,8 @@
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0115",
+   "principal": "u0112",
+   "detalhe": true,
    "trecho": "c) A previsão de duração da Cessão Emergencial;",
    "situacao": "sem_prazo",
    "marco": {
@@ -12317,6 +12550,8 @@
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0116",
+   "principal": "u0112",
+   "detalhe": true,
    "trecho": "d) A responsabilidade pelas despesas operacionais;",
    "situacao": "sem_prazo",
    "marco": {
@@ -12405,6 +12640,8 @@
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0117",
+   "principal": "u0112",
+   "detalhe": true,
    "trecho": "e) Previsão de Cessão Emergencial, mantendo-se neutralidade das partes em relação a recursos humanos, equipamentos e materiais;",
    "situacao": "sem_prazo",
    "marco": {
@@ -12493,6 +12730,8 @@
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0118",
+   "principal": "u0112",
+   "detalhe": true,
    "trecho": "f) Realização de testes regulares de Cessão Emergencial, simulando cenários de crise para validar a eficácia do processo e identificar melhorias operacionais no intercâmbio de recursos humanos, equipamentos e materiais; e",
    "situacao": "sem_prazo",
    "marco": {
@@ -12586,6 +12825,8 @@
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0119",
+   "principal": "u0112",
+   "detalhe": true,
    "trecho": "g) Procedimentos claros para a integração de equipes externas, com definição de treinamentos, capacitações e preparação prévia adequada para garantir que todos os envolvidos estejam alinhados com as práticas de segurança e operação da distribuidora requisitante.",
    "situacao": "sem_prazo",
    "marco": {
@@ -12674,6 +12915,8 @@
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0121",
+   "principal": "u0120",
+   "detalhe": true,
    "trecho": "a) Reembolso de despesas com horas de trabalho dos recursos humanos, proporcionais à remuneração, cargos e encargos, conforme folha de pagamento da cedente;",
    "situacao": "sem_prazo",
    "marco": {
@@ -12760,6 +13003,8 @@
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0122",
+   "principal": "u0120",
+   "detalhe": true,
    "trecho": "b) Reembolso de despesas com equipamentos e materiais cedidos, proporcionais ao valor original para a cedente;",
    "situacao": "sem_prazo",
    "marco": {
@@ -12846,6 +13091,8 @@
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0123",
+   "principal": "u0120",
+   "detalhe": true,
    "trecho": "c) Seguros e indenizações em caso de acidentes durante a Cessão Emergencial; e",
    "situacao": "sem_prazo",
    "marco": {
@@ -12934,6 +13181,8 @@
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0124",
+   "principal": "u0120",
+   "detalhe": true,
    "trecho": "d) Neutralidade dos valores para o reembolso à(s) cedente(s) pela requisitante. Critérios de Cessão de Equipes",
    "situacao": "sem_prazo",
    "marco": {
@@ -13030,6 +13279,8 @@
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0125",
+   "principal": "u0125",
+   "detalhe": false,
    "trecho": "135. As equipes cedidas devem possuir capacitação e experiência compatíveis com as atividades a serem desenvolvidas na distribuidora cedente.",
    "situacao": "sem_prazo",
    "marco": {
@@ -13124,6 +13375,8 @@
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0126",
+   "principal": "u0126",
+   "detalhe": false,
    "trecho": "136. A distribuidora cessionária deve prover condições adequadas de trabalho, como alimentação, transporte, hospedagem e segurança para as equipes objeto da Cessão Emergencial.",
    "situacao": "sem_prazo",
    "marco": {
@@ -13212,6 +13465,8 @@
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0127",
+   "principal": "u0127",
+   "detalhe": false,
    "trecho": "137. O tempo de cessão das equipes não pode comprometer significativamente o atendimento aos consumidores da distribuidora cedente.",
    "situacao": "sem_prazo",
    "marco": {
@@ -13271,6 +13526,8 @@
    "tema": "cessao",
    "motivo_tema": "Seção 4.10 da norma",
    "unidade": "u0132",
+   "principal": "u0129",
+   "detalhe": true,
    "trecho": "c) As cessões emergenciais de recursos humanos, equipamentos e materiais entre distribuidoras e transmissoras e suas partes relacionadas devem ser reembolsadas pela cessionária à cedente garantindo a neutralidade da operação, não se tratando de rateio ou prestação de serviços, e preservando a individualidade das concessões.",
    "situacao": "sem_prazo",
    "marco": {
@@ -13357,6 +13614,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0144",
+   "principal": "u0137",
+   "detalhe": true,
    "trecho": "g) Verificabilidade: o plano deve ser estruturado de forma a permitir a verificação da sua continuidade e eficiência de execução. Diretrizes",
    "situacao": "sem_prazo",
    "marco": {
@@ -13450,6 +13709,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0158",
+   "principal": "u0157",
+   "detalhe": true,
    "trecho": "a) Identificação e Análise de Riscos: Identificar os fatores de risco potenciais, tanto internos quanto externos, com o maior nível de detalhamento possível. A identificação deve incluir a localização, natureza do risco, frequência histórica de ocorrência e uma análise completa dos impactos potenciais associados a cada risco;",
    "situacao": "sem_prazo",
    "marco": {
@@ -13536,6 +13797,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0167",
+   "principal": "u0167",
+   "detalhe": false,
    "trecho": "145. A realização de simulados ou disponibilização de treinamentos atualizados deve ser feita com periodicidade máxima de um ano.",
    "situacao": "sem_prazo",
    "marco": {
@@ -13622,6 +13885,8 @@
    "tema": "contingencia",
    "motivo_tema": "Seção 4.11 da norma",
    "unidade": "u0169",
+   "principal": "u0167",
+   "detalhe": true,
    "trecho": "b) A disponibilização de treinamentos atualizados, também deve ser fornecida na mesma periodicidade máxima para os agentes designados pelo Poder Público.",
    "situacao": "sem_prazo",
    "marco": {
@@ -13718,6 +13983,8 @@
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
    "unidade": "u0176",
+   "principal": "u0176",
+   "detalhe": false,
    "trecho": "23-A. A distribuidora deve enviar às áreas de fiscalização da ANEEL relatório contendo discriminação das despesas ou custos incorridos a serem reembolsados à cedente relativos à Cessão Emergencial de recursos humanos, equipamentos e materiais utilizados, além de outras informações pertinentes.",
    "situacao": "sem_prazo",
    "marco": {
@@ -13813,6 +14080,8 @@
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
    "unidade": "u0178",
+   "principal": "u0178",
+   "detalhe": false,
    "trecho": "23-B. A distribuidora deve comunicar ao consumidor, após o reconhecimento da ocorrência de interrupções no fornecimento de energia elétrica, informações sobre o evento.",
    "situacao": "sem_prazo",
    "marco": {
@@ -13902,6 +14171,8 @@
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
    "unidade": "u0180",
+   "principal": "u0180",
+   "detalhe": false,
    "trecho": "23-C. A distribuidora deve disponibilizar aos consumidores o número total de unidades consumidoras afetadas por interrupções.",
    "situacao": "sem_prazo",
    "marco": {
@@ -13988,6 +14259,8 @@
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
    "unidade": "u0182",
+   "principal": "u0182",
+   "detalhe": false,
    "trecho": "23-D. A distribuidora deve disponibilizar em sítio eletrônico informações relacionadas às ocorrências abertas.",
    "situacao": "sem_prazo",
    "marco": {
@@ -14082,6 +14355,8 @@
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
    "unidade": "u0184",
+   "principal": "u0184",
+   "detalhe": false,
    "trecho": "23-E. A distribuidora deve disponibilizar em sítio eletrônico e nos postos de atendimento presencial, com uso de linguagem clara e adequada, a versão mais atualizada de seu Relatório Anual de Gestão do Manejo Vegetal.",
    "situacao": "sem_prazo",
    "marco": {
@@ -14179,6 +14454,8 @@
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
    "unidade": "u0188",
+   "principal": "u0188",
+   "detalhe": false,
    "trecho": "23-G. As distribuidoras deverão informar e manter, por até cinco anos, em seu sítio eletrônico, a qualidade na prestação do serviço de distribuição de energia elétrica, por meio da apuração de indicadores de continuidade do fornecimento, permitindo a avaliação do percentual de cumprimento dos limites de conjuntos elétricos, além do valor global da distribuidora.",
    "situacao": "sem_prazo",
    "marco": {
@@ -14245,6 +14522,8 @@
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
    "unidade": "u0189",
+   "principal": "u0189",
+   "detalhe": false,
    "trecho": "23-H. As distribuidoras deverão informar e manter, por até cinco anos, em seu sítio eletrônico, os indicadores de duração e frequência de interrupções (DEC e FEC) efetivamente percebidas pelos usuários, sem aplicação de expurgos.",
    "situacao": "sem_prazo",
    "marco": {
@@ -14311,6 +14590,8 @@
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
    "unidade": "u0190",
+   "principal": "u0190",
+   "detalhe": false,
    "trecho": "23-I. A distribuidora deve disponibilizar em sítio eletrônico e nos postos de atendimento presencial, com uso de linguagem clara e adequada, o seu Plano de Comunicação.",
    "situacao": "sem_prazo",
    "marco": {
@@ -14408,6 +14689,8 @@
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
    "unidade": "u0194",
+   "principal": "u0194",
+   "detalhe": false,
    "trecho": "23-K. A distribuidora deve disponibilizar à ANEEL uma API (Application Programming Interface) que possibilite a consulta de dados de interrupção do fornecimento diretamente dos sistemas das distribuidoras.",
    "situacao": "sem_prazo",
    "marco": {
@@ -14502,6 +14785,8 @@
    "tema": "informacoes",
    "motivo_tema": "Seção III da norma",
    "unidade": "u0196",
+   "principal": "u0196",
+   "detalhe": false,
    "trecho": "23-L. A distribuidora deve notificar o Poder Público imediatamente após a identificação de um evento crítico, utilizando canais de comunicação oficiais previamente estabelecidos.",
    "situacao": "sem_prazo",
    "marco": {
@@ -14593,6 +14878,8 @@
    "tema": "dise",
    "motivo_tema": "Seção IV da norma",
    "unidade": "u0225",
+   "principal": "u0225",
+   "detalhe": false,
    "trecho": "180-A. Na apuração do indicador DISE não devem ser consideradas as interrupções previstas no item 178, com exceção da alínea “c”.",
    "situacao": "sem_prazo",
    "marco": {
@@ -14695,6 +14982,8 @@
    "tema": "dise",
    "motivo_tema": "Seção IV da norma",
    "unidade": "u0231",
+   "principal": "u0231",
+   "detalhe": false,
    "trecho": "220-A. A distribuidora deve efetuar uma compensação ao consumidor ou central geradora de média ou baixa tensão para cada interrupção ocorrida em Situação de Emergência que superar o limite do indicador DISE.”(NR)",
    "situacao": "sem_prazo",
    "marco": {
@@ -14759,6 +15048,8 @@
    "tema": "dise",
    "motivo_tema": "Seção IV da norma",
    "unidade": "u0247",
+   "principal": "u0247",
+   "detalhe": false,
    "trecho": "226. Para unidades consumidoras com CCD e distribuidoras conectadas ao sistema de distribuição, as compensações associadas às violações dos limites de continuidade DIC, FIC, DMIC, DICRI e DISE por ponto de conexão devem ser estabelecidas nos respectivos contratos, obedecendo aos critérios deste Módulo.",
    "situacao": "sem_prazo",
    "marco": {
@@ -14857,6 +15148,8 @@
    "tema": "dise",
    "motivo_tema": "Seção IV da norma",
    "unidade": "u0249",
+   "principal": "u0248",
+   "detalhe": true,
    "trecho": "d) quando ocorrer violação dos indicadores DICRI ou DISE, a compensação deve ser realizada sem prejuízo das compensações por violação dos indicadores DIC, FIC e DMIC, podendo inclusive haver compensações referentes a mais de uma violação do limite dos indicadores DICRI e DISE no mesmo mês, hipótese em que deve ser paga a soma das compensações calculadas para cada violação.”(NR)",
    "situacao": "sem_prazo",
    "marco": {
@@ -14948,6 +15241,8 @@
    "tema": "poder_publico",
    "motivo_tema": "Seção VI da norma",
    "unidade": "u0261",
+   "principal": "u0261",
+   "detalhe": false,
    "trecho": "Art. 371-A A distribuidora deve estabelecer canais adicionais de comunicação exclusivos ao atendimento de órgão central e representantes designados dos poderes públicos municipal, distrital e estadual.",
    "situacao": "sem_prazo",
    "marco": {
@@ -15037,6 +15332,8 @@
    "tema": "poder_publico",
    "motivo_tema": "Seção VI da norma",
    "unidade": "u0263",
+   "principal": "u0263",
+   "detalhe": false,
    "trecho": "I - atendimento telefônico;",
    "situacao": "sem_prazo",
    "marco": {
@@ -15125,6 +15422,8 @@
    "tema": "poder_publico",
    "motivo_tema": "Seção VI da norma",
    "unidade": "u0264",
+   "principal": "u0264",
+   "detalhe": false,
    "trecho": "II - atendimento presencial, com horário agendado; e",
    "situacao": "sem_prazo",
    "marco": {
@@ -15213,6 +15512,8 @@
    "tema": "poder_publico",
    "motivo_tema": "Seção VI da norma",
    "unidade": "u0265",
+   "principal": "u0265",
+   "detalhe": false,
    "trecho": "III - canal de comunicação por texto (chat) com atendimento humano, durante horário comercial.",
    "situacao": "sem_prazo",
    "marco": {
@@ -15302,6 +15603,8 @@
    "tema": "poder_publico",
    "motivo_tema": "Seção VI da norma",
    "unidade": "u0267",
+   "principal": "u0267",
+   "detalhe": false,
    "trecho": "§ 3º A distribuidora deve designar um ou mais representantes institucionais para atendimento exclusivo dos poderes públicos municipal, distrital e estadual, garantindo comunicação direta e eficaz.",
    "situacao": "sem_prazo",
    "marco": {
@@ -15390,6 +15693,8 @@
    "tema": "poder_publico",
    "motivo_tema": "Seção VI da norma",
    "unidade": "u0268",
+   "principal": "u0268",
+   "detalhe": false,
    "trecho": "§ 4º A distribuidora deve agendar e realizar, sempre que solicitado pelos poderes públicos municipal, distrital e estadual, reuniões via plataforma de videoconferência com os seus representantes institucionais.",
    "situacao": "sem_prazo",
    "marco": {
@@ -15476,6 +15781,8 @@
    "tema": "poder_publico",
    "motivo_tema": "Seção VI da norma",
    "unidade": "u0269",
+   "principal": "u0269",
+   "detalhe": false,
    "trecho": "§ 5º O atendimento telefônico exclusivo previsto no §1º deve ter, no caso de urgência/emergência, disponibilidade ininterrupta durante 24 horas por dia e 7 dias por semana, com atendimento humano durante todo o período de funcionamento.",
    "situacao": "sem_prazo",
    "marco": {
@@ -15565,6 +15872,8 @@
    "tema": "poder_publico",
    "motivo_tema": "Seção VI da norma",
    "unidade": "u0270",
+   "principal": "u0270",
+   "detalhe": false,
    "trecho": "§ 6º No tratamento de interrupções emergenciais, a distribuidora deve observar as disposições relacionadas ao atendimento previstas no Módulo 4 do PRODIST.",
    "situacao": "sem_prazo",
    "marco": {
@@ -15651,6 +15960,8 @@
    "tema": "poder_publico",
    "motivo_tema": "Seção VI da norma",
    "unidade": "u0271",
+   "principal": "u0271",
+   "detalhe": false,
    "trecho": "§ 7º A distribuidora deve entregar e manter atualizado junto aos poderes públicos municipal, distrital e estadual a relação dos canais exclusivos e as informações de contato dos representantes institucionais estabelecidos com os horários de atendimento. ....................................................................................................”(NR)",
    "situacao": "sem_prazo",
    "marco": {
@@ -15740,6 +16051,8 @@
    "tema": "outros",
    "motivo_tema": "Sem seção temática nem assunto reconhecido",
    "unidade": "u0297",
+   "principal": "u0294",
+   "detalhe": true,
    "trecho": "c) As cessões emergenciais de recursos humanos, equipamentos e materiais entre distribuidoras e transmissoras e suas partes relacionadas devem ser reembolsadas pela cessionária à cedente garantindo a neutralidade da operação, não se tratando de rateio ou prestação de serviços, e preservando a individualidade das concessões. ....................................................................................................”(NR)",
    "situacao": "sem_prazo",
    "marco": {

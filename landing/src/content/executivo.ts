@@ -4,7 +4,7 @@
 // nunca soma valores de infrações diferentes. Linguagem de negócio: o grupo da REN 846 vira
 // "infração grave (Grupo IV)" (mapeamento em gravidade.ts).
 import {
-  brlCurto, comAtenuantePct, dataBR, HOJE, maximoPct, pct, planos, reaisDe, SIM_INICIAL,
+  brlCurto, comAtenuantePct, contarVencidas, dataBR, HOJE, maximoPct, pct, planos, reaisDe, SIM_INICIAL,
   type Faixa, type Modo, type NormaId, type Obrigacao, type PlanoDados, type Simulacao,
 } from './plano.ts'
 import { GRUPOS, rotuloDoGrupo, nomeDaGravidade, type Grupo } from './gravidade.ts'
@@ -82,7 +82,9 @@ export function textoPrazoDoTema(p: PlanoDados, t: { prazo_mais_urgente: { obrig
 }
 
 export interface Prazos {
+  /** Obrigações principais vencidas (item ou dispositivo) e as alíneas de detalhe vencidas, à parte. */
   vencidas: number
+  detalhes: number
   proxima: { dias: number; data: string } | null
   /** Próximo marco de transição com data futura: "03/05/2027 · adequação", "02/02/2027 · vigência". */
   proximoMarco: { data: string; tipo: 'adequação' | 'vigência' } | null
@@ -102,7 +104,7 @@ export function prazos(p: PlanoDados, hoje: string = HOJE): Prazos {
   const pm = marcos.length ? marcos.reduce((a, b) => (b.data! < a.data! ? b : a)) : null
   const emVigor = obrig.filter((o) => o.marco?.tipo === 'em_vigor')
   return {
-    vencidas: obrig.filter((o) => o.situacao === 'vencida').length,
+    ...(({ obrigacoes, detalhes }) => ({ vencidas: obrigacoes, detalhes }))(contarVencidas(obrig)),
     proxima: prox ? { dias: prox.prazo.dias!, data: prox.prazo.data! } : null,
     proximoMarco: pm ? { data: pm.data!, tipo: TIPO_MARCO[pm.tipo as 'adequacao' | 'vigencia'] } : null,
     contagem: obrig.some((o) => o.marco)

@@ -203,8 +203,8 @@
   {
    "id": "G29", "doc": "ren20261174", "dispositivo": "Art. 16, parágrafo único",
    "trecho": "A adequação pela distribuidora dentro do período de transição deve ser realizada com isonomia",
-   "esperado": {"obrigacao": {"modalidade": "duty", "sujeito": "distribuidora"}, "transicao": {"tipo": null, "data": null, "regra": null}},
-   "nota": "Dever da distribuidora (isonomia na transição), sem data própria. Arts. 16 e 18 da REN 1.174 conferidos pelo fundador (22/11/2026); leitor geral em athenix/vigencia.py."
+   "esperado": {"obrigacao": {"modalidade": "duty", "sujeito": "distribuidora"}, "transicao": {"tipo": "em_vigor", "data": "2026-11-04", "regra": "Art. 18, III"}},
+   "nota": "Dever da distribuidora (isonomia na transição), sem data própria: vale desde a publicação (Art. 18, III). Arts. 16 e 18 da REN 1.174 conferidos pelo fundador (22/11/2026); leitor geral em athenix/vigencia.py."
   }
  ]
 }

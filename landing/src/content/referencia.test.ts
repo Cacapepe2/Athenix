@@ -43,8 +43,8 @@ test('montarRelatorio respeita a data recebida em TODOS os trechos (cabeçalho, 
   assert.equal(b.cabecalho.prazosAte, '01/01/2025')
   // com referência em 01/01/2025 não há vencida; o primeiro prazo é o de 30/10/2025 (302 dias)
   assert.deepEqual(b.numeros.prazo, { valor: '302 dias', legenda: 'até o próximo prazo' })
-  // 25 = 7 de antes + 18 deveres cujo prazo de adequação (RN 1.137, art. 13, I a V) já passou (athenix/vigencia.py)
-  assert.deepEqual(a.numeros.prazo, { valor: '25', legenda: 'obrigações vencidas' })
+  // 25 deveres vencidos = 14 obrigações principais (item ou dispositivo) + 11 alíneas de detalhe do item 107
+  assert.deepEqual(a.numeros.prazo, { valor: '14', legenda: 'obrigações vencidas · 11 itens de detalhe' })
   assert.ok(b.areas.every((x) => x.vencidas === 0))
   assert.ok(a.areas.some((x) => x.vencidas > 0))
   assert.ok(b.temas.every((t) => !/^Vencido/.test(t.prazo)), 'nenhum tema vencido em 01/01/2025')

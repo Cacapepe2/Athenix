@@ -82,7 +82,8 @@ test('trocar a norma ou o porte recalcula; o texto de cada cartão vem dos dados
   const q = queda(planos.rn1137, SIM_INICIAL, 'preliminar')!
   assert.equal(q.reducaoPct, 95)
   assert.ok(q.para! < q.de! && /Art\. 24, I/.test(q.dispositivo) && q.sha256.length === 64)
-  assert.equal(prazos(planos.rn1137, DIA).vencidas, planos.rn1137.resumo.por_situacao.vencida)
+  // por obrigação principal: as alíneas de detalhe ficam fora do número grande
+  assert.equal(prazos(planos.rn1137, DIA).vencidas + prazos(planos.rn1137, DIA).detalhes, planos.rn1137.resumo.por_situacao.vencida)
 })
 
 test('sem enquadramento (nem sugerido) não há valor: nada de teto da escala como pior caso', () => {
@@ -296,9 +297,9 @@ test('terceiro número: sem vencidas e sem prazo com data, "nenhum prazo a vence
   assert.equal(pz.vencidas, 0)
   // sem vencidas: o próximo marco da transição (art. 18, II) e a contagem por situação
   assert.deepEqual(pz.proximoMarco, { data: '2027-02-02', tipo: 'vigência' })
-  assert.equal(textoContagem(pz.contagem!), '46 em vigor desde 04/11/2026 · 1 condicional · 2 recorrentes')
+  assert.equal(textoContagem(pz.contagem!), '47 em vigor desde 04/11/2026 · 1 condicional · 2 recorrentes')
   // 25 = 7 de antes + 18 deveres cujo prazo de adequação (RN 1.137, art. 13, I a V) já passou (athenix/vigencia.py)
-  assert.equal(prazos(planos.rn1137, DIA).vencidas, 25)
+  assert.deepEqual([prazos(planos.rn1137, DIA).vencidas, prazos(planos.rn1137, DIA).detalhes], [14, 11])
 })
 
 test('top 5: vencidas → em vigor sem adequação (já exigíveis) → próximos marcos → condicionais → o resto', () => {

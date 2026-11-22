@@ -417,6 +417,13 @@ def evidencias(pedacos, cfg):
     return out
 
 
+def _principal(unidade, by_id):
+    """Unidade da obrigação principal: a própria, ou o item/dispositivo de que a alínea faz parte."""
+    while unidade and unidade["kind"] == "letter" and by_id.get(unidade.get("parent")):
+        unidade = by_id[unidade["parent"]]
+    return unidade["id"] if unidade else None
+
+
 def _marco_do_dever(row):
     m = row.get("marco")
     if not m:
@@ -759,6 +766,10 @@ def montar(
             "tema": tema,
             "motivo_tema": motivo_tema,
             "unidade": unidade["id"] if unidade else None,
+            # Obrigação principal (item ou dispositivo) e se esta é alínea que só a detalha: as vencidas
+            # contam por principal ("N obrigações vencidas · M itens de detalhe").
+            "principal": _principal(unidade, by_id),
+            "detalhe": bool(unidade and unidade["kind"] == "letter" and unidade.get("parent")),
             "trecho": espacos(ancora["quote"]) if ancora else None,
             "situacao": situacao(item),
             # Marco da transição lido da própria norma (vigencia.py): adequação, vigência diferida, em vigor.

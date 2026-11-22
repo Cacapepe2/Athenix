@@ -130,7 +130,8 @@ def test_ren_1174_unidade_sem_artigo_no_bloco_de_alteracao_fica_a_confirmar(ren1
 def test_ren_1174_no_plano_publicado():
     p = json.loads((ROOT / "landing/src/content/plano-ren1174.json").read_text(encoding="utf-8"))
     (pu,) = [o for o in p["obrigacoes"] if o["trecho"].startswith("Parágrafo único. A adequação")]
-    assert pu["marco"] is None  # dever da distribuidora (isonomia), sem data própria
+    # dever da distribuidora (isonomia), sem data própria: vale desde a publicação ("demais", Art. 18, III)
+    assert (pu["marco"]["tipo"], pu["marco"]["data"]) == ("em_vigor", "2026-11-04")
     assert not [o for o in p["obrigacoes"] if o["trecho"].startswith("Art. 17.")]
     par_1 = next(o for o in p["obrigacoes"] if o["dispositivo"] == "Art. 166, § 1º")
     assert par_1["prazo"]["texto"] == "Adequação até 04/11/2027"
@@ -351,3 +352,25 @@ def test_sintetica_nao_listadas_devem_ser_implementadas():
     m = vigencia.ligar(e, vigencia.ler(e))
     assert (m["b3"]["tipo"], m["b3"]["data"]) == ("adequacao", "2026-04-01")
     assert (m["b1"]["tipo"], m["b1"]["data"]) == ("em_vigor", "2026-03-02")
+
+
+def test_rn_1137_paragrafo_unico_do_art_13_vale_desde_a_publicacao(rn1137):
+    """ "Os planos de contingência em vigor ... devem ser publicados": sem prazo próprio, pelo Art. 18."""
+    e, marcos, _ = rn1137
+    (pu,) = [
+        u["id"]
+        for u in e["units"]
+        if u["owner"] == "self"
+        and u["text"].startswith("Parágrafo único. Os planos de contingência")
+    ]
+    assert _marcos(marcos, [pu]) == {("em_vigor", "2025-10-30", "Art. 18")}
+
+
+def test_rn_1137_vencidas_por_obrigacao_principal():
+    p = json.loads((ROOT / "landing/src/content/plano-rn1137.json").read_text(encoding="utf-8"))
+    v = [o for o in p["obrigacoes"] if o["situacao"] == "vencida"]
+    principais = {o["principal"] for o in v}
+    detalhes = [o for o in v if o["detalhe"]]
+    assert (len(principais), len(detalhes)) == (14, 11)
+    # as 11 alíneas de detalhe são do item 107 ("a) Número da ocorrência" ...), uma só obrigação-mãe
+    assert {o["dispositivo"].split(",")[0] for o in detalhes} == {"item 107"}

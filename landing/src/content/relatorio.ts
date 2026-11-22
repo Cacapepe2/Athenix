@@ -5,7 +5,7 @@ import { prazos, queda, textoPrazoDoTema, tituloCurto, valorGeral } from './exec
 import { atualizar } from './datas.ts'
 import { planoEm } from './referencia.ts'
 import { provasDoTema, recomendacoesDoTema } from './recomendacoes.ts'
-import { normaDaUrl, decisoesDaSemana, nomeDiag, brlCurto, comAtenuantePct, dataBR, exposicaoTema, ordenarTemas, pct, plano as planoDaPagina, HOJE, reaisDe, SIM_INICIAL, type Diagnosticos, type ExtrasCsv, type Modo, type Obrigacao, type Simulacao, type Tema } from './plano.ts'
+import { normaDaUrl, textoVencidasComDetalhe, decisoesDaSemana, nomeDiag, brlCurto, comAtenuantePct, dataBR, exposicaoTema, ordenarTemas, pct, plano as planoDaPagina, HOJE, reaisDe, SIM_INICIAL, type Diagnosticos, type ExtrasCsv, type Modo, type Obrigacao, type Simulacao, type Tema } from './plano.ts'
 import { fraseProntidao, prontidao } from './prontidao.ts'
 import { perguntasParaOJuridico, type Pergunta } from './perguntas.ts'
 import type { Respostas } from './respostas.ts'
@@ -118,7 +118,7 @@ export function montarRelatorio(args: { sim: Simulacao | null; modo: Modo; diag:
       exposicao: v ? (v.reais != null ? brlCurto(v.reais) : `${pct(v.pct)} da receita`) : 'a enquadrar',
       porInfracao: `por infração${v?.origem === 'sugerido' ? '*' : ''}`,
       reducao: q ? `−${Math.round(q.reducaoPct)}%` : '—',
-      prazo: pz.vencidas > 0 ? { valor: String(pz.vencidas), legenda: pz.vencidas === 1 ? 'obrigação vencida' : 'obrigações vencidas' }
+      prazo: pz.vencidas > 0 ? { valor: String(pz.vencidas), legenda: textoVencidasComDetalhe({ obrigacoes: pz.vencidas, detalhes: pz.detalhes }).replace(/^\d+ /, '') }
         : pz.proxima ? { valor: `${pz.proxima.dias} dias`, legenda: 'até o próximo prazo' } : { valor: '—', legenda: 'nenhum prazo a vencer' },
     },
     decisoes: decisoesDaSemana(plano.temas, diag, sim, modo).map((t) => ({ nome: t.nome, porque: textoPrazoDoTema(plano, t, hojeIso).toLowerCase() })),

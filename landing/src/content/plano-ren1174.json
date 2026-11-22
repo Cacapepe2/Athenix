@@ -1,6 +1,6 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "d2b058b",
+ "commit_origem": "9aecbc9",
  "gerado_em": "2026-11-22",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
@@ -209,8 +209,7 @@
    "a_confirmar": 6,
    "adequacao:2027-05-03": 22,
    "adequacao:2027-11-04": 2,
-   "em_vigor:2026-11-04": 46,
-   "sem_marco": 1,
+   "em_vigor:2026-11-04": 47,
    "vigencia:2027-02-02": 1,
    "vigencia:2027-05-03": 7
   }
@@ -824,6 +823,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0197",
+   "principal": "u0197",
+   "detalhe": false,
    "trecho": "§ 3º A distribuidora deve ressarcir ao consumidor a penalidade paga decorrente de erro de medição, apurado por meio de processo de recontabilização, acrescido de correção monetária e juros, mediante a apresentação de requerimento específico e de documentação comprobatória do recolhimento do valor junto à CCEE.",
    "situacao": "90dias",
    "marco": {
@@ -918,6 +919,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0028",
+   "principal": "u0027",
+   "detalhe": true,
    "trecho": "a) nenhuma cobrança deve ser realizada no caso de migração na modalidade regular; e",
    "situacao": "depois",
    "marco": {
@@ -1004,6 +1007,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0029",
+   "principal": "u0027",
+   "detalhe": true,
    "trecho": "b) em caso de migração na modalidade antecipada, o valor correspondente ao faturamento dos meses que faltam para o prazo regular de migração deve ser calculado considerando a média dos 12 últimos consumos de energia elétrica disponíveis anteriores ao encerramento e a tarifa de energia e a bandeira tarifária vigentes por ocasião da migração. .........................................................................\"",
    "situacao": "depois",
    "marco": {
@@ -1090,6 +1095,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0044",
+   "principal": "u0044",
+   "detalhe": false,
    "trecho": "§ 1º A comunicação prevista neste artigo deve ser realizada de forma permanente na página da CCEE na internet e, de forma adicional, nas redes sociais e demais canais de relacionamento, inclusive por meio de vídeos e outras formas de divulgação de caráter educativo.",
    "situacao": "depois",
    "marco": {
@@ -1179,6 +1186,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0054",
+   "principal": "u0054",
+   "detalhe": false,
    "trecho": "I - comunicar formalmente à distribuidora a sua opção, por meio dos canais de atendimento disponibilizados, inclusive da interface padronizada do § 1º; ou",
    "situacao": "depois",
    "marco": {
@@ -1268,6 +1277,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0055",
+   "principal": "u0055",
+   "detalhe": false,
    "trecho": "II - celebrar o Contrato para Comercialização Varejista (CCV) com o agente varejista, que deve solicitar a habilitação por meio do sistema da CCEE para que a distribuidora seja notificada, desde que se enquadre no procedimento de migração no modelo simplificado previsto no Submódulo 1.8 dos Procedimentos de Comercialização.",
    "situacao": "depois",
    "marco": {
@@ -1358,6 +1369,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0058",
+   "principal": "u0058",
+   "detalhe": false,
    "trecho": "§ 3º A distribuidora deve fornecer protocolo quando receber a comunicação da opção do consumidor de que trata o caput.",
    "situacao": "depois",
    "marco": {
@@ -1458,6 +1471,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0069",
+   "principal": "u0069",
+   "detalhe": false,
    "trecho": "I - a redução do prazo deve ser realizada com isonomia, vedada a aplicação individual ou a grupo que atenda determinadas condições; e",
    "situacao": "depois",
    "marco": {
@@ -1556,6 +1571,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0074",
+   "principal": "u0074",
+   "detalhe": false,
    "trecho": "I - a cobrança pelo encerramento antecipado do CCER deve ser feita exclusivamente nos casos em que o mês da efetiva migração for inferior ao mês em que a migração se daria pelos prazos regulares do § 5º; e",
    "situacao": "depois",
    "marco": {
@@ -1642,6 +1659,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0075",
+   "principal": "u0075",
+   "detalhe": false,
    "trecho": "II - a cobrança do inciso I deve ser realizada na fatura emitida pela distribuidora, no prazo de até 90 dias da efetiva migração, considerando exclusivamente o número de meses antecipados e o disposto no inciso IV do art. 142.",
    "situacao": "depois",
    "marco": {
@@ -1728,6 +1747,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0078",
+   "principal": "u0078",
+   "detalhe": false,
    "trecho": "§ 10. A contagem do prazo de migração deve ser realizada de forma contínua, a partir do recebimento pela distribuidora da comunicação da opção de que trata o caput, somente se suspendendo em caso de previsão expressa nesta Resolução.",
    "situacao": "depois",
    "marco": {
@@ -1816,6 +1837,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0097",
+   "principal": "u0097",
+   "detalhe": false,
    "trecho": "I - descritivo detalhado e justificativas das inviabilidades técnicas; e",
    "situacao": "depois",
    "marco": {
@@ -1907,6 +1930,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0098",
+   "principal": "u0098",
+   "detalhe": false,
    "trecho": "II - indicação das providências de adaptação, regularização ou substituição nas instalações de entrada de energia da unidade consumidora para migração ao ACL, observado o art. 42; e",
    "situacao": "depois",
    "marco": {
@@ -1998,6 +2023,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0099",
+   "principal": "u0099",
+   "detalhe": false,
    "trecho": "§ 4º Indeferida a migração, a solicitação feita pelo consumidor conforme art. 166 será encerrada pela distribuidora, não ocorrendo o encerramento do CCER.",
    "situacao": "depois",
    "marco": {
@@ -2055,6 +2082,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0104",
+   "principal": "u0104",
+   "detalhe": false,
    "trecho": "Parágrafo único. Em caso de desistência da migração o CCER será mantido, devendo a distribuidora efetuar a cobrança no faturamento, na forma prevista no art. 325, dos seguintes custos, desde que relacionados ao processo de migração:",
    "situacao": "depois",
    "marco": {
@@ -2112,6 +2141,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0108",
+   "principal": "u0108",
+   "detalhe": false,
    "trecho": "I - notificar o consumidor sobre o atraso e a possibilidade de encerramento do processo de migração a partir do término do prazo do inciso III, podendo a notificação ser impressa em destaque na própria fatura, observado o § 3º do art. 360;",
    "situacao": "depois",
    "marco": {
@@ -2200,6 +2231,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0109",
+   "principal": "u0109",
+   "detalhe": false,
    "trecho": "II - faturar o consumidor conforme as disposições aplicáveis do art. 168; e",
    "situacao": "depois",
    "marco": {
@@ -2286,6 +2319,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0110",
+   "principal": "u0110",
+   "detalhe": false,
    "trecho": "III - decorridos dois ciclos de faturamento conforme art. 168, considerar a desistência tácita do consumidor do processo de migração, aplicar o art. 167-A e finalizar o processo.\"",
    "situacao": "depois",
    "marco": {
@@ -2372,6 +2407,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0111",
+   "principal": "u0111",
+   "detalhe": false,
    "trecho": "\"Art. 167-C. Caso o processo de migração do consumidor potencialmente livre para o ACL não se conclua por motivo atribuível à distribuidora, após o término do período previsto para migração a distribuidora não poderá faturar o consumo de energia elétrica previsto no art. 293 pelos ciclos de faturamento em que o atraso persistir até a efetiva migração.",
    "situacao": "depois",
    "marco": {
@@ -2458,6 +2495,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0117",
+   "principal": "u0117",
+   "detalhe": false,
    "trecho": "I - em caso de aprovação da migração pela distribuidora, conforme art. 166-A: o prazo de migração informado pela distribuidora; ou",
    "situacao": "depois",
    "marco": {
@@ -2551,6 +2590,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0127",
+   "principal": "u0127",
+   "detalhe": false,
    "trecho": "I - no caso de antecedência mínima de 5 anos: encaminhar ao consumidor o CCER; ou",
    "situacao": "depois",
    "marco": {
@@ -2637,6 +2678,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0128",
+   "principal": "u0128",
+   "detalhe": false,
    "trecho": "II - caso contrário: proceder a análise da redução do prazo e encaminhar ao consumidor o CCER com a data solicitada ou com a data possível ou, observado o art. 416, informar o indeferimento.",
    "situacao": "depois",
    "marco": {
@@ -2725,6 +2768,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0129",
+   "principal": "u0129",
+   "detalhe": false,
    "trecho": "§ 5º A efetivação para retorno ao ACR somente será realizada pela distribuidora após notificação pela CCEE, sendo vedado à distribuidora efetivar o retorno de um consumidor cuja solicitação tenha ocorrido exclusivamente à distribuidora, exceto quando o consumidor esteja no modelo simplificado para comercialização varejista previsto no Submódulo 1.8 dos Procedimentos de Comercialização.",
    "situacao": "depois",
    "marco": {
@@ -2784,6 +2829,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0201",
+   "principal": "u0201",
+   "detalhe": false,
    "trecho": "I - o agente de comercialização e o agente de distribuição são pessoas jurídicas distintas;",
    "situacao": "depois",
    "marco": {
@@ -2872,6 +2919,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0202",
+   "principal": "u0202",
+   "detalhe": false,
    "trecho": "II - os preços praticados pelo agente de comercialização não são tarifas reguladas pela ANEEL;",
    "situacao": "depois",
    "marco": {
@@ -2961,6 +3010,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0203",
+   "principal": "u0203",
+   "detalhe": false,
    "trecho": "III - o consumidor não é obrigado a comprar energia do agente de comercialização pertencente ao mesmo grupo econômico do agente de distribuição para continuar recebendo os mesmos serviços de rede do agente de distribuição; e",
    "situacao": "depois",
    "marco": {
@@ -3049,6 +3100,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0204",
+   "principal": "u0204",
+   "detalhe": false,
    "trecho": "IV - o consumidor é livre para escolher e contratar qualquer outro agente de comercialização concorrente no mercado.",
    "situacao": "depois",
    "marco": {
@@ -3138,6 +3191,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0205",
+   "principal": "u0205",
+   "detalhe": false,
    "trecho": "§ 1º No caso de reprodução ou imitação da marca ou logotipo do agente de distribuição, no todo ou em parte, o agente de comercialização de que trata o caput deverá indicar o segmento de atuação que deve ser indicado pela inclusão visível do termo relativo à atividade de comercialização.",
    "situacao": "depois",
    "marco": {
@@ -3236,6 +3291,8 @@
    "tema": "capítulo_iii_3",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0254",
+   "principal": "u0254",
+   "detalhe": false,
    "trecho": "Art. 172-C. A distribuidora deverá identificar de forma nítida e inequívoca seu segmento de atuação com a inclusão visível do termo relativo à atividade de distribuição na apresentação de informações, tais como propostas comerciais, institucionais, folders, materiais de marketing, marcas, logotipos e páginas na internet, em toda e qualquer plataforma, em especial sítios e mídias sociais.\" (NR)",
    "situacao": "depois",
    "marco": {
@@ -3340,6 +3397,8 @@
    "tema": "capítulo_iii_3",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0256",
+   "principal": "u0256",
+   "detalhe": false,
    "trecho": "\"Art. 3º-A. As distribuidoras e comercializadoras de energia elétrica, inclusive outros agentes que atuem no varejo, que fazem parte do mesmo grupo econômico devem assegurar clareza e distinção em suas comunicações, sendo vedados quaisquer tipos de ambiguidade na apresentação de informações, tais como propostas comerciais, institucionais, folders, materiais de marketing e páginas na internet, em toda e qualquer plataforma, em especial sítios e mídias sociais.",
    "situacao": "depois",
    "marco": {
@@ -3428,6 +3487,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0056",
+   "principal": "u0056",
+   "detalhe": false,
    "trecho": "§ 1º A distribuidora deve disponibilizar no espaço reservado para atendimento na internet, conforme instruções da ANEEL, interface padronizada para o consumidor exercer a opção prevista no inciso I do caput.",
    "situacao": "depois",
    "marco": {
@@ -3516,6 +3577,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0148",
+   "principal": "u0148",
+   "detalhe": false,
    "trecho": "§ 4º No caso de entrega de forma digital, a distribuidora deve enviar adicionalmente ao consumidor e demais usuários o arquivo da nota fiscal de energia elétrica eletrônica.\"",
    "situacao": "depois",
    "marco": {
@@ -3607,6 +3670,8 @@
    "tema": "capítulo_iv_4",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0297",
+   "principal": "u0297",
+   "detalhe": false,
    "trecho": "VIII - a partir da autorização do Sandbox até o fim da vigência devem ser encaminhados à ANEEL, semestralmente, relatórios informativos contemplando o acompanhamento, os resultados, as dificuldades enfrentadas e as soluções adotadas no período.",
    "situacao": "recorrente",
    "marco": {
@@ -3705,6 +3770,8 @@
    "tema": "capítulo_iv_4",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0329",
+   "principal": "u0329",
+   "detalhe": false,
    "trecho": "§ 3º No caso de período do CCER ser maior que 12 meses, deve ser permitida a revisão dos valores mensais de energia elétrica contratada a cada período de 12 meses, observadas as Regras e Procedimentos de Comercialização aplicáveis ao registro desses valores.",
    "situacao": "recorrente",
    "marco": {
@@ -3807,6 +3874,8 @@
    "tema": "capítulo_iv_4",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0340",
+   "principal": "u0340",
+   "detalhe": false,
    "trecho": "II - caso a distribuidora reduza o prazo de retorno ao ACR em relação ao prazo de 5 anos disposto no art. 170 da Resolução Normativa nº 1.000, de 2021, a aplicação do benefício tarifário deve ser realizada até o maior prazo entre o prazo de doze meses da publicação desta Resolução e o prazo reduzido informado pela distribuidora, ainda que o CCER celebrado possua prazo de retorno posterior; e",
    "situacao": "evento",
    "marco": {
@@ -3895,6 +3964,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0011",
+   "principal": "u0011",
+   "detalhe": false,
    "trecho": "I - o sistema de medição e comunicação instalados permitirem a coleta e o envio dos dados de consumo à Câmara de Comercialização de Energia Elétrica - CCEE na forma e periodicidade previstas nos Procedimentos de Comercialização da CCEE; ou",
    "situacao": "sem_prazo",
    "marco": {
@@ -3955,6 +4026,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0012",
+   "principal": "u0012",
+   "detalhe": false,
    "trecho": "II - for possível a substituição do sistema de medição e comunicação sem a necessidade de alteração nas instalações do consumidor.",
    "situacao": "sem_prazo",
    "marco": {
@@ -4015,6 +4088,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0013",
+   "principal": "u0013",
+   "detalhe": false,
    "trecho": "§ 3º Eventual descumprimento das normas e padrões vigentes à época da primeira conexão ou deficiência técnica ou de segurança não emergencial deve ser notificado pela distribuidora na forma do art. 43, não sendo impeditivo ou condicionante para o processo de migração ao ACL, que não deve ser interrompido pela distribuidora, observado o § 2º.",
    "situacao": "sem_prazo",
    "marco": {
@@ -4103,6 +4178,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0014",
+   "principal": "u0014",
+   "detalhe": false,
    "trecho": "§ 4º Eventual inviabilidade técnica para fins de migração ao ACL que exija a adaptação, regularização ou substituição das instalações de entrada de energia deve ser devidamente informada pela distribuidora, por escrito, por meio de relatório técnico da visita técnica, conforme disposto no art. 166-A.\"",
    "situacao": "sem_prazo",
    "marco": {
@@ -4204,6 +4281,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0018",
+   "principal": "u0018",
+   "detalhe": false,
    "trecho": "§ 1º A distribuidora deve observar os prazos dispostos no art. 166-A e no Submódulo 1.8 dos Procedimentos de Comercialização. .........................................................................\"(NR)",
    "situacao": "sem_prazo",
    "marco": {
@@ -4298,6 +4377,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0021",
+   "principal": "u0021",
+   "detalhe": false,
    "trecho": "I - deve garantir a mesma titularidade no CUSD e nos contratos no ACL; e",
    "situacao": "sem_prazo",
    "marco": {
@@ -4391,6 +4472,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0022",
+   "principal": "u0022",
+   "detalhe": false,
    "trecho": "II - será registrada e processada pela distribuidora após a notificação pela CCEE ou apresentação dos contratos no ACL, observado o § 1º, devendo ser indeferida caso solicitada sem observância desse procedimento.",
    "situacao": "sem_prazo",
    "marco": {
@@ -4498,6 +4581,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0023",
+   "principal": "u0023",
+   "detalhe": false,
    "trecho": "§ 10. No caso de alteração de titularidade de unidade consumidora em processo de migração para o ACL, a distribuidora deve comunicar a CCEE.\"",
    "situacao": "sem_prazo",
    "marco": {
@@ -4586,6 +4671,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0033",
+   "principal": "u0033",
+   "detalhe": false,
    "trecho": "Parágrafo único. Os contratos no ACL devem ter a mesma titularidade do CUSD para a mesma unidade consumidora, contemplando, quando aplicável, a matriz e/ou filial.\" (NR)",
    "situacao": "sem_prazo",
    "marco": {
@@ -4687,6 +4774,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0049",
+   "principal": "u0049",
+   "detalhe": false,
    "trecho": "I - com opção de faturamento pelo grupo B, que previamente à formalização da opção de migração para o ACL deve retornar ao faturamento com aplicação de tarifa do grupo A e contratação de demanda; e",
    "situacao": "sem_prazo",
    "marco": {
@@ -4775,6 +4864,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0050",
+   "principal": "u0050",
+   "detalhe": false,
    "trecho": "II - do grupo B, atendido por sistema subterrâneo de distribuição e que tenha o direito de optar pela mudança para o subgrupo AS do grupo A, que previamente à formalização da opção de migração para o ACL deve alterar para o subgrupo AS.\" .........................................................................",
    "situacao": "sem_prazo",
    "marco": {
@@ -4863,6 +4954,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0052",
+   "principal": "u0052",
+   "detalhe": false,
    "trecho": "\"Art. 163. O montante de energia elétrica contratado por meio do CCER para consumidor potencialmente livre deve ser definido conforme o montante de energia elétrica medido.\" (NR)",
    "situacao": "sem_prazo",
    "marco": {
@@ -4951,6 +5044,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0120",
+   "principal": "u0120",
+   "detalhe": false,
    "trecho": "I - a distribuidora, em substituição à suspensão do fornecimento, fica autorizada a efetuar o faturamento e a cobrança mensal de energia elétrica para ressarcimento das repercussões financeiras incorridas; .........................................................................",
    "situacao": "sem_prazo",
    "marco": {
@@ -5039,6 +5134,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0121",
+   "principal": "u0121",
+   "detalhe": false,
    "trecho": "III - o pagamento do valor do inciso II é devido enquanto presentes as condições de aplicação dispostas no caput, observado o inciso VI; .........................................................................",
    "situacao": "sem_prazo",
    "marco": {
@@ -5127,6 +5224,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0122",
+   "principal": "u0122",
+   "detalhe": false,
    "trecho": "VII - enquanto ocorrer o faturamento deste artigo a unidade consumidora não participa do SCEE; e",
    "situacao": "sem_prazo",
    "marco": {
@@ -5186,6 +5285,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0141",
+   "principal": "u0141",
+   "detalhe": false,
    "trecho": "§ 4º Além da parcela relacionada ao faturamento da demanda, a distribuidora deve faturar o uso do sistema de distribuição para o consumidor que celebre o CUSD multiplicando a TUSD fixada em Reais por megawatt-hora (R$/MWh) sobre o montante total de energia elétrica ativa medida, observando, caso aplicável, os postos tarifários.\"",
    "situacao": "sem_prazo",
    "marco": {
@@ -5274,6 +5375,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0154",
+   "principal": "u0154",
+   "detalhe": false,
    "trecho": "§ 2º A adoção de uma das opções do caput deve ser comprovadamente e previamente autorizada, mediante manifestação voluntária do consumidor.",
    "situacao": "sem_prazo",
    "marco": {
@@ -5365,6 +5468,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0155",
+   "principal": "u0155",
+   "detalhe": false,
    "trecho": "§ 3º As opções previstas no caput devem ser disponibilizadas gratuitamente ao consumidor, não podendo representar custo adicional no faturamento.",
    "situacao": "sem_prazo",
    "marco": {
@@ -5451,6 +5556,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0157",
+   "principal": "u0157",
+   "detalhe": false,
    "trecho": "§ 5º É vedada a cobrança entre a distribuidora e o comercializador de energia para operacionalização do oferecimento das opções de que trata o § 1º .",
    "situacao": "sem_prazo",
    "marco": {
@@ -5537,6 +5644,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0158",
+   "principal": "u0158",
+   "detalhe": false,
    "trecho": "§ 6º O oferecimento das opções de que trata o caput é opcional e, se realizado, deve ser feito com isonomia da distribuidora para todos os comercializadores e do comercializador para todas as distribuidoras.\"",
    "situacao": "sem_prazo",
    "marco": {
@@ -5623,6 +5732,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0170",
+   "principal": "u0170",
+   "detalhe": false,
    "trecho": "§ 5º No caso de unidade consumidora livre ou especial, a distribuidora deve continuar a cobrança disposta no caput na fatura que emitir para o consumidor.\"",
    "situacao": "sem_prazo",
    "marco": {
@@ -5709,6 +5820,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0172",
+   "principal": "u0172",
+   "detalhe": false,
    "trecho": "§ 11. No caso de unidade consumidora livre ou especial, a distribuidora deve continuar a arrecadação disposta no caput na fatura que emitir para o consumidor.\"",
    "situacao": "sem_prazo",
    "marco": {
@@ -5800,6 +5913,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0174",
+   "principal": "u0174",
+   "detalhe": false,
    "trecho": "§ 9º A atividade de arrecadação de fatura de comercializador de energia na fatura de consumidor livre ou especial, caso seja oferecida, não pode ser cobrada e deve ser realizada para todos os comercializadores.\"",
    "situacao": "sem_prazo",
    "marco": {
@@ -5886,6 +6001,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0182",
+   "principal": "u0182",
+   "detalhe": false,
    "trecho": "\"Art. 655-Y. No caso de interesse de migração ao ACL de unidade consumidora com microgeração ou minigeração distribuída devem ser observadas as seguintes disposições:",
    "situacao": "sem_prazo",
    "marco": {
@@ -5972,6 +6089,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0190",
+   "principal": "u0185",
+   "detalhe": true,
    "trecho": "e) entregar ao interessado os aditivos contratuais e demais documentos que devem ser celebrados e, caso necessário, os que devem ser rescindidos.",
    "situacao": "sem_prazo",
    "marco": {
@@ -6060,6 +6179,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0192",
+   "principal": "u0192",
+   "detalhe": false,
    "trecho": "Parágrafo único. No caso de unidade consumidora de cooperativa de eletrificação rural regularizada como autorizada para exploração das instalações de energia elétrica destinadas ao uso privativo de seus associados e que possua microgeração ou minigeração distribuída, a distribuidora deve realizar o enquadramento simultâneo como unidade consumidora para fins de consumo e como central geradora com capacidade instalada reduzida para fins de injeção, observadas as disposições aplicáveis previstas neste artigo e nesta Resolução.\" (NR)",
    "situacao": "sem_prazo",
    "marco": {
@@ -6146,6 +6267,8 @@
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0208",
+   "principal": "u0208",
+   "detalhe": false,
    "trecho": "§ 9º O atendimento de consumidor pela distribuidora local deve ser formalmente comunicado por ela à CCEE, sem prejuízo das obrigações atinentes ao agente representante.\" (NR)",
    "situacao": "sem_prazo",
    "marco": {
@@ -6242,6 +6365,8 @@
    "tema": "capítulo_iv_a_2",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0210",
+   "principal": "u0210",
+   "detalhe": false,
    "trecho": "Art. 21-A. As controvérsias decorrentes da comercialização varejista deverão ser inicialmente submetidas ao representante da comercialização varejista.",
    "situacao": "sem_prazo",
    "marco": {
@@ -6340,6 +6465,8 @@
    "tema": "capítulo_iv_a_2",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0219",
+   "principal": "u0219",
+   "detalhe": false,
    "trecho": "§ 1º A resposta às reclamações deve ser apresentada em até 5 (cinco) dias úteis e indicar os fundamentos da decisão adotada.",
    "situacao": "sem_prazo",
    "marco": {
@@ -6429,6 +6556,8 @@
    "tema": "capítulo_iii_3",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0258",
+   "principal": "u0258",
+   "detalhe": false,
    "trecho": "\"Art. 4º O concessionário, permissionário ou autorizado de energia elétrica deverá enviar à Superintendência de Fiscalização Econômica, Financeira e de Mercado - SFF, da ANEEL, na concretização da operação de transferência acionária e periodicamente, no último dia de cada trimestre civil, informação atualizada relativa à respectiva composição societária; identificado o grupo de controle e explicitando todas as participações societárias diretas e indiretas dos respectivos controladores. .........................................................................\" (NR)",
    "situacao": "sem_prazo",
    "marco": {
@@ -6526,6 +6655,8 @@
    "tema": "capítulo_iv_4",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0270",
+   "principal": "u0270",
+   "detalhe": false,
    "trecho": "I - a distribuidora deve apresentar à ANEEL, previamente ao início, a proposta do Sandbox contendo, no mínimo:",
    "situacao": "sem_prazo",
    "marco": {
@@ -6619,6 +6750,8 @@
    "tema": "capítulo_iv_4",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0270",
+   "principal": "u0270",
+   "detalhe": false,
    "trecho": "I - a distribuidora deve apresentar à ANEEL, previamente ao início, a proposta do Sandbox contendo, no mínimo:",
    "situacao": "sem_prazo",
    "marco": {
@@ -6720,6 +6853,8 @@
    "tema": "capítulo_iv_4",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0273",
+   "principal": "u0270",
+   "detalhe": true,
    "trecho": "c) metodologia de escolha dos participantes, incluindo consumidores e agentes de comercialização;",
    "situacao": "sem_prazo",
    "marco": {
@@ -6821,6 +6956,8 @@
    "tema": "capítulo_iv_4",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0274",
+   "principal": "u0270",
+   "detalhe": true,
    "trecho": "d) critérios de adesão e de desistência dos participantes;",
    "situacao": "sem_prazo",
    "marco": {
@@ -6914,6 +7051,8 @@
    "tema": "capítulo_iv_4",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0275",
+   "principal": "u0270",
+   "detalhe": true,
    "trecho": "e) plano de comunicação e de informação aos participantes;",
    "situacao": "sem_prazo",
    "marco": {
@@ -7013,6 +7152,8 @@
    "tema": "capítulo_iv_4",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0276",
+   "principal": "u0270",
+   "detalhe": true,
    "trecho": "f) orçamento preliminar; e",
    "situacao": "sem_prazo",
    "marco": {
@@ -7106,6 +7247,8 @@
    "tema": "capítulo_iv_4",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0277",
+   "principal": "u0270",
+   "detalhe": true,
    "trecho": "g) plano de monitoramento e controle do Sandbox, proposição de indicadores e ferramentas para análise de resultados e de custos e benefícios.",
    "situacao": "sem_prazo",
    "marco": {
@@ -7204,6 +7347,8 @@
    "tema": "capítulo_iv_4",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0279",
+   "principal": "u0279",
+   "detalhe": false,
    "trecho": "III - as regras do Sandbox devem ser amplamente divulgadas aos participantes, incluindo critérios de adesão e desistência e os canais em que poderão ser prestadas informações;",
    "situacao": "sem_prazo",
    "marco": {
@@ -7301,6 +7446,8 @@
    "tema": "capítulo_iv_4",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0324",
+   "principal": "u0324",
+   "detalhe": false,
    "trecho": "II - o CCER não poderá ter acréscimo do montante de energia elétrica;",
    "situacao": "sem_prazo",
    "marco": {
@@ -7387,6 +7534,8 @@
    "tema": "capítulo_iv_4",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0325",
+   "principal": "u0325",
+   "detalhe": false,
    "trecho": "§ 1º O CCER celebrado entre o consumidor parcialmente livre e a distribuidora deve dispor sobre o montante de energia elétrica contratado, discriminado em períodos mensais para todo o período do contrato.",
    "situacao": "sem_prazo",
    "marco": {
@@ -7480,6 +7629,8 @@
    "tema": "capítulo_iv_4",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0330",
+   "principal": "u0330",
+   "detalhe": false,
    "trecho": "§ 4º A modulação da energia elétrica associada ao CCER deve ser realizada segundo o perfil de carga da unidade consumidora, observadas as Regras e Procedimentos de Comercialização aplicáveis ao registro desses valores.",
    "situacao": "sem_prazo",
    "marco": {
@@ -7571,6 +7722,8 @@
    "tema": "capítulo_iv_4",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0331",
+   "principal": "u0331",
+   "detalhe": false,
    "trecho": "§ 5º O critério de faturamento do CCER celebrado com consumidor parcialmente livre deve ser a energia medida da unidade consumidora, limitada ao montante de energia elétrica contratada.",
    "situacao": "sem_prazo",
    "marco": {
@@ -7659,6 +7812,8 @@
    "tema": "capítulo_iv_4",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0333",
+   "principal": "u0333",
+   "detalhe": false,
    "trecho": "§ 7º Os montantes de energia elétrica contratada nos termos do CCER, observados os valores de energia medida, deverão ser registrados na CCEE conforme Procedimentos de Comercialização, sendo esses montantes tratados como carga da distribuidora para fins de contabilização das operações de compra e venda de energia elétrica realizadas no mercado de curto prazo.",
    "situacao": "sem_prazo",
    "marco": {
@@ -7752,6 +7907,8 @@
    "tema": "capítulo_iv_4",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0339",
+   "principal": "u0339",
+   "detalhe": false,
    "trecho": "I - o benefício tarifário do art. 186 da Resolução Normativa nº 1.000, de 2021, será mantido até a data de retorno celebrada no CCER, observado o inciso II;",
    "situacao": "sem_prazo",
    "marco": {
@@ -7838,6 +7995,8 @@
    "tema": "capítulo_iv_4",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0341",
+   "principal": "u0341",
+   "detalhe": false,
    "trecho": "III - em caso de recebimento dos benefícios tarifários dos arts. 186 e 195 da Resolução Normativa nº 1.000, de 2021, a distribuidora deve, a partir da manifestação formal ou após o prazo disposto no caput para manifestação, o que ocorrer primeiro, aplicar exclusivamente o benefício tarifário do art. 186, exceto em caso de opção formal do consumidor em sua manifestação pelo recebimento exclusivo do benefício do art. 195 até o efetivo retorno.",
    "situacao": "sem_prazo",
    "marco": {
@@ -7936,6 +8095,8 @@
    "tema": "capítulo_iv_4",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0343",
+   "principal": "u0343",
+   "detalhe": false,
    "trecho": "I - a distribuidora deve cessar a aplicação do benefício tarifário do art. 186 da Resolução Normativa nº 1.000, de 2021, no ciclo de faturamento subsequente;",
    "situacao": "sem_prazo",
    "marco": {
@@ -8034,6 +8195,8 @@
    "tema": "capítulo_iv_4",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0344",
+   "principal": "u0344",
+   "detalhe": false,
    "trecho": "II - em caso de recebimento simultâneo dos benefícios tarifários dos arts. 186 e 195 da Resolução Normativa nº 1.000, de 2021, a distribuidora deve, a partir da manifestação formal ou após o prazo disposto no caput para manifestação, o que ocorrer primeiro, aplicar exclusivamente o benefício tarifário do art. 195.",
    "situacao": "sem_prazo",
    "marco": {
@@ -8132,6 +8295,8 @@
    "tema": "capítulo_iv_4",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0345",
+   "principal": "u0345",
+   "detalhe": false,
    "trecho": "§ 3º Em caso de não manifestação do consumidor no prazo disposto no caput, a distribuidora deve cessar a aplicação do benefício tarifário do art. 186 da Resolução Normativa nº 1.000, de 2021, aplicando, se o consumidor tiver direito, o benefício tarifário do art. 195 Resolução Normativa nº 1.000, de 2021.",
    "situacao": "sem_prazo",
    "marco": {
@@ -8218,6 +8383,8 @@
    "tema": "capítulo_iv_4",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0346",
+   "principal": "u0346",
+   "detalhe": false,
    "trecho": "§ 4º A distribuidora não deve alterar o faturamento realizado até a manifestação do consumidor ou até o prazo disposto no caput para manifestação, o que ocorrer primeiro.",
    "situacao": "sem_prazo",
    "marco": {
@@ -8304,12 +8471,21 @@
    "tema": "capítulo_v_5",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0358",
+   "principal": "u0358",
+   "detalhe": false,
    "trecho": "Parágrafo único. A adequação pela distribuidora dentro do período de transição deve ser realizada com isonomia, aplicando-se à todas as situações a partir da implementação do dispositivo.",
    "situacao": "sem_prazo",
-   "marco": null,
+   "marco": {
+    "tipo": "em_vigor",
+    "data": "2026-11-04",
+    "dispositivo": "Art. 18, III",
+    "trecho": "III - na data de sua publicação, quanto aos demais dispositivos. SANDOVAL DE ARAÚJO FEITOSA NETO",
+    "nota": null,
+    "candidatos": null
+   },
    "prazo": {
     "data": null,
-    "texto": "Sem prazo identificado no texto",
+    "texto": "Em vigor desde 04/11/2026 (sem período de adequação)",
     "dias": null,
     "provisorio": false,
     "condicional": false,

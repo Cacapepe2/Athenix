@@ -82,6 +82,10 @@ export interface Obrigacao {
   /** Marco de vigência/transição lido da própria norma (athenix/vigencia.py): prazo de adequação, vigência
    *  diferida, "em vigor desde a publicação" ou ligação "a confirmar". Ausente em JSON antigo. */
   marco?: Marco | null
+  /** Unidade da obrigação principal (item ou dispositivo); a alínea aponta para o item de que faz parte. */
+  principal?: string | null
+  /** Alínea que só detalha a obrigação principal (ex.: "a) Número da ocorrência"). */
+  detalhe?: boolean
   calculo: 'fila' | 'verificar' | 'sem_multa'
   posicao_fila: number | null
   enquadramento: { dispositivo: string; grupo: string }[]
@@ -305,20 +309,37 @@ export function decisoesDaSemana(temas: Tema[], diag: Diagnosticos, sim: Simulac
 /** "3 obrigações vencidas": cada uma é uma infração possível; o R$ nunca é somado. */
 export const textoVencidas = (n: number) => `${n} ${n === 1 ? 'obrigação vencida' : 'obrigações vencidas'}`
 
+export interface ContagemVencidas { obrigacoes: number; detalhes: number }
+
+/** Vencidas por obrigação principal (item ou dispositivo): alíneas que só detalham a mesma obrigação
+ *  ("a) Número da ocorrência") ficam dentro dela e são contadas à parte, como itens de detalhe. */
+export function contarVencidas(os: Obrigacao[]): ContagemVencidas {
+  const v = os.filter((o) => o.situacao === 'vencida')
+  return { obrigacoes: new Set(v.map((o) => o.principal ?? o.id)).size, detalhes: v.filter((o) => o.detalhe).length }
+}
+
+/** "14 obrigações vencidas · 11 itens de detalhe" (sem detalhe: só a primeira parte). */
+export const textoVencidasComDetalhe = (c: ContagemVencidas) =>
+  c.detalhes ? `${textoVencidas(c.obrigacoes)} · ${c.detalhes} ${c.detalhes === 1 ? 'item de detalhe' : 'itens de detalhe'}` : textoVencidas(c.obrigacoes)
+
 export interface Manchete {
   temasVencidos: number
   obrigacoesVencidas: number
+  /** Alíneas vencidas que só detalham uma obrigação principal (fora de `obrigacoesVencidas`). */
+  detalhesVencidos: number
   maximo: Exposicao | null
   /** Temas vencidos cuja exposição vem só de sugestão (cenário preliminar). */
   sugeridos: number
 }
 
 /** Manchete: quantos temas com prazo vencido e a MAIOR exposição por infração entre eles (nunca soma). */
-export function manchete(temas: Tema[], diag: Diagnosticos, sim: Simulacao | null, modo: Modo): Manchete {
+export function manchete(temas: Tema[], diag: Diagnosticos, sim: Simulacao | null, modo: Modo, obrigacoes: Obrigacao[] = plano.obrigacoes): Manchete {
   const vencidos = temas.filter((t) => t.contagem.vencida && diag[t.id] !== 'sim')
   const exps = vencidos.map((t) => exposicaoTema(t, sim, modo)).filter((e): e is Exposicao => e != null)
   const maximo = exps.length ? exps.reduce((a, b) => (b.pct > a.pct ? b : a)) : null
-  return { temasVencidos: vencidos.length, obrigacoesVencidas: vencidos.reduce((n, t) => n + t.contagem.vencida, 0), maximo, sugeridos: exps.filter((e) => e.origem === 'sugerido').length }
+  const ids = new Set(vencidos.map((t) => t.id))
+  const c = contarVencidas(obrigacoes.filter((o) => ids.has(o.tema)))
+  return { temasVencidos: vencidos.length, obrigacoesVencidas: c.obrigacoes, detalhesVencidos: c.detalhes, maximo, sugeridos: exps.filter((e) => e.origem === 'sugerido').length }
 }
 
 /** Por que o tema está nesta posição, nas palavras da regra de ordem. */

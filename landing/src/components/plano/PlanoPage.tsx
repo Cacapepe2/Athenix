@@ -15,7 +15,7 @@ import { CRITERIO_PRONTIDAO, fraseProntidao, prontidao } from '../../content/pro
 import { contagemDeEnquadramentos, destaqueDaNorma, idDaObrigacao, tabelaDeGrupos, textoMaiorMulta, textoPrazoDoTema } from '../../content/executivo'
 import { rotuloDoGrupo } from '../../content/gravidade'
 import {
-  brl, brlCurto, comAtenuantePct, csvPlano, dataBR, decisoesDaSemana, exposicaoTema, lacuna, lerReais, manchete, NOTA_ADVERTENCIA, textoVencidas, nomeDiag,
+  brl, brlCurto, comAtenuantePct, csvPlano, dataBR, decisoesDaSemana, exposicaoTema, lacuna, lerReais, manchete, NOTA_ADVERTENCIA, textoVencidas, textoVencidasComDetalhe, nomeDiag,
   normaDaUrl, obrigacao, ordenarTemas, pct, plano, reaisDe, resumoDiagnostico, situacaoPrazo, SIM_INICIAL, textoFaixa,
   type Citacao, type OutroDispositivo, type Diagnostico, type Diagnosticos, type Exposicao, type Manchete, type Medida, type Modo, type Obrigacao, type Simulacao, type Situacao, type Tema,
 } from '../../content/plano'
@@ -148,7 +148,7 @@ export function PlanoPage() {
               <span>Distribuidora de {sim ? brlCurto(sim.base) : 'receita a informar'} · RN 1.137/2025</span>
             </p>
             <h1 id="titulo-plano" className="font-display mt-3 text-[1.75rem] leading-tight sm:text-[2.6rem] sm:leading-[1.12]"><TextoManchete m={m} /></h1>
-            <p className="mt-2 text-sm text-ink-soft">{textoVencidas(m.obrigacoesVencidas)} · datas provisórias · os valores não se somam</p>
+            <p className="mt-2 text-sm text-ink-soft">{textoVencidasComDetalhe({ obrigacoes: m.obrigacoesVencidas, detalhes: m.detalhesVencidos })} · datas provisórias · os valores não se somam</p>
             <div className="mt-4 flex flex-wrap items-center gap-3">
               {modo === 'preliminar' && m.sugeridos > 0 && <Sugerido texto={PRELIMINAR} />}
               {modo === 'confirmados' && <span className="text-sm text-ink-soft">Só enquadramentos que o texto da obrigação nomeia.</span>}

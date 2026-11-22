@@ -328,13 +328,34 @@ def ligar(extraction, regras):
         for u in units
         if u["owner"] == "self" and u["kind"] == "article" and GATILHO.search(u["text"])
     }
+    # A regra e os dispositivos que a contêm (o caput do artigo, o inciso que enumera alíneas).
+    com_regra = set()
+    for r in regras:
+        x = by_id.get(r["unidade"])
+        while x:
+            com_regra.add(x["id"])
+            x = by_id.get(x["parent"]) if x["parent"] else None
+    artigos_transicao = {by_id[i]["id"] for i in transicao if by_id[i]["kind"] == "article"} | {
+        _bloco(by_id[r["unidade"]], by_id, artigos)["id"] for r in regras
+    }
     achados = {id(a): 0 for r in regras for a in r["alvos"]}
     marcos = {}
     for u in units:
         if u["kind"] in {"heading", "unstructured", "formula", "table"}:
             continue
         bloco = _bloco(u, by_id, artigos)
-        if not bloco or u["id"] in transicao or bloco["id"] in transicao and u["owner"] == "self":
+        if not bloco or u["id"] in transicao or u["id"] in com_regra:
+            continue
+        # Dispositivo de um artigo de transição sem prazo próprio (ex.: o parágrafo único que manda
+        # publicar os planos em vigor): vale desde a publicação pela cláusula "demais", se houver.
+        if u["owner"] == "self" and bloco["id"] in artigos_transicao:
+            nivel = {}
+            for r in regras:
+                if r["demais"]:
+                    nivel.setdefault(r["tipo"], []).append((0.5, r))
+            marco = _marco(nivel, pub)
+            if marco:
+                marcos[u["id"]] = marco
             continue
         cadeia = _cadeia(u, by_id)
         # Dispositivo sem artigo próprio dentro de um bloco de alteração com regras por parte: não dá para
