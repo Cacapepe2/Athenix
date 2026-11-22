@@ -130,9 +130,11 @@ Os CSVs dos dados abertos de autos de infração ficam fora do Git e alimentam s
   art. 2º usam o artigo inferido pela posição (342-A, 655-Y), marcados "a confirmar".
 - Vencidas na RN 1.137: 14 obrigações · 11 itens de detalhe (25 deveres; as alíneas do item 107 contam como
   detalhe). Prazo do art. 13, VI ("180 dias mês") e do art. 14 esclarecidos pelo FAQ oficial da ANEEL.
-- Achados ainda abertos da auditoria de 21/11/2026: o relatório-piloto não roda no CI; alguns tipos
-  mandam tarefas para a área errada; 6 deveres sem título curto (a tela usa o título completo).
-- Duas normas no plano; 49 deveres ainda com área "A definir"; PostgreSQL não testado nesta conferência.
+- Auditoria de 21/11/2026: C1 e A1 corrigidos no #46; A2 (relatório-piloto no CI), M1 (área de tipo
+  "a revisar") e M2 (script antigo de IA sob a mesma trava de modo e custo) no #48. Abertos: M3
+  (comentários antigos) e B1 (tamanho do bundle); 6 deveres sem título curto (a tela usa o título completo).
+- Duas normas no plano; 77 deveres com área "A definir" (34 + 43: tipo "a revisar" sem área sugerida pela
+  IA não herda mais a área do tipo da regra); PostgreSQL não testado nesta conferência.
 
 **Roteiro:**
 1. Monitoramento automático do DOU (desenho em [docs/INLABS.md](docs/INLABS.md)).

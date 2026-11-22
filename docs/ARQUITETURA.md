@@ -179,17 +179,17 @@ sobe o app FastAPI num banco SQLite descartável, envia o arquivo e lê as obrig
   Monitoramento automático do DOU ainda não existe (desenho em `docs/INLABS.md`).
 - **Auditoria independente de 21/11/2026** (feita no commit `36efdb4`): **C1** ("pode" singular virava
   dever; item 145(a) com R$ 50 mi) e **A1** (prazos em minutos/horas ignorados; item 105) foram
-  corrigidos no #46, com testes em `tests/test_auditoria.py`. Seguem abertos (código congelado):
-  - **A2 (alto):** o gerador do relatório-piloto não roda no CI.
-  - **M1:** tipos por regra ainda mandam algumas tarefas para a área errada (ex.: item 132(l)).
-  - **M2:** o script antigo `scripts/classificar_tipos_ia.py --executar` não consulta o modo de IA.
+  corrigidos no #46, com testes em `tests/test_auditoria.py`. No #48: **A2** (o HTML do relatório-piloto
+  é montado e conferido no CI, `tests/test_relatorio_piloto.py`), **M1** (tipo "a revisar" usa a área do
+  tipo sugerido pela IA ou "A definir"; item 132(l) → TI/Sistemas, Art. 19, XIII(c) → Jurídico) e **M2**
+  (`scripts/classificar_tipos_ia.py` sob `tipos_ia.liberar_chamada`: off/cached nunca chamam). Abertos:
   - **M3:** comentários de módulo ainda dizem "IA nunca entra no cálculo" (README e
     `docs/CONTEXTO.md` já atualizados).
   - **B1:** aviso de bundle de 789 kB no build do site.
 - **Dados privados fora do Git:** 6 testes dependem de arquivos em `.local/` (CSV de autos, votos,
   cópia de conferência) e são pulados no CI; a referência de escala (mediana de 21 autos) não se
   reproduz só com o repositório.
-- **Áreas e recomendações são sugestões:** 49 deveres seguem com área "A definir" (27 + 22).
+- **Áreas e recomendações são sugestões:** 77 deveres seguem com área "A definir" (34 + 43).
 - **Títulos curtos:** 5 deveres sem título curto da IA (3 entraram com a correção C1); a tela encurta
   o título completo. Não há nova chamada de IA.
 - **PostgreSQL/Docker** está configurado (`compose.yaml`), mas não foi testado nesta conferência
