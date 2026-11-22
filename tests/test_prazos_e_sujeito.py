@@ -59,18 +59,16 @@ def test_json_da_ren_1174_nao_tem_prazo_contado_de_antes_da_publicacao():
             assert (
                 o["prazo"]["base"] != "2026-08-12"
             )  # a data do Decreto nº 13.097, lida antes como vigência
-    # 7 (os 6 de antes + o art. 18) + 18 deveres cujo prazo de adequação do art. 13, I a V já passou
-    # (leitor de vigência e transição, athenix/vigencia.py)
-    assert P1137["resumo"]["por_situacao"]["vencida"] == 25
+    # 25 -> 19 registros: cinco incisos de prazo e a vigência (Art. 18) não são deveres próprios.
+    # 8 obrigações principais e 11 alíneas de detalhe do item 107.
+    assert P1137["resumo"]["por_situacao"]["vencida"] == 19
 
 
 def test_marco_direto_na_data_de_publicacao_vira_prazo_e_o_maior_entre_vira_condicional():
-    # RN 1.137, art. 18: "devem ser implementadas na data de publicação" -> vencido desde 30/10/2025
-    a18 = next(o for o in P1137["obrigacoes"] if o["dispositivo"] == "Art. 18")
-    assert a18["situacao"] == "vencida" and a18["prazo"]["data"] == "2025-10-30"
-    assert a18["prazo"]["base"] == "2025-10-30" and a18["prazo"]["texto"].startswith(
-        "Vencido desde 30/10/2025"
-    )
+    # Art. 18 fixa a vigência geral; não cria uma obrigação vencida na publicação.
+    assert not any(o["dispositivo"] == "Art. 18" for o in P1137["obrigacoes"])
+    a18 = next(o for o in P1137["outros_dispositivos"] if o["dispositivo"] == "Art. 18")
+    assert a18["natureza"] == "regra_de_transicao"
     # "entra em vigor na data de sua publicação" é vigência: não vira prazo de obrigação
     from athenix import temporal
 
@@ -191,8 +189,8 @@ def test_inciso_sem_sujeito_proprio_herda_o_do_caput(caput_texto, linha, esperad
 
 def test_totais_reprocessados_das_duas_normas():
     assert (
-        P1137["resumo"]["aplicaveis"] == 153
-    )  # 155 menos o art. 10, §§ 2º e 3º (competência da ANEEL)
+        P1137["resumo"]["aplicaveis"] == 147
+    )  # 153 - cinco incisos de prazo - Art. 18 (vigência).
     assert P1174["resumo"]["aplicaveis"] == len(P1174["obrigacoes"])
     r = P1174["resumo"]
     assert r["identificadas"] == r["aplicaveis"] + r["fora_do_perfil"] + r["outros_dispositivos"]
@@ -235,7 +233,9 @@ def test_art_13_par_3_da_ren_1174_e_recorrente_no_plano():
     o = next(x for x in P1174["obrigacoes"] if x["dispositivo"] == "Art. 13, § 3º")
     assert o["situacao"] == "recorrente" and o["prazo"]["data"] is None
     r = P1174["resumo"]["por_situacao"]
-    assert r["recorrente"] == 2  # art. 11, VIII (semestral) e art. 13, § 3º (12 meses)
+    assert (
+        r["recorrente"] == 1
+    )  # Art. 11, VIII (semestral) é condicional; só Art. 13, § 3º no principal.
     # Nenhum prazo com data vem do texto do próprio dever: as datas são só as da transição (arts. 16 e 18,
     # athenix/vigencia.py); a reunião do grupo (art. 12, § 11) não é da distribuidora.
     com_data = [x for x in P1174["obrigacoes"] if x["prazo"]["data"]]
@@ -300,10 +300,10 @@ def test_futuro_so_vira_dever_quando_a_distribuidora_age_explicitamente(texto, v
         assert candidatos[0]["subject"] == "a distribuidora" or proposals.DUTY.search(texto)
 
 
-def test_nada_some_em_silencio_na_ren_1174_e_a_rn_1137_nao_muda_de_contagem():
-    assert P1137["resumo"]["aplicaveis"] == 153
-    # 84: +Art. 42, § 2º, I e II (vedação "não pode exigir" do caput), −Art. 168, VIII ("pode"; auditoria C1)
-    assert P1174["resumo"]["aplicaveis"] == 85  # +Art. 16, parágrafo único (isonomia na transição)
+def test_nada_some_em_silencio_com_marcos_e_condicionais_separados():
+    assert P1137["resumo"]["aplicaveis"] == 147
+    # 85 - 9 registros condicionais do sandbox - 1 condição de prazos opcionais.
+    assert P1174["resumo"]["aplicaveis"] == 75
     s10 = [
         o
         for o in P1174["sem_dever_identificado"]
@@ -384,8 +384,8 @@ def test_sujeito_implicito_quando_a_distribuidora_nao_esta_escrita_no_texto_nem_
         },
         "",
     )
-    # contagem real, por norma (89 e 48 explícitos; 64 e 37 implícitos; REN +Art. 16, p. único, explícito). REN: 38 -> 37 com C1 ("pode" no caput do
-    # Art. 166, § 6º nomeia a distribuidora); Art. 42, § 2º, I e II entram com a distribuidora no caput.
-    for p, total, implicitos in ((P1137, 153, 64), (P1174, 85, 37)):
+    # RN: saem 5 marcos explícitos e a vigência impessoal (64 -> 63 implícitos).
+    # REN: saem 10 condicionais explícitos; os 37 implícitos permanecem.
+    for p, total, implicitos in ((P1137, 147, 63), (P1174, 75, 37)):
         assert len(p["obrigacoes"]) == total
         assert sum(1 for o in p["obrigacoes"] if o["sujeito_implicito"]) == implicitos

@@ -389,6 +389,71 @@ def test_rn_1137_vencidas_por_obrigacao_principal():
     v = [o for o in p["obrigacoes"] if o["situacao"] == "vencida"]
     principais = {o["principal"] for o in v}
     detalhes = [o for o in v if o["detalhe"]]
-    assert (len(principais), len(detalhes)) == (14, 11)
+    # 14 -> 8: cinco incisos apenas dão prazo aos itens e o Art. 18 é vigência.
+    assert (len(principais), len(detalhes)) == (8, 11)
+    assert {o["dispositivo"].split(",")[0] for o in v} == {
+        "item 103",
+        "item 108",
+        "item 148",
+        "item 104",
+        "item 105",
+        "item 106",
+        "item 107",
+        "Art. 13",
+    }
     # as 11 alíneas de detalhe são do item 107 ("a) Número da ocorrência" ...), uma só obrigação-mãe
     assert {o["dispositivo"].split(",")[0] for o in detalhes} == {"item 107"}
+
+
+def test_rn_1137_marcos_nao_duplicam_dever_e_preservam_citacao_real(rn1137):
+    e, _, _ = rn1137
+    p = json.loads((ROOT / "landing/src/content/plano-rn1137.json").read_text(encoding="utf-8"))
+    by_id = {u["id"]: u for u in e["units"]}
+    for inciso in ("I", "II", "III", "IV", "V"):
+        dispositivo = f"Art. 13, inciso {inciso}"
+        assert not any(o["dispositivo"] == dispositivo for o in p["obrigacoes"])
+        (regra,) = [o for o in p["outros_dispositivos"] if o["dispositivo"] == dispositivo]
+        assert regra["natureza"] == "regra_de_transicao"
+        ligados = [
+            o
+            for o in p["obrigacoes"]
+            if (o["marco"] or {}).get("dispositivo") == f"Art. 13, {inciso}"
+        ]
+        assert ligados
+        for o in ligados:
+            assert o["marco"]["trecho"] == " ".join(by_id[regra["unidade"]]["text"].split())
+            assert o["prazo"]["data"] == o["marco"]["data"]
+    assert any(o["dispositivo"] == "Art. 13, inciso VI" for o in p["obrigacoes"])
+    assert any(
+        o["dispositivo"] == "Art. 18" and o["natureza"] == "regra_de_transicao"
+        for o in p["outros_dispositivos"]
+    )
+
+
+def test_regra_de_prazo_nao_apaga_dever_proprio_ou_referencia_ausente(rn1137):
+    e, _, _ = rn1137
+    import copy
+
+    for extra, deve_agrupar in (
+        ("", True),
+        (" A distribuidora deve ainda enviar relatório anual.", False),
+    ):
+        copia = copy.deepcopy(e)
+        (inciso,) = [
+            u
+            for u in copia["units"]
+            if u["kind"] == "clause" and u["text"].startswith("I - Até 90")
+        ]
+        inciso["text"] += extra
+        row = {"anchors": [{"unit_id": inciso["id"], "state": "verified"}]}
+        vigencia.aplicar([row], copia)
+        assert bool(row.get("regra_de_transicao")) is deve_agrupar
+    copia = copy.deepcopy(e)
+
+    (inciso,) = [
+        u for u in copia["units"] if u["kind"] == "clause" and u["text"].startswith("I - Até 90")
+    ]
+    inciso["text"] = inciso["text"].replace("148", "999")
+    row = {"anchors": [{"unit_id": inciso["id"], "state": "verified"}]}
+    vigencia.aplicar([row], copia)
+    assert not row.get("regra_de_transicao")

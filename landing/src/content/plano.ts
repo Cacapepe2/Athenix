@@ -127,13 +127,14 @@ export interface Infracao {
 }
 export interface OutroDispositivo {
   id: string
-  natureza: 'faculdade' | 'direito_de_terceiro' | 'competencia_aneel' | 'dever_de_outro_agente' | 'regra_de_transicao' | 'sem_dever_identificado'
+  natureza: 'faculdade' | 'direito_de_terceiro' | 'competencia_aneel' | 'dever_de_outro_agente' | 'regra_de_transicao' | 'dever_condicional' | 'sem_dever_identificado'
   rotulo: string
   sujeito: string
   unidade: string | null
   dispositivo: string | null
   trecho: string | null
   motivo: string
+  condicao?: { texto: string; trecho: string; unidade: string; dispositivo: string }
 }
 export interface Sucessao {
   dispositivo: string

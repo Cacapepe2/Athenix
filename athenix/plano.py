@@ -75,7 +75,8 @@ NOMES_NATUREZA = {
     "direito_de_terceiro": "Direito de terceiro (consumidor ou usuário)",
     "competencia_aneel": "Competência da ANEEL",
     "dever_de_outro_agente": "Dever de outro agente (não é da distribuidora)",
-    "regra_de_transicao": "Regra de transição: prazo de adequação a outro dispositivo",
+    "regra_de_transicao": "Regra de transição ou vigência de outros dispositivos",
+    "dever_condicional": "Dever condicional: se exercer a faculdade do caput",
     "sem_dever_identificado": "Sem dever identificado: o sujeito não é a distribuidora",
 }
 # Quem EMITE o ato (a Agência, a Portaria, o Diretor-Geral): é competência da ANEEL, nunca dever da distribuidora.
@@ -200,6 +201,25 @@ def caput_do_dispositivo(unit, by_id):
     return ""
 
 
+def faculdade_do_dispositivo(unit, by_id):
+    """Faculdade da distribuidora em qualquer ancestral, inclusive acima de um inciso de dever."""
+    atual = by_id.get(unit.get("parent")) if unit else None
+    while atual:
+        texto = espacos(atual["text"])
+        if proposals.modality(texto) == "permission" and SUJEITO_DISTRIBUIDORA.search(
+            proposals.subject_of(texto)
+        ):
+            return {
+                "unidade": atual["id"],
+                "trecho": texto,
+                "texto": "Dever condicional: se aderir ao sandbox"
+                if re.search(r"\bsandbox\b", texto, re.I)
+                else "Dever condicional: se exercer a faculdade do caput",
+            }
+        atual = by_id.get(atual.get("parent"))
+    return None
+
+
 def _sujeito_efetivo(row, caput):
     """Sujeito do dispositivo: o próprio ou, quando não há (fragmento, verbo no início), o do caput."""
     sujeito = row.get("subject", "") or ""
@@ -245,6 +265,8 @@ def natureza(row, caput=""):
     comercializador, consumidor). Só "dever" entra na contagem principal."""
     # Inciso sem sujeito próprio ("não identificado", fragmento sem substantivo) HERDA o sujeito do caput.
     sujeito = _sujeito_efetivo(row, caput)
+    if row.get("regra_de_transicao"):
+        return "regra_de_transicao"
     # "A adequação pela distribuidora ... deve ser realizada com isonomia": o próprio texto nomeia a
     # distribuidora como agente; é dever dela, não a regra de transição.
     if (
@@ -699,6 +721,9 @@ def montar(
         ancora = next((a for a in row.get("anchors", []) if a.get("state") == "verified"), None)
         unidade = by_id.get(ancora["unit_id"]) if ancora else None
         nat = natureza(row, caput_do_dispositivo(unidade, by_id))
+        condicao = faculdade_do_dispositivo(unidade, by_id) if nat == "dever" else None
+        if condicao:
+            nat = "dever_condicional"
         if nat == "sem_dever_identificado":
             sem_dever_linhas.append({
                 "id": item["chave"],
@@ -719,6 +744,9 @@ def montar(
                 "unidade": unidade["id"] if unidade else None,
                 "trecho": espacos(ancora["quote"]) if ancora else None,
                 "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
+                **({"condicao": condicao, "rotulo": condicao["texto"],
+                    "motivo": "Dever da distribuidora apenas se exercer a faculdade do caput; fora da exposição principal."}
+                   if condicao else {}),
             })  # fmt: skip
             continue
         if tema_por_unidade is not None:  # norma sem arquivo de temas: tema = capítulo

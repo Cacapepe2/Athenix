@@ -10,6 +10,7 @@ import re
 from datetime import date
 
 from . import temporal
+from .proposals import DUTY
 
 # Cláusula de transição da própria norma (no caput do artigo ou no próprio dispositivo).
 GATILHO = re.compile(
@@ -484,8 +485,24 @@ def aplicar(rows, extraction):
     `marco`, sem prazo vencido inventado. Devolve o relatório da transição da norma."""
     regras = ler(extraction)
     marcos = ligar(extraction, regras)
+    por_unidade = {r["unidade"]: r for r in regras}
+    por_id = {u["id"]: u for u in extraction["units"]}
     for row in rows:
         ancora = next((a for a in row.get("anchors", []) if a.get("state") == "verified"), None)
+        regra = por_unidade.get(ancora["unit_id"]) if ancora else None
+        if regra:
+            remissao = re.search(
+                r"\bde\s+que\s+trat(?:a|am)|\bconforme\s+disp[õo]e", regra["trecho"], re.I
+            )
+            itens_ligados = (
+                por_id[regra["unidade"]]["kind"] in {"clause", "letter"}
+                and regra["alvos"]
+                and all(a.get("item") and not a.get("a_confirmar") for a in regra["alvos"])
+                and remissao
+                and not DUTY.search(regra["trecho"][remissao.end() :])
+            )
+            if regra["demais"] or itens_ligados:
+                row["regra_de_transicao"] = True
         marco = marcos.get(ancora["unit_id"]) if ancora else None
         if not marco:
             continue

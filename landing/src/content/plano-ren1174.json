@@ -1,6 +1,6 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "815ff17",
+ "commit_origem": "97a98cb",
  "gerado_em": "2026-11-22",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
@@ -215,28 +215,28 @@
    }
   ],
   "deveres_por_marco": {
-   "adequacao:2027-05-03": 22,
+   "adequacao:2027-05-03": 21,
    "adequacao:2027-11-04": 2,
-   "em_vigor:2026-11-04": 53,
+   "em_vigor:2026-11-04": 44,
    "vigencia:2027-02-02": 1,
    "vigencia:2027-05-03": 7
   }
  },
  "resumo": {
   "identificadas": 167,
-  "aplicaveis": 85,
-  "outros_dispositivos": 82,
+  "aplicaveis": 75,
+  "outros_dispositivos": 92,
   "fora_do_perfil": 0,
   "por_situacao": {
    "vencida": 0,
    "90dias": 1,
-   "depois": 31,
-   "recorrente": 2,
+   "depois": 30,
+   "recorrente": 1,
    "evento": 1,
-   "sem_prazo": 50
+   "sem_prazo": 42
   },
   "na_fila": 0,
-  "a_confirmar": 85,
+  "a_confirmar": 75,
   "sem_multa": 0,
   "grupo_mais_grave": null,
   "temas": 5
@@ -278,7 +278,7 @@
    }
   ],
   "confirmar": {
-   "obrigacoes": 85,
+   "obrigacoes": 75,
    "temas_sem_calculo_confirmado": 5
   }
  },
@@ -287,11 +287,11 @@
    "id": "capítulo_ii_1",
    "nome": "Capítulo II: Da abertura de mercado",
    "fontes": [],
-   "n": 57,
+   "n": 56,
    "contagem": {
     "vencida": 0,
     "90dias": 1,
-    "depois": 29,
+    "depois": 28,
     "recorrente": 0,
     "evento": 0,
     "sem_prazo": 27
@@ -307,7 +307,7 @@
     "situacao": "90dias"
    },
    "na_fila": 0,
-   "a_confirmar": 57,
+   "a_confirmar": 56,
    "grupos": [],
    "grupo_mais_grave": null,
    "infracoes": [],
@@ -346,7 +346,7 @@
    "ia": {
     "dispositivo": "Art. 9º, III",
     "n": 11,
-    "de": 51
+    "de": 50
    },
    "evidencias": [
     {
@@ -404,7 +404,6 @@
     "f0cd208483b0ece3",
     "7df077bdc114900b",
     "8ca5f1def5e87ce5",
-    "5f1e90f07a781a9f",
     "a18cdd2d9ab0da66",
     "096251809e2f4fba",
     "b3e3b3d8c696f470",
@@ -461,18 +460,18 @@
    "id": "capítulo_iv_4",
    "nome": "Capítulo IV: Das disposições transitórias",
    "fontes": [],
-   "n": 22,
+   "n": 13,
    "contagem": {
     "vencida": 0,
     "90dias": 0,
     "depois": 0,
-    "recorrente": 2,
+    "recorrente": 1,
     "evento": 1,
-    "sem_prazo": 19
+    "sem_prazo": 11
    },
    "prazo_mais_urgente": null,
    "na_fila": 0,
-   "a_confirmar": 22,
+   "a_confirmar": 13,
    "grupos": [],
    "grupo_mais_grave": null,
    "infracoes": [],
@@ -503,7 +502,6 @@
     }
    },
    "grupos_sugeridos": [
-    "I",
     "II",
     "III",
     "IV"
@@ -511,17 +509,9 @@
    "ia": {
     "dispositivo": "Art. 12, XV",
     "n": 3,
-    "de": 22
+    "de": 13
    },
    "evidencias": [
-    {
-     "id": "aneel",
-     "n": 8,
-     "exemplo": {
-      "obrigacao": "be6a76133085cee8",
-      "trecho": "ção do Sandbox até o fim da vigência devem ser encaminhados à ANEEL, semestralmente, relatórios informativos contemplando o aco"
-     }
-    },
     {
      "id": "registro",
      "n": 3,
@@ -531,26 +521,22 @@
      }
     },
     {
-     "id": "plano",
-     "n": 2,
+     "id": "contrato",
+     "n": 1,
      "exemplo": {
-      "obrigacao": "da50e0e8061f472e",
-      "trecho": "e) plano de comunicação e de informação aos participantes;"
+      "obrigacao": "6e56e83f4405c837",
+      "trecho": "do, discriminado em períodos mensais para todo o período do contrato."
      }
     }
    ],
    "guardar": [
     {
-     "id": "aneel",
-     "n": 8
+     "id": "terceiros",
+     "n": 4
     },
     {
      "id": "protocolos",
-     "n": 4
-    },
-    {
-     "id": "terceiros",
-     "n": 4
+     "n": 1
     }
    ],
    "excludentes": [],
@@ -558,21 +544,12 @@
    "principais": [
     "91c26ed1a77c413a",
     "33f462f47b99eeab",
-    "be6a76133085cee8",
-    "de259c2eb695201e"
+    "de259c2eb695201e",
+    "59c5496d841c8794"
    ],
    "obrigacoes": [
-    "be6a76133085cee8",
     "de259c2eb695201e",
     "59c5496d841c8794",
-    "667bcae318ad50c6",
-    "fef01f4eb3d5d88c",
-    "6cb749b8189058af",
-    "d6e372fb4b797bf0",
-    "da50e0e8061f472e",
-    "5609080c03fdcb67",
-    "acc78339ce7532ff",
-    "0ebb4ed9ace89a7e",
     "3c31e7c6948c4d3e",
     "6e56e83f4405c837",
     "e9484bb6aff3edc1",
@@ -1465,108 +1442,6 @@
    "area": "A definir",
    "area_origem": null,
    "dispositivo": "Art. 166, § 3º",
-   "erro_material": null,
-   "esclarecimento": null
-  },
-  {
-   "id": "5f1e90f07a781a9f",
-   "titulo": "A redução do prazo deve ser realizada com isonomia, vedada a aplicação individual ou…",
-   "titulo_origem": "regra",
-   "titulo_completo": "A redução do prazo deve ser realizada com isonomia, vedada a aplicação individual ou a grupo que atenda determinadas condições; e",
-   "sujeito_implicito": false,
-   "titulo_curto": "Reduzir prazo com isonomia",
-   "evite": {
-    "acao": "Reduzir prazo sem isonomia, aplicando tratamento individual ou a grupo específico.",
-    "trecho_citado": "vedada a aplicação individual ou a grupo que atenda determinadas condições"
-   },
-   "recomendacoes": [
-    {
-     "acao": "Aplicar redução do prazo com isonomia, ajustando simultaneamente todos os contratos elegíveis no sistema comercial, sem tratamento individual.",
-     "trecho_citado": "redução do prazo deve ser realizada com isonomia"
-    },
-    {
-     "acao": "Impedir concessões de redução a clientes isoladamente, rejeitando alterações que configurem aplicação individual ou por grupo.",
-     "trecho_citado": "vedada a aplicação individual"
-    }
-   ],
-   "contexto": "§ 6º A distribuidora pode praticar prazos menores dos que os dispostos no § 5º, desde que por período preestabelecido, observado o art. 663 e as seguintes condições:",
-   "tema": "capítulo_ii_1",
-   "motivo_tema": "Capítulo da norma",
-   "unidade": "u0069",
-   "principal": "u0069",
-   "detalhe": false,
-   "trecho": "I - a redução do prazo deve ser realizada com isonomia, vedada a aplicação individual ou a grupo que atenda determinadas condições; e",
-   "situacao": "depois",
-   "marco": {
-    "tipo": "adequacao",
-    "data": "2027-05-03",
-    "dispositivo": "Art. 16, II, b",
-    "trecho": "b) art. 2º, na parte que inclui ou altera os arts. 142, 166, 166-A, 167, 167-A, 167-B, 167-C, 170 e o Anexo IV da Resolução Normativa nº 1.000, de 7 de dezembro de 2021; e",
-    "nota": "Até a adequação, valem as regras anteriores",
-    "candidatos": null
-   },
-   "prazo": {
-    "data": "2027-05-03",
-    "texto": "Adequação até 03/05/2027",
-    "dias": 167,
-    "provisorio": true,
-    "condicional": false,
-    "base": "2026-11-04"
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 12, XVI",
-    "grupo": "IV",
-    "justificativa": "A obrigação veda a aplicação individual ou por grupos, exigindo isonomia na redução de prazo; aplicar a redução de forma seletiva é prática discriminatória. O dispositivo prevê expressamente 'discriminar consumidores ou demais usuários utilizando critérios não previstos na legislação', o que corresponde ao descumprimento apontado.",
-    "duvida": null
-   },
-   "grupo": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "IV"
-    ],
-    "teto_grupo_pct": 1.0,
-    "maximo_pct": {
-     "com_teto": 1.0,
-     "sem_teto": 1.0
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.050000000000000044,
-     "ate_tn": 0.5
-    },
-    "maximo_reais": {
-     "com_teto": 50000000.0,
-     "sem_teto": 50000000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 2500000.0000000023,
-     "ate_tn": 25000000.0
-    }
-   },
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [],
-   "guardar": [],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": null,
-     "nome": null,
-     "situacao": "a_revisar",
-     "por": "regra: sem tipo próprio; IA: Estabelecer critérios, regras ou responsáveis",
-     "regra_id": null
-    },
-    "dependencias_no_texto": []
-   },
-   "area": "Regulatório",
-   "area_origem": "ia",
-   "dispositivo": "Art. 166, § 6º, inciso I",
    "erro_material": null,
    "esclarecimento": null
   },
@@ -3723,111 +3598,6 @@
    "area": "Comunicação/Atendimento",
    "area_origem": "ia",
    "dispositivo": "Art. 333, § 4º",
-   "erro_material": null,
-   "esclarecimento": null
-  },
-  {
-   "id": "be6a76133085cee8",
-   "titulo": "A partir da autorização do Sandbox até o fim da vigência devem ser encaminhados à…",
-   "titulo_origem": "regra",
-   "titulo_completo": "A partir da autorização do Sandbox até o fim da vigência devem ser encaminhados à ANEEL, semestralmente, relatórios informativos contemplando o acompanhamento, os resultados, as dificuldades enfrentadas e as soluções adotadas no período",
-   "sujeito_implicito": false,
-   "titulo_curto": "Relatórios semestrais do Sandbox",
-   "evite": {
-    "acao": "Não deixar de encaminhar relatórios semestralmente à ANEEL durante a vigência do Sandbox",
-    "trecho_citado": "semestralmente, relatórios informativos"
-   },
-   "recomendacoes": [],
-   "contexto": "Art. 11. As distribuidoras podem desenvolver Sandbox Regulatório para emissão de fatura unificada pelo agente comercializador para unidade consumidora livre e especial, contendo a cobrança da distribuidora e do comercializador, observadas as seguintes disposições:",
-   "tema": "capítulo_iv_4",
-   "motivo_tema": "Capítulo da norma",
-   "unidade": "u0297",
-   "principal": "u0297",
-   "detalhe": false,
-   "trecho": "VIII - a partir da autorização do Sandbox até o fim da vigência devem ser encaminhados à ANEEL, semestralmente, relatórios informativos contemplando o acompanhamento, os resultados, as dificuldades enfrentadas e as soluções adotadas no período.",
-   "situacao": "recorrente",
-   "marco": {
-    "tipo": "em_vigor",
-    "data": "2026-11-04",
-    "dispositivo": "Art. 18, III",
-    "trecho": "III - na data de sua publicação, quanto aos demais dispositivos. SANDOVAL DE ARAÚJO FEITOSA NETO",
-    "nota": null,
-    "candidatos": null
-   },
-   "prazo": {
-    "data": null,
-    "texto": "Obrigação recorrente: próxima ocorrência não calculada",
-    "dias": null,
-    "provisorio": false,
-    "condicional": false,
-    "base": null
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 10, XX",
-    "grupo": "II",
-    "justificativa": "A obrigação exige o envio semestral de relatórios informativos à ANEEL ('devem ser encaminhados à ANEEL, semestralmente'); o Art. 10, XX pune justamente 'deixar de enviar ou disponibilizar à ANEEL informações ou documentos, nos prazos e nas condições estabelecidas na legislação', correspondendo ao não envio desses relatórios.",
-    "duvida": null
-   },
-   "grupo": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "II"
-    ],
-    "teto_grupo_pct": 0.25,
-    "maximo_pct": {
-     "com_teto": 0.25,
-     "sem_teto": 0.25
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.012500000000000011,
-     "ate_tn": 0.125
-    },
-    "maximo_reais": {
-     "com_teto": 12500000.0,
-     "sem_teto": 12500000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 625000.0000000006,
-     "ate_tn": 6250000.0
-    }
-   },
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [
-    {
-     "id": "aneel",
-     "trecho": "ção do Sandbox até o fim da vigência devem ser encaminhados à ANEEL, semestralmente, relatórios informativos contemplando o aco"
-    },
-    {
-     "id": "relatorio",
-     "trecho": "da vigência devem ser encaminhados à ANEEL, semestralmente, relatórios informativos contemplando o acompanhamento, os resultados,"
-    }
-   ],
-   "guardar": [
-    "protocolos",
-    "aneel"
-   ],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": null,
-     "nome": null,
-     "situacao": "a_revisar",
-     "por": "regra: Enviar informação à ANEEL; IA: sem resposta válida",
-     "regra_id": "enviar_informacao_aneel"
-    },
-    "dependencias_no_texto": []
-   },
-   "area": "A definir",
-   "area_origem": null,
-   "dispositivo": "Art. 11, inciso VIII",
    "erro_material": null,
    "esclarecimento": null
   },
@@ -6773,813 +6543,6 @@
    "esclarecimento": null
   },
   {
-   "id": "667bcae318ad50c6",
-   "titulo": "Prazo",
-   "titulo_origem": "regra",
-   "titulo_completo": "Prazo",
-   "sujeito_implicito": false,
-   "titulo_curto": "Enviar proposta Sandbox à ANEEL",
-   "evite": {
-    "acao": "Iniciar Sandbox sem apresentar proposta prévia à ANEEL",
-    "trecho_citado": "apresentar à ANEEL, previamente ao início, a proposta do Sandbox"
-   },
-   "recomendacoes": [
-    {
-     "acao": "Submeter à ANEEL, pelo sistema de peticionamento eletrônico, a proposta completa do Sandbox antes do início do projeto.",
-     "trecho_citado": "apresentar à ANEEL, previamente ao início, a proposta"
-    }
-   ],
-   "contexto": "Art. 11. As distribuidoras podem desenvolver Sandbox Regulatório para emissão de fatura unificada pelo agente comercializador para unidade consumidora livre e especial, contendo a cobrança da distribuidora e do comercializador, observadas as seguintes disposições:",
-   "tema": "capítulo_iv_4",
-   "motivo_tema": "Capítulo da norma",
-   "unidade": "u0270",
-   "principal": "u0270",
-   "detalhe": false,
-   "trecho": "I - a distribuidora deve apresentar à ANEEL, previamente ao início, a proposta do Sandbox contendo, no mínimo:",
-   "situacao": "sem_prazo",
-   "marco": {
-    "tipo": "em_vigor",
-    "data": "2026-11-04",
-    "dispositivo": "Art. 18, III",
-    "trecho": "III - na data de sua publicação, quanto aos demais dispositivos. SANDOVAL DE ARAÚJO FEITOSA NETO",
-    "nota": null,
-    "candidatos": null
-   },
-   "prazo": {
-    "data": null,
-    "texto": "Em vigor desde 04/11/2026 (sem período de adequação)",
-    "dias": null,
-    "provisorio": false,
-    "condicional": false,
-    "base": null
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 12, VII",
-    "grupo": "IV",
-    "justificativa": "A obrigação determina que a distribuidora \"deve apresentar à ANEEL, previamente ao início, a proposta do Sandbox\"; o Art. 12, VII tipifica deixar de encaminhar para exame e aprovação da ANEEL ou implementar sem a anuência prévia, que corresponde ao não envio prévio para aprovação.",
-    "duvida": null
-   },
-   "grupo": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "IV"
-    ],
-    "teto_grupo_pct": 1.0,
-    "maximo_pct": {
-     "com_teto": 1.0,
-     "sem_teto": 1.0
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.050000000000000044,
-     "ate_tn": 0.5
-    },
-    "maximo_reais": {
-     "com_teto": 50000000.0,
-     "sem_teto": 50000000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 2500000.0000000023,
-     "ate_tn": 25000000.0
-    }
-   },
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [
-    {
-     "id": "aneel",
-     "trecho": "I - a distribuidora deve apresentar à ANEEL, previamente ao início, a proposta do Sandbox contendo, no"
-    }
-   ],
-   "guardar": [
-    "aneel"
-   ],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": null,
-     "nome": null,
-     "situacao": "a_revisar",
-     "por": "regra: Enviar informação à ANEEL; IA: sem resposta válida",
-     "regra_id": "enviar_informacao_aneel"
-    },
-    "dependencias_no_texto": []
-   },
-   "area": "A definir",
-   "area_origem": null,
-   "dispositivo": "Art. 11, inciso I",
-   "erro_material": null,
-   "esclarecimento": null
-  },
-  {
-   "id": "fef01f4eb3d5d88c",
-   "titulo": "Abrangência",
-   "titulo_origem": "regra",
-   "titulo_completo": "Abrangência",
-   "sujeito_implicito": false,
-   "titulo_curto": "Enviar proposta Sandbox à ANEEL",
-   "evite": null,
-   "recomendacoes": [],
-   "contexto": "Art. 11. As distribuidoras podem desenvolver Sandbox Regulatório para emissão de fatura unificada pelo agente comercializador para unidade consumidora livre e especial, contendo a cobrança da distribuidora e do comercializador, observadas as seguintes disposições:",
-   "tema": "capítulo_iv_4",
-   "motivo_tema": "Capítulo da norma",
-   "unidade": "u0270",
-   "principal": "u0270",
-   "detalhe": false,
-   "trecho": "I - a distribuidora deve apresentar à ANEEL, previamente ao início, a proposta do Sandbox contendo, no mínimo:",
-   "situacao": "sem_prazo",
-   "marco": {
-    "tipo": "em_vigor",
-    "data": "2026-11-04",
-    "dispositivo": "Art. 18, III",
-    "trecho": "III - na data de sua publicação, quanto aos demais dispositivos. SANDOVAL DE ARAÚJO FEITOSA NETO",
-    "nota": null,
-    "candidatos": null
-   },
-   "prazo": {
-    "data": null,
-    "texto": "Em vigor desde 04/11/2026 (sem período de adequação)",
-    "dias": null,
-    "provisorio": false,
-    "condicional": false,
-    "base": null
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 10, XX",
-    "grupo": "II",
-    "justificativa": "A obrigação exige que a distribuidora \"apresentar à ANEEL, previamente ao início, a proposta do Sandbox\"; omitir esse envio ou não disponibilizar a proposta à Agência enquadra‑se em \"deixar de enviar ou disponibilizar à ANEEL informações ou documentos, nos prazos e nas condições estabelecidas\" do Art. 10, XX.",
-    "duvida": null
-   },
-   "grupo": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "II"
-    ],
-    "teto_grupo_pct": 0.25,
-    "maximo_pct": {
-     "com_teto": 0.25,
-     "sem_teto": 0.25
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.012500000000000011,
-     "ate_tn": 0.125
-    },
-    "maximo_reais": {
-     "com_teto": 12500000.0,
-     "sem_teto": 12500000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 625000.0000000006,
-     "ate_tn": 6250000.0
-    }
-   },
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [
-    {
-     "id": "aneel",
-     "trecho": "I - a distribuidora deve apresentar à ANEEL, previamente ao início, a proposta do Sandbox contendo, no"
-    }
-   ],
-   "guardar": [
-    "aneel"
-   ],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": null,
-     "nome": null,
-     "situacao": "a_revisar",
-     "por": "regra: Enviar informação à ANEEL; IA: sem resposta válida",
-     "regra_id": "enviar_informacao_aneel"
-    },
-    "dependencias_no_texto": []
-   },
-   "area": "A definir",
-   "area_origem": null,
-   "dispositivo": "Art. 11, inciso I",
-   "erro_material": null,
-   "esclarecimento": null
-  },
-  {
-   "id": "6cb749b8189058af",
-   "titulo": "Metodologia de escolha dos participantes, incluindo consumidores e agentes de…",
-   "titulo_origem": "regra",
-   "titulo_completo": "Metodologia de escolha dos participantes, incluindo consumidores e agentes de comercialização",
-   "sujeito_implicito": false,
-   "titulo_curto": "Metodologia de seleção de participantes",
-   "evite": {
-    "acao": "Apresentar metodologia sem explicitar como escolher consumidores e agentes",
-    "trecho_citado": "metodologia de escolha dos participantes, incluindo consumidores e agentes de comercialização;"
-   },
-   "recomendacoes": [
-    {
-     "acao": "Anexar à proposta a metodologia escrita de escolha dos participantes, detalhando critérios para consumidores e agentes de comercialização.",
-     "trecho_citado": "metodologia de escolha dos participantes"
-    }
-   ],
-   "contexto": "I - a distribuidora deve apresentar à ANEEL, previamente ao início, a proposta do Sandbox contendo, no mínimo:",
-   "tema": "capítulo_iv_4",
-   "motivo_tema": "Capítulo da norma",
-   "unidade": "u0273",
-   "principal": "u0270",
-   "detalhe": true,
-   "trecho": "c) metodologia de escolha dos participantes, incluindo consumidores e agentes de comercialização;",
-   "situacao": "sem_prazo",
-   "marco": {
-    "tipo": "em_vigor",
-    "data": "2026-11-04",
-    "dispositivo": "Art. 18, III",
-    "trecho": "III - na data de sua publicação, quanto aos demais dispositivos. SANDOVAL DE ARAÚJO FEITOSA NETO",
-    "nota": null,
-    "candidatos": null
-   },
-   "prazo": {
-    "data": null,
-    "texto": "Em vigor desde 04/11/2026 (sem período de adequação)",
-    "dias": null,
-    "provisorio": false,
-    "condicional": false,
-    "base": null
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 12, VII",
-    "grupo": "IV",
-    "justificativa": "A obrigação determina que a distribuidora deve apresentar à ANEEL, previamente ao início, a proposta do Sandbox (incluindo a metodologia de escolha dos participantes); Art. 12, VII descreve especificamente 'deixar de encaminhar, para exame e aprovação da ANEEL... ou implementar, antes da anuência prévia da Agência', aplicando‑se diretamente se a proposta não for submetida antes do início.",
-    "duvida": null
-   },
-   "grupo": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "IV"
-    ],
-    "teto_grupo_pct": 1.0,
-    "maximo_pct": {
-     "com_teto": 1.0,
-     "sem_teto": 1.0
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.050000000000000044,
-     "ate_tn": 0.5
-    },
-    "maximo_reais": {
-     "com_teto": 50000000.0,
-     "sem_teto": 50000000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 2500000.0000000023,
-     "ate_tn": 25000000.0
-    }
-   },
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [
-    {
-     "id": "aneel",
-     "trecho": "I - a distribuidora deve apresentar à ANEEL, previamente ao início, a proposta do Sandbox contendo, no"
-    }
-   ],
-   "guardar": [
-    "aneel"
-   ],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": null,
-     "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
-     "regra_id": null
-    },
-    "dependencias_no_texto": []
-   },
-   "area": "A definir",
-   "area_origem": null,
-   "dispositivo": "Art. 11, inciso I, alínea c",
-   "erro_material": null,
-   "esclarecimento": null
-  },
-  {
-   "id": "d6e372fb4b797bf0",
-   "titulo": "Critérios de adesão e de desistência dos participantes",
-   "titulo_origem": "regra",
-   "titulo_completo": "Critérios de adesão e de desistência dos participantes",
-   "sujeito_implicito": false,
-   "titulo_curto": "Critérios de adesão e desistência",
-   "evite": {
-    "acao": "Definir critérios vagos para adesão e desistência sem regras claras de aplicação",
-    "trecho_citado": "critérios de adesão e de desistência dos participantes;"
-   },
-   "recomendacoes": [
-    {
-     "acao": "Anexe à proposta do Sandbox um documento público com requisitos, passos e modelos de formulários de adesão e desistência.",
-     "trecho_citado": "critérios de adesão e de desistência dos participantes"
-    }
-   ],
-   "contexto": "I - a distribuidora deve apresentar à ANEEL, previamente ao início, a proposta do Sandbox contendo, no mínimo:",
-   "tema": "capítulo_iv_4",
-   "motivo_tema": "Capítulo da norma",
-   "unidade": "u0274",
-   "principal": "u0270",
-   "detalhe": true,
-   "trecho": "d) critérios de adesão e de desistência dos participantes;",
-   "situacao": "sem_prazo",
-   "marco": {
-    "tipo": "em_vigor",
-    "data": "2026-11-04",
-    "dispositivo": "Art. 18, III",
-    "trecho": "III - na data de sua publicação, quanto aos demais dispositivos. SANDOVAL DE ARAÚJO FEITOSA NETO",
-    "nota": null,
-    "candidatos": null
-   },
-   "prazo": {
-    "data": null,
-    "texto": "Em vigor desde 04/11/2026 (sem período de adequação)",
-    "dias": null,
-    "provisorio": false,
-    "condicional": false,
-    "base": null
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 12, VII",
-    "grupo": "IV",
-    "justificativa": "A obrigação exige que a distribuidora \"deve apresentar à ANEEL, previamente ao início, a proposta do Sandbox\"; o Art. 12, VII descreve exatamente a conduta de \"deixar de encaminhar, para exame e aprovação da ANEEL... ou implementar, antes da anuência prévia da Agência\", sendo este o enquadramento mais direto.",
-    "duvida": null
-   },
-   "grupo": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "IV"
-    ],
-    "teto_grupo_pct": 1.0,
-    "maximo_pct": {
-     "com_teto": 1.0,
-     "sem_teto": 1.0
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.050000000000000044,
-     "ate_tn": 0.5
-    },
-    "maximo_reais": {
-     "com_teto": 50000000.0,
-     "sem_teto": 50000000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 2500000.0000000023,
-     "ate_tn": 25000000.0
-    }
-   },
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [
-    {
-     "id": "aneel",
-     "trecho": "I - a distribuidora deve apresentar à ANEEL, previamente ao início, a proposta do Sandbox contendo, no"
-    }
-   ],
-   "guardar": [
-    "aneel"
-   ],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": null,
-     "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
-     "regra_id": null
-    },
-    "dependencias_no_texto": []
-   },
-   "area": "A definir",
-   "area_origem": null,
-   "dispositivo": "Art. 11, inciso I, alínea d",
-   "erro_material": null,
-   "esclarecimento": null
-  },
-  {
-   "id": "da50e0e8061f472e",
-   "titulo": "Plano de comunicação e de informação aos participantes",
-   "titulo_origem": "regra",
-   "titulo_completo": "Plano de comunicação e de informação aos participantes",
-   "sujeito_implicito": false,
-   "titulo_curto": "Plano de comunicação aos participantes",
-   "evite": null,
-   "recomendacoes": [],
-   "contexto": "I - a distribuidora deve apresentar à ANEEL, previamente ao início, a proposta do Sandbox contendo, no mínimo:",
-   "tema": "capítulo_iv_4",
-   "motivo_tema": "Capítulo da norma",
-   "unidade": "u0275",
-   "principal": "u0270",
-   "detalhe": true,
-   "trecho": "e) plano de comunicação e de informação aos participantes;",
-   "situacao": "sem_prazo",
-   "marco": {
-    "tipo": "em_vigor",
-    "data": "2026-11-04",
-    "dispositivo": "Art. 18, III",
-    "trecho": "III - na data de sua publicação, quanto aos demais dispositivos. SANDOVAL DE ARAÚJO FEITOSA NETO",
-    "nota": null,
-    "candidatos": null
-   },
-   "prazo": {
-    "data": null,
-    "texto": "Em vigor desde 04/11/2026 (sem período de adequação)",
-    "dias": null,
-    "provisorio": false,
-    "condicional": false,
-    "base": null
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 10, IV",
-    "grupo": "II",
-    "justificativa": "A obrigação determina que a distribuidora «deve apresentar à ANEEL, previamente ao início, a proposta do Sandbox», o que é equivalentesubmeter à Agência um projeto antes do início. Art. 10, IV prevê como infração o fato de «deixar de submeter à prévia aprovação... projetos... ou implementar, antes da anuência», aplicável se a proposta não for apresentada/aguardada.",
-    "duvida": null
-   },
-   "grupo": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "II"
-    ],
-    "teto_grupo_pct": 0.25,
-    "maximo_pct": {
-     "com_teto": 0.25,
-     "sem_teto": 0.25
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.012500000000000011,
-     "ate_tn": 0.125
-    },
-    "maximo_reais": {
-     "com_teto": 12500000.0,
-     "sem_teto": 12500000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 625000.0000000006,
-     "ate_tn": 6250000.0
-    }
-   },
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [
-    {
-     "id": "plano",
-     "trecho": "e) plano de comunicação e de informação aos participantes;"
-    },
-    {
-     "id": "aneel",
-     "trecho": "I - a distribuidora deve apresentar à ANEEL, previamente ao início, a proposta do Sandbox contendo, no"
-    }
-   ],
-   "guardar": [
-    "protocolos",
-    "aneel",
-    "versoes"
-   ],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": null,
-     "nome": null,
-     "situacao": "a_revisar",
-     "por": "regra: Elaborar ou revisar plano; IA: sem resposta válida",
-     "regra_id": "elaborar_ou_revisar_plano"
-    },
-    "dependencias_no_texto": []
-   },
-   "area": "A definir",
-   "area_origem": null,
-   "dispositivo": "Art. 11, inciso I, alínea e",
-   "erro_material": null,
-   "esclarecimento": null
-  },
-  {
-   "id": "5609080c03fdcb67",
-   "titulo": "Orçamento preliminar; e",
-   "titulo_origem": "regra",
-   "titulo_completo": "Orçamento preliminar; e",
-   "sujeito_implicito": false,
-   "titulo_curto": "Orçamento preliminar",
-   "evite": null,
-   "recomendacoes": [],
-   "contexto": "I - a distribuidora deve apresentar à ANEEL, previamente ao início, a proposta do Sandbox contendo, no mínimo:",
-   "tema": "capítulo_iv_4",
-   "motivo_tema": "Capítulo da norma",
-   "unidade": "u0276",
-   "principal": "u0270",
-   "detalhe": true,
-   "trecho": "f) orçamento preliminar; e",
-   "situacao": "sem_prazo",
-   "marco": {
-    "tipo": "em_vigor",
-    "data": "2026-11-04",
-    "dispositivo": "Art. 18, III",
-    "trecho": "III - na data de sua publicação, quanto aos demais dispositivos. SANDOVAL DE ARAÚJO FEITOSA NETO",
-    "nota": null,
-    "candidatos": null
-   },
-   "prazo": {
-    "data": null,
-    "texto": "Em vigor desde 04/11/2026 (sem período de adequação)",
-    "dias": null,
-    "provisorio": false,
-    "condicional": false,
-    "base": null
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 11, V",
-    "grupo": "III",
-    "justificativa": "A obrigação exige que a distribuidora apresente à ANEEL, previamente ao início, a proposta do Sandbox incluindo, no mínimo, o 'orçamento preliminar' (informação econômico‑financeira); o Art. 11, V tipifica como infração deixar de enviar ou disponibilizar à ANEEL documentos ou informações econômicas e financeiras.",
-    "duvida": null
-   },
-   "grupo": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "III"
-    ],
-    "teto_grupo_pct": 0.5,
-    "maximo_pct": {
-     "com_teto": 0.5,
-     "sem_teto": 0.5
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.025000000000000022,
-     "ate_tn": 0.25
-    },
-    "maximo_reais": {
-     "com_teto": 25000000.0,
-     "sem_teto": 25000000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 1250000.0000000012,
-     "ate_tn": 12500000.0
-    }
-   },
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [
-    {
-     "id": "aneel",
-     "trecho": "I - a distribuidora deve apresentar à ANEEL, previamente ao início, a proposta do Sandbox contendo, no"
-    }
-   ],
-   "guardar": [
-    "aneel"
-   ],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": null,
-     "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
-     "regra_id": null
-    },
-    "dependencias_no_texto": []
-   },
-   "area": "A definir",
-   "area_origem": null,
-   "dispositivo": "Art. 11, inciso I, alínea f",
-   "erro_material": null,
-   "esclarecimento": null
-  },
-  {
-   "id": "acc78339ce7532ff",
-   "titulo": "Plano de monitoramento e controle do Sandbox, proposição de indicadores e…",
-   "titulo_origem": "regra",
-   "titulo_completo": "Plano de monitoramento e controle do Sandbox, proposição de indicadores e ferramentas para análise de resultados e de custos e benefícios",
-   "sujeito_implicito": false,
-   "titulo_curto": "Plano de monitoramento e indicadores",
-   "evite": null,
-   "recomendacoes": [],
-   "contexto": "I - a distribuidora deve apresentar à ANEEL, previamente ao início, a proposta do Sandbox contendo, no mínimo:",
-   "tema": "capítulo_iv_4",
-   "motivo_tema": "Capítulo da norma",
-   "unidade": "u0277",
-   "principal": "u0270",
-   "detalhe": true,
-   "trecho": "g) plano de monitoramento e controle do Sandbox, proposição de indicadores e ferramentas para análise de resultados e de custos e benefícios.",
-   "situacao": "sem_prazo",
-   "marco": {
-    "tipo": "em_vigor",
-    "data": "2026-11-04",
-    "dispositivo": "Art. 18, III",
-    "trecho": "III - na data de sua publicação, quanto aos demais dispositivos. SANDOVAL DE ARAÚJO FEITOSA NETO",
-    "nota": null,
-    "candidatos": null
-   },
-   "prazo": {
-    "data": null,
-    "texto": "Em vigor desde 04/11/2026 (sem período de adequação)",
-    "dias": null,
-    "provisorio": false,
-    "condicional": false,
-    "base": null
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 9º, VI",
-    "grupo": "I",
-    "justificativa": "A obrigação exige que a distribuidora apresente à ANEEL, previamente ao início, a proposta do Sandbox contendo, entre outros, o plano de monitoramento e controle; a não apresentação desse documento caracteriza “deixar de enviar ou disponibilizar informações ou documentos solicitados pela ANEEL”.",
-    "duvida": null
-   },
-   "grupo": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "I"
-    ],
-    "teto_grupo_pct": 0.125,
-    "maximo_pct": {
-     "com_teto": 0.125,
-     "sem_teto": 0.125
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.0062500000000000056,
-     "ate_tn": 0.0625
-    },
-    "maximo_reais": {
-     "com_teto": 6250000.0,
-     "sem_teto": 6250000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 312500.0000000003,
-     "ate_tn": 3125000.0
-    }
-   },
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [
-    {
-     "id": "plano",
-     "trecho": "g) plano de monitoramento e controle do Sandbox, proposição de indic"
-    },
-    {
-     "id": "aneel",
-     "trecho": "I - a distribuidora deve apresentar à ANEEL, previamente ao início, a proposta do Sandbox contendo, no"
-    }
-   ],
-   "guardar": [
-    "aneel",
-    "versoes"
-   ],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": null,
-     "nome": null,
-     "situacao": "a_revisar",
-     "por": "regra: Apurar ou calcular indicador; IA: sem resposta válida",
-     "regra_id": "apurar_calcular_indicador"
-    },
-    "dependencias_no_texto": []
-   },
-   "area": "A definir",
-   "area_origem": null,
-   "dispositivo": "Art. 11, inciso I, alínea g",
-   "erro_material": null,
-   "esclarecimento": null
-  },
-  {
-   "id": "0ebb4ed9ace89a7e",
-   "titulo": "As regras do Sandbox devem ser amplamente divulgadas aos participantes, incluindo…",
-   "titulo_origem": "regra",
-   "titulo_completo": "As regras do Sandbox devem ser amplamente divulgadas aos participantes, incluindo critérios de adesão e desistência e os canais em que poderão ser prestadas informações",
-   "sujeito_implicito": false,
-   "titulo_curto": "Divulgar regras e canais",
-   "evite": null,
-   "recomendacoes": [],
-   "contexto": "Art. 11. As distribuidoras podem desenvolver Sandbox Regulatório para emissão de fatura unificada pelo agente comercializador para unidade consumidora livre e especial, contendo a cobrança da distribuidora e do comercializador, observadas as seguintes disposições:",
-   "tema": "capítulo_iv_4",
-   "motivo_tema": "Capítulo da norma",
-   "unidade": "u0279",
-   "principal": "u0279",
-   "detalhe": false,
-   "trecho": "III - as regras do Sandbox devem ser amplamente divulgadas aos participantes, incluindo critérios de adesão e desistência e os canais em que poderão ser prestadas informações;",
-   "situacao": "sem_prazo",
-   "marco": {
-    "tipo": "em_vigor",
-    "data": "2026-11-04",
-    "dispositivo": "Art. 18, III",
-    "trecho": "III - na data de sua publicação, quanto aos demais dispositivos. SANDOVAL DE ARAÚJO FEITOSA NETO",
-    "nota": null,
-    "candidatos": null
-   },
-   "prazo": {
-    "data": null,
-    "texto": "Em vigor desde 04/11/2026 (sem período de adequação)",
-    "dias": null,
-    "provisorio": false,
-    "condicional": false,
-    "base": null
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 9º, II",
-    "grupo": "I",
-    "justificativa": "A obrigação exige que as regras do Sandbox sejam amplamente divulgadas e, portanto, disponibilizadas aos participantes; o Art. 9º, II caracteriza como infração deixar de manter à disposição dos consumidores, em locais acessíveis, os documentos ou informações estabelecidos, o que se aplica à não divulgação das regras.",
-    "duvida": null
-   },
-   "grupo": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "I"
-    ],
-    "teto_grupo_pct": 0.125,
-    "maximo_pct": {
-     "com_teto": 0.125,
-     "sem_teto": 0.125
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.0062500000000000056,
-     "ate_tn": 0.0625
-    },
-    "maximo_reais": {
-     "com_teto": 6250000.0,
-     "sem_teto": 6250000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 312500.0000000003,
-     "ate_tn": 3125000.0
-    }
-   },
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [],
-   "guardar": [
-    "indisponibilidade",
-    "protocolos"
-   ],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": null,
-     "nome": null,
-     "situacao": "a_revisar",
-     "por": "regra: Publicar no site; IA: sem resposta válida",
-     "regra_id": "publicar_no_site"
-    },
-    "dependencias_no_texto": []
-   },
-   "area": "A definir",
-   "area_origem": null,
-   "dispositivo": "Art. 11, inciso III",
-   "erro_material": null,
-   "esclarecimento": null
-  },
-  {
    "id": "3c31e7c6948c4d3e",
    "titulo": "O CCER não poderá ter acréscimo do montante de energia elétrica",
    "titulo_origem": "regra",
@@ -8847,6 +7810,22 @@
    "dispositivo": "Art. 166, § 4º, inciso III"
   },
   {
+   "id": "5f1e90f07a781a9f",
+   "natureza": "dever_condicional",
+   "rotulo": "Dever condicional: se exercer a faculdade do caput",
+   "sujeito": "a redução do prazo",
+   "unidade": "u0069",
+   "trecho": "I - a redução do prazo deve ser realizada com isonomia, vedada a aplicação individual ou a grupo que atenda determinadas condições; e",
+   "motivo": "Dever da distribuidora apenas se exercer a faculdade do caput; fora da exposição principal.",
+   "condicao": {
+    "unidade": "u0068",
+    "trecho": "§ 6º A distribuidora pode praticar prazos menores dos que os dispostos no § 5º, desde que por período preestabelecido, observado o art. 663 e as seguintes condições:",
+    "texto": "Dever condicional: se exercer a faculdade do caput",
+    "dispositivo": "Art. 166, § 6º"
+   },
+   "dispositivo": "Art. 166, § 6º, inciso I"
+  },
+  {
    "id": "c0e90a166ca884c7",
    "natureza": "faculdade",
    "rotulo": "Faculdade (pode, não deve)",
@@ -9227,6 +8206,118 @@
    "dispositivo": "Art. 16, § 1º"
   },
   {
+   "id": "667bcae318ad50c6",
+   "natureza": "dever_condicional",
+   "rotulo": "Dever condicional: se aderir ao sandbox",
+   "sujeito": "a distribuidora",
+   "unidade": "u0270",
+   "trecho": "I - a distribuidora deve apresentar à ANEEL, previamente ao início, a proposta do Sandbox contendo, no mínimo:",
+   "motivo": "Dever da distribuidora apenas se exercer a faculdade do caput; fora da exposição principal.",
+   "condicao": {
+    "unidade": "u0269",
+    "trecho": "Art. 11. As distribuidoras podem desenvolver Sandbox Regulatório para emissão de fatura unificada pelo agente comercializador para unidade consumidora livre e especial, contendo a cobrança da distribuidora e do comercializador, observadas as seguintes disposições:",
+    "texto": "Dever condicional: se aderir ao sandbox",
+    "dispositivo": "Art. 11"
+   },
+   "dispositivo": "Art. 11, inciso I"
+  },
+  {
+   "id": "fef01f4eb3d5d88c",
+   "natureza": "dever_condicional",
+   "rotulo": "Dever condicional: se aderir ao sandbox",
+   "sujeito": "a distribuidora",
+   "unidade": "u0270",
+   "trecho": "I - a distribuidora deve apresentar à ANEEL, previamente ao início, a proposta do Sandbox contendo, no mínimo:",
+   "motivo": "Dever da distribuidora apenas se exercer a faculdade do caput; fora da exposição principal.",
+   "condicao": {
+    "unidade": "u0269",
+    "trecho": "Art. 11. As distribuidoras podem desenvolver Sandbox Regulatório para emissão de fatura unificada pelo agente comercializador para unidade consumidora livre e especial, contendo a cobrança da distribuidora e do comercializador, observadas as seguintes disposições:",
+    "texto": "Dever condicional: se aderir ao sandbox",
+    "dispositivo": "Art. 11"
+   },
+   "dispositivo": "Art. 11, inciso I"
+  },
+  {
+   "id": "6cb749b8189058af",
+   "natureza": "dever_condicional",
+   "rotulo": "Dever condicional: se aderir ao sandbox",
+   "sujeito": "a distribuidora",
+   "unidade": "u0273",
+   "trecho": "c) metodologia de escolha dos participantes, incluindo consumidores e agentes de comercialização;",
+   "motivo": "Dever da distribuidora apenas se exercer a faculdade do caput; fora da exposição principal.",
+   "condicao": {
+    "unidade": "u0269",
+    "trecho": "Art. 11. As distribuidoras podem desenvolver Sandbox Regulatório para emissão de fatura unificada pelo agente comercializador para unidade consumidora livre e especial, contendo a cobrança da distribuidora e do comercializador, observadas as seguintes disposições:",
+    "texto": "Dever condicional: se aderir ao sandbox",
+    "dispositivo": "Art. 11"
+   },
+   "dispositivo": "Art. 11, inciso I, alínea c"
+  },
+  {
+   "id": "d6e372fb4b797bf0",
+   "natureza": "dever_condicional",
+   "rotulo": "Dever condicional: se aderir ao sandbox",
+   "sujeito": "a distribuidora",
+   "unidade": "u0274",
+   "trecho": "d) critérios de adesão e de desistência dos participantes;",
+   "motivo": "Dever da distribuidora apenas se exercer a faculdade do caput; fora da exposição principal.",
+   "condicao": {
+    "unidade": "u0269",
+    "trecho": "Art. 11. As distribuidoras podem desenvolver Sandbox Regulatório para emissão de fatura unificada pelo agente comercializador para unidade consumidora livre e especial, contendo a cobrança da distribuidora e do comercializador, observadas as seguintes disposições:",
+    "texto": "Dever condicional: se aderir ao sandbox",
+    "dispositivo": "Art. 11"
+   },
+   "dispositivo": "Art. 11, inciso I, alínea d"
+  },
+  {
+   "id": "da50e0e8061f472e",
+   "natureza": "dever_condicional",
+   "rotulo": "Dever condicional: se aderir ao sandbox",
+   "sujeito": "a distribuidora",
+   "unidade": "u0275",
+   "trecho": "e) plano de comunicação e de informação aos participantes;",
+   "motivo": "Dever da distribuidora apenas se exercer a faculdade do caput; fora da exposição principal.",
+   "condicao": {
+    "unidade": "u0269",
+    "trecho": "Art. 11. As distribuidoras podem desenvolver Sandbox Regulatório para emissão de fatura unificada pelo agente comercializador para unidade consumidora livre e especial, contendo a cobrança da distribuidora e do comercializador, observadas as seguintes disposições:",
+    "texto": "Dever condicional: se aderir ao sandbox",
+    "dispositivo": "Art. 11"
+   },
+   "dispositivo": "Art. 11, inciso I, alínea e"
+  },
+  {
+   "id": "5609080c03fdcb67",
+   "natureza": "dever_condicional",
+   "rotulo": "Dever condicional: se aderir ao sandbox",
+   "sujeito": "a distribuidora",
+   "unidade": "u0276",
+   "trecho": "f) orçamento preliminar; e",
+   "motivo": "Dever da distribuidora apenas se exercer a faculdade do caput; fora da exposição principal.",
+   "condicao": {
+    "unidade": "u0269",
+    "trecho": "Art. 11. As distribuidoras podem desenvolver Sandbox Regulatório para emissão de fatura unificada pelo agente comercializador para unidade consumidora livre e especial, contendo a cobrança da distribuidora e do comercializador, observadas as seguintes disposições:",
+    "texto": "Dever condicional: se aderir ao sandbox",
+    "dispositivo": "Art. 11"
+   },
+   "dispositivo": "Art. 11, inciso I, alínea f"
+  },
+  {
+   "id": "acc78339ce7532ff",
+   "natureza": "dever_condicional",
+   "rotulo": "Dever condicional: se aderir ao sandbox",
+   "sujeito": "a distribuidora",
+   "unidade": "u0277",
+   "trecho": "g) plano de monitoramento e controle do Sandbox, proposição de indicadores e ferramentas para análise de resultados e de custos e benefícios.",
+   "motivo": "Dever da distribuidora apenas se exercer a faculdade do caput; fora da exposição principal.",
+   "condicao": {
+    "unidade": "u0269",
+    "trecho": "Art. 11. As distribuidoras podem desenvolver Sandbox Regulatório para emissão de fatura unificada pelo agente comercializador para unidade consumidora livre e especial, contendo a cobrança da distribuidora e do comercializador, observadas as seguintes disposições:",
+    "texto": "Dever condicional: se aderir ao sandbox",
+    "dispositivo": "Art. 11"
+   },
+   "dispositivo": "Art. 11, inciso I, alínea g"
+  },
+  {
    "id": "5ba2eda07743781f",
    "natureza": "faculdade",
    "rotulo": "Faculdade (pode, não deve)",
@@ -9235,6 +8326,22 @@
    "trecho": "II - o Sandbox será autorizado pela ANEEL, ouvida a CCEE, que deliberará sobre o afastamento temporário de regras e procedimentos no contexto do Sandbox;",
    "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
    "dispositivo": "Art. 11, inciso II"
+  },
+  {
+   "id": "0ebb4ed9ace89a7e",
+   "natureza": "dever_condicional",
+   "rotulo": "Dever condicional: se aderir ao sandbox",
+   "sujeito": "as regras do Sandbox",
+   "unidade": "u0279",
+   "trecho": "III - as regras do Sandbox devem ser amplamente divulgadas aos participantes, incluindo critérios de adesão e desistência e os canais em que poderão ser prestadas informações;",
+   "motivo": "Dever da distribuidora apenas se exercer a faculdade do caput; fora da exposição principal.",
+   "condicao": {
+    "unidade": "u0269",
+    "trecho": "Art. 11. As distribuidoras podem desenvolver Sandbox Regulatório para emissão de fatura unificada pelo agente comercializador para unidade consumidora livre e especial, contendo a cobrança da distribuidora e do comercializador, observadas as seguintes disposições:",
+    "texto": "Dever condicional: se aderir ao sandbox",
+    "dispositivo": "Art. 11"
+   },
+   "dispositivo": "Art. 11, inciso III"
   },
   {
    "id": "bd51414017166d23",
@@ -9397,6 +8504,22 @@
    "dispositivo": "Art. 11, inciso VII"
   },
   {
+   "id": "be6a76133085cee8",
+   "natureza": "dever_condicional",
+   "rotulo": "Dever condicional: se aderir ao sandbox",
+   "sujeito": "a partir da autorização do Sandbox até o fim da vigência",
+   "unidade": "u0297",
+   "trecho": "VIII - a partir da autorização do Sandbox até o fim da vigência devem ser encaminhados à ANEEL, semestralmente, relatórios informativos contemplando o acompanhamento, os resultados, as dificuldades enfrentadas e as soluções adotadas no período.",
+   "motivo": "Dever da distribuidora apenas se exercer a faculdade do caput; fora da exposição principal.",
+   "condicao": {
+    "unidade": "u0269",
+    "trecho": "Art. 11. As distribuidoras podem desenvolver Sandbox Regulatório para emissão de fatura unificada pelo agente comercializador para unidade consumidora livre e especial, contendo a cobrança da distribuidora e do comercializador, observadas as seguintes disposições:",
+    "texto": "Dever condicional: se aderir ao sandbox",
+    "dispositivo": "Art. 11"
+   },
+   "dispositivo": "Art. 11, inciso VIII"
+  },
+  {
    "id": "40b290d89e1bce4d",
    "natureza": "faculdade",
    "rotulo": "Faculdade (pode, não deve)",
@@ -9529,7 +8652,7 @@
   {
    "id": "a7588cff2b247082",
    "natureza": "regra_de_transicao",
-   "rotulo": "Regra de transição: prazo de adequação a outro dispositivo",
+   "rotulo": "Regra de transição ou vigência de outros dispositivos",
    "sujeito": "A adequação às alterações promovidas por esta Resolução",
    "unidade": "u0353",
    "trecho": "I - até doze meses da data de sua publicação, quanto ao art. 2º, na parte que inclui o § 1º no art. 166, o § 4º no art. 333 e o inciso XVIII no art. 396 da Resolução Normativa nº 1.000, de 7 de dezembro de 2021;",
@@ -9539,7 +8662,7 @@
   {
    "id": "485b9126b959bcd7",
    "natureza": "regra_de_transicao",
-   "rotulo": "Regra de transição: prazo de adequação a outro dispositivo",
+   "rotulo": "Regra de transição ou vigência de outros dispositivos",
    "sujeito": "A adequação às alterações promovidas por esta Resolução",
    "unidade": "u0354",
    "trecho": "II - em até 180 (cento e oitenta) dias da data de sua publicação, quanto ao:",
@@ -11070,17 +10193,6 @@
    },
    "conferido_na_fonte": true
   },
-  "Art. 12, XVI": {
-   "grupo": "IV",
-   "trecho": "XVI - discriminar consumidores ou demais usuários utilizando critérios não previstos na legislação;",
-   "origem_da_redacao": "redação original",
-   "fonte": {
-    "titulo": "REN 846/2019 (texto compilado oficial até a RN 1.137/2025)",
-    "arquivo": "tests/fontes_impacto/atren2019846.pdf",
-    "sha256": "efe4e35fb41aa1306846677ffc32a0c2a150ee6ac44aafe5f15e475e6ad05ad9"
-   },
-   "conferido_na_fonte": true
-  },
   "Art. 11, XIV": {
    "grupo": "III",
    "trecho": "XIV - deixar de cumprir ao disposto em resoluções da ANEEL;",
@@ -11158,61 +10270,6 @@
    },
    "conferido_na_fonte": true
   },
-  "Art. 12, VII": {
-   "grupo": "IV",
-   "trecho": "VII - deixar de encaminhar, para exame e aprovação da ANEEL, nas hipóteses e condições contratuais, legais ou regulamentares, ou implementar, antes da anuência prévia da Agência, quando assim exigido:",
-   "origem_da_redacao": "redação original",
-   "fonte": {
-    "titulo": "REN 846/2019 (texto compilado oficial até a RN 1.137/2025)",
-    "arquivo": "tests/fontes_impacto/atren2019846.pdf",
-    "sha256": "efe4e35fb41aa1306846677ffc32a0c2a150ee6ac44aafe5f15e475e6ad05ad9"
-   },
-   "conferido_na_fonte": true
-  },
-  "Art. 10, IV": {
-   "grupo": "II",
-   "trecho": "IV - deixar de submeter à prévia aprovação da ANEEL, nos casos exigidos pela legislação, contrato ou ato autorizativo, projetos de instalações de energia elétrica e suas eventuais modificações, assim como proceder à sua execução em desconformidade com o projeto aprovado, com os parâmetros homologados ou com os prazos estabelecidos;",
-   "origem_da_redacao": "redação original",
-   "fonte": {
-    "titulo": "REN 846/2019 (texto compilado oficial até a RN 1.137/2025)",
-    "arquivo": "tests/fontes_impacto/atren2019846.pdf",
-    "sha256": "efe4e35fb41aa1306846677ffc32a0c2a150ee6ac44aafe5f15e475e6ad05ad9"
-   },
-   "conferido_na_fonte": true
-  },
-  "Art. 11, V": {
-   "grupo": "III",
-   "trecho": "V - deixar de enviar ou disponibilizar à ANEEL, nos prazos e nas condições estabelecidas na legislação, documentos ou informações econômicas e financeiras;",
-   "origem_da_redacao": "redação original",
-   "fonte": {
-    "titulo": "REN 846/2019 (texto compilado oficial até a RN 1.137/2025)",
-    "arquivo": "tests/fontes_impacto/atren2019846.pdf",
-    "sha256": "efe4e35fb41aa1306846677ffc32a0c2a150ee6ac44aafe5f15e475e6ad05ad9"
-   },
-   "conferido_na_fonte": true
-  },
-  "Art. 9º, VI": {
-   "grupo": "I",
-   "trecho": "VI - deixar de enviar ou disponibilizar informações ou documentos solicitados pela ANEEL, nos prazos e nas condições estabelecidas;",
-   "origem_da_redacao": "redação original",
-   "fonte": {
-    "titulo": "REN 846/2019 (texto compilado oficial até a RN 1.137/2025)",
-    "arquivo": "tests/fontes_impacto/atren2019846.pdf",
-    "sha256": "efe4e35fb41aa1306846677ffc32a0c2a150ee6ac44aafe5f15e475e6ad05ad9"
-   },
-   "conferido_na_fonte": true
-  },
-  "Art. 9º, II": {
-   "grupo": "I",
-   "trecho": "II - deixar de manter à disposição dos consumidores nos postos de atendimento presencial, em locais acessíveis, os documentos ou informações estabelecidas nas disposições legais, regulamentares ou contratuais;",
-   "origem_da_redacao": "redação original",
-   "fonte": {
-    "titulo": "REN 846/2019 (texto compilado oficial até a RN 1.137/2025)",
-    "arquivo": "tests/fontes_impacto/atren2019846.pdf",
-    "sha256": "efe4e35fb41aa1306846677ffc32a0c2a150ee6ac44aafe5f15e475e6ad05ad9"
-   },
-   "conferido_na_fonte": true
-  },
   "Art. 12, VI": {
    "grupo": "IV",
    "trecho": "VI - deixar de realizar a contabilização em conformidade com as normas, procedimentos ou instruções legais ou regulamentares;",
@@ -11234,6 +10291,17 @@
     "sha256": "efe4e35fb41aa1306846677ffc32a0c2a150ee6ac44aafe5f15e475e6ad05ad9"
    },
    "conferido_na_fonte": true
+  },
+  "Art. 12, XVI": {
+   "grupo": "IV",
+   "trecho": "XVI - discriminar consumidores ou demais usuários utilizando critérios não previstos na legislação;",
+   "origem_da_redacao": "redação original",
+   "fonte": {
+    "titulo": "REN 846/2019 (texto compilado oficial até a RN 1.137/2025)",
+    "arquivo": "tests/fontes_impacto/atren2019846.pdf",
+    "sha256": "efe4e35fb41aa1306846677ffc32a0c2a150ee6ac44aafe5f15e475e6ad05ad9"
+   },
+   "conferido_na_fonte": true
   }
  },
  "linha_do_tempo": {
@@ -11248,7 +10316,6 @@
    "f0cd208483b0ece3",
    "7df077bdc114900b",
    "8ca5f1def5e87ce5",
-   "5f1e90f07a781a9f",
    "a18cdd2d9ab0da66",
    "096251809e2f4fba",
    "b3e3b3d8c696f470",
@@ -11275,7 +10342,6 @@
    "f2d3efb9e62de56b"
   ],
   "recorrente": [
-   "be6a76133085cee8",
    "de259c2eb695201e"
   ],
   "evento": [
@@ -11312,14 +10378,6 @@
    "5601d7cf3867bf32",
    "48facbbb1cb1cce4",
    "728895c11bbe26d8",
-   "667bcae318ad50c6",
-   "fef01f4eb3d5d88c",
-   "6cb749b8189058af",
-   "d6e372fb4b797bf0",
-   "da50e0e8061f472e",
-   "5609080c03fdcb67",
-   "acc78339ce7532ff",
-   "0ebb4ed9ace89a7e",
    "3c31e7c6948c4d3e",
    "6e56e83f4405c837",
    "e9484bb6aff3edc1",
@@ -11594,51 +10652,6 @@
     ],
     "status": "rascunho — revisar"
    },
-   "enviar_informacao_aneel": {
-    "nome": "Enviar informação à ANEEL",
-    "ideias_cumprimento": [
-     "Montar calendário interno com antecedência sobre o prazo de cada envio.",
-     "Definir quem prepara, quem confere e quem envia.",
-     "Enviar com folga e guardar o protocolo do sistema da ANEEL.",
-     "Ter plano alternativo se o sistema estiver indisponível (registro da tentativa e contato formal)."
-    ],
-    "evidencias": [
-     "Protocolo do envio gerado pelo sistema da ANEEL.",
-     "Arquivo enviado e conferência interna.",
-     "Registro de indisponibilidade do sistema, se houver (captura de tela com data e hora)."
-    ],
-    "status": "rascunho — revisar"
-   },
-   "elaborar_ou_revisar_plano": {
-    "nome": "Elaborar ou revisar plano",
-    "ideias_cumprimento": [
-     "Partir de um modelo com os itens que a norma lista, marcando onde cada item é atendido.",
-     "Definir responsável, data de aprovação e periodicidade de revisão.",
-     "Submeter à aprovação formal da diretoria ou de quem a norma indicar.",
-     "Registrar a data em que o plano foi efetivamente aplicado, se a norma exigir."
-    ],
-    "evidencias": [
-     "Versão aprovada do plano, com data, responsável e aprovação.",
-     "Controle de versões e ata ou registro da revisão.",
-     "Registro de aplicação do plano e das lições incorporadas."
-    ],
-    "status": "rascunho — revisar"
-   },
-   "publicar_no_site": {
-    "nome": "Publicar no site",
-    "ideias_cumprimento": [
-     "Designar responsável e prazo interno para cada publicação exigida.",
-     "Manter página própria, de fácil localização, com data de atualização visível.",
-     "Programar revisão periódica do conteúdo publicado.",
-     "Arquivar a versão anterior quando houver atualização."
-    ],
-    "evidencias": [
-     "Captura de tela datada da página publicada e URL.",
-     "Registro da publicação (sistema de gestão de conteúdo, com data e autor).",
-     "Histórico das versões publicadas."
-    ],
-    "status": "rascunho — revisar"
-   },
    "manter_registro_historico": {
     "nome": "Manter registro ou histórico",
     "ideias_cumprimento": [
@@ -11651,6 +10664,21 @@
      "Exportação do registro com período e filtros usados.",
      "Política de retenção e controle de acesso.",
      "Trilha de auditoria do sistema."
+    ],
+    "status": "rascunho — revisar"
+   },
+   "enviar_informacao_aneel": {
+    "nome": "Enviar informação à ANEEL",
+    "ideias_cumprimento": [
+     "Montar calendário interno com antecedência sobre o prazo de cada envio.",
+     "Definir quem prepara, quem confere e quem envia.",
+     "Enviar com folga e guardar o protocolo do sistema da ANEEL.",
+     "Ter plano alternativo se o sistema estiver indisponível (registro da tentativa e contato formal)."
+    ],
+    "evidencias": [
+     "Protocolo do envio gerado pelo sistema da ANEEL.",
+     "Arquivo enviado e conferência interna.",
+     "Registro de indisponibilidade do sistema, se houver (captura de tela com data e hora)."
     ],
     "status": "rascunho — revisar"
    },
@@ -11763,10 +10791,10 @@
  ],
  "erros_materiais": [],
  "a_confirmar": {
-  "total": 128,
+  "total": 118,
   "por_tipo": {
    "artigo inferido pela posição": 6,
-   "enquadramento sem texto": 85,
+   "enquadramento sem texto": 75,
    "sujeito incerto": 37
   },
   "com_possivel_esclarecimento": 0,

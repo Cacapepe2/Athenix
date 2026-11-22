@@ -40,8 +40,8 @@ def test_art_16_da_ren_1174_e_regra_de_transicao_nao_dever():
     transicao = [o for o in P1174["outros_dispositivos"] if o["natureza"] == "regra_de_transicao"]
     assert {o["dispositivo"] for o in transicao} >= {"Art. 16, inciso I", "Art. 16, inciso II"}
     assert (
-        P1137["resumo"]["aplicaveis"] == 153
-    )  # RN 1.137: sem o art. 10, §§ 2º e 3º (competência da ANEEL)
+        P1137["resumo"]["aplicaveis"] == 147
+    )  # RN 1.137: 153 - cinco incisos de prazo - Art. 18 (vigência).
 
 
 def test_titulo_ganha_o_sujeito_e_o_deve_do_caput():
