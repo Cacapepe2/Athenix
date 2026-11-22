@@ -14,6 +14,7 @@ Na RN 1.137, os incisos I–V do Art. 13 apenas fixam o prazo dos itens que cita
 transição em Outros dispositivos. Os itens conservam a data, o dispositivo e a citação literal do
 inciso. O Art. 18 é vigência geral, também em Outros dispositivos. O inciso VI mantém o dever próprio
 de apuração do DISE, sem item correspondente no texto. Os testes anotam o motivo das novas contagens.
+O detalhe do prazo no plano completo mostra a citação literal do inciso junto à obrigação do item.
 
 As oito obrigações principais vencidas são:
 
@@ -89,6 +90,7 @@ horizontal e de erros JavaScript. Também verificaram os nove rótulos condicion
 - [RN 1.137 — 1280 px](pr48-executiva-rn1137-1280.png)
 - [RN 1.137 — 390 px](pr48-executiva-rn1137-390.png)
 - [Sandbox em Outros dispositivos](pr48-sandbox-condicional-1280.png)
+- [Item 103 com o prazo e a citação do Art. 13, I](pr48-item103-fonte-prazo-1280.png)
 
 ## Verificação
 
