@@ -1,0 +1,15 @@
+{
+ "nota": "Documentos oficiais que esclarecem normas processadas (FAQ, retificação, alteração). A busca roda só sobre estes arquivos salvos, nunca na internet durante o processamento. Cada arquivo é conferido pelo hash antes do uso.",
+ "documentos": [
+  {
+   "arquivo": "faq_ren20251137.html",
+   "norma": "ren20251137",
+   "tipo": "FAQ",
+   "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+   "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+   "consultado_em": "2026-11-22",
+   "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+   "robots": "https://www.gov.br/robots.txt não bloqueia /aneel (conferido em 22/11/2026)"
+  }
+ ]
+}

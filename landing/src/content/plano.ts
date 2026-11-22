@@ -6,6 +6,20 @@ import dados1174 from './plano-ren1174.json' with { type: 'json' }
 import { hojeISO } from './datas.ts'
 import { planoEm } from './referencia.ts'
 
+export interface ErroMaterial {
+  dispositivo: string | null
+  obrigacao: string
+  /** Trecho com a redação defeituosa, literal. */
+  trecho: string
+  problema: string
+  leitura_provavel: string
+  /** "a confirmar" até haver leitura oficial confirmada; "esclarecido" com ela. */
+  rotulo: 'a confirmar' | 'esclarecido'
+  sugestao: string
+  /** "texto original: '…'; esclarecido por FAQ da ANEEL (url)" quando há leitura oficial confirmada. */
+  esclarecimento?: string
+}
+
 export interface Marco {
   tipo: 'adequacao' | 'vigencia' | 'em_vigor' | 'a_confirmar'
   data: string | null
@@ -221,6 +235,8 @@ export interface PlanoDados {
   }
   /** Nota por artigo em "Outros dispositivos relevantes" (ex.: Art. 12 da REN 1.174, grupo de trabalho). */
   notas_outros: Record<string, string>
+  /** Possíveis erros materiais de prazo na própria norma ("180 dias mês"), com a leitura mais provável. */
+  erros_materiais?: ErroMaterial[]
   referencia_escala: { maior_multa: { rotulo: string; valor_reais: number; ano: number; motivo: string; fonte: string }; infracao_grave: { rotulo: string; autos: number; mediana_reais: number; maximo_reais: number; fonte: string; limites: string }; rotulo: string; segmento: string; unidade: string; autos: number; empresas: number; mediana_reais: number; maximo_reais: number; fonte: string; limites: string }
   simulador: {
     faixas: { id: string; rotulo: string; base: number }[]

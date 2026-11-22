@@ -49,6 +49,8 @@ export interface Relatorio {
   lacunas: { nome: string; motivo: string }[]
   areas: AreaRelatorio[]
   perguntas: Pergunta[]
+  /** "Possíveis erros materiais da norma": redação de prazo defeituosa, leitura provável e esclarecimento. */
+  errosMateriais: string[]
 }
 
 /** AAAA-MM-DD no fuso do navegador (toISOString usaria UTC e trocaria o dia à noite). */
@@ -124,6 +126,7 @@ export function montarRelatorio(args: { sim: Simulacao | null; modo: Modo; diag:
     decisoes: decisoesDaSemana(plano.temas, diag, sim, modo).map((t) => ({ nome: t.nome, porque: textoPrazoDoTema(plano, t, hojeIso).toLowerCase() })),
     prontidao: (() => { const p = prontidao(plano, respostas, sim, modo); return p.algumaMarcada ? fraseProntidao(p.geral.x, p.geral.y) : null })(),
     temas, lacunas, areas,
+    errosMateriais: (plano.erros_materiais ?? []).map((e) => `${e.dispositivo}: “${e.trecho}” (${e.problema}); leitura mais provável ${e.leitura_provavel}, ${e.rotulo}. ${e.esclarecimento ?? `Sugestão: ${e.sugestao}.`}`),
     perguntas: perguntasParaOJuridico(plano, normaDaUrl(), sim, modo, hojeIso),
   }
 }

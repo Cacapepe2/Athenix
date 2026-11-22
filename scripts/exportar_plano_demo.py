@@ -27,7 +27,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from fastapi.testclient import TestClient  # noqa: E402
 
-from athenix import analise, impacto, plano, vigencia  # noqa: E402
+from athenix import analise, esclarecimentos, impacto, plano, vigencia  # noqa: E402
 from athenix.app import create_app  # noqa: E402
 from athenix.config import Settings  # noqa: E402
 from athenix.demo import USUARIO, preparar  # noqa: E402
@@ -364,6 +364,8 @@ def gerar(data=None, commit=None, arquivo=None, segmento="distribuicao"):
         "transicao": transicao(processado[1].get("transicao"), out["obrigacoes"]),
         **out,
     }
+    # Erros materiais de prazo, leituras oficiais confirmadas e o relatório do que está "a confirmar".
+    esclarecimentos.anotar_plano(dados, Path(arquivo).stem)
     return dados, out
 
 

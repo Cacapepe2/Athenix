@@ -1,6 +1,6 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "9aecbc9",
+ "commit_origem": "faacebd",
  "gerado_em": "2026-11-22",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
@@ -138,6 +138,7 @@
     "data": "2027-11-04",
     "demais": false,
     "outro_agente": false,
+    "trecho": "I - até doze meses da data de sua publicação, quanto ao art. 2º, na parte que inclui o § 1º no art. 166, o § 4º no art. 333 e o inciso XVIII no art. 396 da Resolução Normativa nº 1.000, de 7 de dezembro de 2021;",
     "alvos_a_confirmar": []
    },
    {
@@ -146,6 +147,7 @@
     "data": "2027-05-03",
     "demais": false,
     "outro_agente": false,
+    "trecho": "a) art. 2º, na parte que inclui o art. 159-B e o inciso II no caput do art. 166 da Resolução Normativa nº 1.000, de 7 de dezembro de 2021;",
     "alvos_a_confirmar": []
    },
    {
@@ -154,6 +156,7 @@
     "data": "2027-05-03",
     "demais": false,
     "outro_agente": false,
+    "trecho": "b) art. 2º, na parte que inclui ou altera os arts. 142, 166, 166-A, 167, 167-A, 167-B, 167-C, 170 e o Anexo IV da Resolução Normativa nº 1.000, de 7 de dezembro de 2021; e",
     "alvos_a_confirmar": []
    },
    {
@@ -162,6 +165,7 @@
     "data": "2027-05-03",
     "demais": false,
     "outro_agente": false,
+    "trecho": "c) art. 3º.",
     "alvos_a_confirmar": []
    },
    {
@@ -170,6 +174,7 @@
     "data": "2027-05-03",
     "demais": false,
     "outro_agente": false,
+    "trecho": "a) art. 5º, na parte que inclui o art. 9º-A na Resolução Normativa nº 1.011, de 29 de março de 2022;",
     "alvos_a_confirmar": []
    },
    {
@@ -178,6 +183,7 @@
     "data": "2027-05-03",
     "demais": false,
     "outro_agente": false,
+    "trecho": "b) art. 7º, na parte que inclui o art. 172-C na Resolução Normativa nº 1.000, de 7 de dezembro de 2021;",
     "alvos_a_confirmar": []
    },
    {
@@ -186,6 +192,7 @@
     "data": "2027-05-03",
     "demais": false,
     "outro_agente": false,
+    "trecho": "c) art. 8º, na parte que inclui o art. 3º-A no Anexo II da Resolução Normativa nº 948, de 16 de novembro de 2021.",
     "alvos_a_confirmar": []
    },
    {
@@ -194,6 +201,7 @@
     "data": "2027-02-02",
     "demais": false,
     "outro_agente": false,
+    "trecho": "II - em 90 (noventa) dias, quanto ao art. 4º; e",
     "alvos_a_confirmar": []
    },
    {
@@ -202,6 +210,7 @@
     "data": "2026-11-04",
     "demais": true,
     "outro_agente": false,
+    "trecho": "III - na data de sua publicação, quanto aos demais dispositivos. SANDOVAL DE ARAÚJO FEITOSA NETO",
     "alvos_a_confirmar": []
    }
   ],
@@ -896,7 +905,9 @@
    },
    "area": "Operação/Manutenção",
    "area_origem": "regra",
-   "dispositivo": "Art. 7º, § 3º"
+   "dispositivo": "Art. 7º, § 3º",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "93230d4b3dad607f",
@@ -992,7 +1003,9 @@
    },
    "area": "Regulatório",
    "area_origem": "ia",
-   "dispositivo": "Art. 142, inciso IV, alínea a"
+   "dispositivo": "Art. 142, inciso IV, alínea a",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "0b3bd6ad5b32c8bd",
@@ -1080,7 +1093,9 @@
    },
    "area": "Regulatório",
    "area_origem": "regra",
-   "dispositivo": "Art. 142, inciso IV, alínea b"
+   "dispositivo": "Art. 142, inciso IV, alínea b",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "d0344387a3350022",
@@ -1171,7 +1186,9 @@
    },
    "area": "TI/Sistemas",
    "area_origem": "ia",
-   "dispositivo": "Art. 159-B, § 1º"
+   "dispositivo": "Art. 159-B, § 1º",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "f0cd208483b0ece3",
@@ -1262,7 +1279,9 @@
    },
    "area": "Regulatório",
    "area_origem": "ia",
-   "dispositivo": "Art. 166, inciso I"
+   "dispositivo": "Art. 166, inciso I",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "7df077bdc114900b",
@@ -1354,7 +1373,9 @@
    },
    "area": "Jurídico",
    "area_origem": "ia",
-   "dispositivo": "Art. 166, inciso II"
+   "dispositivo": "Art. 166, inciso II",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "8ca5f1def5e87ce5",
@@ -1444,7 +1465,9 @@
    },
    "area": "Comunicação/Atendimento",
    "area_origem": "regra",
-   "dispositivo": "Art. 166, § 3º"
+   "dispositivo": "Art. 166, § 3º",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "5f1e90f07a781a9f",
@@ -1544,7 +1567,9 @@
    },
    "area": "Regulatório",
    "area_origem": "ia",
-   "dispositivo": "Art. 166, § 6º, inciso I"
+   "dispositivo": "Art. 166, § 6º, inciso I",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "a18cdd2d9ab0da66",
@@ -1644,7 +1669,9 @@
    },
    "area": "Regulatório",
    "area_origem": "ia",
-   "dispositivo": "Art. 166, § 7º, inciso I"
+   "dispositivo": "Art. 166, § 7º, inciso I",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "096251809e2f4fba",
@@ -1732,7 +1759,9 @@
    },
    "area": "Comunicação/Atendimento",
    "area_origem": "ia",
-   "dispositivo": "Art. 166, § 7º, inciso II"
+   "dispositivo": "Art. 166, § 7º, inciso II",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "b3e3b3d8c696f470",
@@ -1822,7 +1851,9 @@
    },
    "area": "Regulatório",
    "area_origem": "ia",
-   "dispositivo": "Art. 166, § 10"
+   "dispositivo": "Art. 166, § 10",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "8ceadb0f8fb6a1b2",
@@ -1915,7 +1946,9 @@
    },
    "area": "A definir",
    "area_origem": null,
-   "dispositivo": "Art. 166-A, § 3º, inciso I"
+   "dispositivo": "Art. 166-A, § 3º, inciso I",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "c0a868f1dc449059",
@@ -2008,7 +2041,9 @@
    },
    "area": "A definir",
    "area_origem": null,
-   "dispositivo": "Art. 166-A, § 3º, inciso II"
+   "dispositivo": "Art. 166-A, § 3º, inciso II",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "a0b9d489bb8af5f3",
@@ -2067,7 +2102,9 @@
    },
    "area": "A definir",
    "area_origem": null,
-   "dispositivo": "Art. 166-A, § 4º"
+   "dispositivo": "Art. 166-A, § 4º",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "f0fd6378ea9db150",
@@ -2126,7 +2163,9 @@
    },
    "area": "A definir",
    "area_origem": null,
-   "dispositivo": "Art. 167-A, Parágrafo único"
+   "dispositivo": "Art. 167-A, Parágrafo único",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "710f9b643c7508e6",
@@ -2216,7 +2255,9 @@
    },
    "area": "Comunicação/Atendimento",
    "area_origem": "regra",
-   "dispositivo": "Art. 167-B, inciso I"
+   "dispositivo": "Art. 167-B, inciso I",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "25765596a71be59c",
@@ -2304,7 +2345,9 @@
    },
    "area": "A definir",
    "area_origem": null,
-   "dispositivo": "Art. 167-B, inciso II"
+   "dispositivo": "Art. 167-B, inciso II",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "fd91bb7aa7e0a252",
@@ -2392,7 +2435,9 @@
    },
    "area": "Regulatório",
    "area_origem": "ia",
-   "dispositivo": "Art. 167-B, inciso III"
+   "dispositivo": "Art. 167-B, inciso III",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "8a0223ac7c168448",
@@ -2480,7 +2525,9 @@
    },
    "area": "A definir",
    "area_origem": null,
-   "dispositivo": "Art. 167-C"
+   "dispositivo": "Art. 167-C",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "32bb87c4bbe606c4",
@@ -2570,7 +2617,9 @@
    },
    "area": "A definir",
    "area_origem": null,
-   "dispositivo": "Art. 167-C, § 2º, inciso I"
+   "dispositivo": "Art. 167-C, § 2º, inciso I",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "0d4598afde5c12e3",
@@ -2663,7 +2712,9 @@
    },
    "area": "Comunicação/Atendimento",
    "area_origem": "ia",
-   "dispositivo": "Art. 170, § 4º, inciso I"
+   "dispositivo": "Art. 170, § 4º, inciso I",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "a93cae63c466b658",
@@ -2753,7 +2804,9 @@
    },
    "area": "Comunicação/Atendimento",
    "area_origem": "regra",
-   "dispositivo": "Art. 170, § 4º, inciso II"
+   "dispositivo": "Art. 170, § 4º, inciso II",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "16f2c52f324abe9d",
@@ -2814,7 +2867,9 @@
    },
    "area": "Comunicação/Atendimento",
    "area_origem": "regra",
-   "dispositivo": "Art. 170, § 5º"
+   "dispositivo": "Art. 170, § 5º",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "f958a912777a3264",
@@ -2904,7 +2959,9 @@
    },
    "area": "A definir",
    "area_origem": null,
-   "dispositivo": "Art. 9º-A, inciso I"
+   "dispositivo": "Art. 9º-A, inciso I",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "f4d8768ac72bd7d3",
@@ -2995,7 +3052,9 @@
    },
    "area": "A definir",
    "area_origem": null,
-   "dispositivo": "Art. 9º-A, inciso II"
+   "dispositivo": "Art. 9º-A, inciso II",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "dff8615bdeeaf106",
@@ -3085,7 +3144,9 @@
    },
    "area": "A definir",
    "area_origem": null,
-   "dispositivo": "Art. 9º-A, inciso III"
+   "dispositivo": "Art. 9º-A, inciso III",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "17328d915cd7dc29",
@@ -3176,7 +3237,9 @@
    },
    "area": "A definir",
    "area_origem": null,
-   "dispositivo": "Art. 9º-A, inciso IV"
+   "dispositivo": "Art. 9º-A, inciso IV",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "58ea67abc3ec2971",
@@ -3264,7 +3327,9 @@
    },
    "area": "Regulatório",
    "area_origem": "ia",
-   "dispositivo": "Art. 9º-A, § 1º"
+   "dispositivo": "Art. 9º-A, § 1º",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "17605232023781dd",
@@ -3366,7 +3431,9 @@
    },
    "area": "TI/Sistemas",
    "area_origem": "ia",
-   "dispositivo": "Art. 172-C"
+   "dispositivo": "Art. 172-C",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "1829ab6332d473ce",
@@ -3472,7 +3539,9 @@
    },
    "area": "Regulatório",
    "area_origem": "ia",
-   "dispositivo": "Art. 3º-A"
+   "dispositivo": "Art. 3º-A",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "f4bb99990831d27a",
@@ -3562,7 +3631,9 @@
    },
    "area": "TI/Sistemas",
    "area_origem": "ia",
-   "dispositivo": "Art. 166, § 1º"
+   "dispositivo": "Art. 166, § 1º",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "f2d3efb9e62de56b",
@@ -3652,7 +3723,9 @@
    },
    "area": "Comunicação/Atendimento",
    "area_origem": "ia",
-   "dispositivo": "Art. 333, § 4º"
+   "dispositivo": "Art. 333, § 4º",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "be6a76133085cee8",
@@ -3755,7 +3828,9 @@
    },
    "area": "Regulatório",
    "area_origem": "regra",
-   "dispositivo": "Art. 11, inciso VIII"
+   "dispositivo": "Art. 11, inciso VIII",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "de259c2eb695201e",
@@ -3850,7 +3925,9 @@
    },
    "area": "Regulatório",
    "area_origem": "ia",
-   "dispositivo": "Art. 13, § 3º"
+   "dispositivo": "Art. 13, § 3º",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "59c5496d841c8794",
@@ -3949,7 +4026,9 @@
    },
    "area": "Regulatório",
    "area_origem": "ia",
-   "dispositivo": "Art. 14, § 1º, inciso II"
+   "dispositivo": "Art. 14, § 1º, inciso II",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "10e369b8c79f3c68",
@@ -4011,7 +4090,9 @@
    },
    "area": "A definir",
    "area_origem": null,
-   "dispositivo": "Art. 42, § 2º, inciso I"
+   "dispositivo": "Art. 42, § 2º, inciso I",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "0ebf1f2b460f7298",
@@ -4073,7 +4154,9 @@
    },
    "area": "Comunicação/Atendimento",
    "area_origem": "regra",
-   "dispositivo": "Art. 42, § 2º, inciso II"
+   "dispositivo": "Art. 42, § 2º, inciso II",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "62b27f9320f5f56e",
@@ -4163,7 +4246,9 @@
    },
    "area": "Regulatório",
    "area_origem": "ia",
-   "dispositivo": "Art. 42, § 3º"
+   "dispositivo": "Art. 42, § 3º",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "2ddcf318e58a47bf",
@@ -4258,7 +4343,9 @@
    },
    "area": "Regulatório",
    "area_origem": "ia",
-   "dispositivo": "Art. 42, § 4º"
+   "dispositivo": "Art. 42, § 4º",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "6a16e3400ab43199",
@@ -4354,7 +4441,9 @@
    },
    "area": "Comunicação/Atendimento",
    "area_origem": "ia",
-   "dispositivo": "Art. 96-A, § 1º"
+   "dispositivo": "Art. 96-A, § 1º",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "dc7870cacd7cc071",
@@ -4457,7 +4546,9 @@
    },
    "area": "Regulatório",
    "area_origem": "ia",
-   "dispositivo": "Art. 138, § 9º, inciso I"
+   "dispositivo": "Art. 138, § 9º, inciso I",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "22a9bd5d3590bfe1",
@@ -4558,7 +4649,9 @@
    },
    "area": "Regulatório",
    "area_origem": "ia",
-   "dispositivo": "Art. 138, § 9º, inciso II"
+   "dispositivo": "Art. 138, § 9º, inciso II",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "144816bda2da3a17",
@@ -4656,7 +4749,9 @@
    },
    "area": "Comunicação/Atendimento",
    "area_origem": "regra",
-   "dispositivo": "Art. 138, § 10"
+   "dispositivo": "Art. 138, § 10",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "63056f8a9e6c93f5",
@@ -4751,7 +4846,9 @@
    },
    "area": "Regulatório",
    "area_origem": "ia",
-   "dispositivo": "Art. 159, Parágrafo único"
+   "dispositivo": "Art. 159, Parágrafo único",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "1cc27f2c34dd3d5f",
@@ -4849,7 +4946,9 @@
    },
    "area": "Regulatório",
    "area_origem": "ia",
-   "dispositivo": "Art. 160, § 4º, inciso I"
+   "dispositivo": "Art. 160, § 4º, inciso I",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "8174eb909c2b034a",
@@ -4939,7 +5038,9 @@
    },
    "area": "Regulatório",
    "area_origem": "ia",
-   "dispositivo": "Art. 160, § 4º, inciso II"
+   "dispositivo": "Art. 160, § 4º, inciso II",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "6ac8b71ebc7d780e",
@@ -5029,7 +5130,9 @@
    },
    "area": "Regulatório",
    "area_origem": "regra",
-   "dispositivo": "Art. 163"
+   "dispositivo": "Art. 163",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "256d3b52eb869bf7",
@@ -5119,7 +5222,9 @@
    },
    "area": "A definir",
    "area_origem": null,
-   "dispositivo": "Art. 168, inciso I"
+   "dispositivo": "Art. 168, inciso I",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "feb344531c216efe",
@@ -5209,7 +5314,9 @@
    },
    "area": "A definir",
    "area_origem": null,
-   "dispositivo": "Art. 168, inciso III"
+   "dispositivo": "Art. 168, inciso III",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "e7bbeed0a84f40bd",
@@ -5270,7 +5377,9 @@
    },
    "area": "A definir",
    "area_origem": null,
-   "dispositivo": "Art. 168, inciso VII"
+   "dispositivo": "Art. 168, inciso VII",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "f77d812ee26acece",
@@ -5360,7 +5469,9 @@
    },
    "area": "TI/Sistemas",
    "area_origem": "regra",
-   "dispositivo": "Art. 294, § 4º"
+   "dispositivo": "Art. 294, § 4º",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "542b07c93c1a9898",
@@ -5448,7 +5559,9 @@
    },
    "area": "A definir",
    "area_origem": null,
-   "dispositivo": "§ 2º"
+   "dispositivo": "§ 2º",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "4a15738dfbb6bcee",
@@ -5541,7 +5654,9 @@
    },
    "area": "A definir",
    "area_origem": null,
-   "dispositivo": "§ 3º"
+   "dispositivo": "§ 3º",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "33b4a458e340917c",
@@ -5629,7 +5744,9 @@
    },
    "area": "A definir",
    "area_origem": null,
-   "dispositivo": "§ 5º"
+   "dispositivo": "§ 5º",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "92f995ec346e17a6",
@@ -5717,7 +5834,9 @@
    },
    "area": "Regulatório",
    "area_origem": "ia",
-   "dispositivo": "§ 6º"
+   "dispositivo": "§ 6º",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "b485e47182de1500",
@@ -5805,7 +5924,9 @@
    },
    "area": "Jurídico",
    "area_origem": "ia",
-   "dispositivo": "Art. 476, § 5º"
+   "dispositivo": "Art. 476, § 5º",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "0ef7999640c79216",
@@ -5893,7 +6014,9 @@
    },
    "area": "Jurídico",
    "area_origem": "ia",
-   "dispositivo": "Art. 627-A, § 11"
+   "dispositivo": "Art. 627-A, § 11",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "d82397fc3b81b89e",
@@ -5986,7 +6109,9 @@
    },
    "area": "Regulatório",
    "area_origem": "ia",
-   "dispositivo": "Art. 629, § 9º"
+   "dispositivo": "Art. 629, § 9º",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "efb86cc4a7e1b3ee",
@@ -6074,7 +6199,9 @@
    },
    "area": "A definir",
    "area_origem": null,
-   "dispositivo": "Art. 655-Y"
+   "dispositivo": "Art. 655-Y",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "60efb422a7e8e6be",
@@ -6164,7 +6291,9 @@
    },
    "area": "Jurídico",
    "area_origem": "ia",
-   "dispositivo": "inciso III, alínea e"
+   "dispositivo": "inciso III, alínea e",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "5956d4aacad71adf",
@@ -6252,7 +6381,9 @@
    },
    "area": "TI/Sistemas",
    "area_origem": "ia",
-   "dispositivo": "Parágrafo único"
+   "dispositivo": "Parágrafo único",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "de74db97765787be",
@@ -6342,7 +6473,9 @@
    },
    "area": "Comunicação/Atendimento",
    "area_origem": "regra",
-   "dispositivo": "Art. 19, § 9º"
+   "dispositivo": "Art. 19, § 9º",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "5601d7cf3867bf32",
@@ -6438,7 +6571,9 @@
    },
    "area": "Regulatório",
    "area_origem": "ia",
-   "dispositivo": "Art. 21-A"
+   "dispositivo": "Art. 21-A",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "48facbbb1cb1cce4",
@@ -6538,7 +6673,9 @@
    },
    "area": "Comunicação/Atendimento",
    "area_origem": "regra",
-   "dispositivo": "Art. 21-B, § 1º"
+   "dispositivo": "Art. 21-B, § 1º",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "728895c11bbe26d8",
@@ -6632,7 +6769,9 @@
    },
    "area": "Regulatório",
    "area_origem": "regra",
-   "dispositivo": "Art. 4º"
+   "dispositivo": "Art. 4º",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "667bcae318ad50c6",
@@ -6735,7 +6874,9 @@
    },
    "area": "Regulatório",
    "area_origem": "regra",
-   "dispositivo": "Art. 11, inciso I"
+   "dispositivo": "Art. 11, inciso I",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "fef01f4eb3d5d88c",
@@ -6830,7 +6971,9 @@
    },
    "area": "Regulatório",
    "area_origem": "regra",
-   "dispositivo": "Art. 11, inciso I"
+   "dispositivo": "Art. 11, inciso I",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "6cb749b8189058af",
@@ -6933,7 +7076,9 @@
    },
    "area": "A definir",
    "area_origem": null,
-   "dispositivo": "Art. 11, inciso I, alínea c"
+   "dispositivo": "Art. 11, inciso I, alínea c",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "d6e372fb4b797bf0",
@@ -7036,7 +7181,9 @@
    },
    "area": "A definir",
    "area_origem": null,
-   "dispositivo": "Art. 11, inciso I, alínea d"
+   "dispositivo": "Art. 11, inciso I, alínea d",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "da50e0e8061f472e",
@@ -7137,7 +7284,9 @@
    },
    "area": "Operação/Manutenção",
    "area_origem": "regra",
-   "dispositivo": "Art. 11, inciso I, alínea e"
+   "dispositivo": "Art. 11, inciso I, alínea e",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "5609080c03fdcb67",
@@ -7232,7 +7381,9 @@
    },
    "area": "A definir",
    "area_origem": null,
-   "dispositivo": "Art. 11, inciso I, alínea f"
+   "dispositivo": "Art. 11, inciso I, alínea f",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "acc78339ce7532ff",
@@ -7332,7 +7483,9 @@
    },
    "area": "Regulatório",
    "area_origem": "regra",
-   "dispositivo": "Art. 11, inciso I, alínea g"
+   "dispositivo": "Art. 11, inciso I, alínea g",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "0ebb4ed9ace89a7e",
@@ -7423,7 +7576,9 @@
    },
    "area": "TI/Sistemas",
    "area_origem": "regra",
-   "dispositivo": "Art. 11, inciso III"
+   "dispositivo": "Art. 11, inciso III",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "3c31e7c6948c4d3e",
@@ -7519,7 +7674,9 @@
    },
    "area": "Jurídico",
    "area_origem": "ia",
-   "dispositivo": "Art. 13, inciso II"
+   "dispositivo": "Art. 13, inciso II",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "6e56e83f4405c837",
@@ -7614,7 +7771,9 @@
    },
    "area": "Jurídico",
    "area_origem": "ia",
-   "dispositivo": "Art. 13, § 1º"
+   "dispositivo": "Art. 13, § 1º",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "e9484bb6aff3edc1",
@@ -7707,7 +7866,9 @@
    },
    "area": "TI/Sistemas",
    "area_origem": "ia",
-   "dispositivo": "Art. 13, § 4º"
+   "dispositivo": "Art. 13, § 4º",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "18bb6a68bf909f20",
@@ -7797,7 +7958,9 @@
    },
    "area": "Regulatório",
    "area_origem": "ia",
-   "dispositivo": "Art. 13, § 5º"
+   "dispositivo": "Art. 13, § 5º",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "26c6fa3441f9a408",
@@ -7892,7 +8055,9 @@
    },
    "area": "TI/Sistemas",
    "area_origem": "regra",
-   "dispositivo": "Art. 13, § 7º"
+   "dispositivo": "Art. 13, § 7º",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "ed224db7755f6815",
@@ -7980,7 +8145,9 @@
    },
    "area": "Jurídico",
    "area_origem": "ia",
-   "dispositivo": "Art. 14, § 1º, inciso I"
+   "dispositivo": "Art. 14, § 1º, inciso I",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "f1b6ba520d519463",
@@ -8068,7 +8235,9 @@
    },
    "area": "Comunicação/Atendimento",
    "area_origem": "ia",
-   "dispositivo": "Art. 14, § 1º, inciso III"
+   "dispositivo": "Art. 14, § 1º, inciso III",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "91c26ed1a77c413a",
@@ -8168,7 +8337,9 @@
    },
    "area": "TI/Sistemas",
    "area_origem": "ia",
-   "dispositivo": "Art. 14, § 2º, inciso I"
+   "dispositivo": "Art. 14, § 2º, inciso I",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "ad1cd6d7bc9bb42b",
@@ -8268,7 +8439,9 @@
    },
    "area": "TI/Sistemas",
    "area_origem": "ia",
-   "dispositivo": "Art. 14, § 2º, inciso II"
+   "dispositivo": "Art. 14, § 2º, inciso II",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "33f462f47b99eeab",
@@ -8368,7 +8541,9 @@
    },
    "area": "TI/Sistemas",
    "area_origem": "ia",
-   "dispositivo": "Art. 14, § 3º"
+   "dispositivo": "Art. 14, § 3º",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "86b151000f2548bd",
@@ -8456,7 +8631,9 @@
    },
    "area": "TI/Sistemas",
    "area_origem": "ia",
-   "dispositivo": "Art. 14, § 4º"
+   "dispositivo": "Art. 14, § 4º",
+   "erro_material": null,
+   "esclarecimento": null
   },
   {
    "id": "c17096cc06163ed7",
@@ -8544,7 +8721,9 @@
    },
    "area": "A definir",
    "area_origem": null,
-   "dispositivo": "Art. 16, Parágrafo único"
+   "dispositivo": "Art. 16, Parágrafo único",
+   "erro_material": null,
+   "esclarecimento": null
   }
  ],
  "outros_dispositivos": [
@@ -11582,5 +11761,17 @@
     }
    ]
   }
- ]
+ ],
+ "erros_materiais": [],
+ "a_confirmar": {
+  "total": 128,
+  "por_tipo": {
+   "enquadramento sem texto": 85,
+   "sujeito incerto": 37,
+   "transição ambígua": 6
+  },
+  "com_possivel_esclarecimento": 0,
+  "aviso": "Possível esclarecimento encontrado nos documentos oficiais salvos: continua a confirmar; só uma entrada confirmada em athenix/data/esclarecimentos_oficiais.json muda o cálculo.",
+  "casos": []
+ }
 }

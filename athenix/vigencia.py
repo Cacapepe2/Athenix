@@ -497,6 +497,7 @@ def relatorio(regras, marcos):
                 "data": (r["prazo"] or {}).get("date"),
                 "demais": r["demais"],
                 "outro_agente": r["outro_agente"],
+                "trecho": r["trecho"],
                 "alvos_a_confirmar": [
                     a.get("externo")
                     or ", ".join(f"{k} {v}" for k, v in a.items() if v and k != "a_confirmar")

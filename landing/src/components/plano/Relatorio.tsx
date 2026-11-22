@@ -56,6 +56,8 @@ export function Relatorio({ ativo, fim, diag, sim, modo }: { ativo: boolean; fim
     <h2>Quem faz o quê <small>(áreas sugeridas; títulos resumidos por IA, a revisar)</small></h2>
     <ul>{r.areas.map((a) => <li key={a.area}>{a.frase}</li>)}</ul>
 
+    {r.errosMateriais.length > 0 && <><h2>Possíveis erros materiais da norma</h2><ul>{r.errosMateriais.map((e) => <li key={e}>{e}</li>)}</ul></>}
+
     <h2>Perguntas para levar ao jurídico</h2>
     <p>{ABERTURA_PERGUNTAS}</p>
     <ol>{r.perguntas.map((q, i) => <li key={i}>{q.pergunta} <small>({q.dispositivo}) {q.citacao}</small></li>)}</ol>
