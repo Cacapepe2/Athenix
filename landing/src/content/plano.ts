@@ -47,6 +47,8 @@ export interface Obrigacao {
   titulo_origem: 'regra' | 'ia'
   /** Rótulo de até 5 palavras (IA, linguagem simples); null: usa o título encurtado. */
   titulo_curto: string | null
+  /** Dever contado para a distribuidora sem ela escrita no texto (nem no caput): "sujeito implícito (a revisar)". */
+  sujeito_implicito: boolean
   /** Área responsável SUGERIDA (data/areas_por_tipo.json): quem faz o quê. */
   area: string
   /** "regra": tipo achado pela regra; "ia": tipo sugerido pela IA (área sugerida (IA)); null: A definir. */

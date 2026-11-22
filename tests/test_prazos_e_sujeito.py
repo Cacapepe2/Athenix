@@ -299,7 +299,8 @@ def test_futuro_so_vira_dever_quando_a_distribuidora_age_explicitamente(texto, v
 
 def test_nada_some_em_silencio_na_ren_1174_e_a_rn_1137_nao_muda_de_contagem():
     assert P1137["resumo"]["aplicaveis"] == 153
-    assert P1174["resumo"]["aplicaveis"] == 83
+    # 84: +Art. 42, § 2º, I e II (vedação "não pode exigir" do caput), −Art. 168, VIII ("pode"; auditoria C1)
+    assert P1174["resumo"]["aplicaveis"] == 84
     s10 = [
         o
         for o in P1174["sem_dever_identificado"]
@@ -357,3 +358,31 @@ def test_art_10_par_3_da_rn_1137_e_competencia_da_aneel_nao_dever_da_distribuido
     outros = {o["dispositivo"]: o for o in P1137["outros_dispositivos"]}
     assert outros["Art. 10, §3º"]["natureza"] == "competencia_aneel"
     assert "Portaria nº 6.803" in outros["Art. 10, §3º"]["trecho"]
+
+
+def test_sujeito_implicito_quando_a_distribuidora_nao_esta_escrita_no_texto_nem_no_caput():
+    caput_dist = "Art. 5º As distribuidoras deverão manter canal de atendimento, observando:"
+    # explícito: a distribuidora é o sujeito (próprio ou herdado do caput) ou age "pela distribuidora"
+    assert not plano.sujeito_implicito(
+        {"subject": "As distribuidoras", "action": "As distribuidoras deverão informar"}, ""
+    )
+    assert not plano.sujeito_implicito(
+        {"subject": "não identificado", "action": "I - o prazo máximo"}, caput_dist
+    )
+    assert not plano.sujeito_implicito(
+        {"subject": "A solicitação", "action": "A solicitação será encerrada pela distribuidora"},
+        "",
+    )
+    # implícito: sujeito impessoal de norma dirigida às distribuidoras
+    assert plano.sujeito_implicito(
+        {
+            "subject": "O plano de contingência",
+            "action": "O plano de contingência deve ser elaborado",
+        },
+        "",
+    )
+    # contagem real, por norma (89 e 47 explícitos; 64 e 37 implícitos). REN: 38 -> 37 com C1 ("pode" no caput do
+    # Art. 166, § 6º nomeia a distribuidora); Art. 42, § 2º, I e II entram com a distribuidora no caput.
+    for p, total, implicitos in ((P1137, 153, 64), (P1174, 84, 37)):
+        assert len(p["obrigacoes"]) == total
+        assert sum(1 for o in p["obrigacoes"] if o["sujeito_implicito"]) == implicitos

@@ -19,7 +19,7 @@ _WORD = "|".join(sorted(NUMBERS, key=len, reverse=True))
 # Quantidade em algarismos ("90 (noventa) dias") ou por extenso ("cento e vinte dias").
 PERIOD = re.compile(
     rf"\b(\d+|(?:{_WORD})(?:\s+e\s+(?:{_WORD}))*)\s*(?:\([^)]{{1,60}}\)\s*)?"
-    r"(dias?(?:\s+úteis|\s+corridos)?|meses|mês|anos?)\b",
+    r"(dias?(?:\s+úteis|\s+corridos)?|meses|mês|anos?|minutos?|horas?)\b",
     re.I,
 )
 # Publicação/vigência da própria norma ("da publicação", "desta Resolução") × de outro ato
@@ -150,6 +150,9 @@ def rules(text, unit_id, dates, inherited="", clarification=False, target_dates=
         base = unique_date(relevant_dates, kind)
         if "úteis" in unit:
             reason = "Calendário de feriados versionado ausente"
+        elif unit.startswith(("minuto", "hora")) and kind != "event":
+            # Minutos/horas só fazem sentido a partir de um evento operacional; nunca viram data civil.
+            reason = "Prazo em minutos/horas sem evento identificado; nenhuma data presumida"
         elif kind == "event":
             record["state"] = "awaiting_event"
             reason = label + "; sem data até o evento"

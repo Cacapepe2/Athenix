@@ -1,6 +1,6 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "ee4281f",
+ "commit_origem": "cd8e974",
  "gerado_em": "2026-11-21",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
@@ -129,20 +129,20 @@
   ]
  },
  "resumo": {
-  "identificadas": 168,
+  "identificadas": 170,
   "aplicaveis": 153,
-  "outros_dispositivos": 14,
+  "outros_dispositivos": 16,
   "fora_do_perfil": 1,
   "por_situacao": {
    "vencida": 7,
    "90dias": 0,
    "depois": 0,
    "recorrente": 2,
-   "evento": 20,
-   "sem_prazo": 124
+   "evento": 21,
+   "sem_prazo": 123
   },
-  "na_fila": 43,
-  "a_confirmar": 110,
+  "na_fila": 42,
+  "a_confirmar": 111,
   "sem_multa": 0,
   "grupo_mais_grave": "IV",
   "temas": 8
@@ -202,7 +202,7 @@
    }
   ],
   "confirmar": {
-   "obrigacoes": 110,
+   "obrigacoes": 111,
    "temas_sem_calculo_confirmado": 2
   }
  },
@@ -223,8 +223,8 @@
     "90dias": 0,
     "depois": 0,
     "recorrente": 0,
-    "evento": 0,
-    "sem_prazo": 21
+    "evento": 1,
+    "sem_prazo": 20
    },
    "prazo_mais_urgente": {
     "obrigacao": "a002094347c42776",
@@ -350,14 +350,14 @@
     "a002094347c42776",
     "b758c9c169c145ec",
     "d61df9955ff31362",
-    "7d0919bce4ef3fe9"
+    "c3b421e728c88b65"
    ],
    "obrigacoes": [
     "a002094347c42776",
     "b758c9c169c145ec",
     "d61df9955ff31362",
-    "7d0919bce4ef3fe9",
     "c3b421e728c88b65",
+    "7d0919bce4ef3fe9",
     "8bf769e8049238bf",
     "03038d3317d5920c",
     "f210b1cb4b18cd93",
@@ -723,17 +723,17 @@
      "unidade": "u0134"
     }
    ],
-   "n": 36,
+   "n": 35,
    "contagem": {
     "vencida": 0,
     "90dias": 0,
     "depois": 0,
     "recorrente": 0,
     "evento": 0,
-    "sem_prazo": 36
+    "sem_prazo": 35
    },
    "prazo_mais_urgente": null,
-   "na_fila": 32,
+   "na_fila": 31,
    "a_confirmar": 4,
    "grupos": [
     "IV"
@@ -877,7 +877,6 @@
     "11f1b97f51197a40",
     "059e791026821b38",
     "0b9113f77a4351b1",
-    "8c54ec11a2e41126",
     "9297bd2b368c09b7",
     "55d13ebfa6fe45cd",
     "09960ed39dc51125",
@@ -1211,18 +1210,18 @@
      "unidade": "u0283"
     }
    ],
-   "n": 30,
+   "n": 31,
    "contagem": {
     "vencida": 0,
     "90dias": 0,
     "depois": 0,
     "recorrente": 0,
     "evento": 15,
-    "sem_prazo": 15
+    "sem_prazo": 16
    },
    "prazo_mais_urgente": null,
    "na_fila": 0,
-   "a_confirmar": 30,
+   "a_confirmar": 31,
    "grupos": [],
    "grupo_mais_grave": null,
    "infracoes": [],
@@ -1292,7 +1291,7 @@
    "guardar": [
     {
      "id": "terceiros",
-     "n": 25
+     "n": 26
     },
     {
      "id": "protocolos",
@@ -1341,6 +1340,7 @@
     "921c74abaa653d5d",
     "33981a4c29c4c4db",
     "c8fa6b48cf963d61",
+    "084c9e1b8f25feff",
     "dace5661de038677"
    ],
    "dependencias_no_texto": []
@@ -1482,6 +1482,7 @@
    "titulo": "As disposições não listadas nos artigos 13, 14, 15 e 16 devem ser implementadas na…",
    "titulo_origem": "regra",
    "titulo_completo": "As disposições não listadas nos artigos 13, 14, 15 e 16 devem ser implementadas na data de publicação desta Resolução Normativa",
+   "sujeito_implicito": true,
    "titulo_curto": "Implementar disposições não listadas",
    "evite": null,
    "recomendacoes": [],
@@ -1530,6 +1531,7 @@
    "titulo": "Revisar e publicar planos de manejo, comunicação e contingência",
    "titulo_origem": "ia",
    "titulo_completo": "Revisar e publicar planos de manejo, comunicação e contingência",
+   "sujeito_implicito": false,
    "titulo_curto": "Publicar planos revisados",
    "evite": {
     "acao": "Revisar planos sem publicar versão atualizada e acessível ao público.",
@@ -1634,6 +1636,7 @@
    "titulo": "Implementar o registro das interações com o Poder Público Municipal em relação ao…",
    "titulo_origem": "regra",
    "titulo_completo": "Implementar o registro das interações com o Poder Público Municipal em relação ao serviço de manejo da vegetação que apresente risco à segurança das redes elétricas e a continuidade do fornecimento",
+   "sujeito_implicito": false,
    "titulo_curto": "Registrar interações com prefeituras",
    "evite": {
     "acao": "Omitir interações sobre manejo da vegetação no registro.",
@@ -1721,6 +1724,7 @@
    "titulo": "Implementar os mecanismos de comunicação ao consumidor sobre a previsão de…",
    "titulo_origem": "regra",
    "titulo_completo": "Implementar os mecanismos de comunicação ao consumidor sobre a previsão de reestabelecimento do serviço e demais informações de que trata o item 105 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa",
+   "sujeito_implicito": false,
    "titulo_curto": "Informar previsão de reestabelecimento",
    "evite": {
     "acao": "Divulgar previsão vaga de reestabelecimento sem justificativa técnica e sem estimativa confiável.",
@@ -1803,6 +1807,7 @@
    "titulo": "Disponibilizar em sítio eletrônico o número total de unidades consumidoras afetadas…",
    "titulo_origem": "regra",
    "titulo_completo": "Disponibilizar em sítio eletrônico o número total de unidades consumidoras afetadas por interrupções em mapa",
+   "sujeito_implicito": false,
    "titulo_curto": "Mapa de unidades afetadas",
    "evite": {
     "acao": "Publicar mapa online sem exibir o número total de unidades consumidoras afetadas.",
@@ -1899,6 +1904,7 @@
    "titulo": "Disponibilizar em sítio eletrônico as informações relacionadas às ocorrências abertas",
    "titulo_origem": "regra",
    "titulo_completo": "Disponibilizar em sítio eletrônico as informações relacionadas às ocorrências abertas",
+   "sujeito_implicito": false,
    "titulo_curto": "Publicar informações de ocorrências",
    "evite": {
     "acao": "Divulgar ocorrências abertas sem os campos exigidos pelo item 107 do Anexo IV.",
@@ -1996,6 +2002,7 @@
    "titulo": "Iniciar as apurações do Duração da Interrupção Individual ocorrida em Situação de…",
    "titulo_origem": "regra",
    "titulo_completo": "Iniciar as apurações do Duração da Interrupção Individual ocorrida em Situação de Emergência por Unidade Consumidora ou por Ponto de Conexão – DISE e observar as disposições da Seção 8.2 do Módulo 8 do PRODIST com o corresponde pagamento de compensações por transgressão desse indicador, com efeitos retroativos a 2 meses após a publicação da norma",
+   "sujeito_implicito": false,
    "titulo_curto": "Apurar duração de interrupções emergenciais",
    "evite": {
     "acao": "Iniciar apurações sem seguir as disposições da Seção 8.2 do Módulo 8 do PRODIST.",
@@ -2092,6 +2099,7 @@
    "titulo": "Realizar comunicações formais, com periodicidade anual, aos representantes do Poder…",
    "titulo_origem": "regra",
    "titulo_completo": "Realizar comunicações formais, com periodicidade anual, aos representantes do Poder Público, detalhando a execução dos protocolos estabelecidos de modo a garantir que todos os envolvidos estejam familiarizados com os procedimentos de comunicação",
+   "sujeito_implicito": false,
    "titulo_curto": "Comunicar protocolos ao Poder Público",
    "evite": {
     "acao": "Enviar comunicações formais sem detalhar execução dos protocolos.",
@@ -2181,6 +2189,7 @@
    "titulo": "Os indicadores devem ser apurados mensalmente, considerando o mês civil, com exceção…",
    "titulo_origem": "regra",
    "titulo_completo": "Os indicadores devem ser apurados mensalmente, considerando o mês civil, com exceção dos indicadores DICRI e DISE, que devem ser apurados por interrupção ocorrida em Dia Crítico ou em Situação de Emergência, respectivamente",
+   "sujeito_implicito": true,
    "titulo_curto": "Apurar indicadores mensalmente",
    "evite": {
     "acao": "Apurar DISE mensalmente em lugar de por interrupção ocorrida em Situação de Emergência.",
@@ -2263,6 +2272,7 @@
    "titulo": "Manter dossiê individualizado em sua sede contendo os documentos comprobatórios que…",
    "titulo_origem": "regra",
    "titulo_completo": "Manter dossiê individualizado em sua sede contendo os documentos comprobatórios que evidenciem a neutralidade de custos e despesas reembolsados à cedente",
+   "sujeito_implicito": false,
    "titulo_curto": "Manter dossiê de reembolsos",
    "evite": {
     "acao": "Guardar dossiê sem documentos comprobatórios da neutralidade de custos.",
@@ -2284,7 +2294,7 @@
     "base": null
    },
    "calculo": "fila",
-   "posicao_fila": 43,
+   "posicao_fila": 42,
    "enquadramento": [
     {
      "dispositivo": "Art. 11, VII",
@@ -2348,10 +2358,92 @@
    "dispositivo": "Art. 19, inciso XIII, alínea b"
   },
   {
+   "id": "c3b421e728c88b65",
+   "titulo": "Comunicar aos consumidores, por meio dos canais disponíveis, a provável causa da…",
+   "titulo_origem": "regra",
+   "titulo_completo": "Comunicar aos consumidores, por meio dos canais disponíveis, a provável causa da interrupção, a área afetada e o tempo previsto para a normalização do fornecimento em até 15 (quinze) minutos após o conhecimento da causa da interrupção. Independentemente do momento em que a causa for identificada, a comunicação contendo essas informações deve ser realizada em até 1 (uma) hora após o reconhecimento da ocorrência da interrupção no fornecimento de energia elétrica",
+   "sujeito_implicito": false,
+   "titulo_curto": "Comunicar causa, área e prazo",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
+   "tema": "consumidor",
+   "motivo_tema": "Seção 4.8 da norma",
+   "unidade": "u0050",
+   "trecho": "105. As distribuidoras devem comunicar aos consumidores, por meio dos canais disponíveis, a provável causa da interrupção, a área afetada e o tempo previsto para a normalização do fornecimento em até 15 (quinze) minutos após o conhecimento da causa da interrupção. Independentemente do momento em que a causa for identificada, a comunicação contendo essas informações deve ser realizada em até 1 (uma) hora após o reconhecimento da ocorrência da interrupção no fornecimento de energia elétrica.",
+   "situacao": "evento",
+   "prazo": {
+    "data": null,
+    "texto": "Por evento: até 15 min após o conhecimento da causa; até 1 h após o reconhecimento da ocorrência",
+    "dias": null,
+    "provisorio": false,
+    "condicional": false,
+    "base": null
+   },
+   "calculo": "verificar",
+   "posicao_fila": null,
+   "enquadramento": [],
+   "ia": {
+    "dispositivo": "Art. 11, XXIII",
+    "grupo": "III",
+    "justificativa": "A obrigação exige que a distribuidora comunique aos consumidores, em prazo (15 minutos/1 hora) a provável causa, a área afetada e o tempo previsto de normalização da interrupção; o art. 11, XXIII tipifica exatamente o ato de \"deixar de prestar informações decorrentes de interrupções no fornecimento de energia elétrica aos consumidores\", correspondente ao descumprimento dessa exigência regulatória.",
+    "duvida": "D1"
+   },
+   "grupo": null,
+   "faixa_preliminar": {
+    "grupos": [
+     "III"
+    ],
+    "teto_grupo_pct": 0.5,
+    "maximo_pct": {
+     "com_teto": 0.5,
+     "sem_teto": 0.5
+    },
+    "teto_legal_pct": 3.0,
+    "teto_legal_lei_pct": 3.0,
+    "teto_legal_subestimado": true,
+    "com_atenuante_pct": {
+     "espontanea": 0.025000000000000022,
+     "ate_tn": 0.25
+    },
+    "maximo_reais": {
+     "com_teto": 25000000.0,
+     "sem_teto": 25000000.0
+    },
+    "com_atenuante_reais": {
+     "espontanea": 1250000.0000000012,
+     "ate_tn": 12500000.0
+    }
+   },
+   "faixa": null,
+   "premissas": [],
+   "motivo_sem_calculo": null,
+   "evidencias": [],
+   "guardar": [
+    "indisponibilidade",
+    "protocolos"
+   ],
+   "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "comunicar_consumidores",
+     "nome": "Comunicar consumidores",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "comunicar_consumidores"
+    },
+    "dependencias_no_texto": []
+   },
+   "area": "Comunicação/Atendimento",
+   "area_origem": "regra",
+   "dispositivo": "item 105"
+  },
+  {
    "id": "eeabcc619985bac4",
    "titulo": "Valor global da contratação com detalhamento dos recursos envolvidos, segregados por…",
    "titulo_origem": "regra",
    "titulo_completo": "Valor global da contratação com detalhamento dos recursos envolvidos, segregados por tipo de gasto",
+   "sujeito_implicito": false,
    "titulo_curto": "Informar valor total e detalhamento",
    "evite": null,
    "recomendacoes": [],
@@ -2438,6 +2530,7 @@
    "titulo": "Duração do Contrato de Cessão Emergencial para execução dos serviços realizados",
    "titulo_origem": "regra",
    "titulo_completo": "Duração do Contrato de Cessão Emergencial para execução dos serviços realizados",
+   "sujeito_implicito": false,
    "titulo_curto": "Informar duração do contrato",
    "evite": null,
    "recomendacoes": [],
@@ -2495,6 +2588,7 @@
    "titulo": "Relação das matrículas dos profissionais que realizaram os atendimentos,…",
    "titulo_origem": "regra",
    "titulo_completo": "Relação das matrículas dos profissionais que realizaram os atendimentos, discriminando função, remuneração, cargos e encargos totais",
+   "sujeito_implicito": false,
    "titulo_curto": "Informar relação detalhada de profissionais",
    "evite": null,
    "recomendacoes": [],
@@ -2581,6 +2675,7 @@
    "titulo": "Valor individualizado por frente de serviço e montante total dos serviços realizados",
    "titulo_origem": "regra",
    "titulo_completo": "Valor individualizado por frente de serviço e montante total dos serviços realizados",
+   "sujeito_implicito": false,
    "titulo_curto": "Informar valores por frente",
    "evite": null,
    "recomendacoes": [],
@@ -2667,6 +2762,7 @@
    "titulo": "Documentação comprobatória e discriminação detalhada de despesas com equipamentos e…",
    "titulo_origem": "regra",
    "titulo_completo": "Documentação comprobatória e discriminação detalhada de despesas com equipamentos e materiais",
+   "sujeito_implicito": false,
    "titulo_curto": "Comprovar despesas com equipamentos",
    "evite": null,
    "recomendacoes": [],
@@ -2753,6 +2849,7 @@
    "titulo": "Documentação comprobatória e discriminação detalhada de outras despesas realizadas…",
    "titulo_origem": "regra",
    "titulo_completo": "Documentação comprobatória e discriminação detalhada de outras despesas realizadas na operação emergencial",
+   "sujeito_implicito": false,
    "titulo_curto": "Comprovar outras despesas operacionais",
    "evite": null,
    "recomendacoes": [],
@@ -2839,6 +2936,7 @@
    "titulo": "Forma de pagamento, observando o que dispõe o item 138",
    "titulo_origem": "regra",
    "titulo_completo": "Forma de pagamento, observando o que dispõe o item 138",
+   "sujeito_implicito": false,
    "titulo_curto": "Forma de pagamento",
    "evite": null,
    "recomendacoes": [],
@@ -2925,6 +3023,7 @@
    "titulo": "Informações separadas por cedente, resguardando a respectiva proporcionalidade na…",
    "titulo_origem": "regra",
    "titulo_completo": "Informações separadas por cedente, resguardando a respectiva proporcionalidade na Cessão Emergencial e a individualidade das concessões",
+   "sujeito_implicito": false,
    "titulo_curto": "Informações por cedente",
    "evite": null,
    "recomendacoes": [],
@@ -3011,6 +3110,7 @@
    "titulo": "Apresentação das razões da opção pela utilização de recursos humanos pertencentes a…",
    "titulo_origem": "regra",
    "titulo_completo": "Apresentação das razões da opção pela utilização de recursos humanos pertencentes a outras empresas",
+   "sujeito_implicito": false,
    "titulo_curto": "Razões uso de equipes externas",
    "evite": null,
    "recomendacoes": [],
@@ -3097,6 +3197,7 @@
    "titulo": "Atividades desenvolvidas pelas equipes cedidas, registradas detalhadamente, por…",
    "titulo_origem": "regra",
    "titulo_completo": "Atividades desenvolvidas pelas equipes cedidas, registradas detalhadamente, por localidade",
+   "sujeito_implicito": false,
    "titulo_curto": "Atividades por localidade",
    "evite": null,
    "recomendacoes": [],
@@ -3187,6 +3288,7 @@
    "titulo": "Detalhamento das tarefas de campo, com dia, data e hora",
    "titulo_origem": "regra",
    "titulo_completo": "Detalhamento das tarefas de campo, com dia, data e hora",
+   "sujeito_implicito": false,
    "titulo_curto": "Tarefas de campo com horários",
    "evite": null,
    "recomendacoes": [],
@@ -3273,6 +3375,7 @@
    "titulo": "Detalhamento dos tipos de estruturas utilizadas nos atendimentos, com quantidade de…",
    "titulo_origem": "regra",
    "titulo_completo": "Detalhamento dos tipos de estruturas utilizadas nos atendimentos, com quantidade de turmas e veículos (leves e pesados); e",
+   "sujeito_implicito": false,
    "titulo_curto": "Estruturas, turmas e veículos",
    "evite": null,
    "recomendacoes": [],
@@ -3359,6 +3462,7 @@
    "titulo": "Outras informações que julgar relevante sobre a Cessão Emergencial. Acordo de Cessão…",
    "titulo_origem": "regra",
    "titulo_completo": "Outras informações que julgar relevante sobre a Cessão Emergencial. Acordo de Cessão Emergencial Prévio",
+   "sujeito_implicito": false,
    "titulo_curto": "Outras informações relevantes",
    "evite": null,
    "recomendacoes": [],
@@ -3445,6 +3549,7 @@
    "titulo": "Não ultrapassar o prazo de doze meses contados do final da Cessão Emergencial.…",
    "titulo_origem": "regra",
    "titulo_completo": "Não ultrapassar o prazo de doze meses contados do final da Cessão Emergencial. Contratos de Cessão Emergencial de recursos humanos, equipamentos e materiais entre Partes Relacionadas",
+   "sujeito_implicito": true,
    "titulo_curto": null,
    "evite": null,
    "recomendacoes": [],
@@ -3524,6 +3629,7 @@
    "titulo": "Manter dossiê individualizado em sua sede contendo os documentos comprobatórios que…",
    "titulo_origem": "regra",
    "titulo_completo": "Manter dossiê individualizado em sua sede contendo os documentos comprobatórios que evidenciem a neutralidade de custos e despesas reembolsados à cedente, os quais poderão ser requisitados pela fiscalização por até 5 (cinco) anos após fim do evento emergencial",
+   "sujeito_implicito": false,
    "titulo_curto": "Dossiê comprobatório individual",
    "evite": null,
    "recomendacoes": [
@@ -3583,6 +3689,7 @@
    "titulo": "Calcular a compensação ao consumidor ou central geradora, inclusive aqueles…",
    "titulo_origem": "regra",
    "titulo_completo": "Calcular a compensação ao consumidor ou central geradora, inclusive aqueles conectados em DIT, e efetuar o crédito na fatura apresentada em até 2 meses após o período de apuração",
+   "sujeito_implicito": false,
    "titulo_curto": "Compensação por violação de continuidade",
    "evite": {
     "acao": "Calcular compensação omitindo consumidores ou centrais conectados em DIT.",
@@ -3644,6 +3751,7 @@
    "titulo": "Implantar processo de comunicação e acompanhamento da evolução dos eventos…",
    "titulo_origem": "regra",
    "titulo_completo": "Implantar processo de comunicação e acompanhamento da evolução dos eventos climáticos severos de que trata o item 114 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, em até 30 (trinta) dias, contados da publicação das instruções pela ANEEL",
+   "sujeito_implicito": false,
    "titulo_curto": "Monitoramento de eventos climáticos",
    "evite": {
     "acao": "Implantar processo apenas documental, sem acompanhamento da evolução dos eventos climáticos.",
@@ -3733,6 +3841,7 @@
    "titulo": "Disponibilizar a API de que trata item 113 do Anexo IV da Resolução Normativa nº…",
    "titulo_origem": "regra",
    "titulo_completo": "Disponibilizar a API de que trata item 113 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa em até 60 (sessenta) dias, contados da publicação das instruções pela ANEEL",
+   "sujeito_implicito": false,
    "titulo_curto": "Disponibilizar interface de dados",
    "evite": {
     "acao": "Disponibilizar a API sem documentação dos endpoints e métodos.",
@@ -3820,6 +3929,7 @@
    "titulo": "Informar e manter, por até cinco anos, em seu sítio eletrônico, os indicadores…",
    "titulo_origem": "regra",
    "titulo_completo": "Informar e manter, por até cinco anos, em seu sítio eletrônico, os indicadores estabelecidos nos incisos V e VI do caput do art. 4º; do Decreto 12.068, de 20 de julho de 2024, em até 30 dias, contados da publicação das instruções pela ANEEL",
+   "sujeito_implicito": false,
    "titulo_curto": "Manter indicadores no site",
    "evite": {
     "acao": "Publicar indicadores de maneira temporária sem manter por cinco anos no sítio eletrônico.",
@@ -3914,6 +4024,7 @@
    "titulo": "Estabelecer plano de manejo vegetal na área de atuação",
    "titulo_origem": "ia",
    "titulo_completo": "Estabelecer plano de manejo vegetal na área de atuação",
+   "sujeito_implicito": false,
    "titulo_curto": "Plano de manejo vegetal",
    "evite": {
     "acao": "Elaborar plano sem coordenação com o Poder Público Municipal e órgãos estaduais competentes.",
@@ -4022,6 +4133,7 @@
    "titulo": "Remover árvores ou galhos caídos sobre a rede",
    "titulo_origem": "regra",
    "titulo_completo": "Remover árvores ou galhos caídos sobre a rede",
+   "sujeito_implicito": false,
    "titulo_curto": "Remoção rápida de árvores",
    "evite": {
     "acao": "Aguardar autorização externa antes de remover árvores ou galhos caídos sobre a rede.",
@@ -4117,6 +4229,7 @@
    "titulo": "Disponibilizar versão atualizada do plano de manejo vegetal",
    "titulo_origem": "ia",
    "titulo_completo": "Disponibilizar versão atualizada do plano de manejo vegetal",
+   "sujeito_implicito": false,
    "titulo_curto": "Plano de manejo vegetal atualizado",
    "evite": {
     "acao": "Disponibilizar no site versão desatualizada do plano de manejo vegetal ou em linguagem inacessível.",
@@ -4229,6 +4342,7 @@
    "titulo": "Incluir estágio da operação conforme etapas do plano de contingência",
    "titulo_origem": "ia",
    "titulo_completo": "Incluir estágio da operação conforme etapas do plano de contingência",
+   "sujeito_implicito": false,
    "titulo_curto": "Estágio da operação",
    "evite": {
     "acao": "Omitir o estágio da operação ou usar descrição ambígua não alinhada ao plano de contingência.",
@@ -4338,6 +4452,7 @@
    "titulo": "Solicitar indicação prévia de até dois representantes oficiais",
    "titulo_origem": "ia",
    "titulo_completo": "Solicitar indicação prévia de até dois representantes oficiais",
+   "sujeito_implicito": false,
    "titulo_curto": "Contatos oficiais para emergências",
    "evite": {
     "acao": "Registrar mais de dois representantes oficiais por ente.",
@@ -4429,6 +4544,7 @@
    "titulo": "Garantir canais de comunicação oficiais acessíveis e operacionais",
    "titulo_origem": "ia",
    "titulo_completo": "Garantir canais de comunicação oficiais acessíveis e operacionais",
+   "sujeito_implicito": false,
    "titulo_curto": "Canais oficiais acessíveis em emergência",
    "evite": {
     "acao": "Manter canais oficiais inacessíveis ou inoperantes em situações de emergência.",
@@ -4521,6 +4637,7 @@
    "titulo": "Elaborar plano de contingência para garantir continuidade e segurança",
    "titulo_origem": "ia",
    "titulo_completo": "Elaborar plano de contingência para garantir continuidade e segurança",
+   "sujeito_implicito": true,
    "titulo_curto": "Plano de contingência para continuidade",
    "evite": {
     "acao": "Elaborar plano sem medidas que assegurem segurança de colaboradores e população.",
@@ -4616,6 +4733,7 @@
    "titulo": "Incluir nomes e telefones de contato dos responsáveis",
    "titulo_origem": "ia",
    "titulo_completo": "Incluir nomes e telefones de contato dos responsáveis",
+   "sujeito_implicito": true,
    "titulo_curto": "Nomes e telefones dos responsáveis",
    "evite": {
     "acao": "Listar apenas cargos sem nomes ou telefones de contato.",
@@ -4715,6 +4833,7 @@
    "titulo": "Priorizar a segurança de colaboradores e da população",
    "titulo_origem": "ia",
    "titulo_completo": "Priorizar a segurança de colaboradores e da população",
+   "sujeito_implicito": true,
    "titulo_curto": "Segurança de colaboradores e população",
    "evite": {
     "acao": "Priorizar operações sobre medidas de proteção à segurança de colaboradores e população.",
@@ -4809,6 +4928,7 @@
    "titulo": "Minimizar o impacto das contingências nas operações",
    "titulo_origem": "ia",
    "titulo_completo": "Minimizar o impacto das contingências nas operações",
+   "sujeito_implicito": true,
    "titulo_curto": "Minimizar impacto nas operações",
    "evite": {
     "acao": "Adotar respostas que elevem, em vez de minimizar, o impacto das contingências.",
@@ -4903,6 +5023,7 @@
    "titulo": "Cumprir as obrigações legais e regulamentares",
    "titulo_origem": "ia",
    "titulo_completo": "Cumprir as obrigações legais e regulamentares",
+   "sujeito_implicito": true,
    "titulo_curto": "Cumprir obrigações legais",
    "evite": null,
    "recomendacoes": [],
@@ -4994,6 +5115,7 @@
    "titulo": "Manter comunicação clara e aberta com setores afetados",
    "titulo_origem": "ia",
    "titulo_completo": "Manter comunicação clara e aberta com setores afetados",
+   "sujeito_implicito": true,
    "titulo_curto": "Manter comunicação transparente",
    "evite": null,
    "recomendacoes": [],
@@ -5086,6 +5208,7 @@
    "titulo": "Antecipar problemas e definir protocolos de atuação",
    "titulo_origem": "ia",
    "titulo_completo": "Antecipar problemas e definir protocolos de atuação",
+   "sujeito_implicito": true,
    "titulo_curto": "Antecipar problemas e definir protocolos",
    "evite": null,
    "recomendacoes": [],
@@ -5177,6 +5300,7 @@
    "titulo": "Garantir adaptabilidade às mudanças climáticas e operacionais",
    "titulo_origem": "ia",
    "titulo_completo": "Garantir adaptabilidade às mudanças climáticas e operacionais",
+   "sujeito_implicito": true,
    "titulo_curto": "Adaptar estratégias conforme evento",
    "evite": null,
    "recomendacoes": [],
@@ -5269,6 +5393,7 @@
    "titulo": "Realizar monitoramento climático e meteorológico periódico",
    "titulo_origem": "ia",
    "titulo_completo": "Realizar monitoramento climático e meteorológico periódico",
+   "sujeito_implicito": true,
    "titulo_curto": "Monitoramento climático periódico",
    "evite": null,
    "recomendacoes": [],
@@ -5362,6 +5487,7 @@
    "titulo": "Implementar ações de gestão conforme níveis de contingência",
    "titulo_origem": "ia",
    "titulo_completo": "Implementar ações de gestão conforme níveis de contingência",
+   "sujeito_implicito": true,
    "titulo_curto": "Ações conforme nível de contingência",
    "evite": null,
    "recomendacoes": [],
@@ -5453,6 +5579,7 @@
    "titulo": "Definir procedimentos para mobilização de equipes e recursos",
    "titulo_origem": "ia",
    "titulo_completo": "Definir procedimentos para mobilização de equipes e recursos",
+   "sujeito_implicito": true,
    "titulo_curto": "Mobilização de equipes e recursos",
    "evite": null,
    "recomendacoes": [],
@@ -5544,6 +5671,7 @@
    "titulo": "Estabelecer canais internos eficientes para coordenar ações",
    "titulo_origem": "ia",
    "titulo_completo": "Estabelecer canais internos eficientes para coordenar ações",
+   "sujeito_implicito": true,
    "titulo_curto": "Canais de comunicação interna",
    "evite": null,
    "recomendacoes": [],
@@ -5637,6 +5765,7 @@
    "titulo": "Manter relatórios e documentação detalhada das contingências",
    "titulo_origem": "ia",
    "titulo_completo": "Manter relatórios e documentação detalhada das contingências",
+   "sujeito_implicito": true,
    "titulo_curto": "Registros de ações em contingência",
    "evite": null,
    "recomendacoes": [],
@@ -5732,6 +5861,7 @@
    "titulo": "Realizar treinamentos e simulações periódicas",
    "titulo_origem": "ia",
    "titulo_completo": "Realizar treinamentos e simulações periódicas",
+   "sujeito_implicito": true,
    "titulo_curto": "Treinamentos e simulações periódicos",
    "evite": null,
    "recomendacoes": [],
@@ -5827,6 +5957,7 @@
    "titulo": "Estabelecer procedimentos de atendimento ao consumidor em contingências",
    "titulo_origem": "ia",
    "titulo_completo": "Estabelecer procedimentos de atendimento ao consumidor em contingências",
+   "sujeito_implicito": true,
    "titulo_curto": "Atendimento ao consumidor durante contingências",
    "evite": null,
    "recomendacoes": [],
@@ -5918,6 +6049,7 @@
    "titulo": "Definir ações para coordenação com autoridades públicas e reguladores",
    "titulo_origem": "ia",
    "titulo_completo": "Definir ações para coordenação com autoridades públicas e reguladores",
+   "sujeito_implicito": true,
    "titulo_curto": "Coordenação com órgãos externos",
    "evite": null,
    "recomendacoes": [],
@@ -6010,6 +6142,7 @@
    "titulo": "Estabelecer diretrizes de apoio interdepartamental",
    "titulo_origem": "ia",
    "titulo_completo": "Estabelecer diretrizes de apoio interdepartamental",
+   "sujeito_implicito": true,
    "titulo_curto": "Colaboração entre departamentos",
    "evite": null,
    "recomendacoes": [],
@@ -6101,6 +6234,7 @@
    "titulo": "Formalizar e divulgar o plano de contingência internamente",
    "titulo_origem": "ia",
    "titulo_completo": "Formalizar e divulgar o plano de contingência internamente",
+   "sujeito_implicito": true,
    "titulo_curto": "Formalização e divulgação do plano",
    "evite": null,
    "recomendacoes": [],
@@ -6188,6 +6322,7 @@
    "titulo": "Estabelecer cadeia de governança nos níveis estratégico, tático e operacional",
    "titulo_origem": "ia",
    "titulo_completo": "Estabelecer cadeia de governança nos níveis estratégico, tático e operacional",
+   "sujeito_implicito": true,
    "titulo_curto": "Governança por níveis de comando",
    "evite": null,
    "recomendacoes": [],
@@ -6280,6 +6415,7 @@
    "titulo": "Definir e atualizar níveis de contingência por critérios objetivos",
    "titulo_origem": "ia",
    "titulo_completo": "Definir e atualizar níveis de contingência por critérios objetivos",
+   "sujeito_implicito": true,
    "titulo_curto": "Níveis de contingência",
    "evite": null,
    "recomendacoes": [],
@@ -6371,6 +6507,7 @@
    "titulo": "Desenvolver plano de ação específico para cada nível de contingência",
    "titulo_origem": "ia",
    "titulo_completo": "Desenvolver plano de ação específico para cada nível de contingência",
+   "sujeito_implicito": true,
    "titulo_curto": "Planos de ação por nível",
    "evite": null,
    "recomendacoes": [],
@@ -6462,6 +6599,7 @@
    "titulo": "Garantir infraestrutura e recursos para execução do plano",
    "titulo_origem": "ia",
    "titulo_completo": "Garantir infraestrutura e recursos para execução do plano",
+   "sujeito_implicito": true,
    "titulo_curto": "Inventário de recursos e equipamentos",
    "evite": null,
    "recomendacoes": [],
@@ -6555,6 +6693,7 @@
    "titulo": "Implementar programas de treinamento e capacitação contínuos",
    "titulo_origem": "ia",
    "titulo_completo": "Implementar programas de treinamento e capacitação contínuos",
+   "sujeito_implicito": true,
    "titulo_curto": "Treinamento e capacitação contínua",
    "evite": null,
    "recomendacoes": [],
@@ -6646,6 +6785,7 @@
    "titulo": "Simulações e Testes Regulares: Realizar simulações ou testes periódicos para avaliar…",
    "titulo_origem": "regra",
    "titulo_completo": "Simulações e Testes Regulares: Realizar simulações ou testes periódicos para avaliar a eficácia do plano de contingência e identificar áreas de melhoria, inclusive com a participação de Órgãos Públicos",
+   "sujeito_implicito": true,
    "titulo_curto": "Simulações e testes periódicos",
    "evite": null,
    "recomendacoes": [],
@@ -6741,6 +6881,7 @@
    "titulo": "Manter o plano atualizado e disponível com data e versão",
    "titulo_origem": "ia",
    "titulo_completo": "Manter o plano atualizado e disponível com data e versão",
+   "sujeito_implicito": true,
    "titulo_curto": "Atualização e controle de versões",
    "evite": null,
    "recomendacoes": [],
@@ -6832,6 +6973,7 @@
    "titulo": "Realizar avaliações regulares e implementar melhorias no plano",
    "titulo_origem": "ia",
    "titulo_completo": "Realizar avaliações regulares e implementar melhorias no plano",
+   "sujeito_implicito": true,
    "titulo_curto": "Avaliação e melhoria contínua",
    "evite": null,
    "recomendacoes": [],
@@ -6927,6 +7069,7 @@
    "titulo": "Possuir medidas para tratamento de unidades consumidoras específicas",
    "titulo_origem": "ia",
    "titulo_completo": "Possuir medidas para tratamento de unidades consumidoras específicas",
+   "sujeito_implicito": true,
    "titulo_curto": "Atendimento emergencial a consumidores essenciais",
    "evite": null,
    "recomendacoes": [],
@@ -7015,94 +7158,11 @@
    "dispositivo": "item 144, alínea i"
   },
   {
-   "id": "8c54ec11a2e41126",
-   "titulo": "Para o caso de ter havido aplicação do Plano de Contingência, a periodicidade máxima…",
-   "titulo_origem": "regra",
-   "titulo_completo": "Para o caso de ter havido aplicação do Plano de Contingência, a periodicidade máxima pode ser contada da sua última aplicação",
-   "titulo_curto": "Contagem de prazo após uso",
-   "evite": null,
-   "recomendacoes": [],
-   "contexto": "145. A realização de simulados ou disponibilização de treinamentos atualizados deve ser feita com periodicidade máxima de um ano.",
-   "tema": "contingencia",
-   "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0168",
-   "trecho": "a) Para o caso de ter havido aplicação do Plano de Contingência, a periodicidade máxima pode ser contada da sua última aplicação.",
-   "situacao": "sem_prazo",
-   "prazo": {
-    "data": null,
-    "texto": "Sem prazo identificado no texto",
-    "dias": null,
-    "provisorio": false,
-    "condicional": false,
-    "base": null
-   },
-   "calculo": "fila",
-   "posicao_fila": 35,
-   "enquadramento": [
-    {
-     "dispositivo": "Art. 12, XXVI",
-     "grupo": "IV"
-    }
-   ],
-   "ia": null,
-   "grupo": "IV",
-   "faixa_preliminar": null,
-   "faixa": {
-    "grupos": [
-     "IV"
-    ],
-    "teto_grupo_pct": 1.0,
-    "maximo_pct": {
-     "com_teto": 1.0,
-     "sem_teto": 1.0
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.050000000000000044,
-     "ate_tn": 0.5
-    },
-    "maximo_reais": {
-     "com_teto": 50000000.0,
-     "sem_teto": 50000000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 2500000.0000000023,
-     "ate_tn": 25000000.0
-    }
-   },
-   "premissas": [
-    "Enquadramento: Grupo(s) IV (indicado por termo coincidente com infração tipificada)",
-    "Mínimo 0: cabe advertência ou atenuante, e a metodologia do valor base não está no repositório",
-    "Máximo sem atenuante (pior caso)",
-    "Teto legal: 3% do faturamento por infração (Art. 3, X da Lei 9.427/1996, redação dada pela Lei nº 15.269, de 2025); infração em 17/11/2026, a partir de 25/11/2025 (Art. 24, caput e IV da Lei 15.269/2025); data considerada: data de referência do perfil (obrigação sem prazo)",
-    "Limite legal conforme a data do prazo; a data real da infração pode diferir.",
-    "Teto legal possivelmente subestimado: faturamento bruto não informado, aplicado sobre a base (ROL)"
-   ],
-   "motivo_sem_calculo": null,
-   "evidencias": [],
-   "guardar": [],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": null,
-     "nome": null,
-     "situacao": "a_revisar",
-     "por": "regra: Elaborar ou revisar plano; IA: outros",
-     "regra_id": "elaborar_ou_revisar_plano"
-    },
-    "dependencias_no_texto": []
-   },
-   "area": "Operação/Manutenção",
-   "area_origem": "regra",
-   "dispositivo": "item 145, alínea a"
-  },
-  {
    "id": "9297bd2b368c09b7",
    "titulo": "Revisar o plano de contingência sempre que necessário e, no máximo, anualmente",
    "titulo_origem": "ia",
    "titulo_completo": "Revisar o plano de contingência sempre que necessário e, no máximo, anualmente",
+   "sujeito_implicito": true,
    "titulo_curto": "Revisão anual do plano",
    "evite": null,
    "recomendacoes": [],
@@ -7121,7 +7181,7 @@
     "base": null
    },
    "calculo": "fila",
-   "posicao_fila": 36,
+   "posicao_fila": 35,
    "enquadramento": [
     {
      "dispositivo": "Art. 12, XXVI",
@@ -7194,6 +7254,7 @@
    "titulo": "Disponibilizar a versão mais atualizada, sem a identificação e contato dos seus…",
    "titulo_origem": "regra",
    "titulo_completo": "Disponibilizar a versão mais atualizada, sem a identificação e contato dos seus responsáveis pelo seu plano de contingência, em seu sítio eletrônico na Internet e nos postos de atendimento presencial, de forma acessível ao público com uso de linguagem clara e adequada",
+   "sujeito_implicito": false,
    "titulo_curto": "Disponibilizar plano sem contatos",
    "evite": null,
    "recomendacoes": [],
@@ -7212,7 +7273,7 @@
     "base": null
    },
    "calculo": "fila",
-   "posicao_fila": 37,
+   "posicao_fila": 36,
    "enquadramento": [
     {
      "dispositivo": "Art. 12, XXVI",
@@ -7294,6 +7355,7 @@
    "titulo": "Incluir versão, data de aprovação e assinatura dos responsáveis técnicos",
    "titulo_origem": "ia",
    "titulo_completo": "Incluir versão, data de aprovação e assinatura dos responsáveis técnicos",
+   "sujeito_implicito": true,
    "titulo_curto": "Indicar versão, data e responsáveis",
    "evite": null,
    "recomendacoes": [],
@@ -7312,7 +7374,7 @@
     "base": null
    },
    "calculo": "fila",
-   "posicao_fila": 38,
+   "posicao_fila": 37,
    "enquadramento": [
     {
      "dispositivo": "Art. 12, XXVI",
@@ -7385,6 +7447,7 @@
    "titulo": "Disponibilizar o Plano de Manejo Vegetal em sítio eletrônico e postos",
    "titulo_origem": "ia",
    "titulo_completo": "Disponibilizar o Plano de Manejo Vegetal em sítio eletrônico e postos",
+   "sujeito_implicito": false,
    "titulo_curto": "Publicar Plano de Manejo Vegetal",
    "evite": {
     "acao": "Publicar Plano de Manejo Vegetal apenas online, omitindo postos de atendimento presencial.",
@@ -7411,7 +7474,7 @@
     "base": null
    },
    "calculo": "fila",
-   "posicao_fila": 39,
+   "posicao_fila": 38,
    "enquadramento": [
     {
      "dispositivo": "Art. 12, XXVII",
@@ -7488,6 +7551,7 @@
    "titulo": "Disponibilizar o Plano de Contingência em sítio eletrônico e postos",
    "titulo_origem": "ia",
    "titulo_completo": "Disponibilizar o Plano de Contingência em sítio eletrônico e postos",
+   "sujeito_implicito": false,
    "titulo_curto": "Publicar Plano de Contingência",
    "evite": {
     "acao": "Publicar Plano de Contingência apenas no sítio eletrônico, omitindo disponibilidade presencial.",
@@ -7509,7 +7573,7 @@
     "base": null
    },
    "calculo": "fila",
-   "posicao_fila": 40,
+   "posicao_fila": 39,
    "enquadramento": [
     {
      "dispositivo": "Art. 12, XXVI",
@@ -7586,6 +7650,7 @@
    "titulo": "Enviar regularmente à ANEEL alertas meteorológicos que justifiquem acionamento",
    "titulo_origem": "ia",
    "titulo_completo": "Enviar regularmente à ANEEL alertas meteorológicos que justifiquem acionamento",
+   "sujeito_implicito": false,
    "titulo_curto": "Enviar alertas meteorológicos à ANEEL",
    "evite": {
     "acao": "Enviar alertas meteorológicos somente depois do início do evento, não justificando acionamento preventivo.",
@@ -7607,7 +7672,7 @@
     "base": null
    },
    "calculo": "fila",
-   "posicao_fila": 41,
+   "posicao_fila": 40,
    "enquadramento": [
     {
      "dispositivo": "Art. 12, XXVI",
@@ -7686,6 +7751,7 @@
    "titulo": "Publicar os planos de contingência em vigor no sítio eletrônico",
    "titulo_origem": "ia",
    "titulo_completo": "Publicar os planos de contingência em vigor no sítio eletrônico",
+   "sujeito_implicito": false,
    "titulo_curto": "Publicar planos vigentes no site",
    "evite": null,
    "recomendacoes": [],
@@ -7704,7 +7770,7 @@
     "base": null
    },
    "calculo": "fila",
-   "posicao_fila": 42,
+   "posicao_fila": 41,
    "enquadramento": [
     {
      "dispositivo": "Art. 12, XXVI",
@@ -7782,6 +7848,7 @@
    "titulo": "Celebrar convênios, acordos de cooperação ou outros instrumentos formais com os…",
    "titulo_origem": "regra",
    "titulo_completo": "Celebrar convênios, acordos de cooperação ou outros instrumentos formais com os entes públicos municipais, distritais e estaduais",
+   "sujeito_implicito": false,
    "titulo_curto": "Acordos para manejo da vegetação",
    "evite": null,
    "recomendacoes": [],
@@ -7861,6 +7928,7 @@
    "titulo": "Considerar os desafios específicos da vegetação local, incluindo aspectos como…",
    "titulo_origem": "regra",
    "titulo_completo": "Considerar os desafios específicos da vegetação local, incluindo aspectos como espécies predominantes, sazonalidade e características de crescimento de forma a garantir a prestação do serviço adequado",
+   "sujeito_implicito": false,
    "titulo_curto": "Considerar características da vegetação local",
    "evite": null,
    "recomendacoes": [],
@@ -7938,6 +8006,7 @@
    "titulo": "Inspeção regular: realizar a inspeção visual periódica das redes elétricas e da…",
    "titulo_origem": "regra",
    "titulo_completo": "Inspeção regular: realizar a inspeção visual periódica das redes elétricas e da vegetação próxima ou utilizar de sistema de gestão que possibilite a criação de ciclos de podas reduzindo a necessidade de deslocamento de equipe, a fim de identificar árvores ou galhos que possam representar risco de queda sobre a rede de distribuição",
+   "sujeito_implicito": false,
    "titulo_curto": "Inspeção visual periódica da vegetação",
    "evite": null,
    "recomendacoes": [],
@@ -8018,6 +8087,7 @@
    "titulo": "Poda preventiva: realizar, em articulação com o Poder Público Estadual, Distrital e…",
    "titulo_origem": "regra",
    "titulo_completo": "Poda preventiva: realizar, em articulação com o Poder Público Estadual, Distrital e Municipal e em conformidade com as normas técnicas, podas preventivas para manter distância de segurança entre a vegetação e a rede elétrica, minimizando o risco de acidentes e interrupções no fornecimento de energia",
+   "sujeito_implicito": false,
    "titulo_curto": "Poda preventiva em coordenação pública",
    "evite": null,
    "recomendacoes": [],
@@ -8097,6 +8167,7 @@
    "titulo": "Comunicar imediatamente a necessidade de eliminação do risco ao órgão competente do…",
    "titulo_origem": "regra",
    "titulo_completo": "Comunicar imediatamente a necessidade de eliminação do risco ao órgão competente do Poder Público Estadual, Distrital ou Municipal, e articular as ações necessárias para eliminação do risco, prestando apoio técnico necessário, inclusive com o desligamento da rede elétrica, quando aplicável, observando os convênios de cooperação entre os entes envolvidos, respeitando as competências legais e a legislação pertinente",
+   "sujeito_implicito": false,
    "titulo_curto": "Comunicar risco de vegetação",
    "evite": null,
    "recomendacoes": [],
@@ -8177,6 +8248,7 @@
    "titulo": "Por meio de programas estimular o plantio de novas espécies adequadas ao convívio…",
    "titulo_origem": "regra",
    "titulo_completo": "Por meio de programas estimular o plantio de novas espécies adequadas ao convívio com as redes elétricas, em conformidade com os planos municipais de arborização",
+   "sujeito_implicito": false,
    "titulo_curto": "Estimular plantio de espécies adequadas",
    "evite": null,
    "recomendacoes": [],
@@ -8261,6 +8333,7 @@
    "titulo": "Elaborar Relatório Anual de Gestão do Manejo Vegetal, documentando de forma…",
    "titulo_origem": "regra",
    "titulo_completo": "Elaborar Relatório Anual de Gestão do Manejo Vegetal, documentando de forma detalhada todas as atividades relacionadas à gestão da vegetação que interfira na rede de distribuição de energia, que servirá como ferramenta de transparência e controle para assegurar que as ações de manejo vegetal sejam realizadas de forma eficaz, em conformidade com as normas técnicas e ambientais, e com o objetivo de garantir a segurança e a continuidade do fornecimento de energia elétrica",
+   "sujeito_implicito": false,
    "titulo_curto": "Relatório anual de manejo vegetal",
    "evite": null,
    "recomendacoes": [],
@@ -8338,6 +8411,7 @@
    "titulo": "Inspeções Visuais: relatar o número de inspeções realizadas nas redes elétricas e…",
    "titulo_origem": "regra",
    "titulo_completo": "Inspeções Visuais: relatar o número de inspeções realizadas nas redes elétricas e vegetação, bem como a extensão das redes inspecionadas, destacando as áreas de risco identificadas por conjunto elétrico",
+   "sujeito_implicito": true,
    "titulo_curto": "Inspeções visuais nas redes",
    "evite": null,
    "recomendacoes": [],
@@ -8415,6 +8489,7 @@
    "titulo": "Podas Preventivas: descrever as ações de poda realizadas e as ações indicadas ao…",
    "titulo_origem": "regra",
    "titulo_completo": "Podas Preventivas: descrever as ações de poda realizadas e as ações indicadas ao Poder Público Municipal, incluindo o número de árvores podadas por conjunto elétrico",
+   "sujeito_implicito": true,
    "titulo_curto": "Podas preventivas realizadas",
    "evite": null,
    "recomendacoes": [],
@@ -8494,6 +8569,7 @@
    "titulo": "Podas Corretivas: descrever as ações de poda realizadas, incluindo o número de…",
    "titulo_origem": "regra",
    "titulo_completo": "Podas Corretivas: descrever as ações de poda realizadas, incluindo o número de árvores podadas por conjunto elétrico",
+   "sujeito_implicito": true,
    "titulo_curto": "Podas corretivas realizadas",
    "evite": null,
    "recomendacoes": [],
@@ -8571,6 +8647,7 @@
    "titulo": "Remoção de Árvores: relatar os casos de remoção de árvores, detalhando a…",
    "titulo_origem": "regra",
    "titulo_completo": "Remoção de Árvores: relatar os casos de remoção de árvores, detalhando a localização, o motivo da remoção (risco iminente, doenças, porte inadequado) por conjunto elétrico",
+   "sujeito_implicito": true,
    "titulo_curto": "Remoção de árvores por local",
    "evite": null,
    "recomendacoes": [],
@@ -8648,6 +8725,7 @@
    "titulo": "Programas de Substituição de Espécies: incluir dados sobre o número de substituição…",
    "titulo_origem": "regra",
    "titulo_completo": "Programas de Substituição de Espécies: incluir dados sobre o número de substituição de árvores inadequadas por espécies mais apropriadas por conjunto elétrico",
+   "sujeito_implicito": true,
    "titulo_curto": "Substituição de espécies arbóreas",
    "evite": null,
    "recomendacoes": [],
@@ -8725,6 +8803,7 @@
    "titulo": "Aceiro de faixas de servidão: relatar o aceiro da vegetação realizado em faixas de…",
    "titulo_origem": "regra",
    "titulo_completo": "Aceiro de faixas de servidão: relatar o aceiro da vegetação realizado em faixas de servidão das redes e linhas de distribuição por conjunto elétrico; e",
+   "sujeito_implicito": true,
    "titulo_curto": "Aceiro em faixas de servidão",
    "evite": null,
    "recomendacoes": [],
@@ -8802,6 +8881,7 @@
    "titulo": "Convênios Celebrados: informar os convênios celebrados com o Poder Público Estadual,…",
    "titulo_origem": "regra",
    "titulo_completo": "Convênios Celebrados: informar os convênios celebrados com o Poder Público Estadual, Distrital ou Municipal da sua área de atuação, bem como as tratativas com esses entes para a celebração de convênios",
+   "sujeito_implicito": true,
    "titulo_curto": "Convênios com entes públicos",
    "evite": null,
    "recomendacoes": [],
@@ -8882,6 +8962,7 @@
    "titulo": "Disponibilizar a versão mais atualizada de seu Relatório Anual de Gestão do Manejo…",
    "titulo_origem": "regra",
    "titulo_completo": "Disponibilizar a versão mais atualizada de seu Relatório Anual de Gestão do Manejo Vegetal em seu sítio eletrônico na Internet e nos postos de atendimento presencial, de forma acessível ao público, com uso de linguagem clara e adequada",
+   "sujeito_implicito": false,
    "titulo_curto": "Relatório anual disponível",
    "evite": null,
    "recomendacoes": [],
@@ -8970,6 +9051,7 @@
    "titulo": "Manter registro detalhado durante o período de 05 anos de todas as solicitações…",
    "titulo_origem": "regra",
    "titulo_completo": "Manter registro detalhado durante o período de 05 anos de todas as solicitações relacionadas ao serviço de manejo da vegetação que ofereça risco à segurança das redes elétricas e à continuidade do fornecimento de energia elétrica, incluídas tanto as solicitações realizadas pelo Poder Público Municipal quanto aquelas registradas pelas próprias distribuidoras e enviadas ao Poder Público Municipal, devendo o compartilhamento de informações estar em conformidade com as disposições da Lei Geral de Proteção de Dados (LGPD)",
+   "sujeito_implicito": false,
    "titulo_curto": "Registro de solicitações de manejo",
    "evite": null,
    "recomendacoes": [],
@@ -9051,90 +9133,11 @@
    "dispositivo": "item 104"
   },
   {
-   "id": "c3b421e728c88b65",
-   "titulo": "Comunicar aos consumidores, por meio dos canais disponíveis, a provável causa da…",
-   "titulo_origem": "regra",
-   "titulo_completo": "Comunicar aos consumidores, por meio dos canais disponíveis, a provável causa da interrupção, a área afetada e o tempo previsto para a normalização do fornecimento em até 15 (quinze) minutos após o conhecimento da causa da interrupção. Independentemente do momento em que a causa for identificada, a comunicação contendo essas informações deve ser realizada em até 1 (uma) hora após o reconhecimento da ocorrência da interrupção no fornecimento de energia elétrica",
-   "titulo_curto": "Comunicar causa, área e prazo",
-   "evite": null,
-   "recomendacoes": [],
-   "contexto": "",
-   "tema": "consumidor",
-   "motivo_tema": "Seção 4.8 da norma",
-   "unidade": "u0050",
-   "trecho": "105. As distribuidoras devem comunicar aos consumidores, por meio dos canais disponíveis, a provável causa da interrupção, a área afetada e o tempo previsto para a normalização do fornecimento em até 15 (quinze) minutos após o conhecimento da causa da interrupção. Independentemente do momento em que a causa for identificada, a comunicação contendo essas informações deve ser realizada em até 1 (uma) hora após o reconhecimento da ocorrência da interrupção no fornecimento de energia elétrica.",
-   "situacao": "sem_prazo",
-   "prazo": {
-    "data": null,
-    "texto": "Sem prazo identificado no texto",
-    "dias": null,
-    "provisorio": false,
-    "condicional": false,
-    "base": null
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 11, XXIII",
-    "grupo": "III",
-    "justificativa": "A obrigação exige que a distribuidora comunique aos consumidores, em prazo (15 minutos/1 hora) a provável causa, a área afetada e o tempo previsto de normalização da interrupção; o art. 11, XXIII tipifica exatamente o ato de \"deixar de prestar informações decorrentes de interrupções no fornecimento de energia elétrica aos consumidores\", correspondente ao descumprimento dessa exigência regulatória.",
-    "duvida": "D1"
-   },
-   "grupo": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "III"
-    ],
-    "teto_grupo_pct": 0.5,
-    "maximo_pct": {
-     "com_teto": 0.5,
-     "sem_teto": 0.5
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.025000000000000022,
-     "ate_tn": 0.25
-    },
-    "maximo_reais": {
-     "com_teto": 25000000.0,
-     "sem_teto": 25000000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 1250000.0000000012,
-     "ate_tn": 12500000.0
-    }
-   },
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [],
-   "guardar": [
-    "indisponibilidade",
-    "protocolos"
-   ],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": "comunicar_consumidores",
-     "nome": "Comunicar consumidores",
-     "situacao": "concordam",
-     "por": "regra e IA concordam",
-     "regra_id": "comunicar_consumidores"
-    },
-    "dependencias_no_texto": []
-   },
-   "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
-   "dispositivo": "item 105"
-  },
-  {
    "id": "8bf769e8049238bf",
    "titulo": "Disponibilizar em sítio eletrônico, com atualização a cada 30 minutos, o número…",
    "titulo_origem": "regra",
    "titulo_completo": "Disponibilizar em sítio eletrônico, com atualização a cada 30 minutos, o número total de unidades consumidoras afetadas por interrupções, discriminado em mapa por bairro, no mínimo",
+   "sujeito_implicito": false,
    "titulo_curto": "Mapa de unidades afetadas",
    "evite": null,
    "recomendacoes": [],
@@ -9219,6 +9222,7 @@
    "titulo": "O número total de unidades consumidoras afetadas deve ser apresentado por tempo de…",
    "titulo_origem": "regra",
    "titulo_completo": "O número total de unidades consumidoras afetadas deve ser apresentado por tempo de interrupção, com as seguintes faixas de duração",
+   "sujeito_implicito": true,
    "titulo_curto": "Unidades afetadas por duração",
    "evite": null,
    "recomendacoes": [],
@@ -9296,6 +9300,7 @@
    "titulo": "Número da ocorrência",
    "titulo_origem": "regra",
    "titulo_completo": "Número da ocorrência",
+   "sujeito_implicito": false,
    "titulo_curto": "Número da ocorrência",
    "evite": null,
    "recomendacoes": [],
@@ -9381,6 +9386,7 @@
    "titulo": "Município/bairro da ocorrência aberta",
    "titulo_origem": "regra",
    "titulo_completo": "Município/bairro da ocorrência aberta",
+   "sujeito_implicito": false,
    "titulo_curto": "Município e bairro da ocorrência",
    "evite": null,
    "recomendacoes": [],
@@ -9466,6 +9472,7 @@
    "titulo": "Data e hora de início da ocorrência aberta",
    "titulo_origem": "regra",
    "titulo_completo": "Data e hora de início da ocorrência aberta",
+   "sujeito_implicito": false,
    "titulo_curto": "Data e hora de início",
    "evite": null,
    "recomendacoes": [],
@@ -9551,6 +9558,7 @@
    "titulo": "Tipo de ocorrência aberta (programada e não programada)",
    "titulo_origem": "regra",
    "titulo_completo": "Tipo de ocorrência aberta (programada e não programada)",
+   "sujeito_implicito": false,
    "titulo_curto": "Tipo de ocorrência",
    "evite": null,
    "recomendacoes": [],
@@ -9636,6 +9644,7 @@
    "titulo": "Sinalização do status da ocorrência aberta (Em preparação/Em Deslocamento/Em Execução)",
    "titulo_origem": "regra",
    "titulo_completo": "Sinalização do status da ocorrência aberta (Em preparação/Em Deslocamento/Em Execução)",
+   "sujeito_implicito": false,
    "titulo_curto": "Status da ocorrência",
    "evite": null,
    "recomendacoes": [],
@@ -9721,6 +9730,7 @@
    "titulo": "Quantidade de unidades consumidoras interrompidas da ocorrência aberta e o total da…",
    "titulo_origem": "regra",
    "titulo_completo": "Quantidade de unidades consumidoras interrompidas da ocorrência aberta e o total da área de atuação",
+   "sujeito_implicito": false,
    "titulo_curto": "Unidades interrompidas e total",
    "evite": null,
    "recomendacoes": [],
@@ -9806,6 +9816,7 @@
    "titulo": "Duração da ocorrência (hh:mm)",
    "titulo_origem": "regra",
    "titulo_completo": "Duração da ocorrência (hh:mm)",
+   "sujeito_implicito": false,
    "titulo_curto": "Duração da ocorrência",
    "evite": null,
    "recomendacoes": [],
@@ -9891,6 +9902,7 @@
    "titulo": "Consumidor Hora Interrompido (CHI) da ocorrência aberta e o total da área de atuação",
    "titulo_origem": "regra",
    "titulo_completo": "Consumidor Hora Interrompido (CHI) da ocorrência aberta e o total da área de atuação",
+   "sujeito_implicito": false,
    "titulo_curto": "Consumidor hora interrompido e total",
    "evite": null,
    "recomendacoes": [],
@@ -9976,6 +9988,7 @@
    "titulo": "Quantidade de ocorrências abertas segregadas por município e o total na área de atuação",
    "titulo_origem": "regra",
    "titulo_completo": "Quantidade de ocorrências abertas segregadas por município e o total na área de atuação",
+   "sujeito_implicito": false,
    "titulo_curto": "Ocorrências por município e total",
    "evite": null,
    "recomendacoes": [],
@@ -10061,6 +10074,7 @@
    "titulo": "Quantidade de equipes em atividade, segregadas por município e o total na área de…",
    "titulo_origem": "regra",
    "titulo_completo": "Quantidade de equipes em atividade, segregadas por município e o total na área de atuação; e",
+   "sujeito_implicito": false,
    "titulo_curto": "Equipes por município e total",
    "evite": null,
    "recomendacoes": [],
@@ -10146,6 +10160,7 @@
    "titulo": "Disponibilizar a versão mais atualizada de seu plano de comunicação em seu sítio…",
    "titulo_origem": "regra",
    "titulo_completo": "Disponibilizar a versão mais atualizada de seu plano de comunicação em seu sítio eletrônico na Internet e nos postos de atendimento presencial, de forma acessível ao público, com uso de linguagem clara e adequada. Informações Detalhadas",
+   "sujeito_implicito": false,
    "titulo_curto": "Plano de comunicação atualizado",
    "evite": null,
    "recomendacoes": [],
@@ -10240,6 +10255,7 @@
    "titulo": "Motivo da Interrupção: informação sobre a causa da falha",
    "titulo_origem": "regra",
    "titulo_completo": "Motivo da Interrupção: informação sobre a causa da falha",
+   "sujeito_implicito": true,
    "titulo_curto": "Motivo da interrupção",
    "evite": null,
    "recomendacoes": [],
@@ -10319,6 +10335,7 @@
    "titulo": "Área Afetada: delimitação geográfica da interrupção",
    "titulo_origem": "regra",
    "titulo_completo": "Área Afetada: delimitação geográfica da interrupção",
+   "sujeito_implicito": true,
    "titulo_curto": "Área afetada",
    "evite": null,
    "recomendacoes": [],
@@ -10398,6 +10415,7 @@
    "titulo": "Unidades Consumidoras Impactadas: Número de unidades consumidoras afetadas; e",
    "titulo_origem": "regra",
    "titulo_completo": "Unidades Consumidoras Impactadas: Número de unidades consumidoras afetadas; e",
+   "sujeito_implicito": true,
    "titulo_curto": "Unidades consumidoras impactadas",
    "evite": null,
    "recomendacoes": [],
@@ -10477,6 +10495,7 @@
    "titulo": "Previsão de Restabelecimento: estimativa de retorno do fornecimento, com base na…",
    "titulo_origem": "regra",
    "titulo_completo": "Previsão de Restabelecimento: estimativa de retorno do fornecimento, com base na melhor informação disponível. Canais de Comunicação",
+   "sujeito_implicito": true,
    "titulo_curto": "Previsão de restabelecimento",
    "evite": null,
    "recomendacoes": [],
@@ -10556,6 +10575,7 @@
    "titulo": "A comunicação de que trata o item 105 deve ser realizada, obrigatoriamente, por meio…",
    "titulo_origem": "regra",
    "titulo_completo": "A comunicação de que trata o item 105 deve ser realizada, obrigatoriamente, por meio de SMS e aplicativos de mensagens, com envio de mensagens automáticas aos consumidores afetados",
+   "sujeito_implicito": true,
    "titulo_curto": "Notificação por mensagens aos consumidores",
    "evite": null,
    "recomendacoes": [],
@@ -10641,6 +10661,7 @@
    "titulo": "Atualizar as informações referentes à interrupção de que trata o item 105, incluindo…",
    "titulo_origem": "regra",
    "titulo_completo": "Atualizar as informações referentes à interrupção de que trata o item 105, incluindo alterações no tempo estimado de restabelecimento e outras informações relevantes para o consumidor",
+   "sujeito_implicito": false,
    "titulo_curto": "Atualização das informações de interrupção",
    "evite": null,
    "recomendacoes": [],
@@ -10720,6 +10741,7 @@
    "titulo": "Disponibilizar uma API (Application Programming Interface) ou outra solução…",
    "titulo_origem": "regra",
    "titulo_completo": "Disponibilizar uma API (Application Programming Interface) ou outra solução tecnológica segura",
+   "sujeito_implicito": false,
    "titulo_curto": "Interface de dados de interrupção",
    "evite": null,
    "recomendacoes": [],
@@ -10805,6 +10827,7 @@
    "titulo": "Facilitar a coordenação entre as distribuidoras e os órgãos governamentais,…",
    "titulo_origem": "regra",
    "titulo_completo": "Facilitar a coordenação entre as distribuidoras e os órgãos governamentais, permitindo uma resposta integrada a crises e eventos adversos. Critérios de Comunicação",
+   "sujeito_implicito": true,
    "titulo_curto": "Coordenação com órgãos governamentais",
    "evite": null,
    "recomendacoes": [],
@@ -10885,6 +10908,7 @@
    "titulo": "Notificar o Poder Público imediatamente após a identificação de um evento crítico,…",
    "titulo_origem": "regra",
    "titulo_completo": "Notificar o Poder Público imediatamente após a identificação de um evento crítico, utilizando canais de comunicação oficiais previamente estabelecidos",
+   "sujeito_implicito": false,
    "titulo_curto": "Notificação imediata ao Poder Público",
    "evite": null,
    "recomendacoes": [],
@@ -10967,6 +10991,7 @@
    "titulo": "Estabelecer protocolos de alertas para notificar rapidamente o Poder Público",
    "titulo_origem": "regra",
    "titulo_completo": "Estabelecer protocolos de alertas para notificar rapidamente o Poder Público",
+   "sujeito_implicito": false,
    "titulo_curto": "Protocolos de alerta ao governo",
    "evite": null,
    "recomendacoes": [],
@@ -11048,6 +11073,7 @@
    "titulo": "Não comprometer a segurança das operações das distribuidoras envolvidas",
    "titulo_origem": "regra",
    "titulo_completo": "Não comprometer a segurança das operações das distribuidoras envolvidas",
+   "sujeito_implicito": true,
    "titulo_curto": "Segurança nas cessões emergenciais",
    "evite": null,
    "recomendacoes": [],
@@ -11127,6 +11153,7 @@
    "titulo": "Proporcionalidade e Necessidade: A Cessão Emergencial deve ser limitada à…",
    "titulo_origem": "regra",
    "titulo_completo": "Proporcionalidade e Necessidade: A Cessão Emergencial deve ser limitada à necessidade demonstrada pela situação de crise e proporcional à capacidade operacional disponível de cada distribuidora",
+   "sujeito_implicito": true,
    "titulo_curto": "Proporcionalidade na cessão emergencial",
    "evite": null,
    "recomendacoes": [],
@@ -11177,6 +11204,7 @@
    "titulo": "Evidenciar a proporção de cada distribuidora ou transmissora cedente. Situações…",
    "titulo_origem": "regra",
    "titulo_completo": "Evidenciar a proporção de cada distribuidora ou transmissora cedente. Situações Aplicáveis",
+   "sujeito_implicito": false,
    "titulo_curto": "Evidenciar proporção por cedente",
    "evite": {
     "acao": "Consolidar informações sem evidenciar a proporção de cada cedente nas despesas e registros contábeis.",
@@ -11270,6 +11298,7 @@
    "titulo": "A previsão de duração da Cessão Emergencial",
    "titulo_origem": "regra",
    "titulo_completo": "A previsão de duração da Cessão Emergencial",
+   "sujeito_implicito": false,
    "titulo_curto": "Duração prevista da cessão emergencial",
    "evite": null,
    "recomendacoes": [],
@@ -11349,6 +11378,7 @@
    "titulo": "A responsabilidade pelas despesas operacionais",
    "titulo_origem": "regra",
    "titulo_completo": "A responsabilidade pelas despesas operacionais",
+   "sujeito_implicito": false,
    "titulo_curto": "Responsabilidade por despesas operacionais",
    "evite": null,
    "recomendacoes": [],
@@ -11428,6 +11458,7 @@
    "titulo": "Previsão de Cessão Emergencial, mantendo-se neutralidade das partes em relação a…",
    "titulo_origem": "regra",
    "titulo_completo": "Previsão de Cessão Emergencial, mantendo-se neutralidade das partes em relação a recursos humanos, equipamentos e materiais",
+   "sujeito_implicito": false,
    "titulo_curto": "Neutralidade nas cessões emergenciais",
    "evite": null,
    "recomendacoes": [],
@@ -11507,6 +11538,7 @@
    "titulo": "Realização de testes regulares de Cessão Emergencial, simulando cenários de crise…",
    "titulo_origem": "regra",
    "titulo_completo": "Realização de testes regulares de Cessão Emergencial, simulando cenários de crise para validar a eficácia do processo e identificar melhorias operacionais no intercâmbio de recursos humanos, equipamentos e materiais; e",
+   "sujeito_implicito": false,
    "titulo_curto": "Testes regulares de cessão emergencial",
    "evite": null,
    "recomendacoes": [],
@@ -11591,6 +11623,7 @@
    "titulo": "Procedimentos claros para a integração de equipes externas, com definição de…",
    "titulo_origem": "regra",
    "titulo_completo": "Procedimentos claros para a integração de equipes externas, com definição de treinamentos, capacitações e preparação prévia adequada para garantir que todos os envolvidos estejam alinhados com as práticas de segurança e operação da distribuidora requisitante",
+   "sujeito_implicito": false,
    "titulo_curto": "Integração de equipes externas",
    "evite": null,
    "recomendacoes": [],
@@ -11670,6 +11703,7 @@
    "titulo": "Reembolso de despesas com horas de trabalho dos recursos humanos, proporcionais à…",
    "titulo_origem": "regra",
    "titulo_completo": "Reembolso de despesas com horas de trabalho dos recursos humanos, proporcionais à remuneração, cargos e encargos",
+   "sujeito_implicito": true,
    "titulo_curto": "Reembolso por horas trabalhadas",
    "evite": null,
    "recomendacoes": [],
@@ -11747,6 +11781,7 @@
    "titulo": "Reembolso de despesas com equipamentos e materiais cedidos, proporcionais ao valor…",
    "titulo_origem": "regra",
    "titulo_completo": "Reembolso de despesas com equipamentos e materiais cedidos, proporcionais ao valor original para a cedente",
+   "sujeito_implicito": true,
    "titulo_curto": "Reembolso de equipamentos e materiais",
    "evite": null,
    "recomendacoes": [],
@@ -11824,6 +11859,7 @@
    "titulo": "Seguros e indenizações em caso de acidentes durante a Cessão Emergencial; e",
    "titulo_origem": "regra",
    "titulo_completo": "Seguros e indenizações em caso de acidentes durante a Cessão Emergencial; e",
+   "sujeito_implicito": true,
    "titulo_curto": "Seguros e indenizações por acidentes",
    "evite": null,
    "recomendacoes": [],
@@ -11903,6 +11939,7 @@
    "titulo": "Neutralidade dos valores para o reembolso à(s) cedente(s) pela requisitante.…",
    "titulo_origem": "regra",
    "titulo_completo": "Neutralidade dos valores para o reembolso à(s) cedente(s) pela requisitante. Critérios de Cessão de Equipes",
+   "sujeito_implicito": true,
    "titulo_curto": "Neutralidade no reembolso à cedente",
    "evite": null,
    "recomendacoes": [],
@@ -11982,6 +12019,7 @@
    "titulo": "Possuir capacitação e experiência compatíveis com as atividades a serem…",
    "titulo_origem": "regra",
    "titulo_completo": "Possuir capacitação e experiência compatíveis com as atividades a serem desenvolvidas na distribuidora cedente",
+   "sujeito_implicito": true,
    "titulo_curto": "Equipes com capacitação compatível",
    "evite": {
     "acao": "Escalar equipes sem comprovada capacitação e experiência compatíveis com as atividades.",
@@ -12067,6 +12105,7 @@
    "titulo": "Prover condições adequadas de trabalho, como alimentação, transporte, hospedagem e…",
    "titulo_origem": "regra",
    "titulo_completo": "Prover condições adequadas de trabalho, como alimentação, transporte, hospedagem e segurança para as equipes objeto da Cessão Emergencial",
+   "sujeito_implicito": false,
    "titulo_curto": "Condições de trabalho adequadas",
    "evite": {
     "acao": "Não prover alimentação, transporte, hospedagem e segurança adequados às equipes cedidas.",
@@ -12150,10 +12189,62 @@
    "dispositivo": "item 136"
   },
   {
+   "id": "084c9e1b8f25feff",
+   "titulo": "O tempo de cessão das equipes não pode comprometer significativamente o atendimento…",
+   "titulo_origem": "regra",
+   "titulo_completo": "O tempo de cessão das equipes não pode comprometer significativamente o atendimento aos consumidores da distribuidora cedente",
+   "sujeito_implicito": true,
+   "titulo_curto": null,
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
+   "tema": "cessao",
+   "motivo_tema": "Seção 4.10 da norma",
+   "unidade": "u0127",
+   "trecho": "137. O tempo de cessão das equipes não pode comprometer significativamente o atendimento aos consumidores da distribuidora cedente.",
+   "situacao": "sem_prazo",
+   "prazo": {
+    "data": null,
+    "texto": "Sem prazo identificado no texto",
+    "dias": null,
+    "provisorio": false,
+    "condicional": false,
+    "base": null
+   },
+   "calculo": "verificar",
+   "posicao_fila": null,
+   "enquadramento": [],
+   "ia": null,
+   "grupo": null,
+   "faixa_preliminar": null,
+   "faixa": null,
+   "premissas": [],
+   "motivo_sem_calculo": null,
+   "evidencias": [],
+   "guardar": [
+    "terceiros"
+   ],
+   "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Manter estrutura de atendimento ou contingência; IA: sem resposta válida",
+     "regra_id": "estrutura_atendimento_contingencia"
+    },
+    "dependencias_no_texto": []
+   },
+   "area": "Comunicação/Atendimento",
+   "area_origem": "regra",
+   "dispositivo": "item 137"
+  },
+  {
    "id": "dace5661de038677",
    "titulo": "As cessões emergenciais de recursos humanos, equipamentos e materiais…",
    "titulo_origem": "regra",
    "titulo_completo": "As cessões emergenciais de recursos humanos, equipamentos e materiais entre\ndistribuidoras e transmissoras e suas partes relacionadas devem ser reembolsadas pela cessionária à cedente garantindo a neutralidade da operação, não se tratando de rateio ou prestação de serviços, e preservando a individualidade das concessões",
+   "sujeito_implicito": false,
    "titulo_curto": "Reembolso neutro em cessões emergenciais",
    "evite": null,
    "recomendacoes": [],
@@ -12231,6 +12322,7 @@
    "titulo": "Verificabilidade: o plano deve ser estruturado de forma a permitir a verificação da…",
    "titulo_origem": "regra",
    "titulo_completo": "Verificabilidade: o plano deve ser estruturado de forma a permitir a verificação da sua continuidade e eficiência de execução. Diretrizes",
+   "sujeito_implicito": true,
    "titulo_curto": "Plano verificável e executável",
    "evite": null,
    "recomendacoes": [],
@@ -12315,6 +12407,7 @@
    "titulo": "Incluir a localização, natureza do risco, frequência histórica de ocorrência e uma…",
    "titulo_origem": "regra",
    "titulo_completo": "Incluir a localização, natureza do risco, frequência histórica de ocorrência e uma análise completa dos impactos potenciais associados a cada risco",
+   "sujeito_implicito": true,
    "titulo_curto": "Identificação e análise de riscos",
    "evite": null,
    "recomendacoes": [],
@@ -12392,6 +12485,7 @@
    "titulo": "A realização de simulados ou disponibilização de treinamentos atualizados deve ser…",
    "titulo_origem": "regra",
    "titulo_completo": "A realização de simulados ou disponibilização de treinamentos atualizados deve ser feita com periodicidade máxima de um ano",
+   "sujeito_implicito": true,
    "titulo_curto": "Simulados e treinamentos anuais",
    "evite": null,
    "recomendacoes": [],
@@ -12469,6 +12563,7 @@
    "titulo": "A disponibilização de treinamentos atualizados, também deve ser fornecida na mesma…",
    "titulo_origem": "regra",
    "titulo_completo": "A disponibilização de treinamentos atualizados, também deve ser fornecida na mesma periodicidade máxima para os agentes designados pelo Poder Público",
+   "sujeito_implicito": true,
    "titulo_curto": "Treinamentos anuais para agentes públicos",
    "evite": null,
    "recomendacoes": [],
@@ -12548,6 +12643,7 @@
    "titulo": "Enviar às áreas de fiscalização da ANEEL relatório contendo discriminação das…",
    "titulo_origem": "regra",
    "titulo_completo": "Enviar às áreas de fiscalização da ANEEL relatório contendo discriminação das despesas ou custos incorridos a serem reembolsados à cedente relativos à Cessão Emergencial de recursos humanos, equipamentos e materiais utilizados, além de outras informações pertinentes",
+   "sujeito_implicito": false,
    "titulo_curto": "Relatório despesas cessão emergencial",
    "evite": {
     "acao": "Enviar relatório sem discriminar despesas reembolsáveis, consolidando todos os custos sem detalhamento.",
@@ -12642,6 +12738,7 @@
    "titulo": "Comunicar ao consumidor, após o reconhecimento da ocorrência de interrupções no…",
    "titulo_origem": "regra",
    "titulo_completo": "Comunicar ao consumidor, após o reconhecimento da ocorrência de interrupções no fornecimento de energia elétrica, informações sobre o evento",
+   "sujeito_implicito": false,
    "titulo_curto": "Comunicação ao consumidor sobre interrupções",
    "evite": null,
    "recomendacoes": [],
@@ -12722,6 +12819,7 @@
    "titulo": "Disponibilizar aos consumidores o número total de unidades consumidoras afetadas por…",
    "titulo_origem": "regra",
    "titulo_completo": "Disponibilizar aos consumidores o número total de unidades consumidoras afetadas por interrupções",
+   "sujeito_implicito": false,
    "titulo_curto": "Número de unidades afetadas",
    "evite": null,
    "recomendacoes": [],
@@ -12799,6 +12897,7 @@
    "titulo": "Disponibilizar em sítio eletrônico informações relacionadas às ocorrências abertas",
    "titulo_origem": "regra",
    "titulo_completo": "Disponibilizar em sítio eletrônico informações relacionadas às ocorrências abertas",
+   "sujeito_implicito": false,
    "titulo_curto": "Informações de ocorrências online",
    "evite": null,
    "recomendacoes": [],
@@ -12884,6 +12983,7 @@
    "titulo": "Disponibilizar em sítio eletrônico e nos postos de atendimento presencial, com uso…",
    "titulo_origem": "regra",
    "titulo_completo": "Disponibilizar em sítio eletrônico e nos postos de atendimento presencial, com uso de linguagem clara e adequada, a versão mais atualizada de seu Relatório Anual de Gestão do Manejo Vegetal",
+   "sujeito_implicito": false,
    "titulo_curto": "Relatório anual de manejo vegetal",
    "evite": null,
    "recomendacoes": [],
@@ -12972,6 +13072,7 @@
    "titulo": "Informar e manter, por até cinco anos, em seu sítio eletrônico, a qualidade na…",
    "titulo_origem": "regra",
    "titulo_completo": "Informar e manter, por até cinco anos, em seu sítio eletrônico, a qualidade na prestação do serviço de distribuição de energia elétrica, por meio da apuração de indicadores de continuidade do fornecimento, permitindo a avaliação do percentual de cumprimento dos limites de conjuntos elétricos, além do valor global da distribuidora. Informação Especificação Unidade Periodicidade Observação Percentual de Comparação Percentual de Disponibilização atendimentos entre o conjuntos de unidades até o último dia A apuração do indicador dos limites indicador consumidoras que útil do mês deve corresponder à média regulatórios DEC e o atendem aos limites subsequente ao móvel dos últimos 12 dos conjuntos limite regulatórios de DEC período de meses. de unidades regulatório anualizado. apuração consumidoras Informação Especificação Unidade Periodicidade Observação Comparação Indicador coletivo de Disponibilização entre o continuidade DEC até o último dia A apuração do indicador Hora e indicador global anualizado em útil do mês deve corresponder à média centésimos DEC e o comparação com os subsequente ao móvel dos últimos 12 de hora limite respectivos limites período de meses. regulatório definidos pela ANEEL. apuração Percentual de conjuntos de Percentual de Comparação Disponibilização unidades atendimentos entre o até o último dia A apuração do indicador consumidoras que dos limites indicador útil do mês deve corresponder à média atendem aos regulatórios FEC e o subsequente ao móvel dos últimos 12 limites dos conjuntos limite período de meses. regulatórios de de unidades regulatório apuração FEC anualizado. consumidoras Comparação Indicador coletivo de Disponibilização Número de entre o continuidade FEC até o último dia A apuração do indicador interrupções indicador global anualizado em útil do mês deve corresponder à média e centésimos FEC e o comparação com os subsequente ao móvel dos últimos 12 do número de limite respectivos limites período de meses. interrupções regulatório definidos pela ANEEL. apuração",
+   "sujeito_implicito": false,
    "titulo_curto": "Manter indicadores por cinco anos",
    "evite": null,
    "recomendacoes": [],
@@ -13029,6 +13130,7 @@
    "titulo": "Informar e manter, por até cinco anos, em seu sítio eletrônico, os indicadores de…",
    "titulo_origem": "regra",
    "titulo_completo": "Informar e manter, por até cinco anos, em seu sítio eletrônico, os indicadores de duração e frequência de interrupções (DEC e FEC) efetivamente percebidas pelos usuários, sem aplicação de expurgos. Informação Especificação Unidade Periodicidade Observação Indicador coletivo de continuidade DEC anual apurado por Disponibilização conjunto de unidades até o último dia A apuração do indicador DEC Hora e consumidoras útil do mês deve corresponder à média apurado centésimos considerando todas as subsequente ao móvel dos últimos 12 sem expurgo de hora interrupções ocorridas período de meses. no sistema elétrico apuração que afetem os consumidores. Indicador coletivo de continuidade FEC anual apurado por Envio até o Número de conjunto de unidades último dia útil A apuração do indicador interrupções FEC apurado consumidoras do mês deve corresponder à média e centésimos sem expurgo considerando todas as subsequente ao móvel dos últimos 12 do número de interrupções ocorridas período de meses. interrupções no sistema elétrico apuração que afetem os consumidores. Fluxo de informações da distribuidora para o consumidor, Poder Público e mídia",
+   "sujeito_implicito": false,
    "titulo_curto": "Manter indicadores DEC e FEC",
    "evite": null,
    "recomendacoes": [],
@@ -13086,6 +13188,7 @@
    "titulo": "Disponibilizar em sítio eletrônico e nos postos de atendimento presencial, com uso…",
    "titulo_origem": "regra",
    "titulo_completo": "Disponibilizar em sítio eletrônico e nos postos de atendimento presencial, com uso de linguagem clara e adequada, o seu Plano de Comunicação",
+   "sujeito_implicito": false,
    "titulo_curto": "Plano de comunicação",
    "evite": null,
    "recomendacoes": [],
@@ -13174,6 +13277,7 @@
    "titulo": "Disponibilizar à ANEEL uma API (Application Programming Interface) que possibilite a…",
    "titulo_origem": "regra",
    "titulo_completo": "Disponibilizar à ANEEL uma API (Application Programming Interface) que possibilite a consulta de dados de interrupção do fornecimento diretamente dos sistemas das distribuidoras",
+   "sujeito_implicito": false,
    "titulo_curto": "Consulta de interrupções à ANEEL",
    "evite": null,
    "recomendacoes": [],
@@ -13259,6 +13363,7 @@
    "titulo": "Notificar o Poder Público imediatamente após a identificação de um evento crítico,…",
    "titulo_origem": "regra",
    "titulo_completo": "Notificar o Poder Público imediatamente após a identificação de um evento crítico, utilizando canais de comunicação oficiais previamente estabelecidos",
+   "sujeito_implicito": false,
    "titulo_curto": "Notificação imediata ao poder público",
    "evite": null,
    "recomendacoes": [],
@@ -13341,6 +13446,7 @@
    "titulo": "Não ser consideradas as interrupções previstas no item 178, com exceção da alínea “c”",
    "titulo_origem": "regra",
    "titulo_completo": "Não ser consideradas as interrupções previstas no item 178, com exceção da alínea “c”",
+   "sujeito_implicito": true,
    "titulo_curto": "Excluir interrupções previstas no DISE",
    "evite": null,
    "recomendacoes": [],
@@ -13418,6 +13524,7 @@
    "titulo": "Efetuar uma compensação ao consumidor ou central geradora de média ou baixa tensão…",
    "titulo_origem": "regra",
    "titulo_completo": "Efetuar uma compensação ao consumidor ou central geradora de média ou baixa tensão para cada interrupção ocorrida em Situação de Emergência que superar o limite do indicador DISE.”(NR)",
+   "sujeito_implicito": false,
    "titulo_curto": "Compensação por interrupção em emergência",
    "evite": {
     "acao": "Efetuar compensação somente para interrupções fora de Situação de Emergência.",
@@ -13489,6 +13596,7 @@
    "titulo": "As compensações associadas às violações dos limites de continuidade DIC, FIC, DMIC,…",
    "titulo_origem": "regra",
    "titulo_completo": "As compensações associadas às violações dos limites de continuidade DIC, FIC, DMIC, DICRI e DISE por ponto de conexão devem ser estabelecidas nos respectivos contratos, obedecendo aos critérios deste Módulo",
+   "sujeito_implicito": true,
    "titulo_curto": "Compensações estabelecidas em contratos",
    "evite": null,
    "recomendacoes": [],
@@ -13578,6 +13686,7 @@
    "titulo": "A compensação deve ser realizada sem prejuízo das compensações por violação dos…",
    "titulo_origem": "regra",
    "titulo_completo": "A compensação deve ser realizada sem prejuízo das compensações por violação dos indicadores DIC, FIC e DMIC, podendo inclusive haver compensações referentes a mais de uma violação do limite dos indicadores DICRI e DISE no mesmo mês, hipótese em que deve ser paga a soma das compensações calculadas para cada violação.”(NR)",
+   "sujeito_implicito": true,
    "titulo_curto": "Somar compensações por múltiplas violações",
    "evite": null,
    "recomendacoes": [],
@@ -13660,6 +13769,7 @@
    "titulo": "Estabelecer canais adicionais de comunicação exclusivos ao atendimento de órgão…",
    "titulo_origem": "regra",
    "titulo_completo": "Estabelecer canais adicionais de comunicação exclusivos ao atendimento de órgão central e representantes designados dos poderes públicos municipal, distrital e estadual",
+   "sujeito_implicito": false,
    "titulo_curto": "Canais exclusivos para poderes públicos",
    "evite": null,
    "recomendacoes": [],
@@ -13740,6 +13850,7 @@
    "titulo": "Atendimento telefônico",
    "titulo_origem": "regra",
    "titulo_completo": "Atendimento telefônico",
+   "sujeito_implicito": true,
    "titulo_curto": "Atendimento telefônico dedicado",
    "evite": null,
    "recomendacoes": [],
@@ -13819,6 +13930,7 @@
    "titulo": "Atendimento presencial, com horário agendado; e",
    "titulo_origem": "regra",
    "titulo_completo": "Atendimento presencial, com horário agendado; e",
+   "sujeito_implicito": true,
    "titulo_curto": "Atendimento presencial agendado",
    "evite": null,
    "recomendacoes": [],
@@ -13898,6 +14010,7 @@
    "titulo": "Canal de comunicação por texto (chat) com atendimento humano, durante horário comercial",
    "titulo_origem": "regra",
    "titulo_completo": "Canal de comunicação por texto (chat) com atendimento humano, durante horário comercial",
+   "sujeito_implicito": true,
    "titulo_curto": "Atendimento por chat humano",
    "evite": null,
    "recomendacoes": [],
@@ -13978,6 +14091,7 @@
    "titulo": "Designar um ou mais representantes institucionais para atendimento exclusivo dos…",
    "titulo_origem": "regra",
    "titulo_completo": "Designar um ou mais representantes institucionais para atendimento exclusivo dos poderes públicos municipal, distrital e estadual, garantindo comunicação direta e eficaz",
+   "sujeito_implicito": false,
    "titulo_curto": "Representantes exclusivos aos poderes públicos",
    "evite": null,
    "recomendacoes": [],
@@ -14057,6 +14171,7 @@
    "titulo": "Agendar e realizar, sempre que solicitado pelos poderes públicos municipal,…",
    "titulo_origem": "regra",
    "titulo_completo": "Agendar e realizar, sempre que solicitado pelos poderes públicos municipal, distrital e estadual, reuniões via plataforma de videoconferência com os seus representantes institucionais",
+   "sujeito_implicito": false,
    "titulo_curto": "Reuniões por videoconferência a pedido",
    "evite": null,
    "recomendacoes": [],
@@ -14134,6 +14249,7 @@
    "titulo": "Ter, no caso de urgência/emergência, disponibilidade ininterrupta durante 24 horas…",
    "titulo_origem": "regra",
    "titulo_completo": "Ter, no caso de urgência/emergência, disponibilidade ininterrupta durante 24 horas por dia e 7 dias por semana, com atendimento humano durante todo o período de funcionamento",
+   "sujeito_implicito": false,
    "titulo_curto": "Atendimento telefônico humano 24 horas",
    "evite": null,
    "recomendacoes": [],
@@ -14214,6 +14330,7 @@
    "titulo": "Observar as disposições relacionadas ao atendimento previstas no Módulo 4 do PRODIST",
    "titulo_origem": "regra",
    "titulo_completo": "Observar as disposições relacionadas ao atendimento previstas no Módulo 4 do PRODIST",
+   "sujeito_implicito": false,
    "titulo_curto": "Seguir regras de atendimento emergencial",
    "evite": null,
    "recomendacoes": [],
@@ -14291,6 +14408,7 @@
    "titulo": "Entregar e manter atualizado junto aos poderes públicos municipal, distrital e…",
    "titulo_origem": "regra",
    "titulo_completo": "Entregar e manter atualizado junto aos poderes públicos municipal, distrital e estadual a relação dos canais exclusivos e as informações de contato dos representantes institucionais estabelecidos com os horários de atendimento. ....................................................................................................”(NR)",
+   "sujeito_implicito": false,
    "titulo_curto": "Canais exclusivos para poderes públicos",
    "evite": null,
    "recomendacoes": [],
@@ -14371,6 +14489,7 @@
    "titulo": "As cessões emergenciais de recursos humanos, equipamentos e materiais…",
    "titulo_origem": "regra",
    "titulo_completo": "As cessões emergenciais de recursos humanos, equipamentos e materiais entre\ndistribuidoras e transmissoras e suas partes relacionadas devem ser reembolsadas pela cessionária à cedente garantindo a neutralidade da operação, não se tratando de rateio ou prestação de serviços, e preservando a individualidade das concessões. ....................................................................................................”(NR)",
+   "sujeito_implicito": false,
    "titulo_curto": "Reembolso em cessões emergenciais",
    "evite": null,
    "recomendacoes": [],
@@ -14506,6 +14625,16 @@
    "dispositivo": "item 130"
   },
   {
+   "id": "ea621d9ce84bb6fa",
+   "natureza": "faculdade",
+   "rotulo": "Faculdade (pode, não deve)",
+   "sujeito": "A Cessão Emergencial de recursos somente",
+   "unidade": "u0097",
+   "trecho": "131. A Cessão Emergencial de recursos somente pode ser realizada em situações em que a distribuidora tenha atingido limite operacional crítico em relação aos seus recursos disponíveis no atendimento direto à situação de crise, devendo tal situação ser devidamente demonstrada e documentada em relatório circunstanciado do evento que gerou a situação de crise. Intercâmbio de Informações",
+   "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
+   "dispositivo": "item 131"
+  },
+  {
    "id": "57047f491e3f21f6",
    "natureza": "faculdade",
    "rotulo": "Faculdade (pode, não deve)",
@@ -14524,6 +14653,16 @@
    "trecho": "b) O número e as características das equipes (leves, pesadas, linha viva) que poderão ser cedidas;",
    "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
    "dispositivo": "item 133, alínea b"
+  },
+  {
+   "id": "b3b18aa3b7f73a31",
+   "natureza": "faculdade",
+   "rotulo": "Faculdade (pode, não deve)",
+   "sujeito": "a periodicidade máxima",
+   "unidade": "u0168",
+   "trecho": "a) Para o caso de ter havido aplicação do Plano de Contingência, a periodicidade máxima pode ser contada da sua última aplicação.",
+   "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
+   "dispositivo": "item 145, alínea a"
   },
   {
    "id": "bfbd3539f8f236cb",
@@ -14796,26 +14935,6 @@
    "trecho": "128. Neutralidade: os valores referentes aos custos ou despesas incorridos pela cedente em função da Cessão Emergencial de recursos serão reembolsados pela cessionária à cedente pelo valor incorrido, proporcional à folha de pagamento de pessoal ou despesa ou custo pelo uso de equipamento ou materiais, sem que haja lucro, remuneração ou rentabilidade de qualquer tipo, tendo em vista o caráter de colaboração e solidariedade.",
    "motivo": "sem dever identificado",
    "dispositivo": "item 128"
-  },
-  {
-   "id": "sd-492b21808d1b",
-   "natureza": "sem_dever_identificado",
-   "rotulo": "Sem dever identificado",
-   "sujeito": "",
-   "unidade": "u0097",
-   "trecho": "131. A Cessão Emergencial de recursos somente pode ser realizada em situações em que a distribuidora tenha atingido limite operacional crítico em relação aos seus recursos disponíveis no atendimento direto à situação de crise, devendo tal situação ser devidamente demonstrada e documentada em relatório circunstanciado do evento que gerou a situação de crise. Intercâmbio de Informações",
-   "motivo": "sem dever identificado",
-   "dispositivo": "item 131"
-  },
-  {
-   "id": "sd-dacd1fc74886",
-   "natureza": "sem_dever_identificado",
-   "rotulo": "Sem dever identificado",
-   "sujeito": "",
-   "unidade": "u0127",
-   "trecho": "137. O tempo de cessão das equipes não pode comprometer significativamente o atendimento aos consumidores da distribuidora cedente.",
-   "motivo": "sem dever identificado",
-   "dispositivo": "item 137"
   },
   {
    "id": "sd-77db89c4acdc",
@@ -15493,6 +15612,7 @@
   ],
   "evento": [
    "0a7ca3ffa419b877",
+   "c3b421e728c88b65",
    "eeabcc619985bac4",
    "743176314038e1bc",
    "63d080f10ea001db",
@@ -15547,7 +15667,6 @@
    "11f1b97f51197a40",
    "059e791026821b38",
    "0b9113f77a4351b1",
-   "8c54ec11a2e41126",
    "9297bd2b368c09b7",
    "55d13ebfa6fe45cd",
    "09960ed39dc51125",
@@ -15571,7 +15690,6 @@
    "afcbf345324a3e49",
    "e6a5fd13a95d9e25",
    "cde0648e7a44c0f1",
-   "c3b421e728c88b65",
    "8bf769e8049238bf",
    "03038d3317d5920c",
    "f210b1cb4b18cd93",
@@ -15609,6 +15727,7 @@
    "921c74abaa653d5d",
    "33981a4c29c4c4db",
    "c8fa6b48cf963d61",
+   "084c9e1b8f25feff",
    "dace5661de038677",
    "a03bb494e4666bc9",
    "87c61f480ef8ec6c",

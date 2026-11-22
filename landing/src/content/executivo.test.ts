@@ -157,7 +157,7 @@ test('referência do setor: infração grave (Grupo IV, n = 10) quando o valor �
 
 test('destaque da norma: data, deveres identificados e quantos têm prazo, tudo dos dados', () => {
   const d = destaqueDaNorma(planos.ren1174)
-  assert.equal(d.texto, 'publicada em 04/11/2026 · 83 deveres identificados · 0 com prazo · 2 recorrentes')  // dados reprocessados
+  assert.equal(d.texto, 'publicada em 04/11/2026 · 84 deveres identificados · 0 com prazo · 2 recorrentes')  // dados reprocessados
   assert.equal(d.deveres, planos.ren1174.resumo.aplicaveis)
   assert.equal(d.comPrazo, planos.ren1174.obrigacoes.filter((o) => o.prazo.data).length)
   assert.match(destaqueDaNorma(planos.rn1137).texto, /^em vigor desde 30\/10\/2025 · 153 deveres identificados · \d+ com prazo · \d+ recorrentes?$/)
@@ -224,7 +224,7 @@ test('REN 1.174: a primeira reunião do grupo de trabalho (art. 12, § 11) não 
   assert.ok(!l.some((x) => /primeira reunião/i.test(x.frase)))
   // nenhum dever da REN 1.174 tem data única de vencimento (o art. 14, § 1º, II é condicional): "nenhum prazo a vencer"
   assert.equal(prazos(p, DIA).proxima, null)
-  assert.equal(p.resumo.aplicaveis, 83)
+  assert.equal(p.resumo.aplicaveis, 84)  // +Art. 42, § 2º, I e II; −Art. 168, VIII (auditoria C1)
 })
 
 test('títulos com contexto: nada de título que comece por "Ser ", "Até " ou "Em até " no top 5', () => {
@@ -303,7 +303,7 @@ test('REN 1.174, Art. 12 (grupo de trabalho): fora dos deveres, com nota; Art. 1
   for (const d of ['Art. 12, § 1º', 'Art. 12, § 5º', 'Art. 12, § 11']) assert.ok(p.outros_dispositivos.some((o) => o.dispositivo === d), d)
   assert.equal(p.notas_outros['Art. 12'], 'Grupo de trabalho sobre faturas, coordenado provisoriamente pela Abradee; primeira reunião até 03/01/2027 (§ 11).')
   assert.ok(p.obrigacoes.some((o) => o.dispositivo === 'Art. 13, § 1º' && /celebrado entre o consumidor parcialmente livre e a distribuidora/.test(o.trecho ?? '')))
-  assert.equal(p.resumo.aplicaveis, 83)
+  assert.equal(p.resumo.aplicaveis, 84)
 })
 
 test('executiva: recomendação de nível gerencial; detalhe operacional só no plano completo', () => {

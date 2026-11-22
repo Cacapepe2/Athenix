@@ -79,3 +79,14 @@ test('área vinda da IA sai marcada "área sugerida (IA)" no CSV e no .ics; as q
   assert.match(calendarioIcs(entrada(comPrazo), null).split('\r\n ').join(''), /Área sugerida \(IA\): /)
   assert.equal(todos.filter((b) => b.areaOrigem === null).length, todos.filter((b) => b.area === 'A definir').length)
 })
+
+test('sujeito implícito (a revisar): coluna no CSV de tarefas e marca nos blocos; a contagem bate com os dados', () => {
+  const implicitos = todos.filter((b) => b.sujeitoImplicito)
+  assert.ok(implicitos.length > 0 && implicitos.length < todos.length)
+  const csv = tarefasCsv(implicitos.slice(0, 1), null)
+  assert.match(csv.split('\r\n')[1], /"sujeito"/)
+  assert.ok(csv.includes('"sujeito implícito (a revisar)"'))
+  const explicito = todos.find((b) => !b.sujeitoImplicito)!
+  assert.ok(tarefasCsv([explicito], null).includes('"distribuidora (no texto)"'))
+  for (const n of NORMAS) assert.equal(todos.filter((b) => b.norma === n.id && b.sujeitoImplicito).length, n.dados.obrigacoes.filter((o) => o.sujeito_implicito).length)
+})
