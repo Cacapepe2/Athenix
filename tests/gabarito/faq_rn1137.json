@@ -1,0 +1,474 @@
+{
+  "nota": "Anotações manuais de avaliação, não revisadas por especialista. Expectativas vêm do FAQ oficial salvo; nenhum parâmetro altera o motor. Campo ausente é não cobertura, nunca uma negativa correta. O escopo de cada caso delimita a afirmação objetiva testada, não aprova a resposta inteira.",
+  "casos": [
+    {
+      "numero": "1.1",
+      "escopo": "Formalização da indicação dos interlocutores (não avalia a definição de órgão central).",
+      "citacao": "A indicação desses interlocutores deve ser formalizada junto ao Poder Público.",
+      "dispositivos": [
+        "Art. 371-A",
+        "Art. 371-A, § 7º"
+      ],
+      "verificacoes": [
+        {
+          "campo": "trecho",
+          "padrao": "indica[çc][ãa]o.*formaliz"
+        }
+      ],
+      "nota": "O plano identifica os canais e contatos; isso não comprova a exigência específica de formalização da indicação."
+    },
+    {
+      "numero": "1.2",
+      "escopo": "Destinatários dos canais exclusivos.",
+      "citacao": "O tratamento deve ser prestado ao “órgão central” e aos “representantes designados” pelos poderes públicos municipal, distrital e estadual, conforme redação do art. 371-A.",
+      "dispositivos": [
+        "Art. 371-A"
+      ],
+      "verificacoes": [
+        {
+          "campo": "trecho",
+          "padrao": "órgão central e representantes designados"
+        },
+        {
+          "campo": "trecho",
+          "padrao": "municipal, distrital e estadual"
+        }
+      ],
+      "nota": "Compara os destinatários expressos; não avalia a adequação de um cadastro real."
+    },
+    {
+      "numero": "1.4",
+      "escopo": "Disponibilidade e atendimento humano do telefone em urgência/emergência.",
+      "citacao": "Nessas hipóteses, o canal telefônico exclusivo deve estar disponível 24 horas por dia, 7 dias por semana, com atendimento humano.",
+      "dispositivos": [
+        "Art. 371-A, § 5º"
+      ],
+      "verificacoes": [
+        {
+          "campo": "trecho",
+          "padrao": "24 horas por dia e 7 dias por semana"
+        },
+        {
+          "campo": "trecho",
+          "padrao": "atendimento humano"
+        }
+      ],
+      "nota": "Não valida a classificação de um evento concreto como urgência/emergência."
+    },
+    {
+      "numero": "1.7",
+      "escopo": "Gatilho do envio obrigatório de alertas à ANEEL.",
+      "citacao": "A obrigação criada na Tabela 25 do Módulo 6 é enviar à ANEEL os alertas meteorológicos que justifiquem o acionamento do Plano de Contingência, em qualquer nível.",
+      "dispositivos": [
+        "item 114",
+        "Art. 14"
+      ],
+      "verificacoes": [
+        {
+          "campo": "trecho",
+          "padrao": "alertas.*justifiquem.*acionamento.*Contingência"
+        }
+      ],
+      "nota": "A Tabela 25 não está representada como dever com esse gatilho no plano; não se infere equivalência por proximidade temática."
+    },
+    {
+      "numero": "1.8",
+      "escopo": "Ausência de prazo estabelecido para a ANEEL publicar instruções, na consulta salva.",
+      "citacao": "Ainda não há prazo estabelecido para a publicação das instruções pela ANEEL.",
+      "dispositivos": [
+        "Art. 14"
+      ],
+      "verificacoes": [
+        {
+          "campo": "esclarecimento.leitura",
+          "padrao": "ainda não havia prazo estabelecido"
+        }
+      ],
+      "nota": "Esclarecimento do próprio FAQ já confirmado no plano; este caso não é validação independente."
+    },
+    {
+      "numero": "1.9",
+      "escopo": "Existência e data das orientações preliminares da API.",
+      "citacao": "em 05 de agosto de 2025.",
+      "dispositivos": [
+        "Art. 15"
+      ],
+      "verificacoes": [
+        {
+          "campo": "instrucoes.data",
+          "valor": "2025-08-05"
+        }
+      ],
+      "nota": "O prazo por evento não responde se o ofício preliminar já foi publicado; não se trata o ofício como gatilho definitivo sem fonte/decisão."
+    },
+    {
+      "numero": "2.1",
+      "escopo": "Conteúdo mínimo obrigatório do plano de manejo.",
+      "citacao": "O Plano de Manejo Vegetal deve conter, no mínimo, os elementos da Tabela 20 do Módulo 6: métodos de monitoramento e controle da execução das podas, cronograma das práticas de poda, periodicidade das ações e cuidados ambientais, além de refletir as responsabilidades e diretrizes estabelecidas nos itens 94 a 104 do Módulo 4.",
+      "dispositivos": [
+        "item 94",
+        "item 103"
+      ],
+      "verificacoes": [
+        {
+          "campo": "trecho",
+          "padrao": "cronograma"
+        },
+        {
+          "campo": "trecho",
+          "padrao": "periodicidade"
+        },
+        {
+          "campo": "trecho",
+          "padrao": "cuidados ambientais"
+        }
+      ],
+      "nota": "Publicar o plano não comprova a extração dos requisitos da Tabela 20."
+    },
+    {
+      "numero": "2.2",
+      "escopo": "Vedação de plano apenas conceitual.",
+      "citacao": "O Plano de Manejo Vegetal não deve limitar-se a uma abordagem apenas conceitual.",
+      "dispositivos": [
+        "item 94",
+        "item 103"
+      ],
+      "verificacoes": [
+        {
+          "campo": "trecho",
+          "padrao": "não.*(?:apenas|somente).*conceitual"
+        }
+      ],
+      "nota": "A granularidade operacional esclarecida pelo FAQ não tem uma resposta expressa no plano."
+    },
+    {
+      "numero": "2.3",
+      "escopo": "Ausência de exigência de aprovação formal por cada município.",
+      "citacao": "A regulamentação não exige aprovação formal do Plano de Manejo Vegetal por cada município.",
+      "dispositivos": [
+        "item 94",
+        "item 95"
+      ],
+      "verificacoes": [
+        {
+          "campo": "aprovacao_municipal_obrigatoria",
+          "valor": false
+        }
+      ],
+      "nota": "Ausência da palavra aprovação na extração não prova que ela seja dispensada; o motor não oferece essa conclusão."
+    },
+    {
+      "numero": "2.4",
+      "escopo": "Convênio estadual não substitui pactuação municipal quando esta for aplicável.",
+      "citacao": "Um convênio ou autorização estadual pode atender à parcela de coordenação com o Estado, mas não substitui, em regra, a necessidade de pactuação com municípios quando a competência municipal for aplicável, a exemplo da arborização urbana.",
+      "dispositivos": [
+        "item 95"
+      ],
+      "verificacoes": [
+        {
+          "campo": "trecho",
+          "padrao": "não substitui.*munic"
+        }
+      ],
+      "nota": "A lista de entes no item 95 não resolve a substituição de competências esclarecida no FAQ."
+    },
+    {
+      "numero": "2.5",
+      "escopo": "Requisitos de responsabilidades e procedimentos do instrumento formal.",
+      "citacao": "O item 95 exige que o instrumento formal preveja, de forma clara, as responsabilidades de cada parte quanto à inspeção, poda preventiva, remoção e substituição de árvores, além de procedimentos técnicos e operacionais.",
+      "dispositivos": [
+        "item 95"
+      ],
+      "verificacoes": [
+        {
+          "campo": "trecho",
+          "padrao": "responsabilidades de cada parte"
+        },
+        {
+          "campo": "trecho",
+          "padrao": "inspeção, poda preventiva, remoção e substituição de árvores"
+        },
+        {
+          "campo": "trecho",
+          "padrao": "procedimentos técnicos e operacionais"
+        }
+      ],
+      "nota": "Confere os requisitos expressos; não avalia a suficiência de uma autorização real."
+    },
+    {
+      "numero": "2.6",
+      "escopo": "Manutenção das obrigações, registros por cinco anos e atuação emergencial.",
+      "citacao": "(i) manter registros das solicitações e tratativas por 5 anos (item 104);",
+      "dispositivos": [
+        "item 98",
+        "item 104",
+        "item 96"
+      ],
+      "verificacoes": [
+        {
+          "dever": "item 98"
+        },
+        {
+          "campo": "trecho",
+          "padrao": "período de 0?5 anos",
+          "dispositivo": "item 104"
+        },
+        {
+          "campo": "trecho",
+          "padrao": "medidas urgentes",
+          "dispositivo": "item 96"
+        }
+      ],
+      "nota": "O item 98/98.1 está em sem dever identificado, não na contagem de deveres; o plano cobre registros e emergência, mas não a resposta inteira."
+    },
+    {
+      "numero": "3.1",
+      "escopo": "Data inicial dos efeitos retroativos do DISE.",
+      "citacao": "os efeitos retroativos passam a incidir a partir de 31/12/2025.",
+      "dispositivos": [
+        "Art. 13, inciso VI"
+      ],
+      "verificacoes": [
+        {
+          "campo": "retroatividade.inicio",
+          "valor": "2025-12-31"
+        }
+      ],
+      "nota": "O plano conserva a expressão dois meses, mas não calcula nem distingue a incidência diária e a primeira apuração completa."
+    },
+    {
+      "numero": "3.2",
+      "escopo": "Data final para início das apurações do DISE.",
+      "citacao": "No caso da publicação em 30/10/2025, o prazo final para início das apurações é 28/04/2026.",
+      "dispositivos": [
+        "Art. 13, inciso VI"
+      ],
+      "verificacoes": [
+        {
+          "campo": "prazo.data",
+          "valor": "2026-04-28"
+        }
+      ],
+      "nota": "O prazo já foi esclarecido pelo próprio FAQ e confirmado pelo fundador; não é validação independente."
+    },
+    {
+      "numero": "3.3",
+      "escopo": "Início dos eventos considerados na apuração retroativa do DISE.",
+      "citacao": "Devem ser considerados os eventos ocorridos a partir de 1º/1/2026.",
+      "dispositivos": [
+        "Art. 13, inciso VI"
+      ],
+      "verificacoes": [
+        {
+          "campo": "apuracao.eventos_desde",
+          "valor": "2026-01-01"
+        }
+      ],
+      "nota": "O prazo de implantação de abril não responde ao início do período retroativo."
+    },
+    {
+      "numero": "3.4",
+      "escopo": "Último mês para crédito das compensações iniciais.",
+      "citacao": "Assim, a fatura apresentada no mês de junho é a última na qual podem ser efetuadas as compensações de janeiro a abril.",
+      "dispositivos": [
+        "Art. 13, inciso VI"
+      ],
+      "verificacoes": [
+        {
+          "campo": "compensacao.ultimo_mes",
+          "valor": "2026-06"
+        }
+      ],
+      "nota": "O plano não calcula a janela de crédito na fatura, distinta do prazo de implantação."
+    },
+    {
+      "numero": "4.3",
+      "escopo": "Publicação sem contatos dos responsáveis e com infraestrutura/localização dos recursos.",
+      "citacao": "A obrigação de disponibilização pública do Plano de Contingência (item 147) prevê sua publicação sem a identificação e os contatos dos responsáveis.",
+      "dispositivos": [
+        "item 147"
+      ],
+      "verificacoes": [
+        {
+          "campo": "trecho",
+          "padrao": "sem a identificação e contato"
+        },
+        {
+          "campo": "trecho",
+          "padrao": "(?:inventário|localização de equipamentos)"
+        }
+      ],
+      "nota": "O plano cobre a retirada dos contatos, mas não demonstra o conteúdo de infraestrutura exigido pela resposta completa."
+    },
+    {
+      "numero": "4.4",
+      "escopo": "Envio de alertas depende de procedimento da ANEEL; manutenção de evidências internas até sua publicação.",
+      "citacao": "Até a publicação desse procedimento, a distribuidora deve manter registro e evidências internas do acionamento e dos alertas correlatos, para apresentação à fiscalização quando demandado.",
+      "dispositivos": [
+        "Art. 14",
+        "item 114"
+      ],
+      "verificacoes": [
+        {
+          "campo": "prazo.data",
+          "valor": null
+        },
+        {
+          "campo": "trecho",
+          "padrao": "até a publicação.*(?:registro|evidências)"
+        }
+      ],
+      "nota": "O motor cobre o prazo dependente de evento, mas não extrai o dever provisório de evidências que o FAQ acrescenta."
+    },
+    {
+      "numero": "5.1",
+      "escopo": "Comunicação automática aos consumidores afetados.",
+      "citacao": "O item 105 estabelece comunicação após o reconhecimento da ocorrência (com prazos), e o item 110 determina o envio automático aos consumidores afetados.",
+      "dispositivos": [
+        "item 105",
+        "item 110"
+      ],
+      "verificacoes": [
+        {
+          "campo": "trecho",
+          "padrao": "mensagens automáticas aos consumidores afetados",
+          "dispositivo": "item 110"
+        }
+      ],
+      "nota": "Compara destinatários e envio automático; não simula uma interrupção concreta."
+    },
+    {
+      "numero": "5.2",
+      "escopo": "Comunicação até uma hora do reconhecimento, independentemente da identificação da causa.",
+      "citacao": "se transcorrida 1 (uma) hora após o reconhecimento da ocorrência da interrupção, a comunicação deve alcançar os consumidores afetados.",
+      "dispositivos": [
+        "item 105"
+      ],
+      "verificacoes": [
+        {
+          "campo": "trecho",
+          "padrao": "Independentemente.*causa.*1 \\(uma\\) hora após o reconhecimento"
+        },
+        {
+          "campo": "prazo.texto",
+          "padrao": "até 1 h após o reconhecimento"
+        }
+      ],
+      "nota": "Afirmação objetiva de prazo e marco; não mede entrega efetiva das mensagens."
+    },
+    {
+      "numero": "5.3",
+      "escopo": "Canais mínimos obrigatórios: SMS e aplicativos, com envio automático.",
+      "citacao": "a comunicação do item 105 deve ser realizada obrigatoriamente por SMS e aplicativos de mensagens (com envio automático).",
+      "dispositivos": [
+        "item 110"
+      ],
+      "verificacoes": [
+        {
+          "campo": "trecho",
+          "padrao": "obrigatoriamente.*SMS e aplicativos de mensagens"
+        },
+        {
+          "campo": "trecho",
+          "padrao": "mensagens automáticas"
+        }
+      ],
+      "nota": "Confere o requisito mínimo; a possibilidade de push complementar não é convertida em nova obrigação."
+    },
+    {
+      "numero": "5.4",
+      "escopo": "Ausência de novo indicador específico de efetividade.",
+      "citacao": "A REN nº 1.137/2025 não institui, neste momento, um indicador específico de efetividade do Plano de Comunicação.",
+      "dispositivos": [
+        "item 108"
+      ],
+      "verificacoes": [
+        {
+          "campo": "indicador_especifico_instituido",
+          "valor": false
+        }
+      ],
+      "nota": "Não encontrar indicador no plano não comprova sua inexistência na norma inteira."
+    },
+    {
+      "numero": "5.5",
+      "escopo": "Linguagem clara, acessível e adequada na disponibilização do plano.",
+      "citacao": "O Plano de Comunicação deve empregar linguagem clara, acessível e adequada ao público-alvo.",
+      "dispositivos": [
+        "item 108"
+      ],
+      "verificacoes": [
+        {
+          "campo": "trecho",
+          "padrao": "acessível ao público"
+        },
+        {
+          "campo": "trecho",
+          "padrao": "linguagem clara e adequada"
+        }
+      ],
+      "nota": "Só a exigência objetiva de linguagem; os seis elementos apresentados como desejáveis não são tratados como dever."
+    },
+    {
+      "numero": "5.6",
+      "escopo": "Acesso público e irrestrito, sem autenticação prévia.",
+      "citacao": "sem a necessidade de autenticação prévia.",
+      "dispositivos": [
+        "item 103",
+        "item 108",
+        "item 147"
+      ],
+      "verificacoes": [
+        {
+          "campo": "trecho",
+          "padrao": "sem.*autentica"
+        }
+      ],
+      "nota": "Acesso público no trecho normativo não basta para afirmar que o motor verifica autenticação."
+    },
+    {
+      "numero": "6.1",
+      "escopo": "Prazo para envio do relatório circunstanciado à fiscalização.",
+      "citacao": "relatório enviado à fiscalização em até 60 dias após o fim da situação emergencial (item 132)",
+      "dispositivos": [
+        "item 132, alínea a"
+      ],
+      "verificacoes": [
+        {
+          "campo": "contexto",
+          "padrao": "em até 60 dias após o fim da situação emergencial"
+        }
+      ],
+      "nota": "Confere apenas o prazo e seu marco no caput herdado; não avalia o conteúdo probatório do limite operacional crítico."
+    },
+    {
+      "numero": "6.2",
+      "escopo": "Periodicidade dos treinamentos não fixada na norma, a definir no acordo.",
+      "citacao": "O item 135 estabelece que as equipes cedidas devem possuir capacitação e experiência compatíveis, mas não fixa periodicidade de treinamento.",
+      "dispositivos": [
+        "item 135",
+        "item 133, alínea g"
+      ],
+      "verificacoes": [
+        {
+          "campo": "periodicidade_treinamento_fixada",
+          "valor": false
+        },
+        {
+          "campo": "trecho",
+          "padrao": "definição de treinamentos",
+          "dispositivo": "item 133, alínea g"
+        }
+      ],
+      "nota": "O plano extrai capacitação e acordo, mas não responde expressamente à ausência de periodicidade; ausência de prazo não é comprovação."
+    }
+  ],
+  "fora": {
+    "1.3": "Escopo temático e natureza das demandas: interpretação qualitativa, sem um prazo, data ou comando objetivo delimitado para este avaliador.",
+    "1.5": "Finalidade e uso operacional do canal: exige avaliação qualitativa de processos, não a conferência de um prazo ou requisito fechado.",
+    "1.6": "Caracterização de evento crítico e risco relevante depende da avaliação de um evento concreto pela distribuidora.",
+    "3.5": "Impacto de ajustes XML na avaliação de governança não é prazo, vigência, sujeito ou obrigatoriedade coberto por esta avaliação.",
+    "4.1": "Definição exemplificativa de demandas extraordinárias: depende de caracterização operacional do evento.",
+    "4.2": "Nível suficiente de granularidade de uma matriz de riscos: exige revisão de conteúdo de um plano real."
+  }
+}
