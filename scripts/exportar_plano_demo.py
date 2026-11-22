@@ -27,7 +27,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from fastapi.testclient import TestClient  # noqa: E402
 
-from athenix import analise, impacto, plano  # noqa: E402
+from athenix import analise, impacto, plano, vigencia  # noqa: E402
 from athenix.app import create_app  # noqa: E402
 from athenix.config import Settings  # noqa: E402
 from athenix.demo import USUARIO, preparar  # noqa: E402
@@ -81,7 +81,10 @@ def processar(arquivo=None):
     plano.validar_bases_dos_prazos(
         rows, extraction
     )  # trava: data-base anterior à publicação é erro
-    return plano.ancorar_pendentes(rows, extraction), extraction, impacto.carregar()
+    rows = plano.ancorar_pendentes(rows, extraction)
+    # Vigência e transição lidas da própria norma: prazo de adequação, vigência diferida ou "em vigor".
+    extraction["transicao"] = vigencia.aplicar(rows, extraction)
+    return rows, extraction, impacto.carregar()
 
 
 def avaliar(
@@ -358,9 +361,22 @@ def gerar(data=None, commit=None, arquivo=None, segmento="distribuicao"):
         "referencia_escala": analise.referencia_escala(),
         "notas_outros": cfg_norma.get("notas_outros", {}),
         "simulador": simulador(demo, processado, arquivo, segmento),
+        "transicao": transicao(processado[1].get("transicao"), out["obrigacoes"]),
         **out,
     }
     return dados, out
+
+
+def transicao(relatorio, obrigacoes):
+    """Regras de vigência e transição lidas da norma e a contagem dos deveres por marco."""
+    if not relatorio or not relatorio["regras"]:
+        return None
+    contagem = {}
+    for o in obrigacoes:
+        m = o.get("marco")
+        chave = (m["tipo"] + (f":{m['data']}" if m["data"] else "")) if m else "sem_marco"
+        contagem[chave] = contagem.get(chave, 0) + 1
+    return {"regras": relatorio["regras"], "deveres_por_marco": dict(sorted(contagem.items()))}
 
 
 def _vigencia(extraction):

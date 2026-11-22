@@ -186,6 +186,8 @@ def test_a1_minutos_e_horas_apos_evento_sao_prazo_por_evento_sem_data():
 
 def test_a1_item_105_no_plano_mostra_os_dois_limites():
     (item,) = [o for o in PLANO["obrigacoes"] if o["id"] == "c3b421e728c88b65"]
-    assert item["situacao"] == "evento" and item["prazo"]["data"] is None
-    assert item["prazo"]["texto"].startswith("Por evento: até 15 min após o conhecimento da causa")
+    # Art. 13, III da RN 1.137: 180 dias da publicação para implementar o item 105 (vigencia.py); o prazo
+    # de adequação já passou e o texto mantém os dois limites por evento.
+    assert item["marco"]["dispositivo"] == "Art. 13, III" and item["prazo"]["data"] == "2026-04-28"
+    assert "por evento: até 15 min após o conhecimento da causa" in item["prazo"]["texto"]
     assert "até 1 h após o reconhecimento da ocorrência" in item["prazo"]["texto"]
