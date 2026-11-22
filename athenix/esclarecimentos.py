@@ -196,13 +196,16 @@ def anotar_plano(out, norma, trechos=None, entradas=None):
     )
 
 
-def relatorio_a_confirmar(out, norma, trechos):
-    """Todo item "a confirmar" do plano (prazo ou transição ambígua, possível erro material, sujeito
-    incerto, referência a outra norma, enquadramento sem texto) e, para cada um, a busca nos
-    esclarecimentos salvos. Achado é "possível esclarecimento": continua a confirmar."""
+def casos_a_confirmar(out, norma):
+    """Sinais de incerteza do plano, antes de filtrar por possíveis respostas no FAQ."""
     casos = []
     for o in out["obrigacoes"]:
-        base = {"dispositivo": o["dispositivo"], "trecho": o["trecho"], "norma": norma}
+        base = {
+            "dispositivo": o["dispositivo"],
+            "trecho": o["trecho"],
+            "norma": norma,
+            "obrigacao": o["id"],
+        }
         if (o.get("marco") or {}).get("tipo") == "a_confirmar":
             casos.append(base | {"tipo": "transição ambígua"})
         if "inferido pela posição" in ((o.get("marco") or {}).get("nota") or ""):
@@ -217,7 +220,13 @@ def relatorio_a_confirmar(out, norma, trechos):
     for r in ((out.get("transicao") or {}).get("regras")) or []:
         if r.get("alvos_a_confirmar"):
             casos.append({"dispositivo": r["dispositivo"], "trecho": r.get("trecho") or " ".join(r["alvos_a_confirmar"]),
-                          "norma": norma, "tipo": "referência a outra norma"})  # fmt: skip
+                          "norma": norma, "tipo": "referência a outra norma", "alvos": r["alvos_a_confirmar"]})  # fmt: skip
+    return casos
+
+
+def relatorio_a_confirmar(out, norma, trechos):
+    """Busca possíveis esclarecimentos para os sinais existentes, sem confirmar uma interpretação."""
+    casos = casos_a_confirmar(out, norma)
     achados = []
     for c in casos:
         r = buscar(c, trechos)

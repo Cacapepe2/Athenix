@@ -1,3 +1,5 @@
+import { RascunhosAneel } from './RascunhosAneel'
+import { rascunhosDoItem } from '../../content/rascunhos-aneel'
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode, type Ref } from 'react'
 import { AlertTriangle, ArrowDown, ArrowUp, ChevronDown, ClipboardList, Download, FileText, Printer, Sparkles } from 'lucide-react'
 import { Logo } from '../ui/Logo'
@@ -644,6 +646,7 @@ function ItemObrigacao({ o }: { o: Obrigacao }) {
 }
 
 function PorQue({ o }: { o: Obrigacao }) {
+  const rascunhos = rascunhosDoItem(plano.rascunhos_aneel, o.id)
   return <div className="mt-4 space-y-4 text-sm leading-relaxed">
       <div><h5 className="font-semibold">O que a norma diz <Tag kind="source" /></h5>
         {o.sujeito_implicito && <p className="mt-1 text-xs font-semibold">Sujeito implícito (a revisar): o texto não diz “a distribuidora”; contamos como dever dela por ser norma dirigida às distribuidoras.</p>}
@@ -662,6 +665,7 @@ function PorQue({ o }: { o: Obrigacao }) {
         {o.marco?.trecho && <blockquote className="mt-2 border-l-2 border-bronze bg-ivory p-3"><strong>{o.marco.dispositivo}</strong> · “{o.marco.trecho}”</blockquote>}</div>
       {o.premissas.length > 0 && <div><h5 className="font-semibold">Premissas da faixa</h5><ul className="list-disc space-y-1 pl-5">{o.premissas.map((p) => <li key={p}>{p}</li>)}</ul></div>}
       {o.evidencias.length > 0 && <div><h5 className="font-semibold">Como provar <Tag kind="review" label="Sugestão" /></h5><ul className="list-disc space-y-1 pl-5">{o.evidencias.map((e) => <li key={e.id}>{plano.evidencias[e.id]}: <span className="text-ink-soft">“…{e.trecho}…”</span></li>)}</ul></div>}
+      {rascunhos.length > 0 && <details className="border border-line p-3"><summary className="cursor-pointer font-semibold">Rascunho de pergunta à ANEEL ({rascunhos.length})</summary><div className="mt-3"><RascunhosAneel rascunhos={rascunhos} /></div></details>}
       <p className="text-xs text-ink-soft">Tema: {o.motivo_tema}.</p>
     </div>
 }

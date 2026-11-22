@@ -2,6 +2,7 @@
 // scripts/exportar_plano_demo.py a partir do produto (athenix/plano.py): nenhum número é digitado aqui.
 // Interpretações da IA vêm de um cache revisável, aparecem marcadas e nunca entram no cálculo.
 import dados1137 from './plano-rn1137.json' with { type: 'json' }
+import type { RascunhoAneel } from './rascunhos-aneel.ts'
 import dados1174 from './plano-ren1174.json' with { type: 'json' }
 import { hojeISO } from './datas.ts'
 import { planoEm } from './referencia.ts'
@@ -184,6 +185,7 @@ export interface Tema {
 }
 
 export interface PlanoDados {
+  rascunhos_aneel: RascunhoAneel[]
   gerado_por: string
   commit_origem: string
   gerado_em: string

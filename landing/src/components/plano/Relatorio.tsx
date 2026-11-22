@@ -3,6 +3,7 @@ import { montarRelatorio } from '../../content/relatorio'
 import { ABERTURA_PERGUNTAS } from '../../content/perguntas'
 import type { Diagnosticos, Modo, Simulacao } from '../../content/plano'
 import { useRespostas } from './Respostas'
+import { RascunhosAneel } from './RascunhosAneel'
 
 // Relatório de trabalho para imprimir ou salvar em PDF (A4). Fica fora da tela e só existe enquanto imprime:
 // o botão "Baixar meu relatório" monta, abre a impressão e desmonta. Nada sai do navegador.
@@ -61,5 +62,8 @@ export function Relatorio({ ativo, fim, diag, sim, modo }: { ativo: boolean; fim
     <h2>Perguntas para levar ao jurídico</h2>
     <p>{ABERTURA_PERGUNTAS}</p>
     <ol>{r.perguntas.map((q, i) => <li key={i}>{q.pergunta} <small>({q.dispositivo}) {q.citacao}</small></li>)}</ol>
+    <h2>Perguntas para a ANEEL</h2>
+    <p>Rascunhos agrupados por dúvida e leituras registradas. Revisar antes de enviar; não foram enviados à ANEEL.</p>
+    <RascunhosAneel rascunhos={r.perguntasAneel} />
   </section>
 }
