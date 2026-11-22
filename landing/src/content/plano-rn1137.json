@@ -1,6 +1,6 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "61b5be3",
+ "commit_origem": "97a98cb",
  "gerado_em": "2026-11-22",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
@@ -230,24 +230,24 @@
    "adequacao:2026-01-28": 3,
    "adequacao:2026-04-28": 15,
    "em_vigor:2025-10-30": 124,
-   "sem_marco": 10
+   "sem_marco": 4
   }
  },
  "resumo": {
   "identificadas": 170,
-  "aplicaveis": 153,
-  "outros_dispositivos": 16,
+  "aplicaveis": 147,
+  "outros_dispositivos": 22,
   "fora_do_perfil": 1,
   "por_situacao": {
-   "vencida": 25,
+   "vencida": 19,
    "90dias": 0,
    "depois": 0,
    "recorrente": 2,
    "evento": 21,
    "sem_prazo": 105
   },
-  "na_fila": 42,
-  "a_confirmar": 111,
+  "na_fila": 41,
+  "a_confirmar": 106,
   "sem_multa": 0,
   "grupo_mais_grave": "IV",
   "temas": 8
@@ -269,7 +269,7 @@
      "base": "2025-10-30",
      "situacao": "vencida"
     },
-    "obrigacoes_vencidas": 18
+    "obrigacoes_vencidas": 15
    },
    {
     "tema": "manejo",
@@ -286,7 +286,7 @@
      "base": "2025-10-30",
      "situacao": "vencida"
     },
-    "obrigacoes_vencidas": 3
+    "obrigacoes_vencidas": 2
    },
    {
     "tema": "contingencia",
@@ -307,7 +307,7 @@
    }
   ],
   "confirmar": {
-   "obrigacoes": 111,
+   "obrigacoes": 106,
    "temas_sem_calculo_confirmado": 2
   }
  },
@@ -322,9 +322,9 @@
      "unidade": "u0049"
     }
    ],
-   "n": 24,
+   "n": 21,
    "contagem": {
-    "vencida": 18,
+    "vencida": 15,
     "90dias": 0,
     "depois": 0,
     "recorrente": 0,
@@ -342,7 +342,7 @@
     "situacao": "vencida"
    },
    "na_fila": 1,
-   "a_confirmar": 23,
+   "a_confirmar": 20,
    "grupos": [
     "IV"
    ],
@@ -406,13 +406,13 @@
    ],
    "ia": {
     "dispositivo": "Art. 11, XXIII",
-    "n": 20,
-    "de": 23
+    "n": 18,
+    "de": 20
    },
    "evidencias": [
     {
      "id": "site",
-     "n": 15,
+     "n": 13,
      "exemplo": {
       "obrigacao": "d0d9b13f247409a5",
       "trecho": "a versão mais atualizada de seu plano de comunicação em seu sítio eletrônico na Internet e nos postos de atendimento presencial, de form"
@@ -438,11 +438,11 @@
    "guardar": [
     {
      "id": "protocolos",
-     "n": 21
+     "n": 19
     },
     {
      "id": "indisponibilidade",
-     "n": 17
+     "n": 15
     },
     {
      "id": "versoes",
@@ -473,9 +473,6 @@
     "4530929b6c0a1c85",
     "b5295bca7f3ea780",
     "bf6d884740a66016",
-    "a002094347c42776",
-    "b758c9c169c145ec",
-    "d61df9955ff31362",
     "6812a1cfa93391a2",
     "091a033ee197530b",
     "89f0cb5afdcb80cf",
@@ -495,9 +492,9 @@
      "unidade": "u0025"
     }
    ],
-   "n": 20,
+   "n": 19,
    "contagem": {
-    "vencida": 3,
+    "vencida": 2,
     "90dias": 0,
     "depois": 0,
     "recorrente": 0,
@@ -514,7 +511,7 @@
     "base": "2025-10-30",
     "situacao": "vencida"
    },
-   "na_fila": 4,
+   "na_fila": 3,
    "a_confirmar": 16,
    "grupos": [
     "IV"
@@ -587,7 +584,7 @@
    "evidencias": [
     {
      "id": "plano",
-     "n": 4,
+     "n": 3,
      "exemplo": {
       "obrigacao": "4bc7805026308769",
       "trecho": "idoras devem disponibilizar a versão mais atualizada de seu plano de manejo vegetal em seu sítio eletrônico na Internet e nos"
@@ -617,24 +614,23 @@
     },
     {
      "id": "versoes",
-     "n": 5
+     "n": 4
     },
     {
-     "id": "protocolos",
-     "n": 4
+     "id": "indisponibilidade",
+     "n": 3
     }
    ],
    "excludentes": [],
    "causa_externa": "argumento a confirmar com advogado",
    "principais": [
     "4bc7805026308769",
-    "f0ee215c5b31a957",
     "cde0648e7a44c0f1",
-    "def2aafb6310db09"
+    "def2aafb6310db09",
+    "4e4622fc78c94514"
    ],
    "obrigacoes": [
     "4bc7805026308769",
-    "f0ee215c5b31a957",
     "cde0648e7a44c0f1",
     "def2aafb6310db09",
     "4e4622fc78c94514",
@@ -855,27 +851,18 @@
      "unidade": "u0258"
     }
    ],
-   "n": 17,
+   "n": 16,
    "contagem": {
-    "vencida": 1,
+    "vencida": 0,
     "90dias": 0,
     "depois": 0,
     "recorrente": 1,
     "evento": 1,
     "sem_prazo": 14
    },
-   "prazo_mais_urgente": {
-    "obrigacao": "868bbdfdd6ed7ce7",
-    "data": "2026-04-28",
-    "texto": "Vencido desde 28/04/2026 (203 dias)",
-    "dias": -203,
-    "provisorio": true,
-    "condicional": false,
-    "base": "2025-10-30",
-    "situacao": "vencida"
-   },
+   "prazo_mais_urgente": null,
    "na_fila": 2,
-   "a_confirmar": 15,
+   "a_confirmar": 14,
    "grupos": [
     "IV"
    ],
@@ -941,18 +928,9 @@
    "ia": {
     "dispositivo": "Art. 12, XXVIII",
     "n": 7,
-    "de": 15
+    "de": 14
    },
-   "evidencias": [
-    {
-     "id": "registro",
-     "n": 1,
-     "exemplo": {
-      "obrigacao": "868bbdfdd6ed7ce7",
-      "trecho": "II - Até 180 (cento e oitenta) dias para implementar o registro das interações com o Poder Público Municipal em relação ao"
-     }
-    }
-   ],
+   "evidencias": [],
    "guardar": [
     {
      "id": "protocolos",
@@ -963,20 +941,19 @@
      "n": 9
     },
     {
-     "id": "poder_publico",
+     "id": "emergencia",
      "n": 6
     }
    ],
    "excludentes": [],
    "causa_externa": "argumento a confirmar com advogado",
    "principais": [
-    "868bbdfdd6ed7ce7",
     "e863a4cbf5a00dd2",
     "36d97e25c9c45652",
-    "dd9e67e41aa4ea38"
+    "dd9e67e41aa4ea38",
+    "c730ffb2caee9101"
    ],
    "obrigacoes": [
-    "868bbdfdd6ed7ce7",
     "e863a4cbf5a00dd2",
     "36d97e25c9c45652",
     "dd9e67e41aa4ea38",
@@ -1159,157 +1136,6 @@
    "dependencias_no_texto": []
   },
   {
-   "id": "outros",
-   "nome": "Outras obrigações",
-   "fontes": [],
-   "n": 6,
-   "contagem": {
-    "vencida": 1,
-    "90dias": 0,
-    "depois": 0,
-    "recorrente": 0,
-    "evento": 4,
-    "sem_prazo": 1
-   },
-   "prazo_mais_urgente": {
-    "obrigacao": "2c00dc4ce9434217",
-    "data": "2025-10-30",
-    "texto": "Vencido desde 30/10/2025 (383 dias)",
-    "dias": -383,
-    "provisorio": true,
-    "condicional": false,
-    "base": "2025-10-30",
-    "situacao": "vencida"
-   },
-   "na_fila": 1,
-   "a_confirmar": 5,
-   "grupos": [
-    "III"
-   ],
-   "grupo_mais_grave": "III",
-   "infracoes": [
-    "Art. 11, VII"
-   ],
-   "faixa": {
-    "grupos": [
-     "III"
-    ],
-    "teto_grupo_pct": 0.5,
-    "maximo_pct": {
-     "com_teto": 0.5,
-     "sem_teto": 0.5
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.025000000000000022,
-     "ate_tn": 0.25
-    },
-    "maximo_reais": {
-     "com_teto": 25000000.0,
-     "sem_teto": 25000000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 1250000.0000000012,
-     "ate_tn": 12500000.0
-    }
-   },
-   "faixa_preliminar": {
-    "grupos": [
-     "IV"
-    ],
-    "teto_grupo_pct": 1.0,
-    "maximo_pct": {
-     "com_teto": 1.0,
-     "sem_teto": 1.0
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.050000000000000044,
-     "ate_tn": 0.5
-    },
-    "maximo_reais": {
-     "com_teto": 50000000.0,
-     "sem_teto": 50000000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 2500000.0000000023,
-     "ate_tn": 25000000.0
-    }
-   },
-   "grupos_sugeridos": [
-    "I",
-    "II",
-    "III",
-    "IV"
-   ],
-   "ia": {
-    "dispositivo": "Art. 9º, VI",
-    "n": 1,
-    "de": 4
-   },
-   "evidencias": [
-    {
-     "id": "site",
-     "n": 1,
-     "exemplo": {
-      "obrigacao": "6a75e130ecf1cdda",
-      "trecho": "doras deverão informar e manter, por até cinco anos, em seu sítio eletrônico, os indicadores estabelecidos nos incisos V e VI do caput d"
-     }
-    }
-   ],
-   "guardar": [
-    {
-     "id": "aneel",
-     "n": 3
-    },
-    {
-     "id": "emergencia",
-     "n": 2
-    },
-    {
-     "id": "protocolos",
-     "n": 2
-    }
-   ],
-   "excludentes": [],
-   "causa_externa": "argumento a confirmar com advogado",
-   "principais": [
-    "0a7ca3ffa419b877",
-    "aa970d563840ad15",
-    "49c69256fe352127",
-    "6a75e130ecf1cdda"
-   ],
-   "obrigacoes": [
-    "2c00dc4ce9434217",
-    "0a7ca3ffa419b877",
-    "aa970d563840ad15",
-    "49c69256fe352127",
-    "6a75e130ecf1cdda",
-    "d6664266cb6f2dc2"
-   ],
-   "dependencias_no_texto": [
-    {
-     "obrigacao": "aa970d563840ad15",
-     "id": "ato_da_aneel",
-     "trecho_literal": "As distribuidoras devem implantar processo de comunicação e acompanhamento da evolução dos eventos climáticos severos de que trata o item 114 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, em até 30 (trinta) dias, contados da publicação das instruções pela ANEEL"
-    },
-    {
-     "obrigacao": "49c69256fe352127",
-     "id": "ato_da_aneel",
-     "trecho_literal": "As distribuidoras devem disponibilizar a API de que trata item 113 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa em até 60 (sessenta) dias, contados da publicação das instruções pela ANEEL"
-    },
-    {
-     "obrigacao": "6a75e130ecf1cdda",
-     "id": "ato_da_aneel",
-     "trecho_literal": "do Decreto 12.068, de 20 de julho de 2024, em até 30 dias, contados da publicação das instruções pela ANEEL"
-    }
-   ]
-  },
-  {
    "id": "cessao",
    "nome": "Cessão emergencial entre distribuidoras",
    "fontes": [
@@ -1460,6 +1286,147 @@
    "dependencias_no_texto": []
   },
   {
+   "id": "outros",
+   "nome": "Outras obrigações",
+   "fontes": [],
+   "n": 5,
+   "contagem": {
+    "vencida": 0,
+    "90dias": 0,
+    "depois": 0,
+    "recorrente": 0,
+    "evento": 4,
+    "sem_prazo": 1
+   },
+   "prazo_mais_urgente": null,
+   "na_fila": 1,
+   "a_confirmar": 4,
+   "grupos": [
+    "III"
+   ],
+   "grupo_mais_grave": "III",
+   "infracoes": [
+    "Art. 11, VII"
+   ],
+   "faixa": {
+    "grupos": [
+     "III"
+    ],
+    "teto_grupo_pct": 0.5,
+    "maximo_pct": {
+     "com_teto": 0.5,
+     "sem_teto": 0.5
+    },
+    "teto_legal_pct": 3.0,
+    "teto_legal_lei_pct": 3.0,
+    "teto_legal_subestimado": true,
+    "com_atenuante_pct": {
+     "espontanea": 0.025000000000000022,
+     "ate_tn": 0.25
+    },
+    "maximo_reais": {
+     "com_teto": 25000000.0,
+     "sem_teto": 25000000.0
+    },
+    "com_atenuante_reais": {
+     "espontanea": 1250000.0000000012,
+     "ate_tn": 12500000.0
+    }
+   },
+   "faixa_preliminar": {
+    "grupos": [
+     "IV"
+    ],
+    "teto_grupo_pct": 1.0,
+    "maximo_pct": {
+     "com_teto": 1.0,
+     "sem_teto": 1.0
+    },
+    "teto_legal_pct": 3.0,
+    "teto_legal_lei_pct": 3.0,
+    "teto_legal_subestimado": true,
+    "com_atenuante_pct": {
+     "espontanea": 0.050000000000000044,
+     "ate_tn": 0.5
+    },
+    "maximo_reais": {
+     "com_teto": 50000000.0,
+     "sem_teto": 50000000.0
+    },
+    "com_atenuante_reais": {
+     "espontanea": 2500000.0000000023,
+     "ate_tn": 25000000.0
+    }
+   },
+   "grupos_sugeridos": [
+    "I",
+    "II",
+    "III",
+    "IV"
+   ],
+   "ia": {
+    "dispositivo": "Art. 9º, VI",
+    "n": 1,
+    "de": 4
+   },
+   "evidencias": [
+    {
+     "id": "site",
+     "n": 1,
+     "exemplo": {
+      "obrigacao": "6a75e130ecf1cdda",
+      "trecho": "doras deverão informar e manter, por até cinco anos, em seu sítio eletrônico, os indicadores estabelecidos nos incisos V e VI do caput d"
+     }
+    }
+   ],
+   "guardar": [
+    {
+     "id": "aneel",
+     "n": 3
+    },
+    {
+     "id": "emergencia",
+     "n": 2
+    },
+    {
+     "id": "protocolos",
+     "n": 2
+    }
+   ],
+   "excludentes": [],
+   "causa_externa": "argumento a confirmar com advogado",
+   "principais": [
+    "0a7ca3ffa419b877",
+    "aa970d563840ad15",
+    "49c69256fe352127",
+    "6a75e130ecf1cdda"
+   ],
+   "obrigacoes": [
+    "0a7ca3ffa419b877",
+    "aa970d563840ad15",
+    "49c69256fe352127",
+    "6a75e130ecf1cdda",
+    "d6664266cb6f2dc2"
+   ],
+   "dependencias_no_texto": [
+    {
+     "obrigacao": "aa970d563840ad15",
+     "id": "ato_da_aneel",
+     "trecho_literal": "As distribuidoras devem implantar processo de comunicação e acompanhamento da evolução dos eventos climáticos severos de que trata o item 114 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, em até 30 (trinta) dias, contados da publicação das instruções pela ANEEL"
+    },
+    {
+     "obrigacao": "49c69256fe352127",
+     "id": "ato_da_aneel",
+     "trecho_literal": "As distribuidoras devem disponibilizar a API de que trata item 113 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa em até 60 (sessenta) dias, contados da publicação das instruções pela ANEEL"
+    },
+    {
+     "obrigacao": "6a75e130ecf1cdda",
+     "id": "ato_da_aneel",
+     "trecho_literal": "do Decreto 12.068, de 20 de julho de 2024, em até 30 dias, contados da publicação das instruções pela ANEEL"
+    }
+   ]
+  },
+  {
    "id": "dise",
    "nome": "Apuração do DISE e compensações",
    "fontes": [
@@ -1586,65 +1553,11 @@
   "contingencia",
   "poder_publico",
   "informacoes",
-  "outros",
   "cessao",
+  "outros",
   "dise"
  ],
  "obrigacoes": [
-  {
-   "id": "2c00dc4ce9434217",
-   "titulo": "As disposições não listadas nos artigos 13, 14, 15 e 16 devem ser implementadas na…",
-   "titulo_origem": "regra",
-   "titulo_completo": "As disposições não listadas nos artigos 13, 14, 15 e 16 devem ser implementadas na data de publicação desta Resolução Normativa",
-   "sujeito_implicito": true,
-   "titulo_curto": "Implementar disposições não listadas",
-   "evite": null,
-   "recomendacoes": [],
-   "contexto": "",
-   "tema": "outros",
-   "motivo_tema": "Sem seção temática nem assunto reconhecido",
-   "unidade": "u0311",
-   "principal": "u0311",
-   "detalhe": false,
-   "trecho": "Art. 18. As disposições não listadas nos artigos 13, 14, 15 e 16 devem ser implementadas na data de publicação desta Resolução Normativa.",
-   "situacao": "vencida",
-   "marco": null,
-   "prazo": {
-    "data": "2025-10-30",
-    "texto": "Vencido desde 30/10/2025 (383 dias)",
-    "dias": -383,
-    "provisorio": true,
-    "condicional": false,
-    "base": "2025-10-30"
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": null,
-   "grupo": null,
-   "faixa_preliminar": null,
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [],
-   "guardar": [],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": "implantar_sistema_processo",
-     "nome": "Implantar sistema ou processo",
-     "situacao": "concordam",
-     "por": "regra e IA concordam",
-     "regra_id": "implantar_sistema_processo"
-    },
-    "dependencias_no_texto": []
-   },
-   "area": "TI/Sistemas",
-   "area_origem": "regra",
-   "dispositivo": "Art. 18",
-   "erro_material": null,
-   "esclarecimento": null
-  },
   {
    "id": "4bc7805026308769",
    "titulo": "Disponibilizar versão atualizada do plano de manejo vegetal",
@@ -1868,119 +1781,9 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Operação/Manutenção",
-   "area_origem": "regra",
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "item 148",
-   "erro_material": null,
-   "esclarecimento": null
-  },
-  {
-   "id": "f0ee215c5b31a957",
-   "titulo": "Revisar e publicar planos de manejo, comunicação e contingência",
-   "titulo_origem": "ia",
-   "titulo_completo": "Revisar e publicar planos de manejo, comunicação e contingência",
-   "sujeito_implicito": false,
-   "titulo_curto": "Publicar planos revisados",
-   "evite": {
-    "acao": "Revisar planos sem publicar versão atualizada e acessível ao público.",
-    "trecho_citado": "revisar e publicar os planos de manejo vegetal"
-   },
-   "recomendacoes": [
-    {
-     "acao": "Publicar no sítio eletrônico os planos de manejo vegetal revisados com mapas por circuito e cronograma de poda por faixa.",
-     "trecho_citado": "planos de manejo vegetal"
-    },
-    {
-     "acao": "Publicar no sítio eletrônico o plano de contingência revisado com pontos de concentração e procedimentos de restabelecimento.",
-     "trecho_citado": "de contingência"
-    }
-   ],
-   "contexto": "Art. 13. As distribuidoras devem observar os seguintes prazos para implementação das disposições desta Resolução Normativa, contados da publicação:",
-   "tema": "manejo",
-   "motivo_tema": "O texto nomeia \"manejo\"",
-   "unidade": "u0300",
-   "principal": "u0300",
-   "detalhe": false,
-   "trecho": "I - Até 90 (noventa) dias para revisar e publicar os planos de manejo vegetal, de comunicação e de contingência de que tratam os itens 103, 108 e 148 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa;",
-   "situacao": "vencida",
-   "marco": null,
-   "prazo": {
-    "data": "2026-01-28",
-    "texto": "Vencido desde 28/01/2026 (293 dias)",
-    "dias": -293,
-    "provisorio": true,
-    "condicional": false,
-    "base": "2025-10-30"
-   },
-   "calculo": "fila",
-   "posicao_fila": 3,
-   "enquadramento": [
-    {
-     "dispositivo": "Art. 12, XXVII",
-     "grupo": "IV"
-    }
-   ],
-   "ia": null,
-   "grupo": "IV",
-   "faixa_preliminar": null,
-   "faixa": {
-    "grupos": [
-     "IV"
-    ],
-    "teto_grupo_pct": 1.0,
-    "maximo_pct": {
-     "com_teto": 1.0,
-     "sem_teto": 1.0
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.050000000000000044,
-     "ate_tn": 0.5
-    },
-    "maximo_reais": {
-     "com_teto": 50000000.0,
-     "sem_teto": 50000000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 2500000.0000000023,
-     "ate_tn": 25000000.0
-    }
-   },
-   "premissas": [
-    "Enquadramento: Grupo(s) IV (indicado por termo coincidente com infração tipificada)",
-    "Mínimo 0: cabe advertência ou atenuante, e a metodologia do valor base não está no repositório",
-    "Máximo sem atenuante (pior caso)",
-    "Teto legal: 3% do faturamento por infração (Art. 3, X da Lei 9.427/1996, redação dada pela Lei nº 15.269, de 2025); infração em 28/01/2026, a partir de 25/11/2025 (Art. 24, caput e IV da Lei 15.269/2025); data considerada: data do prazo",
-    "Limite legal conforme a data do prazo; a data real da infração pode diferir.",
-    "Teto legal possivelmente subestimado: faturamento bruto não informado, aplicado sobre a base (ROL)"
-   ],
-   "motivo_sem_calculo": null,
-   "evidencias": [
-    {
-     "id": "plano",
-     "trecho": "I - Até 90 (noventa) dias para revisar e publicar os planos de manejo vegetal, de comunicação e de contingência de que"
-    }
-   ],
-   "guardar": [
-    "protocolos",
-    "versoes"
-   ],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": "elaborar_ou_revisar_plano",
-     "nome": "Elaborar ou revisar plano",
-     "situacao": "concordam",
-     "por": "regra e IA concordam",
-     "regra_id": "elaborar_ou_revisar_plano"
-    },
-    "dependencias_no_texto": []
-   },
-   "area": "Meio Ambiente/Arborização",
-   "area_origem": "regra",
-   "dispositivo": "Art. 13, inciso I",
    "erro_material": null,
    "esclarecimento": null
   },
@@ -2085,8 +1888,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Operação/Manutenção",
-   "area_origem": "regra",
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "item 108",
    "erro_material": null,
    "esclarecimento": null
@@ -2207,8 +2010,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Operação/Manutenção",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 107, alínea k",
    "erro_material": null,
    "esclarecimento": null
@@ -3572,392 +3375,6 @@
    "esclarecimento": null
   },
   {
-   "id": "868bbdfdd6ed7ce7",
-   "titulo": "Implementar o registro das interações com o Poder Público Municipal em relação ao…",
-   "titulo_origem": "regra",
-   "titulo_completo": "Implementar o registro das interações com o Poder Público Municipal em relação ao serviço de manejo da vegetação que apresente risco à segurança das redes elétricas e a continuidade do fornecimento",
-   "sujeito_implicito": false,
-   "titulo_curto": "Registrar interações com prefeituras",
-   "evite": {
-    "acao": "Omitir interações sobre manejo da vegetação no registro.",
-    "trecho_citado": "registro das interações com o Poder Público Municipal"
-   },
-   "recomendacoes": [],
-   "contexto": "Art. 13. As distribuidoras devem observar os seguintes prazos para implementação das disposições desta Resolução Normativa, contados da publicação:",
-   "tema": "poder_publico",
-   "motivo_tema": "O texto nomeia \"Poder Público\"",
-   "unidade": "u0301",
-   "principal": "u0301",
-   "detalhe": false,
-   "trecho": "II - Até 180 (cento e oitenta) dias para implementar o registro das interações com o Poder Público Municipal em relação ao serviço de manejo da vegetação que apresente risco à segurança das redes elétricas e a continuidade do fornecimento, conforme dispõe o item 104 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa;",
-   "situacao": "vencida",
-   "marco": null,
-   "prazo": {
-    "data": "2026-04-28",
-    "texto": "Vencido desde 28/04/2026 (203 dias)",
-    "dias": -203,
-    "provisorio": true,
-    "condicional": false,
-    "base": "2025-10-30"
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 12, XXVII",
-    "grupo": "IV",
-    "justificativa": "A obrigação exige implementar, em 180 dias, o registro das interações com o Poder Público Municipal relativas ao manejo da vegetação que apresente risco às redes; o Art. 12, XXVII tipifica a ausência, inadequação ou descumprimento do Plano de Manejo Vegetal, abrangendo falhas em controles e registros vinculados ao manejo vegetacional.",
-    "duvida": null
-   },
-   "grupo": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "IV"
-    ],
-    "teto_grupo_pct": 1.0,
-    "maximo_pct": {
-     "com_teto": 1.0,
-     "sem_teto": 1.0
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.050000000000000044,
-     "ate_tn": 0.5
-    },
-    "maximo_reais": {
-     "com_teto": 50000000.0,
-     "sem_teto": 50000000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 2500000.0000000023,
-     "ate_tn": 25000000.0
-    }
-   },
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [
-    {
-     "id": "registro",
-     "trecho": "II - Até 180 (cento e oitenta) dias para implementar o registro das interações com o Poder Público Municipal em relação ao"
-    }
-   ],
-   "guardar": [
-    "poder_publico"
-   ],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": null,
-     "nome": null,
-     "situacao": "a_revisar",
-     "por": "regra: Manter registro ou histórico; IA: implantar_sistema_processo",
-     "regra_id": "manter_registro_historico"
-    },
-    "dependencias_no_texto": []
-   },
-   "area": "Meio Ambiente/Arborização",
-   "area_origem": "regra",
-   "dispositivo": "Art. 13, inciso II",
-   "erro_material": null,
-   "esclarecimento": null
-  },
-  {
-   "id": "a002094347c42776",
-   "titulo": "Implementar os mecanismos de comunicação ao consumidor sobre a previsão de…",
-   "titulo_origem": "regra",
-   "titulo_completo": "Implementar os mecanismos de comunicação ao consumidor sobre a previsão de reestabelecimento do serviço e demais informações de que trata o item 105 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa",
-   "sujeito_implicito": false,
-   "titulo_curto": "Informar previsão de reestabelecimento",
-   "evite": {
-    "acao": "Divulgar previsão vaga de reestabelecimento sem justificativa técnica e sem estimativa confiável.",
-    "trecho_citado": "previsão de reestabelecimento do serviço"
-   },
-   "recomendacoes": [],
-   "contexto": "Art. 13. As distribuidoras devem observar os seguintes prazos para implementação das disposições desta Resolução Normativa, contados da publicação:",
-   "tema": "consumidor",
-   "motivo_tema": "O texto nomeia \"consumidor\"",
-   "unidade": "u0302",
-   "principal": "u0302",
-   "detalhe": false,
-   "trecho": "III - Até 180 (cento e oitenta) dias para implementar os mecanismos de comunicação ao consumidor sobre a previsão de reestabelecimento do serviço e demais informações de que trata o item 105 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa;",
-   "situacao": "vencida",
-   "marco": null,
-   "prazo": {
-    "data": "2026-04-28",
-    "texto": "Vencido desde 28/04/2026 (203 dias)",
-    "dias": -203,
-    "provisorio": true,
-    "condicional": false,
-    "base": "2025-10-30"
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 11, XXIII",
-    "grupo": "III",
-    "justificativa": "A obrigação exige implementar mecanismos de comunicação ao consumidor sobre a previsão de reestabelecimento do serviço e demais informações relacionadas a interrupções; o dispositivo descreve precisamente a infração de \"deixar de prestar informações decorrentes de interrupções no fornecimento... nos termos da regulação vigente\", o que corresponde diretamente à falha em implementar tais mecanismos.",
-    "duvida": "D1"
-   },
-   "grupo": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "III"
-    ],
-    "teto_grupo_pct": 0.5,
-    "maximo_pct": {
-     "com_teto": 0.5,
-     "sem_teto": 0.5
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.025000000000000022,
-     "ate_tn": 0.25
-    },
-    "maximo_reais": {
-     "com_teto": 25000000.0,
-     "sem_teto": 25000000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 1250000.0000000012,
-     "ate_tn": 12500000.0
-    }
-   },
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [],
-   "guardar": [
-    "protocolos"
-   ],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": "comunicar_consumidores",
-     "nome": "Comunicar consumidores",
-     "situacao": "concordam",
-     "por": "regra e IA concordam",
-     "regra_id": "comunicar_consumidores"
-    },
-    "dependencias_no_texto": []
-   },
-   "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
-   "dispositivo": "Art. 13, inciso III",
-   "erro_material": null,
-   "esclarecimento": null
-  },
-  {
-   "id": "b758c9c169c145ec",
-   "titulo": "Disponibilizar em sítio eletrônico o número total de unidades consumidoras afetadas…",
-   "titulo_origem": "regra",
-   "titulo_completo": "Disponibilizar em sítio eletrônico o número total de unidades consumidoras afetadas por interrupções em mapa",
-   "sujeito_implicito": false,
-   "titulo_curto": "Mapa de unidades afetadas",
-   "evite": {
-    "acao": "Publicar mapa online sem exibir o número total de unidades consumidoras afetadas.",
-    "trecho_citado": "número total de unidades consumidoras afetadas"
-   },
-   "recomendacoes": [
-    {
-     "acao": "Publicar mapa interativo no sítio eletrônico mostrando o número total de unidades consumidoras afetadas por interrupções por área.",
-     "trecho_citado": "número total de unidades consumidoras afetadas"
-    },
-    {
-     "acao": "Disponibilizar o mapa na página principal do sítio eletrônico com camada por bairro e opção de visualização por circuito.",
-     "trecho_citado": "disponibilizar em sítio eletrônico"
-    }
-   ],
-   "contexto": "Art. 13. As distribuidoras devem observar os seguintes prazos para implementação das disposições desta Resolução Normativa, contados da publicação:",
-   "tema": "consumidor",
-   "motivo_tema": "O texto nomeia \"consumidor\"",
-   "unidade": "u0303",
-   "principal": "u0303",
-   "detalhe": false,
-   "trecho": "IV - Até 180 (cento e oitenta) dias para disponibilizar em sítio eletrônico o número total de unidades consumidoras afetadas por interrupções em mapa, conforme dispõe o item 106 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa;",
-   "situacao": "vencida",
-   "marco": null,
-   "prazo": {
-    "data": "2026-04-28",
-    "texto": "Vencido desde 28/04/2026 (203 dias)",
-    "dias": -203,
-    "provisorio": true,
-    "condicional": false,
-    "base": "2025-10-30"
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 11, XXIII",
-    "grupo": "III",
-    "justificativa": "A obrigação determina disponibilizar em sítio eletrônico o número total de unidades consumidoras afetadas por interrupções (mapa) conforme regulação vigente; o dispositivo prevê como infração “deixar de prestar informações decorrentes de interrupções no fornecimento de energia elétrica aos consumidores”, que descreve a mesma conduta de omissão na divulgação das informações sobre interrupções.",
-    "duvida": "D1"
-   },
-   "grupo": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "III"
-    ],
-    "teto_grupo_pct": 0.5,
-    "maximo_pct": {
-     "com_teto": 0.5,
-     "sem_teto": 0.5
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.025000000000000022,
-     "ate_tn": 0.25
-    },
-    "maximo_reais": {
-     "com_teto": 25000000.0,
-     "sem_teto": 25000000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 1250000.0000000012,
-     "ate_tn": 12500000.0
-    }
-   },
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [
-    {
-     "id": "site",
-     "trecho": "IV - Até 180 (cento e oitenta) dias para disponibilizar em sítio eletrônico o número total de unidades consumidoras afetadas por interr"
-    }
-   ],
-   "guardar": [
-    "indisponibilidade"
-   ],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": "publicar_no_site",
-     "nome": "Publicar no site",
-     "situacao": "concordam",
-     "por": "regra e IA concordam",
-     "regra_id": "publicar_no_site"
-    },
-    "dependencias_no_texto": []
-   },
-   "area": "TI/Sistemas",
-   "area_origem": "regra",
-   "dispositivo": "Art. 13, inciso IV",
-   "erro_material": null,
-   "esclarecimento": null
-  },
-  {
-   "id": "d61df9955ff31362",
-   "titulo": "Disponibilizar em sítio eletrônico as informações relacionadas às ocorrências abertas",
-   "titulo_origem": "regra",
-   "titulo_completo": "Disponibilizar em sítio eletrônico as informações relacionadas às ocorrências abertas",
-   "sujeito_implicito": false,
-   "titulo_curto": "Publicar informações de ocorrências",
-   "evite": {
-    "acao": "Divulgar ocorrências abertas sem os campos exigidos pelo item 107 do Anexo IV.",
-    "trecho_citado": "informações relacionadas às ocorrências abertas"
-   },
-   "recomendacoes": [
-    {
-     "acao": "Publicar página com lista de ocorrências abertas no sítio eletrônico, indicando local, início, causa e status por ocorrência.",
-     "trecho_citado": "informações relacionadas às ocorrências abertas"
-    },
-    {
-     "acao": "Incluir filtros por município e tipo de ocorrência na página de ocorrências disponibilizada no sítio eletrônico.",
-     "trecho_citado": "disponibilizar em sítio eletrônico"
-    }
-   ],
-   "contexto": "Art. 13. As distribuidoras devem observar os seguintes prazos para implementação das disposições desta Resolução Normativa, contados da publicação:",
-   "tema": "consumidor",
-   "motivo_tema": "O texto nomeia \"ocorrências abertas\"",
-   "unidade": "u0304",
-   "principal": "u0304",
-   "detalhe": false,
-   "trecho": "V - Até 180 (cento e oitenta) dias para disponibilizar em sítio eletrônico as informações relacionadas às ocorrências abertas, conforme dispõe o item 107 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa;",
-   "situacao": "vencida",
-   "marco": null,
-   "prazo": {
-    "data": "2026-04-28",
-    "texto": "Vencido desde 28/04/2026 (203 dias)",
-    "dias": -203,
-    "provisorio": true,
-    "condicional": false,
-    "base": "2025-10-30"
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 9º, III",
-    "grupo": "I",
-    "justificativa": "A obrigação exige \"disponibilizar em sítio eletrônico as informações relacionadas às ocorrências abertas\" conforme prazos regulatórios; o dispositivo prevê como infração \"deixar de prestar informações aos consumidores... conforme determinado nas disposições legais, regulamentares ou contratuais\", cobrindo a omissão em fornecer informações exigidas por norma.",
-    "duvida": null
-   },
-   "grupo": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "I"
-    ],
-    "teto_grupo_pct": 0.125,
-    "maximo_pct": {
-     "com_teto": 0.125,
-     "sem_teto": 0.125
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.0062500000000000056,
-     "ate_tn": 0.0625
-    },
-    "maximo_reais": {
-     "com_teto": 6250000.0,
-     "sem_teto": 6250000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 312500.0000000003,
-     "ate_tn": 3125000.0
-    }
-   },
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [
-    {
-     "id": "site",
-     "trecho": "V - Até 180 (cento e oitenta) dias para disponibilizar em sítio eletrônico as informações relacionadas às ocorrências abertas, conform"
-    }
-   ],
-   "guardar": [
-    "indisponibilidade",
-    "protocolos"
-   ],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": "publicar_no_site",
-     "nome": "Publicar no site",
-     "situacao": "concordam",
-     "por": "regra e IA concordam",
-     "regra_id": "publicar_no_site"
-    },
-    "dependencias_no_texto": []
-   },
-   "area": "TI/Sistemas",
-   "area_origem": "regra",
-   "dispositivo": "Art. 13, inciso V",
-   "erro_material": null,
-   "esclarecimento": null
-  },
-  {
    "id": "6c0622d9f1615d32",
    "titulo": "Iniciar as apurações do Duração da Interrupção Individual ocorrida em Situação de…",
    "titulo_origem": "regra",
@@ -4638,8 +4055,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Jurídico",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 132, alínea b",
    "erro_material": null,
    "esclarecimento": null
@@ -5632,8 +5049,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "item 132, alínea l",
    "erro_material": null,
    "esclarecimento": null
@@ -5731,8 +5148,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
-   "area_origem": "regra",
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "item 132, alínea m",
    "erro_material": null,
    "esclarecimento": null
@@ -5823,8 +5240,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "item 138",
    "erro_material": null,
    "esclarecimento": null
@@ -5969,8 +5386,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
-   "area_origem": "regra",
+   "area": "Operação/Manutenção",
+   "area_origem": "ia",
    "dispositivo": "item 219",
    "erro_material": null,
    "esclarecimento": null
@@ -6270,8 +5687,8 @@
      }
     ]
    },
-   "area": "Regulatório",
-   "area_origem": "regra",
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "Art. 16",
    "erro_material": null,
    "esclarecimento": null
@@ -6604,7 +6021,7 @@
     "dependencias_no_texto": []
    },
    "area": "Regulatório",
-   "area_origem": "regra",
+   "area_origem": "ia",
    "dispositivo": "item 115",
    "erro_material": null,
    "esclarecimento": null
@@ -6708,8 +6125,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
-   "area_origem": "regra",
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
    "dispositivo": "item 118",
    "erro_material": null,
    "esclarecimento": null
@@ -7455,8 +6872,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 142, alínea e",
    "erro_material": null,
    "esclarecimento": null
@@ -8196,8 +7613,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
+   "area": "Operação/Manutenção",
+   "area_origem": "ia",
    "dispositivo": "item 143, alínea f",
    "erro_material": null,
    "esclarecimento": null
@@ -8406,7 +7823,7 @@
     "dependencias_no_texto": []
    },
    "area": "Regulatório",
-   "area_origem": "regra",
+   "area_origem": "ia",
    "dispositivo": "item 143, alínea h",
    "erro_material": null,
    "esclarecimento": null
@@ -8609,8 +8026,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Operação/Manutenção",
-   "area_origem": "regra",
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "item 143, alínea j",
    "erro_material": null,
    "esclarecimento": null
@@ -8818,8 +8235,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
-   "area_origem": "regra",
+   "area": "Operação/Manutenção",
+   "area_origem": "ia",
    "dispositivo": "item 144, alínea b",
    "erro_material": null,
    "esclarecimento": null
@@ -9240,8 +8657,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Operação/Manutenção",
-   "area_origem": "regra",
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
    "dispositivo": "item 144, alínea f",
    "erro_material": null,
    "esclarecimento": null
@@ -9344,8 +8761,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Operação/Manutenção",
-   "area_origem": "regra",
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "item 144, alínea g",
    "erro_material": null,
    "esclarecimento": null
@@ -9558,7 +8975,7 @@
     "dependencias_no_texto": []
    },
    "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
+   "area_origem": "ia",
    "dispositivo": "item 144, alínea i",
    "erro_material": null,
    "esclarecimento": null
@@ -9774,8 +9191,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Operação/Manutenção",
-   "area_origem": "regra",
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "item 147",
    "erro_material": null,
    "esclarecimento": null
@@ -11505,8 +10922,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 101, alínea g",
    "erro_material": null,
    "esclarecimento": null
@@ -12257,8 +11674,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 116",
    "erro_material": null,
    "esclarecimento": null
@@ -12446,8 +11863,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Operação/Manutenção",
-   "area_origem": "regra",
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "item 119",
    "erro_material": null,
    "esclarecimento": null
@@ -12799,8 +12216,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Jurídico",
-   "area_origem": "regra",
+   "area": "Operação/Manutenção",
+   "area_origem": "ia",
    "dispositivo": "item 133, alínea c",
    "erro_material": null,
    "esclarecimento": null
@@ -12983,8 +12400,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "item 133, alínea e",
    "erro_material": null,
    "esclarecimento": null
@@ -13080,8 +12497,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "item 133, alínea f",
    "erro_material": null,
    "esclarecimento": null
@@ -13172,8 +12589,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Operação/Manutenção",
-   "area_origem": "regra",
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "item 133, alínea g",
    "erro_material": null,
    "esclarecimento": null
@@ -13797,8 +13214,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 137",
    "erro_material": null,
    "esclarecimento": null
@@ -13887,8 +13304,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "item 139, alínea c",
    "erro_material": null,
    "esclarecimento": null
@@ -13984,8 +13401,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 142, alínea g",
    "erro_material": null,
    "esclarecimento": null
@@ -14815,8 +14232,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
-   "area_origem": "regra",
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "item 23-G",
    "erro_material": null,
    "esclarecimento": null
@@ -14885,8 +14302,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "item 23-H",
    "erro_material": null,
    "esclarecimento": null
@@ -15455,8 +14872,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
-   "area_origem": "regra",
+   "area": "Jurídico",
+   "area_origem": "ia",
    "dispositivo": "item 226",
    "erro_material": null,
    "esclarecimento": null
@@ -15643,8 +15060,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
-   "area_origem": "regra",
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
    "dispositivo": "Art. 371-A",
    "erro_material": null,
    "esclarecimento": null
@@ -16013,7 +15430,7 @@
     "dependencias_no_texto": []
    },
    "area": "Regulatório",
-   "area_origem": "regra",
+   "area_origem": "ia",
    "dispositivo": "Art. 371-A, § 3º",
    "erro_material": null,
    "esclarecimento": null
@@ -16285,8 +15702,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "Art. 371-A, § 6º",
    "erro_material": null,
    "esclarecimento": null
@@ -16468,8 +15885,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
+   "area": "Jurídico",
+   "area_origem": "ia",
    "dispositivo": "Art. 19, inciso XIII, alínea c",
    "erro_material": null,
    "esclarecimento": null
@@ -16635,6 +16052,66 @@
    "trecho": "Art 11. A Cessão Emergencial de recursos humanos, equipamentos e materiais poderá ser realizada também entre distribuidoras e transmissoras, visando garantir a continuidade do serviço em situações de crise, sem comprometer a segurança operacional do cedente.",
    "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
    "dispositivo": "Art. 11"
+  },
+  {
+   "id": "f0ee215c5b31a957",
+   "natureza": "regra_de_transicao",
+   "rotulo": "Regra de transição ou vigência de outros dispositivos",
+   "sujeito": "As distribuidoras",
+   "unidade": "u0300",
+   "trecho": "I - Até 90 (noventa) dias para revisar e publicar os planos de manejo vegetal, de comunicação e de contingência de que tratam os itens 103, 108 e 148 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa;",
+   "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
+   "dispositivo": "Art. 13, inciso I"
+  },
+  {
+   "id": "868bbdfdd6ed7ce7",
+   "natureza": "regra_de_transicao",
+   "rotulo": "Regra de transição ou vigência de outros dispositivos",
+   "sujeito": "As distribuidoras",
+   "unidade": "u0301",
+   "trecho": "II - Até 180 (cento e oitenta) dias para implementar o registro das interações com o Poder Público Municipal em relação ao serviço de manejo da vegetação que apresente risco à segurança das redes elétricas e a continuidade do fornecimento, conforme dispõe o item 104 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa;",
+   "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
+   "dispositivo": "Art. 13, inciso II"
+  },
+  {
+   "id": "a002094347c42776",
+   "natureza": "regra_de_transicao",
+   "rotulo": "Regra de transição ou vigência de outros dispositivos",
+   "sujeito": "As distribuidoras",
+   "unidade": "u0302",
+   "trecho": "III - Até 180 (cento e oitenta) dias para implementar os mecanismos de comunicação ao consumidor sobre a previsão de reestabelecimento do serviço e demais informações de que trata o item 105 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa;",
+   "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
+   "dispositivo": "Art. 13, inciso III"
+  },
+  {
+   "id": "b758c9c169c145ec",
+   "natureza": "regra_de_transicao",
+   "rotulo": "Regra de transição ou vigência de outros dispositivos",
+   "sujeito": "As distribuidoras",
+   "unidade": "u0303",
+   "trecho": "IV - Até 180 (cento e oitenta) dias para disponibilizar em sítio eletrônico o número total de unidades consumidoras afetadas por interrupções em mapa, conforme dispõe o item 106 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa;",
+   "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
+   "dispositivo": "Art. 13, inciso IV"
+  },
+  {
+   "id": "d61df9955ff31362",
+   "natureza": "regra_de_transicao",
+   "rotulo": "Regra de transição ou vigência de outros dispositivos",
+   "sujeito": "As distribuidoras",
+   "unidade": "u0304",
+   "trecho": "V - Até 180 (cento e oitenta) dias para disponibilizar em sítio eletrônico as informações relacionadas às ocorrências abertas, conforme dispõe o item 107 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa;",
+   "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
+   "dispositivo": "Art. 13, inciso V"
+  },
+  {
+   "id": "2c00dc4ce9434217",
+   "natureza": "regra_de_transicao",
+   "rotulo": "Regra de transição ou vigência de outros dispositivos",
+   "sujeito": "As disposições não listadas nos artigos 13, 14, 15 e 16",
+   "unidade": "u0311",
+   "trecho": "Art. 18. As disposições não listadas nos artigos 13, 14, 15 e 16 devem ser implementadas na data de publicação desta Resolução Normativa.",
+   "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
+   "dispositivo": "Art. 18"
   }
  ],
  "sem_dever_identificado": [
@@ -17493,25 +16970,12 @@
     "sha256": "efe4e35fb41aa1306846677ffc32a0c2a150ee6ac44aafe5f15e475e6ad05ad9"
    },
    "conferido_na_fonte": true
-  },
-  "Art. 9º, III": {
-   "grupo": "I",
-   "trecho": "III - deixar de prestar informações aos consumidores ou usuários, quando solicitado ou conforme determinado nas disposições legais, regulamentares ou contratuais;",
-   "origem_da_redacao": "redação original",
-   "fonte": {
-    "titulo": "REN 846/2019 (texto compilado oficial até a RN 1.137/2025)",
-    "arquivo": "tests/fontes_impacto/atren2019846.pdf",
-    "sha256": "efe4e35fb41aa1306846677ffc32a0c2a150ee6ac44aafe5f15e475e6ad05ad9"
-   },
-   "conferido_na_fonte": true
   }
  },
  "linha_do_tempo": {
   "vencida": [
-   "2c00dc4ce9434217",
    "4bc7805026308769",
    "09960ed39dc51125",
-   "f0ee215c5b31a957",
    "d0d9b13f247409a5",
    "7d0919bce4ef3fe9",
    "cde0648e7a44c0f1",
@@ -17528,10 +16992,6 @@
    "4530929b6c0a1c85",
    "b5295bca7f3ea780",
    "bf6d884740a66016",
-   "868bbdfdd6ed7ce7",
-   "a002094347c42776",
-   "b758c9c169c145ec",
-   "d61df9955ff31362",
    "6c0622d9f1615d32"
   ],
   "90dias": [],
@@ -18036,21 +17496,6 @@
     ],
     "status": "rascunho — revisar"
    },
-   "implantar_sistema_processo": {
-    "nome": "Implantar sistema ou processo",
-    "ideias_cumprimento": [
-     "Levantar requisitos a partir do texto da norma, item por item.",
-     "Definir marcos intermediários e responsável, com data de conclusão anterior ao prazo.",
-     "Testar com casos reais e guardar o resultado do teste.",
-     "Documentar o processo e treinar quem o opera."
-    ],
-    "evidencias": [
-     "Cronograma com marcos e entregas.",
-     "Registro dos testes e da homologação.",
-     "Manual do processo e lista de treinados."
-    ],
-    "status": "rascunho — revisar"
-   },
    "adequar_contrato_documento": {
     "nome": "Adequar contrato ou documento",
     "ideias_cumprimento": [
@@ -18063,6 +17508,21 @@
      "Contrato ou aditivo assinado, com data.",
      "Matriz de aderência entre a norma e as cláusulas.",
      "Registro de revisão pelo jurídico."
+    ],
+    "status": "rascunho — revisar"
+   },
+   "implantar_sistema_processo": {
+    "nome": "Implantar sistema ou processo",
+    "ideias_cumprimento": [
+     "Levantar requisitos a partir do texto da norma, item por item.",
+     "Definir marcos intermediários e responsável, com data de conclusão anterior ao prazo.",
+     "Testar com casos reais e guardar o resultado do teste.",
+     "Documentar o processo e treinar quem o opera."
+    ],
+    "evidencias": [
+     "Cronograma com marcos e entregas.",
+     "Registro dos testes e da homologação.",
+     "Manual do processo e lista de treinados."
     ],
     "status": "rascunho — revisar"
    },
@@ -18220,11 +17680,11 @@
   }
  ],
  "a_confirmar": {
-  "total": 177,
+  "total": 171,
   "por_tipo": {
-   "enquadramento sem texto": 111,
+   "enquadramento sem texto": 106,
    "referência a outra norma": 2,
-   "sujeito incerto": 64
+   "sujeito incerto": 63
   },
   "com_possivel_esclarecimento": 17,
   "aviso": "Possível esclarecimento encontrado nos documentos oficiais salvos: continua a confirmar; só uma entrada confirmada em athenix/data/esclarecimentos_oficiais.json muda o cálculo.",

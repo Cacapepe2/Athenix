@@ -37,14 +37,14 @@ test('o plano inteiro acompanha a data: totais, contagem do tema e linha do temp
 test('montarRelatorio respeita a data recebida em TODOS os trechos (cabeçalho, números, temas, áreas)', () => {
   const r = (hoje: string) => montarRelatorio({ sim, modo: 'preliminar', diag: {}, respostas: RESPOSTAS_VAZIAS, hoje })
   const a = r('2026-11-21')
-  const b = r('2025-01-01') // antes de qualquer vencimento da RN 1.137 (o primeiro é 30/10/2025)
+  const b = r('2025-01-01') // antes de qualquer vencimento da RN 1.137 (o primeiro é 28/01/2026)
   assert.equal(a.cabecalho.data, '21/11/2026')
   assert.equal(b.cabecalho.data, '01/01/2025')
   assert.equal(b.cabecalho.prazosAte, '01/01/2025')
-  // com referência em 01/01/2025 não há vencida; o primeiro prazo é o de 30/10/2025 (302 dias)
-  assert.deepEqual(b.numeros.prazo, { valor: '302 dias', legenda: 'até o próximo prazo' })
-  // 25 deveres vencidos = 14 obrigações principais (item ou dispositivo) + 11 alíneas de detalhe do item 107
-  assert.deepEqual(a.numeros.prazo, { valor: '14', legenda: 'obrigações vencidas · 11 itens de detalhe' })
+  // com referência em 01/01/2025 não há vencida; o primeiro prazo é o de 28/01/2026 (392 dias)
+  assert.deepEqual(b.numeros.prazo, { valor: '392 dias', legenda: 'até o próximo prazo' })
+  // 19 registros = 8 principais + 11 detalhes; sem duplicar cinco incisos e a vigência.
+  assert.deepEqual(a.numeros.prazo, { valor: '8', legenda: 'obrigações vencidas · 11 itens de detalhe' })
   assert.ok(b.areas.every((x) => x.vencidas === 0))
   assert.ok(a.areas.some((x) => x.vencidas > 0))
   assert.ok(b.temas.every((t) => !/^Vencido/.test(t.prazo)), 'nenhum tema vencido em 01/01/2025')
@@ -58,8 +58,8 @@ test('blocos do plano e prazos usam a data recebida; a passagem do vencimento mu
   const antes = blocosDoPlano(sim, 'preliminar', '2025-01-01')
   const depois = blocosDoPlano(sim, 'preliminar', '2026-11-21')
   assert.equal(antes.filter((b) => b.situacaoPrazo === 'vencida').length, 0)
-  assert.equal(depois.filter((b) => b.situacaoPrazo === 'vencida').length, 25)
-  assert.equal(prazos(planos.rn1137, '2025-01-01').proxima?.dias, 302)
+  assert.equal(depois.filter((b) => b.situacaoPrazo === 'vencida').length, 19) // 8 principais + 11 detalhes; sem incisos de prazo nem vigência.
+  assert.equal(prazos(planos.rn1137, '2025-01-01').proxima?.dias, 392) // primeiro prazo: 28/01/2026, não a vigência de 30/10/2025.
   assert.equal(prazos(planos.rn1137, '2026-11-21').proxima, null)
 })
 

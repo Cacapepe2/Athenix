@@ -15,7 +15,6 @@ import argparse
 import json
 import sys
 from datetime import date
-from decimal import Decimal, InvalidOperation
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -73,21 +72,11 @@ def main():
     if not a.executar:
         print("Só estimativa (sem --executar): nenhuma chamada feita.")
         return
-    modo = llm.modo(settings)
-    if modo["efetivo"] != "live":
-        print(f"Só estimativa: IA em {modo['efetivo']} ({modo['motivo']}). Nenhuma chamada feita.")
+    liberado, motivo = tipos_ia.liberar_chamada(settings, pior, a.confirmo_custo_usd)
+    if not liberado:
+        print(f"Só estimativa: {motivo}")
         return
-    try:
-        teto, confirmado = Decimal(settings.run_budget_usd), Decimal(a.confirmo_custo_usd or "")
-    except InvalidOperation:
-        print("Sem --confirmo-custo-usd válido: nenhuma chamada feita.")
-        return
-    if confirmado < Decimal(str(round(pior, 4))) or Decimal(str(pior)) > teto:
-        print(
-            f"Pior caso US$ {pior:.4f}: confirmado US$ {confirmado}, teto US$ {teto}. Nenhuma chamada feita."
-        )
-        return
-    r = tipos_ia.rodar(lotes, settings, preco, float(teto))
+    r = tipos_ia.rodar(lotes, settings, preco, float(settings.run_budget_usd))
     bruto = json.loads(tipos_ia.CACHE.read_text(encoding="utf-8"))
     bruto["tipos"].update(r["tipos"])
     bruto["a_definir"] = {

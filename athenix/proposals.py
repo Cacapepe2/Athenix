@@ -9,7 +9,7 @@ from .temporal import PERIOD, rules
 DUTY = re.compile(
     r"\b(?:dever[áã](?:o)?|devem|deve|é obrigatóri[oa]|ficam? obrigad[oa]s?|é vedad[oa]|não pod(?:er[áã]o?|em?)|poder[áã]o?|podem?"
     # "têm 90 (noventa) dias ... para": prazo concedido é dever; exige unidade temporal logo após.
-    r"|t[êe]m\s+(?:o\s+prazo\s+de\s+)?\d+\s*(?:\([^)]{1,40}\)\s*)?(?:dias|meses|anos))\b",
+    r"|(?:é|fica)\s+facultad[oa]|t[êe]m\s+(?:o\s+prazo\s+de\s+)?\d+\s*(?:\([^)]{1,40}\)\s*)?(?:dias|meses|anos))\b",
     re.I,
 )
 # A distribuidora age EXPLICITAMENTE, sem marcador deôntico (deve/poderá...): "será ... pela distribuidora" (passiva),
@@ -40,7 +40,7 @@ def modality(text):
     token = first.group(0).lower()
     if token.startswith(("não", "é vedad")):
         return "prohibition"
-    return "permission" if token.startswith("pod") else "duty"
+    return "permission" if token.startswith(("pod", "é facultad", "fica facultad")) else "duty"
 
 
 def modalities(text):

@@ -85,7 +85,7 @@ function Executiva({ normaId, setNormaId }: { normaId: NormaId; setNormaId: (id:
         {pz.vencidas > 0
           ? <><span className={grande}>{pz.vencidas}</span><span className={LEGENDA}>{textoVencidasComDetalhe({ obrigacoes: pz.vencidas, detalhes: pz.detalhes }).replace(/^\d+ /, '')}</span></>
           : pz.proximoMarco
-            ? <><span className={grande}>{dataBR(pz.proximoMarco.data)}</span><span className={LEGENDA}>próximo marco · {pz.proximoMarco.tipo}</span></>
+            ? <><span className="block text-[length:var(--tamanho-data-executiva)] leading-[0.95] font-bold">{dataBR(pz.proximoMarco.data)}</span><span className={LEGENDA}>próximo marco · {pz.proximoMarco.tipo}</span></>
             : pz.proxima
               ? <><span className={grande}>{pz.proxima.dias} dias</span><span className={LEGENDA}>até o próximo prazo</span></>
               : <><span className={grande}>—</span><span className={LEGENDA}>nenhum prazo a vencer</span></>}

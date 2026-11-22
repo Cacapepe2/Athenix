@@ -191,3 +191,27 @@ def test_a1_item_105_no_plano_mostra_os_dois_limites():
     assert item["marco"]["dispositivo"] == "Art. 13, III" and item["prazo"]["data"] == "2026-04-28"
     assert "por evento: até 15 min após o conhecimento da causa" in item["prazo"]["texto"]
     assert "até 1 h após o reconhecimento da ocorrência" in item["prazo"]["texto"]
+
+
+# --- M1 (auditoria de 21/11): tipo "a revisar" não leva a área do tipo da regra
+@pytest.mark.parametrize(
+    ("dispositivo", "area"),
+    [("item 132, alínea l", "TI/Sistemas"), ("Art. 19, inciso XIII, alínea c", "Jurídico")],
+)
+def test_m1_tipo_a_revisar_usa_area_da_ia_ou_a_definir(dispositivo, area):
+    (o,) = [x for x in PLANO["obrigacoes"] if x["dispositivo"] == dispositivo]
+    assert o["analise"]["tipo"]["situacao"] == "a_revisar"
+    assert o["analise"]["tipo"]["regra_id"] == "estrutura_atendimento_contingencia"
+    assert (o["area"], o["area_origem"]) == (
+        area,
+        "ia",
+    )  # antes: Comunicação/Atendimento pela regra
+
+
+def test_m1_nenhum_tipo_a_revisar_tem_area_pelo_tipo_da_regra():
+    from athenix import areas
+
+    for o in PLANO["obrigacoes"]:
+        if o["analise"]["tipo"]["situacao"] != "a_revisar":
+            continue
+        assert o["area_origem"] in ("ia", None) or areas.area_com_origem(None, None, o["trecho"]) == (o["area"], "regra"), o["dispositivo"]  # fmt: skip

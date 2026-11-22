@@ -156,6 +156,10 @@ def montar(
     for o in out["obrigacoes"] + out["outros_dispositivos"] + out["sem_dever_identificado"]:
         o["dispositivo"] = rotulo(by_id[o["unidade"]], by_id) if o["unidade"] else None
         assert o["trecho"] is None or o["trecho"] in espacos(by_id[o["unidade"]]["text"])
+        if o.get("condicao"):
+            c = o["condicao"]
+            c["dispositivo"] = rotulo(by_id[c["unidade"]], by_id)
+            assert c["trecho"] in espacos(by_id[c["unidade"]]["text"])
     return out, params, p
 
 

@@ -27,7 +27,8 @@ def test_titulo_curto_tem_ate_cinco_palavras_e_quase_toda_obrigacao_o_tem():
             assert len(t.split()) <= tc.MAX_PALAVRAS and not t.endswith("."), (o["id"], t)
     # 6 = 2 antigos + 3 deveres novos da correção C1 + Art. 16, p. único da REN 1.174 (vigência), sem título
     # no cache e sem chamada paga.
-    assert sem <= 6 and sem < total * 0.026
+    # Os 6 sem título permanecem; a base caiu de 238 para 222 com marcos e condicionais fora do principal.
+    assert sem <= 6 and sem < total * 0.028
 
 
 def test_validacao_recusa_mais_de_cinco_palavras_e_produto_fora_do_texto():

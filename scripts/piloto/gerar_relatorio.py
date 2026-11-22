@@ -19,7 +19,6 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts"))
 sys.path.insert(0, str(ROOT))
 from jinja2 import Environment  # noqa: E402
-from playwright.sync_api import sync_playwright  # noqa: E402
 
 from athenix import analise, impacto, plano  # noqa: E402
 from exportar_plano_demo import montar, proveniencia, sucessao_no_tempo  # noqa: E402
@@ -189,7 +188,9 @@ table.portes th, table.portes td { font-size: 8pt; padding: 2.5pt 4pt; }
 </body></html>"""
 
 
-def main():
+def montar_html():
+    """HTML do relatório-piloto e o plano de onde ele saiu (sem PDF, sem navegador): o CI confere as
+    invariantes com `conferir`."""
     p, params, perfil = montar(None, REFERENCIA)
     fontes_lidas = proveniencia(p, params)  # relê as fontes e confere cada trecho citado
     p["sucessao_no_tempo"] = [sucessao_no_tempo(params, fontes_lidas)]
@@ -305,6 +306,17 @@ def main():
             commit=commit,
         )
     )
+    conferir(html)
+    return html, p
+
+
+AVISO_JURIDICO = "não constitui parecer jurídico"
+
+
+def conferir(html):
+    """Invariantes do relatório: aviso de que não é parecer jurídico e nenhum valor em R$ fora das partes
+    ilustrativas (portes e referência de escala da manchete; campos em branco para o gerente)."""
+    assert AVISO_JURIDICO in html, "relatório sem o aviso de que não constitui parecer jurídico"
     # Valor em reais só nos portes ilustrativos e na referência de escala (milhões/bilhões); a ROL da
     # empresa fica em branco para o gerente preencher.
     # Só a manchete (portes ilustrativos e referência de escala) traz R$; o resto fica em % da ROL.
@@ -316,6 +328,13 @@ def main():
         "valor em reais sem base informada: "
         + fora[max(0, fora.index("R$") - 80) : fora.index("R$") + 60]
     )
+
+
+def main():
+    from playwright.sync_api import sync_playwright  # só para o PDF (requirements-qa.txt)
+
+    html, p = montar_html()
+    SAIDA.parent.mkdir(parents=True, exist_ok=True)
     (SAIDA.with_suffix(".html")).write_text(html, encoding="utf-8")
     with sync_playwright() as pw:
         b = pw.chromium.launch(channel="msedge")

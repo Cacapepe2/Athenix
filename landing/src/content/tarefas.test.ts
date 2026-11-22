@@ -53,7 +53,7 @@ test('calendário .ics: formato válido, prazos e recorrências, marca de IA, li
   assert.ok(comData > 0 && (ics.match(/BEGIN:VEVENT/g) ?? []).length >= comData)
   assert.equal((ics.match(/BEGIN:VEVENT/g) ?? []).length, (ics.match(/END:VEVENT/g) ?? []).length)
   assert.match(ics, /DTSTART;VALUE=DATE:\d{8}/)
-  assert.match(ics, /RRULE:FREQ=MONTHLY;INTERVAL=6/) // art. 11, VIII da REN 1.174
+  assert.doesNotMatch(ics, /RRULE:FREQ=MONTHLY;INTERVAL=6/) // Art. 11, VIII: dever condicional, fora da agenda principal.
   assert.ok(ics.split('\r\n').every((l) => octetos(l) <= 75), 'linhas até 75 octetos')
   const desdobrado = ics.split('\r\n ').join('')
   assert.match(desdobrado, /Análise preliminar\\, não é parecer jurídico/) // a vírgula é escapada no .ics

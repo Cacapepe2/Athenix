@@ -174,6 +174,29 @@ def _postar(settings, corpo, tentativas=3):
         return {"status": "resposta_invalida"}
 
 
+def liberar_chamada(settings, pior_usd, confirmo_custo_usd):
+    """Trava única dos scripts de classificação por IA: (liberado, motivo). Só libera com o modo efetivo
+    live (modelo, chave, preço com fonte e data e teto), confirmação explícita do custo (>= pior caso) e
+    pior caso dentro do teto ATHENIX_RUN_BUDGET_USD. off e cached nunca chegam ao transporte pago."""
+    from decimal import Decimal, InvalidOperation
+
+    from . import llm
+
+    m = llm.modo(settings)
+    if m["efetivo"] != "live":
+        return False, f"IA em {m['efetivo']} ({m['motivo']}). Nenhuma chamada feita."
+    try:
+        teto, confirmado = Decimal(settings.run_budget_usd), Decimal(confirmo_custo_usd or "")
+    except InvalidOperation:
+        return False, "Sem --confirmo-custo-usd válido: nenhuma chamada feita."
+    if confirmado < Decimal(str(round(pior_usd, 4))) or Decimal(str(pior_usd)) > teto:
+        return (
+            False,
+            f"Pior caso US$ {pior_usd:.4f}: confirmado US$ {confirmado}, teto US$ {teto}. Nenhuma chamada feita.",
+        )
+    return True, "liberado"
+
+
 def rodar(lotes, settings, preco, orcamento_usd, chamar=None, cfg=None):
     """Executa os lotes (uma chamada por lote) SEM nunca passar do orçamento: antes de cada chamada,
     o pior caso dela (entrada estimada + 3000 tokens de saída) somado ao já gasto tem de caber.

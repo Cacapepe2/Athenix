@@ -224,7 +224,7 @@ export function PlanoPage() {
         <Expansivel id="reduzir" titulo="Como reduzir a exposição" resumo="atenuantes do art. 24 da REN 846, regras comuns e valores por tema">{() => <ComoReduzir temas={temas} />}</Expansivel>
         <Expansivel id="linha" titulo="Quando cada coisa vence" resumo={`${r.por_situacao.vencida} vencidas, ${r.por_situacao['90dias']} em 90 dias, ${r.por_situacao.recorrente} recorrentes, ${semData} sem data`}>{() => <LinhaDoTempo />}</Expansivel>
         {!!plano.erros_materiais?.length && <Expansivel id="erros-materiais" titulo="Possíveis erros materiais da norma" resumo={`${plano.erros_materiais.length} ${plano.erros_materiais.length === 1 ? 'redação de prazo' : 'redações de prazo'} com possível erro na própria norma; leitura mais provável a confirmar`}>{() => <ErrosMateriais />}</Expansivel>}
-        <Expansivel id="outros" titulo="Outros dispositivos relevantes" resumo={`${plano.outros_dispositivos.length + plano.sem_dever_identificado.length} dispositivos que não são deveres da distribuidora (faculdades, direitos de terceiros, competências da ANEEL e deveres de outros agentes)`}>{() => <OutrosDispositivos />}</Expansivel>
+        <Expansivel id="outros" titulo="Outros dispositivos relevantes" resumo={`${plano.outros_dispositivos.length + plano.sem_dever_identificado.length} dispositivos fora da contagem principal (inclui faculdades, deveres condicionais e regras de transição)`}>{() => <OutrosDispositivos />}</Expansivel>
         <Expansivel id="metodo" titulo="Como chegamos aqui" resumo="contagens, prazos, cálculo da exposição, premissas e fontes">{() => <Metodo />}</Expansivel>
         <Expansivel id="perguntas-juridico" titulo="Perguntas para levar ao jurídico" resumo="geradas do que o Athenix marca como incerto: enquadramentos, redações do art. 11, XXIII, excludentes e prazos que dependem da ANEEL">{() => <PerguntasJuridico />}</Expansivel>
         <Expansivel id="como-calculamos" titulo="Como calculamos" resumo="grupos de gravidade, teto de cada um e contagem de deveres">{() => <ComoCalculamos />}</Expansivel>
@@ -366,15 +366,17 @@ function SucessaoNoTempo({ dispositivo }: { dispositivo: string }) {
 /** Faculdades, direitos de terceiros e competências da ANEEL: não entram na contagem de deveres. */
 function OutrosDispositivos() {
   const por = (n: OutroDispositivo['natureza']) => [...plano.outros_dispositivos, ...plano.sem_dever_identificado].filter((o) => o.natureza === n)
-  const grupos: [OutroDispositivo['natureza'], string][] = [['faculdade', 'Faculdades (a norma diz que pode, não que deve)'], ['direito_de_terceiro', 'Direitos de consumidores e usuários'], ['competencia_aneel', 'Competências da ANEEL'], ['dever_de_outro_agente', 'Deveres de outros agentes (não são da distribuidora)'], ['regra_de_transicao', 'Regras de transição (prazo de adequação a outros dispositivos)']]
+  const grupos: [OutroDispositivo['natureza'], string][] = [['faculdade', 'Faculdades (a norma diz que pode, não que deve)'], ['direito_de_terceiro', 'Direitos de consumidores e usuários'], ['competencia_aneel', 'Competências da ANEEL'], ['dever_de_outro_agente', 'Deveres de outros agentes (não são da distribuidora)'], ['regra_de_transicao', 'Regras de transição e vigência de outros dispositivos']]
   grupos.push(['sem_dever_identificado', 'Sem dever identificado (lidos pela extração, sem verbo de dever e sem a distribuidora agindo; nada some em silêncio)'])
+  grupos.push(['dever_condicional', 'Deveres condicionais (só para quem exercer a faculdade do caput)'])
   return <div className="space-y-5 text-sm">
-    <p className="text-ink-soft">Dispositivos lidos pela mesma extração que não são deveres da distribuidora. Ficam fora da contagem do plano e do cálculo de multa. Cada um mostra o trecho literal e o dispositivo.</p>
+    <p className="text-ink-soft">Dispositivos lidos pela mesma extração fora da contagem principal e do cálculo de multa. Incluem deveres condicionais, exigíveis apenas se a distribuidora exercer a faculdade do caput. Cada um mostra o trecho literal e o dispositivo.</p>
     {Object.entries(plano.notas_outros).map(([art, nota]) => <p key={art} className="border-[length:var(--borda-forte)] border-obsidian p-3 font-semibold">{art}: {nota}</p>)}
     {grupos.map(([n, titulo]) => por(n).length > 0 && <div key={n}>
       <h3 className="font-semibold">{titulo} <span className="text-ink-soft">({por(n).length})</span></h3>
       <ul className="mt-2 space-y-3">{por(n).map((o) => <li key={o.id}>
         <blockquote className="border-l-2 border-bronze bg-ivory p-3">“{o.trecho ?? 'sem citação verificada'}”</blockquote>
+        {o.condicao && <p className="mt-1 text-xs"><strong>{o.condicao.texto}</strong> · {o.condicao.dispositivo}: “{o.condicao.trecho}”</p>}
         <p className="mt-1 text-xs text-ink-soft">{o.dispositivo ?? 'dispositivo a confirmar'} · {o.natureza === 'sem_dever_identificado' ? o.motivo : `sujeito: ${o.sujeito}`}</p>
       </li>)}</ul>
     </div>)}
@@ -385,7 +387,7 @@ function Metodo() {
   const esc = plano.referencia_escala
   return <div className="max-w-3xl space-y-3 text-sm leading-relaxed">
     <p>Contagens: {r.aplicaveis} obrigações para distribuidoras · {r.por_situacao.vencida} com prazo vencido · {r.por_situacao['90dias']} vencem em 90 dias · {r.por_situacao.recorrente} recorrentes · {semData} sem data ({r.por_situacao.evento} dependem de evento).</p>
-    <p>A leitura automática da norma identificou {r.identificadas} itens. {r.fora_do_perfil} {r.fora_do_perfil === 1 ? 'vale' : 'valem'} só para transmissoras; {r.outros_dispositivos} não são deveres da distribuidora (faculdades, direitos de terceiros e competências da ANEEL: veja “Outros dispositivos relevantes”); os outros {r.aplicaveis} deveres entram neste plano. Em {r.na_fila} o texto da obrigação nomeia o instrumento de uma infração da REN 846 e o grupo de multa é identificado; {r.a_confirmar} aguardam a confirmação do enquadramento por uma pessoa; {r.sem_multa} não têm multa estimável.</p>
+    <p>A leitura automática da norma identificou {r.identificadas} itens. {r.fora_do_perfil} {r.fora_do_perfil === 1 ? 'vale' : 'valem'} só para transmissoras; {r.outros_dispositivos} ficam fora da contagem principal (incluem deveres condicionais, faculdades e regras de transição: veja “Outros dispositivos relevantes”); os {r.aplicaveis} deveres restantes entram neste plano. Em {r.na_fila} o texto da obrigação nomeia o instrumento de uma infração da REN 846 e o grupo de multa é identificado; {r.a_confirmar} aguardam a confirmação do enquadramento por uma pessoa; {r.sem_multa} não têm multa estimável.</p>
     <p>Os temas seguem as seções da própria norma (por exemplo, “{plano.temas[0].fontes[0]?.titulo}”). Disposições transitórias vão para o tema do primeiro assunto que nomeiam.</p>
     <p>Prazos: calculados pelo motor temporal a partir da publicação ({dataBR(plano.norma.vigencia)}). Ficam provisórios até uma pessoa confirmar a contagem.</p>
     <p>Exposição: teto do grupo de infração (REN 846, Art. 8º) sobre a receita operacional líquida, limitado pelo teto legal. Sem simulação, a receita é a ilustrativa de {brl(plano.perfil.base_reais)}. {plano.perfil.origem_base} Sem faturamento bruto informado, o teto legal pode estar subestimado. A manchete mostra a maior exposição por infração entre os temas já vencidos.</p>
@@ -656,7 +658,8 @@ function PorQue({ o }: { o: Obrigacao }) {
           {o.ia.duvida && <SucessaoNoTempo dispositivo={o.ia.dispositivo} />}
           <p className="mt-1 text-xs">Entra só no cenário preliminar, marcada como sugerida, até uma pessoa confirmar.</p></div>}
         {!o.enquadramento.length && !o.ia && <p className="mt-1">Enquadramento a confirmar.</p>}</div>
-      <div><h5 className="font-semibold">Prazo</h5><p>{o.prazo.texto}{o.prazo.provisorio ? '. Data provisória: calculada a partir da publicação da norma, aguarda confirmação da contagem por uma pessoa.' : '.'}</p></div>
+      <div><h5 className="font-semibold">Prazo</h5><p>{o.prazo.texto}{o.prazo.provisorio ? '. Data provisória: calculada a partir da publicação da norma, aguarda confirmação da contagem por uma pessoa.' : '.'}</p>
+        {o.marco?.trecho && <blockquote className="mt-2 border-l-2 border-bronze bg-ivory p-3"><strong>{o.marco.dispositivo}</strong> · “{o.marco.trecho}”</blockquote>}</div>
       {o.premissas.length > 0 && <div><h5 className="font-semibold">Premissas da faixa</h5><ul className="list-disc space-y-1 pl-5">{o.premissas.map((p) => <li key={p}>{p}</li>)}</ul></div>}
       {o.evidencias.length > 0 && <div><h5 className="font-semibold">Como provar <Tag kind="review" label="Sugestão" /></h5><ul className="list-disc space-y-1 pl-5">{o.evidencias.map((e) => <li key={e.id}>{plano.evidencias[e.id]}: <span className="text-ink-soft">“…{e.trecho}…”</span></li>)}</ul></div>}
       <p className="text-xs text-ink-soft">Tema: {o.motivo_tema}.</p>

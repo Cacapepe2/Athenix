@@ -158,11 +158,11 @@ test('referência do setor: infração grave (Grupo IV, n = 10) quando o valor �
 
 test('destaque da norma: data, deveres identificados e quantos têm prazo, tudo dos dados', () => {
   const d = destaqueDaNorma(planos.ren1174)
-  // 32 com data: os prazos de adequação e vigência diferida dos arts. 16 e 18 (athenix/vigencia.py)
-  assert.equal(d.texto, 'publicada em 04/11/2026 · 85 deveres identificados · 32 com prazo · 2 recorrentes')
+  // 32 -> 31 com data: Art. 166, § 6º, I passa a condicional; a data de adequação permanece nos outros deveres.
+  assert.equal(d.texto, 'publicada em 04/11/2026 · 75 deveres identificados · 31 com prazo · 1 recorrente')
   assert.equal(d.deveres, planos.ren1174.resumo.aplicaveis)
   assert.equal(d.comPrazo, planos.ren1174.obrigacoes.filter((o) => o.prazo.data).length)
-  assert.match(destaqueDaNorma(planos.rn1137).texto, /^em vigor desde 30\/10\/2025 · 153 deveres identificados · \d+ com prazo · \d+ recorrentes?$/)
+  assert.match(destaqueDaNorma(planos.rn1137).texto, /^em vigor desde 30\/10\/2025 · 147 deveres identificados · \d+ com prazo · \d+ recorrentes?$/)
 })
 
 test('nenhum nome de empresa real nos JSONs exportados', () => {
@@ -188,12 +188,9 @@ test('prazo provisório diz de onde a data é contada; dias contados até a data
   const v = planos.rn1137.obrigacoes.find((o) => o.situacao === 'vencida')!
   assert.match(prazoTexto(v), /^vencida há \d+ dias \(provisória, contada de \d{2}\/\d{2}\/\d{4}\)$/)
   assert.equal(prazoTexto({ ...v, prazo: { ...v.prazo, base: null } }), prazoTexto(v).replace(/ \(provisória.*\)$/, ''))
-  // art. 18 da RN 1.137: "na data de publicação" é marco direto, vencido desde 30/10/2025
-  const a18 = planos.rn1137.obrigacoes.find((o) => o.dispositivo === 'Art. 18')!
-  assert.equal(a18.situacao, 'vencida')
-  assert.equal(a18.prazo.data, '2025-10-30')
-  assert.equal(a18.prazo.texto, 'Vencido desde 30/10/2025 (387 dias)') // contado de DIA (21/11/2026), não do JSON
-  assert.match(prazoTexto(a18), /contada de 30\/10\/2025\)$/)
+  // Art. 18 é vigência geral: fica fora dos deveres e da contagem de vencidas.
+  assert.ok(!planos.rn1137.obrigacoes.some((o) => o.dispositivo === 'Art. 18'))
+  assert.ok(planos.rn1137.outros_dispositivos.some((o) => o.dispositivo === 'Art. 18' && o.natureza === 'regra_de_transicao'))
   // art. 14, § 1º, II da REN 1.174: o maior entre 12 meses da publicação e o prazo informado; sem data única
   const a14 = planos.ren1174.obrigacoes.find((o) => o.dispositivo === 'Art. 14, § 1º, inciso II')!
   assert.equal(a14.prazo.data, null)
@@ -226,7 +223,7 @@ test('REN 1.174: a primeira reunião do grupo de trabalho (art. 12, § 11) não 
   assert.ok(!l.some((x) => /primeira reunião/i.test(x.frase)))
   // o próximo prazo é a vigência diferida do art. 18, II (02/02/2027); o art. 14, § 1º, II segue condicional
   assert.equal(prazos(p, DIA).proxima?.data, '2027-02-02')
-  assert.equal(p.resumo.aplicaveis, 85)  // C1 (+Art. 42, § 2º, I e II; −Art. 168, VIII) e +Art. 16, parágrafo único
+  assert.equal(p.resumo.aplicaveis, 75)  // 85 - 9 condicionais do sandbox - 1 condição de prazos opcionais.
 })
 
 test('títulos com contexto: nada de título que comece por "Ser ", "Até " ou "Em até " no top 5', () => {
@@ -246,7 +243,7 @@ test('recomendação em revisão quando a IA não deu ação específica; nunca 
 })
 
 test('defesa possível: registrar interações com o município (Art. 13, II) não mostra autorização municipal', () => {
-  const o = planos.rn1137.obrigacoes.find((x) => x.dispositivo === 'Art. 13, inciso II')!
+  const o = planos.rn1137.obrigacoes.find((x) => x.dispositivo === 'item 104')!
   assert.deepEqual(defesa(planos.rn1137, o), { texto: '—', origem: null })
 })
 
@@ -289,7 +286,7 @@ test('trocar a norma troca os cinco blocos; trocar o porte muda o valor e manté
   const g20 = top5('rn1137', porte(20e9), 'preliminar', 5, DIA)
   assert.deepEqual(g1.map((l) => l.id), g20.map((l) => l.id))
   const comValor = (ls: typeof g1) => ls.find((l) => l.valor)!.valor!.reais!
-  assert.equal(comValor(g20), comValor(g1) * 20) // a primeira com enquadramento (o art. 18 da RN 1.137 vem antes e não tem valor)
+  assert.equal(comValor(g20), comValor(g1) * 20) // a primeira com enquadramento
 })
 
 test('terceiro número: sem vencidas e sem prazo com data, "nenhum prazo a vencer"; com vencidas, a contagem', () => {
@@ -297,10 +294,10 @@ test('terceiro número: sem vencidas e sem prazo com data, "nenhum prazo a vence
   assert.equal(pz.vencidas, 0)
   // sem vencidas: o próximo marco da transição (art. 18, II) e a contagem por situação
   assert.deepEqual(pz.proximoMarco, { data: '2027-02-02', tipo: 'vigência' })
-  // 53: +6 com artigo inferido pela posição (a confirmar)
-  assert.equal(textoContagem(pz.contagem!), '53 em vigor desde 04/11/2026 · 1 condicional · 2 recorrentes')
-  // 25 = 7 de antes + 18 deveres cujo prazo de adequação (RN 1.137, art. 13, I a V) já passou (athenix/vigencia.py)
-  assert.deepEqual([prazos(planos.rn1137, DIA).vencidas, prazos(planos.rn1137, DIA).detalhes], [14, 11])
+  // 44: saíram 9 deveres condicionais em vigor; 6 artigos continuam inferidos (a confirmar).
+  assert.equal(textoContagem(pz.contagem!), '44 em vigor desde 04/11/2026 · 1 condicional · 1 recorrente')
+  // 14 -> 8 principais: cinco incisos de prazo e Art. 18 (vigência) não são deveres próprios; 11 detalhes permanecem.
+  assert.deepEqual([prazos(planos.rn1137, DIA).vencidas, prazos(planos.rn1137, DIA).detalhes], [8, 11])
 })
 
 test('top 5: vencidas → em vigor sem adequação (já exigíveis) → próximos marcos → condicionais → o resto', () => {
@@ -322,7 +319,26 @@ test('REN 1.174, Art. 12 (grupo de trabalho): fora dos deveres, com nota; Art. 1
   for (const d of ['Art. 12, § 1º', 'Art. 12, § 5º', 'Art. 12, § 11']) assert.ok(p.outros_dispositivos.some((o) => o.dispositivo === d), d)
   assert.equal(p.notas_outros['Art. 12'], 'Grupo de trabalho sobre faturas, coordenado provisoriamente pela Abradee; primeira reunião até 03/01/2027 (§ 11).')
   assert.ok(p.obrigacoes.some((o) => o.dispositivo === 'Art. 13, § 1º' && /celebrado entre o consumidor parcialmente livre e a distribuidora/.test(o.trecho ?? '')))
-  assert.equal(p.resumo.aplicaveis, 85)
+  assert.equal(p.resumo.aplicaveis, 75)
+})
+
+test('deveres condicionais ficam visíveis com o caput, fora do top 5 e da exposição principal', () => {
+  const p = planos.ren1174
+  const condicionais = p.outros_dispositivos.filter((o) => o.natureza === 'dever_condicional')
+  assert.equal(condicionais.length, 10) // 9 do sandbox e 1 de prazos menores opcionais (Art. 166, § 6º, I).
+  const sandbox = condicionais.filter((o) => o.condicao?.dispositivo === 'Art. 11')
+  assert.equal(sandbox.length, 9)
+  assert.ok(sandbox.some((o) => o.dispositivo === 'Art. 11, inciso I'))
+  assert.ok(sandbox.some((o) => o.dispositivo === 'Art. 11, inciso VIII'))
+  for (const o of condicionais) {
+    assert.ok(o.condicao?.trecho && o.trecho)
+    assert.ok(!p.obrigacoes.some((d) => d.id === o.id))
+    assert.ok(!p.temas.some((t) => t.obrigacoes.includes(o.id)))
+    assert.ok(!top5('ren1174', SIM_INICIAL, 'preliminar', 500, DIA).some((d) => d.id === o.id))
+  }
+  for (const o of sandbox) assert.equal(o.rotulo, 'Dever condicional: se aderir ao sandbox')
+  assert.equal(valorGeral(p, SIM_INICIAL, 'preliminar')?.pct,
+    Math.max(...p.obrigacoes.map((o) => valorDaObrigacao(o, SIM_INICIAL, 'preliminar')?.pct ?? -1)))
 })
 
 test('executiva: recomendação de nível gerencial; detalhe operacional só no plano completo', () => {
@@ -358,6 +374,6 @@ test('motor: futuro só vira dever quando a distribuidora age explicitamente; o 
   // um dispositivo nunca está em duas listas
   const ids = [...p.obrigacoes, ...p.outros_dispositivos, ...p.sem_dever_identificado].map((o) => o.id)
   assert.equal(new Set(ids).size, ids.length)
-  // RN 1.137 não muda de contagem
-  assert.equal(planos.rn1137.resumo.aplicaveis, 153)
+  // RN 1.137: 153 - 5 incisos de prazo - Art. 18 (vigência).
+  assert.equal(planos.rn1137.resumo.aplicaveis, 147)
 })
