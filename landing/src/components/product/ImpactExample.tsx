@@ -1,3 +1,4 @@
+import { LinkFonte } from '../ui/LinkFonte'
 import { articleById, brl, demoNorm, profile, type Obligation } from '../../content/demo'
 
 export function ImpactExample({ item: o, explain = false }: { item: Obligation; explain?: boolean }) {
@@ -15,14 +16,14 @@ export function ImpactExample({ item: o, explain = false }: { item: Obligation; 
       </dl>
       <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
         <p>Confiança: <strong className="bg-stone px-2 py-1">{o.confidence}</strong></p>
-        <p>{o.impact.framings.length ? o.impact.framings.map((f) => `${f.dispositivo} · Grupo ${f.grupo}`).join('; ') : 'Infração ainda não identificada'}</p>
+        <p>{o.impact.framings.length ? o.impact.framings.map((f, i) => <span key={f.dispositivo}>{i > 0 && '; '}<LinkFonte sha256={f.sha256} trecho={f.trecho}>{f.dispositivo}</LinkFonte> · Grupo {f.grupo}</span>) : 'Infração ainda não identificada'}</p>
       </div>
-      <p className="mt-3 text-xs text-ink-soft">Fonte: <a className="underline" href={demoNorm.url}>RN ANEEL 1.137/2025 · {articleById(o.articleId).label}</a></p>
+      <p className="mt-3 text-xs text-ink-soft">Fonte: <LinkFonte sha256={demoNorm.sha256} trecho={o.anchor}>RN ANEEL 1.137/2025 · {articleById(o.articleId).label}</LinkFonte></p>
       {explain && <details className="why mt-5 border-t border-line pt-4">
         <summary className="cursor-pointer font-semibold text-slate-blue">Por quê — veja o fundamento</summary>
         <div className="space-y-5 pt-5 text-sm leading-relaxed">
-          <div><h4 className="font-semibold">O que a norma diz</h4><blockquote className="mt-2 border-l-2 border-bronze bg-ivory p-4">“{o.anchor}”</blockquote><p className="mt-2 text-xs">{articleById(o.articleId).label} · trecho literal, conferido na fonte.</p></div>
-          <div><h4 className="font-semibold">Infração da REN 846</h4>{o.impact.framings.map((f) => <blockquote key={f.dispositivo} className="mt-2 border-l-2 border-slate-blue bg-ivory p-4"><strong>{f.dispositivo} · Grupo {f.grupo}</strong><p>“{f.trecho}”</p></blockquote>)}{!o.impact.framings.length && <p>Sem enquadramento identificado. Exige análise antes de entrar nas prioridades.</p>}</div>
+          <div><h4 className="font-semibold">O que a norma diz</h4><blockquote className="mt-2 border-l-2 border-bronze bg-ivory p-4">“{o.anchor}”</blockquote><p className="mt-2 text-xs"><LinkFonte sha256={demoNorm.sha256} trecho={o.anchor}>{articleById(o.articleId).label}</LinkFonte> · trecho literal, conferido na fonte.</p></div>
+          <div><h4 className="font-semibold">Infração da REN 846</h4>{o.impact.framings.map((f) => <blockquote key={f.dispositivo} className="mt-2 border-l-2 border-slate-blue bg-ivory p-4"><strong><LinkFonte sha256={f.sha256} trecho={f.trecho}>{f.dispositivo}</LinkFonte> · Grupo {f.grupo}</strong><p>“{f.trecho}”</p></blockquote>)}{!o.impact.framings.length && <p>Sem enquadramento identificado. Exige análise antes de entrar nas prioridades.</p>}</div>
           <div><h4 className="font-semibold">O que limita esta estimativa</h4><p>{o.confidenceReason}</p><p>{o.impact.probableReason}</p><p>{o.deadlineDetail} Data de referência: {profile.referenceDate}.</p></div>
           <div><h4 className="font-semibold">Premissas</h4><ul className="list-disc space-y-1 pl-5">{o.impact.premises.map((p) => <li key={p}>{p}</li>)}</ul></div>
           <div><h4 className="font-semibold">Fontes do cálculo</h4><p>{o.impact.sources.join(' · ')}</p><p className="mt-2">Parâmetros da REN 846 obtidos de cópia secundária; conferência com a fonte oficial e revisão de especialista pendentes. O máximo considera os cenários e o teto legal descritos nas premissas.</p><p className="mt-2">A descrição curta é um resumo de apresentação; o texto normativo é o trecho literal acima.</p></div>
