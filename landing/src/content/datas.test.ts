@@ -27,7 +27,8 @@ test('"vencida há N dias" na executiva, nos blocos e no prazo do tema usam a me
   const l = top5('rn1137', null, 'preliminar', 5, hoje)[0]
   assert.match(l.prazoCurto, /^vencida há 387 dias$/) // art. 18: 30/10/2025 -> 21/11/2026 (a mais antiga primeiro)
   assert.match(top5('rn1137', null, 'preliminar', 5, hoje).map((x) => x.prazoCurto).join(';'), /vencida há 297 dias/) // 28/01/2026
-  assert.equal(prazos(planos.rn1137, hoje).vencidas, 7)
+  // 25 = 7 de antes + 18 deveres cujo prazo de adequação (RN 1.137, art. 13, I a V) já passou (athenix/vigencia.py)
+  assert.equal(prazos(planos.rn1137, hoje).vencidas, 25)
   const t = planos.rn1137.temas.find((x) => x.id === 'manejo')!
   assert.equal(textoPrazoDoTema(planos.rn1137, t, hoje), 'Vencido desde 28/01/2026 (297 dias)')
   const o = planos.rn1137.obrigacoes.find((x) => x.id === t.prazo_mais_urgente!.obrigacao)!

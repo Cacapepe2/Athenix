@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { NORMA_PADRAO, NORMAS, norma as dadosDa, prazos, queda, top5, urlPlanoCompleto, urlRelatorio, valorGeral, type LinhaTop5 } from '../../content/executivo'
+import { NORMA_PADRAO, NORMAS, norma as dadosDa, prazos, queda, textoContagem, top5, urlPlanoCompleto, urlRelatorio, valorGeral, type LinhaTop5 } from '../../content/executivo'
 import { RespostasProvider, useRespostas } from '../plano/Respostas'
 import { prontidao } from '../../content/prontidao'
 import { brlCurto, dataBR, HOJE, normaDaUrl, type NormaId, type Simulacao } from '../../content/plano'
@@ -84,9 +84,12 @@ function Executiva({ normaId, setNormaId }: { normaId: NormaId; setNormaId: (id:
       <div className="flex flex-col gap-1.5">
         {pz.vencidas > 0
           ? <><span className={grande}>{pz.vencidas}</span><span className={LEGENDA}>{pz.vencidas === 1 ? 'obrigação vencida' : 'obrigações vencidas'}</span></>
-          : pz.proxima
-            ? <><span className={grande}>{pz.proxima.dias} dias</span><span className={LEGENDA}>até o próximo prazo</span></>
-            : <><span className={grande}>—</span><span className={LEGENDA}>nenhum prazo a vencer</span></>}
+          : pz.proximoMarco
+            ? <><span className={grande}>{dataBR(pz.proximoMarco.data)}</span><span className={LEGENDA}>próximo marco · {pz.proximoMarco.tipo}</span></>
+            : pz.proxima
+              ? <><span className={grande}>{pz.proxima.dias} dias</span><span className={LEGENDA}>até o próximo prazo</span></>
+              : <><span className={grande}>—</span><span className={LEGENDA}>nenhum prazo a vencer</span></>}
+        {pz.contagem && <span className="text-xs">{textoContagem(pz.contagem)}</span>}
       </div>
       {pr.algumaMarcada && <div className="flex flex-col gap-1.5"><span className={grande}>{pr.geral.x} de {pr.geral.y}</span><span className={LEGENDA}>provas em mãos · checklist sugerido</span></div>}
     </section>

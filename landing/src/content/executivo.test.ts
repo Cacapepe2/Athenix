@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { MIN_AUTOS_REFERENCIA, NORMAS, acaoGerencial, eGerencial, textoMaiorMulta, contagemDeEnquadramentos, defesa, destaqueDaNorma, frase, prazoTexto, idDaObrigacao, norma, prazos, queda, referenciaDoSetor, simplificar, tabelaDeGrupos, top5, urlDetalhe, urlPlanoCompleto, valorDaObrigacao, valorGeral } from './executivo.ts'
+import { MIN_AUTOS_REFERENCIA, NORMAS, acaoGerencial, eGerencial, textoMaiorMulta, contagemDeEnquadramentos, defesa, destaqueDaNorma, frase, prazoTexto, idDaObrigacao, norma, prazos, queda, referenciaDoSetor, simplificar, tabelaDeGrupos, textoContagem, top5, urlDetalhe, urlPlanoCompleto, valorDaObrigacao, valorGeral } from './executivo.ts'
 import { GRUPOS, NOME_DA_GRAVIDADE, nomeDaGravidade, rotuloDoGrupo } from './gravidade.ts'
 import { SIM_INICIAL, planos as planosDaPagina, type Simulacao } from './plano.ts'
 import { planoEm } from './referencia.ts'
@@ -157,7 +157,8 @@ test('referência do setor: infração grave (Grupo IV, n = 10) quando o valor �
 
 test('destaque da norma: data, deveres identificados e quantos têm prazo, tudo dos dados', () => {
   const d = destaqueDaNorma(planos.ren1174)
-  assert.equal(d.texto, 'publicada em 04/11/2026 · 84 deveres identificados · 0 com prazo · 2 recorrentes')  // dados reprocessados
+  // 32 com data: os prazos de adequação e vigência diferida dos arts. 16 e 18 (athenix/vigencia.py)
+  assert.equal(d.texto, 'publicada em 04/11/2026 · 85 deveres identificados · 32 com prazo · 2 recorrentes')
   assert.equal(d.deveres, planos.ren1174.resumo.aplicaveis)
   assert.equal(d.comPrazo, planos.ren1174.obrigacoes.filter((o) => o.prazo.data).length)
   assert.match(destaqueDaNorma(planos.rn1137).texto, /^em vigor desde 30\/10\/2025 · 153 deveres identificados · \d+ com prazo · \d+ recorrentes?$/)
@@ -222,9 +223,9 @@ test('REN 1.174: a primeira reunião do grupo de trabalho (art. 12, § 11) não 
   assert.ok(!p.obrigacoes.some((o) => o.dispositivo === 'Art. 12, § 11'))
   assert.ok(p.outros_dispositivos.some((o) => o.dispositivo === 'Art. 12, § 11'))
   assert.ok(!l.some((x) => /primeira reunião/i.test(x.frase)))
-  // nenhum dever da REN 1.174 tem data única de vencimento (o art. 14, § 1º, II é condicional): "nenhum prazo a vencer"
-  assert.equal(prazos(p, DIA).proxima, null)
-  assert.equal(p.resumo.aplicaveis, 84)  // +Art. 42, § 2º, I e II; −Art. 168, VIII (auditoria C1)
+  // o próximo prazo é a vigência diferida do art. 18, II (02/02/2027); o art. 14, § 1º, II segue condicional
+  assert.equal(prazos(p, DIA).proxima?.data, '2027-02-02')
+  assert.equal(p.resumo.aplicaveis, 85)  // C1 (+Art. 42, § 2º, I e II; −Art. 168, VIII) e +Art. 16, parágrafo único
 })
 
 test('títulos com contexto: nada de título que comece por "Ser ", "Até " ou "Em até " no top 5', () => {
@@ -293,8 +294,24 @@ test('trocar a norma troca os cinco blocos; trocar o porte muda o valor e manté
 test('terceiro número: sem vencidas e sem prazo com data, "nenhum prazo a vencer"; com vencidas, a contagem', () => {
   const pz = prazos(planos.ren1174, DIA)
   assert.equal(pz.vencidas, 0)
-  assert.equal(pz.proxima, null) // o único prazo da REN 1.174 é condicional (sem data única)
-  assert.equal(prazos(planos.rn1137, DIA).vencidas, 7)
+  // sem vencidas: o próximo marco da transição (art. 18, II) e a contagem por situação
+  assert.deepEqual(pz.proximoMarco, { data: '2027-02-02', tipo: 'vigência' })
+  assert.equal(textoContagem(pz.contagem!), '46 em vigor desde 04/11/2026 · 1 condicional · 2 recorrentes')
+  // 25 = 7 de antes + 18 deveres cujo prazo de adequação (RN 1.137, art. 13, I a V) já passou (athenix/vigencia.py)
+  assert.equal(prazos(planos.rn1137, DIA).vencidas, 25)
+})
+
+test('top 5: vencidas → em vigor sem adequação (já exigíveis) → próximos marcos → condicionais → o resto', () => {
+  const grupo = (l: { situacao: string; prazo: string; dataPrazo: string | null }) =>
+    l.situacao === 'vencida' ? 0 : /^em vigor desde/.test(l.prazo) ? 1 : l.dataPrazo ? 2 : /maior entre/.test(l.prazo) ? 3 : 4
+  for (const n of NORMAS) {
+    const g = top5(n.id, SIM_INICIAL, 'preliminar', 500, DIA).map(grupo)
+    assert.deepEqual(g, [...g].sort((a, b) => a - b), n.id)
+  }
+  const ren = top5('ren1174', SIM_INICIAL, 'preliminar', 500, DIA)
+  assert.ok([1, 2, 3].every((k) => ren.some((l) => grupo(l) === k)))
+  const marco = ren.find((l) => grupo(l) === 2)!
+  assert.match(marco.prazo, /^(?:vigência a partir de|adequação até) \d{2}\/\d{2}\/\d{4} \(em \d+ dias\)$/)
 })
 
 test('REN 1.174, Art. 12 (grupo de trabalho): fora dos deveres, com nota; Art. 13, § 1º conta como dever da distribuidora', () => {
@@ -303,7 +320,7 @@ test('REN 1.174, Art. 12 (grupo de trabalho): fora dos deveres, com nota; Art. 1
   for (const d of ['Art. 12, § 1º', 'Art. 12, § 5º', 'Art. 12, § 11']) assert.ok(p.outros_dispositivos.some((o) => o.dispositivo === d), d)
   assert.equal(p.notas_outros['Art. 12'], 'Grupo de trabalho sobre faturas, coordenado provisoriamente pela Abradee; primeira reunião até 03/01/2027 (§ 11).')
   assert.ok(p.obrigacoes.some((o) => o.dispositivo === 'Art. 13, § 1º' && /celebrado entre o consumidor parcialmente livre e a distribuidora/.test(o.trecho ?? '')))
-  assert.equal(p.resumo.aplicaveis, 84)
+  assert.equal(p.resumo.aplicaveis, 85)
 })
 
 test('executiva: recomendação de nível gerencial; detalhe operacional só no plano completo', () => {

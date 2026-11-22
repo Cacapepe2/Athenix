@@ -6,6 +6,17 @@ import dados1174 from './plano-ren1174.json' with { type: 'json' }
 import { hojeISO } from './datas.ts'
 import { planoEm } from './referencia.ts'
 
+export interface Marco {
+  tipo: 'adequacao' | 'vigencia' | 'em_vigor' | 'a_confirmar'
+  data: string | null
+  /** Regra de transição da norma que dá o marco ("Art. 16, II, b") e o seu texto. */
+  dispositivo: string | null
+  trecho: string | null
+  /** "Até a adequação, valem as regras anteriores" (caput da regra de adequação), quando a norma diz isso. */
+  nota: string | null
+  candidatos: string[] | null
+}
+
 export type Situacao = 'vencida' | '90dias' | 'depois' | 'recorrente' | 'evento' | 'sem_prazo'
 export type Diagnostico = 'sim' | 'parcial' | 'nao'
 export type Diagnosticos = Partial<Record<string, Diagnostico>>
@@ -68,6 +79,9 @@ export interface Obrigacao {
   trecho: string | null
   situacao: Situacao
   prazo: { data: string | null; texto: string; dias: number | null; provisorio: boolean; base?: string | null; /** "o maior entre 12 meses da publicação e o prazo informado": sem data única. */ condicional?: boolean }
+  /** Marco de vigência/transição lido da própria norma (athenix/vigencia.py): prazo de adequação, vigência
+   *  diferida, "em vigor desde a publicação" ou ligação "a confirmar". Ausente em JSON antigo. */
+  marco?: Marco | null
   calculo: 'fila' | 'verificar' | 'sem_multa'
   posicao_fila: number | null
   enquadramento: { dispositivo: string; grupo: string }[]

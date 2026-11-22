@@ -81,14 +81,40 @@ export function textoPrazoDoTema(p: PlanoDados, t: { prazo_mais_urgente: { obrig
   return a.situacao === 'vencida' ? `Vencido desde ${dataBR(u.data)} (${Math.abs(a.prazo.dias!)} dias)` : `Vence em ${dataBR(u.data)} (${a.prazo.dias} dias)`
 }
 
-export interface Prazos { vencidas: number; proxima: { dias: number; data: string } | null }
+export interface Prazos {
+  vencidas: number
+  proxima: { dias: number; data: string } | null
+  /** Próximo marco de transição com data futura: "03/05/2027 · adequação", "02/02/2027 · vigência". */
+  proximoMarco: { data: string; tipo: 'adequação' | 'vigência' } | null
+  /** "N em vigor desde 04/11/2026 · N condicionais · N recorrentes"; null sem marco de transição na norma. */
+  contagem: { emVigor: number; desde: string | null; condicionais: number; recorrentes: number } | null
+}
 
-/** Cartão 3: obrigações vencidas e a próxima que vence (só prazos com data). */
+const TIPO_MARCO = { adequacao: 'adequação', vigencia: 'vigência' } as const
+const plural = (n: number, um: string, varios: string) => `${n} ${n === 1 ? um : varios}`
+
+/** Cartão 3: obrigações vencidas, o próximo marco de transição e a próxima que vence (só prazos com data). */
 export function prazos(p: PlanoDados, hoje: string = HOJE): Prazos {
   const obrig = p.obrigacoes.map((o) => atualizar(o, hoje))
   const futuras = obrig.filter((o) => (o.situacao === '90dias' || o.situacao === 'depois') && o.prazo.dias != null && o.prazo.data)
   const prox = futuras.length ? futuras.reduce((a, b) => (b.prazo.dias! < a.prazo.dias! ? b : a)) : null
-  return { vencidas: obrig.filter((o) => o.situacao === 'vencida').length, proxima: prox ? { dias: prox.prazo.dias!, data: prox.prazo.data! } : null }
+  const marcos = obrig.flatMap((o) => (o.marco && (o.marco.tipo === 'adequacao' || o.marco.tipo === 'vigencia') && o.marco.data && o.marco.data > hoje ? [o.marco] : []))
+  const pm = marcos.length ? marcos.reduce((a, b) => (b.data! < a.data! ? b : a)) : null
+  const emVigor = obrig.filter((o) => o.marco?.tipo === 'em_vigor')
+  return {
+    vencidas: obrig.filter((o) => o.situacao === 'vencida').length,
+    proxima: prox ? { dias: prox.prazo.dias!, data: prox.prazo.data! } : null,
+    proximoMarco: pm ? { data: pm.data!, tipo: TIPO_MARCO[pm.tipo as 'adequacao' | 'vigencia'] } : null,
+    contagem: obrig.some((o) => o.marco)
+      ? { emVigor: emVigor.length, desde: emVigor[0]?.marco?.data ?? null, condicionais: obrig.filter((o) => o.prazo.condicional).length, recorrentes: obrig.filter((o) => o.situacao === 'recorrente').length }
+      : null,
+  }
+}
+
+/** "46 em vigor desde 04/11/2026 · 1 condicional · 2 recorrentes" (linha pequena do cartão 3). */
+export function textoContagem(c: NonNullable<Prazos['contagem']>): string {
+  const partes = [c.desde ? `${c.emVigor} em vigor desde ${dataBR(c.desde)}` : null, plural(c.condicionais, 'condicional', 'condicionais'), plural(c.recorrentes, 'recorrente', 'recorrentes')]
+  return partes.filter(Boolean).join(' · ')
 }
 
 // ---------- linguagem de negócio ----------
@@ -147,10 +173,14 @@ export function prazoTexto(o: Obrigacao, comBase = true): string {
   const d = o.prazo.dias
   const contada_ = comBase ? contada(o) : ''
   if (o.situacao === 'vencida' && d != null) return `vencida há ${Math.abs(d)} dias${contada_}`
+  // Marco de transição com data futura: diz o que é ("adequação até 03/05/2027"), não só "vence em".
+  if ((o.situacao === '90dias' || o.situacao === 'depois') && d != null && o.marco?.data === o.prazo.data && (o.marco.tipo === 'adequacao' || o.marco.tipo === 'vigencia'))
+    return `${o.marco.tipo === 'adequacao' ? 'adequação até' : 'vigência a partir de'} ${dataBR(o.prazo.data!)} (em ${d} dias)`
   if ((o.situacao === '90dias' || o.situacao === 'depois') && d != null) return `vence em ${d} dias${contada_}`
   if (o.situacao === 'recorrente') return 'recorrente'
   if (o.prazo.condicional) return 'maior entre 12 meses e o prazo informado'
   if (o.situacao === 'evento') return 'depende de um evento'
+  if (o.marco?.tipo === 'em_vigor' && o.marco.data) return `em vigor desde ${dataBR(o.marco.data)}`
   return 'sem prazo no texto'
 }
 
@@ -275,19 +305,25 @@ export interface LinhaTop5 {
 const VERBO = /^[A-ZÀ-Ú][a-zà-úç]+(?:ar|er|ir)\s/
 const GRAU: Record<Obrigacao['situacao'], number> = { vencida: 0, '90dias': 1, depois: 2, recorrente: 3, evento: 4, sem_prazo: 4 }
 
-/** As 5 obrigações para olhar primeiro: vencidas (a mais antiga antes), depois as a vencer com data (a mais
- *  próxima antes), depois maior valor por infração, depois enquadramento identificado no texto antes do sugerido. */
+/** As 5 obrigações para olhar primeiro: vencidas (a mais antiga antes) → em vigor sem adequação (já exigíveis)
+ *  → próximos marcos e prazos com data (o mais próximo antes) → condicionais → o resto; dentro de cada grupo,
+ *  maior valor por infração, depois enquadramento identificado no texto antes do sugerido. */
 export function top5(normaId: NormaId, s: Simulacao | null, modo: Modo, n = 5, hoje: string = HOJE): LinhaTop5[] {
   const p = norma(normaId).dados
   // Situação e dias recalculados para HOJE (o JSON traz os da data de referência da geração).
   const comValor = p.obrigacoes.map((o, i) => { const a = atualizar(o, hoje); return { o: a, i, v: valorDaObrigacao(a, s, modo) } })
-  // Grupo: 0 vencidas, 1 a vencer (com data), 2 o resto. Nos dois primeiros, a data mais próxima antes.
-  const grupo = (o: Obrigacao) => (o.situacao === 'vencida' ? 0 : o.prazo.data && (o.situacao === '90dias' || o.situacao === 'depois') ? 1 : 2)
+  // Grupo: 0 vencidas, 1 em vigor sem adequação, 2 a vencer com data (marcos), 3 condicionais, 4 o resto.
+  // Nas vencidas e nas com data, a data mais próxima antes.
+  const grupo = (o: Obrigacao) =>
+    o.situacao === 'vencida' ? 0
+      : o.marco?.tipo === 'em_vigor' && o.situacao === 'sem_prazo' ? 1
+        : o.prazo.data && (o.situacao === '90dias' || o.situacao === 'depois') ? 2
+          : o.prazo.condicional ? 3 : 4
   comValor.sort((a, b) => {
     const ga = grupo(a.o)
     const gb = grupo(b.o)
     if (ga !== gb) return ga - gb
-    if (ga < 2 && a.o.prazo.data !== b.o.prazo.data) return (a.o.prazo.data ?? '') < (b.o.prazo.data ?? '') ? -1 : 1
+    if ((ga === 0 || ga === 2) && a.o.prazo.data !== b.o.prazo.data) return (a.o.prazo.data ?? '') < (b.o.prazo.data ?? '') ? -1 : 1
     const pa = a.v?.pct ?? -1
     const pb = b.v?.pct ?? -1
     if (pa !== pb) return pb - pa
@@ -353,7 +389,6 @@ export interface ContagemEnquadramentos { identificados: number; sugeridos: numb
 export function contagemDeEnquadramentos(p: PlanoDados): ContagemEnquadramentos {
   const identificados = p.obrigacoes.filter((o) => o.faixa).length
   const sugeridos = p.obrigacoes.filter((o) => !o.faixa && o.faixa_preliminar).length
-  const plural = (n: number, um: string, varios: string) => `${n} ${n === 1 ? um : varios}`
   return { identificados, sugeridos, texto: `${plural(identificados, 'enquadramento identificado', 'enquadramentos identificados')} no texto · ${plural(sugeridos, 'sugerido', 'sugeridos')} pela IA, aguardando revisão` }
 }
 
