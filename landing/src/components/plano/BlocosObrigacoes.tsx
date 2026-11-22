@@ -3,6 +3,7 @@ import { brlCurto, dataBR, HOJE, normaDaUrl, pct, type Modo, type Simulacao } fr
 import { norma as dadosDa, NORMAS, urlPlanoCompleto } from '../../content/executivo'
 import { calendarioIcs, tarefasCsv } from '../../content/tarefas'
 import { FILTROS_INICIAIS, OPCOES, blocosDoPlano, filtrar, filtrosDaUrl, urlComFiltros, type BlocoPlano, type Filtros } from '../../content/filtros'
+import { RevisaoLocal } from './RevisaoLocal'
 
 // Plano completo, por obrigação: filtros à esquerda (empilham no celular) e blocos clicáveis. Mesma lógica
 // da página executiva (content/executivo.ts); a URL guarda os filtros (?norma=…&situacao=…).
@@ -63,6 +64,7 @@ export function BlocosObrigacoes({ sim, modo }: { sim: Simulacao | null; modo: M
 
 function Bloco({ b, aberta, alternar }: { b: BlocoPlano; aberta: boolean; alternar: () => void }) {
   const vencida = b.situacaoPrazo === 'vencida'
+  const o = dadosDa(b.norma).dados.obrigacoes.find((x) => x.id === b.id)
   const painel = `painel-${b.norma}-${b.id}`
   return <article id={`bloco-${b.id}`} className={`flex flex-col ${aberta ? 'col-span-full' : ''}`}>
     <button type="button" className="bloco flex min-h-[150px] flex-col gap-2 p-4 text-left" aria-expanded={aberta} aria-controls={painel} onClick={alternar}>
@@ -76,6 +78,7 @@ function Bloco({ b, aberta, alternar }: { b: BlocoPlano; aberta: boolean; altern
       </span>
     </button>
     <div id={painel} role="region" aria-label={`Detalhes de ${b.dispositivo ?? 'obrigação'}`} hidden={!aberta} className="border-[length:var(--borda-forte)] border-t-0 border-obsidian bg-white">
+      {aberta && o && b.norma === normaDaUrl() && <div className="p-5"><RevisaoLocal o={o} /></div>}
       {aberta && <div className="grid gap-6 p-5 [grid-template-columns:repeat(auto-fit,minmax(240px,1fr))]">
         <div className="flex flex-col gap-2">
           <span className="text-[13px] font-bold">O que a norma exige</span>

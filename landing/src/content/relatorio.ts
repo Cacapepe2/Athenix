@@ -9,6 +9,7 @@ import { normaDaUrl, textoVencidasComDetalhe, decisoesDaSemana, nomeDiag, brlCur
 import { fraseProntidao, prontidao } from './prontidao.ts'
 import { perguntasParaOJuridico, type Pergunta } from './perguntas.ts'
 import type { Respostas } from './respostas.ts'
+import { linhasDeRevisao, type Revisoes } from './revisoes.ts'
 
 export const AVISO_RELATORIO = 'Análise regulatória preliminar · não constitui parecer jurídico'
 
@@ -51,6 +52,7 @@ export interface Relatorio {
   perguntas: Pergunta[]
   /** "Possíveis erros materiais da norma": redação de prazo defeituosa, leitura provável e esclarecimento. */
   errosMateriais: string[]
+  revisoes: ReturnType<typeof linhasDeRevisao>
 }
 
 /** AAAA-MM-DD no fuso do navegador (toISOString usaria UTC e trocaria o dia à noite). */
@@ -58,7 +60,7 @@ const diaLocal = (d: Date) => `${d.getFullYear()}-${String(d.getMonth() + 1).pad
 
 const curta = (t: string, n = 220) => (t.length <= n ? t : `${t.slice(0, n).replace(/\s+\S*$/, '')}…`)
 
-export function montarRelatorio(args: { sim: Simulacao | null; modo: Modo; diag: Diagnosticos; respostas: Respostas; hoje?: Date | string }): Relatorio {
+export function montarRelatorio(args: { sim: Simulacao | null; modo: Modo; diag: Diagnosticos; respostas: Respostas; revisoes?: Revisoes; hoje?: Date | string }): Relatorio {
   const { sim, modo, diag, respostas } = args
   // UMA referência de data para o relatório inteiro (a recebida; sem ela, a da página).
   const hojeIso = typeof args.hoje === 'string' ? args.hoje : args.hoje ? diaLocal(args.hoje) : HOJE
@@ -126,6 +128,7 @@ export function montarRelatorio(args: { sim: Simulacao | null; modo: Modo; diag:
     decisoes: decisoesDaSemana(plano.temas, diag, sim, modo).map((t) => ({ nome: t.nome, porque: textoPrazoDoTema(plano, t, hojeIso).toLowerCase() })),
     prontidao: (() => { const p = prontidao(plano, respostas, sim, modo); return p.algumaMarcada ? fraseProntidao(p.geral.x, p.geral.y) : null })(),
     temas, lacunas, areas,
+    revisoes: linhasDeRevisao(args.revisoes ?? {}, plano),
     errosMateriais: (plano.erros_materiais ?? []).map((e) => `${e.dispositivo}: “${e.trecho}” (${e.problema}); leitura mais provável ${e.leitura_provavel}, ${e.rotulo}. ${e.esclarecimento ?? `Sugestão: ${e.sugestao}.`}`),
     perguntas: perguntasParaOJuridico(plano, normaDaUrl(), sim, modo, hojeIso),
   }

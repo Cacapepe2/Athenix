@@ -7,7 +7,7 @@ import { useRespostas } from './Respostas'
 // Relatório de trabalho para imprimir ou salvar em PDF (A4). Fica fora da tela e só existe enquanto imprime:
 // o botão "Baixar meu relatório" monta, abre a impressão e desmonta. Nada sai do navegador.
 export function Relatorio({ ativo, fim, diag, sim, modo }: { ativo: boolean; fim: () => void; diag: Diagnosticos; sim: Simulacao | null; modo: Modo }) {
-  const { respostas } = useRespostas()
+  const { respostas, revisoes } = useRespostas()
   useEffect(() => {
     if (!ativo) return
     const espera = setTimeout(() => window.print(), 300) // dá tempo de as respostas do navegador carregarem
@@ -15,7 +15,7 @@ export function Relatorio({ ativo, fim, diag, sim, modo }: { ativo: boolean; fim
     return () => { clearTimeout(espera); window.removeEventListener('afterprint', fim) }
   }, [ativo, fim])
   if (!ativo) return null
-  const r = montarRelatorio({ sim, modo, diag, respostas })
+  const r = montarRelatorio({ sim, modo, diag, respostas, revisoes })
   const vazio = !Object.values(respostas.jaFazemos).some(Boolean) && !Object.values(respostas.provas).some((p) => p.length) && !Object.keys(diag).length
   return <section id="relatorio" aria-label="Relatório de trabalho" className="relatorio">
     <header>
@@ -55,6 +55,14 @@ export function Relatorio({ ativo, fim, diag, sim, modo }: { ativo: boolean; fim
 
     <h2>Quem faz o quê <small>(áreas sugeridas; títulos resumidos por IA, a revisar)</small></h2>
     <ul>{r.areas.map((a) => <li key={a.area}>{a.frase}</li>)}</ul>
+
+    <h2>Revisões pessoais deste navegador</h2>
+    <p>Informações confirmadas ou corrigidas por você; não alteram os cálculos nem validam juridicamente a análise automática.</p>
+    {r.revisoes.length ? <ul>{r.revisoes.map((v) => <li key={`${v.id}:${v.campo}`}>
+      <strong>{v.dispositivo} · {v.campo} · {v.estado === 'confirmado' ? 'confirmado por você' : 'corrigido por você'}</strong>
+      <p>Valor original: {v.original}. Sua revisão: {v.valor}.</p>
+      <blockquote>“{v.trecho}”</blockquote>
+    </li>)}</ul> : <p>Nenhuma revisão pessoal registrada.</p>}
 
     {r.errosMateriais.length > 0 && <><h2>Possíveis erros materiais da norma</h2><ul>{r.errosMateriais.map((e) => <li key={e}>{e}</li>)}</ul></>}
 
