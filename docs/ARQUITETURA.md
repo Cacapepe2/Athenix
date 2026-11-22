@@ -71,13 +71,18 @@ sobe o app FastAPI num banco SQLite descartável, envia o arquivo e lê as obrig
   - item 145(a): «a periodicidade máxima pode ser contada da sua última aplicação» → `faculdade`
     ("pode" singular; corrigido no #46, antes virava dever com teto de R$ 50 mi).
   - Resultado RN 1.137: 170 dispositivos classificados → 153 deveres (64 com sujeito implícito),
-    16 outros, 1 fora do perfil. REN 1.174: 167 → 84 deveres (37 com sujeito implícito), 83 outros.
+    16 outros, 1 fora do perfil. REN 1.174: 167 → 85 deveres (37 com sujeito implícito), 82 outros.
 
 ### 4. Prazos (data-base, vigência, recorrência, dependência de ato da ANEEL)
 - **O que faz:** encontra o prazo no texto ("até 90 dias", "anual", "na data de publicação"), o marco
   (publicação, vigência, evento) e calcula a data. Sem marco no texto não há data inventada: fica
   "depende de evento" ou "sem prazo no texto". Minutos e horas só valem a partir de um evento
-  (item 105: "Por evento: até 15 min após o conhecimento da causa; até 1 h após…") e nunca viram data. Toda data nasce **provisória**. Uma trava interrompe o
+  (item 105: "Por evento: até 15 min após o conhecimento da causa; até 1 h após…") e nunca viram data.
+  **Vigência e transição** (`athenix/vigencia.py`): lê as cláusulas da própria norma ("entra em vigor",
+  "produz efeitos", "a adequação … nos seguintes prazos", "demais dispositivos") e liga cada inciso e
+  alínea aos dispositivos citados. REN 1.174: Art. 16, I → 04/11/2027; Art. 16, II → 03/05/2027;
+  Art. 18, I → 03/05/2027; Art. 18, II → 02/02/2027; o resto em vigor desde 04/11/2026. Ligação
+  ambígua fica "a confirmar". Testes: `tests/test_vigencia.py` e 9 casos no gabarito da trava. Toda data nasce **provisória**. Uma trava interrompe o
   export se a data-base for anterior à publicação (outro ato lido como vigência).
 - **Módulo:** `athenix/temporal.py` (`rules`, `compute`, `landmark`), `athenix/plano.py`
   (`situacao`, `validar_bases_dos_prazos`), `athenix/dependencias.py` (ato de terceiro no texto).
@@ -139,7 +144,7 @@ sobe o app FastAPI num banco SQLite descartável, envia o arquivo e lê as obrig
   `athenix/app.py` (API), `landing/src/content/tarefas.ts` (CSV por área e .ics),
   `landing/src/components/plano/` (site).
 - **Testes:** `tests/test_plano.py`, `tests/test_comando.py`, `tests/test_demo.py`; no site,
-  `landing/src/content/*.test.ts` (113 testes).
+  `landing/src/content/*.test.ts` (114 testes).
 - **Exemplo:** `python -m athenix processar tests/norma_poc/ren20251137.pdf --saida plano.json` → JSON
   com 153 deveres em 8 temas; detalhes em [INVENTARIO_TECNICO.md](INVENTARIO_TECNICO.md).
 

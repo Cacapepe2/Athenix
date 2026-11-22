@@ -15,9 +15,9 @@ evidência (saída do comando). O que não foi testado está marcado como **não
 | Banco SQLite + migrações Alembic | sim | **sim** | padrão; `ATHENIX_DATABASE_URL` muda |
 | PostgreSQL via Docker Compose | sim | **não testado** (máquina sem Docker) | `docker compose up -d --build` |
 | IA híbrida (off / cached / live) | sim | **off e cached: sim** (testes); live não rodado | `ATHENIX_AI_MODE` |
-| Testes Python | sim | **sim: 513 aprovados** | `python -m pytest -q` |
-| Testes do site | sim | **sim no CI: 113** (sem Node nesta máquina) | `cd landing && npm test` |
-| Trava do gabarito | sim | **sim: 20/20** | `python scripts/avaliar.py --rotulo local --comparar tests/baseline/metricas_v1.json` |
+| Testes Python | sim | **sim: 541 aprovados** | `python -m pytest -q` |
+| Testes do site | sim | **sim: 114** (Node 24 portátil) | `cd landing && npm test` |
+| Trava do gabarito | sim | **sim: 29/29** | `python scripts/avaliar.py --rotulo local --comparar tests/baseline/metricas_v2.json` |
 | CI em 3 sistemas | sim | **sim: verde** | `.github/workflows/ci.yml` |
 | Instalação limpa | — | **sim** (clone novo, venv novo) | 3 comandos do README |
 | Demo web local com login | sim | **não executada agora** (grava em `.local/`); coberta por `tests/test_demo.py` | `python -m athenix demo` |
@@ -78,15 +78,17 @@ Tempo total: 7.3 s (inclui subir o servidor)
 Athenix · processar ren20251137.pdf para distribuidora
   1. Obrigações extraídas: 170 dispositivos lidos
   2. Deveres da distribuidora: 153 · outros dispositivos (faculdades, direitos, outros agentes): 16 · fora do perfil: 1
-  3. Prazos: 7 vencidas · 0 nos próximos 90 dias · 2 recorrentes · 144 sem data
+  3. Prazos: 25 vencidas · 0 nos próximos 90 dias · 2 recorrentes · 126 sem data
   4. Enquadramento na REN 846: 42 identificados no texto · 111 a confirmar (102 com sugestão da IA em cache, marcadas) · 0 sem multa
   5. Temas: 8 · plano gravado em plano.json
 Tempo total: 14.2 s
 ```
 
-  REN 1.174: 167 lidos · 84 deveres · 83 outros · 0 vencidas · 2 recorrentes · 0 identificados no
-  texto · 84 a confirmar (78 com sugestão da IA) · 4 temas. Sujeito implícito (a revisar): RN 64 de
-  153, REN 37 de 84. Por evento: RN 21 (inclui o item 105, até 15 min / 1 h), REN 1. Tempos de 3 execuções em
+  REN 1.174: 167 lidos · 85 deveres · 82 outros · 0 vencidas · 1 nos próximos 90 dias · 2 recorrentes ·
+  0 identificados no texto · 85 a confirmar (79 com sugestão da IA) · 5 temas. Sujeito implícito (a
+  revisar): RN 64 de 153, REN 37 de 85. Marcos de transição (REN): 22 adequação até 03/05/2027, 2 até
+  04/11/2027, 7 vigência a partir de 03/05/2027, 1 a partir de 02/02/2027, 46 em vigor desde 04/11/2026,
+  6 a confirmar. Por evento: RN 21 (inclui o item 105, até 15 min / 1 h), REN 1. Tempos de 3 execuções em
   [pitch/metricas.md](pitch/metricas.md).
 
 ## IA híbrida
@@ -110,13 +112,13 @@ Tempo total: 14.2 s
 
 ## Testes, trava e CI
 
-- **pytest:** `python -m pytest -q` → `513 passed in 171.20s` (máquina de desenvolvimento, 22/11). Num clone
-  limpo → `507 passed, 6 skipped` (os 6 dependem de dados locais fora do Git: CSV de autos, votos da
+- **pytest:** `python -m pytest -q` → `541 passed in 150.13s` (máquina de desenvolvimento, 22/11). No CI
+  (sem os dados locais) → 535 aprovados e 6 pulados (os 6 dependem de dados locais fora do Git: CSV de autos, votos da
   ANEEL, cópia de conferência, REN 846 original). 44 arquivos de teste; os maiores: `test_tipos.py`
   (50), `test_impacto.py` (34), `test_prazos_obrigacoes.py` (32).
-- **Site:** 113 testes (`node --test`), aprovados no CI. Não rodados nesta máquina (sem Node).
-- **Trava:** `scripts/avaliar.py` → `casos corretos: 20 / 20`, citações corretas 0,9955, sem fonte
-  0,0068, "Sem regressão em relação a tests/baseline/metricas_v1.json". O gabarito
+- **Site:** 114 testes (`node --test`), aprovados nesta máquina com Node 24.22.1 portátil e no CI.
+- **Trava:** `scripts/avaliar.py` → `casos corretos: 29 / 29`, citações corretas 0,9961, sem fonte
+  0,0065, "Sem regressão em relação a tests/baseline/metricas_v2.json". O gabarito
   (`tests/gabarito/`) não tem revisão humana.
 - **CI:** `.github/workflows/ci.yml` em `ubuntu-latest`, `windows-latest` e `macos-15-intel`: testes
   e build do site, ruff, segredos, trava, reprodução dos dois JSONs do plano e pytest. Execução

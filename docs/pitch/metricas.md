@@ -1,6 +1,6 @@
 # Métricas de eficiência: duas normas reais
 
-Medido em **22/11/2026**, código da `main` em `d2b058b` (depois das correções C1 e A1), sem IA (`ATHENIX_AI_MODE=off`) e sem rede.
+Medido em **22/11/2026**, código do PR de vigência e transição (sobre a `main` em `1cdedab`), sem IA (`ATHENIX_AI_MODE=off`) e sem rede.
 
 ```bash
 python scripts/demo/medir_normas.py --execucoes 3
@@ -16,16 +16,17 @@ partida do Python, a estruturação do arquivo, as regras, o cálculo e a grava�
 | Páginas do arquivo oficial | 31 | 1 (HTML sem paginação) |
 | Unidades estruturais (artigo, parágrafo, inciso, alínea, item) | 315 | 368 |
 | Dispositivos classificados (dever, faculdade, outro agente) | 170 | 167 |
-| Deveres da distribuidora | 153 | 84 |
+| Deveres da distribuidora | 153 | 85 |
 | … com sujeito implícito (a revisar) | 64 | 37 |
-| … com data de prazo (todos já vencidos em 22/11/2026) | 7 | 0 |
+| … com data de prazo (texto ou transição da norma) | 25 | 32 |
+| … já vencidos em 22/11/2026 | 25 | 0 |
 | … recorrentes | 2 | 2 |
 | … dependentes de um evento (inclui minutos/horas, ex.: item 105) | 21 | 1 |
-| … sem prazo no texto | 123 | 81 |
-| Deveres com citação literal conferida de novo na medição | 153 | 84 |
+| … sem prazo no texto (em vigor desde a publicação ou sem marco) | 105 | 50 |
+| Deveres com citação literal conferida de novo na medição | 153 | 85 |
 | … dos quais pela primeira frase do dispositivo | 2 | 0 |
-| **Tempo do comando único, mediana de 3 (s)** | **15,5** | **11,9** |
-| Execuções (s) | 15,7 · 15,4 · 15,5 | 11,9 · 11,7 · 11,9 |
+| **Tempo do comando único, mediana de 3 (s)** | **15,3** | **12,0** |
+| Execuções (s) | 15,3 · 15,3 · 15,5 | 11,8 · 12,0 · 12,1 |
 
 Arquivos e hashes:
 - RN 1.137/2025: `tests/norma_poc/ren20251137.pdf`, SHA-256

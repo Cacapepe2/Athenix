@@ -41,12 +41,12 @@ Athenix · processar ren20251137.pdf para distribuidora
   Norma: RN ANEEL 1.137/2025 (sem chamada de IA nem rede; sugestões de IA só do cache versionado, marcadas)
   1. Obrigações extraídas: 170 dispositivos lidos
   2. Deveres da distribuidora: 153 · outros dispositivos (faculdades, direitos, outros agentes): 16 · fora do perfil: 1
-  3. Prazos: 7 vencidas · 0 nos próximos 90 dias · 2 recorrentes · 144 sem data
+  3. Prazos: 25 vencidas · 0 nos próximos 90 dias · 2 recorrentes · 126 sem data
   4. Enquadramento na REN 846: 42 identificados no texto · 111 a confirmar (102 com sugestão da IA em cache, marcadas) · 0 sem multa
   5. Temas: 8 · plano gravado em plano.json
 ```
 
-No clone limpo o passo 2 dá `507 passed, 6 skipped`: os 6 dependem de dados locais que não vão para
+No clone limpo o passo 2 dá `535 passed, 6 skipped`: os 6 dependem de dados locais que não vão para
 o Git (CSV de autos, votos da ANEEL). A segunda norma:
 `python -m athenix processar tests/fontes_impacto/dou/dou_ren20261174.html --saida plano.json`.
 
@@ -72,9 +72,9 @@ O que existe e o que funciona, com a saída dos comandos: [docs/INVENTARIO_TECNI
 
 | | Número | De onde vem |
 | :-- | :-- | :-- |
-| Testes automatizados | **513 em Python + 113 no site** | `python -m pytest -q`; `npm test` no CI |
+| Testes automatizados | **541 em Python + 114 no site** | `python -m pytest -q`; `npm test` no CI |
 | CI | **verde em Ubuntu, Windows e macOS** | `.github/workflows/ci.yml`, execução 45054510595 |
-| Trava do gabarito | **20 de 20 casos**, citações corretas 0,9955, sem regressão | `python scripts/avaliar.py --rotulo local --comparar tests/baseline/metricas_v1.json` |
+| Trava do gabarito | **29 de 29 casos** (9 de vigência e transição da REN 1.174), citações corretas 0,9961, sem regressão | `python scripts/avaliar.py --rotulo local --comparar tests/baseline/metricas_v2.json` |
 | Citações conferidas contra o arquivo oficial, com outro extrator | **536 de 536** (RN 1.137: 228; REN 1.174: 308) | `python scripts/demo/conferir_citacoes.py` |
 | Segunda leitura independente da REN 846 (outro modelo) | **108 de 108 infrações no mesmo grupo** (catálogo: 109) | `python scripts/demo/conferir_segunda_leitura.py` |
 | Auditorias independentes (21/11) | amostra de **20 de 20 citações** conferidas; achados da primeira auditoria corrigidos no #43; da segunda, C1 e A1 corrigidos no #46 (`tests/test_auditoria.py`); os abertos em [Limitações](#limitações-e-roteiro) | relatórios locais das auditorias |
@@ -125,7 +125,9 @@ Os CSVs dos dados abertos de autos de infração ficam fora do Git e alimentam s
 - Nenhum enquadramento revisado por especialista; na REN 1.174 todos são sugestão da IA.
 - Prazos provisórios, contados da publicação ou da vigência.
 - Deveres de sujeito impessoal contam como da distribuidora, marcados "sujeito implícito (a revisar)":
-  64 de 153 na RN 1.137 e 37 de 84 na REN 1.174.
+  64 de 153 na RN 1.137 e 37 de 85 na REN 1.174.
+- Marcos de vigência e transição lidos da própria norma; ligação ambígua fica "a confirmar" (6 deveres
+  da REN 1.174 sem artigo identificado no bloco de alteração do art. 2º).
 - Achados ainda abertos da auditoria de 21/11/2026: o relatório-piloto não roda no CI; alguns tipos
   mandam tarefas para a área errada; 5 deveres sem título curto (a tela usa o título completo).
 - Duas normas no plano; 49 deveres ainda com área "A definir"; PostgreSQL não testado nesta conferência.

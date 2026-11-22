@@ -20,7 +20,7 @@ estático. Tempos medidos em 22/11/2026 (Ryzen 5 5500, Windows 11).
 | 2–10 s | (rodando, ~7,3 s) | `Athenix · API HTTP · RN ANEEL 1.137/2025`, o servidor FastAPI subindo e as 8 linhas das chamadas, uma por vez: `/health` → `/api/login` → `/api/documents` (sha256) → estrutura (31 páginas, 315 unidades) → extração por regras → `completed` → **170 obrigações, 251 de 253 citações verificadas** → **251 citações reconferidas, válidas=sim** |
 | 10–12 s | (pausa na tela) | o exemplo com o trecho literal do item 94 e o hash do trecho; `Tempo total: 7.3 s` |
 | 12–14 s | digitar `python scripts/demo/conferir_citacoes.py` | o comando |
-| 14–16 s | (rodando, < 1 s) | `SHA-256 do arquivo = declarado no plano: sim` e **153 de 153 / 84 de 84** deveres, `Resultado: todas as citações conferem` |
+| 14–16 s | (rodando, < 1 s) | `SHA-256 do arquivo = declarado no plano: sim` e **153 de 153 / 85 de 85** deveres, `Resultado: todas as citações conferem` |
 | 16–18 s | (pausa na tela) | fim |
 
 Narração sugerida (opcional, uma frase): "A norma entra pela API, sai com cada obrigação citada
@@ -55,8 +55,8 @@ RN ANEEL 1.137/2025 · tests/norma_poc/ren20251137.pdf
   sem_dever_identificado: 59 de 59 trechos encontrados
 REN ANEEL 1.174/2026 · tests/fontes_impacto/dou/dou_ren20261174.html
   SHA-256 do arquivo = declarado no plano: sim
-  obrigacoes: 84 de 84 trechos encontrados
-  outros_dispositivos: 83 de 83 trechos encontrados
+  obrigacoes: 85 de 85 trechos encontrados
+  outros_dispositivos: 82 de 82 trechos encontrados
   sem_dever_identificado: 141 de 141 trechos encontrados
 Resultado: todas as citações conferem
 ```
