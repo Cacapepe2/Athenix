@@ -1,6 +1,6 @@
 # Avaliação do FAQ oficial da RN 1.137/2025
 
-O Athenix **acerta 10 de 26 verificáveis**: 0 divergem e 16 não são cobertas. Das 32 perguntas, 6 ficaram fora deste placar.
+O Athenix **acerta 10 de 10 cobertas · 16 não cobertas**. Cobertura: 10 de 26 afirmações verificáveis; 0 das cobertas divergem. Das 32 perguntas, 6 ficaram fora deste placar.
 
 Fonte: [FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)](https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025), consulta salva em 2026-11-22. SHA-256: `a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da`. Nenhuma consulta à rede ou chamada de IA nesta avaliação.
 
@@ -12,7 +12,9 @@ Anotações manuais de avaliação, não revisadas por especialista. Expectativa
 
 Cada pergunta tem uma afirmação objetiva delimitada no campo Escopo. Um acerto não significa que toda a interpretação da resposta, ou um plano operacional real, tenha sido validado. As expectativas foram anotadas manualmente a partir do FAQ; as citações são conferidas contra a resposta salva. Os campos e trechos da resposta Athenix vêm exclusivamente do plano exportado, sem títulos ou sugestões da IA. Falta de um campo, de um requisito ou de uma conclusão negativa é não cobertura, não acerto por ausência. Divergência exige um valor explícito incompatível, como uma data diferente.
 
-**Não é um conjunto inteiramente independente:** as perguntas 1.8, 3.2 já alimentam esclarecimentos confirmados no plano. Retirando esses casos, são **8 acertos em 24 verificáveis**. O resultado não substitui revisão regulatória humana.
+Cobertura e acerto são medidas separadas: uma pergunta é coberta quando todos os critérios da afirmação delimitada têm resposta explícita comparável, igual ou divergente. Se algum critério não é coberto, a pergunta fica em não cobertura. Acerto é a concordância entre as perguntas cobertas; as não cobertas não entram nesse denominador.
+
+**Não é um conjunto inteiramente independente:** as perguntas 1.8, 3.2 já alimentam esclarecimentos confirmados no plano. Retirando esses casos, são **acerta 8 de 8 cobertas · 16 não cobertas**. Cobertura independente: 8 de 24 afirmações verificáveis. O resultado não substitui revisão regulatória humana.
 
 ## Resultado por pergunta
 

@@ -14,6 +14,10 @@ def test_prazo_real_do_dise_igual_e_data_incorreta_diverge():
         if o["dispositivo"] == "Art. 13, inciso VI":
             o["prazo"]["data"] = "2026-05-28"
     assert faq.avaliar(caso, errado)["veredito"] == faq.DIVERGE
+    fonte, perguntas, _, _ = faq.carregar()
+    texto, totais = faq.relatorio(fonte, perguntas, cfg, errado)
+    assert totais[faq.DIVERGE] == 1
+    assert "acerta 9 de 10 cobertas · 16 não cobertas" in texto
 
 
 def test_resposta_negativa_sem_campo_nao_vira_acerto_por_ausencia():
@@ -31,6 +35,10 @@ def test_faq_real_inteiro_classificado_e_hash_divergente_interrompe(tmp_path):
     assert texto == faq.SAIDA.read_text(encoding="utf-8")
     assert sum(totais.values()) == len(cfg["casos"])
     assert "não é um conjunto inteiramente independente" in texto.lower()
+    assert "acerta 10 de 10 cobertas · 16 não cobertas" in texto
+    assert "acerta 8 de 8 cobertas · 16 não cobertas" in texto
+    assert "Cobertura: 10 de 26" in texto
+    assert "Cobertura independente: 8 de 24" in texto
     for n in perguntas:
         assert perguntas[n]["pergunta"] in texto
     (tmp_path / "fontes.json").write_bytes((faq.PASTA / "fontes.json").read_bytes())

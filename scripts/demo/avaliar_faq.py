@@ -121,10 +121,13 @@ def relatorio(fonte, qs, cfg, plano):
         )
     ]
     independentes = [(c, r) for c, r in resultados if c["numero"] not in dependentes]
+    cobertas = totais[IGUAL] + totais[DIVERGE]
+    cobertas_independentes = sum(r["veredito"] != NAO_COBRE for _, r in independentes)
     partes = [
         "# Avaliação do FAQ oficial da RN 1.137/2025",
-        f"O Athenix **acerta {totais[IGUAL]} de {len(resultados)} verificáveis**: {totais[DIVERGE]} divergem e "
-        f"{totais[NAO_COBRE]} não são cobertas. Das {len(qs)} perguntas, {len(cfg['fora'])} ficaram fora deste placar.",
+        f"O Athenix **acerta {totais[IGUAL]} de {cobertas} cobertas · {totais[NAO_COBRE]} não cobertas**. "
+        f"Cobertura: {cobertas} de {len(resultados)} afirmações verificáveis; {totais[DIVERGE]} das cobertas divergem. "
+        f"Das {len(qs)} perguntas, {len(cfg['fora'])} ficaram fora deste placar.",
         f"Fonte: [{fonte['titulo']}]({fonte['url']}), consulta salva em {fonte['consultado_em']}. "
         f"SHA-256: `{fonte['sha256']}`. Nenhuma consulta à rede ou chamada de IA nesta avaliação.",
         f"Plano: `landing/src/content/plano-rn1137.json`, gerado em {plano['gerado_em']}, "
@@ -138,9 +141,15 @@ def relatorio(fonte, qs, cfg, plano):
         "Os campos e trechos da resposta Athenix vêm exclusivamente do plano exportado, sem títulos ou "
         "sugestões da IA. Falta de um campo, de um requisito ou de uma conclusão negativa é não cobertura, "
         "não acerto por ausência. Divergência exige um valor explícito incompatível, como uma data diferente.",
+        "Cobertura e acerto são medidas separadas: uma pergunta é coberta quando todos os critérios da "
+        "afirmação delimitada têm resposta explícita comparável, igual ou divergente. Se algum critério "
+        "não é coberto, a pergunta fica em não cobertura. Acerto é a concordância entre as perguntas cobertas; "
+        "as não cobertas não entram nesse denominador.",
         f"**Não é um conjunto inteiramente independente:** as perguntas {', '.join(dependentes)} já "
         "alimentam esclarecimentos confirmados no plano. Retirando esses casos, são "
-        f"**{sum(r['veredito'] == IGUAL for _, r in independentes)} acertos em {len(independentes)} verificáveis**. "
+        f"**acerta {sum(r['veredito'] == IGUAL for _, r in independentes)} de {cobertas_independentes} cobertas · "
+        f"{len(independentes) - cobertas_independentes} não cobertas**. "
+        f"Cobertura independente: {cobertas_independentes} de {len(independentes)} afirmações verificáveis. "
         "O resultado não substitui revisão regulatória humana.",
         "## Resultado por pergunta",
         "| Pergunta | Afirmação avaliada | Veredito |\n| --- | --- | --- |",
