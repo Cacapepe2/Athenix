@@ -151,6 +151,60 @@
    "trecho": "regiões de elevada complexidade ao combate às perdas não técnicas",
    "esperado": {"autoria": "62724"},
    "nota": "Texto citado entre aspas pertence ao Decreto 62.724, não ao 12.068."
+  },
+  {
+   "id": "G21", "doc": "ren20261174", "dispositivo": "Art. 166, § 1º da REN 1.000 (incluído pelo art. 2º)",
+   "trecho": "§ 1º A distribuidora deve disponibilizar no espaço reservado para atendimento na internet",
+   "esperado": {"transicao": {"tipo": "adequacao", "data": "2027-11-04", "regra": "Art. 16, I"}},
+   "nota": "Arts. 16 e 18 da REN 1.174 conferidos pelo fundador (22/11/2026); leitor geral em athenix/vigencia.py."
+  },
+  {
+   "id": "G22", "doc": "ren20261174", "dispositivo": "Art. 333, § 4º da REN 1.000 (incluído pelo art. 2º)",
+   "trecho": "§ 4º No caso de entrega de forma digital, a distribuidora deve enviar adicionalmente ao consumidor",
+   "esperado": {"transicao": {"tipo": "adequacao", "data": "2027-11-04", "regra": "Art. 16, I"}},
+   "nota": "Arts. 16 e 18 da REN 1.174 conferidos pelo fundador (22/11/2026); leitor geral em athenix/vigencia.py."
+  },
+  {
+   "id": "G23", "doc": "ren20261174", "dispositivo": "Art. 159-B da REN 1.000 (incluído pelo art. 2º)",
+   "trecho": "Art. 159-B. A CCEE deve elaborar e executar, de forma contínua e atualizada, plano de comunicação",
+   "esperado": {"transicao": {"tipo": "adequacao", "data": "2027-05-03", "regra": "Art. 16, II, a"}},
+   "nota": "Arts. 16 e 18 da REN 1.174 conferidos pelo fundador (22/11/2026); leitor geral em athenix/vigencia.py."
+  },
+  {
+   "id": "G24", "doc": "ren20261174", "dispositivo": "Art. 142, IV da REN 1.000 (alterado pelo art. 2º)",
+   "trecho": "IV - no caso do CCER para fins de migração ao ACL, de que trata o art. 166:",
+   "esperado": {"transicao": {"tipo": "adequacao", "data": "2027-05-03", "regra": "Art. 16, II, b"}},
+   "nota": "Arts. 16 e 18 da REN 1.174 conferidos pelo fundador (22/11/2026); leitor geral em athenix/vigencia.py."
+  },
+  {
+   "id": "G25", "doc": "ren20261174", "dispositivo": "Art. 9º-A da REN 1.011 (incluído pelo art. 5º)",
+   "trecho": "Art. 9º-A. O agente comercializador pertencente ao mesmo grupo econômico de agente de distribuição",
+   "esperado": {"transicao": {"tipo": "vigencia", "data": "2027-05-03", "regra": "Art. 18, I, a"}},
+   "nota": "Arts. 16 e 18 da REN 1.174 conferidos pelo fundador (22/11/2026); leitor geral em athenix/vigencia.py."
+  },
+  {
+   "id": "G26", "doc": "ren20261174", "dispositivo": "Art. 172-C da REN 1.000 (incluído pelo art. 7º)",
+   "trecho": "Art. 172-C. A distribuidora deverá identificar de forma nítida e inequívoca seu segmento de atuação",
+   "esperado": {"transicao": {"tipo": "vigencia", "data": "2027-05-03", "regra": "Art. 18, I, b"}},
+   "nota": "Arts. 16 e 18 da REN 1.174 conferidos pelo fundador (22/11/2026); leitor geral em athenix/vigencia.py."
+  },
+  {
+   "id": "G27", "doc": "ren20261174", "dispositivo": "Art. 7º, § 3º da REN 957 (alterado pelo art. 4º)",
+   "trecho": "§ 3º A distribuidora deve ressarcir ao consumidor a penalidade paga decorrente de erro de medição",
+   "esperado": {"transicao": {"tipo": "vigencia", "data": "2027-02-02", "regra": "Art. 18, II"}},
+   "nota": "Arts. 16 e 18 da REN 1.174 conferidos pelo fundador (22/11/2026); leitor geral em athenix/vigencia.py."
+  },
+  {
+   "id": "G28", "doc": "ren20261174", "dispositivo": "Art. 13 (da própria REN 1.174)",
+   "trecho": "Art. 13. No caso de consumidor parcialmente livre, que tenha exercido a opção do art. 166",
+   "esperado": {"transicao": {"tipo": "em_vigor", "data": "2026-11-04", "regra": "Art. 18, III"}},
+   "nota": "Arts. 16 e 18 da REN 1.174 conferidos pelo fundador (22/11/2026); leitor geral em athenix/vigencia.py."
+  },
+  {
+   "id": "G29", "doc": "ren20261174", "dispositivo": "Art. 16, parágrafo único",
+   "trecho": "A adequação pela distribuidora dentro do período de transição deve ser realizada com isonomia",
+   "esperado": {"obrigacao": {"modalidade": "duty", "sujeito": "distribuidora"}, "transicao": {"tipo": null, "data": null, "regra": null}},
+   "nota": "Dever da distribuidora (isonomia na transição), sem data própria. Arts. 16 e 18 da REN 1.174 conferidos pelo fundador (22/11/2026); leitor geral em athenix/vigencia.py."
   }
  ]
 }
