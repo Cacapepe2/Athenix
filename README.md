@@ -26,27 +26,27 @@ de ponta a ponta em duas normas reais, ainda sem validação comercial nem revis
 Precisa de Python 3.11 ou mais recente e Git. Sem chave de API, sem conta, sem variável de ambiente.
 
 ```bash
-git clone https://github.com/emilynespoli-lab/Athenix.git && cd Athenix
+git clone https://github.com/Cacapepe2/Athenix.git && cd Athenix
 python -m venv .venv && . .venv/bin/activate        # Windows: .venv\Scripts\activate
 
-python -m pip install -r requirements-dev.lock       # 1. instalar  (~30 s)
+python -m pip install -r requirements-dev.lock       # 1. instalar  (~40 s)
 python -m pytest -q                                  # 2. testar    (~2 min)
-python -m athenix processar tests/norma_poc/ren20251137.pdf --saida plano.json   # 3. processar (~16 s)
+python -m athenix processar tests/norma_poc/ren20251137.pdf --saida plano.json   # 3. processar (~15 s)
 ```
 
-Saída do passo 3 (conferida num clone e venv novos em 21/11/2026):
+Saída do passo 3 (conferida num clone e venv novos em 22/11/2026, commit `d2b058b`):
 
 ```text
 Athenix · processar ren20251137.pdf para distribuidora
   Norma: RN ANEEL 1.137/2025 (sem chamada de IA nem rede; sugestões de IA só do cache versionado, marcadas)
-  1. Obrigações extraídas: 168 dispositivos lidos
-  2. Deveres da distribuidora: 153 · outros dispositivos (faculdades, direitos, outros agentes): 14 · fora do perfil: 1
+  1. Obrigações extraídas: 170 dispositivos lidos
+  2. Deveres da distribuidora: 153 · outros dispositivos (faculdades, direitos, outros agentes): 16 · fora do perfil: 1
   3. Prazos: 7 vencidas · 0 nos próximos 90 dias · 2 recorrentes · 144 sem data
-  4. Enquadramento na REN 846: 43 identificados no texto · 110 a confirmar (102 com sugestão da IA em cache, marcadas) · 0 sem multa
+  4. Enquadramento na REN 846: 42 identificados no texto · 111 a confirmar (102 com sugestão da IA em cache, marcadas) · 0 sem multa
   5. Temas: 8 · plano gravado em plano.json
 ```
 
-No clone limpo o passo 2 dá `496 passed, 6 skipped`: os 6 dependem de dados locais que não vão para
+No clone limpo o passo 2 dá `507 passed, 6 skipped`: os 6 dependem de dados locais que não vão para
 o Git (CSV de autos, votos da ANEEL). A segunda norma:
 `python -m athenix processar tests/fontes_impacto/dou/dou_ren20261174.html --saida plano.json`.
 
@@ -68,17 +68,17 @@ alcança, sempre com citação literal conferida na fonte e marcada como "aguard
 Cada etapa, com o módulo, os testes e um exemplo real: [docs/ARQUITETURA.md](docs/ARQUITETURA.md).
 O que existe e o que funciona, com a saída dos comandos: [docs/INVENTARIO_TECNICO.md](docs/INVENTARIO_TECNICO.md).
 
-## Qualidade (números conferidos em 21/11/2026, commit `887cd2f`)
+## Qualidade (números conferidos em 22/11/2026, código da `main` em `d2b058b`)
 
 | | Número | De onde vem |
 | :-- | :-- | :-- |
-| Testes automatizados | **502 em Python + 112 no site** | `python -m pytest -q`; `npm test` no CI |
-| CI | **verde em Ubuntu, Windows e macOS** | `.github/workflows/ci.yml`, execução 44917313898 |
-| Trava do gabarito | **20 de 20 casos**, citações corretas 0,9954, sem regressão | `python scripts/avaliar.py --rotulo local --comparar tests/baseline/metricas_v1.json` |
-| Citações conferidas contra o arquivo oficial, com outro extrator | **535 de 535** (RN 1.137: 228; REN 1.174: 307) | `python scripts/demo/conferir_citacoes.py` |
+| Testes automatizados | **513 em Python + 113 no site** | `python -m pytest -q`; `npm test` no CI |
+| CI | **verde em Ubuntu, Windows e macOS** | `.github/workflows/ci.yml`, execução 45054510595 |
+| Trava do gabarito | **20 de 20 casos**, citações corretas 0,9955, sem regressão | `python scripts/avaliar.py --rotulo local --comparar tests/baseline/metricas_v1.json` |
+| Citações conferidas contra o arquivo oficial, com outro extrator | **536 de 536** (RN 1.137: 228; REN 1.174: 308) | `python scripts/demo/conferir_citacoes.py` |
 | Segunda leitura independente da REN 846 (outro modelo) | **108 de 108 infrações no mesmo grupo** (catálogo: 109) | `python scripts/demo/conferir_segunda_leitura.py` |
-| Auditorias independentes (21/11) | amostra de **20 de 20 citações** conferidas; achados da primeira auditoria corrigidos no #43 (`tests/test_auditoria.py`); achados abertos da segunda em [Limitações](#limitações-e-roteiro) | relatórios locais das auditorias |
-| Tempo da norma ao plano | **16,1 s** (RN 1.137, 31 páginas) · **12,1 s** (REN 1.174), mediana de 3 | `python scripts/demo/medir_normas.py` → [docs/pitch/metricas.md](docs/pitch/metricas.md) |
+| Auditorias independentes (21/11) | amostra de **20 de 20 citações** conferidas; achados da primeira auditoria corrigidos no #43; da segunda, C1 e A1 corrigidos no #46 (`tests/test_auditoria.py`); os abertos em [Limitações](#limitações-e-roteiro) | relatórios locais das auditorias |
+| Tempo da norma ao plano | **15,5 s** (RN 1.137, 31 páginas) · **11,9 s** (REN 1.174), mediana de 3 | `python scripts/demo/medir_normas.py` → [docs/pitch/metricas.md](docs/pitch/metricas.md) |
 | Custo de IA | **US$ 1,02 para as duas normas (≈ US$ 0,51 por norma)**; reprocessar custa US$ 0 (cache) | `python scripts/demo/custo_ia.py` |
 
 O export do plano é reproduzível: o CI regenera os dois JSONs do site e compara com os versionados
@@ -124,9 +124,10 @@ Os CSVs dos dados abertos de autos de infração ficam fora do Git e alimentam s
 **Limitações conhecidas** (detalhes em [docs/ARQUITETURA.md](docs/ARQUITETURA.md#limitações-conhecidas)):
 - Nenhum enquadramento revisado por especialista; na REN 1.174 todos são sugestão da IA.
 - Prazos provisórios, contados da publicação ou da vigência.
-- Achados abertos da auditoria de 21/11/2026: o singular "pode" ainda vira dever num caso (item
-  145(a) da RN 1.137); prazos em minutos e horas não são lidos (item 105); o relatório-piloto não
-  roda no CI.
+- Deveres de sujeito impessoal contam como da distribuidora, marcados "sujeito implícito (a revisar)":
+  64 de 153 na RN 1.137 e 37 de 84 na REN 1.174.
+- Achados ainda abertos da auditoria de 21/11/2026: o relatório-piloto não roda no CI; alguns tipos
+  mandam tarefas para a área errada; 5 deveres sem título curto (a tela usa o título completo).
 - Duas normas no plano; 49 deveres ainda com área "A definir"; PostgreSQL não testado nesta conferência.
 
 **Roteiro:**

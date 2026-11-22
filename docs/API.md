@@ -2,7 +2,8 @@
 
 App FastAPI em `athenix/app.py`. Um sistema cliente envia o arquivo oficial da norma e recebe as
 obrigações com a citação literal verificada, o hash do arquivo e a trilha de auditoria. Tudo abaixo
-foi executado em 21/11/2026 no commit `887cd2f`, com `ATHENIX_AI_MODE=off`.
+foi executado em 21/11/2026 no commit `887cd2f`; contagens e saída da demonstração
+conferidas de novo em 22/11/2026 no código da `main` em `d2b058b` (depois das correções C1 e A1), com `ATHENIX_AI_MODE=off`.
 
 **O que a API entrega e o que não entrega.** A API devolve a primeira camada: as obrigações
 candidatas por regras (sujeito, ação, modalidade dever/faculdade/proibição, prazos lidos e âncora
@@ -71,11 +72,11 @@ curl -s -b $J -H "X-CSRF-Token: $CSRF" -H "Content-Type: application/json" \
   -d '{"kind":"rules"}' $B/api/documents/$ID/runs
 # {"id":"c8aa407c…","state":"queued","reused":false}
 curl -s -b $J $B/api/runs/$RUN
-# {"id":"c8aa407c…","state":"completed","progress":100,"result":{"accepted":168,"total":168,"discards":[]}}
+# {"id":"c8aa407c…","state":"completed","progress":100,"result":{"accepted":170,"total":170,"discards":[]}}
 
-curl -s -b $J "$B/api/obligations?document_id=$ID"     # 168 itens
+curl -s -b $J "$B/api/obligations?document_id=$ID"     # 170 itens
 curl -s -b $J $B/api/evidence/verify
-# {"verified_anchors_checked":250,"invalid":[],"valid":true}
+# {"verified_anchors_checked":251,"invalid":[],"valid":true}
 curl -s -b $J -o athenix.csv $B/export/csv
 ```
 
@@ -103,7 +104,7 @@ $B = "http://127.0.0.1:8000"
 $login = Invoke-RestMethod -Method Post -Uri "$B/api/login" -ContentType "application/json" `
   -Body '{"username":"analista","password":"<sua senha>"}' -SessionVariable s
 $o = Invoke-RestMethod -Uri "$B/api/obligations" -WebSession $s
-$o.count                                   # 168
+$o.count                                   # 170
 (Invoke-RestMethod -Uri "$B/api/evidence/verify" -WebSession $s).valid   # True
 ```
 
@@ -127,7 +128,7 @@ python scripts/demo/demo_api.py --arquivo tests/fontes_impacto/dou/dou_ren202611
 ```
 
 Sobe o servidor real num SQLite temporário, cria um usuário com senha gerada na hora, faz as 7
-chamadas e imprime um resumo. Saída de 21/11/2026 (RN 1.137):
+chamadas e imprime um resumo. Saída de 22/11/2026 (RN 1.137):
 
 ```text
 Athenix · API HTTP · RN ANEEL 1.137/2025
@@ -138,16 +139,16 @@ Athenix · API HTTP · RN ANEEL 1.137/2025
   3. GET  /api/documents/{id}                31 página(s), 315 unidades estruturais
   4. POST /api/documents/{id}/runs           extração por regras enfileirada
   5. GET  /api/runs/{id}                     estado=completed
-  6. GET  /api/obligations                   168 obrigações, 250 de 252 citações verificadas
-  7. GET  /api/evidence/verify               250 citações reconferidas, válidas=sim
+  6. GET  /api/obligations                   170 obrigações, 251 de 253 citações verificadas
+  7. GET  /api/evidence/verify               251 citações reconferidas, válidas=sim
 
-  Modalidade: dever 156, faculdade 12
+  Modalidade: dever 155, faculdade 14, proibição 1
   Exemplo:    «94. As distribuidoras devem estabelecer um plano de manejo vegetal na sua área de atuaçã…»
               âncora u0026 · hash do trecho 771e0af117ae…
 
-Tempo total: 7.5 s (inclui subir o servidor)
+Tempo total: 7.3 s (inclui subir o servidor)
 ```
 
-As 2 citações que a API deixa pendentes (252 − 250) têm tabela ou quebra de linha no meio do
+As 2 citações que a API deixa pendentes (253 − 251) têm tabela ou quebra de linha no meio do
 trecho; o plano as recupera pela primeira frase do dispositivo, conferida na fonte
-(`plano.ancorar_pendentes`). Na REN 1.174: 156 obrigações, 223 de 225 citações verificadas.
+(`plano.ancorar_pendentes`). Na REN 1.174: 167 obrigações, 241 de 243 citações verificadas (4,0 s).

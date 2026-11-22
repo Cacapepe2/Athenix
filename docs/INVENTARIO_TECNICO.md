@@ -1,6 +1,7 @@
 # Inventário técnico: o que existe e o que funciona
 
-Conferido em **21/11/2026** no commit `887cd2f` (`main`), Windows 11, Python 3.13.14, sem IA
+Conferido em **21/11/2026** no commit `887cd2f` e de novo em **22/11/2026** no código da `main` em
+`d2b058b` (depois das correções C1 e A1), Windows 11, Python 3.13.14, sem IA
 (`ATHENIX_AI_MODE=off`). Cada linha diz se a peça existe, se funcionou agora, como rodar e a
 evidência (saída do comando). O que não foi testado está marcado como **não testado**.
 
@@ -14,8 +15,8 @@ evidência (saída do comando). O que não foi testado está marcado como **não
 | Banco SQLite + migrações Alembic | sim | **sim** | padrão; `ATHENIX_DATABASE_URL` muda |
 | PostgreSQL via Docker Compose | sim | **não testado** (máquina sem Docker) | `docker compose up -d --build` |
 | IA híbrida (off / cached / live) | sim | **off e cached: sim** (testes); live não rodado | `ATHENIX_AI_MODE` |
-| Testes Python | sim | **sim: 502 aprovados** | `python -m pytest -q` |
-| Testes do site | sim | **sim no CI: 112** (sem Node nesta máquina) | `cd landing && npm test` |
+| Testes Python | sim | **sim: 513 aprovados** | `python -m pytest -q` |
+| Testes do site | sim | **sim no CI: 113** (sem Node nesta máquina) | `cd landing && npm test` |
 | Trava do gabarito | sim | **sim: 20/20** | `python scripts/avaliar.py --rotulo local --comparar tests/baseline/metricas_v1.json` |
 | CI em 3 sistemas | sim | **sim: verde** | `.github/workflows/ci.yml` |
 | Instalação limpa | — | **sim** (clone novo, venv novo) | 3 comandos do README |
@@ -31,8 +32,8 @@ evidência (saída do comando). O que não foi testado está marcado como **não
 - **Recebe uma norma?** Sim: `POST /api/documents` (multipart) devolve id e SHA-256;
   `POST /api/documents/{id}/runs` com `{"kind":"rules"}` extrai; `GET /api/obligations` devolve as
   obrigações com citação verificada.
-- **Devolve o plano?** **Não diretamente.** A API devolve as obrigações candidatas por regras (168 na
-  RN 1.137, entre deveres e faculdades). A classificação dever × faculdade × competência, o
+- **Devolve o plano?** **Não diretamente.** A API devolve as obrigações candidatas por regras (170 na
+  RN 1.137: dever 155, faculdade 14, proibição 1). A classificação dever × faculdade × competência, o
   enquadramento, o valor e a área são montados pelo comando único, que usa a API por dentro.
 - **Evidência** (`python scripts/demo/demo_api.py`, servidor real em SQLite temporário):
 
@@ -40,14 +41,14 @@ evidência (saída do comando). O que não foi testado está marcado como **não
   2. POST /api/documents                     sha256=4a581592e981158b…
   3. GET  /api/documents/{id}                31 página(s), 315 unidades estruturais
   5. GET  /api/runs/{id}                     estado=completed
-  6. GET  /api/obligations                   168 obrigações, 250 de 252 citações verificadas
-  7. GET  /api/evidence/verify               250 citações reconferidas, válidas=sim
-Tempo total: 7.5 s (inclui subir o servidor)
+  6. GET  /api/obligations                   170 obrigações, 251 de 253 citações verificadas
+  7. GET  /api/evidence/verify               251 citações reconferidas, válidas=sim
+Tempo total: 7.3 s (inclui subir o servidor)
 ```
 
-  REN 1.174 (`--arquivo tests/fontes_impacto/dou/dou_ren20261174.html`): 368 unidades, 156
-  obrigações, 223 de 225 citações verificadas, 4,1 s. Também testado à mão com `curl` e com
-  PowerShell (`Invoke-RestMethod` e `curl.exe`); `GET /export/csv` devolveu 200 e 533 linhas;
+  REN 1.174 (`--arquivo tests/fontes_impacto/dou/dou_ren20261174.html`): 368 unidades, 167
+  obrigações, 241 de 243 citações verificadas, 4,0 s. Em 21/11 (antes de C1 e A1) também testado à
+  mão com `curl` e com PowerShell (`Invoke-RestMethod` e `curl.exe`); `GET /export/csv` devolveu 200 e 533 linhas;
   `GET /api/audit/verify` → `{"valid":true,"events":5,…}`.
 
 ## Banco
@@ -71,20 +72,21 @@ Tempo total: 7.5 s (inclui subir o servidor)
 - **Existe:** `python -m athenix processar <arquivo> --agente distribuidora --saida <json>`
   (`athenix/__main__.py` → `scripts/exportar_plano_demo.py:processar_norma`). Sem IA, sem rede;
   sugestões de IA só do cache versionado, marcadas.
-- **Evidência** (ambiente limpo, RN 1.137):
+- **Evidência** (clone e venv novos de `Cacapepe2/Athenix` em `d2b058b`, 22/11/2026, RN 1.137):
 
 ```text
 Athenix · processar ren20251137.pdf para distribuidora
-  1. Obrigações extraídas: 168 dispositivos lidos
-  2. Deveres da distribuidora: 153 · outros dispositivos (faculdades, direitos, outros agentes): 14 · fora do perfil: 1
+  1. Obrigações extraídas: 170 dispositivos lidos
+  2. Deveres da distribuidora: 153 · outros dispositivos (faculdades, direitos, outros agentes): 16 · fora do perfil: 1
   3. Prazos: 7 vencidas · 0 nos próximos 90 dias · 2 recorrentes · 144 sem data
-  4. Enquadramento na REN 846: 43 identificados no texto · 110 a confirmar (102 com sugestão da IA em cache, marcadas) · 0 sem multa
+  4. Enquadramento na REN 846: 42 identificados no texto · 111 a confirmar (102 com sugestão da IA em cache, marcadas) · 0 sem multa
   5. Temas: 8 · plano gravado em plano.json
-Tempo total: 15.4 s
+Tempo total: 14.2 s
 ```
 
-  REN 1.174: 156 lidos · 83 deveres · 73 outros · 0 vencidas · 2 recorrentes · 0 identificados no
-  texto · 83 a confirmar (79 com sugestão da IA) · 4 temas. Tempos de 3 execuções em
+  REN 1.174: 167 lidos · 84 deveres · 83 outros · 0 vencidas · 2 recorrentes · 0 identificados no
+  texto · 84 a confirmar (78 com sugestão da IA) · 4 temas. Sujeito implícito (a revisar): RN 64 de
+  153, REN 37 de 84. Por evento: RN 21 (inclui o item 105, até 15 min / 1 h), REN 1. Tempos de 3 execuções em
   [pitch/metricas.md](pitch/metricas.md).
 
 ## IA híbrida
@@ -108,28 +110,28 @@ Tempo total: 15.4 s
 
 ## Testes, trava e CI
 
-- **pytest:** `python -m pytest -q` → `502 passed in 174.32s` (máquina de desenvolvimento). Num clone
-  limpo → `496 passed, 6 skipped` (os 6 dependem de dados locais fora do Git: CSV de autos, votos da
+- **pytest:** `python -m pytest -q` → `513 passed in 171.20s` (máquina de desenvolvimento, 22/11). Num clone
+  limpo → `507 passed, 6 skipped` (os 6 dependem de dados locais fora do Git: CSV de autos, votos da
   ANEEL, cópia de conferência, REN 846 original). 44 arquivos de teste; os maiores: `test_tipos.py`
   (50), `test_impacto.py` (34), `test_prazos_obrigacoes.py` (32).
-- **Site:** 112 testes (`node --test`), aprovados no CI. Não rodados nesta máquina (sem Node).
-- **Trava:** `scripts/avaliar.py` → `casos corretos: 20 / 20`, citações corretas 0,9954, sem fonte
-  0,0069, "Sem regressão em relação a tests/baseline/metricas_v1.json". O gabarito
+- **Site:** 113 testes (`node --test`), aprovados no CI. Não rodados nesta máquina (sem Node).
+- **Trava:** `scripts/avaliar.py` → `casos corretos: 20 / 20`, citações corretas 0,9955, sem fonte
+  0,0068, "Sem regressão em relação a tests/baseline/metricas_v1.json". O gabarito
   (`tests/gabarito/`) não tem revisão humana.
 - **CI:** `.github/workflows/ci.yml` em `ubuntu-latest`, `windows-latest` e `macos-15-intel`: testes
   e build do site, ruff, segredos, trava, reprodução dos dois JSONs do plano e pytest. Execução
-  `44917313898` (commit `887cd2f`): verde nos três.
-- **Lint e segredos:** `ruff check` → "All checks passed!"; `ruff format --check` → 118 arquivos
+  `45054510595` (commit `d2b058b`): verde nos três; pytest no CI 507 aprovados e 6 pulados.
+- **Lint e segredos:** `ruff check` → "All checks passed!"; `ruff format --check` → 122 arquivos
   formatados; `scripts/check_secrets.py` → nenhum padrão conhecido.
 
 ## Instalação limpa
 
-Clone novo do repositório (sem `.env`, sem `.local/`) e venv novo, Python 3.13.14:
+Clone novo de `Cacapepe2/Athenix` em `d2b058b` (sem `.env`, sem `.local/`) e venv novo, Python 3.13.14, 22/11/2026:
 
 | Passo | Comando | Resultado | Tempo |
 | :-- | :-- | :-- | --: |
-| Instalar | `python -m pip install -r requirements-dev.lock` | ok | 33 s |
-| Testar | `python -m pytest -q` | 496 passed, 6 skipped | 2 min 17 s |
-| Processar | `python -m athenix processar tests/norma_poc/ren20251137.pdf --saida plano.json` | 153 deveres, 8 temas | 17 s |
+| Instalar | `python -m pip install -r requirements-dev.lock` | ok | 38 s |
+| Testar | `python -m pytest -q` | 507 passed, 6 skipped | 2 min 5 s |
+| Processar | `python -m athenix processar tests/norma_poc/ren20251137.pdf --saida plano.json` | 153 deveres, 8 temas | 16 s |
 
 Não testado: Python 3.11 local (o CI usa 3.11), Linux e macOS locais (cobertos pelo CI).

@@ -1,6 +1,6 @@
 # Métricas de eficiência: duas normas reais
 
-Medido em **21/11/2026**, commit `887cd2f` (`main`), sem IA (`ATHENIX_AI_MODE=off`) e sem rede.
+Medido em **22/11/2026**, código da `main` em `d2b058b` (depois das correções C1 e A1), sem IA (`ATHENIX_AI_MODE=off`) e sem rede.
 
 ```bash
 python scripts/demo/medir_normas.py --execucoes 3
@@ -15,16 +15,17 @@ partida do Python, a estruturação do arquivo, as regras, o cálculo e a grava�
 | Arquivo oficial | PDF da ANEEL | HTML do DOU |
 | Páginas do arquivo oficial | 31 | 1 (HTML sem paginação) |
 | Unidades estruturais (artigo, parágrafo, inciso, alínea, item) | 315 | 368 |
-| Dispositivos classificados (dever, faculdade, outro agente) | 168 | 156 |
-| Deveres da distribuidora | 153 | 83 |
-| … com data de prazo (todos já vencidos em 21/11/2026) | 7 | 0 |
+| Dispositivos classificados (dever, faculdade, outro agente) | 170 | 167 |
+| Deveres da distribuidora | 153 | 84 |
+| … com sujeito implícito (a revisar) | 64 | 37 |
+| … com data de prazo (todos já vencidos em 22/11/2026) | 7 | 0 |
 | … recorrentes | 2 | 2 |
-| … dependentes de um evento | 20 | 1 |
-| … sem prazo no texto | 124 | 80 |
-| Deveres com citação literal conferida de novo na medição | 153 | 83 |
+| … dependentes de um evento (inclui minutos/horas, ex.: item 105) | 21 | 1 |
+| … sem prazo no texto | 123 | 81 |
+| Deveres com citação literal conferida de novo na medição | 153 | 84 |
 | … dos quais pela primeira frase do dispositivo | 2 | 0 |
-| **Tempo do comando único, mediana de 3 (s)** | **16,1** | **12,1** |
-| Execuções (s) | 16,3 · 15,9 · 16,1 | 12,1 · 12,1 · 11,9 |
+| **Tempo do comando único, mediana de 3 (s)** | **15,5** | **11,9** |
+| Execuções (s) | 15,7 · 15,4 · 15,5 | 11,9 · 11,7 · 11,9 |
 
 Arquivos e hashes:
 - RN 1.137/2025: `tests/norma_poc/ren20251137.pdf`, SHA-256
@@ -39,8 +40,8 @@ Como ler:
   pela primeira frase do dispositivo (`plano.ancorar_pendentes`).
 - Conferência independente, com outro extrator (pypdfium2 / html.parser), de **todos** os trechos
   publicados no site: `python scripts/demo/conferir_citacoes.py` → RN 1.137: 228 de 228; REN 1.174:
-  307 de 307 (deveres + outros dispositivos + "sem dever identificado").
-- Num ambiente limpo (clone novo, venv novo, mesma máquina), o mesmo comando levou 15,4 s na RN 1.137.
+  308 de 308 (deveres + outros dispositivos + "sem dever identificado").
+- Num ambiente limpo (clone novo, venv novo, mesma máquina), o mesmo comando levou 15,4 s na RN 1.137 (em 21/11, antes de C1 e A1).
 
 ## Referência manual
 

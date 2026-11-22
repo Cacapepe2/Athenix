@@ -4,7 +4,8 @@ O Athenix automatiza o fluxo regulatório: da publicação da norma no Diário O
 dividido por área, com prazo, valor em risco e o que guardar como prova. Este documento mostra
 **como**: cada etapa, o módulo que a faz, como ela é testada e um exemplo real.
 
-Números e exemplos conferidos em 21/11/2026 no commit `887cd2f` (`main`). Exemplos tirados de
+Números e exemplos conferidos em 22/11/2026 no código da `main` em `d2b058b` (depois das correções C1
+e A1 da auditoria). Exemplos tirados de
 `landing/src/content/plano-rn1137.json`, o plano publicado da RN ANEEL 1.137/2025.
 
 ## Fluxo
@@ -67,12 +68,16 @@ sobe o app FastAPI num banco SQLite descartável, envia o arquivo e lê as obrig
     `faculdade` (listada em "Outros dispositivos", fora da conta).
   - Art. 10, I: «articular, coordenar, monitorar… as providências… a serem adotadas pela ANEEL…» →
     `competencia_aneel`.
-  - Resultado RN 1.137: 168 dispositivos classificados → 153 deveres, 14 outros, 1 fora do perfil.
+  - item 145(a): «a periodicidade máxima pode ser contada da sua última aplicação» → `faculdade`
+    ("pode" singular; corrigido no #46, antes virava dever com teto de R$ 50 mi).
+  - Resultado RN 1.137: 170 dispositivos classificados → 153 deveres (64 com sujeito implícito),
+    16 outros, 1 fora do perfil. REN 1.174: 167 → 84 deveres (37 com sujeito implícito), 83 outros.
 
 ### 4. Prazos (data-base, vigência, recorrência, dependência de ato da ANEEL)
 - **O que faz:** encontra o prazo no texto ("até 90 dias", "anual", "na data de publicação"), o marco
   (publicação, vigência, evento) e calcula a data. Sem marco no texto não há data inventada: fica
-  "depende de evento" ou "sem prazo no texto". Toda data nasce **provisória**. Uma trava interrompe o
+  "depende de evento" ou "sem prazo no texto". Minutos e horas só valem a partir de um evento
+  (item 105: "Por evento: até 15 min após o conhecimento da causa; até 1 h após…") e nunca viram data. Toda data nasce **provisória**. Uma trava interrompe o
   export se a data-base for anterior à publicação (outro ato lido como vigência).
 - **Módulo:** `athenix/temporal.py` (`rules`, `compute`, `landmark`), `athenix/plano.py`
   (`situacao`, `validar_bases_dos_prazos`), `athenix/dependencias.py` (ato de terceiro no texto).
@@ -134,7 +139,7 @@ sobe o app FastAPI num banco SQLite descartável, envia o arquivo e lê as obrig
   `athenix/app.py` (API), `landing/src/content/tarefas.ts` (CSV por área e .ics),
   `landing/src/components/plano/` (site).
 - **Testes:** `tests/test_plano.py`, `tests/test_comando.py`, `tests/test_demo.py`; no site,
-  `landing/src/content/*.test.ts` (112 testes).
+  `landing/src/content/*.test.ts` (113 testes).
 - **Exemplo:** `python -m athenix processar tests/norma_poc/ren20251137.pdf --saida plano.json` → JSON
   com 153 deveres em 8 temas; detalhes em [INVENTARIO_TECNICO.md](INVENTARIO_TECNICO.md).
 
@@ -167,24 +172,21 @@ sobe o app FastAPI num banco SQLite descartável, envia o arquivo e lê as obrig
   provisórias. Na REN 1.174, nenhum dever tem data única (o art. 14, § 1º, II é condicional).
 - **Cobertura:** duas normas no plano (RN 1.137/2025 e REN 1.174/2026), perfil de distribuidora.
   Monitoramento automático do DOU ainda não existe (desenho em `docs/INLABS.md`).
-- **Achados abertos da auditoria independente de 21/11/2026** (feita no commit `36efdb4`, não
-  corrigidos; o código está congelado):
-  - **C1 (crítico):** `proposals.modality` não reconhece o singular "pode"; o item 145(a) da RN 1.137
-    («a periodicidade máxima pode ser contada…») vira dever, enquadrado no Art. 12, XXVI, com teto de
-    R$ 50 milhões. Reproduzido em 21/11: `modality("A distribuidora pode manter o registro.")` →
-    `duty`.
-  - **A1 (alto):** prazos em minutos e horas não são reconhecidos; o item 105 («15 minutos…», «1
-    hora…») aparece como "Sem prazo identificado no texto".
+- **Auditoria independente de 21/11/2026** (feita no commit `36efdb4`): **C1** ("pode" singular virava
+  dever; item 145(a) com R$ 50 mi) e **A1** (prazos em minutos/horas ignorados; item 105) foram
+  corrigidos no #46, com testes em `tests/test_auditoria.py`. Seguem abertos (código congelado):
   - **A2 (alto):** o gerador do relatório-piloto não roda no CI.
   - **M1:** tipos por regra ainda mandam algumas tarefas para a área errada (ex.: item 132(l)).
   - **M2:** o script antigo `scripts/classificar_tipos_ia.py --executar` não consulta o modo de IA.
-  - **M3:** documentos com números antigos (o README foi corrigido nesta revisão; `docs/CONTEXTO.md`
-    e comentários de módulo ainda citam 155 deveres e "IA nunca entra no cálculo").
+  - **M3:** comentários de módulo ainda dizem "IA nunca entra no cálculo" (README e
+    `docs/CONTEXTO.md` já atualizados).
   - **B1:** aviso de bundle de 789 kB no build do site.
 - **Dados privados fora do Git:** 6 testes dependem de arquivos em `.local/` (CSV de autos, votos,
   cópia de conferência) e são pulados no CI; a referência de escala (mediana de 21 autos) não se
   reproduz só com o repositório.
 - **Áreas e recomendações são sugestões:** 49 deveres seguem com área "A definir" (27 + 22).
+- **Títulos curtos:** 5 deveres sem título curto da IA (3 entraram com a correção C1); a tela encurta
+  o título completo. Não há nova chamada de IA.
 - **PostgreSQL/Docker** está configurado (`compose.yaml`), mas não foi testado nesta conferência
   (máquina sem Docker); o caminho testado é SQLite.
 
