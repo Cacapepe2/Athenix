@@ -2,6 +2,8 @@
 
 import json
 
+import pytest
+
 from athenix import tipos, tipos_ia
 from athenix.config import Settings
 
@@ -114,3 +116,54 @@ def test_rodar_respeita_o_orcamento_e_grava_so_o_tipo_validado():
     chamar, _ = _fake(tipo="tipo_inventado")
     ruim = tipos_ia.rodar(lotes[:1], st, preco, 1.0, chamar, cfg)
     assert ruim["tipos"] == {} and ruim["falhas"]
+
+
+# --- M2 (auditoria de 21/11): o script antigo respeita llm.modo e a mesma trava de preço e confirmação
+def _script_antigo(monkeypatch, tmp_path, modo, confirmo="10"):
+    import sys
+    from pathlib import Path
+
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
+    import classificar_tipos_ia as c
+
+    for k, v in {
+        "ATHENIX_AI_MODE": modo, "ATHENIX_MODEL": "modelo-teste", "ATHENIX_API_KEY": "chave-falsa",
+        "ATHENIX_INPUT_USD_M": "0.25", "ATHENIX_OUTPUT_USD_M": "2", "ATHENIX_PRICE_SOURCE": "https://exemplo.invalid/precos",
+        "ATHENIX_PRICE_DATE": "2026-11-22", "ATHENIX_RUN_BUDGET_USD": "10",
+    }.items():  # fmt: skip
+        monkeypatch.setenv(k, v)
+    monkeypatch.setattr(c, "carregar_env", lambda: None)  # nunca lê o .env real
+    monkeypatch.setattr(c.rt, "processar", lambda: ([{"id": "r1"}], {}))
+    monkeypatch.setattr(c.rt, "analisar", lambda rows, ext: [{"id": "r1", "texto": "A distribuidora deve comunicar o consumidor."}])  # fmt: skip
+    monkeypatch.setattr(c.enquadramento, "chave", lambda row: row["id"])
+    monkeypatch.setattr(tipos_ia, "CACHE", tmp_path / "cache.json")
+    chamadas = []
+
+    def transporte_falso(settings, corpo, tentativas=3):
+        chamadas.append(corpo)
+        ids = [x.split('"')[1] for x in corpo["messages"][1]["content"].split("<obrigacao id=")[1:]]
+        conteudo = json.dumps({"itens": [{"id": i, "tipo": "comunicar_consumidores"} for i in ids]})
+        return {"status": "ok", "raw": {"choices": [{"finish_reason": "stop", "message": {"content": conteudo}}], "usage": {"prompt_tokens": 10, "completion_tokens": 5}}}  # fmt: skip
+
+    monkeypatch.setattr(tipos_ia, "_postar", transporte_falso)
+    monkeypatch.setattr(
+        sys, "argv", ["classificar_tipos_ia.py", "--executar", "--confirmo-custo-usd", confirmo]
+    )
+    c.main()
+    return chamadas
+
+
+@pytest.mark.parametrize("modo", ["off", "cached"])
+def test_m2_off_e_cached_nunca_chegam_ao_transporte_pago_mesmo_com_executar(
+    monkeypatch, tmp_path, modo
+):
+    assert _script_antigo(monkeypatch, tmp_path, modo) == []
+    assert not (tmp_path / "cache.json").exists()
+
+
+def test_m2_live_sem_confirmacao_suficiente_nao_chama_e_com_ela_chama(monkeypatch, tmp_path):
+    assert _script_antigo(monkeypatch, tmp_path, "live", confirmo="0.0001") == []
+    assert len(_script_antigo(monkeypatch, tmp_path, "live", confirmo="10")) == 1
+    assert json.loads((tmp_path / "cache.json").read_text(encoding="utf-8"))["tipos"] == {
+        "r1": "comunicar_consumidores"
+    }

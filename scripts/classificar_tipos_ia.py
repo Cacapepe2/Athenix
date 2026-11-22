@@ -1,16 +1,16 @@
 """Classifica por IA o tipo de cada obrigação da RN 1.137 (lotes de 12) e grava o cache local
 athenix/data/tipos_ia_cache.json, que a demo usa para a concordância regra x IA.
 
-CHAMADA PAGA. Só roda com --executar e com o teto de custo em ATHENIX_RUN_BUDGET_USD. O preço usado é
-um TETO conservador autorizado pelo fundador (US$ 2,50 por milhão de entrada e US$ 10 por milhão de
-saída), NÃO o preço real do deployment. O script nunca passa do orçamento: confere o pior caso de cada
-chamada antes de fazê-la. Não guarda a resposta bruta; só o tipo validado por obrigação.
-Uso: python scripts/classificar_tipos_ia.py [--executar]
+CHAMADA PAGA. Mesma trava do classificar_tipos_a_definir.py (tipos_ia.liberar_chamada): só roda com
+--executar, IA em modo live (modelo, chave, preço com fonte e data, teto ATHENIX_RUN_BUDGET_USD) e
+--confirmo-custo-usd maior ou igual ao pior caso. Com off ou cached, nunca chega ao transporte pago. O pior
+caso usa o maior entre o preço configurado e o TETO conservador autorizado pelo fundador (US$ 2,50 por
+milhão de entrada e US$ 10 por milhão de saída). Não guarda a resposta bruta; só o tipo validado.
+Uso: python scripts/classificar_tipos_ia.py [--executar --confirmo-custo-usd 0.40]
 """
 
 import argparse
 import json
-import os
 import sys
 from datetime import date
 from pathlib import Path
@@ -20,7 +20,7 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts"))
 import relatorio_tipos as rt  # noqa: E402
 
-from athenix import enquadramento, tipos_ia  # noqa: E402
+from athenix import enquadramento, llm, tipos_ia  # noqa: E402
 from athenix.config import Settings, carregar_env  # noqa: E402
 
 PRECO_TETO = {"entrada": 2.5, "saida": 10.0}
@@ -33,6 +33,7 @@ def main():
     sys.stdout.reconfigure(encoding="utf-8")
     ap = argparse.ArgumentParser()
     ap.add_argument("--executar", action="store_true", help="faz as chamadas pagas")
+    ap.add_argument("--confirmo-custo-usd", help="custo máximo aceito, >= pior caso estimado")
     a = ap.parse_args()
     carregar_env()  # .env local; nunca impresso
     settings = Settings()
@@ -44,10 +45,15 @@ def main():
     ids = [i["id"] for i in itens]
     assert len(set(ids)) == len(ids), "chave de obrigação repetida"
     lotes = tipos_ia.montar_lotes(itens, tamanho=12)
-    orcamento = float(os.getenv("ATHENIX_RUN_BUDGET_USD", "0"))
+    orcamento = float(settings.run_budget_usd or 0)
+    precos = llm.price_config(settings) or {}
+    preco = {
+        "entrada": max(PRECO_TETO["entrada"], float(precos.get("input") or 0)),
+        "saida": max(PRECO_TETO["saida"], float(precos.get("output") or 0)),
+    }
     pior = sum(
-        (tipos_ia.estimar_tokens(lt["sistema"] + lt["usuario"]) * PRECO_TETO["entrada"]
-         + tipos_ia.LIMITE_SAIDA_RACIOCINIO * PRECO_TETO["saida"]) / 1e6
+        (tipos_ia.estimar_tokens(lt["sistema"] + lt["usuario"]) * preco["entrada"]
+         + tipos_ia.LIMITE_SAIDA_RACIOCINIO * preco["saida"]) / 1e6
         for lt in lotes
     )  # fmt: skip
     print(
@@ -56,16 +62,11 @@ def main():
     if not a.executar:
         print("Simulação (sem --executar): nenhuma chamada feita.")
         return
-    faltam = [
-        n
-        for n, v in (("ATHENIX_MODEL", settings.model), ("ATHENIX_API_KEY", settings.api_key))
-        if not v
-    ]
-    if faltam or orcamento <= 0 or pior > orcamento:
-        raise SystemExit(
-            f"Não executo: faltam {faltam}; orçamento {orcamento}; pior caso {pior:.2f}"
-        )
-    r = tipos_ia.rodar(lotes, settings, PRECO_TETO, orcamento)
+    liberado, motivo = tipos_ia.liberar_chamada(settings, pior, a.confirmo_custo_usd)
+    if not liberado:
+        print(f"Não executo: {motivo}")
+        return
+    r = tipos_ia.rodar(lotes, settings, preco, orcamento)
     cache = {
         "aviso": "Interpretação da IA · aguarda revisão humana. Só o tipo validado; sem resposta bruta.",
         "modelo": settings.model,
