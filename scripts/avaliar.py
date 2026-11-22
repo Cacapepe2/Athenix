@@ -4,7 +4,7 @@ O texto de referência não usa o extrator do sistema: PDF pelo pypdfium2 (motor
 pdfplumber do extrator) e HTML pelo HTMLParser da biblioteca padrão com a codificação conferida à
 mão em fontes.json. A comparação ignora espaços, pois os motores divergem só neles.
 Uso: python scripts/avaliar.py [--rotulo baseline] [--saida artifacts/avaliacao]
-     python scripts/avaliar.py --comparar tests/baseline/metricas_v1.json   # sai com 1 se algo piorou
+     python scripts/avaliar.py --comparar tests/baseline/metricas_v2.json   # sai com 1 se algo piorou
      python scripts/avaliar.py --congelar tests/baseline/metricas_vN.json   # só em commit próprio
 """
 
@@ -167,6 +167,23 @@ def check(case, extraction, items):
         ]
         ok = want in dates if want else not dates
         out["vigencia"] = (ok, dates or "nenhuma data de vigência")
+    if "transicao" in expected:
+        # Marco de vigência/transição lido da própria norma (athenix/vigencia.py) para a unidade do trecho.
+        from athenix import vigencia
+
+        want = expected["transicao"]
+        if "_marcos" not in extraction:
+            extraction["_marcos"] = vigencia.ligar(extraction, vigencia.ler(extraction))
+        head = flat(trecho)[:60]
+        ids = [u["id"] for u in extraction["units"] if head in flat(u["text"])]
+        got = {
+            (m["tipo"], m["data"], (m.get("fonte") or {}).get("dispositivo"))
+            if (m := extraction["_marcos"].get(i))
+            else (None, None, None)
+            for i in ids
+        }
+        ok = bool(ids) and got == {(want["tipo"], want["data"], want["regra"])}
+        out["transicao"] = (ok, sorted(got, key=str) or "trecho não localizado")
     if expected.get("revogacao"):
         ok = any(i["type"] == "revocation" for i in near)
         out["revogacao"] = (ok, "revocation" if ok else "sem item de revogação")

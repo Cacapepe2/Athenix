@@ -11,6 +11,7 @@ competências da ANEEL vão para `outros_dispositivos`. Os ids das obrigações 
 
 import json
 import re
+from datetime import date
 from pathlib import Path
 
 from . import impacto, proposals
@@ -244,7 +245,11 @@ def natureza(row, caput=""):
     comercializador, consumidor). Só "dever" entra na contagem principal."""
     # Inciso sem sujeito próprio ("não identificado", fragmento sem substantivo) HERDA o sujeito do caput.
     sujeito = _sujeito_efetivo(row, caput)
-    if TRANSICAO.search(sujeito) or TRANSICAO.search(caput[:140]):
+    # "A adequação pela distribuidora ... deve ser realizada com isonomia": o próprio texto nomeia a
+    # distribuidora como agente; é dever dela, não a regra de transição.
+    if (
+        TRANSICAO.search(sujeito) or TRANSICAO.search(caput[:140])
+    ) and not SUJEITO_DISTRIBUIDORA.search(sujeito):
         return "regra_de_transicao"
     if SUJEITO_ANEEL.match(sujeito) or SUJEITO_EMISSOR.match(sujeito):
         return "competencia_aneel"
@@ -410,6 +415,71 @@ def evidencias(pedacos, cfg):
                 out.append({"id": e["id"], "trecho": texto[ini:fim].strip()})
                 break
     return out
+
+
+def _principal(unidade, by_id):
+    """Unidade da obrigação principal: a própria, ou o item/dispositivo de que a alínea faz parte."""
+    while unidade and unidade["kind"] == "letter" and by_id.get(unidade.get("parent")):
+        unidade = by_id[unidade["parent"]]
+    return unidade["id"] if unidade else None
+
+
+def _marco_do_dever(row):
+    m = row.get("marco")
+    if not m:
+        return None
+    fonte = m.get("fonte") or {}
+    return {
+        "tipo": m["tipo"],
+        "data": m.get("data"),
+        "dispositivo": fonte.get("dispositivo"),
+        "trecho": fonte.get("trecho"),
+        "nota": "Até a adequação, valem as regras anteriores"
+        if m.get("nota")
+        else m.get(
+            "inferencia"
+        ),  # ex.: "artigo da REN 1.000 inferido pela posição no texto (342-A); a confirmar"
+        "candidatos": [c["dispositivo"] for c in m.get("candidatos", [])] or None,
+    }
+
+
+def _texto_do_prazo(urg, row):
+    """Sem data própria e com a norma em vigor desde a publicação: diz isso, sem inventar vencimento.
+    Prazo de transição com data e prazo próprio por evento (minutos/horas): mostra os dois."""
+    texto = _texto_do_marco(urg, row)
+    curtos = [
+        d
+        for d in row.get("deadlines", [])
+        if d.get("state") == "awaiting_event"
+        and (d.get("unit") or "").startswith(("minuto", "hora"))
+    ]
+    if curtos and urg["data"]:
+        evento = impacto.urgencia({**row, "deadlines": curtos}, date.today())["principal"]
+        return f"{texto} · {evento[:1].lower()}{evento[1:]}"
+    return texto
+
+
+def _texto_do_marco(urg, row):
+    m = row.get("marco") or {}
+    sem_prazo = (
+        urg["texto"] == "sem prazo identificado no texto"
+    )  # não cobre condicional nem recorrente
+    if sem_prazo and m.get("tipo") == "em_vigor":
+        texto = (
+            f"Em vigor desde {date.fromisoformat(m['data']):%d/%m/%Y} (sem período de adequação)"
+        )
+        return texto + (
+            " · artigo inferido pela posição; a confirmar" if m.get("inferencia") else ""
+        )
+    if sem_prazo and m.get("tipo") == "a_confirmar":
+        return f"{urg['principal']} · transição a confirmar"
+    if urg["data"] and urg["data"] == m.get("data") and (urg["dias"] or 0) >= 0:
+        quando = f"{date.fromisoformat(urg['data']):%d/%m/%Y}"
+        if m["tipo"] == "adequacao":
+            return f"Adequação até {quando}"
+        if m["tipo"] == "vigencia":
+            return f"Vigência a partir de {quando}"
+    return urg["principal"]
 
 
 def situacao(item):
@@ -705,11 +775,17 @@ def montar(
             "tema": tema,
             "motivo_tema": motivo_tema,
             "unidade": unidade["id"] if unidade else None,
+            # Obrigação principal (item ou dispositivo) e se esta é alínea que só a detalha: as vencidas
+            # contam por principal ("N obrigações vencidas · M itens de detalhe").
+            "principal": _principal(unidade, by_id),
+            "detalhe": bool(unidade and unidade["kind"] == "letter" and unidade.get("parent")),
             "trecho": espacos(ancora["quote"]) if ancora else None,
             "situacao": situacao(item),
+            # Marco da transição lido da própria norma (vigencia.py): adequação, vigência diferida, em vigor.
+            "marco": _marco_do_dever(row),
             "prazo": {
                 "data": urg["data"],
-                "texto": urg["principal"],
+                "texto": _texto_do_prazo(urg, row),
                 "dias": urg["dias"],
                 "provisorio": "provisório" in urg["detalhe"],
                 # Prazo CONDICIONAL ("o maior entre 12 meses da publicação e o prazo informado"): sem data única.

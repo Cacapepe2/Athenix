@@ -39,6 +39,18 @@
    "adquirido_em_utc": "2026-11-11T01:52:00Z",
    "robots": "HTTP 404 (sem robots.txt)",
    "fonte": "oficial"
+  },
+  {
+   "id": "ren20261174",
+   "arquivo": "../fontes_impacto/dou/dou_ren20261174.html",
+   "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507",
+   "ato": "Resolução Normativa ANEEL nº 1.174, de 27 de outubro de 2026",
+   "tipo": "resolucao_normativa",
+   "formato": "text/html",
+   "codificacao": "utf-8 (declarado na página)",
+   "afeta": ["distribuidoras", "comercializadores", "CCEE"],
+   "origem": "Já presente no repositório (tests/fontes_impacto); DOU de 04/11/2026, edição 207, seção 1, p. 68.",
+   "fonte": "oficial"
   }
  ]
 }

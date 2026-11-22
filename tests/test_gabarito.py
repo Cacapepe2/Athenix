@@ -4,7 +4,16 @@ import pytest
 
 from scripts.avaliar import flat, gold, reference_text, sources
 
-CHECKS = {"obrigacao", "nao_obrigacao", "prazo", "autoria", "vigencia", "revogacao", "remissao"}
+CHECKS = {
+    "obrigacao",
+    "nao_obrigacao",
+    "prazo",
+    "autoria",
+    "vigencia",
+    "revogacao",
+    "remissao",
+    "transicao",
+}
 
 
 @pytest.fixture(scope="module")
@@ -15,7 +24,7 @@ def references():
 def test_every_quote_exists_once_in_its_source(references):
     spec = gold()
     assert isinstance(spec["revisado_por_humano"], bool)
-    assert 10 <= len(spec["casos"]) <= 20
+    assert 10 <= len(spec["casos"]) <= 40
     assert len({c["id"] for c in spec["casos"]}) == len(spec["casos"])
     for case in spec["casos"]:
         text = references[case["doc"]]

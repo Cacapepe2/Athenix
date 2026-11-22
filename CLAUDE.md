@@ -29,7 +29,7 @@ código (Ponytail): `AGENTS.md`, lido antes de editar código. Progresso do spri
 python -m ruff check athenix tests scripts migrations
 python -m ruff format --check athenix tests scripts migrations
 python scripts/check_secrets.py
-python scripts/avaliar.py --rotulo local --comparar tests/baseline/metricas_v1.json   # trava
+python scripts/avaliar.py --rotulo local --comparar tests/baseline/metricas_v2.json   # trava
 python -m pytest -q
 python scripts/exportar_plano_demo.py
 cd landing && npm ci && npm test && npm run build

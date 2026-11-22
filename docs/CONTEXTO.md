@@ -16,11 +16,11 @@ identificado no texto vem antes do sugerido. "Confirmado" fica reservado à revi
 ## Estado (21/11/2026)
 - `main` em `887cd2f` (v6 #42 e correções da auditoria #43 mergeados); código congelado, só correção
   de bug aprovada pelo fundador. Correções C1 ("pode" singular = faculdade) e A1 (prazo em
-  minutos/horas por evento) na branch `fix/auditoria-c1-a1`. 512 testes Python e 112 do site;
-  CI verde em Ubuntu, Windows e macOS. Gabarito 20/20, trava ok.
+  minutos/horas por evento) mergeadas (#46); vigência e transição (`athenix/vigencia.py`) na branch
+  `fix/vigencia-transicao`. 541 testes Python e 114 do site; gabarito 29/29 (trava v2).
 - `/demo` completa (plano por tema, cenário preliminar x só identificados no texto, diagnóstico
   gerado no site, análise regulatória preliminar). A contagem principal é só de **deveres da
-  distribuidora**: RN 1.137 = 153, REN 1.174 = 84; faculdades, direitos de terceiros, competências
+  distribuidora**: RN 1.137 = 153, REN 1.174 = 85; faculdades, direitos de terceiros, competências
   da ANEEL e deveres de outros agentes (RN 16, REN 83) ficam em "Outros dispositivos relevantes", e
   o que não tem dever identificado (RN 59, REN 141) também aparece, nada some em silêncio. Cada infração citada traz fonte, SHA-256 e origem da
   redação, e o export relê o arquivo para conferir o trecho. As duas redações do art. 11, XXIII
@@ -32,7 +32,7 @@ identificado no texto vem antes do sugerido. "Confirmado" fica reservado à revi
   quanto cai se regularizar antes da fiscalização, prazos), as 5 obrigações para olhar primeiro e a
   referência do setor, em linguagem de negócio ("infração grave (Grupo IV)"; mapeamento em
   `landing/src/content/gravidade.ts`). Abre duas normas, ambas pelo mesmo motor: RN 1.137/2025 e
-  **REN 1.174/2026** (abertura do mercado livre; 84 deveres da distribuidora, nenhum com data única (1 condicional) e 2 recorrentes; enquadramento
+  **REN 1.174/2026** (abertura do mercado livre; 85 deveres da distribuidora; marcos da transição (arts. 16 e 18): adequação 03/05/2027 e 04/11/2027, vigência 02/02/2027 e 03/05/2027, o resto em vigor desde 04/11/2026; 1 condicional e 2 recorrentes; enquadramento
   só por sugestão de IA, marcada, `docs/enquadramento_ia_ren1174.md`). Sem enquadramento não há valor:
   nada de teto da escala como "pior caso". A página completa `/demo?norma=ren1174` mostra a segunda norma.
 - **Comando único:** `python -m athenix processar <arquivo> --agente distribuidora --saida <json>` (do
@@ -64,7 +64,7 @@ identificado no texto vem antes do sugerido. "Confirmado" fica reservado à revi
 python -m ruff check athenix tests scripts migrations
 python -m ruff format --check athenix tests scripts migrations
 python scripts/check_secrets.py
-python scripts/avaliar.py --rotulo local --comparar tests/baseline/metricas_v1.json   # trava
+python scripts/avaliar.py --rotulo local --comparar tests/baseline/metricas_v2.json   # trava
 python -m pytest -q
 python scripts/exportar_plano_demo.py        # regenera landing/src/content/plano-rn1137.json
 python scripts/exportar_plano_demo.py --arquivo tests/fontes_impacto/dou/dou_ren20261174.html --saida landing/src/content/plano-ren1174.json

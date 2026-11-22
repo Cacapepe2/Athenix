@@ -248,3 +248,50 @@ def rules(text, unit_id, dates, inherited="", clarification=False, target_dates=
                     }
                 )
     return result
+
+
+# Redação defeituosa em prazo: unidade combinada/repetida ("180 dias mês", "30 dias dias"), número e
+# extenso divergentes ("180 (cento e vinte) dias") ou unidade ausente ("em até 90 (noventa) para").
+_UNIDADE = r"(?:dias?(?:\s+úteis|\s+corridos)?|meses|mês|anos?|minutos?|horas?)"
+_COMBINADA = re.compile(rf"\b(\d+)\s*(?:\(([^)]{{1,60}})\)\s*)?({_UNIDADE})\s+({_UNIDADE})\b", re.I)
+_EXTENSO = re.compile(r"\b(\d+)\s*\(([a-zà-úç\s]{3,60})\)", re.I)
+_SEM_UNIDADE = re.compile(
+    rf"\b(?:até|em|prazo\s+de)\s+(\d+)\s*(?:\(([^)]{{1,60}})\)\s*)?(?!{_UNIDADE}\b)(para|contad[oa]s?|a\s+partir|após)\b",
+    re.I,
+)
+
+
+def erros_materiais(texto):
+    """Possíveis erros materiais de prazo no texto, com a leitura mais provável. Nunca corrige sozinho:
+    a leitura fica "a confirmar" até um esclarecimento oficial confirmado."""
+    out = []
+    for m in _COMBINADA.finditer(texto):
+        u1, u2 = m.group(3).lower(), m.group(4).lower()
+        problema = (
+            "unidade repetida" if u1 == u2 else f"unidade combinada ({m.group(3)} {m.group(4)})"
+        )
+        out.append(
+            {"problema": problema, "trecho": m.group(0), "leitura_provavel": f"{m.group(1)} {u1}"}
+        )
+    for m in _EXTENSO.finditer(texto):
+        palavras = re.split(r"\s+e\s+", m.group(2).strip().lower())
+        if not all(p in NUMBERS for p in palavras):
+            continue
+        extenso = sum(NUMBERS[p] for p in palavras)
+        if extenso != int(m.group(1)):
+            out.append(
+                {
+                    "problema": f"número e extenso divergentes ({m.group(1)} × {extenso})",
+                    "trecho": m.group(0),
+                    "leitura_provavel": f"{m.group(1)} (algarismos) ou {extenso} (extenso)",
+                }
+            )
+    for m in _SEM_UNIDADE.finditer(texto):
+        out.append(
+            {
+                "problema": "unidade de tempo ausente",
+                "trecho": m.group(0),
+                "leitura_provavel": f"{m.group(1)} dias?",
+            }
+        )
+    return out

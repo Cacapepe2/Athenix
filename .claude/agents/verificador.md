@@ -13,7 +13,7 @@ indicação, rode tudo, nesta ordem:
 1. `python -m ruff check athenix tests scripts migrations`
 2. `python -m ruff format --check athenix tests scripts migrations`
 3. `python scripts/check_secrets.py`
-4. `python scripts/avaliar.py --rotulo local --comparar tests/baseline/metricas_v1.json` (a trava)
+4. `python scripts/avaliar.py --rotulo local --comparar tests/baseline/metricas_v2.json` (a trava)
 5. `python -m pytest -q`
 6. `cd landing && npm ci && npm test && npm run build`. Se não houver `npm` no PATH, use o Node
    indicado na tarefa. Sem Node, marque o passo como "não rodado".

@@ -15,7 +15,7 @@ import { CRITERIO_PRONTIDAO, fraseProntidao, prontidao } from '../../content/pro
 import { contagemDeEnquadramentos, destaqueDaNorma, idDaObrigacao, tabelaDeGrupos, textoMaiorMulta, textoPrazoDoTema } from '../../content/executivo'
 import { rotuloDoGrupo } from '../../content/gravidade'
 import {
-  brl, brlCurto, comAtenuantePct, csvPlano, dataBR, decisoesDaSemana, exposicaoTema, lacuna, lerReais, manchete, NOTA_ADVERTENCIA, textoVencidas, nomeDiag,
+  brl, brlCurto, comAtenuantePct, csvPlano, dataBR, decisoesDaSemana, exposicaoTema, lacuna, lerReais, manchete, NOTA_ADVERTENCIA, textoVencidas, textoVencidasComDetalhe, nomeDiag,
   normaDaUrl, obrigacao, ordenarTemas, pct, plano, reaisDe, resumoDiagnostico, situacaoPrazo, SIM_INICIAL, textoFaixa,
   type Citacao, type OutroDispositivo, type Diagnostico, type Diagnosticos, type Exposicao, type Manchete, type Medida, type Modo, type Obrigacao, type Simulacao, type Situacao, type Tema,
 } from '../../content/plano'
@@ -66,6 +66,17 @@ function Sugerido({ texto = 'sugerido' }: { texto?: string }) {
 }
 
 /** Manchete: a maior exposição por infração entre os temas vencidos (nunca soma). */
+/** Redação de prazo com possível erro na própria norma: o texto literal, a leitura mais provável e a fonte do
+ *  esclarecimento, quando houver um confirmado. Nunca é correção automática. */
+function ErrosMateriais() {
+  return <ul className="space-y-3">{(plano.erros_materiais ?? []).map((e) => (
+    <li key={e.obrigacao} className="border-[length:var(--borda-forte)] border-obsidian p-3">
+      <p className="font-semibold">{e.dispositivo}: “{e.trecho}” · {e.problema}</p>
+      <p>Leitura mais provável: <strong>{e.leitura_provavel}</strong> · <Tag kind="pending" label={e.rotulo} /></p>
+      <p className="text-sm">{e.esclarecimento ?? `Sugestão: ${e.sugestao}.`}</p>
+    </li>))}</ul>
+}
+
 function TextoManchete({ m }: { m: Manchete }) {
   const temas = `${m.temasVencidos} ${m.temasVencidos === 1 ? 'tema já vencido' : 'temas já vencidos'}`
   if (m.temasVencidos === 0) return <>Nenhum tema vencido em aberto</>
@@ -148,7 +159,7 @@ export function PlanoPage() {
               <span>Distribuidora de {sim ? brlCurto(sim.base) : 'receita a informar'} · RN 1.137/2025</span>
             </p>
             <h1 id="titulo-plano" className="font-display mt-3 text-[1.75rem] leading-tight sm:text-[2.6rem] sm:leading-[1.12]"><TextoManchete m={m} /></h1>
-            <p className="mt-2 text-sm text-ink-soft">{textoVencidas(m.obrigacoesVencidas)} · datas provisórias · os valores não se somam</p>
+            <p className="mt-2 text-sm text-ink-soft">{textoVencidasComDetalhe({ obrigacoes: m.obrigacoesVencidas, detalhes: m.detalhesVencidos })} · datas provisórias · os valores não se somam</p>
             <div className="mt-4 flex flex-wrap items-center gap-3">
               {modo === 'preliminar' && m.sugeridos > 0 && <Sugerido texto={PRELIMINAR} />}
               {modo === 'confirmados' && <span className="text-sm text-ink-soft">Só enquadramentos que o texto da obrigação nomeia.</span>}
@@ -212,6 +223,7 @@ export function PlanoPage() {
       <div className="space-y-4 print:hidden">
         <Expansivel id="reduzir" titulo="Como reduzir a exposição" resumo="atenuantes do art. 24 da REN 846, regras comuns e valores por tema">{() => <ComoReduzir temas={temas} />}</Expansivel>
         <Expansivel id="linha" titulo="Quando cada coisa vence" resumo={`${r.por_situacao.vencida} vencidas, ${r.por_situacao['90dias']} em 90 dias, ${r.por_situacao.recorrente} recorrentes, ${semData} sem data`}>{() => <LinhaDoTempo />}</Expansivel>
+        {!!plano.erros_materiais?.length && <Expansivel id="erros-materiais" titulo="Possíveis erros materiais da norma" resumo={`${plano.erros_materiais.length} ${plano.erros_materiais.length === 1 ? 'redação de prazo' : 'redações de prazo'} com possível erro na própria norma; leitura mais provável a confirmar`}>{() => <ErrosMateriais />}</Expansivel>}
         <Expansivel id="outros" titulo="Outros dispositivos relevantes" resumo={`${plano.outros_dispositivos.length + plano.sem_dever_identificado.length} dispositivos que não são deveres da distribuidora (faculdades, direitos de terceiros, competências da ANEEL e deveres de outros agentes)`}>{() => <OutrosDispositivos />}</Expansivel>
         <Expansivel id="metodo" titulo="Como chegamos aqui" resumo="contagens, prazos, cálculo da exposição, premissas e fontes">{() => <Metodo />}</Expansivel>
         <Expansivel id="perguntas-juridico" titulo="Perguntas para levar ao jurídico" resumo="geradas do que o Athenix marca como incerto: enquadramentos, redações do art. 11, XXIII, excludentes e prazos que dependem da ANEEL">{() => <PerguntasJuridico />}</Expansivel>

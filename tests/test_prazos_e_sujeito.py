@@ -59,9 +59,9 @@ def test_json_da_ren_1174_nao_tem_prazo_contado_de_antes_da_publicacao():
             assert (
                 o["prazo"]["base"] != "2026-08-12"
             )  # a data do Decreto nº 13.097, lida antes como vigência
-    assert (
-        P1137["resumo"]["por_situacao"]["vencida"] == 7
-    )  # os 6 de antes + o art. 18 (na data de publicação)
+    # 7 (os 6 de antes + o art. 18) + 18 deveres cujo prazo de adequação do art. 13, I a V já passou
+    # (leitor de vigência e transição, athenix/vigencia.py)
+    assert P1137["resumo"]["por_situacao"]["vencida"] == 25
 
 
 def test_marco_direto_na_data_de_publicacao_vira_prazo_e_o_maior_entre_vira_condicional():
@@ -236,9 +236,12 @@ def test_art_13_par_3_da_ren_1174_e_recorrente_no_plano():
     assert o["situacao"] == "recorrente" and o["prazo"]["data"] is None
     r = P1174["resumo"]["por_situacao"]
     assert r["recorrente"] == 2  # art. 11, VIII (semestral) e art. 13, § 3º (12 meses)
-    assert (
-        sum(1 for x in P1174["obrigacoes"] if x["prazo"]["data"]) == 0
-    )  # as 2 de adequação (art. 16) viraram transição; a reunião do grupo (art. 12, § 11) não é da distribuidora
+    # Nenhum prazo com data vem do texto do próprio dever: as datas são só as da transição (arts. 16 e 18,
+    # athenix/vigencia.py); a reunião do grupo (art. 12, § 11) não é da distribuidora.
+    com_data = [x for x in P1174["obrigacoes"] if x["prazo"]["data"]]
+    assert com_data and all(
+        x["marco"] and x["marco"]["data"] == x["prazo"]["data"] for x in com_data
+    )
 
 
 @pytest.mark.parametrize(
@@ -300,7 +303,7 @@ def test_futuro_so_vira_dever_quando_a_distribuidora_age_explicitamente(texto, v
 def test_nada_some_em_silencio_na_ren_1174_e_a_rn_1137_nao_muda_de_contagem():
     assert P1137["resumo"]["aplicaveis"] == 153
     # 84: +Art. 42, § 2º, I e II (vedação "não pode exigir" do caput), −Art. 168, VIII ("pode"; auditoria C1)
-    assert P1174["resumo"]["aplicaveis"] == 84
+    assert P1174["resumo"]["aplicaveis"] == 85  # +Art. 16, parágrafo único (isonomia na transição)
     s10 = [
         o
         for o in P1174["sem_dever_identificado"]
@@ -381,8 +384,8 @@ def test_sujeito_implicito_quando_a_distribuidora_nao_esta_escrita_no_texto_nem_
         },
         "",
     )
-    # contagem real, por norma (89 e 47 explícitos; 64 e 37 implícitos). REN: 38 -> 37 com C1 ("pode" no caput do
+    # contagem real, por norma (89 e 48 explícitos; 64 e 37 implícitos; REN +Art. 16, p. único, explícito). REN: 38 -> 37 com C1 ("pode" no caput do
     # Art. 166, § 6º nomeia a distribuidora); Art. 42, § 2º, I e II entram com a distribuidora no caput.
-    for p, total, implicitos in ((P1137, 153, 64), (P1174, 84, 37)):
+    for p, total, implicitos in ((P1137, 153, 64), (P1174, 85, 37)):
         assert len(p["obrigacoes"]) == total
         assert sum(1 for o in p["obrigacoes"] if o["sujeito_implicito"]) == implicitos

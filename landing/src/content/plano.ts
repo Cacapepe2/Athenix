@@ -6,6 +6,31 @@ import dados1174 from './plano-ren1174.json' with { type: 'json' }
 import { hojeISO } from './datas.ts'
 import { planoEm } from './referencia.ts'
 
+export interface ErroMaterial {
+  dispositivo: string | null
+  obrigacao: string
+  /** Trecho com a redação defeituosa, literal. */
+  trecho: string
+  problema: string
+  leitura_provavel: string
+  /** "a confirmar" até haver leitura oficial confirmada; "esclarecido" com ela. */
+  rotulo: 'a confirmar' | 'esclarecido'
+  sugestao: string
+  /** "texto original: '…'; esclarecido por FAQ da ANEEL (url)" quando há leitura oficial confirmada. */
+  esclarecimento?: string
+}
+
+export interface Marco {
+  tipo: 'adequacao' | 'vigencia' | 'em_vigor' | 'a_confirmar'
+  data: string | null
+  /** Regra de transição da norma que dá o marco ("Art. 16, II, b") e o seu texto. */
+  dispositivo: string | null
+  trecho: string | null
+  /** "Até a adequação, valem as regras anteriores" (caput da regra de adequação), quando a norma diz isso. */
+  nota: string | null
+  candidatos: string[] | null
+}
+
 export type Situacao = 'vencida' | '90dias' | 'depois' | 'recorrente' | 'evento' | 'sem_prazo'
 export type Diagnostico = 'sim' | 'parcial' | 'nao'
 export type Diagnosticos = Partial<Record<string, Diagnostico>>
@@ -68,6 +93,13 @@ export interface Obrigacao {
   trecho: string | null
   situacao: Situacao
   prazo: { data: string | null; texto: string; dias: number | null; provisorio: boolean; base?: string | null; /** "o maior entre 12 meses da publicação e o prazo informado": sem data única. */ condicional?: boolean }
+  /** Marco de vigência/transição lido da própria norma (athenix/vigencia.py): prazo de adequação, vigência
+   *  diferida, "em vigor desde a publicação" ou ligação "a confirmar". Ausente em JSON antigo. */
+  marco?: Marco | null
+  /** Unidade da obrigação principal (item ou dispositivo); a alínea aponta para o item de que faz parte. */
+  principal?: string | null
+  /** Alínea que só detalha a obrigação principal (ex.: "a) Número da ocorrência"). */
+  detalhe?: boolean
   calculo: 'fila' | 'verificar' | 'sem_multa'
   posicao_fila: number | null
   enquadramento: { dispositivo: string; grupo: string }[]
@@ -203,6 +235,8 @@ export interface PlanoDados {
   }
   /** Nota por artigo em "Outros dispositivos relevantes" (ex.: Art. 12 da REN 1.174, grupo de trabalho). */
   notas_outros: Record<string, string>
+  /** Possíveis erros materiais de prazo na própria norma ("180 dias mês"), com a leitura mais provável. */
+  erros_materiais?: ErroMaterial[]
   referencia_escala: { maior_multa: { rotulo: string; valor_reais: number; ano: number; motivo: string; fonte: string }; infracao_grave: { rotulo: string; autos: number; mediana_reais: number; maximo_reais: number; fonte: string; limites: string }; rotulo: string; segmento: string; unidade: string; autos: number; empresas: number; mediana_reais: number; maximo_reais: number; fonte: string; limites: string }
   simulador: {
     faixas: { id: string; rotulo: string; base: number }[]
@@ -291,20 +325,37 @@ export function decisoesDaSemana(temas: Tema[], diag: Diagnosticos, sim: Simulac
 /** "3 obrigações vencidas": cada uma é uma infração possível; o R$ nunca é somado. */
 export const textoVencidas = (n: number) => `${n} ${n === 1 ? 'obrigação vencida' : 'obrigações vencidas'}`
 
+export interface ContagemVencidas { obrigacoes: number; detalhes: number }
+
+/** Vencidas por obrigação principal (item ou dispositivo): alíneas que só detalham a mesma obrigação
+ *  ("a) Número da ocorrência") ficam dentro dela e são contadas à parte, como itens de detalhe. */
+export function contarVencidas(os: Obrigacao[]): ContagemVencidas {
+  const v = os.filter((o) => o.situacao === 'vencida')
+  return { obrigacoes: new Set(v.map((o) => o.principal ?? o.id)).size, detalhes: v.filter((o) => o.detalhe).length }
+}
+
+/** "14 obrigações vencidas · 11 itens de detalhe" (sem detalhe: só a primeira parte). */
+export const textoVencidasComDetalhe = (c: ContagemVencidas) =>
+  c.detalhes ? `${textoVencidas(c.obrigacoes)} · ${c.detalhes} ${c.detalhes === 1 ? 'item de detalhe' : 'itens de detalhe'}` : textoVencidas(c.obrigacoes)
+
 export interface Manchete {
   temasVencidos: number
   obrigacoesVencidas: number
+  /** Alíneas vencidas que só detalham uma obrigação principal (fora de `obrigacoesVencidas`). */
+  detalhesVencidos: number
   maximo: Exposicao | null
   /** Temas vencidos cuja exposição vem só de sugestão (cenário preliminar). */
   sugeridos: number
 }
 
 /** Manchete: quantos temas com prazo vencido e a MAIOR exposição por infração entre eles (nunca soma). */
-export function manchete(temas: Tema[], diag: Diagnosticos, sim: Simulacao | null, modo: Modo): Manchete {
+export function manchete(temas: Tema[], diag: Diagnosticos, sim: Simulacao | null, modo: Modo, obrigacoes: Obrigacao[] = plano.obrigacoes): Manchete {
   const vencidos = temas.filter((t) => t.contagem.vencida && diag[t.id] !== 'sim')
   const exps = vencidos.map((t) => exposicaoTema(t, sim, modo)).filter((e): e is Exposicao => e != null)
   const maximo = exps.length ? exps.reduce((a, b) => (b.pct > a.pct ? b : a)) : null
-  return { temasVencidos: vencidos.length, obrigacoesVencidas: vencidos.reduce((n, t) => n + t.contagem.vencida, 0), maximo, sugeridos: exps.filter((e) => e.origem === 'sugerido').length }
+  const ids = new Set(vencidos.map((t) => t.id))
+  const c = contarVencidas(obrigacoes.filter((o) => ids.has(o.tema)))
+  return { temasVencidos: vencidos.length, obrigacoesVencidas: c.obrigacoes, detalhesVencidos: c.detalhes, maximo, sugeridos: exps.filter((e) => e.origem === 'sugerido').length }
 }
 
 /** Por que o tema está nesta posição, nas palavras da regra de ordem. */
