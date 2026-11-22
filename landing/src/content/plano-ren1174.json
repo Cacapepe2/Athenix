@@ -1,6 +1,6 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "61b5be3",
+ "commit_origem": "815ff17",
  "gerado_em": "2026-11-22",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
@@ -902,8 +902,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Operação/Manutenção",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 7º, § 3º",
    "erro_material": null,
    "esclarecimento": null
@@ -1090,8 +1090,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 142, inciso IV, alínea b",
    "erro_material": null,
    "esclarecimento": null
@@ -1462,8 +1462,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 166, § 3º",
    "erro_material": null,
    "esclarecimento": null
@@ -2252,8 +2252,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 167-B, inciso I",
    "erro_material": null,
    "esclarecimento": null
@@ -2801,8 +2801,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 170, § 4º, inciso II",
    "erro_material": null,
    "esclarecimento": null
@@ -2864,8 +2864,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 170, § 5º",
    "erro_material": null,
    "esclarecimento": null
@@ -3825,8 +3825,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 11, inciso VIII",
    "erro_material": null,
    "esclarecimento": null
@@ -4151,8 +4151,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 42, § 2º, inciso II",
    "erro_material": null,
    "esclarecimento": null
@@ -4746,8 +4746,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 138, § 10",
    "erro_material": null,
    "esclarecimento": null
@@ -5127,8 +5127,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 163",
    "erro_material": null,
    "esclarecimento": null
@@ -5466,8 +5466,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "TI/Sistemas",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 294, § 4º",
    "erro_material": null,
    "esclarecimento": null
@@ -6470,8 +6470,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 19, § 9º",
    "erro_material": null,
    "esclarecimento": null
@@ -6670,8 +6670,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 21-B, § 1º",
    "erro_material": null,
    "esclarecimento": null
@@ -6766,8 +6766,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 4º",
    "erro_material": null,
    "esclarecimento": null
@@ -6871,8 +6871,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 11, inciso I",
    "erro_material": null,
    "esclarecimento": null
@@ -6968,8 +6968,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 11, inciso I",
    "erro_material": null,
    "esclarecimento": null
@@ -7281,8 +7281,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Operação/Manutenção",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 11, inciso I, alínea e",
    "erro_material": null,
    "esclarecimento": null
@@ -7480,8 +7480,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 11, inciso I, alínea g",
    "erro_material": null,
    "esclarecimento": null
@@ -7573,8 +7573,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "TI/Sistemas",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 11, inciso III",
    "erro_material": null,
    "esclarecimento": null
@@ -8052,8 +8052,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "TI/Sistemas",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "Art. 13, § 7º",
    "erro_material": null,
    "esclarecimento": null

@@ -1,6 +1,6 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "61b5be3",
+ "commit_origem": "815ff17",
  "gerado_em": "2026-11-22",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
@@ -1868,8 +1868,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Operação/Manutenção",
-   "area_origem": "regra",
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "item 148",
    "erro_material": null,
    "esclarecimento": null
@@ -2085,8 +2085,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Operação/Manutenção",
-   "area_origem": "regra",
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "item 108",
    "erro_material": null,
    "esclarecimento": null
@@ -2207,8 +2207,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Operação/Manutenção",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 107, alínea k",
    "erro_material": null,
    "esclarecimento": null
@@ -4638,8 +4638,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Jurídico",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 132, alínea b",
    "erro_material": null,
    "esclarecimento": null
@@ -5632,8 +5632,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "item 132, alínea l",
    "erro_material": null,
    "esclarecimento": null
@@ -5731,8 +5731,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
-   "area_origem": "regra",
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "item 132, alínea m",
    "erro_material": null,
    "esclarecimento": null
@@ -5823,8 +5823,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "item 138",
    "erro_material": null,
    "esclarecimento": null
@@ -5969,8 +5969,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
-   "area_origem": "regra",
+   "area": "Operação/Manutenção",
+   "area_origem": "ia",
    "dispositivo": "item 219",
    "erro_material": null,
    "esclarecimento": null
@@ -6270,8 +6270,8 @@
      }
     ]
    },
-   "area": "Regulatório",
-   "area_origem": "regra",
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "Art. 16",
    "erro_material": null,
    "esclarecimento": null
@@ -6604,7 +6604,7 @@
     "dependencias_no_texto": []
    },
    "area": "Regulatório",
-   "area_origem": "regra",
+   "area_origem": "ia",
    "dispositivo": "item 115",
    "erro_material": null,
    "esclarecimento": null
@@ -6708,8 +6708,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
-   "area_origem": "regra",
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
    "dispositivo": "item 118",
    "erro_material": null,
    "esclarecimento": null
@@ -7455,8 +7455,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 142, alínea e",
    "erro_material": null,
    "esclarecimento": null
@@ -8196,8 +8196,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
+   "area": "Operação/Manutenção",
+   "area_origem": "ia",
    "dispositivo": "item 143, alínea f",
    "erro_material": null,
    "esclarecimento": null
@@ -8406,7 +8406,7 @@
     "dependencias_no_texto": []
    },
    "area": "Regulatório",
-   "area_origem": "regra",
+   "area_origem": "ia",
    "dispositivo": "item 143, alínea h",
    "erro_material": null,
    "esclarecimento": null
@@ -8609,8 +8609,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Operação/Manutenção",
-   "area_origem": "regra",
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "item 143, alínea j",
    "erro_material": null,
    "esclarecimento": null
@@ -8818,8 +8818,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
-   "area_origem": "regra",
+   "area": "Operação/Manutenção",
+   "area_origem": "ia",
    "dispositivo": "item 144, alínea b",
    "erro_material": null,
    "esclarecimento": null
@@ -9240,8 +9240,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Operação/Manutenção",
-   "area_origem": "regra",
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
    "dispositivo": "item 144, alínea f",
    "erro_material": null,
    "esclarecimento": null
@@ -9344,8 +9344,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Operação/Manutenção",
-   "area_origem": "regra",
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "item 144, alínea g",
    "erro_material": null,
    "esclarecimento": null
@@ -9558,7 +9558,7 @@
     "dependencias_no_texto": []
    },
    "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
+   "area_origem": "ia",
    "dispositivo": "item 144, alínea i",
    "erro_material": null,
    "esclarecimento": null
@@ -9774,8 +9774,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Operação/Manutenção",
-   "area_origem": "regra",
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "item 147",
    "erro_material": null,
    "esclarecimento": null
@@ -11505,8 +11505,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 101, alínea g",
    "erro_material": null,
    "esclarecimento": null
@@ -12257,8 +12257,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 116",
    "erro_material": null,
    "esclarecimento": null
@@ -12446,8 +12446,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Operação/Manutenção",
-   "area_origem": "regra",
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "item 119",
    "erro_material": null,
    "esclarecimento": null
@@ -12799,8 +12799,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Jurídico",
-   "area_origem": "regra",
+   "area": "Operação/Manutenção",
+   "area_origem": "ia",
    "dispositivo": "item 133, alínea c",
    "erro_material": null,
    "esclarecimento": null
@@ -12983,8 +12983,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "item 133, alínea e",
    "erro_material": null,
    "esclarecimento": null
@@ -13080,8 +13080,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "item 133, alínea f",
    "erro_material": null,
    "esclarecimento": null
@@ -13172,8 +13172,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Operação/Manutenção",
-   "area_origem": "regra",
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "item 133, alínea g",
    "erro_material": null,
    "esclarecimento": null
@@ -13797,8 +13797,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 137",
    "erro_material": null,
    "esclarecimento": null
@@ -13887,8 +13887,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
+   "area": "Regulatório",
+   "area_origem": "ia",
    "dispositivo": "item 139, alínea c",
    "erro_material": null,
    "esclarecimento": null
@@ -13984,8 +13984,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
+   "area": "A definir",
+   "area_origem": null,
    "dispositivo": "item 142, alínea g",
    "erro_material": null,
    "esclarecimento": null
@@ -14815,8 +14815,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
-   "area_origem": "regra",
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "item 23-G",
    "erro_material": null,
    "esclarecimento": null
@@ -14885,8 +14885,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "item 23-H",
    "erro_material": null,
    "esclarecimento": null
@@ -15455,8 +15455,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
-   "area_origem": "regra",
+   "area": "Jurídico",
+   "area_origem": "ia",
    "dispositivo": "item 226",
    "erro_material": null,
    "esclarecimento": null
@@ -15643,8 +15643,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Regulatório",
-   "area_origem": "regra",
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
    "dispositivo": "Art. 371-A",
    "erro_material": null,
    "esclarecimento": null
@@ -16013,7 +16013,7 @@
     "dependencias_no_texto": []
    },
    "area": "Regulatório",
-   "area_origem": "regra",
+   "area_origem": "ia",
    "dispositivo": "Art. 371-A, § 3º",
    "erro_material": null,
    "esclarecimento": null
@@ -16285,8 +16285,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
    "dispositivo": "Art. 371-A, § 6º",
    "erro_material": null,
    "esclarecimento": null
@@ -16468,8 +16468,8 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
+   "area": "Jurídico",
+   "area_origem": "ia",
    "dispositivo": "Art. 19, inciso XIII, alínea c",
    "erro_material": null,
    "esclarecimento": null
