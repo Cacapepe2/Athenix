@@ -64,7 +64,7 @@ identificado no texto vem antes do sugerido. "Confirmado" fica reservado à revi
 python -m ruff check athenix tests scripts migrations
 python -m ruff format --check athenix tests scripts migrations
 python scripts/check_secrets.py
-python scripts/avaliar.py --rotulo local --comparar tests/baseline/metricas_v1.json   # trava
+python scripts/avaliar.py --rotulo local --comparar tests/baseline/metricas_v2.json   # trava
 python -m pytest -q
 python scripts/exportar_plano_demo.py        # regenera landing/src/content/plano-rn1137.json
 python scripts/exportar_plano_demo.py --arquivo tests/fontes_impacto/dou/dou_ren20261174.html --saida landing/src/content/plano-ren1174.json

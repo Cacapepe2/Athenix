@@ -1,0 +1,79 @@
+{
+ "versao": 1,
+ "rotulo": "baseline",
+ "nota": "Linha de base da trava de não regressão. Só melhora: atualizar em commit próprio, explicando o porquê.",
+ "casos_totalmente_corretos": 29,
+ "total_casos": 29,
+ "por_verificacao": {
+  "obrigacao": {
+   "acertos": 12,
+   "total": 12
+  },
+  "prazo": {
+   "acertos": 8,
+   "total": 8
+  },
+  "autoria": {
+   "acertos": 10,
+   "total": 10
+  },
+  "vigencia": {
+   "acertos": 4,
+   "total": 4
+  },
+  "revogacao": {
+   "acertos": 2,
+   "total": 2
+  },
+  "nao_obrigacao": {
+   "acertos": 2,
+   "total": 2
+  },
+  "remissao": {
+   "acertos": 1,
+   "total": 1
+  },
+  "transicao": {
+   "acertos": 9,
+   "total": 9
+  }
+ },
+ "por_documento": {
+  "ren20251137": {
+   "itens": 263,
+   "citacoes_encontradas": 261,
+   "nao_encontradas": 2,
+   "falsas_verificadas": 0,
+   "sem_fonte": 2,
+   "prazos_duplicados": 0,
+   "sujeitos_com_rotulo": 0
+  },
+  "reh20243348": {
+   "itens": 32,
+   "citacoes_encontradas": 32,
+   "nao_encontradas": 0,
+   "falsas_verificadas": 0,
+   "sem_fonte": 1,
+   "prazos_duplicados": 0,
+   "sujeitos_com_rotulo": 0
+  },
+  "dec12068": {
+   "itens": 145,
+   "citacoes_encontradas": 145,
+   "nao_encontradas": 0,
+   "falsas_verificadas": 0,
+   "sem_fonte": 0,
+   "prazos_duplicados": 0,
+   "sujeitos_com_rotulo": 0
+  },
+  "ren20261174": {
+   "itens": 333,
+   "citacoes_encontradas": 332,
+   "nao_encontradas": 1,
+   "falsas_verificadas": 0,
+   "sem_fonte": 2,
+   "prazos_duplicados": 0,
+   "sujeitos_com_rotulo": 0
+  }
+ }
+}

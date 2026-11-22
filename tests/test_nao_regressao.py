@@ -1,7 +1,7 @@
 """Trava de não regressão: nenhuma métrica do gabarito pode piorar em relação à linha de base.
 
-Melhorias atualizam `tests/baseline/metricas_v1.json` só em commit próprio, explicando o porquê:
-python scripts/avaliar.py --congelar tests/baseline/metricas_v1.json
+Melhorias atualizam `tests/baseline/metricas_v2.json` só em commit próprio, explicando o porquê:
+python scripts/avaliar.py --congelar tests/baseline/metricas_v2.json
 """
 
 import copy
@@ -12,7 +12,7 @@ import pytest
 
 from scripts import avaliar
 
-BASE = Path(__file__).parent / "baseline" / "metricas_v1.json"
+BASE = Path(__file__).parent / "baseline" / "metricas_v2.json"
 
 
 @pytest.fixture(scope="module")
@@ -28,19 +28,22 @@ def piorar(base, mudanca):
 
 def test_baseline_freezes_the_agreed_numbers(base):
     por = base["por_verificacao"]
-    assert (base["casos_totalmente_corretos"], base["total_casos"]) == (20, 20)
-    chaves = ("obrigacao", "prazo", "autoria", "vigencia", "remissao")
+    # v2 (22/11/2026): os 20 casos de antes + 9 da REN 1.174 (vigência e transição, arts. 16 e 18)
+    assert (base["casos_totalmente_corretos"], base["total_casos"]) == (29, 29)
+    chaves = ("obrigacao", "prazo", "autoria", "vigencia", "remissao", "transicao")
     assert [(por[k]["acertos"], por[k]["total"]) for k in chaves] == [
-        (11, 11),
+        (12, 12),
         (8, 8),
         (10, 10),
         (4, 4),
         (1, 1),
+        (9, 9),
     ]
     assert {d: m["falsas_verificadas"] for d, m in base["por_documento"].items()} == {
         "ren20251137": 0,
         "reh20243348": 0,
         "dec12068": 0,
+        "ren20261174": 0,
     }
 
 
@@ -51,12 +54,12 @@ def test_guard_flags_each_kind_of_regression(base):
         "casos corretos": lambda a: a.update(casos_totalmente_corretos=18),
         "verificação": lambda a: a["por_verificacao"]["prazo"].update(acertos=7),
         "falsa verificada": lambda a: a["por_documento"][doc].update(falsas_verificadas=1),
-        "citação some da fonte": lambda a: a["por_documento"][doc].update(citacoes_encontradas=251),
+        "citação some da fonte": lambda a: a["por_documento"][doc].update(citacoes_encontradas=260),
         "citação não encontrada": lambda a: a["por_documento"][doc].update(nao_encontradas=3),
         "prazo duplicado": lambda a: a["por_documento"][doc].update(prazos_duplicados=1),
         "sujeito com rótulo": lambda a: a["por_documento"][doc].update(sujeitos_com_rotulo=1),
         "documento some": lambda a: a["por_documento"].pop(doc),
-        "gabarito mudou de tamanho": lambda a: a.update(total_casos=21),
+        "gabarito mudou de tamanho": lambda a: a.update(total_casos=30),
         "verificação some": lambda a: a["por_verificacao"].pop("autoria"),
     }
     for nome, mudanca in piora.items():
@@ -65,10 +68,10 @@ def test_guard_flags_each_kind_of_regression(base):
 
 def test_guard_accepts_improvements_and_new_checks(base):
     def melhora(a):
-        a["casos_totalmente_corretos"] = 20
+        a["casos_totalmente_corretos"] = 29
         a["por_verificacao"]["remissao"]["acertos"] = 1
         a["por_verificacao"]["nova"] = {"acertos": 0, "total": 3}
-        a["por_documento"]["ren20251137"].update(nao_encontradas=0, citacoes_encontradas=254)
+        a["por_documento"]["ren20251137"].update(nao_encontradas=0, citacoes_encontradas=263)
 
     assert piorar(base, melhora) == []
 

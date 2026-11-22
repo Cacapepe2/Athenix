@@ -9,7 +9,7 @@ Registro de verificações da aplicação. As seções abaixo de "Implementado e
 | --- | --- |
 | Testes Python | 458 aprovados (Windows local); no CI, nos três sistemas |
 | Testes do site | 30 aprovados; build e pré-renderização de `/` e `/demo` conferidos |
-| Gabarito (20 casos, sem revisão de especialista) | 20/20; trava `tests/baseline/metricas_v1.json` passa |
+| Gabarito (29 casos, sem revisão de especialista) | 29/29; trava `tests/baseline/metricas_v2.json` passa |
 | Reprodutibilidade do export | `python scripts/exportar_plano_demo.py --verificar` (CI) |
 
 O quadro de 17/11/2026 abaixo é histórico (19/20 no gabarito, 270 testes, normas oficiais ainda
@@ -23,7 +23,7 @@ ausentes); as normas oficiais estão versionadas em `tests/fontes_impacto/`.
 | Testes do site | 7 aprovados; build e pré-renderização de `/` e `/demo` conferidos | `landing/`: `npm test`, `npm run build` |
 | Gabarito (20 casos, sem revisão de especialista) | 19/20; obrigação 11/11, prazo 8/8, autoria 10/10, vigência 4/4, revogação 2/2, não obrigação 2/2, remissão 0/1 (G09) | [avaliacao.md](avaliacao.md) |
 | Citações | Falsamente verificadas: 0 nas três normas. Encontradas na fonte: 252/254 (RN 1.137), 31/31 (REH 3.348), 145/145 (Decreto 12.068) | `scripts/avaliar.py` |
-| Trava de não regressão | Passa contra `tests/baseline/metricas_v1.json` | CI, nos três sistemas |
+| Trava de não regressão | Passa contra `tests/baseline/metricas_v2.json` | CI, nos três sistemas |
 | Lint, formatação e padrões de segredo | Passam | CI |
 | CI remoto | Ubuntu, Windows e macOS (Intel) em todo push e PR, incluindo a trava e os testes do site | `.github/workflows/ci.yml` |
 

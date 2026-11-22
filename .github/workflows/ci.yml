@@ -31,7 +31,7 @@ jobs:
       - run: python -m ruff format --check athenix tests scripts migrations
       - run: python scripts/check_secrets.py
       - name: Não regressão do gabarito
-        run: python scripts/avaliar.py --rotulo ci --comparar tests/baseline/metricas_v1.json
+        run: python scripts/avaliar.py --rotulo ci --comparar tests/baseline/metricas_v2.json
       - name: O export da demo reproduz o JSON versionado
         run: |
           python scripts/exportar_plano_demo.py --verificar
