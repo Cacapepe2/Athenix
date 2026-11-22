@@ -1,6 +1,6 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "887cd2f",
+ "commit_origem": "cd8e974",
  "gerado_em": "2026-11-21",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
@@ -129,20 +129,20 @@
   ]
  },
  "resumo": {
-  "identificadas": 168,
+  "identificadas": 170,
   "aplicaveis": 153,
-  "outros_dispositivos": 14,
+  "outros_dispositivos": 16,
   "fora_do_perfil": 1,
   "por_situacao": {
    "vencida": 7,
    "90dias": 0,
    "depois": 0,
    "recorrente": 2,
-   "evento": 20,
-   "sem_prazo": 124
+   "evento": 21,
+   "sem_prazo": 123
   },
-  "na_fila": 43,
-  "a_confirmar": 110,
+  "na_fila": 42,
+  "a_confirmar": 111,
   "sem_multa": 0,
   "grupo_mais_grave": "IV",
   "temas": 8
@@ -202,7 +202,7 @@
    }
   ],
   "confirmar": {
-   "obrigacoes": 110,
+   "obrigacoes": 111,
    "temas_sem_calculo_confirmado": 2
   }
  },
@@ -223,8 +223,8 @@
     "90dias": 0,
     "depois": 0,
     "recorrente": 0,
-    "evento": 0,
-    "sem_prazo": 21
+    "evento": 1,
+    "sem_prazo": 20
    },
    "prazo_mais_urgente": {
     "obrigacao": "a002094347c42776",
@@ -350,14 +350,14 @@
     "a002094347c42776",
     "b758c9c169c145ec",
     "d61df9955ff31362",
-    "7d0919bce4ef3fe9"
+    "c3b421e728c88b65"
    ],
    "obrigacoes": [
     "a002094347c42776",
     "b758c9c169c145ec",
     "d61df9955ff31362",
-    "7d0919bce4ef3fe9",
     "c3b421e728c88b65",
+    "7d0919bce4ef3fe9",
     "8bf769e8049238bf",
     "03038d3317d5920c",
     "f210b1cb4b18cd93",
@@ -723,17 +723,17 @@
      "unidade": "u0134"
     }
    ],
-   "n": 36,
+   "n": 35,
    "contagem": {
     "vencida": 0,
     "90dias": 0,
     "depois": 0,
     "recorrente": 0,
     "evento": 0,
-    "sem_prazo": 36
+    "sem_prazo": 35
    },
    "prazo_mais_urgente": null,
-   "na_fila": 32,
+   "na_fila": 31,
    "a_confirmar": 4,
    "grupos": [
     "IV"
@@ -877,7 +877,6 @@
     "11f1b97f51197a40",
     "059e791026821b38",
     "0b9113f77a4351b1",
-    "8c54ec11a2e41126",
     "9297bd2b368c09b7",
     "55d13ebfa6fe45cd",
     "09960ed39dc51125",
@@ -1211,18 +1210,18 @@
      "unidade": "u0283"
     }
    ],
-   "n": 30,
+   "n": 31,
    "contagem": {
     "vencida": 0,
     "90dias": 0,
     "depois": 0,
     "recorrente": 0,
     "evento": 15,
-    "sem_prazo": 15
+    "sem_prazo": 16
    },
    "prazo_mais_urgente": null,
    "na_fila": 0,
-   "a_confirmar": 30,
+   "a_confirmar": 31,
    "grupos": [],
    "grupo_mais_grave": null,
    "infracoes": [],
@@ -1292,7 +1291,7 @@
    "guardar": [
     {
      "id": "terceiros",
-     "n": 25
+     "n": 26
     },
     {
      "id": "protocolos",
@@ -1341,6 +1340,7 @@
     "921c74abaa653d5d",
     "33981a4c29c4c4db",
     "c8fa6b48cf963d61",
+    "084c9e1b8f25feff",
     "dace5661de038677"
    ],
    "dependencias_no_texto": []
@@ -2294,7 +2294,7 @@
     "base": null
    },
    "calculo": "fila",
-   "posicao_fila": 43,
+   "posicao_fila": 42,
    "enquadramento": [
     {
      "dispositivo": "Art. 11, VII",
@@ -2356,6 +2356,87 @@
    "area": "TI/Sistemas",
    "area_origem": "ia",
    "dispositivo": "Art. 19, inciso XIII, alínea b"
+  },
+  {
+   "id": "c3b421e728c88b65",
+   "titulo": "Comunicar aos consumidores, por meio dos canais disponíveis, a provável causa da…",
+   "titulo_origem": "regra",
+   "titulo_completo": "Comunicar aos consumidores, por meio dos canais disponíveis, a provável causa da interrupção, a área afetada e o tempo previsto para a normalização do fornecimento em até 15 (quinze) minutos após o conhecimento da causa da interrupção. Independentemente do momento em que a causa for identificada, a comunicação contendo essas informações deve ser realizada em até 1 (uma) hora após o reconhecimento da ocorrência da interrupção no fornecimento de energia elétrica",
+   "sujeito_implicito": false,
+   "titulo_curto": "Comunicar causa, área e prazo",
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
+   "tema": "consumidor",
+   "motivo_tema": "Seção 4.8 da norma",
+   "unidade": "u0050",
+   "trecho": "105. As distribuidoras devem comunicar aos consumidores, por meio dos canais disponíveis, a provável causa da interrupção, a área afetada e o tempo previsto para a normalização do fornecimento em até 15 (quinze) minutos após o conhecimento da causa da interrupção. Independentemente do momento em que a causa for identificada, a comunicação contendo essas informações deve ser realizada em até 1 (uma) hora após o reconhecimento da ocorrência da interrupção no fornecimento de energia elétrica.",
+   "situacao": "evento",
+   "prazo": {
+    "data": null,
+    "texto": "Por evento: até 15 min após o conhecimento da causa; até 1 h após o reconhecimento da ocorrência",
+    "dias": null,
+    "provisorio": false,
+    "condicional": false,
+    "base": null
+   },
+   "calculo": "verificar",
+   "posicao_fila": null,
+   "enquadramento": [],
+   "ia": {
+    "dispositivo": "Art. 11, XXIII",
+    "grupo": "III",
+    "justificativa": "A obrigação exige que a distribuidora comunique aos consumidores, em prazo (15 minutos/1 hora) a provável causa, a área afetada e o tempo previsto de normalização da interrupção; o art. 11, XXIII tipifica exatamente o ato de \"deixar de prestar informações decorrentes de interrupções no fornecimento de energia elétrica aos consumidores\", correspondente ao descumprimento dessa exigência regulatória.",
+    "duvida": "D1"
+   },
+   "grupo": null,
+   "faixa_preliminar": {
+    "grupos": [
+     "III"
+    ],
+    "teto_grupo_pct": 0.5,
+    "maximo_pct": {
+     "com_teto": 0.5,
+     "sem_teto": 0.5
+    },
+    "teto_legal_pct": 3.0,
+    "teto_legal_lei_pct": 3.0,
+    "teto_legal_subestimado": true,
+    "com_atenuante_pct": {
+     "espontanea": 0.025000000000000022,
+     "ate_tn": 0.25
+    },
+    "maximo_reais": {
+     "com_teto": 25000000.0,
+     "sem_teto": 25000000.0
+    },
+    "com_atenuante_reais": {
+     "espontanea": 1250000.0000000012,
+     "ate_tn": 12500000.0
+    }
+   },
+   "faixa": null,
+   "premissas": [],
+   "motivo_sem_calculo": null,
+   "evidencias": [],
+   "guardar": [
+    "indisponibilidade",
+    "protocolos"
+   ],
+   "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": "comunicar_consumidores",
+     "nome": "Comunicar consumidores",
+     "situacao": "concordam",
+     "por": "regra e IA concordam",
+     "regra_id": "comunicar_consumidores"
+    },
+    "dependencias_no_texto": []
+   },
+   "area": "Comunicação/Atendimento",
+   "area_origem": "regra",
+   "dispositivo": "item 105"
   },
   {
    "id": "eeabcc619985bac4",
@@ -7077,91 +7158,6 @@
    "dispositivo": "item 144, alínea i"
   },
   {
-   "id": "8c54ec11a2e41126",
-   "titulo": "Para o caso de ter havido aplicação do Plano de Contingência, a periodicidade máxima…",
-   "titulo_origem": "regra",
-   "titulo_completo": "Para o caso de ter havido aplicação do Plano de Contingência, a periodicidade máxima pode ser contada da sua última aplicação",
-   "sujeito_implicito": true,
-   "titulo_curto": "Contagem de prazo após uso",
-   "evite": null,
-   "recomendacoes": [],
-   "contexto": "145. A realização de simulados ou disponibilização de treinamentos atualizados deve ser feita com periodicidade máxima de um ano.",
-   "tema": "contingencia",
-   "motivo_tema": "Seção 4.11 da norma",
-   "unidade": "u0168",
-   "trecho": "a) Para o caso de ter havido aplicação do Plano de Contingência, a periodicidade máxima pode ser contada da sua última aplicação.",
-   "situacao": "sem_prazo",
-   "prazo": {
-    "data": null,
-    "texto": "Sem prazo identificado no texto",
-    "dias": null,
-    "provisorio": false,
-    "condicional": false,
-    "base": null
-   },
-   "calculo": "fila",
-   "posicao_fila": 35,
-   "enquadramento": [
-    {
-     "dispositivo": "Art. 12, XXVI",
-     "grupo": "IV"
-    }
-   ],
-   "ia": null,
-   "grupo": "IV",
-   "faixa_preliminar": null,
-   "faixa": {
-    "grupos": [
-     "IV"
-    ],
-    "teto_grupo_pct": 1.0,
-    "maximo_pct": {
-     "com_teto": 1.0,
-     "sem_teto": 1.0
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.050000000000000044,
-     "ate_tn": 0.5
-    },
-    "maximo_reais": {
-     "com_teto": 50000000.0,
-     "sem_teto": 50000000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 2500000.0000000023,
-     "ate_tn": 25000000.0
-    }
-   },
-   "premissas": [
-    "Enquadramento: Grupo(s) IV (indicado por termo coincidente com infração tipificada)",
-    "Mínimo 0: cabe advertência ou atenuante, e a metodologia do valor base não está no repositório",
-    "Máximo sem atenuante (pior caso)",
-    "Teto legal: 3% do faturamento por infração (Art. 3, X da Lei 9.427/1996, redação dada pela Lei nº 15.269, de 2025); infração em 17/11/2026, a partir de 25/11/2025 (Art. 24, caput e IV da Lei 15.269/2025); data considerada: data de referência do perfil (obrigação sem prazo)",
-    "Limite legal conforme a data do prazo; a data real da infração pode diferir.",
-    "Teto legal possivelmente subestimado: faturamento bruto não informado, aplicado sobre a base (ROL)"
-   ],
-   "motivo_sem_calculo": null,
-   "evidencias": [],
-   "guardar": [],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": null,
-     "nome": null,
-     "situacao": "a_revisar",
-     "por": "regra: Elaborar ou revisar plano; IA: outros",
-     "regra_id": "elaborar_ou_revisar_plano"
-    },
-    "dependencias_no_texto": []
-   },
-   "area": "Operação/Manutenção",
-   "area_origem": "regra",
-   "dispositivo": "item 145, alínea a"
-  },
-  {
    "id": "9297bd2b368c09b7",
    "titulo": "Revisar o plano de contingência sempre que necessário e, no máximo, anualmente",
    "titulo_origem": "ia",
@@ -7185,7 +7181,7 @@
     "base": null
    },
    "calculo": "fila",
-   "posicao_fila": 36,
+   "posicao_fila": 35,
    "enquadramento": [
     {
      "dispositivo": "Art. 12, XXVI",
@@ -7277,7 +7273,7 @@
     "base": null
    },
    "calculo": "fila",
-   "posicao_fila": 37,
+   "posicao_fila": 36,
    "enquadramento": [
     {
      "dispositivo": "Art. 12, XXVI",
@@ -7378,7 +7374,7 @@
     "base": null
    },
    "calculo": "fila",
-   "posicao_fila": 38,
+   "posicao_fila": 37,
    "enquadramento": [
     {
      "dispositivo": "Art. 12, XXVI",
@@ -7478,7 +7474,7 @@
     "base": null
    },
    "calculo": "fila",
-   "posicao_fila": 39,
+   "posicao_fila": 38,
    "enquadramento": [
     {
      "dispositivo": "Art. 12, XXVII",
@@ -7577,7 +7573,7 @@
     "base": null
    },
    "calculo": "fila",
-   "posicao_fila": 40,
+   "posicao_fila": 39,
    "enquadramento": [
     {
      "dispositivo": "Art. 12, XXVI",
@@ -7676,7 +7672,7 @@
     "base": null
    },
    "calculo": "fila",
-   "posicao_fila": 41,
+   "posicao_fila": 40,
    "enquadramento": [
     {
      "dispositivo": "Art. 12, XXVI",
@@ -7774,7 +7770,7 @@
     "base": null
    },
    "calculo": "fila",
-   "posicao_fila": 42,
+   "posicao_fila": 41,
    "enquadramento": [
     {
      "dispositivo": "Art. 12, XXVI",
@@ -9135,87 +9131,6 @@
    "area": "Meio Ambiente/Arborização",
    "area_origem": "regra",
    "dispositivo": "item 104"
-  },
-  {
-   "id": "c3b421e728c88b65",
-   "titulo": "Comunicar aos consumidores, por meio dos canais disponíveis, a provável causa da…",
-   "titulo_origem": "regra",
-   "titulo_completo": "Comunicar aos consumidores, por meio dos canais disponíveis, a provável causa da interrupção, a área afetada e o tempo previsto para a normalização do fornecimento em até 15 (quinze) minutos após o conhecimento da causa da interrupção. Independentemente do momento em que a causa for identificada, a comunicação contendo essas informações deve ser realizada em até 1 (uma) hora após o reconhecimento da ocorrência da interrupção no fornecimento de energia elétrica",
-   "sujeito_implicito": false,
-   "titulo_curto": "Comunicar causa, área e prazo",
-   "evite": null,
-   "recomendacoes": [],
-   "contexto": "",
-   "tema": "consumidor",
-   "motivo_tema": "Seção 4.8 da norma",
-   "unidade": "u0050",
-   "trecho": "105. As distribuidoras devem comunicar aos consumidores, por meio dos canais disponíveis, a provável causa da interrupção, a área afetada e o tempo previsto para a normalização do fornecimento em até 15 (quinze) minutos após o conhecimento da causa da interrupção. Independentemente do momento em que a causa for identificada, a comunicação contendo essas informações deve ser realizada em até 1 (uma) hora após o reconhecimento da ocorrência da interrupção no fornecimento de energia elétrica.",
-   "situacao": "sem_prazo",
-   "prazo": {
-    "data": null,
-    "texto": "Sem prazo identificado no texto",
-    "dias": null,
-    "provisorio": false,
-    "condicional": false,
-    "base": null
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 11, XXIII",
-    "grupo": "III",
-    "justificativa": "A obrigação exige que a distribuidora comunique aos consumidores, em prazo (15 minutos/1 hora) a provável causa, a área afetada e o tempo previsto de normalização da interrupção; o art. 11, XXIII tipifica exatamente o ato de \"deixar de prestar informações decorrentes de interrupções no fornecimento de energia elétrica aos consumidores\", correspondente ao descumprimento dessa exigência regulatória.",
-    "duvida": "D1"
-   },
-   "grupo": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "III"
-    ],
-    "teto_grupo_pct": 0.5,
-    "maximo_pct": {
-     "com_teto": 0.5,
-     "sem_teto": 0.5
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.025000000000000022,
-     "ate_tn": 0.25
-    },
-    "maximo_reais": {
-     "com_teto": 25000000.0,
-     "sem_teto": 25000000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 1250000.0000000012,
-     "ate_tn": 12500000.0
-    }
-   },
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [],
-   "guardar": [
-    "indisponibilidade",
-    "protocolos"
-   ],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": "comunicar_consumidores",
-     "nome": "Comunicar consumidores",
-     "situacao": "concordam",
-     "por": "regra e IA concordam",
-     "regra_id": "comunicar_consumidores"
-    },
-    "dependencias_no_texto": []
-   },
-   "area": "Comunicação/Atendimento",
-   "area_origem": "regra",
-   "dispositivo": "item 105"
   },
   {
    "id": "8bf769e8049238bf",
@@ -12274,6 +12189,57 @@
    "dispositivo": "item 136"
   },
   {
+   "id": "084c9e1b8f25feff",
+   "titulo": "O tempo de cessão das equipes não pode comprometer significativamente o atendimento…",
+   "titulo_origem": "regra",
+   "titulo_completo": "O tempo de cessão das equipes não pode comprometer significativamente o atendimento aos consumidores da distribuidora cedente",
+   "sujeito_implicito": true,
+   "titulo_curto": null,
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "",
+   "tema": "cessao",
+   "motivo_tema": "Seção 4.10 da norma",
+   "unidade": "u0127",
+   "trecho": "137. O tempo de cessão das equipes não pode comprometer significativamente o atendimento aos consumidores da distribuidora cedente.",
+   "situacao": "sem_prazo",
+   "prazo": {
+    "data": null,
+    "texto": "Sem prazo identificado no texto",
+    "dias": null,
+    "provisorio": false,
+    "condicional": false,
+    "base": null
+   },
+   "calculo": "verificar",
+   "posicao_fila": null,
+   "enquadramento": [],
+   "ia": null,
+   "grupo": null,
+   "faixa_preliminar": null,
+   "faixa": null,
+   "premissas": [],
+   "motivo_sem_calculo": null,
+   "evidencias": [],
+   "guardar": [
+    "terceiros"
+   ],
+   "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Manter estrutura de atendimento ou contingência; IA: sem resposta válida",
+     "regra_id": "estrutura_atendimento_contingencia"
+    },
+    "dependencias_no_texto": []
+   },
+   "area": "Comunicação/Atendimento",
+   "area_origem": "regra",
+   "dispositivo": "item 137"
+  },
+  {
    "id": "dace5661de038677",
    "titulo": "As cessões emergenciais de recursos humanos, equipamentos e materiais…",
    "titulo_origem": "regra",
@@ -14659,6 +14625,16 @@
    "dispositivo": "item 130"
   },
   {
+   "id": "ea621d9ce84bb6fa",
+   "natureza": "faculdade",
+   "rotulo": "Faculdade (pode, não deve)",
+   "sujeito": "A Cessão Emergencial de recursos somente",
+   "unidade": "u0097",
+   "trecho": "131. A Cessão Emergencial de recursos somente pode ser realizada em situações em que a distribuidora tenha atingido limite operacional crítico em relação aos seus recursos disponíveis no atendimento direto à situação de crise, devendo tal situação ser devidamente demonstrada e documentada em relatório circunstanciado do evento que gerou a situação de crise. Intercâmbio de Informações",
+   "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
+   "dispositivo": "item 131"
+  },
+  {
    "id": "57047f491e3f21f6",
    "natureza": "faculdade",
    "rotulo": "Faculdade (pode, não deve)",
@@ -14677,6 +14653,16 @@
    "trecho": "b) O número e as características das equipes (leves, pesadas, linha viva) que poderão ser cedidas;",
    "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
    "dispositivo": "item 133, alínea b"
+  },
+  {
+   "id": "b3b18aa3b7f73a31",
+   "natureza": "faculdade",
+   "rotulo": "Faculdade (pode, não deve)",
+   "sujeito": "a periodicidade máxima",
+   "unidade": "u0168",
+   "trecho": "a) Para o caso de ter havido aplicação do Plano de Contingência, a periodicidade máxima pode ser contada da sua última aplicação.",
+   "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
+   "dispositivo": "item 145, alínea a"
   },
   {
    "id": "bfbd3539f8f236cb",
@@ -14949,26 +14935,6 @@
    "trecho": "128. Neutralidade: os valores referentes aos custos ou despesas incorridos pela cedente em função da Cessão Emergencial de recursos serão reembolsados pela cessionária à cedente pelo valor incorrido, proporcional à folha de pagamento de pessoal ou despesa ou custo pelo uso de equipamento ou materiais, sem que haja lucro, remuneração ou rentabilidade de qualquer tipo, tendo em vista o caráter de colaboração e solidariedade.",
    "motivo": "sem dever identificado",
    "dispositivo": "item 128"
-  },
-  {
-   "id": "sd-492b21808d1b",
-   "natureza": "sem_dever_identificado",
-   "rotulo": "Sem dever identificado",
-   "sujeito": "",
-   "unidade": "u0097",
-   "trecho": "131. A Cessão Emergencial de recursos somente pode ser realizada em situações em que a distribuidora tenha atingido limite operacional crítico em relação aos seus recursos disponíveis no atendimento direto à situação de crise, devendo tal situação ser devidamente demonstrada e documentada em relatório circunstanciado do evento que gerou a situação de crise. Intercâmbio de Informações",
-   "motivo": "sem dever identificado",
-   "dispositivo": "item 131"
-  },
-  {
-   "id": "sd-dacd1fc74886",
-   "natureza": "sem_dever_identificado",
-   "rotulo": "Sem dever identificado",
-   "sujeito": "",
-   "unidade": "u0127",
-   "trecho": "137. O tempo de cessão das equipes não pode comprometer significativamente o atendimento aos consumidores da distribuidora cedente.",
-   "motivo": "sem dever identificado",
-   "dispositivo": "item 137"
   },
   {
    "id": "sd-77db89c4acdc",
@@ -15646,6 +15612,7 @@
   ],
   "evento": [
    "0a7ca3ffa419b877",
+   "c3b421e728c88b65",
    "eeabcc619985bac4",
    "743176314038e1bc",
    "63d080f10ea001db",
@@ -15700,7 +15667,6 @@
    "11f1b97f51197a40",
    "059e791026821b38",
    "0b9113f77a4351b1",
-   "8c54ec11a2e41126",
    "9297bd2b368c09b7",
    "55d13ebfa6fe45cd",
    "09960ed39dc51125",
@@ -15724,7 +15690,6 @@
    "afcbf345324a3e49",
    "e6a5fd13a95d9e25",
    "cde0648e7a44c0f1",
-   "c3b421e728c88b65",
    "8bf769e8049238bf",
    "03038d3317d5920c",
    "f210b1cb4b18cd93",
@@ -15762,6 +15727,7 @@
    "921c74abaa653d5d",
    "33981a4c29c4c4db",
    "c8fa6b48cf963d61",
+   "084c9e1b8f25feff",
    "dace5661de038677",
    "a03bb494e4666bc9",
    "87c61f480ef8ec6c",

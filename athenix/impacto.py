@@ -317,6 +317,16 @@ def urgencia(row, hoje):
         )
     elif "recurring" in estados:
         texto = "obrigação recorrente: próxima ocorrência não calculada"
+    elif curtos := [
+        d
+        for d in row.get("deadlines", [])
+        if d.get("state") == "awaiting_event"
+        and (d.get("unit") or "").startswith(("minuto", "hora"))
+    ]:
+        abrev = {"minuto": "min", "hora": "h"}
+        texto = "por evento: " + "; ".join(
+            f"até {d['quantity']} {abrev[d['unit'].rstrip('s')]} {d['event']}" for d in curtos
+        )
     elif "awaiting_event" in estados:
         texto = "prazo conta de um evento ainda sem data"
     else:

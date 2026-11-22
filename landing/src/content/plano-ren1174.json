@@ -1,6 +1,6 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "887cd2f",
+ "commit_origem": "cd8e974",
  "gerado_em": "2026-11-21",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
@@ -131,9 +131,9 @@
   ]
  },
  "resumo": {
-  "identificadas": 156,
-  "aplicaveis": 83,
-  "outros_dispositivos": 73,
+  "identificadas": 167,
+  "aplicaveis": 84,
+  "outros_dispositivos": 83,
   "fora_do_perfil": 0,
   "por_situacao": {
    "vencida": 0,
@@ -141,10 +141,10 @@
    "depois": 0,
    "recorrente": 2,
    "evento": 1,
-   "sem_prazo": 80
+   "sem_prazo": 81
   },
   "na_fila": 0,
-  "a_confirmar": 83,
+  "a_confirmar": 84,
   "sem_multa": 0,
   "grupo_mais_grave": null,
   "temas": 4
@@ -177,7 +177,7 @@
    }
   ],
   "confirmar": {
-   "obrigacoes": 83,
+   "obrigacoes": 84,
    "temas_sem_calculo_confirmado": 4
   }
  },
@@ -316,18 +316,18 @@
    "id": "capítulo_ii_1",
    "nome": "Capítulo II: Da abertura de mercado",
    "fontes": [],
-   "n": 56,
+   "n": 57,
    "contagem": {
     "vencida": 0,
     "90dias": 0,
     "depois": 0,
     "recorrente": 0,
     "evento": 0,
-    "sem_prazo": 56
+    "sem_prazo": 57
    },
    "prazo_mais_urgente": null,
    "na_fila": 0,
-   "a_confirmar": 56,
+   "a_confirmar": 57,
    "grupos": [],
    "grupo_mais_grave": null,
    "infracoes": [],
@@ -366,7 +366,7 @@
    "ia": {
     "dispositivo": "Art. 9º, III",
     "n": 11,
-    "de": 52
+    "de": 51
    },
    "evidencias": [
     {
@@ -397,7 +397,7 @@
    "guardar": [
     {
      "id": "protocolos",
-     "n": 20
+     "n": 21
     },
     {
      "id": "terceiros",
@@ -405,7 +405,7 @@
     },
     {
      "id": "indisponibilidade",
-     "n": 5
+     "n": 7
     }
    ],
    "excludentes": [],
@@ -417,6 +417,8 @@
     "1cc27f2c34dd3d5f"
    ],
    "obrigacoes": [
+    "10e369b8c79f3c68",
+    "0ebf1f2b460f7298",
     "62b27f9320f5f56e",
     "2ddcf318e58a47bf",
     "6a16e3400ab43199",
@@ -450,7 +452,6 @@
     "256d3b52eb869bf7",
     "feb344531c216efe",
     "e7bbeed0a84f40bd",
-    "d680801349c97d8f",
     "0d4598afde5c12e3",
     "a93cae63c466b658",
     "16f2c52f324abe9d",
@@ -898,6 +899,110 @@
    "area": "Regulatório",
    "area_origem": "ia",
    "dispositivo": "Art. 14, § 1º, inciso II"
+  },
+  {
+   "id": "10e369b8c79f3c68",
+   "titulo": "O sistema de medição e comunicação instalados permitirem a coleta e o envio dos…",
+   "titulo_origem": "regra",
+   "titulo_completo": "O sistema de medição e comunicação instalados permitirem a coleta e o envio dos dados de consumo à Câmara de Comercialização de Energia Elétrica - CCEE na forma e periodicidade previstas nos Procedimentos de Comercialização da CCEE; ou",
+   "sujeito_implicito": false,
+   "titulo_curto": null,
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "§ 2º A distribuidora não pode exigir a adaptação, regularização ou substituição das instalações de entrada de energia como condição para migração para o Ambiente de Contratação Livre - ACL caso sejam satisfeitas pelo menos umas das duas condições a seguir:",
+   "tema": "capítulo_ii_1",
+   "motivo_tema": "Capítulo da norma",
+   "unidade": "u0011",
+   "trecho": "I - o sistema de medição e comunicação instalados permitirem a coleta e o envio dos dados de consumo à Câmara de Comercialização de Energia Elétrica - CCEE na forma e periodicidade previstas nos Procedimentos de Comercialização da CCEE; ou",
+   "situacao": "sem_prazo",
+   "prazo": {
+    "data": null,
+    "texto": "Sem prazo identificado no texto",
+    "dias": null,
+    "provisorio": false,
+    "condicional": false,
+    "base": null
+   },
+   "calculo": "verificar",
+   "posicao_fila": null,
+   "enquadramento": [],
+   "ia": null,
+   "grupo": null,
+   "faixa_preliminar": null,
+   "faixa": null,
+   "premissas": [],
+   "motivo_sem_calculo": null,
+   "evidencias": [],
+   "guardar": [
+    "indisponibilidade",
+    "protocolos"
+   ],
+   "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "sem_tipo",
+     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
+     "regra_id": null
+    },
+    "dependencias_no_texto": []
+   },
+   "area": "A definir",
+   "area_origem": null,
+   "dispositivo": "Art. 42, § 2º, inciso I"
+  },
+  {
+   "id": "0ebf1f2b460f7298",
+   "titulo": "For possível a substituição do sistema de medição e comunicação sem a necessidade de…",
+   "titulo_origem": "regra",
+   "titulo_completo": "For possível a substituição do sistema de medição e comunicação sem a necessidade de alteração nas instalações do consumidor",
+   "sujeito_implicito": false,
+   "titulo_curto": null,
+   "evite": null,
+   "recomendacoes": [],
+   "contexto": "§ 2º A distribuidora não pode exigir a adaptação, regularização ou substituição das instalações de entrada de energia como condição para migração para o Ambiente de Contratação Livre - ACL caso sejam satisfeitas pelo menos umas das duas condições a seguir:",
+   "tema": "capítulo_ii_1",
+   "motivo_tema": "Capítulo da norma",
+   "unidade": "u0012",
+   "trecho": "II - for possível a substituição do sistema de medição e comunicação sem a necessidade de alteração nas instalações do consumidor.",
+   "situacao": "sem_prazo",
+   "prazo": {
+    "data": null,
+    "texto": "Sem prazo identificado no texto",
+    "dias": null,
+    "provisorio": false,
+    "condicional": false,
+    "base": null
+   },
+   "calculo": "verificar",
+   "posicao_fila": null,
+   "enquadramento": [],
+   "ia": null,
+   "grupo": null,
+   "faixa_preliminar": null,
+   "faixa": null,
+   "premissas": [],
+   "motivo_sem_calculo": null,
+   "evidencias": [],
+   "guardar": [
+    "indisponibilidade",
+    "protocolos"
+   ],
+   "excludente": null,
+   "analise": {
+    "tipo": {
+     "id": null,
+     "nome": null,
+     "situacao": "a_revisar",
+     "por": "regra: Comunicar consumidores; IA: sem resposta válida",
+     "regra_id": "comunicar_consumidores"
+    },
+    "dependencias_no_texto": []
+   },
+   "area": "Comunicação/Atendimento",
+   "area_origem": "regra",
+   "dispositivo": "Art. 42, § 2º, inciso II"
   },
   {
    "id": "62b27f9320f5f56e",
@@ -2328,7 +2433,7 @@
    "titulo": "A redução do prazo deve ser realizada com isonomia, vedada a aplicação individual ou…",
    "titulo_origem": "regra",
    "titulo_completo": "A redução do prazo deve ser realizada com isonomia, vedada a aplicação individual ou a grupo que atenda determinadas condições; e",
-   "sujeito_implicito": true,
+   "sujeito_implicito": false,
    "titulo_curto": "Reduzir prazo com isonomia",
    "evite": {
     "acao": "Reduzir prazo sem isonomia, aplicando tratamento individual ou a grupo específico.",
@@ -2344,7 +2449,7 @@
      "trecho_citado": "vedada a aplicação individual"
     }
    ],
-   "contexto": "\"Art. 166. O consumidor potencialmente livre, que satisfaz os requisitos para aquisição de energia no ACL e deseje exercer a opção de adquirir energia elétrica com outro fornecedor para sua unidade consumidora, deve:",
+   "contexto": "§ 6º A distribuidora pode praticar prazos menores dos que os dispostos no § 5º, desde que por período preestabelecido, observado o art. 663 e as seguintes condições:",
    "tema": "capítulo_ii_1",
    "motivo_tema": "Capítulo da norma",
    "unidade": "u0069",
@@ -3531,86 +3636,6 @@
    "dispositivo": "Art. 168, inciso VII"
   },
   {
-   "id": "d680801349c97d8f",
-   "titulo": "Observar o art. 167-B. \"(NR)",
-   "titulo_origem": "regra",
-   "titulo_completo": "Observar o art. 167-B. \"(NR)",
-   "sujeito_implicito": false,
-   "titulo_curto": "Encaminhar CCER ao consumidor",
-   "evite": null,
-   "recomendacoes": [],
-   "contexto": "\"Art. 168. Caso o consumidor esteja descontratado no ACR e no ACL, por motivo atribuível ao consumidor e/ou ao agente varejista, ou nos casos de atraso tratados no art. 167-B, devem ser observadas as seguintes disposições:",
-   "tema": "capítulo_ii_1",
-   "motivo_tema": "Capítulo da norma",
-   "unidade": "u0123",
-   "trecho": "VIII - a distribuidora pode, a qualquer tempo, precedida da notificação do art. 360, interromper o faturamento previsto neste artigo e suspender o fornecimento, exceto nos casos de atraso, em que deve observar o art. 167-B. \"(NR)",
-   "situacao": "sem_prazo",
-   "prazo": {
-    "data": null,
-    "texto": "Sem prazo identificado no texto",
-    "dias": null,
-    "provisorio": false,
-    "condicional": false,
-    "base": null
-   },
-   "calculo": "verificar",
-   "posicao_fila": null,
-   "enquadramento": [],
-   "ia": {
-    "dispositivo": "Art. 10, III",
-    "grupo": "II",
-    "justificativa": "A obrigação determina que a distribuidora só pode interromper o faturamento e suspender o fornecimento após a notificação prevista no art. 360; isso exige prévio aviso antes da suspensão. A infração tipifica exatamente o descumprimento das determinações legais sobre o prévio aviso para suspensão ou interrupção programada do fornecimento.",
-    "duvida": null
-   },
-   "grupo": null,
-   "faixa_preliminar": {
-    "grupos": [
-     "II"
-    ],
-    "teto_grupo_pct": 0.25,
-    "maximo_pct": {
-     "com_teto": 0.25,
-     "sem_teto": 0.25
-    },
-    "teto_legal_pct": 3.0,
-    "teto_legal_lei_pct": 3.0,
-    "teto_legal_subestimado": true,
-    "com_atenuante_pct": {
-     "espontanea": 0.012500000000000011,
-     "ate_tn": 0.125
-    },
-    "maximo_reais": {
-     "com_teto": 12500000.0,
-     "sem_teto": 12500000.0
-    },
-    "com_atenuante_reais": {
-     "espontanea": 625000.0000000006,
-     "ate_tn": 6250000.0
-    }
-   },
-   "faixa": null,
-   "premissas": [],
-   "motivo_sem_calculo": null,
-   "evidencias": [],
-   "guardar": [
-    "protocolos"
-   ],
-   "excludente": null,
-   "analise": {
-    "tipo": {
-     "id": null,
-     "nome": null,
-     "situacao": "sem_tipo",
-     "por": "detalhe do dispositivo-pai (sem sinal próprio)",
-     "regra_id": null
-    },
-    "dependencias_no_texto": []
-   },
-   "area": "A definir",
-   "area_origem": null,
-   "dispositivo": "Art. 168, inciso VIII"
-  },
-  {
    "id": "0d4598afde5c12e3",
    "titulo": "Recebida a solicitação do consumidor para retorno ao ACR a distribuidora deve, no…",
    "titulo_origem": "regra",
@@ -4461,7 +4486,7 @@
    "id": "d82397fc3b81b89e",
    "titulo": "A atividade de arrecadação de fatura de comercializador de energia na fatura de…",
    "titulo_origem": "regra",
-   "titulo_completo": "A atividade de arrecadação de fatura de comercializador de energia na fatura de consumidor livre ou especial, caso seja oferecida, não pode ser cobrada e deve ser realizada para todos os comercializadores.\"",
+   "titulo_completo": "A atividade de arrecadação de fatura de comercializador de energia na fatura de consumidor livre ou especial, caso seja oferecida, deve ser realizada para todos os comercializadores.\"",
    "sujeito_implicito": true,
    "titulo_curto": "Arrecadação na fatura sem cobrança",
    "evite": null,
@@ -7539,6 +7564,86 @@
    "dispositivo": "Art. 166, § 4º, inciso III"
   },
   {
+   "id": "c0e90a166ca884c7",
+   "natureza": "faculdade",
+   "rotulo": "Faculdade (pode, não deve)",
+   "sujeito": "A distribuidora",
+   "unidade": "u0070",
+   "trecho": "II - a redução do prazo obriga a distribuidora:",
+   "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
+   "dispositivo": "Art. 166, § 6º, inciso II"
+  },
+  {
+   "id": "1863f696cb8ad6e3",
+   "natureza": "faculdade",
+   "rotulo": "Faculdade (pode, não deve)",
+   "sujeito": "a distribuidora somente",
+   "unidade": "u0079",
+   "trecho": "§ 11. Para fins de migração, a distribuidora somente pode praticar os procedimentos e exigir do consumidor as providências dispostas nesta Resolução, no PRODIST e nos Procedimentos de Comercialização.\" (NR)",
+   "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
+   "dispositivo": "Art. 166, § 11"
+  },
+  {
+   "id": "3f41e14d5e4d901b",
+   "natureza": "faculdade",
+   "rotulo": "Faculdade (pode, não deve)",
+   "sujeito": "A reprovação da migração somente",
+   "unidade": "u0091",
+   "trecho": "I - existência de débitos na unidade consumidora objeto da migração;",
+   "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
+   "dispositivo": "Art. 166-A, § 2º, inciso I"
+  },
+  {
+   "id": "932b69e61663927b",
+   "natureza": "faculdade",
+   "rotulo": "Faculdade (pode, não deve)",
+   "sujeito": "A reprovação da migração somente",
+   "unidade": "u0092",
+   "trecho": "II - necessidade de substituição do sistema de medição ou de comunicação e inviabilidade técnica nas instalações do consumidor para realização da substituição pela distribuidora;",
+   "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
+   "dispositivo": "Art. 166-A, § 2º, inciso II"
+  },
+  {
+   "id": "040f06a9a9f9c64f",
+   "natureza": "faculdade",
+   "rotulo": "Faculdade (pode, não deve)",
+   "sujeito": "A reprovação da migração somente",
+   "unidade": "u0093",
+   "trecho": "III - unidade consumidora que não atenda aos requisitos legais ou regulatórios para migração, observado o § 4º do art. 160 e o art. 655-Y;",
+   "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
+   "dispositivo": "Art. 166-A, § 2º, inciso III"
+  },
+  {
+   "id": "82493f366a48e4fd",
+   "natureza": "faculdade",
+   "rotulo": "Faculdade (pode, não deve)",
+   "sujeito": "A reprovação da migração somente",
+   "unidade": "u0094",
+   "trecho": "IV - não aplicação do modelo simplificado para comercialização varejista, exclusivamente nos casos vedados no Submódulo 1.8 dos Procedimentos de Comercialização e se o consumidor tiver feito essa opção; e",
+   "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
+   "dispositivo": "Art. 166-A, § 2º, inciso IV"
+  },
+  {
+   "id": "46f268d4582189d4",
+   "natureza": "faculdade",
+   "rotulo": "Faculdade (pode, não deve)",
+   "sujeito": "A reprovação da migração somente",
+   "unidade": "u0095",
+   "trecho": "V - erro nas informações cadastradas pelo agente varejista na habilitação na CCEE no caso de modelo simplificado para comercialização varejista.",
+   "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
+   "dispositivo": "Art. 166-A, § 2º, inciso V"
+  },
+  {
+   "id": "68cdbb07542b8d4a",
+   "natureza": "direito_de_terceiro",
+   "rotulo": "Direito de terceiro (consumidor ou usuário)",
+   "sujeito": "O consumidor",
+   "unidade": "u0100",
+   "trecho": "§ 5º O consumidor pode solicitar de forma opcional a verificação de viabilidade técnica para migração ao ACL, previamente à formalização da opção de migração, observado o prazo disposto no caput e sujeito à cobrança pelo serviço no valor correspondente à visita técnica, conforme homologado pela ANEEL.\"",
+   "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
+   "dispositivo": "Art. 166-A, § 5º"
+  },
+  {
    "id": "dde5c89e6ef7409e",
    "natureza": "dever_de_outro_agente",
    "rotulo": "Dever de outro agente (não é da distribuidora)",
@@ -7557,6 +7662,16 @@
    "trecho": "II - em caso de ausência de manifestação da distribuidora sobre a migração, conforme art. 166-A: o prazo de migração requerido pelo consumidor.\"",
    "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
    "dispositivo": "Art. 167-C, § 2º, inciso II"
+  },
+  {
+   "id": "d680801349c97d8f",
+   "natureza": "faculdade",
+   "rotulo": "Faculdade (pode, não deve)",
+   "sujeito": "a distribuidora",
+   "unidade": "u0123",
+   "trecho": "VIII - a distribuidora pode, a qualquer tempo, precedida da notificação do art. 360, interromper o faturamento previsto neste artigo e suspender o fornecimento, exceto nos casos de atraso, em que deve observar o art. 167-B. \"(NR)",
+   "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
+   "dispositivo": "Art. 168, inciso VIII"
   },
   {
    "id": "fb142b034a603d34",
@@ -7617,6 +7732,16 @@
    "trecho": "II - fatura unificada emitida pelo comercializador de energia, contendo a cobrança da distribuidora.",
    "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
    "dispositivo": "§ 1º, inciso II"
+  },
+  {
+   "id": "06005f2f2ef85e8c",
+   "natureza": "direito_de_terceiro",
+   "rotulo": "Direito de terceiro (consumidor ou usuário)",
+   "sujeito": "O consumidor",
+   "unidade": "u0156",
+   "trecho": "§ 4º O consumidor pode optar, a qualquer tempo, por voltar a receber em separado as faturas da distribuidora e do comercializador de energia, vedada nova opção antes de decorridos 6 ciclos consecutivos de faturamento da última alteração, exceto no caso de aceite da distribuidora e do agente comercializador.",
+   "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
+   "dispositivo": "§ 4º"
   },
   {
    "id": "93eaa63c81af4dec",
@@ -7829,10 +7954,10 @@
    "dispositivo": "Art. 11, inciso II"
   },
   {
-   "id": "d561504d3e06853d",
+   "id": "bd51414017166d23",
    "natureza": "faculdade",
    "rotulo": "Faculdade (pode, não deve)",
-   "sujeito": "As distribuidoras",
+   "sujeito": "a distribuidora",
    "unidade": "u0280",
    "trecho": "IV - a distribuidora pode usar recursos da conta de Pesquisa e Desenvolvimento - P&D para o custeio do Sandbox;",
    "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
@@ -7990,9 +8115,9 @@
   },
   {
    "id": "40b290d89e1bce4d",
-   "natureza": "dever_de_outro_agente",
-   "rotulo": "Dever de outro agente (não é da distribuidora)",
-   "sujeito": "O Sandbox Regulatório disposto neste artigo pode ser desenvolvido por agente comercializador, que",
+   "natureza": "faculdade",
+   "rotulo": "Faculdade (pode, não deve)",
+   "sujeito": "O Sandbox Regulatório disposto neste artigo",
    "unidade": "u0298",
    "trecho": "Parágrafo único. O Sandbox Regulatório disposto neste artigo pode ser desenvolvido por agente comercializador, que deve ser apresentado à ANEEL com as adaptações necessárias e as respectivas justificativas.",
    "motivo": "Não é dever da distribuidora: não entra na contagem nem no cálculo de multa.",
@@ -8209,26 +8334,6 @@
    "trecho": "\"Art. 42.............................................................. .........................................................................",
    "motivo": "sem dever identificado",
    "dispositivo": "Art. 42"
-  },
-  {
-   "id": "sd-216d22a91932",
-   "natureza": "sem_dever_identificado",
-   "rotulo": "Sem dever identificado",
-   "sujeito": "",
-   "unidade": "u0011",
-   "trecho": "I - o sistema de medição e comunicação instalados permitirem a coleta e o envio dos dados de consumo à Câmara de Comercialização de Energia Elétrica - CCEE na forma e periodicidade previstas nos Procedimentos de Comercialização da CCEE; ou",
-   "motivo": "sem dever identificado",
-   "dispositivo": "Art. 42, § 2º, inciso I"
-  },
-  {
-   "id": "sd-848c6f59ec14",
-   "natureza": "sem_dever_identificado",
-   "rotulo": "Sem dever identificado",
-   "sujeito": "",
-   "unidade": "u0012",
-   "trecho": "II - for possível a substituição do sistema de medição e comunicação sem a necessidade de alteração nas instalações do consumidor.",
-   "motivo": "sem dever identificado",
-   "dispositivo": "Art. 42, § 2º, inciso II"
   },
   {
    "id": "sd-305ef7ca0066",
@@ -8461,16 +8566,6 @@
    "dispositivo": "Art. 166, § 9º"
   },
   {
-   "id": "sd-86bcbdc60061",
-   "natureza": "sem_dever_identificado",
-   "rotulo": "Sem dever identificado",
-   "sujeito": "",
-   "unidade": "u0079",
-   "trecho": "§ 11. Para fins de migração, a distribuidora somente pode praticar os procedimentos e exigir do consumidor as providências dispostas nesta Resolução, no PRODIST e nos Procedimentos de Comercialização.\" (NR)",
-   "motivo": "sem dever identificado",
-   "dispositivo": "Art. 166, § 11"
-  },
-  {
    "id": "sd-21618386861d",
    "natureza": "sem_dever_identificado",
    "rotulo": "Sem dever identificado",
@@ -8539,66 +8634,6 @@
    "trecho": "II - nos demais casos: do recebimento da comunicação da migração prevista no art. 166.",
    "motivo": "sem dever identificado",
    "dispositivo": "Art. 166-A, § 1º, inciso II"
-  },
-  {
-   "id": "sd-3d080e7f4710",
-   "natureza": "sem_dever_identificado",
-   "rotulo": "Sem dever identificado",
-   "sujeito": "",
-   "unidade": "u0091",
-   "trecho": "I - existência de débitos na unidade consumidora objeto da migração;",
-   "motivo": "sem dever identificado",
-   "dispositivo": "Art. 166-A, § 2º, inciso I"
-  },
-  {
-   "id": "sd-fdb847a0d753",
-   "natureza": "sem_dever_identificado",
-   "rotulo": "Sem dever identificado",
-   "sujeito": "",
-   "unidade": "u0092",
-   "trecho": "II - necessidade de substituição do sistema de medição ou de comunicação e inviabilidade técnica nas instalações do consumidor para realização da substituição pela distribuidora;",
-   "motivo": "sem dever identificado",
-   "dispositivo": "Art. 166-A, § 2º, inciso II"
-  },
-  {
-   "id": "sd-5eaa5af5da3c",
-   "natureza": "sem_dever_identificado",
-   "rotulo": "Sem dever identificado",
-   "sujeito": "",
-   "unidade": "u0093",
-   "trecho": "III - unidade consumidora que não atenda aos requisitos legais ou regulatórios para migração, observado o § 4º do art. 160 e o art. 655-Y;",
-   "motivo": "sem dever identificado",
-   "dispositivo": "Art. 166-A, § 2º, inciso III"
-  },
-  {
-   "id": "sd-9283ce4dc3df",
-   "natureza": "sem_dever_identificado",
-   "rotulo": "Sem dever identificado",
-   "sujeito": "",
-   "unidade": "u0094",
-   "trecho": "IV - não aplicação do modelo simplificado para comercialização varejista, exclusivamente nos casos vedados no Submódulo 1.8 dos Procedimentos de Comercialização e se o consumidor tiver feito essa opção; e",
-   "motivo": "sem dever identificado",
-   "dispositivo": "Art. 166-A, § 2º, inciso IV"
-  },
-  {
-   "id": "sd-d6d832e3186c",
-   "natureza": "sem_dever_identificado",
-   "rotulo": "Sem dever identificado",
-   "sujeito": "",
-   "unidade": "u0095",
-   "trecho": "V - erro nas informações cadastradas pelo agente varejista na habilitação na CCEE no caso de modelo simplificado para comercialização varejista.",
-   "motivo": "sem dever identificado",
-   "dispositivo": "Art. 166-A, § 2º, inciso V"
-  },
-  {
-   "id": "sd-544af9265c44",
-   "natureza": "sem_dever_identificado",
-   "rotulo": "Sem dever identificado",
-   "sujeito": "",
-   "unidade": "u0100",
-   "trecho": "§ 5º O consumidor pode solicitar de forma opcional a verificação de viabilidade técnica para migração ao ACL, previamente à formalização da opção de migração, observado o prazo disposto no caput e sujeito à cobrança pelo serviço no valor correspondente à visita técnica, conforme homologado pela ANEEL.\"",
-   "motivo": "sem dever identificado",
-   "dispositivo": "Art. 166-A, § 5º"
   },
   {
    "id": "sd-9c2243e9ac18",
@@ -8829,16 +8864,6 @@
    "trecho": "\"Art. 333.............................................................. .........................................................................",
    "motivo": "sem dever identificado",
    "dispositivo": "Art. 333"
-  },
-  {
-   "id": "sd-5b2fb6f8eb8c",
-   "natureza": "sem_dever_identificado",
-   "rotulo": "Sem dever identificado",
-   "sujeito": "",
-   "unidade": "u0156",
-   "trecho": "§ 4º O consumidor pode optar, a qualquer tempo, por voltar a receber em separado as faturas da distribuidora e do comercializador de energia, vedada nova opção antes de decorridos 6 ciclos consecutivos de faturamento da última alteração, exceto no caso de aceite da distribuidora e do agente comercializador.",
-   "motivo": "sem dever identificado",
-   "dispositivo": "§ 4º"
   },
   {
    "id": "sd-688c606699a7",
@@ -9794,17 +9819,6 @@
    },
    "conferido_na_fonte": true
   },
-  "Art. 10, III": {
-   "grupo": "II",
-   "trecho": "III - descumprir as determinações da legislação relacionadas ao prévio aviso para a suspensão ou a interrupção programada do fornecimento;",
-   "origem_da_redacao": "redação original",
-   "fonte": {
-    "titulo": "REN 846/2019 (texto compilado oficial até a RN 1.137/2025)",
-    "arquivo": "tests/fontes_impacto/atren2019846.pdf",
-    "sha256": "efe4e35fb41aa1306846677ffc32a0c2a150ee6ac44aafe5f15e475e6ad05ad9"
-   },
-   "conferido_na_fonte": true
-  },
   "Art. 12, III": {
    "grupo": "IV",
    "trecho": "III - deixar de atender pedido de serviços nos prazos e nas condições estabelecidas na legislação ou no contrato;",
@@ -9961,6 +9975,8 @@
    "59c5496d841c8794"
   ],
   "sem_prazo": [
+   "10e369b8c79f3c68",
+   "0ebf1f2b460f7298",
    "62b27f9320f5f56e",
    "2ddcf318e58a47bf",
    "6a16e3400ab43199",
@@ -9994,7 +10010,6 @@
    "256d3b52eb869bf7",
    "feb344531c216efe",
    "e7bbeed0a84f40bd",
-   "d680801349c97d8f",
    "0d4598afde5c12e3",
    "a93cae63c466b658",
    "16f2c52f324abe9d",
