@@ -230,7 +230,7 @@ test('REN 1.174: a primeira reunião do grupo de trabalho (art. 12, § 11) não 
 })
 
 test('títulos com contexto: nada de título que comece por "Ser ", "Até " ou "Em até " no top 5', () => {
-  for (const n of NORMAS) for (const l of top5(n.id, SIM_INICIAL, 'preliminar', 5, DIA)) assert.doesNotMatch(l.frase, /^(?:Ser|Até|Em até)/, l.frase)
+  for (const n of NORMAS) for (const l of top5(n.id, SIM_INICIAL, 'preliminar', 5, DIA)) assert.doesNotMatch(l.frase, /^(?:Ser|Até|Em até)(?:\s|$)/, l.frase)
   const o = planos.ren1174.obrigacoes.find((x) => x.dispositivo === 'Art. 14, § 1º, inciso II')!
   assert.match(o.titulo_completo, /^A aplicação do benefício tarifário deve ser realizada/)
 })
@@ -297,7 +297,8 @@ test('terceiro número: sem vencidas e sem prazo com data, "nenhum prazo a vence
   assert.equal(pz.vencidas, 0)
   // sem vencidas: o próximo marco da transição (art. 18, II) e a contagem por situação
   assert.deepEqual(pz.proximoMarco, { data: '2027-02-02', tipo: 'vigência' })
-  assert.equal(textoContagem(pz.contagem!), '47 em vigor desde 04/11/2026 · 1 condicional · 2 recorrentes')
+  // 53: +6 com artigo inferido pela posição (a confirmar)
+  assert.equal(textoContagem(pz.contagem!), '53 em vigor desde 04/11/2026 · 1 condicional · 2 recorrentes')
   // 25 = 7 de antes + 18 deveres cujo prazo de adequação (RN 1.137, art. 13, I a V) já passou (athenix/vigencia.py)
   assert.deepEqual([prazos(planos.rn1137, DIA).vencidas, prazos(planos.rn1137, DIA).detalhes], [14, 11])
 })

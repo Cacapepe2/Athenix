@@ -1,6 +1,6 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "faacebd",
+ "commit_origem": "61b5be3",
  "gerado_em": "2026-11-22",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
@@ -4065,7 +4065,7 @@
    },
    "esclarecimento": {
     "leitura": "180 dias contados da publicação (vence 28/04/2026)",
-    "nota": "texto original: '180 (cento e oitenta) dias mês'; esclarecido por FAQ da ANEEL (https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025)",
+    "nota": "180 dias contados da publicação (vence 28/04/2026); texto original: '180 (cento e oitenta) dias mês'; esclarecido por FAQ da ANEEL (https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025): «O prazo é de até 180 dias contados da data de publicação da norma. No caso da publicação em 30/10/2025, o prazo final para início das apurações é 28/04/2026.»",
     "tipo": "FAQ",
     "fonte": {
      "arquivo": "tests/fontes_impacto/esclarecimentos/faq_ren20251137.html",
@@ -5998,7 +5998,7 @@
    "marco": null,
    "prazo": {
     "data": null,
-    "texto": "Prazo conta de um evento ainda sem data",
+    "texto": "Prazo conta de um evento ainda sem data · esclarecido (FAQ da ANEEL)",
     "dias": null,
     "provisorio": false,
     "condicional": false,
@@ -6068,7 +6068,20 @@
    "area_origem": "regra",
    "dispositivo": "Art. 14",
    "erro_material": null,
-   "esclarecimento": null
+   "esclarecimento": {
+    "leitura": "prazo condicionado às instruções da ANEEL; segundo o FAQ (1.8), ainda não havia prazo estabelecido para a publicação na data da consulta, 22/11/2026",
+    "nota": "prazo condicionado às instruções da ANEEL; segundo o FAQ (1.8), ainda não havia prazo estabelecido para a publicação na data da consulta, 22/11/2026; texto original: 'em até 30 (trinta) dias, contados da publicação das instruções pela ANEEL'; esclarecido por FAQ da ANEEL (https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025): «Qual o prazo previsto para a ANEEL publicar as instruções complementares sobre comunicação de eventos climáticos severos? Ainda não há prazo estabelecido para a publicação das instruções pela ANEEL.»",
+    "tipo": "FAQ",
+    "fonte": {
+     "arquivo": "tests/fontes_impacto/esclarecimentos/faq_ren20251137.html",
+     "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+     "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+     "consultado_em": "2026-11-22",
+     "trecho": "Qual o prazo previsto para a ANEEL publicar as instruções complementares sobre comunicação de eventos climáticos severos? Ainda não há prazo estabelecido para a publicação das instruções pela ANEEL."
+    },
+    "confirmado_por": "fundador (Caio), por mensagem no PR #47",
+    "confirmado_em": "2026-11-22"
+   }
   },
   {
    "id": "49c69256fe352127",
@@ -18203,7 +18216,7 @@
    "leitura_provavel": "180 dias",
    "rotulo": "esclarecido",
    "sugestao": "verificar retificação ou esclarecimento da ANEEL",
-   "esclarecimento": "texto original: '180 (cento e oitenta) dias mês'; esclarecido por FAQ da ANEEL (https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025)"
+   "esclarecimento": "180 dias contados da publicação (vence 28/04/2026); texto original: '180 (cento e oitenta) dias mês'; esclarecido por FAQ da ANEEL (https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025): «O prazo é de até 180 dias contados da data de publicação da norma. No caso da publicação em 30/10/2025, o prazo final para início das apurações é 28/04/2026.»"
   }
  ],
  "a_confirmar": {

@@ -1,6 +1,6 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "faacebd",
+ "commit_origem": "61b5be3",
  "gerado_em": "2026-11-22",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
@@ -215,10 +215,9 @@
    }
   ],
   "deveres_por_marco": {
-   "a_confirmar": 6,
    "adequacao:2027-05-03": 22,
    "adequacao:2027-11-04": 2,
-   "em_vigor:2026-11-04": 47,
+   "em_vigor:2026-11-04": 53,
    "vigencia:2027-02-02": 1,
    "vigencia:2027-05-03": 7
   }
@@ -5491,16 +5490,16 @@
    "trecho": "§ 2º A adoção de uma das opções do caput deve ser comprovadamente e previamente autorizada, mediante manifestação voluntária do consumidor.",
    "situacao": "sem_prazo",
    "marco": {
-    "tipo": "a_confirmar",
-    "data": null,
-    "dispositivo": null,
-    "trecho": null,
-    "nota": null,
+    "tipo": "em_vigor",
+    "data": "2026-11-04",
+    "dispositivo": "Art. 18, III",
+    "trecho": "III - na data de sua publicação, quanto aos demais dispositivos. SANDOVAL DE ARAÚJO FEITOSA NETO",
+    "nota": "artigo da REN 1.000 inferido pela posição no texto (342-A); a confirmar",
     "candidatos": null
    },
    "prazo": {
     "data": null,
-    "texto": "Sem prazo identificado no texto · transição a confirmar",
+    "texto": "Em vigor desde 04/11/2026 (sem período de adequação) · artigo inferido pela posição; a confirmar",
     "dias": null,
     "provisorio": false,
     "condicional": false,
@@ -5586,16 +5585,16 @@
    "trecho": "§ 3º As opções previstas no caput devem ser disponibilizadas gratuitamente ao consumidor, não podendo representar custo adicional no faturamento.",
    "situacao": "sem_prazo",
    "marco": {
-    "tipo": "a_confirmar",
-    "data": null,
-    "dispositivo": null,
-    "trecho": null,
-    "nota": null,
+    "tipo": "em_vigor",
+    "data": "2026-11-04",
+    "dispositivo": "Art. 18, III",
+    "trecho": "III - na data de sua publicação, quanto aos demais dispositivos. SANDOVAL DE ARAÚJO FEITOSA NETO",
+    "nota": "artigo da REN 1.000 inferido pela posição no texto (342-A); a confirmar",
     "candidatos": null
    },
    "prazo": {
     "data": null,
-    "texto": "Sem prazo identificado no texto · transição a confirmar",
+    "texto": "Em vigor desde 04/11/2026 (sem período de adequação) · artigo inferido pela posição; a confirmar",
     "dias": null,
     "provisorio": false,
     "condicional": false,
@@ -5676,16 +5675,16 @@
    "trecho": "§ 5º É vedada a cobrança entre a distribuidora e o comercializador de energia para operacionalização do oferecimento das opções de que trata o § 1º .",
    "situacao": "sem_prazo",
    "marco": {
-    "tipo": "a_confirmar",
-    "data": null,
-    "dispositivo": null,
-    "trecho": null,
-    "nota": null,
+    "tipo": "em_vigor",
+    "data": "2026-11-04",
+    "dispositivo": "Art. 18, III",
+    "trecho": "III - na data de sua publicação, quanto aos demais dispositivos. SANDOVAL DE ARAÚJO FEITOSA NETO",
+    "nota": "artigo da REN 1.000 inferido pela posição no texto (342-A); a confirmar",
     "candidatos": null
    },
    "prazo": {
     "data": null,
-    "texto": "Sem prazo identificado no texto · transição a confirmar",
+    "texto": "Em vigor desde 04/11/2026 (sem período de adequação) · artigo inferido pela posição; a confirmar",
     "dias": null,
     "provisorio": false,
     "condicional": false,
@@ -5766,16 +5765,16 @@
    "trecho": "§ 6º O oferecimento das opções de que trata o caput é opcional e, se realizado, deve ser feito com isonomia da distribuidora para todos os comercializadores e do comercializador para todas as distribuidoras.\"",
    "situacao": "sem_prazo",
    "marco": {
-    "tipo": "a_confirmar",
-    "data": null,
-    "dispositivo": null,
-    "trecho": null,
-    "nota": null,
+    "tipo": "em_vigor",
+    "data": "2026-11-04",
+    "dispositivo": "Art. 18, III",
+    "trecho": "III - na data de sua publicação, quanto aos demais dispositivos. SANDOVAL DE ARAÚJO FEITOSA NETO",
+    "nota": "artigo da REN 1.000 inferido pela posição no texto (342-A); a confirmar",
     "candidatos": null
    },
    "prazo": {
     "data": null,
-    "texto": "Sem prazo identificado no texto · transição a confirmar",
+    "texto": "Em vigor desde 04/11/2026 (sem período de adequação) · artigo inferido pela posição; a confirmar",
     "dias": null,
     "provisorio": false,
     "condicional": false,
@@ -6221,16 +6220,16 @@
    "trecho": "e) entregar ao interessado os aditivos contratuais e demais documentos que devem ser celebrados e, caso necessário, os que devem ser rescindidos.",
    "situacao": "sem_prazo",
    "marco": {
-    "tipo": "a_confirmar",
-    "data": null,
-    "dispositivo": null,
-    "trecho": null,
-    "nota": null,
+    "tipo": "em_vigor",
+    "data": "2026-11-04",
+    "dispositivo": "Art. 18, III",
+    "trecho": "III - na data de sua publicação, quanto aos demais dispositivos. SANDOVAL DE ARAÚJO FEITOSA NETO",
+    "nota": "artigo da REN 1.000 inferido pela posição no texto (655-Y); a confirmar",
     "candidatos": null
    },
    "prazo": {
     "data": null,
-    "texto": "Sem prazo identificado no texto · transição a confirmar",
+    "texto": "Em vigor desde 04/11/2026 (sem período de adequação) · artigo inferido pela posição; a confirmar",
     "dias": null,
     "provisorio": false,
     "condicional": false,
@@ -6313,16 +6312,16 @@
    "trecho": "Parágrafo único. No caso de unidade consumidora de cooperativa de eletrificação rural regularizada como autorizada para exploração das instalações de energia elétrica destinadas ao uso privativo de seus associados e que possua microgeração ou minigeração distribuída, a distribuidora deve realizar o enquadramento simultâneo como unidade consumidora para fins de consumo e como central geradora com capacidade instalada reduzida para fins de injeção, observadas as disposições aplicáveis previstas neste artigo e nesta Resolução.\" (NR)",
    "situacao": "sem_prazo",
    "marco": {
-    "tipo": "a_confirmar",
-    "data": null,
-    "dispositivo": null,
-    "trecho": null,
-    "nota": null,
+    "tipo": "em_vigor",
+    "data": "2026-11-04",
+    "dispositivo": "Art. 18, III",
+    "trecho": "III - na data de sua publicação, quanto aos demais dispositivos. SANDOVAL DE ARAÚJO FEITOSA NETO",
+    "nota": "artigo da REN 1.000 inferido pela posição no texto (655-Y); a confirmar",
     "candidatos": null
    },
    "prazo": {
     "data": null,
-    "texto": "Sem prazo identificado no texto · transição a confirmar",
+    "texto": "Em vigor desde 04/11/2026 (sem período de adequação) · artigo inferido pela posição; a confirmar",
     "dias": null,
     "provisorio": false,
     "condicional": false,
@@ -11766,9 +11765,9 @@
  "a_confirmar": {
   "total": 128,
   "por_tipo": {
+   "artigo inferido pela posição": 6,
    "enquadramento sem texto": 85,
-   "sujeito incerto": 37,
-   "transição ambígua": 6
+   "sujeito incerto": 37
   },
   "com_possivel_esclarecimento": 0,
   "aviso": "Possível esclarecimento encontrado nos documentos oficiais salvos: continua a confirmar; só uma entrada confirmada em athenix/data/esclarecimentos_oficiais.json muda o cálculo.",

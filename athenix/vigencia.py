@@ -366,6 +366,33 @@ def ligar(extraction, regras):
             and not any(k == "article" for k, _, _ in cadeia)
             and any(r["alvos"] and _rotulo_unidade(bloco) in r["proprios"] for r in regras)
         ):
+            # Inferência pela posição: o artigo alterado que vem logo antes no bloco. Se nenhuma regra de
+            # transição cita esse artigo, vale a cláusula "demais", com a inferência declarada.
+            antes = [
+                x
+                for x in units
+                if x["kind"] == "article"
+                and x["owner"] != "self"
+                and bloco["start"] < x["start"] < u["start"]
+            ]
+            inferido = antes[-1] if antes else None
+            citado = inferido and any(
+                a.get("art") == _rotulo_unidade(inferido)
+                and _norma_digitos(inferido["owner"]) == a.get("norma")
+                for r in regras
+                for a in r["alvos"]
+            )
+            demais = [r for r in regras if r["demais"]]
+            if inferido and not citado and demais:
+                marco = _marco({demais[0]["tipo"]: [(0.5, demais[0])]}, pub)
+                norma = re.sub(
+                    r"Resolu[çc][ãa]o\s+Normativa\s+n[ºo°]?\s*", "REN ", inferido["owner"]
+                )
+                marco["inferencia"] = (
+                    f"artigo da {norma} inferido pela posição no texto ({inferido['label']}); a confirmar"
+                )
+                marcos[u["id"]] = marco
+                continue
             marcos[u["id"]] = {
                 "tipo": "a_confirmar",
                 "data": None,

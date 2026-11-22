@@ -149,7 +149,10 @@ def aplicar_confirmados(obrigacoes, norma, entradas=None):
                     f"{e['dispositivo']}: leitura confirmada ({prazo['data']}) difere do prazo calculado "
                     f"({o['prazo']['data']}); revisar a entrada ou o motor antes de publicar."
                 )
-            nota = f"texto original: '{e['texto_original']}'; esclarecido por {e['tipo']} da ANEEL ({e['fonte']['url']})"
+            nota = (
+                f"{e['leitura']}; texto original: '{e['texto_original']}'; esclarecido por {e['tipo']} da ANEEL "
+                f"({e['fonte']['url']}): «{e['fonte']['trecho']}»"
+            )
             o["esclarecimento"] = {"leitura": e["leitura"], "nota": nota, "tipo": e["tipo"], "fonte": e["fonte"],
                                    "confirmado_por": e["confirmado_por"], "confirmado_em": e["confirmado_em"]}  # fmt: skip
             if o.get("erro_material"):
@@ -202,6 +205,8 @@ def relatorio_a_confirmar(out, norma, trechos):
         base = {"dispositivo": o["dispositivo"], "trecho": o["trecho"], "norma": norma}
         if (o.get("marco") or {}).get("tipo") == "a_confirmar":
             casos.append(base | {"tipo": "transição ambígua"})
+        if "inferido pela posição" in ((o.get("marco") or {}).get("nota") or ""):
+            casos.append(base | {"tipo": "artigo inferido pela posição"})
         if o.get("erro_material") and not o.get("esclarecimento"):
             prazo = o["erro_material"]["leitura_provavel"].split(" (")[0].rstrip("?")
             casos.append(base | {"tipo": "possível erro material", "prazo": prazo})

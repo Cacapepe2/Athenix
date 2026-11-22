@@ -66,6 +66,6 @@ test('blocos do plano e prazos usam a data recebida; a passagem do vencimento mu
 test('relatório lista "Possíveis erros materiais da norma" com a leitura provável e o esclarecimento confirmado', () => {
   const r = montarRelatorio({ sim, modo: 'preliminar', diag: {}, respostas: RESPOSTAS_VAZIAS, hoje: '2026-11-22' })
   assert.equal(r.errosMateriais.length, 1)
-  assert.match(r.errosMateriais[0], /^Art\. 13, inciso VI: “180 \(cento e oitenta\) dias mês” \(unidade combinada \(dias mês\)\); leitura mais provável 180 dias, esclarecido\. texto original/)
+  assert.match(r.errosMateriais[0], /^Art\. 13, inciso VI: “180 \(cento e oitenta\) dias mês” \(unidade combinada \(dias mês\)\); leitura mais provável 180 dias, esclarecido\. 180 dias contados da publicação \(vence 28\/04\/2026\); texto original/)
   assert.equal(planos.ren1174.erros_materiais?.length ?? 0, 0) // REN 1.174 sem redação de prazo defeituosa
 })

@@ -121,10 +121,28 @@ def test_ren_1174_outras_normas_e_demais_dispositivos(ren1174):
     assert all(r["nota"] for r in regras if r["rotulo"].startswith("Art. 16, I"))
 
 
-def test_ren_1174_unidade_sem_artigo_no_bloco_de_alteracao_fica_a_confirmar(ren1174):
+def test_ren_1174_unidade_sem_artigo_no_bloco_tem_artigo_inferido_pela_posicao(ren1174):
+    """Sem artigo identificado no bloco do art. 2º: o artigo alterado logo antes (342-A, 655-Y) não é citado
+    em nenhuma regra, então vale "demais" (Art. 18, III), com a inferência declarada e a confirmar."""
     e, marcos, _ = ren1174
-    a_confirmar = [m for m in marcos.values() if m["tipo"] == "a_confirmar"]
-    assert a_confirmar and all(m["data"] is None and "Art. 2º" in m["motivo"] for m in a_confirmar)
+    inferidos = [
+        m for m in marcos.values() if m.get("inferencia")
+    ]  # 25 unidades; 6 delas são deveres
+    p = json.loads((ROOT / "landing/src/content/plano-ren1174.json").read_text(encoding="utf-8"))
+    assert (
+        sum(
+            "inferido pela posição" in ((o["marco"] or {}).get("nota") or "")
+            for o in p["obrigacoes"]
+        )
+        == 6
+    )
+    assert {(m["tipo"], m["data"]) for m in inferidos} == {("em_vigor", "2026-11-04")}
+    notas = {(o["marco"] or {}).get("nota") for o in p["obrigacoes"]}
+    assert {m["inferencia"] for m in inferidos} & notas == {
+        "artigo da REN 1.000 inferido pela posição no texto (342-A); a confirmar",
+        "artigo da REN 1.000 inferido pela posição no texto (655-Y); a confirmar",
+    }
+    assert not [m for m in marcos.values() if m["tipo"] == "a_confirmar"]
 
 
 def test_ren_1174_no_plano_publicado():
@@ -138,7 +156,7 @@ def test_ren_1174_no_plano_publicado():
     assert par_1["marco"]["nota"] == "Até a adequação, valem as regras anteriores"
     em_vigor = [o for o in p["obrigacoes"] if (o["marco"] or {}).get("tipo") == "em_vigor"]
     assert em_vigor and all(
-        o["prazo"]["texto"] == "Em vigor desde 04/11/2026 (sem período de adequação)"
+        o["prazo"]["texto"].startswith("Em vigor desde 04/11/2026 (sem período de adequação)")
         for o in em_vigor
         if o["situacao"] == "sem_prazo"
     )

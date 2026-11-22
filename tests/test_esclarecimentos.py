@@ -121,7 +121,7 @@ def test_possivel_esclarecimento_nunca_muda_o_calculo_sem_entrada_confirmada(tre
 
 def test_entrada_confirmada_com_data_diferente_do_motor_trava(trechos):
     plano = {"obrigacoes": copy.deepcopy(PLANO["obrigacoes"]), "transicao": PLANO["transicao"]}
-    (e,) = esclarecimentos.confirmados()
+    (e,) = [x for x in esclarecimentos.confirmados() if x["dispositivo"] == "Art. 13, inciso VI"]
     errada = e | {"prazo": e["prazo"] | {"data": "2026-05-01"}}
     with pytest.raises(ValueError, match="difere do prazo calculado"):
         esclarecimentos.anotar_plano(plano, "ren20251137", trechos, entradas=[errada])
@@ -133,3 +133,15 @@ def test_relatorio_a_confirmar_por_norma():
         a["casos"]
     )
     assert all(c["possiveis_esclarecimentos"][0]["fonte"]["sha256"] for c in a["casos"])
+
+
+def test_art_14_confirmado_pelo_faq_1_8_sem_mudar_a_data():
+    (o,) = [x for x in PLANO["obrigacoes"] if x["dispositivo"] == "Art. 14"]
+    assert o["prazo"]["data"] is None and o["situacao"] == "evento"  # continua por evento, sem data
+    assert o["esclarecimento"]["nota"].startswith(
+        "prazo condicionado às instruções da ANEEL; segundo o FAQ (1.8)"
+    )
+    assert (
+        "Ainda não há prazo estabelecido para a publicação das instruções pela ANEEL."
+        in o["esclarecimento"]["nota"]
+    )

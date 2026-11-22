@@ -17,6 +17,22 @@
    },
    "confirmado_em": "2026-11-22",
    "confirmado_por": "fundador (Caio), por mensagem no PR #47"
+  },
+  {
+   "norma": "ren20251137",
+   "dispositivo": "Art. 14",
+   "texto_original": "em até 30 (trinta) dias, contados da publicação das instruções pela ANEEL",
+   "leitura": "prazo condicionado às instruções da ANEEL; segundo o FAQ (1.8), ainda não havia prazo estabelecido para a publicação na data da consulta, 22/11/2026",
+   "tipo": "FAQ",
+   "fonte": {
+    "arquivo": "tests/fontes_impacto/esclarecimentos/faq_ren20251137.html",
+    "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+    "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+    "consultado_em": "2026-11-22",
+    "trecho": "Qual o prazo previsto para a ANEEL publicar as instruções complementares sobre comunicação de eventos climáticos severos? Ainda não há prazo estabelecido para a publicação das instruções pela ANEEL."
+   },
+   "confirmado_em": "2026-11-22",
+   "confirmado_por": "fundador (Caio), por mensagem no PR #47"
   }
  ]
 }

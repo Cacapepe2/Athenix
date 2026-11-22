@@ -434,7 +434,11 @@ def _marco_do_dever(row):
         "data": m.get("data"),
         "dispositivo": fonte.get("dispositivo"),
         "trecho": fonte.get("trecho"),
-        "nota": "Até a adequação, valem as regras anteriores" if m.get("nota") else None,
+        "nota": "Até a adequação, valem as regras anteriores"
+        if m.get("nota")
+        else m.get(
+            "inferencia"
+        ),  # ex.: "artigo da REN 1.000 inferido pela posição no texto (342-A); a confirmar"
         "candidatos": [c["dispositivo"] for c in m.get("candidatos", [])] or None,
     }
 
@@ -461,7 +465,12 @@ def _texto_do_marco(urg, row):
         urg["texto"] == "sem prazo identificado no texto"
     )  # não cobre condicional nem recorrente
     if sem_prazo and m.get("tipo") == "em_vigor":
-        return f"Em vigor desde {date.fromisoformat(m['data']):%d/%m/%Y} (sem período de adequação)"
+        texto = (
+            f"Em vigor desde {date.fromisoformat(m['data']):%d/%m/%Y} (sem período de adequação)"
+        )
+        return texto + (
+            " · artigo inferido pela posição; a confirmar" if m.get("inferencia") else ""
+        )
     if sem_prazo and m.get("tipo") == "a_confirmar":
         return f"{urg['principal']} · transição a confirmar"
     if urg["data"] and urg["data"] == m.get("data") and (urg["dias"] or 0) >= 0:
