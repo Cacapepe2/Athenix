@@ -65,6 +65,10 @@ def test_escopo_por_bloco_sem_alterar_plano_ou_classificar_outros_modulos(dados)
 
 def test_v3_divergente_nao_substitui_citacao_da_rn_e_relatorio_reproduz(dados):
     p, _, r = dados
+    o = next(o for o in p["obrigacoes"] if o["dispositivo"] == "item 110")
+    assert "item 105" in o["trecho"]
+    assert "item 103" in r["itens"]["110"]["atual"]["trecho"]
+    assert r["registros"][o["id"]]["confere_v3"] is False
     o = next(o for o in p["obrigacoes"] if o["dispositivo"] == "item 115")
     assert r["registros"][o["id"]]["confere_v3"] is False
     assert "aos Poderes Públicos" in o["trecho"]

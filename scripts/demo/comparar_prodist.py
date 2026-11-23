@@ -47,6 +47,9 @@ def relatorio(plano, comparacao):
         f"registros de dever do Módulo 4 conferem literalmente, ignorando espaços e marcas NR/AC; "
         f"{r['divergencias_v3']} divergem. O rodapé da v3 atribui o anexo à REN 1.137, mas isso não elimina "
         "as diferenças abaixo. Não foi escolhida uma redação substituta: o plano continua citando o PDF da RN 1.137.",
+        "Há diferenças de remissão, além de pontuação ou concordância: nos itens 110 e 112, "
+        "a RN remete ao item 105 e a v3 ao item 103. A divergência foi conferida visualmente na "
+        "página física 7 do PDF da RN e na página 23 da v3. Não se presume equivalência entre essas leituras.",
     ]
     divergentes = {}
     for o in plano["obrigacoes"]:
@@ -68,8 +71,13 @@ def relatorio(plano, comparacao):
             continue
         partes += [
             f"### Item {n}",
-            f"**v2, página {item['anterior']['pagina']}:** “{item['anterior']['trecho']}”",
-            f"**v3, página {item['atual']['pagina']}:** “{item['atual']['trecho']}”",
+            f"| v2 — página {item['anterior']['pagina']} | v3 — página {item['atual']['pagina']} |\n"
+            "| --- | --- |\n"
+            + "| “"
+            + item["anterior"]["trecho"].replace("|", r"\|")
+            + "” | “"
+            + item["atual"]["trecho"].replace("|", r"\|")
+            + "” |",
         ]
     partes += [
         "## Inventário do módulo completo",
