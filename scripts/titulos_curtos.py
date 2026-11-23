@@ -30,7 +30,7 @@ import sugerir_enquadramento as se  # noqa: E402
 from athenix import llm, tipos  # noqa: E402
 from athenix.config import Settings, carregar_env  # noqa: E402
 from athenix.db import digest  # noqa: E402
-from athenix.normalizacao import espacos  # noqa: E402
+from athenix.normalizacao import espacos, numeros  # noqa: E402
 
 VERSAO = "titulos-curtos-1"
 ARQUIVOS = {
@@ -112,8 +112,8 @@ def validar(titulo, o):
     )
     if any(not ra.termo_no_texto(m.group(0), base) for m in ra.PRODUTOS.finditer(t)):
         return None
-    if any(n not in re.findall(r"\d+", base) for n in re.findall(r"\d+", t)):
-        return None  # número que o dispositivo não traz
+    if not numeros(t) <= numeros(base):
+        return None  # número que o dispositivo não traz (12 e "doze" contam como o mesmo)
     return t[0].upper() + t[1:]
 
 
@@ -224,6 +224,28 @@ def executar(settings, lotes, confirmo, est):
     print(f"{len(lotes)} lotes, custo US$ {gasto:.4f}, {falhas} falhas.")
 
 
+def revalidar():
+    """Reaplica `validar` aos títulos já reprovados, sem IA: o que passar vai para `titulos_curtos`.
+    Os demais campos do cache (modelo, custo, data) ficam como estavam."""
+    for norma, caminho in ra.NORMAS.items():
+        por_id = {o["id"]: o for o in json.loads(caminho.read_text(encoding="utf-8"))["obrigacoes"]}
+        bruto = json.loads(ARQUIVOS[norma].read_text(encoding="utf-8"))
+        aceitos = {
+            i: ok
+            for i, t in bruto["rejeitados"].items()
+            if i in por_id and (ok := validar(t, por_id[i]))
+        }
+        for i, ok in aceitos.items():
+            bruto["titulos_curtos"][i] = ok
+            del bruto["rejeitados"][i]
+        ARQUIVOS[norma].write_text(
+            json.dumps(bruto, ensure_ascii=False, indent=1) + "\n", encoding="utf-8", newline="\n"
+        )
+        print(
+            f"{norma}: {len(aceitos)} aceitos na revalidação, {len(bruto['rejeitados'])} seguem reprovados"
+        )
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--executar", action="store_true")
@@ -231,7 +253,13 @@ def main():
     ap.add_argument(
         "--completar", action="store_true", help="só as obrigações ainda sem título curto válido"
     )
+    ap.add_argument(
+        "--revalidar", action="store_true", help="reaplica a validação aos reprovados, sem IA"
+    )
     a = ap.parse_args()
+    if a.revalidar:
+        revalidar()
+        return
     carregar_env()
     settings = Settings()
     itens = []

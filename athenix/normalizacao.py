@@ -7,6 +7,7 @@ tratados do mesmo jeito em todo lugar. `normalizar` devolve o texto normalizado 
 achado no normalizado volta ao intervalo exato do original.
 """
 
+import re
 import unicodedata
 
 # Aspas e travessões tipográficos viram ASCII: motores de PDF divergem neles.
@@ -95,3 +96,46 @@ def espacos(texto):
 def intervalo_original(mapa, inicio, fim):
     """Intervalo [início, fim) no texto original de um trecho [inicio, fim) do texto normalizado."""
     return mapa[inicio], mapa[fim - 1] + 1
+
+
+_UNIDADES = {
+    "dois": 2, "duas": 2, "tres": 3, "quatro": 4, "cinco": 5, "seis": 6, "sete": 7, "oito": 8, "nove": 9,
+    "dez": 10, "onze": 11, "doze": 12, "treze": 13, "quatorze": 14, "catorze": 14, "quinze": 15,
+    "dezesseis": 16, "dezessete": 17, "dezoito": 18, "dezenove": 19, "vinte": 20, "trinta": 30,
+    "quarenta": 40, "cinquenta": 50, "sessenta": 60, "setenta": 70, "oitenta": 80, "noventa": 90,
+    "cem": 100, "cento": 100, "duzentos": 200, "duzentas": 200, "trezentos": 300, "trezentas": 300,
+    "quatrocentos": 400, "quatrocentas": 400, "quinhentos": 500, "quinhentas": 500,
+    "seiscentos": 600, "seiscentas": 600, "setecentos": 700, "setecentas": 700,
+    "oitocentos": 800, "oitocentas": 800, "novecentos": 900, "novecentas": 900,
+}  # fmt: skip
+
+
+def numeros(texto):
+    """Valores numéricos do texto, em algarismos ("12", "1.000") ou por extenso ("doze", "cento e oitenta",
+    "dois mil"): 12 e doze são o mesmo número. "um"/"uma" sozinhos são artigo; só contam dentro de um número
+    composto ("vinte e um"). Inclui também cada parcela de um composto (180, 100 e 80)."""
+    valores = {int(m.replace(".", "")) for m in re.findall(r"\d+(?:\.\d{3})+|\d+", texto or "")}
+    valores |= {int(m) for m in re.findall(r"\d+", texto or "")}
+    sem_acento = "".join(
+        c
+        for c in unicodedata.normalize("NFD", (texto or "").lower())
+        if not unicodedata.combining(c)
+    )
+    total, atual, aberto = 0, 0, False
+    for p in re.findall(r"[a-z]+", sem_acento) + [""]:
+        if p in _UNIDADES or (p in {"um", "uma"} and aberto):
+            v = _UNIDADES.get(p, 1)
+            atual += v
+            valores.add(v)
+            aberto = False
+        elif p == "mil":
+            total += (atual or 1) * 1000
+            atual, aberto = 0, False
+        elif p == "e" and (atual or total):
+            aberto = True
+            continue
+        else:
+            if atual or total:
+                valores.add(total + atual)
+            total, atual, aberto = 0, 0, False
+    return valores

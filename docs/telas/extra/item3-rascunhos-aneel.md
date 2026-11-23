@@ -64,7 +64,7 @@ Nenhuma pergunta foi enviada, e a interface não oferece envio automático.
 - [Relatório RN 1.137](item3-relatorio-rn1137-1280.png)
 - [Relatório REN 1.174](item3-relatorio-ren1174-1280.png)
 
-Caio precisa revisar as perguntas e formular/validar leituras alternativas quando os dados forem
+A equipe precisa revisar as perguntas e formular/validar leituras alternativas quando os dados forem
 insuficientes. O relatório preserva todas as citações e pode ficar extenso. O bundle compartilhado
 cresce cerca de 27 kB gzip (154 kB contra 127 kB); o aviso de chunk grande permanece e não foi medida
 performance em dispositivo real. Sem IA paga, sem acesso a `.env` ou `.local/`, sem merge.
