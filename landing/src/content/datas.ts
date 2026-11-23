@@ -2,8 +2,15 @@
 // do número congelado no JSON (que vale para a data de referência da geração). Lógica pura, testada em datas.test.ts.
 import type { Obrigacao } from './plano.ts'
 
-/** AAAA-MM-DD no fuso do navegador (toISOString usaria UTC e trocaria o dia à noite). */
-export const hojeISO = (d: Date = new Date()): string => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+/** Fuso dos prazos da ANEEL: o dia vira em Brasília, não no servidor (UTC) nem no navegador de quem visita. */
+export const FUSO = 'America/Sao_Paulo'
+const DIA_NO_FUSO = new Intl.DateTimeFormat('en-CA', { timeZone: FUSO, year: 'numeric', month: '2-digit', day: '2-digit' })
+
+/** AAAA-MM-DD no fuso America/Sao_Paulo (23h30 em São Paulo = 02h30 UTC do dia seguinte ainda é o mesmo dia). */
+export function hojeISO(d: Date = new Date()): string {
+  const p = Object.fromEntries(DIA_NO_FUSO.formatToParts(d).map((x) => [x.type, x.value]))
+  return `${p.year}-${p.month}-${p.day}`
+}
 
 const dias_ = (iso: string) => {
   const [a, m, d] = iso.split('-').map(Number)

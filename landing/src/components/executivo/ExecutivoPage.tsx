@@ -3,8 +3,9 @@ import { useEffect, useRef, useState } from 'react'
 import { NORMA_PADRAO, NORMAS, norma as dadosDa, prazos, queda, textoContagem, top5, urlPlanoCompleto, urlRelatorio, valorGeral, type LinhaTop5 } from '../../content/executivo'
 import { RespostasProvider, useRespostas } from '../plano/Respostas'
 import { prontidao } from '../../content/prontidao'
+import { useHoje } from '../../hooks/useHoje'
 import { resumoComparacao } from '../../content/comparacao'
-import { brlCurto, dataBR, HOJE, normaDaUrl, textoVencidasComDetalhe, type NormaId, type Simulacao } from '../../content/plano'
+import { brlCurto, dataBR, normaDaUrl, textoVencidasComDetalhe, type NormaId, type Simulacao } from '../../content/plano'
 
 // Visão executiva (/demo/executivo): três números e até cinco blocos clicáveis. Muito pouco texto; o resto
 // fica no plano completo. Todos os números vêm de content/executivo.ts (planos gerados pelo motor).
@@ -33,8 +34,11 @@ function Executiva({ normaId, setNormaId }: { normaId: NormaId; setNormaId: (id:
   const sim: Simulacao = { base: faixa.base, faturamento: null }
   const v = valorGeral(p, sim, MODO)
   const q = queda(p, sim, MODO)
-  const pz = prazos(p, HOJE)
-  const linhas = top5(normaId, sim, MODO, 5, HOJE)
+  // Datas só depois da montagem (useHoje): o HTML pré-renderizado no build não pode trazer "hoje". Até lá, os
+  // cinco blocos seguem a data de geração do plano (igual no servidor e no cliente) e prazos ficam neutros.
+  const hoje = useHoje()
+  const pz = hoje ? prazos(p, hoje) : null
+  const linhas = top5(normaId, sim, MODO, 5, hoje ?? p.gerado_em)
   const sel = linhas.find((l) => l.id === ultimo) ?? null
   const painelRef = useRef<HTMLDivElement>(null)
   const blocos = useRef<Record<string, HTMLButtonElement | null>>({})
@@ -85,14 +89,16 @@ function Executiva({ normaId, setNormaId }: { normaId: NormaId; setNormaId: (id:
         <span className={LEGENDA}>se agir antes da fiscalização</span>
       </div>
       <div className="flex flex-col gap-1.5">
-        {pz.vencidas > 0
+        {!pz
+          ? <><span className={grande} aria-hidden="true">—</span><span className={LEGENDA}>prazos contados com a data de hoje</span></>
+          : pz.vencidas > 0
           ? <><span className={grande}>{pz.vencidas}</span><span className={LEGENDA}>{textoVencidasComDetalhe({ obrigacoes: pz.vencidas, detalhes: pz.detalhes }).replace(/^\d+ /, '')}</span></>
           : pz.proximoMarco
             ? <><span className="block text-[length:var(--tamanho-data-executiva)] leading-[0.95] font-bold">{dataBR(pz.proximoMarco.data)}</span><span className={LEGENDA}>próximo marco · {pz.proximoMarco.tipo}</span></>
             : pz.proxima
               ? <><span className={grande}>{pz.proxima.dias} dias</span><span className={LEGENDA}>até o próximo prazo</span></>
               : <><span className={grande}>—</span><span className={LEGENDA}>nenhum prazo a vencer</span></>}
-        {pz.contagem && <span className="text-xs">{textoContagem(pz.contagem)}</span>}
+        {pz?.contagem && <span className="text-xs">{textoContagem(pz.contagem)}</span>}
       </div>
       {pr.algumaMarcada && <div className="flex flex-col gap-1.5"><span className={grande}>{pr.geral.x} de {pr.geral.y}</span><span className={LEGENDA}>provas em mãos · checklist sugerido</span></div>}
     </section>
@@ -105,10 +111,10 @@ function Executiva({ normaId, setNormaId }: { normaId: NormaId; setNormaId: (id:
       <div className="grid gap-3 [grid-template-columns:repeat(auto-fill,minmax(190px,1fr))]">
         {linhas.map((l) => {
           const aberta = aberto === l.id
-          const vencida = l.situacao === 'vencida'
+          const vencida = hoje != null && l.situacao === 'vencida'
           return <button key={l.id} ref={(el) => { blocos.current[l.id] = el }} type="button" className="bloco flex min-h-[196px] flex-col gap-2.5 p-4 text-left" aria-expanded={aberta} aria-controls="painel" onClick={() => alternar(l.id)}>
             <span className={`inline-flex items-center gap-1.5 text-xs font-bold ${vencida && !aberta ? 'text-bronze-deep' : ''}`}>
-              <span aria-hidden="true" className={`inline-block h-2 w-2 rounded-full ${vencida ? 'bg-acento' : aberta ? 'bg-white' : 'bg-obsidian'}`} />{l.prazoCurto}
+              <span aria-hidden="true" className={`inline-block h-2 w-2 rounded-full ${vencida ? 'bg-acento' : aberta ? 'bg-white' : 'bg-obsidian'}`} />{hoje ? l.prazoCurto : 'prazo contado com a data de hoje'}
             </span>
             <span className="text-base leading-tight font-semibold">{l.titulo}</span>
             <span className="mt-auto text-[30px] font-bold ">{valorDoBloco(l)}</span>
@@ -127,7 +133,7 @@ function Executiva({ normaId, setNormaId }: { normaId: NormaId; setNormaId: (id:
     </section>
 
     <footer className="flex flex-wrap justify-between gap-3 border-t border-obsidian pt-3.5 text-[13px]">
-      <span>* preliminar · valores ilustrativos · não é parecer jurídico · dias contados até {dataBR(HOJE)}</span>
+      <span>* preliminar · valores ilustrativos · não é parecer jurídico · dias contados até {hoje ? dataBR(hoje) : 'hoje'}</span>
       <span className="flex gap-4"><a href={urlRelatorio(normaId)} className="font-semibold">Baixar meu relatório</a><a href={urlPlanoCompleto(normaId)} className="font-semibold">Plano completo →</a></span>
     </footer>
   </main>

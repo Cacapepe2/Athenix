@@ -8,7 +8,19 @@ test('dias contados da data de vencimento até hoje, não do número congelado n
   assert.equal(diasAte('2026-04-28', '2026-11-17'), -203) // a data de referência da geração
   assert.equal(diasAte('2026-04-28', '2026-11-21'), -207) // quatro dias depois, o número muda
   assert.equal(diasAte('2026-11-21', '2026-11-21'), 0)
-  assert.equal(hojeISO(new Date(2026, 10, 20, 23, 30)), '2026-11-20') // à noite, no fuso local
+})
+
+test('"hoje" no fuso de São Paulo: 23h30 em São Paulo (02h30 UTC do dia seguinte) ainda é o mesmo dia', () => {
+  const quase = new Date('2026-11-23T02:30:00Z') // 22/11/2026, 23h30 em São Paulo
+  assert.equal(quase.toISOString().slice(0, 10), '2026-11-23') // o dia que um build em UTC escreveria
+  assert.equal(hojeISO(quase), '2026-11-22')
+  assert.equal(hojeISO(new Date('2026-11-23T02:59:59Z')), '2026-11-22')
+  assert.equal(hojeISO(new Date('2026-11-23T03:00:00Z')), '2026-11-23') // meia-noite em São Paulo
+  // Um dia muda o que a executiva mostra; por isso o HTML pré-renderizado não traz a data (scripts/check-build.mjs).
+  const bloco = (hoje: string) => top5('rn1137', null, 'preliminar', 5, hoje)[0]
+  assert.equal(bloco('2026-11-22').prazoCurto, 'vencida há 298 dias')
+  assert.equal(bloco('2026-11-23').prazoCurto, 'vencida há 299 dias')
+  assert.deepEqual([prazos(planos.rn1137, '2026-11-22').vencidas, prazos(planos.rn1137, '2026-11-22').detalhes], [8, 11])
 })
 
 test('a situação acompanha o dia: vence hoje ainda não venceu; amanhã sim; fora de 90 dias é "depois"', () => {

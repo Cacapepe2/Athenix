@@ -2,7 +2,7 @@
 // (mesmos números da executiva e do plano completo) e do que a empresa escreveu e marcou no navegador.
 // Lógica pura, testada em relatorio.test.ts. Nada sai do navegador.
 import { prazos, queda, textoPrazoDoTema, tituloCurto, valorGeral } from './executivo.ts'
-import { atualizar } from './datas.ts'
+import { atualizar, hojeISO } from './datas.ts'
 import { planoEm } from './referencia.ts'
 import { provasDoTema, recomendacoesDoTema } from './recomendacoes.ts'
 import { normaDaUrl, textoVencidasComDetalhe, decisoesDaSemana, nomeDiag, brlCurto, comAtenuantePct, dataBR, exposicaoTema, ordenarTemas, pct, plano as planoDaPagina, HOJE, reaisDe, SIM_INICIAL, type Diagnosticos, type ExtrasCsv, type Modo, type Obrigacao, type Simulacao, type Tema } from './plano.ts'
@@ -57,15 +57,12 @@ export interface Relatorio {
   revisoes: ReturnType<typeof linhasDeRevisao>
 }
 
-/** AAAA-MM-DD no fuso do navegador (toISOString usaria UTC e trocaria o dia à noite). */
-const diaLocal = (d: Date) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
-
 const curta = (t: string, n = 220) => (t.length <= n ? t : `${t.slice(0, n).replace(/\s+\S*$/, '')}…`)
 
 export function montarRelatorio(args: { sim: Simulacao | null; modo: Modo; diag: Diagnosticos; respostas: Respostas; revisoes?: Revisoes; hoje?: Date | string }): Relatorio {
   const { sim, modo, diag, respostas } = args
   // UMA referência de data para o relatório inteiro (a recebida; sem ela, a da página).
-  const hojeIso = typeof args.hoje === 'string' ? args.hoje : args.hoje ? diaLocal(args.hoje) : HOJE
+  const hojeIso = typeof args.hoje === 'string' ? args.hoje : args.hoje ? hojeISO(args.hoje) : HOJE
   const plano = planoEm(planoDaPagina, hojeIso)
   const base = sim ?? SIM_INICIAL
   const v = valorGeral(plano, sim, modo)

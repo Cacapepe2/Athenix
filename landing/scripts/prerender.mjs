@@ -5,13 +5,13 @@ import { pages } from './page-meta.mjs'
 
 const empty = '<div id="root"></div>'
 const template = await readFile(resolve('dist/index.html'), 'utf8')
-const { render } = await import(pathToFileURL(resolve('dist-ssr/entry-server.js')).href)
+const { render, diaDoBuild } = await import(pathToFileURL(resolve('dist-ssr/entry-server.js')).href)
 const escape = (s) => s.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;')
 if (!template.includes(empty)) throw new Error('HTML sem ponto de pré-renderização')
 for (const page of pages) {
   const body = render(page.path)
   if (body.length < 1000) throw new Error(`Pré-renderização incompleta: ${page.path}`)
-  let html = template.replace(empty, `<div id="root">${body}</div>`)
+  let html = template.replace(empty, `<div id="root" data-dia="${diaDoBuild}">${body}</div>`)
     .replace(/<title>.*?<\/title>/, `<title>${escape(page.title)}</title>`)
     .replace(/<meta name="description"[^>]*>/, `<meta name="description" content="${escape(page.description)}" />`)
     .replace(/<meta property="og:title"[^>]*>/, `<meta property="og:title" content="${escape(page.title)}" />`)
