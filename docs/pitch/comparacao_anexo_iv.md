@@ -18,29 +18,33 @@ A comparação identifica presença e redação por número de item; não conclu
 
 ## A v3 confere com a RN 1.137?
 
-**Não integralmente:** 92 dos 112 registros de dever do Módulo 4 conferem literalmente, ignorando espaços e marcas NR/AC; 20 divergem. O rodapé da v3 atribui o anexo à REN 1.137, mas isso não elimina as diferenças abaixo. Não foi escolhida uma redação substituta: o plano continua citando o PDF da RN 1.137.
+**Não integralmente:** 92 dos 112 registros de dever do Módulo 4 conferem literalmente, ignorando espaços e marcas NR/AC; 20 divergem. O rodapé da v3 atribui o anexo à REN 1.137, mas isso não elimina as diferenças abaixo. Cada uma é tratada como divergência entre o texto publicado da RN e a versão compilada do PRODIST; não se atribui erro a nenhuma das fontes. Não foi escolhida uma redação substituta: o plano continua citando o PDF da RN 1.137.
 
-Há diferenças de remissão, além de pontuação ou concordância: nos itens 110 e 112, a RN remete ao item 105 e a v3 ao item 103. A divergência foi conferida visualmente na página física 7 do PDF da RN e na página 23 da v3. Não se presume equivalência entre essas leituras.
+Há diferenças de remissão, além de pontuação ou concordância: nos itens 110 e 112, a RN remete ao item 105 e a v3 ao item 103; no item 119, a RN remete ao item 115 e a v3 ao item 113. A divergência dos itens 110 e 112 foi conferida visualmente na página física 7 do PDF da RN e na página 23 da v3. Não se presume equivalência entre essas leituras.
 
-### Item 107 — conferir a divergência entre fontes
+**Hipótese não conferida (item 119):** na v3, o pedido de representantes oficiais ao Poder Público continua no item 115, e a remissão ao item 113 pode estar desatualizada na versão compilada. O texto do item 113 da v3 não foi lido; a hipótese não sustenta nenhuma conclusão.
+
+**Rascunhos de pergunta à ANEEL:** as cinco divergências de sentido, conteúdo ou remissão (item 143, alíneas f e d; itens 110, 112 e 119) viraram rascunhos no plano e no relatório, com o rótulo “rascunho — revisar antes de enviar”. Nada foi enviado.
+
+### Item 107 — divergência entre o texto publicado da RN e a versão compilada do PRODIST
 
 **RN 1.137 — item 107, alínea j:** “j) Quantidade de equipes em atividade, segregadas por município e o total na área de atuação; e”
 
 **v3 — item 107, página física 22 (até 22):** “107. As distribuidoras de energia devem disponibilizar em sítio eletrônico, em área aberta e de fácil acesso, com atualização a cada 30 minutos, as seguintes informações relacionadas às ocorrências abertas: a) Número da ocorrência; b) Município/bairro da ocorrência aberta; c) Data e hora de início da ocorrência aberta; d) Tipo de ocorrência aberta (programada e não programada); e) Sinalização do status da ocorrência aberta (Em preparação/Em Deslocamento/Em Execução); f) Quantidade de unidades consumidoras interrompidas da ocorrência aberta e o total da área de atuação; g) Duração da ocorrência (hh:mm); h) Consumidor Hora Interrompido (CHI) da ocorrência aberta e o total da área de atuação; i) Quantidade de ocorrências abertas segregadas por município e o total na área de atuação; j) Quantidade de equipes em atividade segregadas por município e o total na área de atuação; e k) Estágio da operação (conforme etapas definidas no plano de contingência).”
 
-### Item 132 — conferir a divergência entre fontes
+### Item 132 — divergência entre o texto publicado da RN e a versão compilada do PRODIST
 
 **RN 1.137 — item 132, alínea c:** “c) relação das matrículas dos profissionais que realizaram os atendimentos, discriminando função, remuneração, cargos e encargos totais conforme folha de pagamento da cedente, horário do despacho, local do atendimento e o total de horas empregadas em serviço;”
 
 **v3 — item 132, página física 25 (até 26):** “132. Ao acionar o mecanismo de Cessão Emergencial de recursos, a distribuidora cessionária deve enviar às áreas de fiscalização da ANEEL, em até 60 dias após o fim da situação emergencial, relatório contendo discriminação das despesas ou custos incorridos a serem reembolsados à cedente, contendo as seguintes informações mínimas: a) valor global da contratação com detalhamento dos recursos envolvidos, segregados por tipo de gasto; b) duração do Contrato de Cessão Emergencial para execução dos serviços realizados; c) relação das matrículas dos profissionais que realizaram os atendimentos discriminando função, remuneração, cargos e encargos totais conforme folha de pagamento da cedente, horário do despacho, local do atendimento e o total de horas empregadas em serviço; d) valor individualizado por frente de serviço e montante total dos serviços realizados; e) documentação comprobatória e discriminação detalhada de despesas com equipamentos e materiais; f) documentação comprobatória e discriminação detalhada de outras despesas realizadas na operação emergencial; g) forma de pagamento, observando o que dispõe o item 138; h) informações separadas por cedente, resguardando a respectiva proporcionalidade na Cessão Emergencial e a individualidade das concessões; i) apresentação das razões da opção pela utilização de recursos humanos pertencentes a outras empresas; j) atividades desenvolvidas pelas equipes cedidas, registradas detalhadamente, por localidade; k) detalhamento das tarefas de campo, com dia, data e hora; l) detalhamento dos tipos de estruturas utilizadas nos atendimentos, com quantidade de turmas e veículos (leves e pesados); e m) outras informações que julgar relevante sobre a Cessão Emergencial. Acordo de Cessão Emergencial Prévio.”
 
-### Item 138 — conferir a divergência entre fontes
+### Item 138 — divergência entre o texto publicado da RN e a versão compilada do PRODIST
 
 **RN 1.137 — item 138:** “138. O ressarcimento à cedente não deve ultrapassar o prazo de doze meses contados do final da Cessão Emergencial. Contratos de Cessão Emergencial de recursos humanos, equipamentos e materiais entre Partes Relacionadas”
 
 **v3 — item 138, página física 27 (até 27):** “138. O reembolso à cedente não deve ultrapassar o prazo de doze meses contados do final da Cessão Emergencial. Contratos de Cessão Emergencial de recursos humanos, equipamentos e materiais entre Partes Relacionadas”
 
-### Item 139 — conferir a divergência entre fontes
+### Item 139 — divergência entre o texto publicado da RN e a versão compilada do PRODIST
 
 **RN 1.137 — item 139, alínea b:** “b) a cessionária deverá manter dossiê individualizado em sua sede contendo os documentos comprobatórios que evidenciem a neutralidade de custos e despesas reembolsados à cedente, os quais poderão ser requisitados pela fiscalização por até 5 (cinco) anos após fim do evento emergencial.”
 
@@ -48,13 +52,13 @@ Há diferenças de remissão, além de pontuação ou concordância: nos itens 1
 
 **v3 — item 139, página física 27 (até 27):** “139. Os contratos de Cessão Emergencial de recursos humanos, equipamentos e materiais entre distribuidoras e transmissoras e suas partes relacionadas, visando garantir a continuidade do serviço em situações de crise, caso sejam atendidas as condições que os autorizem, serão dispensados da obrigação de que trata o art. 18 do Módulo V da Resolução Normativa nº 948, de 16 de novembro de 2021, sem prejuízo de fiscalização a posteriori, desde que: a. sejam comunicadas à ANEEL em até 60 (sessenta) dias após o fim da situação emergencial, mediante relatório contendo discriminação das despesas ou custos incorridos a serem reembolsados pela cessionária à cedente; b. a cessionária deverá manter dossiê individualizado em sua sede contendo os documentos comprobatórios que evidenciem a neutralidade de custos e despesas reembolsados à cedente, os quais poderão ser requisitados pela fiscalização por até 5 (cinco) anos após fim do evento emergencial. c. As cessões emergenciais de recursos humanos, equipamentos e materiais entre distribuidoras e transmissoras e suas partes relacionadas devem ser reembolsadas pela cessionária à cedente garantindo a neutralidade da operação, não se tratando de rateio ou prestação de serviços, e preservando a individualidade das concessões.”
 
-### Item 115 — conferir a divergência entre fontes
+### Item 115 — divergência entre o texto publicado da RN e a versão compilada do PRODIST
 
 **RN 1.137 — item 115:** “115. A comunicação deve ser clara e transparente com o intuito de gerar confiança no relacionamento entre as distribuidoras e o Poder Público, essencial para a efetividade das ações em conjunto. Para esse fim, a distribuidora deve solicitar aos Poderes Públicos municipal, estadual e distrital que informem previamente até dois representantes oficiais de cada ente, que serão os responsáveis pelo recebimento das comunicações em situações de emergência.”
 
 **v3 — item 115, página física 23 (até 23):** “115. A comunicação deve ser clara e transparente com o intuito de gerar confiança no relacionamento entre as distribuidoras e o Poder Público, essencial para a efetividade das ações em conjunto. Para esse fim, a distribuidora deve solicitar ao Poder Público municipal, estadual e distrital que informe previamente até dois representantes oficiais de cada ente, que serão os responsáveis pelo recebimento das comunicações em situações de emergência.”
 
-### Item 143 — conferir a divergência entre fontes
+### Item 143 — divergência entre o texto publicado da RN e a versão compilada do PRODIST
 
 **RN 1.137 — item 143, alínea a:** “a) Monitoramento Climático e Meteorológico: Realizar monitoramento periódico das condições climáticas e meteorológicas informando as equipes internas sobre possíveis alertas de risco;”
 
@@ -66,61 +70,61 @@ Há diferenças de remissão, além de pontuação ou concordância: nos itens 1
 
 **v3 — item 143, página física 28 (até 29):** “143. O plano de contingência deve observar as seguintes diretrizes: a) Monitoramento Climático e Meteorológico: Realizar monitoramento periódico das condições climáticas e meteorológicas, informando as equipes internas sobre possíveis alertas de risco; b) Gestão de Ocorrências: Implementar ações específicas conforme os níveis de contingência; c) Mobilização de Recursos: Definir procedimentos para a mobilização de equipes e recursos adicionais em diferentes níveis de contingência, garantindo a atuação mesmo em feriados e dias não úteis, de forma a assegurar a continuidade e a eficiência nas ações de resposta; d) Comunicação Interna: Estabelecer procedimentos e canais eficientes de comunicação interna para informar e coordenar ações durante contingências; e) Relatórios e Documentação: Manter registros detalhados das ações tomadas e dos resultados durante as contingências de modo a avaliar se as medidas tomadas estão aderentes ao planejado; f) Treinamentos e Simulações: Realizar treinamentos periódicos ou simulações para preparar as equipes para situações de contingência; g) Atendimento ao Consumidor: Estabelecer procedimentos para tratamento e resolução de demandas extraordinárias durante contingências; h) Coordenação com Órgãos Externos: Definir ações para comunicação e coordenação com autoridades públicas e órgãos reguladores; i) Apoio Interdepartamental: Estabelecer diretrizes para a colaboração entre diferentes departamentos e áreas da empresa durante situações de contingência; j) Formalização e Divulgação do Plano: O Plano de Contingência deve ser formalizado e documentado de maneira clara e detalhada, sendo amplamente divulgado por meio de canais internos de modo a garantir sua acessibilidade a todos os colaboradores e partes interessadas; e k) Cadeia de governança: Estabelecer comando nos níveis estratégico, tático e operacional para o gerenciamento de crises e contingências, definindo responsabilidades e fluxos de comunicação que garantam uma resposta coordenada, eficiente e segura, de forma que, em situações de crise, todos os níveis de comando estejam claramente definidos e operacionalmente disponíveis. Requisitos Mínimos”
 
-### Item 147 — conferir a divergência entre fontes
+### Item 147 — divergência entre o texto publicado da RN e a versão compilada do PRODIST
 
 **RN 1.137 — item 147:** “147. As distribuidoras devem disponibilizar a versão mais atualizada, sem a identificação e contato dos seus responsáveis pelo seu plano de contingência, em seu sítio eletrônico na Internet e nos postos de atendimento presencial, de forma acessível ao público com uso de linguagem clara e adequada.”
 
 **v3 — item 147, página física 30 (até 30):** “147. As distribuidoras devem disponibilizar a versão mais atualizada, sem a identificação e contato dos seus responsáveis pelo seu plano de contingência, em seu sítio eletrônico na Internet e nos postos de atendimento presencial, de forma acessível ao público, com uso de linguagem clara e adequada.”
 
-### Item 110 — conferir a divergência entre fontes
+### Item 110 — divergência entre o texto publicado da RN e a versão compilada do PRODIST
 
 **RN 1.137 — item 110:** “110. A comunicação de que trata o item 105 deve ser realizada, obrigatoriamente, por meio de SMS e aplicativos de mensagens, com envio de mensagens automáticas aos consumidores afetados.”
 
 **v3 — item 110, página física 23 (até 23):** “110. A comunicação de que trata o item 103 deve ser realizada, obrigatoriamente, por meio de SMS e aplicativos de mensagens, com envio de mensagens automáticas aos consumidores afetados. Adicionalmente, as distribuidoras podem utilizar, de forma complementar e a seu critério, os seguintes canais: a) Aplicativos e sítio eletrônico na internet: com atualização em tempo real em plataformas digitais mantidas pela distribuidora; b) Redes Sociais: com divulgação de informações via contas oficiais da distribuidora.”
 
-### Item 112 — conferir a divergência entre fontes
+### Item 112 — divergência entre o texto publicado da RN e a versão compilada do PRODIST
 
 **RN 1.137 — item 112:** “112. A distribuidora deve atualizar as informações referentes à interrupção de que trata o item 105, incluindo alterações no tempo estimado de restabelecimento e outras informações relevantes para o consumidor.”
 
 **v3 — item 112, página física 23 (até 23):** “112. A distribuidora deve atualizar as informações referentes à interrupção de que trata o item 103, incluindo alterações no tempo estimado de restabelecimento e outras informações relevantes para o consumidor.”
 
-### Item 119 — conferir a divergência entre fontes
+### Item 119 — divergência entre o texto publicado da RN e a versão compilada do PRODIST
 
 **RN 1.137 — item 119:** “119. As distribuidoras devem estabelecer protocolos de alertas para notificar rapidamente o Poder Público, conforme previsto no item 115, sobre interrupções de energia e situações que demandem apoio imediato para a atuação em cenários de emergência.”
 
 **v3 — item 119, página física 24 (até 24):** “119. As distribuidoras devem estabelecer protocolos de alertas para notificar rapidamente o Poder Público, conforme previsto no item 113, sobre interrupções de energia e situações que demandem apoio imediato para a atuação em cenários de emergência.”
 
-### Item 126 — conferir a divergência entre fontes
+### Item 126 — divergência entre o texto publicado da RN e a versão compilada do PRODIST
 
 **RN 1.137 — item 126:** “126. Segurança Operacional: A Cessão Emergencial de recursos não deve comprometer a segurança das operações das distribuidoras envolvidas.”
 
 **v3 — item 126, página física 25 (até 25):** “126. Segurança Operacional: a Cessão Emergencial de recurso não deve comprometer a segurança das operações das distribuidoras envolvidas.”
 
-### Item 127 — conferir a divergência entre fontes
+### Item 127 — divergência entre o texto publicado da RN e a versão compilada do PRODIST
 
 **RN 1.137 — item 127:** “127. Proporcionalidade e Necessidade: A Cessão Emergencial deve ser limitada à necessidade demonstrada pela situação de crise e proporcional à capacidade operacional disponível de cada distribuidora.”
 
 **v3 — item 127, página física 25 (até 25):** “127. Proporcionalidade e Necessidade: a Cessão Emergencial deve ser limitada à necessidade demonstrada pela situação de crise e proporcional à capacidade operacional disponível de cada distribuidora.”
 
-### Item 129 — conferir a divergência entre fontes
+### Item 129 — divergência entre o texto publicado da RN e a versão compilada do PRODIST
 
 **RN 1.137 — item 129:** “129. Individualidade das concessionárias: todas as informações, documentações, arquivos e registros contábeis relacionados à Cessão Emergencial deverão evidenciar a proporção de cada distribuidora ou transmissora cedente. Situações Aplicáveis”
 
 **v3 — item 129, página física 25 (até 25):** “129. Individualidade da concessão: todas as informações, documentações, arquivos e registros contábeis relacionados à Cessão Emergencial deverão evidenciar a separação proporcional à cada distribuidora ou transmissora cedente. Situações Aplicáveis”
 
-### Item 133 — conferir a divergência entre fontes
+### Item 133 — divergência entre o texto publicado da RN e a versão compilada do PRODIST
 
 **RN 1.137 — item 133, alínea e:** “e) Previsão de Cessão Emergencial, mantendo-se neutralidade das partes em relação a recursos humanos, equipamentos e materiais;”
 
 **v3 — item 133, página física 26 (até 26):** “133. As distribuidoras envolvidas devem formalizar Acordo de Cessão Emergencial Prévio, contendo: a) As situações de crise em que a Cessão Emergencial poderá ser solicitada; b) O número e as características das equipes (leves, pesadas, linha viva) que poderão ser cedidas; c) A previsão de duração da Cessão Emergencial; d) A responsabilidade pelas despesas operacionais; e) Previsão de Cessão Emergencial mantendo-se neutralidade das partes em relação a recursos humanos, equipamentos e materiais; f) Realização de testes regulares de Cessão Emergencial, simulando cenários de crise para validar a eficácia do processo e identificar melhorias operacionais no intercâmbio de recursos humanos, equipamentos e materiais; e g) Procedimentos claros para a integração de equipes externas, com definição de treinamentos, capacitações e preparação prévia adequada para garantir que todos os envolvidos estejam alinhados com as práticas de segurança e operação da distribuidora requisitante.”
 
-### Item 144 — conferir a divergência entre fontes
+### Item 144 — divergência entre o texto publicado da RN e a versão compilada do PRODIST
 
 **RN 1.137 — item 144, alínea a:** “a) Identificação e Análise de Riscos: Identificar os fatores de risco potenciais, tanto internos quanto externos, com o maior nível de detalhamento possível. A identificação deve incluir a localização, natureza do risco, frequência histórica de ocorrência e uma análise completa dos impactos potenciais associados a cada risco;”
 
 **v3 — item 144, página física 29 (até 30):** “144. O plano de contingência deve conter os seguintes requisitos mínimos: a) Identificação e Análise de Riscos: Identificar com os fatores de risco potenciais, tanto internos quanto externos, com o maior nível de detalhamento possível. A identificação deve incluir a localização, natureza do risco, frequência histórica de ocorrência e uma análise completa dos impactos potenciais associados a cada risco; b) Definição de Níveis de Contingência: Definir níveis de contingência por critérios objetivos, devendo ser atualizados de acordo com a evolução das condições operativas e meteorológicas; c) Plano de Ação para Cada Nível de Contingência: Desenvolver planos de ação específicos para cada nível de contingência, incluindo as responsabilidades e os procedimentos a serem seguidos; d) Infraestrutura de Apoio: Garantir a disponibilidade de recursos e infraestrutura necessários para a execução do plano de contingência, em relação à equipamentos, sistemas de comunicação e transporte, incluindo inventário, especificação e localização de equipamentos disponíveis e sobressalentes, bem como veículos operacionais; e) Treinamento e Capacitação: Implementar programas de treinamento e capacitação contínuos para todos os colaboradores envolvidos na execução do plano de contingência; f) Simulações e Testes Regulares: Realizar simulações ou testes periódicos para avaliar a eficácia do plano de contingência e identificar áreas de melhoria, inclusive com a participação de Órgãos Públicos; g) Atualização do plano: Manter a documentação do plano de contingência atualizada e disponível para todos os colaboradores, devendo constar a data e o número da versão, bem como assinatura do responsável; h) Avaliação e Melhoria Contínua: Realizar avaliações regulares do plano de contingência e implementar melhorias com base nos resultados das simulações, testes e experiências reais de contingência, visando aperfeiçoar a efetividade do plano; e i) Tratamento para unidades consumidoras específicas: Possuir medidas relacionadas ao tratamento para unidades consumidoras cadastradas como usuários de equipamentos de autonomia limitada (sobrevida) e para aquelas que prestem serviço essencial, incluindo aspectos referentes ao cadastro, comunicação e atendimento emergencial para mitigar os efeitos das interrupções do fornecimento de energia elétrica.”
 
-### Item 145 — conferir a divergência entre fontes
+### Item 145 — divergência entre o texto publicado da RN e a versão compilada do PRODIST
 
 **RN 1.137 — item 145, alínea b:** “b) A disponibilização de treinamentos atualizados, também deve ser fornecida na mesma periodicidade máxima para os agentes designados pelo Poder Público.”
 
@@ -289,4 +293,4 @@ Há diferenças de remissão, além de pontuação ou concordância: nos itens 1
 
 ## Limites e decisão
 
-O item 4 foi retomado com as fontes fornecidas. Os 35 registros sem fonte anterior não recebem uma classificação presumida. Caio e revisão especializada devem conferir as divergências antes de adotar outra redação. O PR #52 permanece draft; seu merge não foi autorizado.
+O item 4 foi retomado com as fontes fornecidas. Os 35 registros sem fonte anterior não recebem uma classificação presumida. O responsável e a revisão especializada devem conferir as divergências antes de adotar outra redação.

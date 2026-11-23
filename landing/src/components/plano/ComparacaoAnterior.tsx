@@ -17,7 +17,7 @@ export function ComparacaoAnterior({ o }: { o: Obrigacao }) {
       <div><strong>Atual · v3, item {r.item}</strong><blockquote><LinkFonte sha256={c.fontes.v3.sha256} trecho={item.atual.trecho}>“{item.atual.trecho}”</LinkFonte></blockquote></div>
     </div>}
     {!r.confere_v3 && <details className="border border-slate-blue/30 p-3">
-      <summary className="min-h-11 cursor-pointer font-semibold">Divergência entre a v3 e a RN 1.137 — revisar</summary>
+      <summary className="min-h-11 cursor-pointer font-semibold">Divergência entre o texto publicado da RN e a versão compilada do PRODIST — revisar</summary>
       <p>As fontes atuais não conferem literalmente. A redação usada no plano e sua contagem foram preservadas.</p>
       <div className="mt-3 grid gap-4 sm:grid-cols-2">
         <div><strong>Fonte usada no plano · {o.dispositivo}</strong><blockquote><LinkFonte sha256={plano.norma.sha256} trecho={o.trecho ?? ''}>“{o.trecho}”</LinkFonte></blockquote></div>

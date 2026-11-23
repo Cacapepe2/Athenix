@@ -46,10 +46,19 @@ def relatorio(plano, comparacao):
         f"**Não integralmente:** {len(c['registros']) - r['divergencias_v3']} dos {len(c['registros'])} "
         f"registros de dever do Módulo 4 conferem literalmente, ignorando espaços e marcas NR/AC; "
         f"{r['divergencias_v3']} divergem. O rodapé da v3 atribui o anexo à REN 1.137, mas isso não elimina "
-        "as diferenças abaixo. Não foi escolhida uma redação substituta: o plano continua citando o PDF da RN 1.137.",
+        "as diferenças abaixo. Cada uma é tratada como divergência entre o texto publicado da RN e a "
+        "versão compilada do PRODIST; não se atribui erro a nenhuma das fontes. Não foi escolhida uma "
+        "redação substituta: o plano continua citando o PDF da RN 1.137.",
         "Há diferenças de remissão, além de pontuação ou concordância: nos itens 110 e 112, "
-        "a RN remete ao item 105 e a v3 ao item 103. A divergência foi conferida visualmente na "
-        "página física 7 do PDF da RN e na página 23 da v3. Não se presume equivalência entre essas leituras.",
+        "a RN remete ao item 105 e a v3 ao item 103; no item 119, a RN remete ao item 115 e a v3 ao item 113. "
+        "A divergência dos itens 110 e 112 foi conferida visualmente na página física 7 do PDF da RN e na "
+        "página 23 da v3. Não se presume equivalência entre essas leituras.",
+        "**Hipótese não conferida (item 119):** na v3, o pedido de representantes oficiais ao Poder Público "
+        "continua no item 115, e a remissão ao item 113 pode estar desatualizada na versão compilada. O texto "
+        "do item 113 da v3 não foi lido; a hipótese não sustenta nenhuma conclusão.",
+        "**Rascunhos de pergunta à ANEEL:** as cinco divergências de sentido, conteúdo ou remissão "
+        "(item 143, alíneas f e d; itens 110, 112 e 119) viraram rascunhos no plano e no relatório, com o "
+        "rótulo “rascunho — revisar antes de enviar”. Nada foi enviado.",
     ]
     divergentes = {}
     for o in plano["obrigacoes"]:
@@ -58,7 +67,9 @@ def relatorio(plano, comparacao):
             divergentes.setdefault(registro["item"], []).append(o)
     for n, obrigacoes in divergentes.items():
         atual = c["itens"][n]["atual"]
-        partes += [f"### Item {n} — conferir a divergência entre fontes"]
+        partes += [
+            f"### Item {n} — divergência entre o texto publicado da RN e a versão compilada do PRODIST"
+        ]
         for o in obrigacoes:
             partes.append(f"**RN 1.137 — {o['dispositivo']}:** “{o['trecho']}”")
         partes.append(
@@ -91,8 +102,8 @@ def relatorio(plano, comparacao):
         "## Limites e decisão",
         "O item 4 foi retomado com as fontes fornecidas. "
         "Os 35 registros sem fonte anterior não recebem uma classificação presumida. "
-        "Caio e revisão especializada devem conferir as divergências antes de adotar outra redação. "
-        "O PR #52 permanece draft; seu merge não foi autorizado.",
+        "O responsável e a revisão especializada devem conferir as divergências antes de adotar "
+        "outra redação.",
     ]
     return "\n\n".join(partes) + "\n"
 

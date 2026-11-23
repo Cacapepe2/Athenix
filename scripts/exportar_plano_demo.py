@@ -377,6 +377,7 @@ def gerar(data=None, commit=None, arquivo=None, segmento="distribuicao"):
     comparacao = comparar_prodist(dados, processado[1])
     if comparacao:
         dados["comparacao_anterior"] = comparacao
+        dados["rascunhos_aneel"] += rascunhos_aneel.divergencias_prodist(dados, comparacao)
     return dados, out
 
 

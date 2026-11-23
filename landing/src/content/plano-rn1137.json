@@ -1,6 +1,6 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "14c7e2e",
+ "commit_origem": "a2ac6f4",
  "gerado_em": "2026-11-22",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
@@ -21155,6 +21155,202 @@
       "titulo": "RN ANEEL 1.137/2025",
       "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
       "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-8031ef0bfbd37c9f",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "divergência entre o texto publicado da RN e a versão compilada do PRODIST",
+   "duvida": "Qual redação do item 143, alínea f deve ser observada (sentido): a do texto publicado da RN 1.137 ou a da versão compilada do PRODIST, Módulo 4 (v3)?",
+   "leituras_possiveis": [
+    "Texto publicado da RN 1.137: “treinamentos periódicos e simulações”.",
+    "Versão compilada do PRODIST, Módulo 4 (v3), página 28: “treinamentos periódicos ou simulações”."
+   ],
+   "limite": "Divergência registrada pela comparação documental; nenhuma redação foi escolhida e o plano continua citando o texto publicado da RN 1.137.",
+   "referencias": [
+    {
+     "dispositivo": "RN 1.137 — item 143, alínea f",
+     "trecho": "f) Treinamentos e Simulações: Realizar treinamentos periódicos e simulações para preparar as equipes para situações de contingência;",
+     "itens": [
+      "0c957f4631794730"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "PRODIST, Módulo 4 (v3) — item 143, página 28",
+     "trecho": "143. O plano de contingência deve observar as seguintes diretrizes: a) Monitoramento Climático e Meteorológico: Realizar monitoramento periódico das condições climáticas e meteorológicas, informando as equipes internas sobre possíveis alertas de risco; b) Gestão de Ocorrências: Implementar ações específicas conforme os níveis de contingência; c) Mobilização de Recursos: Definir procedimentos para a mobilização de equipes e recursos adicionais em diferentes níveis de contingência, garantindo a atuação mesmo em feriados e dias não úteis, de forma a assegurar a continuidade e a eficiência nas ações de resposta; d) Comunicação Interna: Estabelecer procedimentos e canais eficientes de comunicação interna para informar e coordenar ações durante contingências; e) Relatórios e Documentação: Manter registros detalhados das ações tomadas e dos resultados durante as contingências de modo a avaliar se as medidas tomadas estão aderentes ao planejado; f) Treinamentos e Simulações: Realizar treinamentos periódicos ou simulações para preparar as equipes para situações de contingência; g) Atendimento ao Consumidor: Estabelecer procedimentos para tratamento e resolução de demandas extraordinárias durante contingências; h) Coordenação com Órgãos Externos: Definir ações para comunicação e coordenação com autoridades públicas e órgãos reguladores; i) Apoio Interdepartamental: Estabelecer diretrizes para a colaboração entre diferentes departamentos e áreas da empresa durante situações de contingência; j) Formalização e Divulgação do Plano: O Plano de Contingência deve ser formalizado e documentado de maneira clara e detalhada, sendo amplamente divulgado por meio de canais internos de modo a garantir sua acessibilidade a todos os colaboradores e partes interessadas; e k) Cadeia de governança: Estabelecer comando nos níveis estratégico, tático e operacional para o gerenciamento de crises e contingências, definindo responsabilidades e fluxos de comunicação que garantam uma resposta coordenada, eficiente e segura, de forma que, em situações de crise, todos os níveis de comando estejam claramente definidos e operacionalmente disponíveis. Requisitos Mínimos",
+     "itens": [
+      "0c957f4631794730"
+     ],
+     "fonte": {
+      "titulo": "Anexo IV da REN 956/2021, Módulo 4 do PRODIST, versão v3 da RN 1.137",
+      "url": "https://git.aneel.gov.br/publico/centralconteudo/-/raw/main/procreg/prodist/modulo04/aren20251137_Prodist_modulo_4_v3.pdf",
+      "sha256": "a0fb3b30563d4b7807ca5a5f91060b377d16410ba60c54aeca528c9853f3e3ae"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-686fb4d192b3dd50",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "divergência entre o texto publicado da RN e a versão compilada do PRODIST",
+   "duvida": "Qual redação do item 143, alínea d deve ser observada (conteúdo): a do texto publicado da RN 1.137 ou a da versão compilada do PRODIST, Módulo 4 (v3)?",
+   "leituras_possiveis": [
+    "Texto publicado da RN 1.137: “Estabelecer canais eficientes”.",
+    "Versão compilada do PRODIST, Módulo 4 (v3), página 28: “Estabelecer procedimentos e canais eficientes”."
+   ],
+   "limite": "Divergência registrada pela comparação documental; nenhuma redação foi escolhida e o plano continua citando o texto publicado da RN 1.137.",
+   "referencias": [
+    {
+     "dispositivo": "RN 1.137 — item 143, alínea d",
+     "trecho": "d) Comunicação Interna: Estabelecer canais eficientes de comunicação interna para informar e coordenar ações durante contingências;",
+     "itens": [
+      "e9ca87b9dd7c9285"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "PRODIST, Módulo 4 (v3) — item 143, página 28",
+     "trecho": "143. O plano de contingência deve observar as seguintes diretrizes: a) Monitoramento Climático e Meteorológico: Realizar monitoramento periódico das condições climáticas e meteorológicas, informando as equipes internas sobre possíveis alertas de risco; b) Gestão de Ocorrências: Implementar ações específicas conforme os níveis de contingência; c) Mobilização de Recursos: Definir procedimentos para a mobilização de equipes e recursos adicionais em diferentes níveis de contingência, garantindo a atuação mesmo em feriados e dias não úteis, de forma a assegurar a continuidade e a eficiência nas ações de resposta; d) Comunicação Interna: Estabelecer procedimentos e canais eficientes de comunicação interna para informar e coordenar ações durante contingências; e) Relatórios e Documentação: Manter registros detalhados das ações tomadas e dos resultados durante as contingências de modo a avaliar se as medidas tomadas estão aderentes ao planejado; f) Treinamentos e Simulações: Realizar treinamentos periódicos ou simulações para preparar as equipes para situações de contingência; g) Atendimento ao Consumidor: Estabelecer procedimentos para tratamento e resolução de demandas extraordinárias durante contingências; h) Coordenação com Órgãos Externos: Definir ações para comunicação e coordenação com autoridades públicas e órgãos reguladores; i) Apoio Interdepartamental: Estabelecer diretrizes para a colaboração entre diferentes departamentos e áreas da empresa durante situações de contingência; j) Formalização e Divulgação do Plano: O Plano de Contingência deve ser formalizado e documentado de maneira clara e detalhada, sendo amplamente divulgado por meio de canais internos de modo a garantir sua acessibilidade a todos os colaboradores e partes interessadas; e k) Cadeia de governança: Estabelecer comando nos níveis estratégico, tático e operacional para o gerenciamento de crises e contingências, definindo responsabilidades e fluxos de comunicação que garantam uma resposta coordenada, eficiente e segura, de forma que, em situações de crise, todos os níveis de comando estejam claramente definidos e operacionalmente disponíveis. Requisitos Mínimos",
+     "itens": [
+      "e9ca87b9dd7c9285"
+     ],
+     "fonte": {
+      "titulo": "Anexo IV da REN 956/2021, Módulo 4 do PRODIST, versão v3 da RN 1.137",
+      "url": "https://git.aneel.gov.br/publico/centralconteudo/-/raw/main/procreg/prodist/modulo04/aren20251137_Prodist_modulo_4_v3.pdf",
+      "sha256": "a0fb3b30563d4b7807ca5a5f91060b377d16410ba60c54aeca528c9853f3e3ae"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-00af78b904dda256",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "divergência entre o texto publicado da RN e a versão compilada do PRODIST",
+   "duvida": "Qual redação do item 110 deve ser observada (remissão): a do texto publicado da RN 1.137 ou a da versão compilada do PRODIST, Módulo 4 (v3)?",
+   "leituras_possiveis": [
+    "Texto publicado da RN 1.137: “de que trata o item 105”.",
+    "Versão compilada do PRODIST, Módulo 4 (v3), página 23: “de que trata o item 103”."
+   ],
+   "limite": "Divergência registrada pela comparação documental; nenhuma redação foi escolhida e o plano continua citando o texto publicado da RN 1.137.",
+   "referencias": [
+    {
+     "dispositivo": "RN 1.137 — item 110",
+     "trecho": "110. A comunicação de que trata o item 105 deve ser realizada, obrigatoriamente, por meio de SMS e aplicativos de mensagens, com envio de mensagens automáticas aos consumidores afetados.",
+     "itens": [
+      "73f0657fc5edfaa2"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "PRODIST, Módulo 4 (v3) — item 110, página 23",
+     "trecho": "110. A comunicação de que trata o item 103 deve ser realizada, obrigatoriamente, por meio de SMS e aplicativos de mensagens, com envio de mensagens automáticas aos consumidores afetados. Adicionalmente, as distribuidoras podem utilizar, de forma complementar e a seu critério, os seguintes canais: a) Aplicativos e sítio eletrônico na internet: com atualização em tempo real em plataformas digitais mantidas pela distribuidora; b) Redes Sociais: com divulgação de informações via contas oficiais da distribuidora.",
+     "itens": [
+      "73f0657fc5edfaa2"
+     ],
+     "fonte": {
+      "titulo": "Anexo IV da REN 956/2021, Módulo 4 do PRODIST, versão v3 da RN 1.137",
+      "url": "https://git.aneel.gov.br/publico/centralconteudo/-/raw/main/procreg/prodist/modulo04/aren20251137_Prodist_modulo_4_v3.pdf",
+      "sha256": "a0fb3b30563d4b7807ca5a5f91060b377d16410ba60c54aeca528c9853f3e3ae"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-ed5e0e16cd5b0fbf",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "divergência entre o texto publicado da RN e a versão compilada do PRODIST",
+   "duvida": "Qual redação do item 112 deve ser observada (remissão): a do texto publicado da RN 1.137 ou a da versão compilada do PRODIST, Módulo 4 (v3)?",
+   "leituras_possiveis": [
+    "Texto publicado da RN 1.137: “de que trata o item 105”.",
+    "Versão compilada do PRODIST, Módulo 4 (v3), página 23: “de que trata o item 103”."
+   ],
+   "limite": "Divergência registrada pela comparação documental; nenhuma redação foi escolhida e o plano continua citando o texto publicado da RN 1.137.",
+   "referencias": [
+    {
+     "dispositivo": "RN 1.137 — item 112",
+     "trecho": "112. A distribuidora deve atualizar as informações referentes à interrupção de que trata o item 105, incluindo alterações no tempo estimado de restabelecimento e outras informações relevantes para o consumidor.",
+     "itens": [
+      "d0e8213e450b813b"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "PRODIST, Módulo 4 (v3) — item 112, página 23",
+     "trecho": "112. A distribuidora deve atualizar as informações referentes à interrupção de que trata o item 103, incluindo alterações no tempo estimado de restabelecimento e outras informações relevantes para o consumidor.",
+     "itens": [
+      "d0e8213e450b813b"
+     ],
+     "fonte": {
+      "titulo": "Anexo IV da REN 956/2021, Módulo 4 do PRODIST, versão v3 da RN 1.137",
+      "url": "https://git.aneel.gov.br/publico/centralconteudo/-/raw/main/procreg/prodist/modulo04/aren20251137_Prodist_modulo_4_v3.pdf",
+      "sha256": "a0fb3b30563d4b7807ca5a5f91060b377d16410ba60c54aeca528c9853f3e3ae"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-27dd69e6f134def9",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "divergência entre o texto publicado da RN e a versão compilada do PRODIST",
+   "duvida": "Qual redação do item 119 deve ser observada (remissão): a do texto publicado da RN 1.137 ou a da versão compilada do PRODIST, Módulo 4 (v3)?",
+   "leituras_possiveis": [
+    "Texto publicado da RN 1.137: “conforme previsto no item 115”.",
+    "Versão compilada do PRODIST, Módulo 4 (v3), página 24: “conforme previsto no item 113”.",
+    "Na v3, o pedido de representantes oficiais ao Poder Público continua no item 115; a remissão ao item 113 pode estar desatualizada na versão compilada. Hipótese não conferida: o texto do item 113 da v3 não foi lido."
+   ],
+   "limite": "Divergência registrada pela comparação documental; nenhuma redação foi escolhida e o plano continua citando o texto publicado da RN 1.137.",
+   "referencias": [
+    {
+     "dispositivo": "RN 1.137 — item 119",
+     "trecho": "119. As distribuidoras devem estabelecer protocolos de alertas para notificar rapidamente o Poder Público, conforme previsto no item 115, sobre interrupções de energia e situações que demandem apoio imediato para a atuação em cenários de emergência.",
+     "itens": [
+      "c5c8ba07ebe0b203"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "PRODIST, Módulo 4 (v3) — item 119, página 24",
+     "trecho": "119. As distribuidoras devem estabelecer protocolos de alertas para notificar rapidamente o Poder Público, conforme previsto no item 113, sobre interrupções de energia e situações que demandem apoio imediato para a atuação em cenários de emergência.",
+     "itens": [
+      "c5c8ba07ebe0b203"
+     ],
+     "fonte": {
+      "titulo": "Anexo IV da REN 956/2021, Módulo 4 do PRODIST, versão v3 da RN 1.137",
+      "url": "https://git.aneel.gov.br/publico/centralconteudo/-/raw/main/procreg/prodist/modulo04/aren20251137_Prodist_modulo_4_v3.pdf",
+      "sha256": "a0fb3b30563d4b7807ca5a5f91060b377d16410ba60c54aeca528c9853f3e3ae"
      },
      "possiveis_esclarecimentos": []
     }
