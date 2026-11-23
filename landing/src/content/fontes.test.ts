@@ -16,6 +16,10 @@ test('toda citação dos dispositivos dos dois planos abre a fonte salva, com p�
     for (const o of p.obrigacoes) if (o.marco?.trecho) assert.ok(fonteDaCitacao(p.norma.sha256, o.marco.trecho))
     for (const i of Object.values(p.infracoes)) assert.ok(fonteDaCitacao(i.fonte.sha256, i.trecho))
     for (const m of [...p.reducao.medidas, ...p.reducao.regras]) assert.ok(fonteDaCitacao(m.sha256, m.trecho))
+    for (const r of p.rascunhos_aneel) for (const f of r.referencias) {
+      assert.ok(fonteDaCitacao(f.fonte.sha256, f.trecho))
+      for (const e of f.possiveis_esclarecimentos) assert.match(fonteDaCitacao(e.fonte.sha256, e.citacao)!, /faq_ren20251137\.html$/)
+    }
   }
 })
 
