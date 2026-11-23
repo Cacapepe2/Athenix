@@ -1,3 +1,4 @@
+import { LinkFonte } from '../ui/LinkFonte'
 import { useEffect, useId, useRef, useState } from 'react'
 import { X } from 'lucide-react'
 import { tabelaDeGrupos } from '../../content/executivo'
@@ -36,10 +37,10 @@ export function AjudaGrupos({ p }: { p: PlanoDados }) {
       <span className="mt-3 block divide-y divide-line">
         {t.grupos.map((g) => <span key={g.grupo} className="flex items-baseline justify-between gap-3 py-1.5" title={g.trecho ?? undefined}>
           <span>{g.rotulo}</span>
-          <span className="text-right whitespace-nowrap"><strong>{g.pct != null ? `até ${pct(g.pct)}` : 'sem teto citado'}</strong> <span className="block text-xs text-ink-soft">{g.dispositivo ?? 'dispositivo a confirmar'}</span></span>
+          <span className="text-right whitespace-nowrap"><strong>{g.pct != null ? `até ${pct(g.pct)}` : 'sem teto citado'}</strong> <span className="block text-xs text-ink-soft"><LinkFonte sha256={g.sha256} trecho={g.trecho}>{g.dispositivo ?? 'dispositivo a confirmar'}</LinkFonte></span></span>
         </span>)}
       </span>
-      {t.tetoLegal && <span className="mt-2 block text-xs text-ink-soft">Limite legal de {t.tetoLegal.pct != null ? pct(t.tetoLegal.pct) : '—'} do faturamento ({t.tetoLegal.dispositivo}).</span>}
+      {t.tetoLegal && <span className="mt-2 block text-xs text-ink-soft">Limite legal de {t.tetoLegal.pct != null ? pct(t.tetoLegal.pct) : '—'} do faturamento (<LinkFonte sha256={t.tetoLegal.sha256} trecho={t.tetoLegal.trecho}>{t.tetoLegal.dispositivo}</LinkFonte>).</span>}
     </span>}
   </span>
 }
