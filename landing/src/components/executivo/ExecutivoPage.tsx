@@ -132,7 +132,7 @@ function Executiva({ normaId, setNormaId }: { normaId: NormaId; setNormaId: (id:
     </section>
 
     <footer className="flex flex-wrap justify-between gap-3 border-t border-obsidian pt-3.5 text-[13px]">
-      <span>* preliminar · valores ilustrativos · não é parecer jurídico · dias contados até {hoje ? dataBR(hoje) : 'hoje'}</span>
+      <span>* preliminar · títulos resumidos por IA · não é parecer jurídico · dias contados até {hoje ? dataBR(hoje) : 'hoje'}</span>
       <span className="flex flex-wrap gap-3"><a href={urlRelatorio(normaId)} className="botao botao-escuro">Baixar meu relatório</a><a href={urlPlanoCompleto(normaId)} className="botao">Plano completo →</a></span>
     </footer>
   </main>

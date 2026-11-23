@@ -239,11 +239,11 @@ export function PlanoPage() {
         <Expansivel id="referencia" titulo="Referência do setor" resumo={`autos de infração publicados em distribuição (${plano.referencia_escala.autos}, amostra pequena)`}>{() => <ReferenciaSetor />}</Expansivel>
       </div>
       <div className="print:hidden"><button type="button" onClick={() => setImprimindo(true)} className="botao botao-escuro"><FileText aria-hidden="true" className="h-4 w-4" />Baixar meu relatório</button> <span className="text-sm">Página para imprimir ou salvar em PDF, com o que vocês escreveram e marcaram. Nada é enviado.</span></div>
-      <footer className="border-t border-line pt-6 text-sm text-ink-soft">{plano.aviso} Iniciativa em validação. Valores ilustrativos, que não indicam descumprimento de uma empresa real. Não constitui parecer jurídico. <a className={`ml-2 inline-flex min-h-11 items-center ${LINK} print:hidden`} href="/">Voltar à Athenix</a></footer>
+      <footer className="border-t border-line pt-6 text-sm text-ink-soft">{plano.aviso} Iniciativa em validação. Não constitui parecer jurídico. <a className={`ml-2 inline-flex min-h-11 items-center ${LINK} print:hidden`} href="/">Voltar à Athenix</a></footer>
     </main>}
     <Relatorio ativo={imprimindo} fim={fimRelatorio} diag={diag} sim={sim} modo={modo} />
     <div role="note" className="z-30 border-t md:fixed md:inset-x-0 md:bottom-0 border-line bg-obsidian/95 px-4 py-2.5 text-center text-xs leading-snug text-ivory print:hidden">
-      Iniciativa em validação · valores ilustrativos · não constitui parecer jurídico
+      Iniciativa em validação · títulos resumidos por IA · não constitui parecer jurídico
     </div>
   </Cenario.Provider></RespostasProvider>
 }
@@ -476,7 +476,7 @@ function Porte({ setSim }: { setSim: (s: Simulacao | null) => void }) {
   const campo = 'mt-1 min-h-11 w-full rounded-xl border bg-white px-3 text-base tabular-nums'
   return <div className="space-y-3">
     <fieldset id="porte">
-      <legend className="flex flex-wrap items-center gap-2 text-sm font-semibold">Porte da distribuidora (receita operacional líquida anual) <Tag kind="estimate" label="Faixa ilustrativa" /></legend>
+      <legend className="flex flex-wrap items-center gap-2 text-sm font-semibold">Porte da distribuidora (receita operacional líquida anual)</legend>
       <div className="mt-2 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
         {faixas.map((x) => <label key={x.id} className="inline-flex min-h-11 cursor-pointer flex-col items-center justify-center rounded-2xl border border-slate-blue/40 bg-white px-3 py-1 text-center text-sm leading-tight text-obsidian hover:border-slate-blue hover:bg-slate-blue/5 sm:flex-row sm:gap-1 sm:sm:px-4 has-checked:border-transparent has-checked:bg-acento-escuro has-checked:font-semibold has-checked:text-white has-checked:has-checked:hover:bg-acento-escuro has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-slate-blue">
           <input type="radio" className="sr-only" name="porte" value={x.id} checked={porte === x.id} onChange={() => { setPorte(x.id); const t = numeroBR(x.base); setRol(t); aplicar(t, fat) }} />

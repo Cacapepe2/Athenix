@@ -58,7 +58,7 @@ export function BlocosObrigacoes({ sim, modo }: { sim: Simulacao | null; modo: M
           {visiveis.map((b) => <Bloco key={`${b.norma}-${b.id}`} b={b} aberta={aberto === `${b.norma}-${b.id}`} alternar={() => setAberto(aberto === `${b.norma}-${b.id}` ? null : `${b.norma}-${b.id}`)} />)}
         </div>
         {visiveis.length === 0 && <p className="border-[length:var(--borda-forte)] border-obsidian p-6 text-[15px]">Nenhuma obrigação com esses filtros. Limpe um dos filtros à esquerda.</p>}
-        <p className="text-[13px]">* preliminar = enquadramento sugerido pela IA, aguardando revisão · “identificado no texto” = a norma nomeia a infração · valores ilustrativos · não constitui parecer jurídico.</p>
+        <p className="text-[13px]">* preliminar = enquadramento sugerido pela IA, aguardando revisão · “identificado no texto” = a norma nomeia a infração · títulos resumidos por IA · não constitui parecer jurídico.</p>
       </div>
     </div>
   </section>
