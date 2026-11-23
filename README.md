@@ -135,7 +135,7 @@ Os CSVs dos dados abertos de autos de infração ficam fora do Git e alimentam s
   fora do top 5, da exposição e da agenda principal.
 - Auditoria de 21/11/2026: C1 e A1 corrigidos no #46; A2 (relatório-piloto no CI), M1 (área de tipo
   "a revisar") e M2 (script antigo de IA sob a mesma trava de modo e custo) no #48. Abertos: M3
-  (comentários antigos) e B1 (tamanho do bundle); 2 deveres sem título curto (a tela usa o título completo).
+  (comentários antigos) e B1 (tamanho do bundle); 1 dever sem título curto, na REN 1.174 (a tela usa o título completo).
 - Duas normas no plano; 1 dever com área "A definir" (RN 1.137, item 142, alínea f: o trecho citado pela IA não
   está no dever). Outros 67, antes em "A definir", têm "área sugerida (IA)" com trecho literal conferido, a
   revisar (amostra em [docs/pitch/amostra_areas_ia.md](docs/pitch/amostra_areas_ia.md)); PostgreSQL não testado nesta conferência.
