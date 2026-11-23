@@ -51,7 +51,7 @@ def ler_pdf(raw):
             "ultima_pagina": pagina(m.start(1) + len(bloco) - 1),
             "comparavel": compacto(re.sub(r"(?m)^\s*[a-z]\)\s*", "", bloco)),
         }
-    if set(map(int, itens)) != set(range(1, len(itens) + 1)):
+    if not itens or set(map(int, itens)) != set(range(1, len(itens) + 1)):
         raise ValueError("Itens da fonte incompletos ou fora da sequência.")
     return itens
 
