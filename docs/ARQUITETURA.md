@@ -4,8 +4,7 @@ O Athenix automatiza o fluxo regulatório: da publicação da norma no Diário O
 dividido por área, com prazo, valor em risco e o que guardar como prova. Este documento mostra
 **como**: cada etapa, o módulo que a faz, como ela é testada e um exemplo real.
 
-Números e exemplos conferidos em 22/11/2026 no código da `main` em `d2b058b` (depois das correções C1
-e A1 da auditoria). Exemplos tirados de
+Números e exemplos conferidos em 22/11/2026 no código da `main` em `1edde26`. Exemplos tirados de
 `landing/src/content/plano-rn1137.json`, o plano publicado da RN ANEEL 1.137/2025.
 
 ## Fluxo
@@ -70,8 +69,9 @@ sobe o app FastAPI num banco SQLite descartável, envia o arquivo e lê as obrig
     `competencia_aneel`.
   - item 145(a): «a periodicidade máxima pode ser contada da sua última aplicação» → `faculdade`
     ("pode" singular; corrigido no #46, antes virava dever com teto de R$ 50 mi).
-  - Resultado RN 1.137: 170 dispositivos classificados → 153 deveres (64 com sujeito implícito),
-    16 outros, 1 fora do perfil. REN 1.174: 167 → 85 deveres (37 com sujeito implícito), 82 outros.
+  - Resultado RN 1.137: 170 dispositivos classificados → 147 deveres (63 com sujeito implícito),
+    22 outros, 1 fora do perfil. REN 1.174: 167 → 75 deveres (37 com sujeito implícito) e 92 outros,
+    dos quais 10 são "dever condicional: se aderir ao sandbox" (art. 11 e art. 166, § 6º, I).
 
 ### 4. Prazos (data-base, vigência, recorrência, dependência de ato da ANEEL)
 - **O que faz:** encontra o prazo no texto ("até 90 dias", "anual", "na data de publicação"), o marco
@@ -107,7 +107,7 @@ sobe o app FastAPI num banco SQLite descartável, envia o arquivo e lê as obrig
 - **Exemplo:** Art. 13, I (planos de manejo vegetal) → **Art. 12, XXVII, Grupo IV** «a ausência,
   inadequação ou descumprimento do Plano de Manejo Vegetal…», identificado no texto, com fonte
   `tests/fontes_impacto/atren2019846.pdf` (sha256 `efe4e35f…`) e `conferido_na_fonte: true`.
-  RN 1.137: 43 deveres enquadrados por regra, 110 "a confirmar" (102 com sugestão de IA marcada).
+  RN 1.137: 41 deveres enquadrados por regra, 106 "a confirmar" (98 com sugestão de IA marcada).
 
 ### 6. Valor por infração e atenuantes
 - **O que faz:** calcula o teto por infração a partir de parâmetros **extraídos da própria REN 846**
@@ -144,9 +144,9 @@ sobe o app FastAPI num banco SQLite descartável, envia o arquivo e lê as obrig
   `athenix/app.py` (API), `landing/src/content/tarefas.ts` (CSV por área e .ics),
   `landing/src/components/plano/` (site).
 - **Testes:** `tests/test_plano.py`, `tests/test_comando.py`, `tests/test_demo.py`; no site,
-  `landing/src/content/*.test.ts` (114 testes).
+  `landing/src/content/*.test.ts` (127 testes).
 - **Exemplo:** `python -m athenix processar tests/norma_poc/ren20251137.pdf --saida plano.json` → JSON
-  com 153 deveres em 8 temas; detalhes em [INVENTARIO_TECNICO.md](INVENTARIO_TECNICO.md).
+  com 147 deveres em 8 temas; detalhes em [INVENTARIO_TECNICO.md](INVENTARIO_TECNICO.md).
 
 ## Decisões de projeto
 
@@ -160,7 +160,7 @@ sobe o app FastAPI num banco SQLite descartável, envia o arquivo e lê as obrig
   arquivo com outro extrator e encontra todos os trechos. Sugestão de IA sem citação encontrada na
   fonte é descartada.
 - **Nunca somar infrações.** A REN 846 aplica a multa por infração e a ANEEL decide o enquadramento
-  no auto; somar tetos de 153 deveres produziria um número sem sentido jurídico. O valor mostrado é
+  no auto; somar tetos de 147 deveres produziria um número sem sentido jurídico. O valor mostrado é
   "até R$ X por infração", por tema.
 - **Separar dever de faculdade.** "Pode" não é "deve". Contar faculdades e competências da ANEEL
   como deveres infla a lista e a exposição. O que não é dever fica listado ("Outros dispositivos",
@@ -189,9 +189,9 @@ sobe o app FastAPI num banco SQLite descartável, envia o arquivo e lê as obrig
 - **Dados privados fora do Git:** 6 testes dependem de arquivos em `.local/` (CSV de autos, votos,
   cópia de conferência) e são pulados no CI; a referência de escala (mediana de 21 autos) não se
   reproduz só com o repositório.
-- **Áreas e recomendações são sugestões:** 77 deveres seguem com área "A definir" (34 + 43).
-- **Títulos curtos:** 5 deveres sem título curto da IA (3 entraram com a correção C1); a tela encurta
-  o título completo. Não há nova chamada de IA.
+- **Áreas e recomendações são sugestões:** 68 deveres seguem com área "A definir" (34 + 34).
+- **Títulos curtos:** 6 deveres sem título curto da IA (2 na RN 1.137, 4 na REN 1.174); a tela encurta
+  o título completo.
 - **PostgreSQL/Docker** está configurado (`compose.yaml`), mas não foi testado nesta conferência
   (máquina sem Docker); o caminho testado é SQLite.
 

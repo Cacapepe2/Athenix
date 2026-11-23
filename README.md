@@ -34,7 +34,7 @@ python -m pytest -q                                  # 2. testar    (~2 min)
 python -m athenix processar tests/norma_poc/ren20251137.pdf --saida plano.json   # 3. processar (~15 s)
 ```
 
-Saída do passo 3 (conferida em 22/11/2026 na `main` em `a7217a5`):
+Saída do passo 3 (conferida em 22/11/2026 na `main` em `1edde26`):
 
 ```text
 Athenix · processar ren20251137.pdf para distribuidora
@@ -46,8 +46,8 @@ Athenix · processar ren20251137.pdf para distribuidora
   5. Temas: 8 · plano gravado em plano.json
 ```
 
-No CI o passo 2 dá `591 passed, 6 skipped`: os 6 dependem de dados locais que não vão para o Git
-(CSV de autos, votos da ANEEL); com esses dados presentes, `597 passed`. As 19 vencidas do passo 3 são
+No CI o passo 2 dá `597 passed, 6 skipped`: os 6 dependem de dados locais que não vão para o Git
+(CSV de autos, votos da ANEEL); com esses dados presentes, `603 passed`. As 19 vencidas do passo 3 são
 8 obrigações e 11 itens de detalhe. A segunda norma:
 `python -m athenix processar tests/fontes_impacto/dou/dou_ren20261174.html --saida plano.json`.
 
@@ -69,12 +69,12 @@ alcança, sempre com citação literal conferida na fonte e marcada como "aguard
 Cada etapa, com o módulo, os testes e um exemplo real: [docs/ARQUITETURA.md](docs/ARQUITETURA.md).
 O que existe e o que funciona, com a saída dos comandos: [docs/INVENTARIO_TECNICO.md](docs/INVENTARIO_TECNICO.md).
 
-## Qualidade (números conferidos em 22/11/2026, código da `main` em `a7217a5`)
+## Qualidade (números conferidos em 22/11/2026, código da `main` em `1edde26`)
 
 | | Número | De onde vem |
 | :-- | :-- | :-- |
-| Testes automatizados | **597 em Python + 125 no site** | `python -m pytest -q`; `npm test` no CI |
-| CI | **verde em Ubuntu, Windows e macOS** | `.github/workflows/ci.yml`, execução 45090430867 |
+| Testes automatizados | **603 em Python + 127 no site** | `python -m pytest -q`; `npm test` no CI |
+| CI | **verde em Ubuntu, Windows e macOS** | `.github/workflows/ci.yml`, execução 45101442689 |
 | Trava do gabarito | **29 de 29 casos** (9 de vigência e transição da REN 1.174), citações corretas 0,9961, sem regressão | `python scripts/avaliar.py --rotulo local --comparar tests/baseline/metricas_v2.json` |
 | Citações conferidas contra o arquivo oficial, com outro extrator | **536 de 536** (RN 1.137: 228; REN 1.174: 308) | `python scripts/demo/conferir_citacoes.py` |
 | Segunda leitura independente da REN 846 (outro modelo) | **108 de 108 infrações no mesmo grupo** (catálogo: 109) | `python scripts/demo/conferir_segunda_leitura.py` |
@@ -138,9 +138,8 @@ Os CSVs dos dados abertos de autos de infração ficam fora do Git e alimentam s
   (comentários antigos) e B1 (tamanho do bundle); 6 deveres sem título curto (a tela usa o título completo).
 - Duas normas no plano; 68 deveres com área "A definir" (34 + 34: tipo "a revisar" sem área sugerida pela
   IA não herda mais a área do tipo da regra); PostgreSQL não testado nesta conferência.
-- Produção: a executiva emite o erro 418 do React (hidratação) à noite em São Paulo, e o plano completo emite o mesmo
-  erro em qualquer dia depois do build. As páginas funcionam porque o React refaz a renderização no navegador.
-  Correção no #54 (draft, aguarda autorização).
+- Datas no site: "hoje" é o dia em São Paulo; na executiva os prazos aparecem só no navegador e o plano completo
+  só hidrata no mesmo dia do build (correção do erro 418 do React no #54).
 
 **Roteiro:**
 1. Monitoramento automático do DOU (desenho em [docs/INLABS.md](docs/INLABS.md)).
