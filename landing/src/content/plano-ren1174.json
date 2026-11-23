@@ -1,6 +1,6 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "97a98cb",
+ "commit_origem": "e85d0a6",
  "gerado_em": "2026-11-22",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
@@ -10800,5 +10800,1852 @@
   "com_possivel_esclarecimento": 0,
   "aviso": "Possível esclarecimento encontrado nos documentos oficiais salvos: continua a confirmar; só uma entrada confirmada em athenix/data/esclarecimentos_oficiais.json muda o cálculo.",
   "casos": []
- }
+ },
+ "rascunhos_aneel": [
+  {
+   "id": "aneel-236d3b8e7e9f9ade",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 11, II (Grupo III); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "Art. 7º, § 3º",
+     "trecho": "§ 3º A distribuidora deve ressarcir ao consumidor a penalidade paga decorrente de erro de medição, apurado por meio de processo de recontabilização, acrescido de correção monetária e juros, mediante a apresentação de requerimento específico e de documentação comprobatória do recolhimento do valor junto à CCEE.",
+     "itens": [
+      "34af6f68128e5133"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-a7787fe594a16542",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "sujeito incerto",
+   "duvida": "A responsabilidade pelo dever descrito deve ser atribuída à distribuidora, embora o sujeito não esteja expresso?",
+   "leituras_possiveis": [
+    "Hipótese usada no plano: dever da distribuidora, por ser norma dirigida às distribuidoras.",
+    "O dispositivo não nomeia o sujeito; a atribuição permanece sem confirmação até esclarecimento."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "Art. 142, inciso IV, alínea a",
+     "trecho": "a) nenhuma cobrança deve ser realizada no caso de migração na modalidade regular; e",
+     "itens": [
+      "93230d4b3dad607f"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 142, inciso IV, alínea b",
+     "trecho": "b) em caso de migração na modalidade antecipada, o valor correspondente ao faturamento dos meses que faltam para o prazo regular de migração deve ser calculado considerando a média dos 12 últimos consumos de energia elétrica disponíveis anteriores ao encerramento e a tarifa de energia e a bandeira tarifária vigentes por ocasião da migração. .........................................................................\"",
+     "itens": [
+      "0b3bd6ad5b32c8bd"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 159-B, § 1º",
+     "trecho": "§ 1º A comunicação prevista neste artigo deve ser realizada de forma permanente na página da CCEE na internet e, de forma adicional, nas redes sociais e demais canais de relacionamento, inclusive por meio de vídeos e outras formas de divulgação de caráter educativo.",
+     "itens": [
+      "d0344387a3350022"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 166, inciso I",
+     "trecho": "I - comunicar formalmente à distribuidora a sua opção, por meio dos canais de atendimento disponibilizados, inclusive da interface padronizada do § 1º; ou",
+     "itens": [
+      "f0cd208483b0ece3"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 166, inciso II",
+     "trecho": "II - celebrar o Contrato para Comercialização Varejista (CCV) com o agente varejista, que deve solicitar a habilitação por meio do sistema da CCEE para que a distribuidora seja notificada, desde que se enquadre no procedimento de migração no modelo simplificado previsto no Submódulo 1.8 dos Procedimentos de Comercialização.",
+     "itens": [
+      "7df077bdc114900b"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 166, § 7º, inciso I",
+     "trecho": "I - a cobrança pelo encerramento antecipado do CCER deve ser feita exclusivamente nos casos em que o mês da efetiva migração for inferior ao mês em que a migração se daria pelos prazos regulares do § 5º; e",
+     "itens": [
+      "a18cdd2d9ab0da66"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 166-A, § 3º, inciso I",
+     "trecho": "I - descritivo detalhado e justificativas das inviabilidades técnicas; e",
+     "itens": [
+      "8ceadb0f8fb6a1b2"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 166-A, § 3º, inciso II",
+     "trecho": "II - indicação das providências de adaptação, regularização ou substituição nas instalações de entrada de energia da unidade consumidora para migração ao ACL, observado o art. 42; e",
+     "itens": [
+      "c0a868f1dc449059"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 167-C",
+     "trecho": "\"Art. 167-C. Caso o processo de migração do consumidor potencialmente livre para o ACL não se conclua por motivo atribuível à distribuidora, após o término do período previsto para migração a distribuidora não poderá faturar o consumo de energia elétrica previsto no art. 293 pelos ciclos de faturamento em que o atraso persistir até a efetiva migração.",
+     "itens": [
+      "8a0223ac7c168448"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 9º-A, inciso I",
+     "trecho": "I - o agente de comercialização e o agente de distribuição são pessoas jurídicas distintas;",
+     "itens": [
+      "f958a912777a3264"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 9º-A, inciso II",
+     "trecho": "II - os preços praticados pelo agente de comercialização não são tarifas reguladas pela ANEEL;",
+     "itens": [
+      "f4d8768ac72bd7d3"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 9º-A, inciso III",
+     "trecho": "III - o consumidor não é obrigado a comprar energia do agente de comercialização pertencente ao mesmo grupo econômico do agente de distribuição para continuar recebendo os mesmos serviços de rede do agente de distribuição; e",
+     "itens": [
+      "dff8615bdeeaf106"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 9º-A, inciso IV",
+     "trecho": "IV - o consumidor é livre para escolher e contratar qualquer outro agente de comercialização concorrente no mercado.",
+     "itens": [
+      "17328d915cd7dc29"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 9º-A, § 1º",
+     "trecho": "§ 1º No caso de reprodução ou imitação da marca ou logotipo do agente de distribuição, no todo ou em parte, o agente de comercialização de que trata o caput deverá indicar o segmento de atuação que deve ser indicado pela inclusão visível do termo relativo à atividade de comercialização.",
+     "itens": [
+      "58ea67abc3ec2971"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 13, § 3º",
+     "trecho": "§ 3º No caso de período do CCER ser maior que 12 meses, deve ser permitida a revisão dos valores mensais de energia elétrica contratada a cada período de 12 meses, observadas as Regras e Procedimentos de Comercialização aplicáveis ao registro desses valores.",
+     "itens": [
+      "de259c2eb695201e"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 138, § 9º, inciso I",
+     "trecho": "I - deve garantir a mesma titularidade no CUSD e nos contratos no ACL; e",
+     "itens": [
+      "dc7870cacd7cc071"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 159, Parágrafo único",
+     "trecho": "Parágrafo único. Os contratos no ACL devem ter a mesma titularidade do CUSD para a mesma unidade consumidora, contemplando, quando aplicável, a matriz e/ou filial.\" (NR)",
+     "itens": [
+      "63056f8a9e6c93f5"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 160, § 4º, inciso I",
+     "trecho": "I - com opção de faturamento pelo grupo B, que previamente à formalização da opção de migração para o ACL deve retornar ao faturamento com aplicação de tarifa do grupo A e contratação de demanda; e",
+     "itens": [
+      "1cc27f2c34dd3d5f"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 160, § 4º, inciso II",
+     "trecho": "II - do grupo B, atendido por sistema subterrâneo de distribuição e que tenha o direito de optar pela mudança para o subgrupo AS do grupo A, que previamente à formalização da opção de migração para o ACL deve alterar para o subgrupo AS.\" .........................................................................",
+     "itens": [
+      "8174eb909c2b034a"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 163",
+     "trecho": "\"Art. 163. O montante de energia elétrica contratado por meio do CCER para consumidor potencialmente livre deve ser definido conforme o montante de energia elétrica medido.\" (NR)",
+     "itens": [
+      "6ac8b71ebc7d780e"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 168, inciso I",
+     "trecho": "I - a distribuidora, em substituição à suspensão do fornecimento, fica autorizada a efetuar o faturamento e a cobrança mensal de energia elétrica para ressarcimento das repercussões financeiras incorridas; .........................................................................",
+     "itens": [
+      "256d3b52eb869bf7"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 168, inciso III",
+     "trecho": "III - o pagamento do valor do inciso II é devido enquanto presentes as condições de aplicação dispostas no caput, observado o inciso VI; .........................................................................",
+     "itens": [
+      "feb344531c216efe"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 168, inciso VII",
+     "trecho": "VII - enquanto ocorrer o faturamento deste artigo a unidade consumidora não participa do SCEE; e",
+     "itens": [
+      "e7bbeed0a84f40bd"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "§ 2º",
+     "trecho": "§ 2º A adoção de uma das opções do caput deve ser comprovadamente e previamente autorizada, mediante manifestação voluntária do consumidor.",
+     "itens": [
+      "542b07c93c1a9898"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "§ 3º",
+     "trecho": "§ 3º As opções previstas no caput devem ser disponibilizadas gratuitamente ao consumidor, não podendo representar custo adicional no faturamento.",
+     "itens": [
+      "4a15738dfbb6bcee"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "§ 5º",
+     "trecho": "§ 5º É vedada a cobrança entre a distribuidora e o comercializador de energia para operacionalização do oferecimento das opções de que trata o § 1º .",
+     "itens": [
+      "33b4a458e340917c"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "§ 6º",
+     "trecho": "§ 6º O oferecimento das opções de que trata o caput é opcional e, se realizado, deve ser feito com isonomia da distribuidora para todos os comercializadores e do comercializador para todas as distribuidoras.\"",
+     "itens": [
+      "92f995ec346e17a6"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 629, § 9º",
+     "trecho": "§ 9º A atividade de arrecadação de fatura de comercializador de energia na fatura de consumidor livre ou especial, caso seja oferecida, não pode ser cobrada e deve ser realizada para todos os comercializadores.\"",
+     "itens": [
+      "d82397fc3b81b89e"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 655-Y",
+     "trecho": "\"Art. 655-Y. No caso de interesse de migração ao ACL de unidade consumidora com microgeração ou minigeração distribuída devem ser observadas as seguintes disposições:",
+     "itens": [
+      "efb86cc4a7e1b3ee"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "inciso III, alínea e",
+     "trecho": "e) entregar ao interessado os aditivos contratuais e demais documentos que devem ser celebrados e, caso necessário, os que devem ser rescindidos.",
+     "itens": [
+      "60efb422a7e8e6be"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 21-A",
+     "trecho": "Art. 21-A. As controvérsias decorrentes da comercialização varejista deverão ser inicialmente submetidas ao representante da comercialização varejista.",
+     "itens": [
+      "5601d7cf3867bf32"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 21-B, § 1º",
+     "trecho": "§ 1º A resposta às reclamações deve ser apresentada em até 5 (cinco) dias úteis e indicar os fundamentos da decisão adotada.",
+     "itens": [
+      "48facbbb1cb1cce4"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 13, inciso II",
+     "trecho": "II - o CCER não poderá ter acréscimo do montante de energia elétrica;",
+     "itens": [
+      "3c31e7c6948c4d3e"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 13, § 4º",
+     "trecho": "§ 4º A modulação da energia elétrica associada ao CCER deve ser realizada segundo o perfil de carga da unidade consumidora, observadas as Regras e Procedimentos de Comercialização aplicáveis ao registro desses valores.",
+     "itens": [
+      "e9484bb6aff3edc1"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 13, § 5º",
+     "trecho": "§ 5º O critério de faturamento do CCER celebrado com consumidor parcialmente livre deve ser a energia medida da unidade consumidora, limitada ao montante de energia elétrica contratada.",
+     "itens": [
+      "18bb6a68bf909f20"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 13, § 7º",
+     "trecho": "§ 7º Os montantes de energia elétrica contratada nos termos do CCER, observados os valores de energia medida, deverão ser registrados na CCEE conforme Procedimentos de Comercialização, sendo esses montantes tratados como carga da distribuidora para fins de contabilização das operações de compra e venda de energia elétrica realizadas no mercado de curto prazo.",
+     "itens": [
+      "26c6fa3441f9a408"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 14, § 1º, inciso I",
+     "trecho": "I - o benefício tarifário do art. 186 da Resolução Normativa nº 1.000, de 2021, será mantido até a data de retorno celebrada no CCER, observado o inciso II;",
+     "itens": [
+      "ed224db7755f6815"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-75c21cf4618fa8b5",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 12, XIV (Grupo IV); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "Art. 142, inciso IV, alínea a",
+     "trecho": "a) nenhuma cobrança deve ser realizada no caso de migração na modalidade regular; e",
+     "itens": [
+      "93230d4b3dad607f"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 166, § 7º, inciso I",
+     "trecho": "I - a cobrança pelo encerramento antecipado do CCER deve ser feita exclusivamente nos casos em que o mês da efetiva migração for inferior ao mês em que a migração se daria pelos prazos regulares do § 5º; e",
+     "itens": [
+      "a18cdd2d9ab0da66"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "§ 3º",
+     "trecho": "§ 3º As opções previstas no caput devem ser disponibilizadas gratuitamente ao consumidor, não podendo representar custo adicional no faturamento.",
+     "itens": [
+      "4a15738dfbb6bcee"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 629, § 9º",
+     "trecho": "§ 9º A atividade de arrecadação de fatura de comercializador de energia na fatura de consumidor livre ou especial, caso seja oferecida, não pode ser cobrada e deve ser realizada para todos os comercializadores.\"",
+     "itens": [
+      "d82397fc3b81b89e"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-1fb01d0146fef899",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 10, XVIII (Grupo II); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "Art. 142, inciso IV, alínea b",
+     "trecho": "b) em caso de migração na modalidade antecipada, o valor correspondente ao faturamento dos meses que faltam para o prazo regular de migração deve ser calculado considerando a média dos 12 últimos consumos de energia elétrica disponíveis anteriores ao encerramento e a tarifa de energia e a bandeira tarifária vigentes por ocasião da migração. .........................................................................\"",
+     "itens": [
+      "0b3bd6ad5b32c8bd"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 166, § 7º, inciso II",
+     "trecho": "II - a cobrança do inciso I deve ser realizada na fatura emitida pela distribuidora, no prazo de até 90 dias da efetiva migração, considerando exclusivamente o número de meses antecipados e o disposto no inciso IV do art. 142.",
+     "itens": [
+      "096251809e2f4fba"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 167-B, inciso II",
+     "trecho": "II - faturar o consumidor conforme as disposições aplicáveis do art. 168; e",
+     "itens": [
+      "25765596a71be59c"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 167-C",
+     "trecho": "\"Art. 167-C. Caso o processo de migração do consumidor potencialmente livre para o ACL não se conclua por motivo atribuível à distribuidora, após o término do período previsto para migração a distribuidora não poderá faturar o consumo de energia elétrica previsto no art. 293 pelos ciclos de faturamento em que o atraso persistir até a efetiva migração.",
+     "itens": [
+      "8a0223ac7c168448"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 160, § 4º, inciso I",
+     "trecho": "I - com opção de faturamento pelo grupo B, que previamente à formalização da opção de migração para o ACL deve retornar ao faturamento com aplicação de tarifa do grupo A e contratação de demanda; e",
+     "itens": [
+      "1cc27f2c34dd3d5f"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 168, inciso I",
+     "trecho": "I - a distribuidora, em substituição à suspensão do fornecimento, fica autorizada a efetuar o faturamento e a cobrança mensal de energia elétrica para ressarcimento das repercussões financeiras incorridas; .........................................................................",
+     "itens": [
+      "256d3b52eb869bf7"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 168, inciso III",
+     "trecho": "III - o pagamento do valor do inciso II é devido enquanto presentes as condições de aplicação dispostas no caput, observado o inciso VI; .........................................................................",
+     "itens": [
+      "feb344531c216efe"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 294, § 4º",
+     "trecho": "§ 4º Além da parcela relacionada ao faturamento da demanda, a distribuidora deve faturar o uso do sistema de distribuição para o consumidor que celebre o CUSD multiplicando a TUSD fixada em Reais por megawatt-hora (R$/MWh) sobre o montante total de energia elétrica ativa medida, observando, caso aplicável, os postos tarifários.\"",
+     "itens": [
+      "f77d812ee26acece"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 476, § 5º",
+     "trecho": "§ 5º No caso de unidade consumidora livre ou especial, a distribuidora deve continuar a cobrança disposta no caput na fatura que emitir para o consumidor.\"",
+     "itens": [
+      "b485e47182de1500"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 627-A, § 11",
+     "trecho": "§ 11. No caso de unidade consumidora livre ou especial, a distribuidora deve continuar a arrecadação disposta no caput na fatura que emitir para o consumidor.\"",
+     "itens": [
+      "0ef7999640c79216"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 13, § 5º",
+     "trecho": "§ 5º O critério de faturamento do CCER celebrado com consumidor parcialmente livre deve ser a energia medida da unidade consumidora, limitada ao montante de energia elétrica contratada.",
+     "itens": [
+      "18bb6a68bf909f20"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 14, § 4º",
+     "trecho": "§ 4º A distribuidora não deve alterar o faturamento realizado até a manifestação do consumidor ou até o prazo disposto no caput para manifestação, o que ocorrer primeiro.",
+     "itens": [
+      "86b151000f2548bd"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-8c750be144eb4c65",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 9º, XIII (Grupo I); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "Art. 159-B, § 1º",
+     "trecho": "§ 1º A comunicação prevista neste artigo deve ser realizada de forma permanente na página da CCEE na internet e, de forma adicional, nas redes sociais e demais canais de relacionamento, inclusive por meio de vídeos e outras formas de divulgação de caráter educativo.",
+     "itens": [
+      "d0344387a3350022"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 166, inciso I",
+     "trecho": "I - comunicar formalmente à distribuidora a sua opção, por meio dos canais de atendimento disponibilizados, inclusive da interface padronizada do § 1º; ou",
+     "itens": [
+      "f0cd208483b0ece3"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 166, § 1º",
+     "trecho": "§ 1º A distribuidora deve disponibilizar no espaço reservado para atendimento na internet, conforme instruções da ANEEL, interface padronizada para o consumidor exercer a opção prevista no inciso I do caput.",
+     "itens": [
+      "f4bb99990831d27a"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-89a94de915f039ab",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 11, XIX (Grupo III); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "Art. 166, inciso II",
+     "trecho": "II - celebrar o Contrato para Comercialização Varejista (CCV) com o agente varejista, que deve solicitar a habilitação por meio do sistema da CCEE para que a distribuidora seja notificada, desde que se enquadre no procedimento de migração no modelo simplificado previsto no Submódulo 1.8 dos Procedimentos de Comercialização.",
+     "itens": [
+      "7df077bdc114900b"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 159, Parágrafo único",
+     "trecho": "Parágrafo único. Os contratos no ACL devem ter a mesma titularidade do CUSD para a mesma unidade consumidora, contemplando, quando aplicável, a matriz e/ou filial.\" (NR)",
+     "itens": [
+      "63056f8a9e6c93f5"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 163",
+     "trecho": "\"Art. 163. O montante de energia elétrica contratado por meio do CCER para consumidor potencialmente livre deve ser definido conforme o montante de energia elétrica medido.\" (NR)",
+     "itens": [
+      "6ac8b71ebc7d780e"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "§ 2º",
+     "trecho": "§ 2º A adoção de uma das opções do caput deve ser comprovadamente e previamente autorizada, mediante manifestação voluntária do consumidor.",
+     "itens": [
+      "542b07c93c1a9898"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 655-Y",
+     "trecho": "\"Art. 655-Y. No caso de interesse de migração ao ACL de unidade consumidora com microgeração ou minigeração distribuída devem ser observadas as seguintes disposições:",
+     "itens": [
+      "efb86cc4a7e1b3ee"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 13, § 1º",
+     "trecho": "§ 1º O CCER celebrado entre o consumidor parcialmente livre e a distribuidora deve dispor sobre o montante de energia elétrica contratado, discriminado em períodos mensais para todo o período do contrato.",
+     "itens": [
+      "6e56e83f4405c837"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-7bc69fc4bcb43930",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 9º, III (Grupo I); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "Art. 166, § 3º",
+     "trecho": "§ 3º A distribuidora deve fornecer protocolo quando receber a comunicação da opção do consumidor de que trata o caput.",
+     "itens": [
+      "8ca5f1def5e87ce5"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 166-A, § 3º, inciso I",
+     "trecho": "I - descritivo detalhado e justificativas das inviabilidades técnicas; e",
+     "itens": [
+      "8ceadb0f8fb6a1b2"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 166-A, § 3º, inciso II",
+     "trecho": "II - indicação das providências de adaptação, regularização ou substituição nas instalações de entrada de energia da unidade consumidora para migração ao ACL, observado o art. 42; e",
+     "itens": [
+      "c0a868f1dc449059"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 167-B, inciso I",
+     "trecho": "I - notificar o consumidor sobre o atraso e a possibilidade de encerramento do processo de migração a partir do término do prazo do inciso III, podendo a notificação ser impressa em destaque na própria fatura, observado o § 3º do art. 360;",
+     "itens": [
+      "710f9b643c7508e6"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 167-C, § 2º, inciso I",
+     "trecho": "I - em caso de aprovação da migração pela distribuidora, conforme art. 166-A: o prazo de migração informado pela distribuidora; ou",
+     "itens": [
+      "32bb87c4bbe606c4"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 170, § 4º, inciso II",
+     "trecho": "II - caso contrário: proceder a análise da redução do prazo e encaminhar ao consumidor o CCER com a data solicitada ou com a data possível ou, observado o art. 416, informar o indeferimento.",
+     "itens": [
+      "a93cae63c466b658"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 9º-A, inciso I",
+     "trecho": "I - o agente de comercialização e o agente de distribuição são pessoas jurídicas distintas;",
+     "itens": [
+      "f958a912777a3264"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 9º-A, inciso III",
+     "trecho": "III - o consumidor não é obrigado a comprar energia do agente de comercialização pertencente ao mesmo grupo econômico do agente de distribuição para continuar recebendo os mesmos serviços de rede do agente de distribuição; e",
+     "itens": [
+      "dff8615bdeeaf106"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 9º-A, inciso IV",
+     "trecho": "IV - o consumidor é livre para escolher e contratar qualquer outro agente de comercialização concorrente no mercado.",
+     "itens": [
+      "17328d915cd7dc29"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 3º-A",
+     "trecho": "\"Art. 3º-A. As distribuidoras e comercializadoras de energia elétrica, inclusive outros agentes que atuem no varejo, que fazem parte do mesmo grupo econômico devem assegurar clareza e distinção em suas comunicações, sendo vedados quaisquer tipos de ambiguidade na apresentação de informações, tais como propostas comerciais, institucionais, folders, materiais de marketing e páginas na internet, em toda e qualquer plataforma, em especial sítios e mídias sociais.",
+     "itens": [
+      "1829ab6332d473ce"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 333, § 4º",
+     "trecho": "§ 4º No caso de entrega de forma digital, a distribuidora deve enviar adicionalmente ao consumidor e demais usuários o arquivo da nota fiscal de energia elétrica eletrônica.\"",
+     "itens": [
+      "f2d3efb9e62de56b"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 42, § 4º",
+     "trecho": "§ 4º Eventual inviabilidade técnica para fins de migração ao ACL que exija a adaptação, regularização ou substituição das instalações de entrada de energia deve ser devidamente informada pela distribuidora, por escrito, por meio de relatório técnico da visita técnica, conforme disposto no art. 166-A.\"",
+     "itens": [
+      "2ddcf318e58a47bf"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-e191f97697a6d3ac",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 11, XIV (Grupo III); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "Art. 166, § 10",
+     "trecho": "§ 10. A contagem do prazo de migração deve ser realizada de forma contínua, a partir do recebimento pela distribuidora da comunicação da opção de que trata o caput, somente se suspendendo em caso de previsão expressa nesta Resolução.",
+     "itens": [
+      "b3e3b3d8c696f470"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 9º-A, inciso II",
+     "trecho": "II - os preços praticados pelo agente de comercialização não são tarifas reguladas pela ANEEL;",
+     "itens": [
+      "f4d8768ac72bd7d3"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 172-C",
+     "trecho": "Art. 172-C. A distribuidora deverá identificar de forma nítida e inequívoca seu segmento de atuação com a inclusão visível do termo relativo à atividade de distribuição na apresentação de informações, tais como propostas comerciais, institucionais, folders, materiais de marketing, marcas, logotipos e páginas na internet, em toda e qualquer plataforma, em especial sítios e mídias sociais.\" (NR)",
+     "itens": [
+      "17605232023781dd"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 14, § 1º, inciso II",
+     "trecho": "II - caso a distribuidora reduza o prazo de retorno ao ACR em relação ao prazo de 5 anos disposto no art. 170 da Resolução Normativa nº 1.000, de 2021, a aplicação do benefício tarifário deve ser realizada até o maior prazo entre o prazo de doze meses da publicação desta Resolução e o prazo reduzido informado pela distribuidora, ainda que o CCER celebrado possua prazo de retorno posterior; e",
+     "itens": [
+      "59c5496d841c8794"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 14, § 1º, inciso I",
+     "trecho": "I - o benefício tarifário do art. 186 da Resolução Normativa nº 1.000, de 2021, será mantido até a data de retorno celebrada no CCER, observado o inciso II;",
+     "itens": [
+      "ed224db7755f6815"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 14, § 1º, inciso III",
+     "trecho": "III - em caso de recebimento dos benefícios tarifários dos arts. 186 e 195 da Resolução Normativa nº 1.000, de 2021, a distribuidora deve, a partir da manifestação formal ou após o prazo disposto no caput para manifestação, o que ocorrer primeiro, aplicar exclusivamente o benefício tarifário do art. 186, exceto em caso de opção formal do consumidor em sua manifestação pelo recebimento exclusivo do benefício do art. 195 até o efetivo retorno.",
+     "itens": [
+      "f1b6ba520d519463"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-8bdebf62ac3f534c",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "Art. 166-A, § 4º",
+     "trecho": "§ 4º Indeferida a migração, a solicitação feita pelo consumidor conforme art. 166 será encerrada pela distribuidora, não ocorrendo o encerramento do CCER.",
+     "itens": [
+      "a0b9d489bb8af5f3"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 167-A, Parágrafo único",
+     "trecho": "Parágrafo único. Em caso de desistência da migração o CCER será mantido, devendo a distribuidora efetuar a cobrança no faturamento, na forma prevista no art. 325, dos seguintes custos, desde que relacionados ao processo de migração:",
+     "itens": [
+      "f0fd6378ea9db150"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 170, § 5º",
+     "trecho": "§ 5º A efetivação para retorno ao ACR somente será realizada pela distribuidora após notificação pela CCEE, sendo vedado à distribuidora efetivar o retorno de um consumidor cuja solicitação tenha ocorrido exclusivamente à distribuidora, exceto quando o consumidor esteja no modelo simplificado para comercialização varejista previsto no Submódulo 1.8 dos Procedimentos de Comercialização.",
+     "itens": [
+      "16f2c52f324abe9d"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 42, § 2º, inciso I",
+     "trecho": "I - o sistema de medição e comunicação instalados permitirem a coleta e o envio dos dados de consumo à Câmara de Comercialização de Energia Elétrica - CCEE na forma e periodicidade previstas nos Procedimentos de Comercialização da CCEE; ou",
+     "itens": [
+      "10e369b8c79f3c68"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 42, § 2º, inciso II",
+     "trecho": "II - for possível a substituição do sistema de medição e comunicação sem a necessidade de alteração nas instalações do consumidor.",
+     "itens": [
+      "0ebf1f2b460f7298"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 168, inciso VII",
+     "trecho": "VII - enquanto ocorrer o faturamento deste artigo a unidade consumidora não participa do SCEE; e",
+     "itens": [
+      "e7bbeed0a84f40bd"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-4040c02fec7966ea",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 11, XI (Grupo III); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "Art. 167-B, inciso III",
+     "trecho": "III - decorridos dois ciclos de faturamento conforme art. 168, considerar a desistência tácita do consumidor do processo de migração, aplicar o art. 167-A e finalizar o processo.\"",
+     "itens": [
+      "fd91bb7aa7e0a252"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 13, § 3º",
+     "trecho": "§ 3º No caso de período do CCER ser maior que 12 meses, deve ser permitida a revisão dos valores mensais de energia elétrica contratada a cada período de 12 meses, observadas as Regras e Procedimentos de Comercialização aplicáveis ao registro desses valores.",
+     "itens": [
+      "de259c2eb695201e"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 138, § 10",
+     "trecho": "§ 10. No caso de alteração de titularidade de unidade consumidora em processo de migração para o ACL, a distribuidora deve comunicar a CCEE.\"",
+     "itens": [
+      "144816bda2da3a17"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 19, § 9º",
+     "trecho": "§ 9º O atendimento de consumidor pela distribuidora local deve ser formalmente comunicado por ela à CCEE, sem prejuízo das obrigações atinentes ao agente representante.\" (NR)",
+     "itens": [
+      "de74db97765787be"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 21-A",
+     "trecho": "Art. 21-A. As controvérsias decorrentes da comercialização varejista deverão ser inicialmente submetidas ao representante da comercialização varejista.",
+     "itens": [
+      "5601d7cf3867bf32"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 13, § 4º",
+     "trecho": "§ 4º A modulação da energia elétrica associada ao CCER deve ser realizada segundo o perfil de carga da unidade consumidora, observadas as Regras e Procedimentos de Comercialização aplicáveis ao registro desses valores.",
+     "itens": [
+      "e9484bb6aff3edc1"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 13, § 7º",
+     "trecho": "§ 7º Os montantes de energia elétrica contratada nos termos do CCER, observados os valores de energia medida, deverão ser registrados na CCEE conforme Procedimentos de Comercialização, sendo esses montantes tratados como carga da distribuidora para fins de contabilização das operações de compra e venda de energia elétrica realizadas no mercado de curto prazo.",
+     "itens": [
+      "26c6fa3441f9a408"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-8ba7c910ac2515b1",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 12, III (Grupo IV); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "Art. 170, § 4º, inciso I",
+     "trecho": "I - no caso de antecedência mínima de 5 anos: encaminhar ao consumidor o CCER; ou",
+     "itens": [
+      "0d4598afde5c12e3"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-de706f13c2c2a2e5",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 9º, XVI (Grupo I); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "Art. 9º-A, § 1º",
+     "trecho": "§ 1º No caso de reprodução ou imitação da marca ou logotipo do agente de distribuição, no todo ou em parte, o agente de comercialização de que trata o caput deverá indicar o segmento de atuação que deve ser indicado pela inclusão visível do termo relativo à atividade de comercialização.",
+     "itens": [
+      "58ea67abc3ec2971"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-ec7cb1935eec4127",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 10, XX (Grupo II); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "Art. 42, § 3º",
+     "trecho": "§ 3º Eventual descumprimento das normas e padrões vigentes à época da primeira conexão ou deficiência técnica ou de segurança não emergencial deve ser notificado pela distribuidora na forma do art. 43, não sendo impeditivo ou condicionante para o processo de migração ao ACL, que não deve ser interrompido pela distribuidora, observado o § 2º.",
+     "itens": [
+      "62b27f9320f5f56e"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 96-A, § 1º",
+     "trecho": "§ 1º A distribuidora deve observar os prazos dispostos no art. 166-A e no Submódulo 1.8 dos Procedimentos de Comercialização. .........................................................................\"(NR)",
+     "itens": [
+      "6a16e3400ab43199"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 4º",
+     "trecho": "\"Art. 4º O concessionário, permissionário ou autorizado de energia elétrica deverá enviar à Superintendência de Fiscalização Econômica, Financeira e de Mercado - SFF, da ANEEL, na concretização da operação de transferência acionária e periodicamente, no último dia de cada trimestre civil, informação atualizada relativa à respectiva composição societária; identificado o grupo de controle e explicitando todas as participações societárias diretas e indiretas dos respectivos controladores. .........................................................................\" (NR)",
+     "itens": [
+      "728895c11bbe26d8"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-148f27571fe89722",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 9º, IV (Grupo I); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "Art. 138, § 9º, inciso I",
+     "trecho": "I - deve garantir a mesma titularidade no CUSD e nos contratos no ACL; e",
+     "itens": [
+      "dc7870cacd7cc071"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Parágrafo único",
+     "trecho": "Parágrafo único. No caso de unidade consumidora de cooperativa de eletrificação rural regularizada como autorizada para exploração das instalações de energia elétrica destinadas ao uso privativo de seus associados e que possua microgeração ou minigeração distribuída, a distribuidora deve realizar o enquadramento simultâneo como unidade consumidora para fins de consumo e como central geradora com capacidade instalada reduzida para fins de injeção, observadas as disposições aplicáveis previstas neste artigo e nesta Resolução.\" (NR)",
+     "itens": [
+      "5956d4aacad71adf"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-5631136c41971245",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 10, I (Grupo II); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "Art. 138, § 9º, inciso II",
+     "trecho": "II - será registrada e processada pela distribuidora após a notificação pela CCEE ou apresentação dos contratos no ACL, observado o § 1º, devendo ser indeferida caso solicitada sem observância desse procedimento.",
+     "itens": [
+      "22a9bd5d3590bfe1"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-a2a3d40f091e3645",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 10, XVII (Grupo II); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "Art. 160, § 4º, inciso II",
+     "trecho": "II - do grupo B, atendido por sistema subterrâneo de distribuição e que tenha o direito de optar pela mudança para o subgrupo AS do grupo A, que previamente à formalização da opção de migração para o ACL deve alterar para o subgrupo AS.\" .........................................................................",
+     "itens": [
+      "8174eb909c2b034a"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-b02d94f85f9ed8e9",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "artigo inferido pela posição",
+   "duvida": "A qual artigo pertence este trecho de alteração e qual marco de aplicação deve ser observado?",
+   "leituras_possiveis": [
+    "Hipótese registrada: artigo da REN 1.000 inferido pela posição no texto (342-A); a confirmar.",
+    "Marco usado no plano: Art. 18, III, data 2026-11-04."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "§ 2º",
+     "trecho": "§ 2º A adoção de uma das opções do caput deve ser comprovadamente e previamente autorizada, mediante manifestação voluntária do consumidor.",
+     "itens": [
+      "542b07c93c1a9898"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "§ 3º",
+     "trecho": "§ 3º As opções previstas no caput devem ser disponibilizadas gratuitamente ao consumidor, não podendo representar custo adicional no faturamento.",
+     "itens": [
+      "4a15738dfbb6bcee"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "§ 5º",
+     "trecho": "§ 5º É vedada a cobrança entre a distribuidora e o comercializador de energia para operacionalização do oferecimento das opções de que trata o § 1º .",
+     "itens": [
+      "33b4a458e340917c"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "§ 6º",
+     "trecho": "§ 6º O oferecimento das opções de que trata o caput é opcional e, se realizado, deve ser feito com isonomia da distribuidora para todos os comercializadores e do comercializador para todas as distribuidoras.\"",
+     "itens": [
+      "92f995ec346e17a6"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-a3c3d86751b3ea0d",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 11, XVIII (Grupo III); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "§ 5º",
+     "trecho": "§ 5º É vedada a cobrança entre a distribuidora e o comercializador de energia para operacionalização do oferecimento das opções de que trata o § 1º .",
+     "itens": [
+      "33b4a458e340917c"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "§ 6º",
+     "trecho": "§ 6º O oferecimento das opções de que trata o caput é opcional e, se realizado, deve ser feito com isonomia da distribuidora para todos os comercializadores e do comercializador para todas as distribuidoras.\"",
+     "itens": [
+      "92f995ec346e17a6"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-b42f9ef2be602711",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "artigo inferido pela posição",
+   "duvida": "A qual artigo pertence este trecho de alteração e qual marco de aplicação deve ser observado?",
+   "leituras_possiveis": [
+    "Hipótese registrada: artigo da REN 1.000 inferido pela posição no texto (655-Y); a confirmar.",
+    "Marco usado no plano: Art. 18, III, data 2026-11-04."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "inciso III, alínea e",
+     "trecho": "e) entregar ao interessado os aditivos contratuais e demais documentos que devem ser celebrados e, caso necessário, os que devem ser rescindidos.",
+     "itens": [
+      "60efb422a7e8e6be"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Parágrafo único",
+     "trecho": "Parágrafo único. No caso de unidade consumidora de cooperativa de eletrificação rural regularizada como autorizada para exploração das instalações de energia elétrica destinadas ao uso privativo de seus associados e que possua microgeração ou minigeração distribuída, a distribuidora deve realizar o enquadramento simultâneo como unidade consumidora para fins de consumo e como central geradora com capacidade instalada reduzida para fins de injeção, observadas as disposições aplicáveis previstas neste artigo e nesta Resolução.\" (NR)",
+     "itens": [
+      "5956d4aacad71adf"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-0fc8e603108625f1",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 9º, X (Grupo I); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "inciso III, alínea e",
+     "trecho": "e) entregar ao interessado os aditivos contratuais e demais documentos que devem ser celebrados e, caso necessário, os que devem ser rescindidos.",
+     "itens": [
+      "60efb422a7e8e6be"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-3b3fb5125bf7bb09",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 9º, XVII (Grupo I); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "Art. 21-B, § 1º",
+     "trecho": "§ 1º A resposta às reclamações deve ser apresentada em até 5 (cinco) dias úteis e indicar os fundamentos da decisão adotada.",
+     "itens": [
+      "48facbbb1cb1cce4"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-902605984a243654",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 12, VI (Grupo IV); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "Art. 13, inciso II",
+     "trecho": "II - o CCER não poderá ter acréscimo do montante de energia elétrica;",
+     "itens": [
+      "3c31e7c6948c4d3e"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-164479f88da53caf",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 12, XV (Grupo IV); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "Art. 14, § 2º, inciso I",
+     "trecho": "I - a distribuidora deve cessar a aplicação do benefício tarifário do art. 186 da Resolução Normativa nº 1.000, de 2021, no ciclo de faturamento subsequente;",
+     "itens": [
+      "91c26ed1a77c413a"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 14, § 2º, inciso II",
+     "trecho": "II - em caso de recebimento simultâneo dos benefícios tarifários dos arts. 186 e 195 da Resolução Normativa nº 1.000, de 2021, a distribuidora deve, a partir da manifestação formal ou após o prazo disposto no caput para manifestação, o que ocorrer primeiro, aplicar exclusivamente o benefício tarifário do art. 195.",
+     "itens": [
+      "ad1cd6d7bc9bb42b"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 14, § 3º",
+     "trecho": "§ 3º Em caso de não manifestação do consumidor no prazo disposto no caput, a distribuidora deve cessar a aplicação do benefício tarifário do art. 186 da Resolução Normativa nº 1.000, de 2021, aplicando, se o consumidor tiver direito, o benefício tarifário do art. 195 Resolução Normativa nº 1.000, de 2021.",
+     "itens": [
+      "33f462f47b99eeab"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-d7f993fa70ccfb96",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 12, XVI (Grupo IV); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "Art. 16, Parágrafo único",
+     "trecho": "Parágrafo único. A adequação pela distribuidora dentro do período de transição deve ser realizada com isonomia, aplicando-se à todas as situações a partir da implementação do dispositivo.",
+     "itens": [
+      "c17096cc06163ed7"
+     ],
+     "fonte": {
+      "titulo": "REN ANEEL 1.174/2026",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-normativa-n-1.174-de-27-de-outubro-de-2026-741542957",
+      "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  }
+ ]
 }

@@ -1,3 +1,6 @@
+import { RascunhosAneel } from './RascunhosAneel'
+import { rascunhosDoItem } from '../../content/rascunhos-aneel'
+import { LinkFonte } from '../ui/LinkFonte'
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode, type Ref } from 'react'
 import { AlertTriangle, ArrowDown, ArrowUp, ChevronDown, ClipboardList, Download, FileText, Printer, Sparkles } from 'lucide-react'
 import { Logo } from '../ui/Logo'
@@ -72,9 +75,10 @@ function Sugerido({ texto = 'sugerido' }: { texto?: string }) {
 function ErrosMateriais() {
   return <ul className="space-y-3">{(plano.erros_materiais ?? []).map((e) => (
     <li key={e.obrigacao} className="border-[length:var(--borda-forte)] border-obsidian p-3">
-      <p className="font-semibold">{e.dispositivo}: “{e.trecho}” · {e.problema}</p>
+      <p className="font-semibold"><LinkFonte sha256={plano.norma.sha256} trecho={e.trecho}>{e.dispositivo}</LinkFonte>: “{e.trecho}” · {e.problema}</p>
       <p>Leitura mais provável: <strong>{e.leitura_provavel}</strong> · <Tag kind="pending" label={e.rotulo} /></p>
       <p className="text-sm">{e.esclarecimento ?? `Sugestão: ${e.sugestao}.`}</p>
+      {plano.obrigacoes.filter((o) => o.id === e.obrigacao && o.esclarecimento).map((o) => <p key={o.id} className="text-xs"><LinkFonte sha256={o.esclarecimento!.fonte.sha256} trecho={o.esclarecimento!.fonte.trecho}>Esclarecimento oficial da ANEEL</LinkFonte></p>)}
     </li>))}</ul>
 }
 
@@ -321,7 +325,7 @@ function DiagnosticoGerado({ ref, diag, temas, decisoes, m, imprimir, fechar }: 
         <p className="flex flex-wrap items-center gap-2 text-sm">{e ? <span>até <strong>{valor(e)}</strong> por infração</span> : <span>exposição a enquadrar</span>}{e?.origem === 'sugerido' && <Sugerido />}</p>
       </div>
       <p className="mt-1 text-sm text-ink-soft">{situacaoPrazo(t)}{t.contagem.vencida > 0 && <> · {textoVencidas(t.contagem.vencida)}</>} · {t.n} {t.n === 1 ? 'obrigação' : 'obrigações'} · Situação informada: <strong className="text-obsidian">{nomeDiag(diag[t.id])}</strong></p>
-      <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">{t.principais.map((id) => { const o = obrigacao(id); return <li key={id}><Titulo o={o} /> <span className="text-xs text-ink-soft">· {o.dispositivo ?? 'dispositivo a confirmar'} · {o.prazo.texto}</span></li> })}</ul>
+      <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">{t.principais.map((id) => { const o = obrigacao(id); return <li key={id}><Titulo o={o} /> <span className="text-xs text-ink-soft">· <LinkFonte sha256={plano.norma.sha256} trecho={o.trecho}>{o.dispositivo ?? 'dispositivo a confirmar'}</LinkFonte> · {o.prazo.texto}</span></li> })}</ul>
     </li> })}</ol>
     <p className="mt-8 border-t border-line pt-4 text-xs leading-relaxed text-ink-soft">Valores por infração, que não se somam; {NOTA_ADVERTENCIA}. Pior caso, sem agravantes; datas provisórias. Calculado no seu navegador com os dados deste plano: nada foi enviado nem salvo. {plano.aviso} Iniciativa em validação. Não constitui parecer jurídico.</p>
   </section>
@@ -346,7 +350,7 @@ function Expansivel({ id, titulo, resumo, children }: { id: string; titulo: stri
 function ProvInfracao({ d }: { d: string }) {
   const i = plano.infracoes[d]
   if (!i) return null
-  return <span className="mt-1 block break-all text-xs text-ink-soft">Fonte: {i.fonte.titulo} ({i.fonte.arquivo}) · SHA-256 {i.fonte.sha256} · redação: {i.origem_da_redacao}{i.conferido_na_fonte ? ' · trecho conferido no arquivo' : ''}</span>
+  return <span className="mt-1 block break-all text-xs text-ink-soft">Fonte: <LinkFonte sha256={i.fonte.sha256} trecho={i.trecho}>{i.fonte.titulo}</LinkFonte> ({i.fonte.arquivo}) · SHA-256 {i.fonte.sha256} · redação: {i.origem_da_redacao}{i.conferido_na_fonte ? ' · trecho conferido no arquivo' : ''}</span>
 }
 
 /** As duas redações datadas de um dispositivo, com fonte, vigência e estado. A futura segue incerta. */
@@ -358,7 +362,7 @@ function SucessaoNoTempo({ dispositivo }: { dispositivo: string }) {
     <ul className="mt-2 space-y-2">{s.redacoes.map((r) => <li key={r.ato}>
       <p className="font-semibold">{r.ato} · {r.vigencia_ate ? `de ${dataBR(r.vigencia_de)} até ${dataBR(r.vigencia_ate)}` : `a partir de ${dataBR(r.vigencia_de)}`} · {r.estado === 'verified' ? 'redação conferida na fonte' : 'INCERTA: não confirmada por leitura independente'}</p>
       <blockquote className="mt-1 border-l-2 border-bronze bg-white p-2 text-sm">“{r.trecho}”</blockquote>
-      <p className="mt-1 break-all text-ink-soft">{s.dispositivo} · {r.fonte.titulo} ({r.fonte.arquivo}) · SHA-256 {r.fonte.sha256}{r.motivo ? ` · ${r.motivo}` : ''}</p>
+      <p className="mt-1 break-all text-ink-soft"><LinkFonte sha256={r.fonte.sha256} trecho={r.trecho}>{s.dispositivo} · {r.fonte.titulo}</LinkFonte> ({r.fonte.arquivo}) · SHA-256 {r.fonte.sha256}{r.motivo ? ` · ${r.motivo}` : ''}</p>
     </li>)}</ul>
     <p className="mt-2 text-ink-soft">{s.texto_da_duvida}</p>
   </div>
@@ -377,8 +381,8 @@ function OutrosDispositivos() {
       <h3 className="font-semibold">{titulo} <span className="text-ink-soft">({por(n).length})</span></h3>
       <ul className="mt-2 space-y-3">{por(n).map((o) => <li key={o.id}>
         <blockquote className="border-l-2 border-bronze bg-ivory p-3">“{o.trecho ?? 'sem citação verificada'}”</blockquote>
-        {o.condicao && <p className="mt-1 text-xs"><strong>{o.condicao.texto}</strong> · {o.condicao.dispositivo}: “{o.condicao.trecho}”</p>}
-        <p className="mt-1 text-xs text-ink-soft">{o.dispositivo ?? 'dispositivo a confirmar'} · {o.natureza === 'sem_dever_identificado' ? o.motivo : `sujeito: ${o.sujeito}`}</p>
+        {o.condicao && <p className="mt-1 text-xs"><strong>{o.condicao.texto}</strong> · <LinkFonte sha256={plano.norma.sha256} trecho={o.condicao.trecho}>{o.condicao.dispositivo}</LinkFonte>: “{o.condicao.trecho}”</p>}
+        <p className="mt-1 text-xs text-ink-soft"><LinkFonte sha256={plano.norma.sha256} trecho={o.trecho}>{o.dispositivo ?? 'dispositivo a confirmar'}</LinkFonte> · {o.natureza === 'sem_dever_identificado' ? o.motivo : `sujeito: ${o.sujeito}`}</p>
       </li>)}</ul>
     </div>)}
   </div>
@@ -419,7 +423,7 @@ function PerguntasJuridico() {
   return <div className="max-w-4xl space-y-3 text-sm">
     <p className="font-semibold">{ABERTURA_PERGUNTAS}</p>
     <ol className="space-y-3">{qs.map((q, i) => <li key={i} className="border-l-[length:var(--borda-titulo)] border-obsidian pl-3.5">
-      <p>{q.pergunta}</p><p className="mt-1 text-xs text-ink-soft">{q.dispositivo} · {q.citacao}</p></li>)}</ol>
+      <p>{q.pergunta}</p><p className="mt-1 text-xs text-ink-soft">{q.dispositivo} · {q.citacao} · {q.fontes.map((f, i) => <span key={i}>{i > 0 && ' · '}<LinkFonte sha256={f.sha256} trecho={f.trecho}>{f.rotulo}</LinkFonte></span>)}</p></li>)}</ol>
     {qs.length === 0 && <p>Nada marcado como incerto neste plano.</p>}
   </div>
 }
@@ -434,10 +438,10 @@ function ComoCalculamos() {
       {t.grupos.map((g) => <li key={g.grupo} className="border border-line px-3 py-2" title={g.trecho ?? undefined}>
         <span className="block">{g.rotulo}</span>
         <strong className="block">{g.pct != null ? `até ${pct(g.pct)} da receita` : 'sem teto citado'}</strong>
-        <span className="block text-xs text-ink-soft">REN 846, {g.dispositivo ?? 'dispositivo a confirmar'}</span>
+        <span className="block text-xs text-ink-soft">REN 846, <LinkFonte sha256={g.sha256} trecho={g.trecho}>{g.dispositivo ?? 'dispositivo a confirmar'}</LinkFonte></span>
       </li>)}
     </ul>
-    {t.tetoLegal && <p>Por infração, nunca somadas. Acima de todos, o limite legal de {t.tetoLegal.pct != null ? pct(t.tetoLegal.pct) : '—'} do faturamento ({t.tetoLegal.dispositivo}).</p>}
+    {t.tetoLegal && <p>Por infração, nunca somadas. Acima de todos, o limite legal de {t.tetoLegal.pct != null ? pct(t.tetoLegal.pct) : '—'} do faturamento (<LinkFonte sha256={t.tetoLegal.sha256} trecho={t.tetoLegal.trecho}>{t.tetoLegal.dispositivo}</LinkFonte>).</p>}
   </div>
 }
 
@@ -501,6 +505,7 @@ function Recomendamos({ t }: { t: Tema }) {
   const { sim, modo } = useContext(Cenario)
   const { respostas, persistente, escrever, marcarProva } = useRespostas()
   const rec = recomendacoesDoTema(plano, t, sim, modo)
+  const medida = ATENUANTES.find((m) => m.dispositivo === rec.efeito?.dispositivo)
   const pr = prontidao(plano, respostas, sim, modo)
   const marcadas = respostas.provas[t.id] ?? []
   const texto = respostas.jaFazemos[t.id] ?? ''
@@ -517,7 +522,7 @@ function Recomendamos({ t }: { t: Tema }) {
         {rec.provas.length > 0 && <p className="mt-1 text-xs" aria-live="polite">Marque o que vocês já têm. {marcadas.length > 0 ? <strong>Provas em mãos neste tema: {pr.porTema[t.id].x} de {pr.porTema[t.id].y}.</strong> : 'Fica só no seu navegador.'}</p>}</div>
       <div className="space-y-3">
         {rec.efeito && <div><h5 className="font-bold">Efeito financeiro de agir</h5>
-          <p className="mt-1">Regularizar antes da fiscalização pode reduzir até {pct(rec.efeito.reducaoPct)}{rec.efeito.de != null && rec.efeito.para != null ? ` (${brlCurto(rec.efeito.de)} → ${brlCurto(rec.efeito.para)})` : ''} <span className="text-xs text-ink-soft">({rec.efeito.dispositivo} da REN 846; exige cessar a infração e reparar o dano)</span></p></div>}
+          <p className="mt-1">Regularizar antes da fiscalização pode reduzir até {pct(rec.efeito.reducaoPct)}{rec.efeito.de != null && rec.efeito.para != null ? ` (${brlCurto(rec.efeito.de)} → ${brlCurto(rec.efeito.para)})` : ''} <span className="text-xs text-ink-soft">(<LinkFonte sha256={medida?.sha256 ?? ''} trecho={medida?.trecho}>{rec.efeito.dispositivo}</LinkFonte> da REN 846; exige cessar a infração e reparar o dano)</span></p></div>}
         {rec.defesa && <div><h5 className="font-bold">Defesa possível</h5><p className="mt-1">{rec.defesa.texto} <span className="text-xs text-ink-soft">({rec.defesa.origem})</span></p></div>}
         {rec.evite && <div><h5 className="font-bold text-evite">Evite</h5><p className="mt-1">{rec.evite} <span className="text-xs text-ink-soft">(Sugestão)</span></p></div>}
       </div>
@@ -629,7 +634,7 @@ function Atenuantes({ e }: { e: Exposicao }) {
   const s = sim ?? SIM_INICIAL
   const itens = ATENUANTES.map((m) => [m, comAtenuantePct(e.faixa, s, m.cenario!)] as const).filter(([, v]) => v != null)
   if (!itens.length) return null
-  return <p className="mt-3 text-sm">Com atenuante do {itens.map(([m, v], i) => <span key={m.parametro}>{i ? '; ' : ''}{m.dispositivo}: até <strong>{emReais(v!, sim)}</strong></span>)}. Vale um atenuante só; pior caso, sem agravantes{e.origem === 'sugerido' ? `; ${PRELIMINAR}` : ''}.</p>
+  return <p className="mt-3 text-sm">Com atenuante do {itens.map(([m, v], i) => <span key={m.parametro}>{i ? '; ' : ''}<LinkFonte sha256={m.sha256} trecho={m.trecho}>{m.dispositivo}</LinkFonte>: até <strong>{emReais(v!, sim)}</strong></span>)}. Vale um atenuante só; pior caso, sem agravantes{e.origem === 'sugerido' ? `; ${PRELIMINAR}` : ''}.</p>
 }
 
 function Titulo({ o }: { o: Obrigacao }) {
@@ -645,25 +650,27 @@ function ItemObrigacao({ o }: { o: Obrigacao }) {
 }
 
 function PorQue({ o }: { o: Obrigacao }) {
+  const rascunhos = rascunhosDoItem(plano.rascunhos_aneel, o.id)
   return <div className="mt-4 space-y-4 text-sm leading-relaxed">
       <RevisaoLocal o={o} />
       <div><h5 className="font-semibold">O que a norma diz <Tag kind="source" /></h5>
         {o.sujeito_implicito && <p className="mt-1 text-xs font-semibold">Sujeito implícito (a revisar): o texto não diz “a distribuidora”; contamos como dever dela por ser norma dirigida às distribuidoras.</p>}
-        {o.trecho ? <><blockquote className="mt-2 border-l-2 border-bronze bg-ivory p-3">“{o.trecho}”</blockquote><p className="mt-1 text-xs text-ink-soft">{o.dispositivo} · trecho literal conferido na fonte · <a className={LINK} href={plano.norma.url ?? undefined}>{plano.norma.titulo}</a></p></>
+        {o.trecho ? <><blockquote className="mt-2 border-l-2 border-bronze bg-ivory p-3">“{o.trecho}”</blockquote><p className="mt-1 text-xs text-ink-soft"><LinkFonte sha256={plano.norma.sha256} trecho={o.trecho}>{o.dispositivo}</LinkFonte> · trecho literal conferido na fonte · <LinkFonte sha256={plano.norma.sha256} trecho={o.trecho}>{plano.norma.titulo}</LinkFonte></p></>
           : <p className="mt-1">Sem citação verificada: confira o dispositivo na fonte. {o.motivo_sem_calculo}</p>}</div>
       <div><h5 className="font-semibold">Infração da REN 846</h5>
-        {o.enquadramento.map((e) => <blockquote key={e.dispositivo} className="mt-2 border-l-2 border-slate-blue bg-ivory p-3"><strong>{e.dispositivo} · {rotuloDoGrupo(e.grupo)}</strong> <AjudaGrupos p={plano} /> <span className="text-xs text-ink-soft">(o texto da obrigação nomeia o instrumento desta infração)</span><ProvInfracao d={e.dispositivo} /><p>“{plano.infracoes[e.dispositivo].trecho}”</p></blockquote>)}
+        {o.enquadramento.map((e) => <blockquote key={e.dispositivo} className="mt-2 border-l-2 border-slate-blue bg-ivory p-3"><strong><LinkFonte sha256={plano.infracoes[e.dispositivo].fonte.sha256} trecho={plano.infracoes[e.dispositivo].trecho}>{e.dispositivo}</LinkFonte> · {rotuloDoGrupo(e.grupo)}</strong> <AjudaGrupos p={plano} /> <span className="text-xs text-ink-soft">(o texto da obrigação nomeia o instrumento desta infração)</span><ProvInfracao d={e.dispositivo} /><p>“{plano.infracoes[e.dispositivo].trecho}”</p></blockquote>)}
         {!o.enquadramento.length && o.ia && <div className="mt-2 rounded-lg border border-dashed border-slate-blue/40 p-3">
           <p className="flex flex-wrap gap-2"><Tag kind="ai" /><Tag kind="review" /></p>
-          <p className="mt-2"><strong>{o.ia.dispositivo} · {rotuloDoGrupo(o.ia.grupo)}</strong> <AjudaGrupos p={plano} />: “{plano.infracoes[o.ia.dispositivo].trecho}”</p><ProvInfracao d={o.ia.dispositivo} />
+          <p className="mt-2"><strong><LinkFonte sha256={plano.infracoes[o.ia.dispositivo].fonte.sha256} trecho={plano.infracoes[o.ia.dispositivo].trecho}>{o.ia.dispositivo}</LinkFonte> · {rotuloDoGrupo(o.ia.grupo)}</strong> <AjudaGrupos p={plano} />: “{plano.infracoes[o.ia.dispositivo].trecho}”</p><ProvInfracao d={o.ia.dispositivo} />
           <p className="mt-1 text-ink-soft">{o.ia.justificativa}</p>
           {o.ia.duvida && <SucessaoNoTempo dispositivo={o.ia.dispositivo} />}
           <p className="mt-1 text-xs">Entra só no cenário preliminar, marcada como sugerida, até uma pessoa confirmar.</p></div>}
         {!o.enquadramento.length && !o.ia && <p className="mt-1">Enquadramento a confirmar.</p>}</div>
       <div><h5 className="font-semibold">Prazo</h5><p>{o.prazo.texto}{o.prazo.provisorio ? '. Data provisória: calculada a partir da publicação da norma, aguarda confirmação da contagem por uma pessoa.' : '.'}</p>
-        {o.marco?.trecho && <blockquote className="mt-2 border-l-2 border-bronze bg-ivory p-3"><strong>{o.marco.dispositivo}</strong> · “{o.marco.trecho}”</blockquote>}</div>
+        {o.marco?.trecho && <blockquote className="mt-2 border-l-2 border-bronze bg-ivory p-3"><strong><LinkFonte sha256={plano.norma.sha256} trecho={o.marco.trecho}>{o.marco.dispositivo}</LinkFonte></strong> · “{o.marco.trecho}”</blockquote>}</div>
       {o.premissas.length > 0 && <div><h5 className="font-semibold">Premissas da faixa</h5><ul className="list-disc space-y-1 pl-5">{o.premissas.map((p) => <li key={p}>{p}</li>)}</ul></div>}
       {o.evidencias.length > 0 && <div><h5 className="font-semibold">Como provar <Tag kind="review" label="Sugestão" /></h5><ul className="list-disc space-y-1 pl-5">{o.evidencias.map((e) => <li key={e.id}>{plano.evidencias[e.id]}: <span className="text-ink-soft">“…{e.trecho}…”</span></li>)}</ul></div>}
+      {rascunhos.length > 0 && <details className="border border-line p-3"><summary className="cursor-pointer font-semibold">Rascunho de pergunta à ANEEL ({rascunhos.length})</summary><div className="mt-3"><RascunhosAneel rascunhos={rascunhos} /></div></details>}
       <p className="text-xs text-ink-soft">Tema: {o.motivo_tema}.</p>
     </div>
 }
@@ -734,9 +741,9 @@ function AnaliseObrigacao({ o }: { o: Obrigacao }) {
       : tipo.situacao === 'so_regra' ? `${tipo.nome} · só pela regra, segunda leitura da IA não feita (a revisar)`
         : tipo.situacao === 'a_revisar' ? 'tipo a revisar' : 'sem tipo próprio'
   return <article className="border-t border-line pt-4">
-    <h5 className="font-semibold"><Titulo o={o} /> <span className="text-xs font-normal text-ink-soft">· {o.dispositivo ?? 'dispositivo a confirmar'}</span></h5>
+    <h5 className="font-semibold"><Titulo o={o} /> <span className="text-xs font-normal text-ink-soft">· <LinkFonte sha256={plano.norma.sha256} trecho={o.trecho}>{o.dispositivo ?? 'dispositivo a confirmar'}</LinkFonte></span></h5>
     <p className="mt-2 text-xs font-semibold text-ink-soft ">O que a norma exige <Tag kind="source" /></p>
-    {o.trecho ? <><blockquote className="mt-1 border-l-2 border-bronze bg-white p-3">“{o.trecho}”</blockquote><p className="mt-1 text-xs text-ink-soft">{o.dispositivo} · trecho literal conferido na fonte</p></>
+    {o.trecho ? <><blockquote className="mt-1 border-l-2 border-bronze bg-white p-3">“{o.trecho}”</blockquote><p className="mt-1 text-xs text-ink-soft"><LinkFonte sha256={plano.norma.sha256} trecho={o.trecho}>{o.dispositivo}</LinkFonte> · trecho literal conferido na fonte</p></>
       : <p className="mt-1">Sem citação verificada: confira o dispositivo na fonte.</p>}
     {an && an.dependencias_no_texto.some((d) => d.id === 'ato_da_aneel') && <p className="mt-2 flex items-start gap-2 text-xs font-semibold text-pending"><AlertTriangle aria-hidden="true" className="mt-0.5 h-3.5 w-3.5 shrink-0" />Prazo condicionado a ato da ANEEL: verificar se as instruções foram publicadas.</p>}
     <p className="mt-3"><span className="text-ink-soft">Tipo:</span> {nomeTipo}</p>
@@ -777,7 +784,7 @@ const emReais = (v: number, s: Simulacao | null) => (s ? brl(reaisDe(v, s)) : `$
 function Citado({ c }: { c: Citacao }) {
   return <div className="mt-2">
     <blockquote className="border-l-2 border-bronze bg-ivory p-3 text-sm">“{c.trecho}”</blockquote>
-    <p className="mt-1 break-all text-xs text-ink-soft">{c.dispositivo} · {c.fonte} · SHA-256 {c.sha256}</p>
+    <p className="mt-1 break-all text-xs text-ink-soft"><LinkFonte sha256={c.sha256} trecho={c.trecho}>{c.dispositivo}</LinkFonte> · {c.fonte} · SHA-256 {c.sha256}</p>
   </div>
 }
 

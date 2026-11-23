@@ -5,6 +5,7 @@ import { plano, SIM_INICIAL } from './plano.ts'
 import { RESPOSTAS_VAZIAS, type Armazem } from './respostas.ts'
 import { carregarRevisoes, camposDaObrigacao, exportarRevisoes, LIMITE_CORRECAO, limparRevisao, linhasDeRevisao, revisarCampo, revisoesValidas, salvarRevisoes, type Revisoes } from './revisoes.ts'
 import { montarRelatorio } from './relatorio.ts'
+import { fonteDaCitacao } from './fontes.ts'
 
 const implicita = plano.obrigacoes.find((o) => o.sujeito_implicito)!
 const memoria = () => {
@@ -58,6 +59,7 @@ test('JSON e relatório incluem valor original, revisão, dispositivo e trecho; 
   for (const v of json.revisoes) {
     assert.equal(v.dispositivo, implicita.dispositivo)
     assert.equal(v.trecho, implicita.trecho)
+    assert.ok(fonteDaCitacao(plano.norma.sha256, v.trecho))
   }
   const args = { sim: SIM_INICIAL, modo: 'preliminar' as const, diag: {}, respostas: RESPOSTAS_VAZIAS }
   const antes = montarRelatorio(args)

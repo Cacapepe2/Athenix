@@ -1,0 +1,3731 @@
+{
+ "documentos": {
+  "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887": {
+   "arquivo": "tests/norma_poc/ren20251137.pdf",
+   "url": "/fontes/ren20251137.pdf",
+   "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+  },
+  "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da": {
+   "arquivo": "tests/fontes_impacto/esclarecimentos/faq_ren20251137.html",
+   "url": "/fontes/faq_ren20251137.html",
+   "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da"
+  },
+  "efe4e35fb41aa1306846677ffc32a0c2a150ee6ac44aafe5f15e475e6ad05ad9": {
+   "arquivo": "tests/fontes_impacto/atren2019846.pdf",
+   "url": "/fontes/atren2019846.pdf",
+   "sha256": "efe4e35fb41aa1306846677ffc32a0c2a150ee6ac44aafe5f15e475e6ad05ad9"
+  },
+  "2e5e9962c8541a0732d4cf404b6270accb2e790654ea379a86d69105a7cb03f5": {
+   "arquivo": "tests/fontes_impacto/dou/dou_ren20261162.html",
+   "url": "/fontes/dou_ren20261162.html",
+   "sha256": "2e5e9962c8541a0732d4cf404b6270accb2e790654ea379a86d69105a7cb03f5"
+  },
+  "ff948e3442edc619d98a3256fc6988a7c3d0dc21b27e25444a56a701082ac91b": {
+   "arquivo": "tests/fontes_impacto/l9427cons.htm",
+   "url": "/fontes/l9427cons.htm",
+   "sha256": "ff948e3442edc619d98a3256fc6988a7c3d0dc21b27e25444a56a701082ac91b"
+  },
+  "c1bf6ff2da617d0699cc00e2abd774eabd6950bb4d7f2d76f5f86b6ee923697e": {
+   "arquivo": "tests/fontes_impacto/ren20261148.pdf",
+   "url": "/fontes/ren20261148.pdf",
+   "sha256": "c1bf6ff2da617d0699cc00e2abd774eabd6950bb4d7f2d76f5f86b6ee923697e"
+  },
+  "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507": {
+   "arquivo": "tests/fontes_impacto/dou/dou_ren20261174.html",
+   "url": "/fontes/dou_ren20261174.html",
+   "sha256": "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507"
+  }
+ },
+ "citacoes": {
+  "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887": {
+   "148.Oplanodecontingênciadevepossuirversãododocumento,datadeaprovaçãoeidentificaçãoeassinaturado(s)responsável(is)técnico(s),sendopassíveldefiscalização.”(NR)": {
+    "url": "/fontes/ren20251137.pdf#page=14",
+    "pagina": 14,
+    "ultima_pagina": 14,
+    "localizacao": "trecho literal"
+   },
+   "Alémdisso,onúmerototaldeunidadesconsumidorasafetadasdeveserapresentadoportempodeinterrupção,comasseguintesfaixasdeduração:": {
+    "url": "/fontes/ren20251137.pdf#page=5",
+    "pagina": 5,
+    "ultima_pagina": 5,
+    "localizacao": "trecho literal"
+   },
+   "172.Osindicadoresdevemserapuradosmensalmente,considerandoomêscivil,comexceçãodosindicadoresDICRIeDISE,quedevemserapuradosporinterrupçãoocorridaemDiaCríticoouemSituaçãodeEmergência,respectivamente.": {
+    "url": "/fontes/ren20251137.pdf#page=23",
+    "pagina": 23,
+    "ultima_pagina": 23,
+    "localizacao": "trecho literal"
+   },
+   "138.OressarcimentoàcedentenãodeveultrapassaroprazodedozemesescontadosdofinaldaCessãoEmergencial.ContratosdeCessãoEmergencialderecursoshumanos,equipamentosemateriaisentrePartesRelacionadas": {
+    "url": "/fontes/ren20251137.pdf#page=11",
+    "pagina": 11,
+    "ultima_pagina": 11,
+    "localizacao": "trecho literal"
+   },
+   "140.Oplanodecontingênciadeveserelaboradodeformaagarantiracontinuidadedofornecimentodeenergiaelétrica,minimizarosimpactosdascontingênciaseresponderaeventoscríticosdeformaeficaz,sempreassegurandoasegurançadoscolaboradoresedapopulação.": {
+    "url": "/fontes/ren20251137.pdf#page=11",
+    "pagina": 11,
+    "ultima_pagina": 11,
+    "localizacao": "trecho literal"
+   },
+   "141.Oplanodecontingênciadeveconterosnomesetelefonesdecontatodosresponsáveis.PrincípiosNorteadores": {
+    "url": "/fontes/ren20251137.pdf#page=11",
+    "pagina": 11,
+    "ultima_pagina": 11,
+    "localizacao": "trecho literal"
+   },
+   "a)Segurança:priorizarasegurançadetodososcolaboradoresedapopulação;": {
+    "url": "/fontes/ren20251137.pdf#page=12",
+    "pagina": 12,
+    "ultima_pagina": 12,
+    "localizacao": "trecho literal"
+   },
+   "b)Eficiência:minimizaroimpactodascontingênciasnasoperaçõesenaprestaçãodosserviços;": {
+    "url": "/fontes/ren20251137.pdf#page=12",
+    "pagina": 12,
+    "ultima_pagina": 12,
+    "localizacao": "trecho literal"
+   },
+   "c)Responsabilidade:cumprircomasobrigaçõeslegaiseregulamentares;": {
+    "url": "/fontes/ren20251137.pdf#page=12",
+    "pagina": 12,
+    "ultima_pagina": 12,
+    "localizacao": "trecho literal"
+   },
+   "d)Transparência:manterumacomunicaçãoclaraeabertacomtodosossetoresafetados;": {
+    "url": "/fontes/ren20251137.pdf#page=12",
+    "pagina": 12,
+    "ultima_pagina": 12,
+    "localizacao": "trecho literal"
+   },
+   "e)Prevenção:anteciparproblemasedefinirprotocolosdeatuaçãoparaoenfrentamentodesituaçõescríticas;": {
+    "url": "/fontes/ren20251137.pdf#page=12",
+    "pagina": 12,
+    "ultima_pagina": 12,
+    "localizacao": "trecho literal"
+   },
+   "f)Adaptabilidade:garantiracapacidadedeadaptaçãofrenteàsmudançasnascondiçõesclimáticaseoperacionais,ajustandoasestratégiasconformeascircunstânciasespecíficasdecadaevento;e": {
+    "url": "/fontes/ren20251137.pdf#page=12",
+    "pagina": 12,
+    "ultima_pagina": 12,
+    "localizacao": "trecho literal"
+   },
+   "a)MonitoramentoClimáticoeMeteorológico:Realizarmonitoramentoperiódicodascondiçõesclimáticasemeteorológicasinformandoasequipesinternassobrepossíveisalertasderisco;": {
+    "url": "/fontes/ren20251137.pdf#page=12",
+    "pagina": 12,
+    "ultima_pagina": 12,
+    "localizacao": "trecho literal"
+   },
+   "b)GestãodeOcorrências:Implementaraçõesespecíficasconformeosníveisdecontingência;": {
+    "url": "/fontes/ren20251137.pdf#page=12",
+    "pagina": 12,
+    "ultima_pagina": 12,
+    "localizacao": "trecho literal"
+   },
+   "c)MobilizaçãodeRecursos:Definirprocedimentosparaamobilizaçãodeequipeserecursosadicionaisemdiferentesníveisdecontingência,garantindoaatuaçãomesmoemferiadosediasnãoúteis,deformaaasseguraracontinuidadeeaeficiêncianasaçõesderesposta;": {
+    "url": "/fontes/ren20251137.pdf#page=12",
+    "pagina": 12,
+    "ultima_pagina": 12,
+    "localizacao": "trecho literal"
+   },
+   "d)ComunicaçãoInterna:Estabelecercanaiseficientesdecomunicaçãointernaparainformarecoordenaraçõesdurantecontingências;": {
+    "url": "/fontes/ren20251137.pdf#page=12",
+    "pagina": 12,
+    "ultima_pagina": 12,
+    "localizacao": "trecho literal"
+   },
+   "e)RelatórioseDocumentação:Manterregistrosdetalhadosdasaçõestomadasedosresultadosduranteascontingênciasdemodoaavaliarseasmedidastomadasestãoaderentesaoplanejado;": {
+    "url": "/fontes/ren20251137.pdf#page=12",
+    "pagina": 12,
+    "ultima_pagina": 12,
+    "localizacao": "trecho literal"
+   },
+   "f)TreinamentoseSimulações:Realizartreinamentosperiódicosesimulaçõesparaprepararasequipesparasituaçõesdecontingência;": {
+    "url": "/fontes/ren20251137.pdf#page=12",
+    "pagina": 12,
+    "ultima_pagina": 12,
+    "localizacao": "trecho literal"
+   },
+   "g)AtendimentoaoConsumidor:Estabelecerprocedimentosparaatratamentoeresoluçãodedemandasextraordináriasdurantecontingências;": {
+    "url": "/fontes/ren20251137.pdf#page=12",
+    "pagina": 12,
+    "ultima_pagina": 12,
+    "localizacao": "trecho literal"
+   },
+   "h)CoordenaçãocomÓrgãosExternos:Definiraçõesparacomunicaçãoecoordenaçãocomautoridadespúblicaseórgãosreguladores;": {
+    "url": "/fontes/ren20251137.pdf#page=12",
+    "pagina": 12,
+    "ultima_pagina": 12,
+    "localizacao": "trecho literal"
+   },
+   "i)ApoioInterdepartamental:Estabelecerdiretrizesparaacolaboraçãoentrediferentesdepartamentoseáreasdaempresadurantesituaçõesdecontingência;": {
+    "url": "/fontes/ren20251137.pdf#page=12",
+    "pagina": 12,
+    "ultima_pagina": 13,
+    "localizacao": "trecho literal"
+   },
+   "j)FormalizaçãoeDivulgaçãodoPlano:OPlanodeContingênciadeveserformalizadoedocumentadodemaneiraclaraedetalhada,sendoamplamentedivulgadopormeiodecanaisinternosdemodoagarantirsuaacessibilidadeatodososcolaboradoresepartesinteressadas;e": {
+    "url": "/fontes/ren20251137.pdf#page=13",
+    "pagina": 13,
+    "ultima_pagina": 13,
+    "localizacao": "trecho literal"
+   },
+   "k)Cadeiadegovernança:Estabelecercomandonosníveisestratégico,táticoeoperacionalparaogerenciamentodecrisesecontingências,definindoresponsabilidadesefluxosdecomunicaçãoquegarantamumarespostacoordenada,eficienteesegura,deformaque,emsituaçõesdecrise,todososníveisdecomandoestejamclaramentedefinidoseoperacionalmentedisponíveis.RequisitosMínimos": {
+    "url": "/fontes/ren20251137.pdf#page=13",
+    "pagina": 13,
+    "ultima_pagina": 13,
+    "localizacao": "trecho literal"
+   },
+   "b)DefiniçãodeNíveisdeContingência:Definirníveisdecontingênciaporcritériosobjetivos,devendoseratualizadosdeacordocomaevoluçãodascondiçõesoperativasemeteorológicas;": {
+    "url": "/fontes/ren20251137.pdf#page=13",
+    "pagina": 13,
+    "ultima_pagina": 13,
+    "localizacao": "trecho literal"
+   },
+   "c)PlanodeAçãoparaCadaNíveldeContingência:Desenvolverplanosdeaçãoespecíficosparacadaníveldecontingência,incluindoasresponsabilidadeseosprocedimentosaseremseguidos;": {
+    "url": "/fontes/ren20251137.pdf#page=13",
+    "pagina": 13,
+    "ultima_pagina": 13,
+    "localizacao": "trecho literal"
+   },
+   "d)InfraestruturadeApoio:Garantiradisponibilidadederecursoseinfraestruturanecessáriosparaaexecuçãodoplanodecontingência,emrelaçãoàequipamentos,sistemasdecomunicaçãoetransporte,incluindoinventário,especificaçãoelocalizaçãodeequipamentosdisponíveisesobressalentes,bemcomoveículosoperacionais;": {
+    "url": "/fontes/ren20251137.pdf#page=13",
+    "pagina": 13,
+    "ultima_pagina": 13,
+    "localizacao": "trecho literal"
+   },
+   "e)TreinamentoeCapacitação:Implementarprogramasdetreinamentoecapacitaçãocontínuosparatodososcolaboradoresenvolvidosnaexecuçãodoplanodecontingência;": {
+    "url": "/fontes/ren20251137.pdf#page=13",
+    "pagina": 13,
+    "ultima_pagina": 13,
+    "localizacao": "trecho literal"
+   },
+   "f)SimulaçõeseTestesRegulares:Realizarsimulaçõesoutestesperiódicosparaavaliaraeficáciadoplanodecontingênciaeidentificaráreasdemelhoria,inclusivecomaparticipaçãodeÓrgãosPúblicos;": {
+    "url": "/fontes/ren20251137.pdf#page=13",
+    "pagina": 13,
+    "ultima_pagina": 13,
+    "localizacao": "trecho literal"
+   },
+   "g)Atualizaçãodoplano:Manteradocumentaçãodoplanodecontingênciaatualizadaedisponívelparatodososcolaboradores,devendoconstaradataeonúmerodaversão,bemcomoassinaturadoresponsável;": {
+    "url": "/fontes/ren20251137.pdf#page=13",
+    "pagina": 13,
+    "ultima_pagina": 13,
+    "localizacao": "trecho literal"
+   },
+   "h)AvaliaçãoeMelhoriaContínua:Realizaravaliaçõesregularesdoplanodecontingênciaeimplementarmelhoriascombasenosresultadosdassimulações,testeseexperiênciasreaisdecontingência,visandoaperfeiçoaraefetividadedoplano;e": {
+    "url": "/fontes/ren20251137.pdf#page=13",
+    "pagina": 13,
+    "ultima_pagina": 13,
+    "localizacao": "trecho literal"
+   },
+   "i)Tratamentoparaunidadesconsumidorasespecíficas:Possuirmedidasrelacionadasaotratamentoparaunidadesconsumidorascadastradascomousuáriosdeequipamentosdeautonomialimitada(sobrevida)eparaaquelasqueprestemserviçoessencial,incluindoaspectosreferentesaocadastro,comunicaçãoeatendimentoemergencialparamitigarosefeitosdasinterrupçõesdofornecimentodeenergiaelétrica.": {
+    "url": "/fontes/ren20251137.pdf#page=13",
+    "pagina": 13,
+    "ultima_pagina": 14,
+    "localizacao": "trecho literal"
+   },
+   "146.Arevisãodoplanodecontingênciadeveráserfeitasemprequenecessárioecomperiodicidademáximadeumano.": {
+    "url": "/fontes/ren20251137.pdf#page=14",
+    "pagina": 14,
+    "ultima_pagina": 14,
+    "localizacao": "trecho literal"
+   },
+   "a)InspeçõesVisuais:relataronúmerodeinspeçõesrealizadasnasredeselétricasevegetação,bemcomoaextensãodasredesinspecionadas,destacandoasáreasderiscoidentificadasporconjuntoelétrico;": {
+    "url": "/fontes/ren20251137.pdf#page=4",
+    "pagina": 4,
+    "ultima_pagina": 4,
+    "localizacao": "trecho literal"
+   },
+   "b)PodasPreventivas:descreverasaçõesdepodarealizadaseasaçõesindicadasaoPoderPúblicoMunicipal,incluindoonúmerodeárvorespodadasporconjuntoelétrico;": {
+    "url": "/fontes/ren20251137.pdf#page=4",
+    "pagina": 4,
+    "ultima_pagina": 4,
+    "localizacao": "trecho literal"
+   },
+   "c)PodasCorretivas:descreverasaçõesdepodarealizadas,incluindoonúmerodeárvorespodadasporconjuntoelétrico;": {
+    "url": "/fontes/ren20251137.pdf#page=4",
+    "pagina": 4,
+    "ultima_pagina": 4,
+    "localizacao": "trecho literal"
+   },
+   "d)RemoçãodeÁrvores:relataroscasosderemoçãodeárvores,detalhandoalocalização,omotivodaremoção(riscoiminente,doenças,porteinadequado)porconjuntoelétrico;": {
+    "url": "/fontes/ren20251137.pdf#page=5",
+    "pagina": 5,
+    "ultima_pagina": 5,
+    "localizacao": "trecho literal"
+   },
+   "e)ProgramasdeSubstituiçãodeEspécies:incluirdadossobreonúmerodesubstituiçãodeárvoresinadequadasporespéciesmaisapropriadasporconjuntoelétrico;": {
+    "url": "/fontes/ren20251137.pdf#page=5",
+    "pagina": 5,
+    "ultima_pagina": 5,
+    "localizacao": "trecho literal"
+   },
+   "f)Aceirodefaixasdeservidão:relataroaceirodavegetaçãorealizadoemfaixasdeservidãodasredeselinhasdedistribuiçãoporconjuntoelétrico;e": {
+    "url": "/fontes/ren20251137.pdf#page=5",
+    "pagina": 5,
+    "ultima_pagina": 5,
+    "localizacao": "trecho literal"
+   },
+   "g)ConvêniosCelebrados:informarosconvênioscelebradoscomoPoderPúblicoEstadual,DistritalouMunicipaldasuaáreadeatuação,bemcomoastratativascomessesentesparaacelebraçãodeconvênios.": {
+    "url": "/fontes/ren20251137.pdf#page=5",
+    "pagina": 5,
+    "ultima_pagina": 5,
+    "localizacao": "trecho literal"
+   },
+   "a)MotivodaInterrupção:informaçãosobreacausadafalha,conforme“ANEXO8.C:Listadefatosgeradoresparaclassificaçãodeinterrupçõesdofornecimentodeenergiaelétrica”doMódulo8(sedisponível);": {
+    "url": "/fontes/ren20251137.pdf#page=6",
+    "pagina": 6,
+    "ultima_pagina": 6,
+    "localizacao": "trecho literal"
+   },
+   "b)ÁreaAfetada:delimitaçãogeográficadainterrupção;": {
+    "url": "/fontes/ren20251137.pdf#page=6",
+    "pagina": 6,
+    "ultima_pagina": 6,
+    "localizacao": "trecho literal"
+   },
+   "c)UnidadesConsumidorasImpactadas:Númerodeunidadesconsumidorasafetadas;e": {
+    "url": "/fontes/ren20251137.pdf#page=6",
+    "pagina": 6,
+    "ultima_pagina": 6,
+    "localizacao": "trecho literal"
+   },
+   "d)PrevisãodeRestabelecimento:estimativaderetornodofornecimento,combasenamelhorinformaçãodisponível.CanaisdeComunicação": {
+    "url": "/fontes/ren20251137.pdf#page=6",
+    "pagina": 6,
+    "ultima_pagina": 7,
+    "localizacao": "trecho literal"
+   },
+   "110.Acomunicaçãodequetrataoitem105deveserrealizada,obrigatoriamente,pormeiodeSMSeaplicativosdemensagens,comenviodemensagensautomáticasaosconsumidoresafetados.": {
+    "url": "/fontes/ren20251137.pdf#page=7",
+    "pagina": 7,
+    "ultima_pagina": 7,
+    "localizacao": "trecho literal"
+   },
+   "116.Acomunicaçãodevefacilitaracoordenaçãoentreasdistribuidoraseosórgãosgovernamentais,permitindoumarespostaintegradaacriseseeventosadversos.CritériosdeComunicação": {
+    "url": "/fontes/ren20251137.pdf#page=7",
+    "pagina": 7,
+    "ultima_pagina": 8,
+    "localizacao": "trecho literal"
+   },
+   "126.SegurançaOperacional:ACessãoEmergencialderecursosnãodevecomprometerasegurançadasoperaçõesdasdistribuidorasenvolvidas.": {
+    "url": "/fontes/ren20251137.pdf#page=9",
+    "pagina": 9,
+    "ultima_pagina": 9,
+    "localizacao": "trecho literal"
+   },
+   "127.ProporcionalidadeeNecessidade:ACessãoEmergencialdeveserlimitadaànecessidadedemonstradapelasituaçãodecriseeproporcionalàcapacidadeoperacionaldisponíveldecadadistribuidora.": {
+    "url": "/fontes/ren20251137.pdf#page=9",
+    "pagina": 9,
+    "ultima_pagina": 9,
+    "localizacao": "trecho literal"
+   },
+   "a)Reembolsodedespesascomhorasdetrabalhodosrecursoshumanos,proporcionaisàremuneração,cargoseencargos,conformefolhadepagamentodacedente;": {
+    "url": "/fontes/ren20251137.pdf#page=10",
+    "pagina": 10,
+    "ultima_pagina": 10,
+    "localizacao": "trecho literal"
+   },
+   "b)Reembolsodedespesascomequipamentosemateriaiscedidos,proporcionaisaovalororiginalparaacedente;": {
+    "url": "/fontes/ren20251137.pdf#page=10",
+    "pagina": 10,
+    "ultima_pagina": 10,
+    "localizacao": "trecho literal"
+   },
+   "c)SeguroseindenizaçõesemcasodeacidentesduranteaCessãoEmergencial;e": {
+    "url": "/fontes/ren20251137.pdf#page=10",
+    "pagina": 10,
+    "ultima_pagina": 10,
+    "localizacao": "trecho literal"
+   },
+   "d)Neutralidadedosvaloresparaoreembolsoà(s)cedente(s)pelarequisitante.CritériosdeCessãodeEquipes": {
+    "url": "/fontes/ren20251137.pdf#page=10",
+    "pagina": 10,
+    "ultima_pagina": 10,
+    "localizacao": "trecho literal"
+   },
+   "135.Asequipescedidasdevempossuircapacitaçãoeexperiênciacompatíveiscomasatividadesaseremdesenvolvidasnadistribuidoracedente.": {
+    "url": "/fontes/ren20251137.pdf#page=10",
+    "pagina": 10,
+    "ultima_pagina": 11,
+    "localizacao": "trecho literal"
+   },
+   "137.Otempodecessãodasequipesnãopodecomprometersignificativamenteoatendimentoaosconsumidoresdadistribuidoracedente.": {
+    "url": "/fontes/ren20251137.pdf#page=11",
+    "pagina": 11,
+    "ultima_pagina": 11,
+    "localizacao": "trecho literal"
+   },
+   "g)Verificabilidade:oplanodeveserestruturadodeformaapermitiraverificaçãodasuacontinuidadeeeficiênciadeexecução.Diretrizes": {
+    "url": "/fontes/ren20251137.pdf#page=12",
+    "pagina": 12,
+    "ultima_pagina": 12,
+    "localizacao": "trecho literal"
+   },
+   "a)IdentificaçãoeAnálisedeRiscos:Identificarosfatoresderiscopotenciais,tantointernosquantoexternos,comomaiorníveldedetalhamentopossível.Aidentificaçãodeveincluiralocalização,naturezadorisco,frequênciahistóricadeocorrênciaeumaanálisecompletadosimpactospotenciaisassociadosacadarisco;": {
+    "url": "/fontes/ren20251137.pdf#page=13",
+    "pagina": 13,
+    "ultima_pagina": 13,
+    "localizacao": "trecho literal"
+   },
+   "145.Arealizaçãodesimuladosoudisponibilizaçãodetreinamentosatualizadosdeveserfeitacomperiodicidademáximadeumano.": {
+    "url": "/fontes/ren20251137.pdf#page=14",
+    "pagina": 14,
+    "ultima_pagina": 14,
+    "localizacao": "trecho literal"
+   },
+   "b)Adisponibilizaçãodetreinamentosatualizados,tambémdeveserfornecidanamesmaperiodicidademáximaparaosagentesdesignadospeloPoderPúblico.": {
+    "url": "/fontes/ren20251137.pdf#page=14",
+    "pagina": 14,
+    "ultima_pagina": 14,
+    "localizacao": "trecho literal"
+   },
+   "180-A.NaapuraçãodoindicadorDISEnãodevemserconsideradasasinterrupçõesprevistasnoitem178,comexceçãodaalínea“c”.": {
+    "url": "/fontes/ren20251137.pdf#page=24",
+    "pagina": 24,
+    "ultima_pagina": 24,
+    "localizacao": "trecho literal"
+   },
+   "226.ParaunidadesconsumidorascomCCDedistribuidorasconectadasaosistemadedistribuição,ascompensaçõesassociadasàsviolaçõesdoslimitesdecontinuidadeDIC,FIC,DMIC,DICRIeDISEporpontodeconexãodevemserestabelecidasnosrespectivoscontratos,obedecendoaoscritériosdesteMódulo.": {
+    "url": "/fontes/ren20251137.pdf#page=25",
+    "pagina": 25,
+    "ultima_pagina": 25,
+    "localizacao": "trecho literal"
+   },
+   "d)quandoocorrerviolaçãodosindicadoresDICRIouDISE,acompensaçãodeveserrealizadasemprejuízodascompensaçõesporviolaçãodosindicadoresDIC,FICeDMIC,podendoinclusivehavercompensaçõesreferentesamaisdeumaviolaçãodolimitedosindicadoresDICRIeDISEnomesmomês,hipóteseemquedeveserpagaasomadascompensaçõescalculadasparacadaviolação.”(NR)": {
+    "url": "/fontes/ren20251137.pdf#page=25",
+    "pagina": 25,
+    "ultima_pagina": 25,
+    "localizacao": "trecho literal"
+   },
+   "I-atendimentotelefônico;": {
+    "url": "/fontes/ren20251137.pdf#page=27",
+    "pagina": 27,
+    "ultima_pagina": 27,
+    "localizacao": "trecho literal"
+   },
+   "II-atendimentopresencial,comhorárioagendado;e": {
+    "url": "/fontes/ren20251137.pdf#page=27",
+    "pagina": 27,
+    "ultima_pagina": 27,
+    "localizacao": "trecho literal"
+   },
+   "III-canaldecomunicaçãoportexto(chat)comatendimentohumano,durantehoráriocomercial.": {
+    "url": "/fontes/ren20251137.pdf#page=27",
+    "pagina": 27,
+    "ultima_pagina": 27,
+    "localizacao": "trecho literal"
+   },
+   "108.AsdistribuidorasdevemdisponibilizaraversãomaisatualizadadeseuplanodecomunicaçãoemseusítioeletrôniconaInternetenospostosdeatendimentopresencial,deformaacessívelaopúblico,comusodelinguagemclaraeadequada.InformaçõesDetalhadas": {
+    "url": "/fontes/ren20251137.pdf#page=6",
+    "pagina": 6,
+    "ultima_pagina": 6,
+    "localizacao": "trecho literal"
+   },
+   "102.AsdistribuidorasdevemdisponibilizaraversãomaisatualizadadeseuRelatórioAnualdeGestãodoManejoVegetalemseusítioeletrôniconaInternetenospostosdeatendimentopresencial,deformaacessívelaopúblico,comusodelinguagemclaraeadequada,conformeprazoconstantedoMódulo6.": {
+    "url": "/fontes/ren20251137.pdf#page=5",
+    "pagina": 5,
+    "ultima_pagina": 5,
+    "localizacao": "trecho literal"
+   },
+   "23-E.Adistribuidoradevedisponibilizaremsítioeletrônicoenospostosdeatendimentopresencial,comusodelinguagemclaraeadequada,aversãomaisatualizadadeseuRelatórioAnualdeGestãodoManejoVegetal.": {
+    "url": "/fontes/ren20251137.pdf#page=17",
+    "pagina": 17,
+    "ultima_pagina": 17,
+    "localizacao": "trecho literal"
+   },
+   "23-I.Adistribuidoradevedisponibilizaremsítioeletrônicoenospostosdeatendimentopresencial,comusodelinguagemclaraeadequada,oseuPlanodeComunicação.": {
+    "url": "/fontes/ren20251137.pdf#page=20",
+    "pagina": 20,
+    "ultima_pagina": 20,
+    "localizacao": "trecho literal"
+   },
+   "104.Asdistribuidorasdevemmanterregistrodetalhadoduranteoperíodode05anosdetodasassolicitaçõesrelacionadasaoserviçodemanejodavegetaçãoqueofereçariscoàsegurançadasredeselétricaseàcontinuidadedofornecimentodeenergiaelétrica,incluídastantoassolicitaçõesrealizadaspeloPoderPúblicoMunicipalquantoaquelasregistradaspelasprópriasdistribuidoraseenviadasaoPoderPúblicoMunicipal,devendoocompartilhamentodeinformaçõesestaremconformidadecomasdisposiçõesdaLeiGeraldeProteçãodeDados(LGPD).": {
+    "url": "/fontes/ren20251137.pdf#page=5",
+    "pagina": 5,
+    "ultima_pagina": 5,
+    "localizacao": "trecho literal"
+   },
+   "95.Asdistribuidorasdeverãocelebrarconvênios,acordosdecooperaçãoououtrosinstrumentosformaiscomosentespúblicosmunicipais,distritaiseestaduais,comvistasàdefiniçãodeprotocolosdeatuaçãocoordenadaparaomanejodavegetaçãoqueinterfiranasegurançaecontinuidadedoserviçopúblicodedistribuiçãodeenergiaelétrica,devendoprever,deformaclara,asresponsabilidadesdecadapartequantoàinspeção,podapreventiva,remoçãoesubstituiçãodeárvores,respeitandoascompetênciaslegaiseambientaisdecadaentefederativo,bemcomoosprocedimentostécnicoseoperacionaisnecessáriosàexecuçãodasações.": {
+    "url": "/fontes/ren20251137.pdf#page=3",
+    "pagina": 3,
+    "ultima_pagina": 3,
+    "localizacao": "trecho literal"
+   },
+   "97.Aescolhadetecnologias,projetoseestratégiasoperacionaispelasdistribuidorasdeveconsiderarosdesafiosespecíficosdavegetaçãolocal,incluindoaspectoscomoespéciespredominantes,sazonalidadeecaracterísticasdecrescimentodeformaagarantiraprestaçãodoserviçoadequado.": {
+    "url": "/fontes/ren20251137.pdf#page=3",
+    "pagina": 3,
+    "ultima_pagina": 3,
+    "localizacao": "trecho literal"
+   },
+   "a)Inspeçãoregular:realizarainspeçãovisualperiódicadasredeselétricasedavegetaçãopróximaouutilizardesistemadegestãoquepossibiliteacriaçãodeciclosdepodasreduzindoanecessidadededeslocamentodeequipe,afimdeidentificarárvoresougalhosquepossamrepresentarriscodequedasobrearedededistribuição;": {
+    "url": "/fontes/ren20251137.pdf#page=4",
+    "pagina": 4,
+    "ultima_pagina": 4,
+    "localizacao": "trecho literal"
+   },
+   "b)Podapreventiva:realizar,emarticulaçãocomoPoderPúblicoEstadual,DistritaleMunicipaleemconformidadecomasnormastécnicas,podaspreventivasparamanterdistânciadesegurançaentreavegetaçãoearedeelétrica,minimizandooriscodeacidenteseinterrupçõesnofornecimentodeenergia;": {
+    "url": "/fontes/ren20251137.pdf#page=4",
+    "pagina": 4,
+    "ultima_pagina": 4,
+    "localizacao": "trecho literal"
+   },
+   "c)Remoçãodevegetaçãoderisco:quandoidentificadasárvoresoupartesdavegetaçãoque,devidoaoseuestado,porteoulocalização,apresentemriscoiminenteàsegurançadasredeselétricas,asdistribuidorasdeverãocomunicarimediatamenteanecessidadedeeliminaçãodoriscoaoórgãocompetentedoPoderPúblicoEstadual,DistritalouMunicipal,earticularasaçõesnecessáriasparaeliminaçãodorisco,prestandoapoiotécniconecessário,inclusivecomodesligamentodaredeelétrica,quandoaplicável,observandoosconvêniosdecooperaçãoentreosentesenvolvidos,respeitandoascompetênciaslegaisealegislaçãopertinente;": {
+    "url": "/fontes/ren20251137.pdf#page=4",
+    "pagina": 4,
+    "ultima_pagina": 4,
+    "localizacao": "trecho literal"
+   },
+   "d)Substituiçãodeárvores:asdistribuidorasdevempormeiodeprogramasestimularoplantiodenovasespéciesadequadasaoconvíviocomasredeselétricas,emconformidadecomosplanosmunicipaisdearborização.": {
+    "url": "/fontes/ren20251137.pdf#page=4",
+    "pagina": 4,
+    "ultima_pagina": 4,
+    "localizacao": "trecho literal"
+   },
+   "100.AsdistribuidorasdevemelaborarRelatórioAnualdeGestãodoManejoVegetal,documentandodeformadetalhadatodasasatividadesrelacionadasàgestãodavegetaçãoqueinterfiranaredededistribuiçãodeenergia,queservirácomoferramentadetransparênciaecontroleparaassegurarqueasaçõesdemanejovegetalsejamrealizadasdeformaeficaz,emconformidadecomasnormastécnicaseambientais,ecomoobjetivodegarantirasegurançaeacontinuidadedofornecimentodeenergiaelétrica.": {
+    "url": "/fontes/ren20251137.pdf#page=4",
+    "pagina": 4,
+    "ultima_pagina": 4,
+    "localizacao": "trecho literal"
+   },
+   "105.Asdistribuidorasdevemcomunicaraosconsumidores,pormeiodoscanaisdisponíveis,aprovávelcausadainterrupção,aáreaafetadaeotempoprevistoparaanormalizaçãodofornecimentoematé15(quinze)minutosapósoconhecimentodacausadainterrupção.Independentementedomomentoemqueacausaforidentificada,acomunicaçãocontendoessasinformaçõesdeveserrealizadaematé1(uma)horaapósoreconhecimentodaocorrênciadainterrupçãonofornecimentodeenergiaelétrica.": {
+    "url": "/fontes/ren20251137.pdf#page=5",
+    "pagina": 5,
+    "ultima_pagina": 5,
+    "localizacao": "trecho literal"
+   },
+   "106.Asdistribuidorasdeenergiadevemdisponibilizaremsítioeletrônico,comatualizaçãoacada30minutos,onúmerototaldeunidadesconsumidorasafetadasporinterrupções,discriminadoemmapaporbairro,nomínimo.": {
+    "url": "/fontes/ren20251137.pdf#page=5",
+    "pagina": 5,
+    "ultima_pagina": 5,
+    "localizacao": "trecho literal"
+   },
+   "a)Númerodaocorrência;": {
+    "url": "/fontes/ren20251137.pdf#page=6",
+    "pagina": 6,
+    "ultima_pagina": 6,
+    "localizacao": "trecho literal"
+   },
+   "b)Município/bairrodaocorrênciaaberta;": {
+    "url": "/fontes/ren20251137.pdf#page=6",
+    "pagina": 6,
+    "ultima_pagina": 6,
+    "localizacao": "trecho literal"
+   },
+   "c)Dataehoradeiníciodaocorrênciaaberta;": {
+    "url": "/fontes/ren20251137.pdf#page=6",
+    "pagina": 6,
+    "ultima_pagina": 6,
+    "localizacao": "trecho literal"
+   },
+   "d)Tipodeocorrênciaaberta(programadaenãoprogramada);": {
+    "url": "/fontes/ren20251137.pdf#page=6",
+    "pagina": 6,
+    "ultima_pagina": 6,
+    "localizacao": "trecho literal"
+   },
+   "e)Sinalizaçãodostatusdaocorrênciaaberta(Empreparação/EmDeslocamento/EmExecução);": {
+    "url": "/fontes/ren20251137.pdf#page=6",
+    "pagina": 6,
+    "ultima_pagina": 6,
+    "localizacao": "trecho literal"
+   },
+   "f)Quantidadedeunidadesconsumidorasinterrompidasdaocorrênciaabertaeototaldaáreadeatuação;": {
+    "url": "/fontes/ren20251137.pdf#page=6",
+    "pagina": 6,
+    "ultima_pagina": 6,
+    "localizacao": "trecho literal"
+   },
+   "g)Duraçãodaocorrência(hh:mm);": {
+    "url": "/fontes/ren20251137.pdf#page=6",
+    "pagina": 6,
+    "ultima_pagina": 6,
+    "localizacao": "trecho literal"
+   },
+   "h)ConsumidorHoraInterrompido(CHI)daocorrênciaabertaeototaldaáreadeatuação;": {
+    "url": "/fontes/ren20251137.pdf#page=6",
+    "pagina": 6,
+    "ultima_pagina": 6,
+    "localizacao": "trecho literal"
+   },
+   "i)Quantidadedeocorrênciasabertassegregadaspormunicípioeototalnaáreadeatuação;": {
+    "url": "/fontes/ren20251137.pdf#page=6",
+    "pagina": 6,
+    "ultima_pagina": 6,
+    "localizacao": "trecho literal"
+   },
+   "j)Quantidadedeequipesematividade,segregadaspormunicípioeototalnaáreadeatuação;e": {
+    "url": "/fontes/ren20251137.pdf#page=6",
+    "pagina": 6,
+    "ultima_pagina": 6,
+    "localizacao": "trecho literal"
+   },
+   "112.Adistribuidoradeveatualizarasinformaçõesreferentesàinterrupçãodequetrataoitem105,incluindoalteraçõesnotempoestimadoderestabelecimentoeoutrasinformaçõesrelevantesparaoconsumidor.": {
+    "url": "/fontes/ren20251137.pdf#page=7",
+    "pagina": 7,
+    "ultima_pagina": 7,
+    "localizacao": "trecho literal"
+   },
+   "23-B.Adistribuidoradevecomunicaraoconsumidor,apósoreconhecimentodaocorrênciadeinterrupçõesnofornecimentodeenergiaelétrica,informaçõessobreoevento.": {
+    "url": "/fontes/ren20251137.pdf#page=15",
+    "pagina": 15,
+    "ultima_pagina": 15,
+    "localizacao": "trecho literal"
+   },
+   "23-C.Adistribuidoradevedisponibilizaraosconsumidoresonúmerototaldeunidadesconsumidorasafetadasporinterrupções.": {
+    "url": "/fontes/ren20251137.pdf#page=16",
+    "pagina": 16,
+    "ultima_pagina": 16,
+    "localizacao": "trecho literal"
+   },
+   "§6ºNotratamentodeinterrupçõesemergenciais,adistribuidoradeveobservarasdisposiçõesrelacionadasaoatendimentoprevistasnoMódulo4doPRODIST.": {
+    "url": "/fontes/ren20251137.pdf#page=28",
+    "pagina": 28,
+    "ultima_pagina": 28,
+    "localizacao": "trecho literal"
+   },
+   "VI-Até180(centoeoitenta)diasmêsparainiciarasapuraçõesdoDuraçãodaInterrupçãoIndividualocorridaemSituaçãodeEmergênciaporUnidadeConsumidoraouporPontodeConexão–DISEeobservarasdisposiçõesdaSeção8.2doMódulo8doPRODISTcomocorrespondepagamentodecompensaçõesportransgressãodesseindicador,comefeitosretroativosa2mesesapósapublicaçãodanorma;": {
+    "url": "/fontes/ren20251137.pdf#page=31",
+    "pagina": 31,
+    "ultima_pagina": 31,
+    "localizacao": "trecho literal"
+   },
+   "120.Asdistribuidorasdevemrealizarcomunicaçõesformais,comperiodicidadeanual,aosrepresentantesdoPoderPúblico,detalhandoaexecuçãodosprotocolosestabelecidosdemodoagarantirquetodososenvolvidosestejamfamiliarizadoscomosprocedimentosdecomunicação.": {
+    "url": "/fontes/ren20251137.pdf#page=8",
+    "pagina": 8,
+    "ultima_pagina": 8,
+    "localizacao": "trecho literal"
+   },
+   "Art.14.Asdistribuidorasdevemimplantarprocessodecomunicaçãoeacompanhamentodaevoluçãodoseventosclimáticosseverosdequetrataoitem114doAnexoIVdaResoluçãoNormativanº956,de7dedezembrode2021,ematé30(trinta)dias,contadosdapublicaçãodasinstruçõespelaANEEL.": {
+    "url": "/fontes/ren20251137.pdf#page=31",
+    "pagina": 31,
+    "ultima_pagina": 31,
+    "localizacao": "trecho literal"
+   },
+   "117.AsdistribuidorasdevemnotificaroPoderPúblicoimediatamenteapósaidentificaçãodeumeventocrítico,utilizandocanaisdecomunicaçãooficiaispreviamenteestabelecidos.": {
+    "url": "/fontes/ren20251137.pdf#page=8",
+    "pagina": 8,
+    "ultima_pagina": 8,
+    "localizacao": "trecho literal"
+   },
+   "119.AsdistribuidorasdevemestabelecerprotocolosdealertasparanotificarrapidamenteoPoderPúblico,conformeprevistonoitem115,sobreinterrupçõesdeenergiaesituaçõesquedemandemapoioimediatoparaaatuaçãoemcenáriosdeemergência.": {
+    "url": "/fontes/ren20251137.pdf#page=8",
+    "pagina": 8,
+    "ultima_pagina": 8,
+    "localizacao": "trecho literal"
+   },
+   "23-L.AdistribuidoradevenotificaroPoderPúblicoimediatamenteapósaidentificaçãodeumeventocrítico,utilizandocanaisdecomunicaçãooficiaispreviamenteestabelecidos.": {
+    "url": "/fontes/ren20251137.pdf#page=21",
+    "pagina": 21,
+    "ultima_pagina": 21,
+    "localizacao": "trecho literal"
+   },
+   "Art.371-AAdistribuidoradeveestabelecercanaisadicionaisdecomunicaçãoexclusivosaoatendimentodeórgãocentralerepresentantesdesignadosdospoderespúblicosmunicipal,distritaleestadual.": {
+    "url": "/fontes/ren20251137.pdf#page=27",
+    "pagina": 27,
+    "ultima_pagina": 27,
+    "localizacao": "trecho literal"
+   },
+   "§3ºAdistribuidoradevedesignarumoumaisrepresentantesinstitucionaisparaatendimentoexclusivodospoderespúblicosmunicipal,distritaleestadual,garantindocomunicaçãodiretaeeficaz.": {
+    "url": "/fontes/ren20251137.pdf#page=28",
+    "pagina": 28,
+    "ultima_pagina": 28,
+    "localizacao": "trecho literal"
+   },
+   "§4ºAdistribuidoradeveagendarerealizar,semprequesolicitadopelospoderespúblicosmunicipal,distritaleestadual,reuniõesviaplataformadevideoconferênciacomosseusrepresentantesinstitucionais.": {
+    "url": "/fontes/ren20251137.pdf#page=28",
+    "pagina": 28,
+    "ultima_pagina": 28,
+    "localizacao": "trecho literal"
+   },
+   "113.AsdistribuidorasdeenergiadevemdisponibilizarumaAPI(ApplicationProgrammingInterface)ououtrasoluçãotecnológicasegura,conformeinstruçãotécnicaemitidapelaANEEL,permitindoqueaANEELextraiaosdadosdeinterrupçãodofornecimentodiretamentedafonte,comobservânciaaoscritériosdesegurançacibernética,disponibilidadeeintegridadedesistemas.": {
+    "url": "/fontes/ren20251137.pdf#page=7",
+    "pagina": 7,
+    "ultima_pagina": 7,
+    "localizacao": "trecho literal"
+   },
+   "Art.16Asdistribuidorasdeverãoinformaremanter,poratécincoanos,emseusítioeletrônico,osindicadoresestabelecidosnosincisosVeVIdocaputdoart.4º;doDecreto12.068,de20dejulhode2024,ematé30dias,contadosdapublicaçãodasinstruçõespelaANEEL.": {
+    "url": "/fontes/ren20251137.pdf#page=31",
+    "pagina": 31,
+    "ultima_pagina": 31,
+    "localizacao": "trecho literal"
+   },
+   "a)valorglobaldacontrataçãocomdetalhamentodosrecursosenvolvidos,segregadosportipodegasto;": {
+    "url": "/fontes/ren20251137.pdf#page=9",
+    "pagina": 9,
+    "ultima_pagina": 9,
+    "localizacao": "trecho literal"
+   },
+   "c)relaçãodasmatrículasdosprofissionaisquerealizaramosatendimentos,discriminandofunção,remuneração,cargoseencargostotaisconformefolhadepagamentodacedente,horáriododespacho,localdoatendimentoeototaldehorasempregadasemserviço;": {
+    "url": "/fontes/ren20251137.pdf#page=9",
+    "pagina": 9,
+    "ultima_pagina": 9,
+    "localizacao": "trecho literal"
+   },
+   "d)valorindividualizadoporfrentedeserviçoemontantetotaldosserviçosrealizados;": {
+    "url": "/fontes/ren20251137.pdf#page=9",
+    "pagina": 9,
+    "ultima_pagina": 9,
+    "localizacao": "trecho literal"
+   },
+   "e)documentaçãocomprobatóriaediscriminaçãodetalhadadedespesascomequipamentosemateriais;": {
+    "url": "/fontes/ren20251137.pdf#page=9",
+    "pagina": 9,
+    "ultima_pagina": 9,
+    "localizacao": "trecho literal"
+   },
+   "f)documentaçãocomprobatóriaediscriminaçãodetalhadadeoutrasdespesasrealizadasnaoperaçãoemergencial;": {
+    "url": "/fontes/ren20251137.pdf#page=9",
+    "pagina": 9,
+    "ultima_pagina": 10,
+    "localizacao": "trecho literal"
+   },
+   "g)formadepagamento,observandooquedispõeoitem138;": {
+    "url": "/fontes/ren20251137.pdf#page=10",
+    "pagina": 10,
+    "ultima_pagina": 10,
+    "localizacao": "trecho literal"
+   },
+   "h)informaçõesseparadasporcedente,resguardandoarespectivaproporcionalidadenaCessãoEmergencialeaindividualidadedasconcessões;": {
+    "url": "/fontes/ren20251137.pdf#page=10",
+    "pagina": 10,
+    "ultima_pagina": 10,
+    "localizacao": "trecho literal"
+   },
+   "i)apresentaçãodasrazõesdaopçãopelautilizaçãoderecursoshumanospertencentesaoutrasempresas;": {
+    "url": "/fontes/ren20251137.pdf#page=10",
+    "pagina": 10,
+    "ultima_pagina": 10,
+    "localizacao": "trecho literal"
+   },
+   "j)atividadesdesenvolvidaspelasequipescedidas,registradasdetalhadamente,porlocalidade;": {
+    "url": "/fontes/ren20251137.pdf#page=10",
+    "pagina": 10,
+    "ultima_pagina": 10,
+    "localizacao": "trecho literal"
+   },
+   "k)detalhamentodastarefasdecampo,comdia,dataehora;": {
+    "url": "/fontes/ren20251137.pdf#page=10",
+    "pagina": 10,
+    "ultima_pagina": 10,
+    "localizacao": "trecho literal"
+   },
+   "l)detalhamentodostiposdeestruturasutilizadasnosatendimentos,comquantidadedeturmaseveículos(levesepesados);e": {
+    "url": "/fontes/ren20251137.pdf#page=10",
+    "pagina": 10,
+    "ultima_pagina": 10,
+    "localizacao": "trecho literal"
+   },
+   "m)outrasinformaçõesquejulgarrelevantesobreaCessãoEmergencial.AcordodeCessãoEmergencialPrévio.": {
+    "url": "/fontes/ren20251137.pdf#page=10",
+    "pagina": 10,
+    "ultima_pagina": 10,
+    "localizacao": "trecho literal"
+   },
+   "23-A.AdistribuidoradeveenviaràsáreasdefiscalizaçãodaANEELrelatóriocontendodiscriminaçãodasdespesasoucustosincorridosaseremreembolsadosàcedenterelativosàCessãoEmergencialderecursoshumanos,equipamentosemateriaisutilizados,alémdeoutrasinformaçõespertinentes.": {
+    "url": "/fontes/ren20251137.pdf#page=14",
+    "pagina": 14,
+    "ultima_pagina": 14,
+    "localizacao": "trecho literal"
+   },
+   "b)duraçãodoContratodeCessãoEmergencialparaexecuçãodosserviçosrealizados;": {
+    "url": "/fontes/ren20251137.pdf#page=9",
+    "pagina": 9,
+    "ultima_pagina": 9,
+    "localizacao": "trecho literal"
+   },
+   "b)acessionáriadeverámanterdossiêindividualizadoemsuasedecontendoosdocumentoscomprobatóriosqueevidenciemaneutralidadedecustosedespesasreembolsadosàcedente,osquaispoderãoserrequisitadospelafiscalizaçãoporaté5(cinco)anosapósfimdoeventoemergencial.": {
+    "url": "/fontes/ren20251137.pdf#page=11",
+    "pagina": 11,
+    "ultima_pagina": 11,
+    "localizacao": "trecho literal"
+   },
+   "219.NocasodeviolaçãodolimitedecontinuidadeindividualdosindicadoresDIC,FIC,DMIC,DICRIeDISEadistribuidoradevecalcularacompensaçãoaoconsumidoroucentralgeradora,inclusiveaquelesconectadosemDIT,eefetuarocréditonafaturaapresentadaematé2mesesapósoperíododeapuração.": {
+    "url": "/fontes/ren20251137.pdf#page=24",
+    "pagina": 24,
+    "ultima_pagina": 24,
+    "localizacao": "trecho literal"
+   },
+   "23-G.Asdistribuidorasdeverãoinformaremanter,poratécincoanos,emseusítioeletrônico,aqualidadenaprestaçãodoserviçodedistribuiçãodeenergiaelétrica,pormeiodaapuraçãodeindicadoresdecontinuidadedofornecimento,permitindoaavaliaçãodopercentualdecumprimentodoslimitesdeconjuntoselétricos,alémdovalorglobaldadistribuidora.": {
+    "url": "/fontes/ren20251137.pdf#page=18",
+    "pagina": 18,
+    "ultima_pagina": 18,
+    "localizacao": "trecho literal"
+   },
+   "23-H.Asdistribuidorasdeverãoinformaremanter,poratécincoanos,emseusítioeletrônico,osindicadoresdeduraçãoefrequênciadeinterrupções(DECeFEC)efetivamentepercebidaspelosusuários,semaplicaçãodeexpurgos.": {
+    "url": "/fontes/ren20251137.pdf#page=19",
+    "pagina": 19,
+    "ultima_pagina": 19,
+    "localizacao": "trecho literal"
+   },
+   "220-A.AdistribuidoradeveefetuarumacompensaçãoaoconsumidoroucentralgeradorademédiaoubaixatensãoparacadainterrupçãoocorridaemSituaçãodeEmergênciaquesuperarolimitedoindicadorDISE.”(NR)": {
+    "url": "/fontes/ren20251137.pdf#page=24",
+    "pagina": 24,
+    "ultima_pagina": 24,
+    "localizacao": "trecho literal"
+   },
+   "c)Ascessõesemergenciaisderecursoshumanos,equipamentosemateriaisentredistribuidorasetransmissorasesuaspartesrelacionadasdevemserreembolsadaspelacessionáriaàcedentegarantindoaneutralidadedaoperação,nãosetratandoderateioouprestaçãodeserviços,epreservandoaindividualidadedasconcessões.": {
+    "url": "/fontes/ren20251137.pdf#page=11",
+    "pagina": 11,
+    "ultima_pagina": 11,
+    "localizacao": "trecho literal"
+   },
+   "Art.15.AsdistribuidorasdevemdisponibilizaraAPIdequetrataitem113doAnexoIVdaResoluçãoNormativanº956,de7dedezembrode2021,comredaçãodadapeloart.3ºdestaResoluçãoNormativaematé60(sessenta)dias,contadosdapublicaçãodasinstruçõespelaANEEL.": {
+    "url": "/fontes/ren20251137.pdf#page=31",
+    "pagina": 31,
+    "ultima_pagina": 31,
+    "localizacao": "trecho literal"
+   },
+   "23-K.AdistribuidoradevedisponibilizaràANEELumaAPI(ApplicationProgrammingInterface)quepossibiliteaconsultadedadosdeinterrupçãodofornecimentodiretamentedossistemasdasdistribuidoras.": {
+    "url": "/fontes/ren20251137.pdf#page=21",
+    "pagina": 21,
+    "ultima_pagina": 21,
+    "localizacao": "trecho literal"
+   },
+   "129.Individualidadedasconcessionárias:todasasinformações,documentações,arquivoseregistroscontábeisrelacionadosàCessãoEmergencialdeverãoevidenciaraproporçãodecadadistribuidoraoutransmissoracedente.SituaçõesAplicáveis": {
+    "url": "/fontes/ren20251137.pdf#page=9",
+    "pagina": 9,
+    "ultima_pagina": 9,
+    "localizacao": "trecho literal"
+   },
+   "c)AprevisãodeduraçãodaCessãoEmergencial;": {
+    "url": "/fontes/ren20251137.pdf#page=10",
+    "pagina": 10,
+    "ultima_pagina": 10,
+    "localizacao": "trecho literal"
+   },
+   "d)Aresponsabilidadepelasdespesasoperacionais;": {
+    "url": "/fontes/ren20251137.pdf#page=10",
+    "pagina": 10,
+    "ultima_pagina": 10,
+    "localizacao": "trecho literal"
+   },
+   "e)PrevisãodeCessãoEmergencial,mantendo-seneutralidadedaspartesemrelaçãoarecursoshumanos,equipamentosemateriais;": {
+    "url": "/fontes/ren20251137.pdf#page=10",
+    "pagina": 10,
+    "ultima_pagina": 10,
+    "localizacao": "trecho literal"
+   },
+   "f)RealizaçãodetestesregularesdeCessãoEmergencial,simulandocenáriosdecriseparavalidaraeficáciadoprocessoeidentificarmelhoriasoperacionaisnointercâmbioderecursoshumanos,equipamentosemateriais;e": {
+    "url": "/fontes/ren20251137.pdf#page=10",
+    "pagina": 10,
+    "ultima_pagina": 10,
+    "localizacao": "trecho literal"
+   },
+   "136.Adistribuidoracessionáriadeveprovercondiçõesadequadasdetrabalho,comoalimentação,transporte,hospedagemesegurançaparaasequipesobjetodaCessãoEmergencial.": {
+    "url": "/fontes/ren20251137.pdf#page=11",
+    "pagina": 11,
+    "ultima_pagina": 11,
+    "localizacao": "trecho literal"
+   },
+   "g)Procedimentosclarosparaaintegraçãodeequipesexternas,comdefiniçãodetreinamentos,capacitaçõesepreparaçãopréviaadequadaparagarantirquetodososenvolvidosestejamalinhadoscomaspráticasdesegurançaeoperaçãodadistribuidorarequisitante.": {
+    "url": "/fontes/ren20251137.pdf#page=10",
+    "pagina": 10,
+    "ultima_pagina": 10,
+    "localizacao": "trecho literal"
+   },
+   "23-D.Adistribuidoradevedisponibilizaremsítioeletrônicoinformaçõesrelacionadasàsocorrênciasabertas.": {
+    "url": "/fontes/ren20251137.pdf#page=16",
+    "pagina": 16,
+    "ultima_pagina": 16,
+    "localizacao": "trecho literal"
+   },
+   "§5ºOatendimentotelefônicoexclusivoprevistono§1ºdeveter,nocasodeurgência/emergência,disponibilidadeininterruptadurante24horaspordiae7diasporsemana,comatendimentohumanodurantetodooperíododefuncionamento.": {
+    "url": "/fontes/ren20251137.pdf#page=28",
+    "pagina": 28,
+    "ultima_pagina": 28,
+    "localizacao": "trecho literal"
+   },
+   "§7ºAdistribuidoradeveentregaremanteratualizadojuntoaospoderespúblicosmunicipal,distritaleestadualarelaçãodoscanaisexclusivoseasinformaçõesdecontatodosrepresentantesinstitucionaisestabelecidoscomoshoráriosdeatendimento.....................................................................................................”(NR)": {
+    "url": "/fontes/ren20251137.pdf#page=28",
+    "pagina": 28,
+    "ultima_pagina": 28,
+    "localizacao": "trecho literal"
+   },
+   "c)Ascessõesemergenciaisderecursoshumanos,equipamentosemateriaisentredistribuidorasetransmissorasesuaspartesrelacionadasdevemserreembolsadaspelacessionáriaàcedentegarantindoaneutralidadedaoperação,nãosetratandoderateioouprestaçãodeserviços,epreservandoaindividualidadedasconcessões.....................................................................................................”(NR)": {
+    "url": "/fontes/ren20251137.pdf#page=30",
+    "pagina": 30,
+    "ultima_pagina": 30,
+    "localizacao": "trecho literal"
+   },
+   "103.AsdistribuidorasdevemdisponibilizaraversãomaisatualizadadeseuplanodemanejovegetalemseusítioeletrôniconaInternetenospostosdeatendimentopresencial,deformaacessívelaopúblico,comusodelinguagemclaraeadequada,conformeprazoconstantedoMódulo6.": {
+    "url": "/fontes/ren20251137.pdf#page=5",
+    "pagina": 5,
+    "ultima_pagina": 5,
+    "localizacao": "trecho literal"
+   },
+   "I-Até90(noventa)diaspararevisarepublicarosplanosdemanejovegetal,decomunicaçãoedecontingênciadequetratamositens103,108e148doAnexoIVdaResoluçãoNormativanº956,de7dedezembrode2021,comredaçãodadapeloart.3ºdestaResoluçãoNormativa;": {
+    "url": "/fontes/ren20251137.pdf#page=30",
+    "pagina": 30,
+    "ultima_pagina": 30,
+    "localizacao": "trecho literal"
+   },
+   "k)Estágiodaoperação(conformeetapasdefinidasnoplanodecontingência).": {
+    "url": "/fontes/ren20251137.pdf#page=6",
+    "pagina": 6,
+    "ultima_pagina": 6,
+    "localizacao": "trecho literal"
+   },
+   "V-Até180(centoeoitenta)diasparadisponibilizaremsítioeletrônicoasinformaçõesrelacionadasàsocorrênciasabertas,conformedispõeoitem107doAnexoIVdaResoluçãoNormativanº956,de7dedezembrode2021,comredaçãodadapeloart.3ºdestaResoluçãoNormativa;": {
+    "url": "/fontes/ren20251137.pdf#page=31",
+    "pagina": 31,
+    "ultima_pagina": 31,
+    "localizacao": "trecho literal"
+   },
+   "II-Até180(centoeoitenta)diasparaimplementaroregistrodasinteraçõescomoPoderPúblicoMunicipalemrelaçãoaoserviçodemanejodavegetaçãoqueapresenteriscoàsegurançadasredeselétricaseacontinuidadedofornecimento,conformedispõeoitem104doAnexoIVdaResoluçãoNormativanº956,de7dedezembrode2021,comredaçãodadapeloart.3ºdestaResoluçãoNormativa;": {
+    "url": "/fontes/ren20251137.pdf#page=30",
+    "pagina": 30,
+    "ultima_pagina": 30,
+    "localizacao": "trecho literal"
+   },
+   "III-Até180(centoeoitenta)diasparaimplementarosmecanismosdecomunicaçãoaoconsumidorsobreaprevisãodereestabelecimentodoserviçoedemaisinformaçõesdequetrataoitem105doAnexoIVdaResoluçãoNormativanº956,de7dedezembrode2021,comredaçãodadapeloart.3ºdestaResoluçãoNormativa;": {
+    "url": "/fontes/ren20251137.pdf#page=30",
+    "pagina": 30,
+    "ultima_pagina": 30,
+    "localizacao": "trecho literal"
+   },
+   "IV-Até180(centoeoitenta)diasparadisponibilizaremsítioeletrônicoonúmerototaldeunidadesconsumidorasafetadasporinterrupçõesemmapa,conformedispõeoitem106doAnexoIVdaResoluçãoNormativanº956,de7dedezembrode2021,comredaçãodadapeloart.3ºdestaResoluçãoNormativa;": {
+    "url": "/fontes/ren20251137.pdf#page=30",
+    "pagina": 30,
+    "ultima_pagina": 30,
+    "localizacao": "trecho literal"
+   },
+   "Art.18.Asdisposiçõesnãolistadasnosartigos13,14,15e16devemserimplementadasnadatadepublicaçãodestaResoluçãoNormativa.": {
+    "url": "/fontes/ren20251137.pdf#page=31",
+    "pagina": 31,
+    "ultima_pagina": 31,
+    "localizacao": "trecho literal"
+   },
+   "b)acessionáriadeverámanterdossiêindividualizadoemsuasedecontendoosdocumentoscomprobatóriosqueevidenciemaneutralidadedecustosedespesasreembolsadosàcedente,nostermosdosProcedimentosdeDistribuiçãodeEnergiaElétricanoSistemaElétricoNacional–PRODISTedasRegrasdosServiçosdeTransmissãodeEnergiaElétrica,osquaispoderãoserrequisitadospelafiscalizaçãoporaté5(cinco)anosapósfimdoeventoemergencial.": {
+    "url": "/fontes/ren20251137.pdf#page=30",
+    "pagina": 30,
+    "ultima_pagina": 30,
+    "localizacao": "trecho literal"
+   },
+   "94.Asdistribuidorasdevemestabelecerumplanodemanejovegetalnasuaáreadeatuação,quecontempleavegetaçãoqueinterfiraemsuasredesdedistribuição,emcoordenaçãocomoPoderPúblicoMunicipaleemarticulaçãocomosórgãoscompetentesdoPoderPúblicoEstadualeDistrital,ecomvistasagarantirasegurançadaredededistribuição,aqualidade,eficiênciaeacontinuidadedofornecimentodeenergiaelétrica.": {
+    "url": "/fontes/ren20251137.pdf#page=3",
+    "pagina": 3,
+    "ultima_pagina": 3,
+    "localizacao": "trecho literal"
+   },
+   "96.Asdistribuidorasdevemgarantirarápidaremoçãodeárvoresougalhoscaídossobrearede,atuandodeformacoordenadacomoPoderPúblicoEstadual,DistritalouMunicipal,dispondodeautonomianecessáriaparaadotarmedidasurgentesqueasseguremarápidarecuperaçãodoserviçoemsituaçõesdeemergência.": {
+    "url": "/fontes/ren20251137.pdf#page=3",
+    "pagina": 3,
+    "ultima_pagina": 3,
+    "localizacao": "trecho literal"
+   },
+   "115.AcomunicaçãodeveserclaraetransparentecomointuitodegerarconfiançanorelacionamentoentreasdistribuidoraseoPoderPúblico,essencialparaaefetividadedasaçõesemconjunto.Paraessefim,adistribuidoradevesolicitaraosPoderesPúblicosmunicipal,estadualedistritalqueinformempreviamenteatédoisrepresentantesoficiaisdecadaente,queserãoosresponsáveispelorecebimentodascomunicaçõesemsituaçõesdeemergência.": {
+    "url": "/fontes/ren20251137.pdf#page=7",
+    "pagina": 7,
+    "ultima_pagina": 7,
+    "localizacao": "trecho literal"
+   },
+   "118.AsdistribuidorasdevemgarantirqueoscanaisdecomunicaçãooficiaisestejamacessíveiseoperacionaisemsituaçõesdeemergênciaemcomumacordocomoPoderPúblico.": {
+    "url": "/fontes/ren20251137.pdf#page=8",
+    "pagina": 8,
+    "ultima_pagina": 8,
+    "localizacao": "trecho literal"
+   },
+   "147.Asdistribuidorasdevemdisponibilizaraversãomaisatualizada,semaidentificaçãoecontatodosseusresponsáveispeloseuplanodecontingência,emseusítioeletrôniconaInternetenospostosdeatendimentopresencial,deformaacessívelaopúblicocomusodelinguagemclaraeadequada.": {
+    "url": "/fontes/ren20251137.pdf#page=14",
+    "pagina": 14,
+    "ultima_pagina": 14,
+    "localizacao": "trecho literal"
+   },
+   "23-F.Adistribuidoradevedisponibilizaremsítioeletrônicoenospostosdeatendimentopresencial,comusodelinguagemclaraeadequada,oseuPlanodeManejoVegetal.": {
+    "url": "/fontes/ren20251137.pdf#page=17",
+    "pagina": 17,
+    "ultima_pagina": 17,
+    "localizacao": "trecho literal"
+   },
+   "23-J.Adistribuidoradevedisponibilizaremsítioeletrônicoenospostosdeatendimentopresencial,comusodelinguagemclaraeadequada,oseuPlanodeContingência.": {
+    "url": "/fontes/ren20251137.pdf#page=20",
+    "pagina": 20,
+    "ultima_pagina": 20,
+    "localizacao": "trecho literal"
+   },
+   "23-M.AdistribuidoradeveenviarregularmenteàANEELosalertasmeteorológicosquejustifiquemoacionamentodeplanodecontingência,emqualquernível.": {
+    "url": "/fontes/ren20251137.pdf#page=21",
+    "pagina": 21,
+    "ultima_pagina": 21,
+    "localizacao": "trecho literal"
+   },
+   "Parágrafoúnico.OsplanosdecontingênciaemvigornadatadestaResoluçãodevemserpublicadosemseusítioeletrôniconaInternet,respeitadasasdisposiçõeslegais.": {
+    "url": "/fontes/ren20251137.pdf#page=31",
+    "pagina": 31,
+    "ultima_pagina": 31,
+    "localizacao": "trecho literal"
+   },
+   "Alternativamente,podemoferecerumavisualizaçãointerativadaredeelétrica,commapadearruamento,quepermitaaosconsumidoresidentificaremaextensãoeaduraçãodasinterrupçõesdiretamentenomapa.": {
+    "url": "/fontes/ren20251137.pdf#page=5",
+    "pagina": 5,
+    "ultima_pagina": 5,
+    "localizacao": "trecho literal"
+   },
+   "a)Aplicativosesítioeletrôniconainternet:comatualizaçãoemtemporealemplataformasdigitaismantidaspeladistribuidora;": {
+    "url": "/fontes/ren20251137.pdf#page=7",
+    "pagina": 7,
+    "ultima_pagina": 7,
+    "localizacao": "trecho literal"
+   },
+   "b)RedesSociais:comdivulgaçãodeinformaçõesviacontasoficiaisdadistribuidora.": {
+    "url": "/fontes/ren20251137.pdf#page=7",
+    "pagina": 7,
+    "ultima_pagina": 7,
+    "localizacao": "trecho literal"
+   },
+   "111.Oconsumidoredemaisusuáriospodem,aqualquertempo,solicitarasuspensãodoenviodacomunicaçãopormeiodeSMSeaplicativosdemensagens.AtualizaçõesPeriódicas": {
+    "url": "/fontes/ren20251137.pdf#page=7",
+    "pagina": 7,
+    "ultima_pagina": 7,
+    "localizacao": "trecho literal"
+   },
+   "125.ColaboraçãoeSolidariedade:Asdistribuidorasoutransmissoraspodempromoveroauxílioàdistribuidora,somenteemsituaçõesdecrise,visandoaminimizaçãodosimpactosearetomadadofornecimentodeenergianomenortempopossível.": {
+    "url": "/fontes/ren20251137.pdf#page=8",
+    "pagina": 8,
+    "ultima_pagina": 8,
+    "localizacao": "trecho literal"
+   },
+   "130.ACessãoEmergencialderecursossomentepoderáserrealizadaemsituaçõesdecriseemquesejaatingidooníveldeseveridademaiselevado,objetivamentedefinidonoPlanodeContingência.": {
+    "url": "/fontes/ren20251137.pdf#page=9",
+    "pagina": 9,
+    "ultima_pagina": 9,
+    "localizacao": "trecho literal"
+   },
+   "131.ACessãoEmergencialderecursossomentepodeserrealizadaemsituaçõesemqueadistribuidoratenhaatingidolimiteoperacionalcríticoemrelaçãoaosseusrecursosdisponíveisnoatendimentodiretoàsituaçãodecrise,devendotalsituaçãoserdevidamentedemonstradaedocumentadaemrelatóriocircunstanciadodoeventoquegerouasituaçãodecrise.IntercâmbiodeInformações": {
+    "url": "/fontes/ren20251137.pdf#page=9",
+    "pagina": 9,
+    "ultima_pagina": 9,
+    "localizacao": "trecho literal"
+   },
+   "a)AssituaçõesdecriseemqueaCessãoEmergencialpoderásersolicitada;": {
+    "url": "/fontes/ren20251137.pdf#page=10",
+    "pagina": 10,
+    "ultima_pagina": 10,
+    "localizacao": "trecho literal"
+   },
+   "b)Onúmeroeascaracterísticasdasequipes(leves,pesadas,linhaviva)quepoderãosercedidas;": {
+    "url": "/fontes/ren20251137.pdf#page=10",
+    "pagina": 10,
+    "ultima_pagina": 10,
+    "localizacao": "trecho literal"
+   },
+   "a)ParaocasodeterhavidoaplicaçãodoPlanodeContingência,aperiodicidademáximapodesercontadadasuaúltimaaplicação.": {
+    "url": "/fontes/ren20251137.pdf#page=14",
+    "pagina": 14,
+    "ultima_pagina": 14,
+    "localizacao": "trecho literal"
+   },
+   "§2ºCanaisadicionaisaosdispostosno§1ºpodemserlivrementepactuadosentreadistribuidoraeospoderespúblicosmunicipal,distritaleestadual.": {
+    "url": "/fontes/ren20251137.pdf#page=27",
+    "pagina": 27,
+    "ultima_pagina": 27,
+    "localizacao": "trecho literal"
+   },
+   "I-articular,coordenar,monitorar,orientaresupervisionarasprovidênciasemedidasaseremadotadaspelaANEELcomvistasamitigarosimpactosdoseventosclimáticosseverosnossegmentosdetransmissãoedistribuiçãodeenergiaelétrica;": {
+    "url": "/fontes/ren20251137.pdf#page=29",
+    "pagina": 29,
+    "ultima_pagina": 29,
+    "localizacao": "trecho literal"
+   },
+   "II-interagircomdemaisautoridadeseinstituiçõespúblicaseprivadasnoendereçamentodeaçõesenocompartilhamentodeinformações;": {
+    "url": "/fontes/ren20251137.pdf#page=29",
+    "pagina": 29,
+    "ultima_pagina": 29,
+    "localizacao": "trecho literal"
+   },
+   "§2ºOComitêdeCrisedeveráserestabelecidoporPortariaemitidapeloDiretor-Geral.": {
+    "url": "/fontes/ren20251137.pdf#page=29",
+    "pagina": 29,
+    "ultima_pagina": 29,
+    "localizacao": "trecho literal"
+   },
+   "§3ºAPortariaqueinstituirComitêdeCrisedeveráatenderasdemaisdisposiçõesdaPortarianº6.803,de30dejaneirode2023,noquecouber.": {
+    "url": "/fontes/ren20251137.pdf#page=29",
+    "pagina": 29,
+    "ultima_pagina": 29,
+    "localizacao": "trecho literal"
+   },
+   "Art11.ACessãoEmergencialderecursoshumanos,equipamentosemateriaispoderáserrealizadatambémentredistribuidorasetransmissoras,visandogarantiracontinuidadedoserviçoemsituaçõesdecrise,semcomprometerasegurançaoperacionaldocedente.": {
+    "url": "/fontes/ren20251137.pdf#page=29",
+    "pagina": 29,
+    "ultima_pagina": 29,
+    "localizacao": "trecho literal"
+   },
+   "Art.1ºEstabelecedisposiçõesparaoaumentodaresiliênciadosistemadedistribuiçãoedetransmissãoaeventosclimáticosseveros,alteraasResoluçõesNormativasnº846,de11dejunhode2019,nº905,de08dedezembrode2020,nº948,de21denovembrode2021,nº956,de7dedezembrode2021,nº1.000,de7dedezembrode2021,edáoutrasprovidências.": {
+    "url": "/fontes/ren20251137.pdf#page=1",
+    "pagina": 1,
+    "ultima_pagina": 1,
+    "localizacao": "trecho literal"
+   },
+   "Art.2ºOAnexoIdaResoluçãoNormativanº956,de7dedezembrode2021,passaavigorarcomaseguinteredação:": {
+    "url": "/fontes/ren20251137.pdf#page=2",
+    "pagina": 2,
+    "ultima_pagina": 2,
+    "localizacao": "trecho literal"
+   },
+   "134...............................................................................................": {
+    "url": "/fontes/ren20251137.pdf#page=2",
+    "pagina": 2,
+    "ultima_pagina": 2,
+    "localizacao": "trecho literal"
+   },
+   "134-A.DuraçãodaInterrupçãoIndividualocorridaemSituaçãodeEmergênciaporUnidadeConsumidoraouporPontodeConexão–DISE:correspondeàduraçãodecadainterrupçãoocorridaemSituaçãodeEmergência,paracadaunidadeconsumidoraoupontodeconexão.....................................................................................................”(NR)": {
+    "url": "/fontes/ren20251137.pdf#page=2",
+    "pagina": 2,
+    "ultima_pagina": 2,
+    "localizacao": "trecho literal"
+   },
+   "Art.3ºOAnexoIVdaResoluçãoNormativanº956,de7dedezembrode2021,passaavigorarcomaseguinteredação:": {
+    "url": "/fontes/ren20251137.pdf#page=2",
+    "pagina": 2,
+    "ultima_pagina": 2,
+    "localizacao": "trecho literal"
+   },
+   "1.............................................................................................................................................................................................": {
+    "url": "/fontes/ren20251137.pdf#page=2",
+    "pagina": 2,
+    "ultima_pagina": 2,
+    "localizacao": "trecho literal"
+   },
+   "e)Seção4.5–Coordenaçãooperacional:apresentaosrequisitosmínimosparaorelacionamentooperacionalentreosCentrosdeOperaçãodaDistribuição-COD,doagentedetransmissãodetentordeDIT,doCentrodeDespachodeGeraçãoDistribuída-CDGDedemaisórgãosdeoperaçãodeinstalaçõesdosusuários;": {
+    "url": "/fontes/ren20251137.pdf#page=2",
+    "pagina": 2,
+    "ultima_pagina": 2,
+    "localizacao": "trecho literal"
+   },
+   "f)Seção4.6–Recursosdecomunicaçãodevozedados:estabeleceosrecursosmínimosdecomunicaçãodevozededadosdoCODcomoCentrodeOperaçãodoagentedetransmissãodetentordeDIT,comoCDGDecomosusuários;": {
+    "url": "/fontes/ren20251137.pdf#page=2",
+    "pagina": 2,
+    "ultima_pagina": 2,
+    "localizacao": "trecho literal"
+   },
+   "g)Seção4.7–Podaemanejovegetal:defineosprocedimentoseasresponsabilidadesquantoàsupressãoeomanejodavegetação;": {
+    "url": "/fontes/ren20251137.pdf#page=2",
+    "pagina": 2,
+    "ultima_pagina": 2,
+    "localizacao": "trecho literal"
+   },
+   "h)Seção4.8–ComunicaçãoentreDistribuidoraseConsumidoresemcasosdeinterrupçãonofornecimento:apresentaroscritériosparacomunicaçãocomosconsumidoresdurantesituaçõesdeinterrupçãoemergencialdofornecimentodeenergiaelétricadelongaduração,garantindotransparência,agilidadeeprecisãonasinformaçõesprestadas;": {
+    "url": "/fontes/ren20251137.pdf#page=2",
+    "pagina": 2,
+    "ultima_pagina": 2,
+    "localizacao": "trecho literal"
+   },
+   "i)Seção4.9-ComunicaçãoentreDistribuidorasePoderPúblicoemSituaçõesdeEmergência:apresentaroscritériosparacomunicaçãocomoPoderPúblicoemgeraldurantesituaçõesdeinterrupçãoemergencialdofornecimentodeenergiaelétricadelongaduração,garantindotransparência,agilidadeeprecisãonasinformaçõesprestadas;": {
+    "url": "/fontes/ren20251137.pdf#page=2",
+    "pagina": 2,
+    "ultima_pagina": 2,
+    "localizacao": "trecho literal"
+   },
+   "j)Seção4.10-CessãoEmergencialderecursoshumanos,equipamentosemateriaisentredistribuidoras:estabelecerascondiçõesparaarealizaçãodecessãoderecursoshumanos,equipamentosemateriaisentredistribuidoras,visandogarantiracontinuidadedoserviçoemsituaçõesdecrise,semcomprometerasegurançaoperacionalouoatendimentoaosconsumidoresporpartedadistribuidoracedente;e": {
+    "url": "/fontes/ren20251137.pdf#page=2",
+    "pagina": 2,
+    "ultima_pagina": 2,
+    "localizacao": "trecho literal"
+   },
+   "k)Seção4.11-PlanosdeContingência:estabeleceosprincípiosnorteadores,diretrizeserequisitosmínimosparaaelaboraçãoeimplementaçãodeplanosdecontingênciaporempresasdedistribuiçãodeenergiaelétrica.”(NR)": {
+    "url": "/fontes/ren20251137.pdf#page=2",
+    "pagina": 2,
+    "ultima_pagina": 3,
+    "localizacao": "trecho literal"
+   },
+   "93...............................................................................................": {
+    "url": "/fontes/ren20251137.pdf#page=3",
+    "pagina": 3,
+    "ultima_pagina": 3,
+    "localizacao": "trecho literal"
+   },
+   "98.Asdistribuidorassãoresponsáveispelarealizaçãodeaçõespreventivas,devendoatuarjuntoaoPoderPúblicoEstadual,DistritaleMunicipalemanterosregistrosdassolicitaçõesconformedispõeoitem104,ecorretivas,visandogarantirasegurançadaredededistribuição,aqualidade,aeficiênciaeacontinuidadedofornecimentodeenergiaelétrica,pormeiodomanejoadequadodavegetação,sempreseguindoàslegislaçõespertinentes.98.1.AnotificaçãodadistribuidoraaoPoderPúblicoMunicipalnãoaeximedesuasobrigaçõesquantoàqualidade,eficiênciaecontinuidadenaprestaçãodoserviçodedistribuiçãodeenergiaelétrica,devendomanteratuaçãodiligenteetempestiva.Diretrizesparaomanejovegetal": {
+    "url": "/fontes/ren20251137.pdf#page=3",
+    "pagina": 3,
+    "ultima_pagina": 3,
+    "localizacao": "trecho literal"
+   },
+   "114.AANEELestabeleceráprocedimentoparacomunicaçãoeacompanhamentodassituaçõesdecriseenfrentadaspelasdistribuidoras.DiretrizesdeComunicação": {
+    "url": "/fontes/ren20251137.pdf#page=7",
+    "pagina": 7,
+    "ultima_pagina": 7,
+    "localizacao": "trecho literal"
+   },
+   "121.EstabelecerascondiçõesparaarealizaçãodeCessãoEmergencialderecursoshumanos,equipamentosemateriaisentredistribuidorasetransmissoras,visandogarantiracontinuidadedoserviçoemsituaçõesdecrise,semcomprometerasegurançaoperacionalouoatendimentoaosconsumidoresporpartedadistribuidoracedente.Definições": {
+    "url": "/fontes/ren20251137.pdf#page=8",
+    "pagina": 8,
+    "ultima_pagina": 8,
+    "localizacao": "trecho literal"
+   },
+   "122.SituaçãodeCrise:Eventoqueafetasignificativamenteacapacidadeoperacionaldadistribuidora,relacionadoaeventosextraordináriosecujacaracterizaçãoestejaobjetivamentedefinidanoPlanodeContingência.": {
+    "url": "/fontes/ren20251137.pdf#page=8",
+    "pagina": 8,
+    "ultima_pagina": 8,
+    "localizacao": "trecho literal"
+   },
+   "123.CessãoEmergencialdeRecursos:Cessãotemporáriadeprofissionaistécnicosouoperacionaisoudeequipamentosemateriaisdeumadistribuidoraoutransmissoraparaumadistribuidoraparaauxiliaremsituaçõesdecrise.": {
+    "url": "/fontes/ren20251137.pdf#page=8",
+    "pagina": 8,
+    "ultima_pagina": 8,
+    "localizacao": "trecho literal"
+   },
+   "124.RecursosDisponíveis:Totalidadedosrecursoshumanos(própriosouterceirizados),materialouequipamentoàdisposiçãodadistribuidoramediantecontrato.PrincípiosdaCessãoEmergencial": {
+    "url": "/fontes/ren20251137.pdf#page=8",
+    "pagina": 8,
+    "ultima_pagina": 8,
+    "localizacao": "trecho literal"
+   },
+   "128.Neutralidade:osvaloresreferentesaoscustosoudespesasincorridospelacedenteemfunçãodaCessãoEmergencialderecursosserãoreembolsadospelacessionáriaàcedentepelovalorincorrido,proporcionalàfolhadepagamentodepessoaloudespesaoucustopelousodeequipamentooumateriais,semquehajalucro,remuneraçãoourentabilidadedequalquertipo,tendoemvistaocaráterdecolaboraçãoesolidariedade.": {
+    "url": "/fontes/ren20251137.pdf#page=9",
+    "pagina": 9,
+    "ultima_pagina": 9,
+    "localizacao": "trecho literal"
+   },
+   "a)sejamcomunicadosàANEELematé60(sessenta)diasapósofimdasituaçãoemergencial,medianterelatóriocontendoadiscriminaçãodasdespesasoucustosincorridosaseremreembolsadospelacessionáriaàcedente;": {
+    "url": "/fontes/ren20251137.pdf#page=11",
+    "pagina": 11,
+    "ultima_pagina": 11,
+    "localizacao": "trecho literal"
+   },
+   "Art.4ºOAnexoVIdaResoluçãoNormativanº956,de7dedezembrode2021,passaavigorarcomaseguinteredação:": {
+    "url": "/fontes/ren20251137.pdf#page=14",
+    "pagina": 14,
+    "ultima_pagina": 14,
+    "localizacao": "trecho literal"
+   },
+   "23...............................................................................................": {
+    "url": "/fontes/ren20251137.pdf#page=14",
+    "pagina": 14,
+    "ultima_pagina": 14,
+    "localizacao": "trecho literal"
+   },
+   "44...............................................................................................": {
+    "url": "/fontes/ren20251137.pdf#page=22",
+    "pagina": 22,
+    "ultima_pagina": 22,
+    "localizacao": "trecho literal"
+   },
+   "45...............................................................................................": {
+    "url": "/fontes/ren20251137.pdf#page=22",
+    "pagina": 22,
+    "ultima_pagina": 22,
+    "localizacao": "trecho literal"
+   },
+   "46...............................................................................................": {
+    "url": "/fontes/ren20251137.pdf#page=22",
+    "pagina": 22,
+    "ultima_pagina": 22,
+    "localizacao": "trecho literal"
+   },
+   "Art.5ºOAnexoVIIIdaResoluçãoNormativanº956,de7dedezembrode2021,passaavigorarcomaseguinteredação:": {
+    "url": "/fontes/ren20251137.pdf#page=23",
+    "pagina": 23,
+    "ultima_pagina": 23,
+    "localizacao": "trecho literal"
+   },
+   "171...............................................................................................": {
+    "url": "/fontes/ren20251137.pdf#page=23",
+    "pagina": 23,
+    "ultima_pagina": 23,
+    "localizacao": "trecho literal"
+   },
+   "173.............................................................................................................................................................................................": {
+    "url": "/fontes/ren20251137.pdf#page=23",
+    "pagina": 23,
+    "ultima_pagina": 23,
+    "localizacao": "trecho literal"
+   },
+   "e)DuraçãodaInterrupçãoIndividualocorridaemSituaçãodeEmergênciaporUnidadeConsumidoraouporPontodeConexão–DISE,utilizandoaseguintefórmula:": {
+    "url": "/fontes/ren20251137.pdf#page=23",
+    "pagina": 23,
+    "ultima_pagina": 23,
+    "localizacao": "trecho literal"
+   },
+   "180...............................................................................................": {
+    "url": "/fontes/ren20251137.pdf#page=24",
+    "pagina": 24,
+    "ultima_pagina": 24,
+    "localizacao": "trecho literal"
+   },
+   "181.OsindicadoresDICRIeDISEnãoseaplicamàsunidadesconsumidorasecentraisgeradorasatendidasemAT,nemaospontosdeconexãodeDIToudedistribuidorasacessadosporoutrasdistribuidoras...............................................................................................”(NR)": {
+    "url": "/fontes/ren20251137.pdf#page=24",
+    "pagina": 24,
+    "ultima_pagina": 24,
+    "localizacao": "trecho literal"
+   },
+   "214.OslimitesdosindicadoresdecontinuidadeindividuaisDIC,FIC,DMIC,DICRIeDISEparaasunidadesconsumidorasecentraisgeradorassãoestabelecidosnastabelas1a5doAnexo8.B,deacordocomalocalizaçãoecomatensãocontratada.”(NR)": {
+    "url": "/fontes/ren20251137.pdf#page=24",
+    "pagina": 24,
+    "ultima_pagina": 24,
+    "localizacao": "trecho literal"
+   },
+   "216.OslimitesdosindicadoresDIC,DMIC,DICRIeDISEsãovinculadosaolimiteanualdoindicadorDEC,enquantooslimitesdoindicadorFICsãovinculadosaolimiteanualdoindicadorFEC.”(NR)": {
+    "url": "/fontes/ren20251137.pdf#page=24",
+    "pagina": 24,
+    "ultima_pagina": 24,
+    "localizacao": "trecho literal"
+   },
+   "220...............................................................................................": {
+    "url": "/fontes/ren20251137.pdf#page=24",
+    "pagina": 24,
+    "ultima_pagina": 24,
+    "localizacao": "trecho literal"
+   },
+   "225.............................................................................................................................................................................................": {
+    "url": "/fontes/ren20251137.pdf#page=24",
+    "pagina": 24,
+    "ultima_pagina": 24,
+    "localizacao": "trecho literal"
+   },
+   "227.............................................................................................................................................................................................": {
+    "url": "/fontes/ren20251137.pdf#page=25",
+    "pagina": 25,
+    "ultima_pagina": 25,
+    "localizacao": "trecho literal"
+   },
+   "Art.6ºAprovararevisãodoMódulo4–PrestaçãodoServiço,dispostonoAnexoIVdaResoluçãoNormativaANEELnº905,de8dedezembrode2020.": {
+    "url": "/fontes/ren20251137.pdf#page=27",
+    "pagina": 27,
+    "ultima_pagina": 27,
+    "localizacao": "trecho literal"
+   },
+   "Art.7ºAprovararevisãodoMódulo6–CoordenaçãoeControledaOperação,dispostonoAnexoVIdaResoluçãoNormativaANEELnº905,de8dedezembrode2020.": {
+    "url": "/fontes/ren20251137.pdf#page=27",
+    "pagina": 27,
+    "ultima_pagina": 27,
+    "localizacao": "trecho literal"
+   },
+   "Art.8ºAResoluçãoNormativanº1.000,de7dedezembrode2021,passaavigorarcomaseguinteredação:": {
+    "url": "/fontes/ren20251137.pdf#page=27",
+    "pagina": 27,
+    "ultima_pagina": 27,
+    "localizacao": "trecho literal"
+   },
+   "Art.371...............................................................................................": {
+    "url": "/fontes/ren20251137.pdf#page=27",
+    "pagina": 27,
+    "ultima_pagina": 27,
+    "localizacao": "trecho literal"
+   },
+   "Art.9ºAResoluçãoNormativanº846,de11dejunhode2019,passaavigorarcomaseguinteredação:": {
+    "url": "/fontes/ren20251137.pdf#page=28",
+    "pagina": 28,
+    "ultima_pagina": 28,
+    "localizacao": "trecho literal"
+   },
+   "Art.11.ConstituiinfraçãodoGrupoIII:(...)": {
+    "url": "/fontes/ren20251137.pdf#page=28",
+    "pagina": 28,
+    "ultima_pagina": 28,
+    "localizacao": "trecho literal"
+   },
+   "XXIII-deixardeprestarinformaçõesdecorrentesdeinterrupçõesnofornecimentodeenergiaelétricaaosconsumidoresouusuários,nostermosdaregulaçãovigente.”.............................................": {
+    "url": "/fontes/ren20251137.pdf#page=28",
+    "pagina": 28,
+    "ultima_pagina": 28,
+    "localizacao": "trecho literal"
+   },
+   "Art.12.ConstituiinfraçãodoGrupoIV:............................................": {
+    "url": "/fontes/ren20251137.pdf#page=28",
+    "pagina": 28,
+    "ultima_pagina": 28,
+    "localizacao": "trecho literal"
+   },
+   "XXVI-aausência,inadequaçãooudescumprimentodoPlanodeContingência,nostermosdaregulaçãovigente;": {
+    "url": "/fontes/ren20251137.pdf#page=28",
+    "pagina": 28,
+    "ultima_pagina": 28,
+    "localizacao": "trecho literal"
+   },
+   "XXVII-aausência,inadequaçãooudescumprimentodoPlanodeManejoVegetal,nostermosdaregulaçãovigente;e": {
+    "url": "/fontes/ren20251137.pdf#page=28",
+    "pagina": 28,
+    "ultima_pagina": 28,
+    "localizacao": "trecho literal"
+   },
+   "XXVIII-comunicar-sedeformaineficientecomoPoderPúblicoemSituaçõesdeEmergência,nostermosdaregulaçãovigente.”.........................................": {
+    "url": "/fontes/ren20251137.pdf#page=28",
+    "pagina": 28,
+    "ultima_pagina": 29,
+    "localizacao": "trecho literal"
+   },
+   "Art.13.ConstituiinfraçãodoGrupoV:(...)": {
+    "url": "/fontes/ren20251137.pdf#page=29",
+    "pagina": 29,
+    "ultima_pagina": 29,
+    "localizacao": "trecho literal"
+   },
+   "XIX-atuardeformainadequadanorestabelecimentodofornecimentodeenergiaelétricanossistemasdedistribuição;e": {
+    "url": "/fontes/ren20251137.pdf#page=29",
+    "pagina": 29,
+    "ultima_pagina": 29,
+    "localizacao": "trecho literal"
+   },
+   "XX-atuardeformainadequadanoretornoàdisponibilidadedasinstalaçõessobresponsabilidadedeconcessionáriadetransmissão.”(NR)": {
+    "url": "/fontes/ren20251137.pdf#page=29",
+    "pagina": 29,
+    "ultima_pagina": 29,
+    "localizacao": "trecho literal"
+   },
+   "§1ºOComitêdeCriseserácompostopormembrosindicadospelaDiretoria,pelaÁreadeAssessoriaInstitucionaldaDiretoria,pelaÁreadeFiscalizaçãoTécnicadosServiçosdeEnergiaElétrica,pelaÁreadeMediaçãoAdministrativaedasRelaçõesdeConsumoepelaÁreadeRegulaçãodosServiçosdeTransmissãoeDistribuiçãodeEnergiaElétrica.": {
+    "url": "/fontes/ren20251137.pdf#page=29",
+    "pagina": 29,
+    "ultima_pagina": 29,
+    "localizacao": "trecho literal"
+   },
+   "Art.12OAnexoV–MóduloVdaResoluçãoNormativanº948,de21denovembro,passaavigorarcomaseguinteredação:": {
+    "url": "/fontes/ren20251137.pdf#page=29",
+    "pagina": 29,
+    "ultima_pagina": 29,
+    "localizacao": "trecho literal"
+   },
+   "Art.19...............................................................................................": {
+    "url": "/fontes/ren20251137.pdf#page=29",
+    "pagina": 29,
+    "ultima_pagina": 29,
+    "localizacao": "trecho literal"
+   },
+   "a)sejamcomunicadosàANEELematé60(sessenta)diasapósofimdasituaçãoemergencial,medianterelatóriocontendodiscriminaçãodasdespesasoucustosincorridosaseremreembolsadospelacessionáriaàcedente;": {
+    "url": "/fontes/ren20251137.pdf#page=30",
+    "pagina": 30,
+    "ultima_pagina": 30,
+    "localizacao": "trecho literal"
+   },
+   "Art.19.Revoga-seoincisoVIIIdoart.621daResoluçãoNormativanº1.000de2021.": {
+    "url": "/fontes/ren20251137.pdf#page=31",
+    "pagina": 31,
+    "ultima_pagina": 31,
+    "localizacao": "trecho literal"
+   },
+   "Art.20.Revoga-seaalíneabdoitem14doMódulo9doPRODIST,constantedoanexoIXdaResoluçãoNormativanº956de2021.": {
+    "url": "/fontes/ren20251137.pdf#page=31",
+    "pagina": 31,
+    "ultima_pagina": 31,
+    "localizacao": "trecho literal"
+   },
+   "Art.21.EstaResoluçãoentraemvigornadatadesuapublicação.SANDOVALDEARAÚJOFEITOSANETOEstetextonãosubstituiopublicadonoD.O.de30.10.2025,seção1,p.89,v.163,n.207.": {
+    "url": "/fontes/ren20251137.pdf#page=31",
+    "pagina": 31,
+    "ultima_pagina": 31,
+    "localizacao": "trecho literal"
+   },
+   "XXIII-deixardeprestarinformaçõesdecorrentesdeinterrupçõesnofornecimentodeenergiaelétricaaosconsumidoresouusuários,nostermosdaregulaçãovigente.": {
+    "url": "/fontes/ren20251137.pdf#page=28",
+    "pagina": 28,
+    "ultima_pagina": 28,
+    "localizacao": "trecho literal"
+   },
+   "VI-Até180(centoeoitenta)diasmêsparainiciarasapuraçõesdoDuraçãodaInterrupçãoIndividualocorridaemSituaçãodeEmergênciaporUnidadeConsumidoraouporPontodeConexão–DISEeobservarasdisposiçõesdaSeção8.2doMódul": {
+    "url": "/fontes/ren20251137.pdf#page=31",
+    "pagina": 31,
+    "ultima_pagina": 31,
+    "localizacao": "trecho literal"
+   },
+   "113.AsdistribuidorasdeenergiadevemdisponibilizarumaAPI(ApplicationProgrammingInterface)ououtrasoluçãotecnológicasegura,conformeinstruçãotécnicaemitidapelaANEEL,permitindoqueaANEELextraiaosdadosdeinterrupçãodo": {
+    "url": "/fontes/ren20251137.pdf#page=7",
+    "pagina": 7,
+    "ultima_pagina": 7,
+    "localizacao": "trecho literal"
+   },
+   "219.NocasodeviolaçãodolimitedecontinuidadeindividualdosindicadoresDIC,FIC,DMIC,DICRIeDISEadistribuidoradevecalcularacompensaçãoaoconsumidoroucentralgeradora,inclusiveaquelesconectadosemDIT,eefetuarocréd": {
+    "url": "/fontes/ren20251137.pdf#page=24",
+    "pagina": 24,
+    "ultima_pagina": 24,
+    "localizacao": "trecho literal"
+   },
+   "Art.14.Asdistribuidorasdevemimplantarprocessodecomunicaçãoeacompanhamentodaevoluçãodoseventosclimáticosseverosdequetrataoitem114doAnexoIVdaResoluçãoNormativanº956,de7dedezembrode2021,ematé30(trinta)d": {
+    "url": "/fontes/ren20251137.pdf#page=31",
+    "pagina": 31,
+    "ultima_pagina": 31,
+    "localizacao": "trecho literal"
+   },
+   "Art.15.AsdistribuidorasdevemdisponibilizaraAPIdequetrataitem113doAnexoIVdaResoluçãoNormativanº956,de7dedezembrode2021,comredaçãodadapeloart.3ºdestaResoluçãoNormativaematé60(sessenta)dias,contadosda": {
+    "url": "/fontes/ren20251137.pdf#page=31",
+    "pagina": 31,
+    "ultima_pagina": 31,
+    "localizacao": "trecho literal"
+   },
+   "226.ParaunidadesconsumidorascomCCDedistribuidorasconectadasaosistemadedistribuição,ascompensaçõesassociadasàsviolaçõesdoslimitesdecontinuidadeDIC,FIC,DMIC,DICRIeDISEporpontodeconexãodevemserestabelecidasno": {
+    "url": "/fontes/ren20251137.pdf#page=25",
+    "pagina": 25,
+    "ultima_pagina": 25,
+    "localizacao": "trecho literal"
+   },
+   "d)quandoocorrerviolaçãodosindicadoresDICRIouDISE,acompensaçãodeveserrealizadasemprejuízodascompensaçõesporviolaçãodosindicadoresDIC,FICeDMIC,podendoinclusivehavercompensaçõesreferentesamaisdeumaviolaçãodo": {
+    "url": "/fontes/ren20251137.pdf#page=25",
+    "pagina": 25,
+    "ultima_pagina": 25,
+    "localizacao": "trecho literal"
+   },
+   "SeçãoVIIIDasMedidasAdministrativasedeCessãoEmergencial": {
+    "url": "/fontes/ren20251137.pdf#page=29",
+    "pagina": 29,
+    "ultima_pagina": 29,
+    "localizacao": "trecho literal"
+   },
+   "XIII-Ascessõesemergenciaisderecursoshumanos,equipamentosemateriaisentredistribuidorasetransmissorasesuaspartesrelacionadas,visandogarantiracontinuidadedoserviçoemsituaçõesdecrise,sãodispensadasdaobrigaçãodequetrataoart.18,semprejuízodafiscalizaçãoaposteriori,desdeque:": {
+    "url": "/fontes/ren20251137.pdf#page=30",
+    "pagina": 30,
+    "ultima_pagina": 30,
+    "localizacao": "trecho literal"
+   },
+   "SeçãoXDasDisposiçõesFinaiseTransitórias": {
+    "url": "/fontes/ren20251137.pdf#page=30",
+    "pagina": 30,
+    "ultima_pagina": 30,
+    "localizacao": "trecho literal"
+   }
+  },
+  "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da": {
+   "3.5AjustesretroativosnoXMLdecompensaçõesporDISEimpactamaavaliaçãodagovernançaregulatória?OsindicadoresdecompensaçõesporDISEserãocriadosdeformaindependentedosindicadoresdecompensaçõesnormais,aexemplodoqueocorrecomoDICRI.Assim,nãohaveráimpactonaavaliaçãodegovernançapelaalteraçãodedados.4.PlanodeContingência": {
+    "url": "/fontes/faq_ren20251137.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "3.1Comodeveserinterpretadoocomandoregulatório“2mesesapósapublicaçãodanorma”parafinsdeaplicaçãoretroativadoDISE?Considerandoapublicaçãodanormaem30/10/2025,omarcode2mesesocorreem30/12/2025,demodoqueosefeitosretroativospassamaincidirapartirde31/12/2025.Contudo,comoaapuraçãodosindicadoresdecontinuidadenoâmbitodoPRODISTérealizadaembasemensal,emborahajaincidênciaapartirde31/12/2025,aprimeiraapuraçãocompletasedánomêsdejaneirode2026,razãopelaqualnãoseconsideraodiaisoladode31/12/2025comoumperíodoautônomodeapuração.": {
+    "url": "/fontes/faq_ren20251137.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "5.3Notificaçõesvia“push”podemsubstituiroenvioporSMSeaplicativosdemensagens?Notificaçõesvia“push”podemserusadascomocanalcomplementar,masnãosubstituemorequisitomínimodoitem110:acomunicaçãodoitem105deveserrealizadaobrigatoriamenteporSMSeaplicativosdemensagens(comenvioautomático).Portanto,épossíveladotarpushparareforçodoaviso,desdequeascomunicaçõesobrigatóriasporSMSeappdemensagenssejamrealizadasdentrodosprazos.": {
+    "url": "/fontes/faq_ren20251137.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "3.2QualéoprazoparainíciodasapuraçõesdoindicadorDISE?Oprazoédeaté180diascontadosdadatadepublicaçãodanorma.Nocasodapublicaçãoem30/10/2025,oprazofinalparainíciodasapuraçõesé28/04/2026.": {
+    "url": "/fontes/faq_ren20251137.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "3.4ComodevemserrealizadasascompensaçõesfinanceirasrelativasàsviolaçõesdoDISEnesseperíodoinicial?AscompensaçõesdevemobservarosprocedimentoseprazosestabelecidosnoMódulo8doPRODIST,sendocalculadascombasenasapuraçõesdosmesesabrangidospeloefeitoretroativo.Umaveziniciadasasapuraçõesdentrodoprazoregulamentar(até28/04/2026),asdistribuidorasdevemprocederaopagamentodascompensaçõesconformedispõeoitem219daSeção8.2doMódulo8doPRODIST.Tendoemvistaqueosmesesdejaneiro,fevereiro,marçoeabrilseencontramnoperíododevigênciadanorma,ascompensaçõesapuradasrelativasaessesmesesdevemsercreditadasnafaturaapresentadaematé2mesesapósoperíododeapuraçãodomêsdeabril.Assim,afaturaapresentadanomêsdejunhoéaúltimanaqualpodemserefetuadasascompensaçõesdejaneiroaabril.": {
+    "url": "/fontes/faq_ren20251137.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "1.8QualoprazoprevistoparaaANEELpublicarasinstruçõescomplementaressobrecomunicaçãodeeventosclimáticosseveros?AindanãoháprazoestabelecidoparaapublicaçãodasinstruçõespelaANEEL.": {
+    "url": "/fontes/faq_ren20251137.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "4.4Quaissãoogatilho,oprazoeocanalparaenviodealertasmeteorológicosàANEELnocontextodoPlanodeContingência?OenviodealertasmeteorológicosàANEEL(Tabela25doMódulo6)temcomogatilhoosalertasquejustifiquemoacionamentodoPlanodeContingência,emqualquernível.OprazoeocanaldevemseguiroPlanodeComunicaçãoeoprocedimentoaserestabelecidopelaANEEL(item114),queserãopublicadosoportunamente.Atéapublicaçãodesseprocedimento,adistribuidoradevemanterregistroeevidênciasinternasdoacionamentoedosalertascorrelatos,paraapresentaçãoàfiscalizaçãoquandodemandado.5.ComunicaçãocomConsumidores": {
+    "url": "/fontes/faq_ren20251137.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "1.9AsinstruçõesquantodisponibilizaçãodaAPIdequetrataitem113doMódulo4doPRODISTjáforampublicadaspelaANEEL?AANEELencaminhouàsdistribuidorasoOfícioConjuntoCircularnº1/2025‑SMA‑STD/ANEEL(SEInº48500.008437/2025-43),contendoorientaçõeseespecificaçõestécnicaspreliminaresvoltadasàimplantaçãodaAPI(ApplicationProgrammingInterface),em05deagostode2025.2.ManejoVegetal": {
+    "url": "/fontes/faq_ren20251137.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Oprazoédeaté180diascontadosdadatadepublicaçãodanorma.Nocasodapublicaçãoem30/10/2025,oprazofinalparainíciodasapuraçõesé28/04/2026.": {
+    "url": "/fontes/faq_ren20251137.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "QualoprazoprevistoparaaANEELpublicarasinstruçõescomplementaressobrecomunicaçãodeeventosclimáticosseveros?AindanãoháprazoestabelecidoparaapublicaçãodasinstruçõespelaANEEL.": {
+    "url": "/fontes/faq_ren20251137.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   }
+  },
+  "efe4e35fb41aa1306846677ffc32a0c2a150ee6ac44aafe5f15e475e6ad05ad9": {
+   "XXVII–aausência,inadequaçãooudescumprimentodoPlanodeManejoVegetal,nostermosdaregulaçãovigente;e": {
+    "url": "/fontes/atren2019846.pdf#page=11",
+    "pagina": 11,
+    "ultima_pagina": 11,
+    "localizacao": "trecho literal"
+   },
+   "XXVIII–comunicar-sedeformaineficientecomoPoderPúblicoemSituaçõesdeEmergência,nostermosdaregulaçãovigente.": {
+    "url": "/fontes/atren2019846.pdf#page=11",
+    "pagina": 11,
+    "ultima_pagina": 11,
+    "localizacao": "trecho literal"
+   },
+   "XX-deixardeenviaroudisponibilizaràANEELinformaçõesoudocumentos,nosprazosenascondiçõesestabelecidasnalegislação.": {
+    "url": "/fontes/atren2019846.pdf#page=7",
+    "pagina": 7,
+    "ultima_pagina": 7,
+    "localizacao": "trecho literal"
+   },
+   "II-deixardemanteràdisposiçãodosconsumidoresnospostosdeatendimentopresencial,emlocaisacessíveis,osdocumentosouinformaçõesestabelecidasnasdisposiçõeslegais,regulamentaresoucontratuais;": {
+    "url": "/fontes/atren2019846.pdf#page=4",
+    "pagina": 4,
+    "ultima_pagina": 4,
+    "localizacao": "trecho literal"
+   },
+   "XXIII-deixardeprestarinformaçõesdecorrentesdeinterrupçõesnofornecimentodeenergiaelétricaaosconsumidoresouusuários,nostermosdaregulaçãovigente.": {
+    "url": "/fontes/atren2019846.pdf#page=8",
+    "pagina": 8,
+    "ultima_pagina": 8,
+    "localizacao": "trecho literal"
+   },
+   "XIV–deixardeencaminharàANEEL,nosprazosenascondiçõesestabelecidas,indicadoresutilizadosparaapuraraqualidadedoatendimentoedofornecimentodeenergiaelétrica;": {
+    "url": "/fontes/atren2019846.pdf#page=5",
+    "pagina": 5,
+    "ultima_pagina": 5,
+    "localizacao": "trecho literal"
+   },
+   "XXVI-aausência,inadequaçãooudescumprimentodoPlanodeContingência,nostermosdaregulaçãovigente;": {
+    "url": "/fontes/atren2019846.pdf#page=10",
+    "pagina": 10,
+    "ultima_pagina": 10,
+    "localizacao": "trecho literal"
+   },
+   "VI-deixardeenviaroudisponibilizarinformaçõesoudocumentossolicitadospelaANEEL,nosprazosenascondiçõesestabelecidas;": {
+    "url": "/fontes/atren2019846.pdf#page=5",
+    "pagina": 5,
+    "ultima_pagina": 5,
+    "localizacao": "trecho literal"
+   },
+   "V-implantar,operaroumanterinstalaçõesdeenergiaelétricaeosrespectivosequipamentosdeformainadequada,emfacedosrequisitoslegais,regulamentaresoucontratuaisaplicáveis;": {
+    "url": "/fontes/atren2019846.pdf#page=9",
+    "pagina": 9,
+    "ultima_pagina": 9,
+    "localizacao": "trecho literal"
+   },
+   "V-deixardeenviaroudisponibilizaràANEEL,nosprazosenascondiçõesestabelecidasnalegislação,documentosouinformaçõeseconômicasefinanceiras;": {
+    "url": "/fontes/atren2019846.pdf#page=7",
+    "pagina": 7,
+    "ultima_pagina": 7,
+    "localizacao": "trecho literal"
+   },
+   "XIX-deixardecelebraroucelebraremdesacordocomasdisposiçõeslegaisouregulamentarescontratodeuso,deconexão,deserviço,decompraevendadeenergia,ouqualqueroutrotipodecontratoexigidonalegislação;": {
+    "url": "/fontes/atren2019846.pdf#page=8",
+    "pagina": 8,
+    "ultima_pagina": 8,
+    "localizacao": "trecho literal"
+   },
+   "III-deixardeatenderpedidodeserviçosnosprazosenascondiçõesestabelecidasnalegislaçãoounocontrato;": {
+    "url": "/fontes/atren2019846.pdf#page=9",
+    "pagina": 9,
+    "ultima_pagina": 9,
+    "localizacao": "trecho literal"
+   },
+   "VI-deixardeutilizarpessoaltécnico,própriooudeterceiros,habilitadodeacordocomnormaslegaisoutécnicas,paraaoperaçãoeamanutençãodasinstalaçõeselétricas;": {
+    "url": "/fontes/atren2019846.pdf#page=6",
+    "pagina": 6,
+    "ultima_pagina": 6,
+    "localizacao": "trecho literal"
+   },
+   "VIII-deixardemantersegurados,emvaloresecondiçõessuficientes,suportadosporestudostécnicos,osbenseasinstalaçõesque,porrazõesdeordemtécnica,sejamessenciaisàgarantiadaconfiabilidadedosistemaelétrico;": {
+    "url": "/fontes/atren2019846.pdf#page=9",
+    "pagina": 9,
+    "ultima_pagina": 9,
+    "localizacao": "trecho literal"
+   },
+   "IX-prestarserviçosdeatendimentocomercialpormeiodepessoalsemadevidacapacitaçãooutreinamento;": {
+    "url": "/fontes/atren2019846.pdf#page=5",
+    "pagina": 5,
+    "ultima_pagina": 5,
+    "localizacao": "trecho literal"
+   },
+   "XVIII-implementaratosounegóciosjurídicosquenãoobservemaoscritériosdefinidosnalegislaçãoentreconcessionárias,permissionáriaseautorizadasdosetordeenergiaelétricaesuaspartesrelacionadas;": {
+    "url": "/fontes/atren2019846.pdf#page=8",
+    "pagina": 8,
+    "ultima_pagina": 8,
+    "localizacao": "trecho literal"
+   },
+   "I-deixardemanterregistroatualizadodasreclamaçõesesolicitaçõesdosconsumidores;": {
+    "url": "/fontes/atren2019846.pdf#page=5",
+    "pagina": 5,
+    "ultima_pagina": 5,
+    "localizacao": "trecho literal"
+   },
+   "II-deixardemanter,nascondiçõesestabelecidas,registroatualizadodosdadosutilizadosparaapuraçãodosíndicesdequalidadedaenergiaelétrica;": {
+    "url": "/fontes/atren2019846.pdf#page=5",
+    "pagina": 5,
+    "ultima_pagina": 5,
+    "localizacao": "trecho literal"
+   },
+   "VII-deixardecumpriraodispostonosProcedimentosdeDistribuição;": {
+    "url": "/fontes/atren2019846.pdf#page=7",
+    "pagina": 7,
+    "ultima_pagina": 7,
+    "localizacao": "trecho literal"
+   },
+   "XV-causaratrasonaexecuçãodasetapasdocronogramadecontabilizaçãoeliquidaçãofinanceiradastransaçõesefetuadas;": {
+    "url": "/fontes/atren2019846.pdf#page=6",
+    "pagina": 6,
+    "ultima_pagina": 6,
+    "localizacao": "trecho literal"
+   },
+   "XIII-deixardedisponibilizaraosconsumidoresestruturadeatendimentoadequada,quelhespossibilitefácilacessoaoagentesetorial;": {
+    "url": "/fontes/atren2019846.pdf#page=5",
+    "pagina": 5,
+    "ultima_pagina": 5,
+    "localizacao": "trecho literal"
+   },
+   "V-deixardeatualizarnaANEELonomedorepresentantelegal,oendereçocompleto,bemcomoosrespectivosmeiosdecomunicaçãoquepossibilitemfácilacessoaoagentesetorial;": {
+    "url": "/fontes/atren2019846.pdf#page=5",
+    "pagina": 5,
+    "ultima_pagina": 5,
+    "localizacao": "trecho literal"
+   },
+   "IV-deixarderegistrar,separadamente,oscustosreferentesaoscontratos,acordosouajustescelebradoscompartesrelacionadas;": {
+    "url": "/fontes/atren2019846.pdf#page=7",
+    "pagina": 7,
+    "ultima_pagina": 7,
+    "localizacao": "trecho literal"
+   },
+   "Art.24.Dovalordamultacalculadonaformadoart.23,serãodeduzidosospercentuaisabaixo,deformanãocumulativa,casoincidamasseguintescircunstânciasatenuantes:": {
+    "url": "/fontes/atren2019846.pdf#page=25",
+    "pagina": 25,
+    "ultima_pagina": 25,
+    "localizacao": "trecho literal"
+   },
+   "Parágrafoúnico.Paraconsideraçãodascircunstânciasatenuantesnadefiniçãodovalordamulta,acessaçãodainfraçãoeareparaçãodosdanoscausadosaoserviçoeaosconsumidoresouusuáriosdevemsercomprovadasàFiscalizaçãopreviamenteàlavraturadoAI.": {
+    "url": "/fontes/atren2019846.pdf#page=25",
+    "pagina": 25,
+    "ultima_pagina": 25,
+    "localizacao": "trecho literal"
+   },
+   "§1ºAmultaserácalculadaapartirdoseuvalorbase,aoqualserãoacrescidosospercentuaisdeagravantes,sendoposteriormentereduzidosospercentuaisdeatenuantes.": {
+    "url": "/fontes/atren2019846.pdf#page=23",
+    "pagina": 23,
+    "ultima_pagina": 23,
+    "localizacao": "trecho literal"
+   },
+   "Art.6ºAAgênciaaplicaráaoagenteinfratorapenalidadedeadvertência,nasinfraçõespassíveisdemultaeenquadradasnosarts.9ºa13,quandonãohouverreincidênciaespecífica,conformedefinidonoart.23,eainfraçãofordebaixaofensividade.": {
+    "url": "/fontes/atren2019846.pdf#page=4",
+    "pagina": 4,
+    "ultima_pagina": 4,
+    "localizacao": "trecho literal"
+   },
+   "I-95%(noventaecincoporcento),nocasodecessaçãoespontâneadainfraçãoereparaçãototaldodanoaoserviçoeaosconsumidoresouusuários,previamenteàcomunicaçãoformaldoagentequantoàrealizaçãodeaçãodefiscalizaçãooudalavraturadeTermodeNotificação-TNdecorrentedeprocessodemonitoramentoecontrole;ou": {
+    "url": "/fontes/atren2019846.pdf#page=25",
+    "pagina": 25,
+    "ultima_pagina": 25,
+    "localizacao": "trecho literal"
+   },
+   "II-50%(cinquentaporcento),nocasodecessaçãodainfraçãoereparaçãototaldodanoaoserviçoeaosconsumidoresouusuários,atéofimdoprazoestabelecidoparamanifestaçãoaoTN.": {
+    "url": "/fontes/atren2019846.pdf#page=25",
+    "pagina": 25,
+    "ultima_pagina": 25,
+    "localizacao": "trecho literal"
+   },
+   "§2ºOinfratorquerenunciarexpressamenteaodireitodeinterporrecurso,noprazodedezdias,nostermosdocaputdoart.36,farájusaofatordereduçãode25%(vinteecincoporcento)novalordamultaaplicada,casoefetueopagamentonoprazodefinidonocaput,vedadooparcelamento.": {
+    "url": "/fontes/atren2019846.pdf#page=29",
+    "pagina": 29,
+    "ultima_pagina": 29,
+    "localizacao": "trecho literal"
+   },
+   "§6ºAANEELpoderáafastar,excepcionalmenteedemodofundamentado,aaplicaçãodemetodologiaparaocálculodovalorbasedamulta,quandoexistente,severificado,nocasoconcreto,queovalornãoatendeaosprincípiosdarazoabilidadeeproporcionalidade.": {
+    "url": "/fontes/atren2019846.pdf#page=23",
+    "pagina": 23,
+    "ultima_pagina": 23,
+    "localizacao": "trecho literal"
+   },
+   "I-GrupoI:até0,125%(centoevinteecincomilésimosporcento);": {
+    "url": "/fontes/atren2019846.pdf#page=4",
+    "pagina": 4,
+    "ultima_pagina": 4,
+    "localizacao": "trecho literal"
+   },
+   "II-GrupoII:até0,25%(vinteecincocentésimosporcento);": {
+    "url": "/fontes/atren2019846.pdf#page=4",
+    "pagina": 4,
+    "ultima_pagina": 4,
+    "localizacao": "trecho literal"
+   },
+   "III-GrupoIII:até0,5%(cincodécimosporcento);": {
+    "url": "/fontes/atren2019846.pdf#page=4",
+    "pagina": 4,
+    "ultima_pagina": 4,
+    "localizacao": "trecho literal"
+   },
+   "IV-GrupoIV:até1%(umporcento);e": {
+    "url": "/fontes/atren2019846.pdf#page=4",
+    "pagina": 4,
+    "ultima_pagina": 4,
+    "localizacao": "trecho literal"
+   },
+   "V-GrupoV:até2%(doisporcento).": {
+    "url": "/fontes/atren2019846.pdf#page=4",
+    "pagina": 4,
+    "ultima_pagina": 4,
+    "localizacao": "trecho literal"
+   },
+   "III-deixardeprestarinformaçõesaosconsumidoresouusuários,quandosolicitadoouconformedeterminadonasdisposiçõeslegais,regulamentaresoucontratuais;": {
+    "url": "/fontes/atren2019846.pdf#page=4",
+    "pagina": 4,
+    "ultima_pagina": 4,
+    "localizacao": "trecho literal"
+   },
+   "XI-deixardecumpriraodispostonaConvenção,nasRegras,nosProcedimentosdeComercializaçãoounaConvençãoArbitralcelebradaentreosagenteseaCCEE;": {
+    "url": "/fontes/atren2019846.pdf#page=8",
+    "pagina": 8,
+    "ultima_pagina": 8,
+    "localizacao": "trecho literal"
+   },
+   "XIV-cobrardosconsumidoresouusuáriosserviçosnãoprevistosnalegislaçãoouvaloresdiversosdosestabelecidosnalegislação;": {
+    "url": "/fontes/atren2019846.pdf#page=10",
+    "pagina": 10,
+    "ultima_pagina": 10,
+    "localizacao": "trecho literal"
+   },
+   "XVIII-realizarleituraoufaturamentoemdesacordocomalegislação;": {
+    "url": "/fontes/atren2019846.pdf#page=7",
+    "pagina": 7,
+    "ultima_pagina": 7,
+    "localizacao": "trecho literal"
+   },
+   "XVII-classificarunidadeconsumidoraemdesacordocomalegislação;": {
+    "url": "/fontes/atren2019846.pdf#page=7",
+    "pagina": 7,
+    "ultima_pagina": 7,
+    "localizacao": "trecho literal"
+   },
+   "XIV-deixardecumpriraodispostoemresoluçõesdaANEEL;": {
+    "url": "/fontes/atren2019846.pdf#page=8",
+    "pagina": 8,
+    "ultima_pagina": 8,
+    "localizacao": "trecho literal"
+   },
+   "X-deixardeencaminharocontratodeadesãoaosconsumidores,conformedeterminadopelalegislação;": {
+    "url": "/fontes/atren2019846.pdf#page=5",
+    "pagina": 5,
+    "ultima_pagina": 5,
+    "localizacao": "trecho literal"
+   },
+   "II-deixarderestituirourestituirincorretamenteaosconsumidoreseusuáriososvaloresrecebidosindevidamente,osaportesrealizadosatítulodeantecipaçãodoatendimentooudepagarindenizações,compensações,ressarcimentosoudedevolverbônus,nosprazosounascondiçõesestabelecidasemcontratoounalegislação;": {
+    "url": "/fontes/atren2019846.pdf#page=7",
+    "pagina": 7,
+    "ultima_pagina": 7,
+    "localizacao": "trecho literal"
+   },
+   "XVI-deixardeutilizaralogomarcadoProgramadeEficiênciaEnergéticaoudoProgramadePesquisaeDesenvolvimentoTecnológicodoSetordeEnergiaElétrica,deacordocomalegislação;e": {
+    "url": "/fontes/atren2019846.pdf#page=5",
+    "pagina": 5,
+    "ultima_pagina": 5,
+    "localizacao": "trecho literal"
+   },
+   "XVII-deixardeatenderàsdisposiçõeslegais,regulamentaresoucontratuaisrelativasaotratamentodasreclamaçõesdosconsumidores.": {
+    "url": "/fontes/atren2019846.pdf#page=5",
+    "pagina": 5,
+    "ultima_pagina": 5,
+    "localizacao": "trecho literal"
+   },
+   "VI-deixarderealizaracontabilizaçãoemconformidadecomasnormas,procedimentosouinstruçõeslegaisouregulamentares;": {
+    "url": "/fontes/atren2019846.pdf#page=9",
+    "pagina": 9,
+    "ultima_pagina": 9,
+    "localizacao": "trecho literal"
+   },
+   "XV-deixardeconcederbenefíciotarifárioaqueoconsumidoreosdemaisusuáriostêmdireitooufazê-loemdesacordocomalegislação;": {
+    "url": "/fontes/atren2019846.pdf#page=10",
+    "pagina": 10,
+    "ultima_pagina": 10,
+    "localizacao": "trecho literal"
+   },
+   "XVI-discriminarconsumidoresoudemaisusuáriosutilizandocritériosnãoprevistosnalegislação;": {
+    "url": "/fontes/atren2019846.pdf#page=10",
+    "pagina": 10,
+    "ultima_pagina": 10,
+    "localizacao": "trecho literal"
+   }
+  },
+  "2e5e9962c8541a0732d4cf404b6270accb2e790654ea379a86d69105a7cb03f5": {
+   "XII-deixardeapurarouderegistrar,separadamente,osinvestimentos,asreceitaseoscustosporgeração,transmissão,distribuição,comercializaçãoearmazenamentodeenergiaelétrica;": {
+    "url": "/fontes/dou_ren20261162.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "IV-deixardeprocederàorganizaçãoouatualizaçãodecadastrorelativoa:unidadesconsumidoras;centraisgeradoras;instalaçõesdetransmissãooudistribuição;ousistemasdearmazenamentodeenergia.": {
+    "url": "/fontes/dou_ren20261162.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   }
+  },
+  "ff948e3442edc619d98a3256fc6988a7c3d0dc21b27e25444a56a701082ac91b": {
+   "X-fixarasmultasadministrativasaseremimpostasaosconcessionários,permissionárioseautorizadosdeinstalaçõeseserviçosdeenergiaelétrica,observadoolimite,porinfração,de3%(trêsporcento)dofaturamento,oudovalorestimadodaenergiaproduzidaeconsumidanoscasosdeautoprodução,produçãoindependenteeunidadesconsumidorasautorizadas,correspondenteaosúltimos12(doze)mesesanterioresàlavraturadoautodeinfraçãoouestimadosparaumperíodode12(doze)mesescasooinfratornãoestejaemoperaçãoouestejaoperandoporumperíodoinferiora12(doze)meses;": {
+    "url": "/fontes/l9427cons.htm",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   }
+  },
+  "c1bf6ff2da617d0699cc00e2abd774eabd6950bb4d7f2d76f5f86b6ee923697e": {
+   "XXIII-deixarderesponderouresponderdeformanãoconclusivaasdemandasrelacionadasaoSistemadeGestãodeOuvidoriadaANEEL-SGO/ANEEL,ououtroquevierasubstituí-lo,noprazoespecíficodefinidopelaANEEL.": {
+    "url": "/fontes/ren20261148.pdf#page=12",
+    "pagina": 12,
+    "ultima_pagina": 12,
+    "localizacao": "início do trecho; redação permanece incerta"
+   }
+  },
+  "fe1f0608ff63945912f5a37de9ffa612cbdc714cf77c231dc7df2fb4d6361507": {
+   "§3ºAdistribuidoradeveressarciraoconsumidorapenalidadepagadecorrentedeerrodemedição,apuradopormeiodeprocessoderecontabilização,acrescidodecorreçãomonetáriaejuros,medianteaapresentaçãoderequerimentoespecíficoededocumentaçãocomprobatóriadorecolhimentodovalorjuntoàCCEE.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "a)nenhumacobrançadeveserrealizadanocasodemigraçãonamodalidaderegular;e": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "b)emcasodemigraçãonamodalidadeantecipada,ovalorcorrespondenteaofaturamentodosmesesquefaltamparaoprazoregulardemigraçãodevesercalculadoconsiderandoamédiados12últimosconsumosdeenergiaelétricadisponíveisanterioresaoencerramentoeatarifadeenergiaeabandeiratarifáriavigentesporocasiãodamigração..........................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§1ºAcomunicaçãoprevistanesteartigodeveserrealizadadeformapermanentenapáginadaCCEEnainternete,deformaadicional,nasredessociaisedemaiscanaisderelacionamento,inclusivepormeiodevídeoseoutrasformasdedivulgaçãodecarátereducativo.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-comunicarformalmenteàdistribuidoraasuaopção,pormeiodoscanaisdeatendimentodisponibilizados,inclusivedainterfacepadronizadado§1º;ou": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-celebraroContratoparaComercializaçãoVarejista(CCV)comoagentevarejista,quedevesolicitarahabilitaçãopormeiodosistemadaCCEEparaqueadistribuidorasejanotificada,desdequeseenquadrenoprocedimentodemigraçãonomodelosimplificadoprevistonoSubmódulo1.8dosProcedimentosdeComercialização.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-acobrançapeloencerramentoantecipadodoCCERdeveserfeitaexclusivamentenoscasosemqueomêsdaefetivamigraçãoforinferioraomêsemqueamigraçãosedariapelosprazosregularesdo§5º;e": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-descritivodetalhadoejustificativasdasinviabilidadestécnicas;e": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-indicaçãodasprovidênciasdeadaptação,regularizaçãoousubstituiçãonasinstalaçõesdeentradadeenergiadaunidadeconsumidoraparamigraçãoaoACL,observadooart.42;e": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.167-C.CasooprocessodemigraçãodoconsumidorpotencialmentelivreparaoACLnãoseconcluapormotivoatribuívelàdistribuidora,apósotérminodoperíodoprevistoparamigraçãoadistribuidoranãopoderáfaturaroconsumodeenergiaelétricaprevistonoart.293pelosciclosdefaturamentoemqueoatrasopersistiratéaefetivamigração.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-oagentedecomercializaçãoeoagentededistribuiçãosãopessoasjurídicasdistintas;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-ospreçospraticadospeloagentedecomercializaçãonãosãotarifasreguladaspelaANEEL;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "III-oconsumidornãoéobrigadoacomprarenergiadoagentedecomercializaçãopertencenteaomesmogrupoeconômicodoagentededistribuiçãoparacontinuarrecebendoosmesmosserviçosderededoagentededistribuição;e": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "IV-oconsumidorélivreparaescolherecontratarqualqueroutroagentedecomercializaçãoconcorrentenomercado.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§1ºNocasodereproduçãoouimitaçãodamarcaoulogotipodoagentededistribuição,notodoouemparte,oagentedecomercializaçãodequetrataocaputdeveráindicarosegmentodeatuaçãoquedeveserindicadopelainclusãovisíveldotermorelativoàatividadedecomercialização.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§3ºNocasodeperíododoCCERsermaiorque12meses,deveserpermitidaarevisãodosvaloresmensaisdeenergiaelétricacontratadaacadaperíodode12meses,observadasasRegraseProcedimentosdeComercializaçãoaplicáveisaoregistrodessesvalores.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-devegarantiramesmatitularidadenoCUSDenoscontratosnoACL;e": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Parágrafoúnico.OscontratosnoACLdevemteramesmatitularidadedoCUSDparaamesmaunidadeconsumidora,contemplando,quandoaplicável,amatrize/oufilial.\"(NR)": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-comopçãodefaturamentopelogrupoB,quepreviamenteàformalizaçãodaopçãodemigraçãoparaoACLdeveretornaraofaturamentocomaplicaçãodetarifadogrupoAecontrataçãodedemanda;e": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-dogrupoB,atendidoporsistemasubterrâneodedistribuiçãoequetenhaodireitodeoptarpelamudançaparaosubgrupoASdogrupoA,quepreviamenteàformalizaçãodaopçãodemigraçãoparaoACLdevealterarparaosubgrupoAS.\".........................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.163.OmontantedeenergiaelétricacontratadopormeiodoCCERparaconsumidorpotencialmentelivredeveserdefinidoconformeomontantedeenergiaelétricamedido.\"(NR)": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-adistribuidora,emsubstituiçãoàsuspensãodofornecimento,ficaautorizadaaefetuarofaturamentoeacobrançamensaldeenergiaelétricapararessarcimentodasrepercussõesfinanceirasincorridas;.........................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "III-opagamentodovalordoincisoIIédevidoenquantopresentesascondiçõesdeaplicaçãodispostasnocaput,observadooincisoVI;.........................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "VII-enquantoocorrerofaturamentodesteartigoaunidadeconsumidoranãoparticipadoSCEE;e": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§2ºAadoçãodeumadasopçõesdocaputdevesercomprovadamenteepreviamenteautorizada,mediantemanifestaçãovoluntáriadoconsumidor.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§3ºAsopçõesprevistasnocaputdevemserdisponibilizadasgratuitamenteaoconsumidor,nãopodendorepresentarcustoadicionalnofaturamento.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§5ºÉvedadaacobrançaentreadistribuidoraeocomercializadordeenergiaparaoperacionalizaçãodooferecimentodasopçõesdequetratao§1º.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§6ºOoferecimentodasopçõesdequetrataocaputéopcionale,serealizado,deveserfeitocomisonomiadadistribuidoraparatodososcomercializadoresedocomercializadorparatodasasdistribuidoras.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§9ºAatividadedearrecadaçãodefaturadecomercializadordeenergianafaturadeconsumidorlivreouespecial,casosejaoferecida,nãopodesercobradaedeveserrealizadaparatodososcomercializadores.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.655-Y.NocasodeinteressedemigraçãoaoACLdeunidadeconsumidoracommicrogeraçãoouminigeraçãodistribuídadevemserobservadasasseguintesdisposições:": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "e)entregaraointeressadoosaditivoscontratuaisedemaisdocumentosquedevemsercelebradose,casonecessário,osquedevemserrescindidos.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.21-A.Ascontrovérsiasdecorrentesdacomercializaçãovarejistadeverãoserinicialmentesubmetidasaorepresentantedacomercializaçãovarejista.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§1ºArespostaàsreclamaçõesdeveserapresentadaematé5(cinco)diasúteiseindicarosfundamentosdadecisãoadotada.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-oCCERnãopoderáteracréscimodomontantedeenergiaelétrica;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§4ºAmodulaçãodaenergiaelétricaassociadaaoCCERdeveserrealizadasegundooperfildecargadaunidadeconsumidora,observadasasRegraseProcedimentosdeComercializaçãoaplicáveisaoregistrodessesvalores.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§5ºOcritériodefaturamentodoCCERcelebradocomconsumidorparcialmentelivredeveseraenergiamedidadaunidadeconsumidora,limitadaaomontantedeenergiaelétricacontratada.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§7ºOsmontantesdeenergiaelétricacontratadanostermosdoCCER,observadososvaloresdeenergiamedida,deverãoserregistradosnaCCEEconformeProcedimentosdeComercialização,sendoessesmontantestratadoscomocargadadistribuidoraparafinsdecontabilizaçãodasoperaçõesdecompraevendadeenergiaelétricarealizadasnomercadodecurtoprazo.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-obenefíciotarifáriodoart.186daResoluçãoNormativanº1.000,de2021,serámantidoatéadataderetornocelebradanoCCER,observadooincisoII;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-acobrançadoincisoIdeveserrealizadanafaturaemitidapeladistribuidora,noprazodeaté90diasdaefetivamigração,considerandoexclusivamenteonúmerodemesesantecipadoseodispostonoincisoIVdoart.142.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-faturaroconsumidorconformeasdisposiçõesaplicáveisdoart.168;e": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§4ºAlémdaparcelarelacionadaaofaturamentodademanda,adistribuidoradevefaturarousodosistemadedistribuiçãoparaoconsumidorquecelebreoCUSDmultiplicandoaTUSDfixadaemReaispormegawatt-hora(R$/MWh)sobreomontantetotaldeenergiaelétricaativamedida,observando,casoaplicável,ospostostarifários.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§5ºNocasodeunidadeconsumidoralivreouespecial,adistribuidoradevecontinuaracobrançadispostanocaputnafaturaqueemitirparaoconsumidor.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§11.Nocasodeunidadeconsumidoralivreouespecial,adistribuidoradevecontinuaraarrecadaçãodispostanocaputnafaturaqueemitirparaoconsumidor.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§4ºAdistribuidoranãodevealterarofaturamentorealizadoatéamanifestaçãodoconsumidorouatéoprazodispostonocaputparamanifestação,oqueocorrerprimeiro.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§1ºAdistribuidoradevedisponibilizarnoespaçoreservadoparaatendimentonainternet,conformeinstruçõesdaANEEL,interfacepadronizadaparaoconsumidorexerceraopçãoprevistanoincisoIdocaput.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§1ºOCCERcelebradoentreoconsumidorparcialmentelivreeadistribuidoradevedisporsobreomontantedeenergiaelétricacontratado,discriminadoemperíodosmensaisparatodooperíododocontrato.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§3ºAdistribuidoradevefornecerprotocoloquandoreceberacomunicaçãodaopçãodoconsumidordequetrataocaput.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-notificaroconsumidorsobreoatrasoeapossibilidadedeencerramentodoprocessodemigraçãoapartirdotérminodoprazodoincisoIII,podendoanotificaçãoserimpressaemdestaquenaprópriafatura,observadoo§3ºdoart.360;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-emcasodeaprovaçãodamigraçãopeladistribuidora,conformeart.166-A:oprazodemigraçãoinformadopeladistribuidora;ou": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-casocontrário:procederaanálisedareduçãodoprazoeencaminharaoconsumidoroCCERcomadatasolicitadaoucomadatapossívelou,observadooart.416,informaroindeferimento.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.3º-A.Asdistribuidorasecomercializadorasdeenergiaelétrica,inclusiveoutrosagentesqueatuemnovarejo,quefazempartedomesmogrupoeconômicodevemassegurarclarezaedistinçãoemsuascomunicações,sendovedadosquaisquertiposdeambiguidadenaapresentaçãodeinformações,taiscomopropostascomerciais,institucionais,folders,materiaisdemarketingepáginasnainternet,emtodaequalquerplataforma,emespecialsítiosemídiassociais.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§4ºNocasodeentregadeformadigital,adistribuidoradeveenviaradicionalmenteaoconsumidoredemaisusuáriosoarquivodanotafiscaldeenergiaelétricaeletrônica.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§4ºEventualinviabilidadetécnicaparafinsdemigraçãoaoACLqueexijaaadaptação,regularizaçãoousubstituiçãodasinstalaçõesdeentradadeenergiadeveserdevidamenteinformadapeladistribuidora,porescrito,pormeioderelatóriotécnicodavisitatécnica,conformedispostonoart.166-A.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§10.Acontagemdoprazodemigraçãodeveserrealizadadeformacontínua,apartirdorecebimentopeladistribuidoradacomunicaçãodaopçãodequetrataocaput,somentesesuspendendoemcasodeprevisãoexpressanestaResolução.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.172-C.Adistribuidoradeveráidentificardeformanítidaeinequívocaseusegmentodeatuaçãocomainclusãovisíveldotermorelativoàatividadededistribuiçãonaapresentaçãodeinformações,taiscomopropostascomerciais,institucionais,folders,materiaisdemarketing,marcas,logotiposepáginasnainternet,emtodaequalquerplataforma,emespecialsítiosemídiassociais.\"(NR)": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-casoadistribuidorareduzaoprazoderetornoaoACRemrelaçãoaoprazode5anosdispostonoart.170daResoluçãoNormativanº1.000,de2021,aaplicaçãodobenefíciotarifáriodeveserrealizadaatéomaiorprazoentreoprazodedozemesesdapublicaçãodestaResoluçãoeoprazoreduzidoinformadopeladistribuidora,aindaqueoCCERcelebradopossuaprazoderetornoposterior;e": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "III-emcasoderecebimentodosbenefíciostarifáriosdosarts.186e195daResoluçãoNormativanº1.000,de2021,adistribuidoradeve,apartirdamanifestaçãoformalouapósoprazodispostonocaputparamanifestação,oqueocorrerprimeiro,aplicarexclusivamenteobenefíciotarifáriodoart.186,excetoemcasodeopçãoformaldoconsumidoremsuamanifestaçãopelorecebimentoexclusivodobenefíciodoart.195atéoefetivoretorno.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§4ºIndeferidaamigração,asolicitaçãofeitapeloconsumidorconformeart.166seráencerradapeladistribuidora,nãoocorrendooencerramentodoCCER.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Parágrafoúnico.EmcasodedesistênciadamigraçãooCCERserámantido,devendoadistribuidoraefetuaracobrançanofaturamento,naformaprevistanoart.325,dosseguintescustos,desdequerelacionadosaoprocessodemigração:": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§5ºAefetivaçãopararetornoaoACRsomenteserárealizadapeladistribuidoraapósnotificaçãopelaCCEE,sendovedadoàdistribuidoraefetivaroretornodeumconsumidorcujasolicitaçãotenhaocorridoexclusivamenteàdistribuidora,excetoquandooconsumidorestejanomodelosimplificadoparacomercializaçãovarejistaprevistonoSubmódulo1.8dosProcedimentosdeComercialização.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-osistemademediçãoecomunicaçãoinstaladospermitiremacoletaeoenviodosdadosdeconsumoàCâmaradeComercializaçãodeEnergiaElétrica-CCEEnaformaeperiodicidadeprevistasnosProcedimentosdeComercializaçãodaCCEE;ou": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-forpossívelasubstituiçãodosistemademediçãoecomunicaçãosemanecessidadedealteraçãonasinstalaçõesdoconsumidor.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "III-decorridosdoisciclosdefaturamentoconformeart.168,consideraradesistênciatácitadoconsumidordoprocessodemigração,aplicaroart.167-Aefinalizaroprocesso.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§10.NocasodealteraçãodetitularidadedeunidadeconsumidoraemprocessodemigraçãoparaoACL,adistribuidoradevecomunicaraCCEE.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§9ºOatendimentodeconsumidorpeladistribuidoralocaldeveserformalmentecomunicadoporelaàCCEE,semprejuízodasobrigaçõesatinentesaoagenterepresentante.\"(NR)": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-nocasodeantecedênciamínimade5anos:encaminharaoconsumidoroCCER;ou": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§3ºEventualdescumprimentodasnormasepadrõesvigentesàépocadaprimeiraconexãooudeficiênciatécnicaoudesegurançanãoemergencialdevesernotificadopeladistribuidoranaformadoart.43,nãosendoimpeditivooucondicionanteparaoprocessodemigraçãoaoACL,quenãodeveserinterrompidopeladistribuidora,observadoo§2º.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§1ºAdistribuidoradeveobservarosprazosdispostosnoart.166-AenoSubmódulo1.8dosProcedimentosdeComercialização..........................................................................\"(NR)": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.4ºOconcessionário,permissionárioouautorizadodeenergiaelétricadeveráenviaràSuperintendênciadeFiscalizaçãoEconômica,FinanceiraedeMercado-SFF,daANEEL,naconcretizaçãodaoperaçãodetransferênciaacionáriaeperiodicamente,noúltimodiadecadatrimestrecivil,informaçãoatualizadarelativaàrespectivacomposiçãosocietária;identificadoogrupodecontroleeexplicitandotodasasparticipaçõessocietáriasdiretaseindiretasdosrespectivoscontroladores..........................................................................\"(NR)": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Parágrafoúnico.Nocasodeunidadeconsumidoradecooperativadeeletrificaçãoruralregularizadacomoautorizadaparaexploraçãodasinstalaçõesdeenergiaelétricadestinadasaousoprivativodeseusassociadosequepossuamicrogeraçãoouminigeraçãodistribuída,adistribuidoradeverealizaroenquadramentosimultâneocomounidadeconsumidoraparafinsdeconsumoecomocentralgeradoracomcapacidadeinstaladareduzidaparafinsdeinjeção,observadasasdisposiçõesaplicáveisprevistasnesteartigoenestaResolução.\"(NR)": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-seráregistradaeprocessadapeladistribuidoraapósanotificaçãopelaCCEEouapresentaçãodoscontratosnoACL,observadoo§1º,devendoserindeferidacasosolicitadasemobservânciadesseprocedimento.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-adistribuidoradevecessaraaplicaçãodobenefíciotarifáriodoart.186daResoluçãoNormativanº1.000,de2021,nociclodefaturamentosubsequente;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-emcasoderecebimentosimultâneodosbenefíciostarifáriosdosarts.186e195daResoluçãoNormativanº1.000,de2021,adistribuidoradeve,apartirdamanifestaçãoformalouapósoprazodispostonocaputparamanifestação,oqueocorrerprimeiro,aplicarexclusivamenteobenefíciotarifáriodoart.195.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§3ºEmcasodenãomanifestaçãodoconsumidornoprazodispostonocaput,adistribuidoradevecessaraaplicaçãodobenefíciotarifáriodoart.186daResoluçãoNormativanº1.000,de2021,aplicando,seoconsumidortiverdireito,obenefíciotarifáriodoart.195ResoluçãoNormativanº1.000,de2021.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Parágrafoúnico.Aadequaçãopeladistribuidoradentrodoperíododetransiçãodeveserrealizadacomisonomia,aplicando-seàtodasassituaçõesapartirdaimplementaçãododispositivo.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-em90(noventa)dias,quantoaoart.4º;e": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "b)art.2º,napartequeincluioualteraosarts.142,166,166-A,167,167-A,167-B,167-C,170eoAnexoIVdaResoluçãoNormativanº1.000,de7dedezembrode2021;e": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "a)art.2º,napartequeincluioart.159-BeoincisoIInocaputdoart.166daResoluçãoNormativanº1.000,de7dedezembrode2021;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "a)art.5º,napartequeincluioart.9º-AnaResoluçãoNormativanº1.011,de29demarçode2022;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "b)art.7º,napartequeincluioart.172-CnaResoluçãoNormativanº1.000,de7dedezembrode2021;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "c)art.8º,napartequeincluioart.3º-AnoAnexoIIdaResoluçãoNormativanº948,de16denovembrode2021.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-atédozemesesdadatadesuapublicação,quantoaoart.2º,napartequeincluio§1ºnoart.166,o§4ºnoart.333eoincisoXVIIInoart.396daResoluçãoNormativanº1.000,de7dedezembrode2021;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "III-nadatadesuapublicação,quantoaosdemaisdispositivos.SANDOVALDEARAÚJOFEITOSANETO": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-informaçãoaoconsumidor,aosdemaisusuárioseaopúblicoemgeralsobreofuncionamentodoAmbientedeContrataçãoLivre-ACL;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-divulgaçãodosdireitosedeveresdoconsumidoredemaisusuáriosnoACL;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "III-explicaçãodetalhadasobreanãoaplicaçãodosbenefíciostarifáriosdoACRapósamigraçãoparaoACL,observadooart.175-A;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "IV-cartilhadigitalsobreoprocessodemigraçãoaoACL;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "V-esclarecimentosobredúvidasfrequentesnoACL;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "VI-divulgaçãodarelaçãodosagentesdecomercializaçãoautorizados,contemplando,nomínimo:": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "VII-outrasinformaçõespordeterminaçãodaANEEL.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§2ºACCEEdevedisponibilizarcanalparaoesclarecimentodedúvidassobreoprocessodemigração.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§3ºACCEEdeverárealizarpesquisasdeopiniãofrequentesarespeitodaseparaçãodossegmentosdedistribuiçãoecomercializaçãoeoutrasquejulgarpertinentes.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-informaramodalidadepretendidaparamigração,dentreasseguintesopções:regularouantecipada;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-informaromêspretendidoparamigração,nocasodeopçãopelamodalidadeantecipada;e": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "III-nocasodeunidadeconsumidoracomdemandacontratadamaiorouiguala500kW,informaràdistribuidora:": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-areduçãodoprazodeveserrealizadacomisonomia,vedadaaaplicaçãoindividualouagrupoqueatendadeterminadascondições;e": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§6ºAdistribuidorapodepraticarprazosmenoresdosqueosdispostosno§5º,desdequeporperíodopreestabelecido,observadooart.663easseguintescondições:": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-areduçãodoprazoobrigaadistribuidora:": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§11.Parafinsdemigração,adistribuidorasomentepodepraticarosprocedimentoseexigirdoconsumidorasprovidênciasdispostasnestaResolução,noPRODISTenosProcedimentosdeComercialização.\"(NR)": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-existênciadedébitosnaunidadeconsumidoraobjetodamigração;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-necessidadedesubstituiçãodosistemademediçãooudecomunicaçãoeinviabilidadetécnicanasinstalaçõesdoconsumidorpararealizaçãodasubstituiçãopeladistribuidora;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "III-unidadeconsumidoraquenãoatendaaosrequisitoslegaisouregulatóriosparamigração,observadoo§4ºdoart.160eoart.655-Y;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "IV-nãoaplicaçãodomodelosimplificadoparacomercializaçãovarejista,exclusivamentenoscasosvedadosnoSubmódulo1.8dosProcedimentosdeComercializaçãoeseoconsumidortiverfeitoessaopção;e": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "V-erronasinformaçõescadastradaspeloagentevarejistanahabilitaçãonaCCEEnocasodemodelosimplificadoparacomercializaçãovarejista.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§5ºOconsumidorpodesolicitardeformaopcionalaverificaçãodeviabilidadetécnicaparamigraçãoaoACL,previamenteàformalizaçãodaopçãodemigração,observadooprazodispostonocaputesujeitoàcobrançapeloserviçonovalorcorrespondenteàvisitatécnica,conformehomologadopelaANEEL.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.167.Apósodeferimentodamigraçãopeladistribuidora,oconsumidorpotencialmentelivredevesolicitaraadesãoàCCEEouarepresentaçãoporagentevarejistanostermosdaregulamentaçãovigente,observadososprazoseascondiçõesestabelecidosnosProcedimentosdeComercialização.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-emcasodeausênciademanifestaçãodadistribuidorasobreamigração,conformeart.166-A:oprazodemigraçãorequeridopeloconsumidor.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "VIII-adistribuidorapode,aqualquertempo,precedidadanotificaçãodoart.360,interromperofaturamentoprevistonesteartigoesuspenderofornecimento,excetonoscasosdeatraso,emquedeveobservaroart.167-B.\"(NR)": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.170.Oconsumidorlivreouespecialdeveformalizarjuntoàdistribuidora,comantecedênciamínimade5anos,seuinteresseemadquirirenergiaelétricadadistribuidoraparacoberturadasnecessidadesdeenergiaepotênciadasunidadesconsumidorasdesuaresponsabilidade..........................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§5ºCasotenhadireitoamaisdeumbenefíciotarifário,oconsumidordeveescolherqualdesejareceber,vedadanovaopçãoantesdedecorridos12ciclosconsecutivosdefaturamentodaúltimaalteração.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§2ºOconsumidordevesernotificadopeladistribuidoraepelocomercializador,previamenteàmigração,sobreanãoaplicaçãodosbenefíciostarifáriosconcedidosnoACRapósamigraçãoparaoACL.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.342-A.Nocasodeunidadeconsumidoralivreouespecial,oconsumidordevereceberacobrançapelousodosistemaeacobrançapeloconsumodeenergiapormeiodefaturasdistintas,emitidaspeladistribuidoraepeloagentecomercializadordeenergia.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-faturaunificadaemitidapeladistribuidora,contendoacobrançadocomercializador,observadooart.629;ou": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-faturaunificadaemitidapelocomercializadordeenergia,contendoacobrançadadistribuidora.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§4ºOconsumidorpodeoptar,aqualquertempo,porvoltarareceberemseparadoasfaturasdadistribuidoraedocomercializadordeenergia,vedadanovaopçãoantesdedecorridos6ciclosconsecutivosdefaturamentodaúltimaalteração,excetonocasodeaceitedadistribuidoraedoagentecomercializador.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-encerramentocontratual;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-alteraçãodetitularidadedeunidadeconsumidoraparticipantedoSCEE;ou": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "III-migraçãoparaoAmbientedeContrataçãoLivre-ACL..........................................................................\"(NR)": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-ointeressadodevecomunicaràANEELaimplantaçãodecentralgeradoracompotênciainstaladareduzida,queserárecepcionadanaformaderegistrodoempreendimento,conformeregulaçãoespecífica;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-feitooregistro,ointeressadodeveformalizaràdistribuidoraasuaopçãodeenquadramentocomocentralgeradoracompotênciainstaladareduzida,entregandoacomprovaçãodoregistroeaidentificaçãodainstalação;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "IV-ointeressadodeve,noprazodeaté90diasdorecebimentodamanifestaçãodadistribuidora,concluirasprovidênciasdesuaresponsabilidade,comunicaradistribuidora,bemcomoadotardemaisprovidênciasjuntoàCCEE,aplicando-seemcasodeatrasooart.43eemcasodedescontrataçãooart.168.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§1ºNãosolucionadaacontrovérsia,oconsumidordeveráregistrarareclamaçãoperanteaplataformaConsumidor.gov.br.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§2ºPersistindoadivergência,poderãosersubmetidasàagênciaestadualconveniadaou,emsuaausência,àANEEL,asreclamaçõesrelacionadasaodescumprimentodaregulamentaçãosetorialoudasobrigaçõesreguladasaplicáveisàcomercializaçãovarejista.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-canaldeatendimentoeletrônico,similaraosmeiosporeledisponibilizadosparasuacontratação,pararegistrodesolicitações,reclamaçõesecontestações;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-númerodeprotocoloparaacompanhamentodasdemandasregistradas;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "III-ambienteeletrônicoparadisponibilizaçãodoscontratos,documentosehistóricodasdemandasdosconsumidoresrepresentados;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "IV-relaçãodoscanaisdeatendimentoeprocedimentosparatratamentodereclamaçõesecontestações,divulgadosemseusítioeletrônico.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-aderiremantercadastroativonaplataformaConsumidor.gov.br,observadasasregrasdefuncionamentodareferidaplataforma;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-informaraosconsumidoresrepresentadosoendereçoeletrônicodaplataformadequetrataoincisoIesuautilizaçãoparatratamentodereclamaçõesnãosolucionadaspeloatendimentodocomercializador;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "III-responderàsmanifestaçõesdeconsumidoresregistradaseencaminhadaspormeiodaplataformadequetrataoincisoIoupelaANEEL.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.21-C.Oconsumidorpoderácontestarvalorescobradosindevidamentepelorepresentantedacomercializaçãovarejista.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§1ºAparcelacontroversanãopoderáconstituirfundamentoexclusivoparaaadoçãodasmedidas,pelorepresentante,decorrentesdeinadimplênciadoconsumidor,previstascontratualmente,antesdaapresentaçãoderespostafundamentadaàreclamação.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§3ºEmcasodeimprocedênciadacontestação,orepresentantedacomercializaçãovarejistadeveráapresentarfundamentaçãoadequadaememóriadecálculo,quandoaplicável.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-ocompartilhamentosomentepoderácompreendergeradoras,transmissoras,distribuidorasecomercializadorasdeenergiaelétrica,alémdesociedadesholdingsqueascontrolem,sendovedadoocompartilhamentoentredistribuidoraecomercializadora,inclusiveoutroagentequeatuenovarejo;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§1ºDesdequeanuídopreviamentepelaANEELenãoenvolvacompartilhamentoentredistribuidoraecomercializadora,inclusiveoutroagentequeatuenovarejo,ocontratooriginalpoderáserprorrogadomedianterequerimentoprotocoladopelasinteressadasemdataanterioraotérminodesuavigência,noqualdemonstreminequivocamenteavantagemoperacional,econômicaefinanceiradaprorrogaçãoparaosAgentescontratantes,sendoqueaANEELpoderácondicionaraprorrogaçãoàaceitaçãodenovasregrasacercadamatéria..........................................................................\"(NR)": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-adistribuidoradeveapresentaràANEEL,previamenteaoinício,apropostadoSandboxcontendo,nomínimo:": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.11.AsdistribuidoraspodemdesenvolverSandboxRegulatórioparaemissãodefaturaunificadapeloagentecomercializadorparaunidadeconsumidoralivreeespecial,contendoacobrançadadistribuidoraedocomercializador,observadasasseguintesdisposições:": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "c)metodologiadeescolhadosparticipantes,incluindoconsumidoreseagentesdecomercialização;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "d)critériosdeadesãoededesistênciadosparticipantes;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "e)planodecomunicaçãoedeinformaçãoaosparticipantes;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "f)orçamentopreliminar;e": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "g)planodemonitoramentoecontroledoSandbox,proposiçãodeindicadoreseferramentasparaanálisederesultadosedecustosebenefícios.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-oSandboxseráautorizadopelaANEEL,ouvidaaCCEE,quedeliberarásobreoafastamentotemporárioderegraseprocedimentosnocontextodoSandbox;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "III-asregrasdoSandboxdevemseramplamentedivulgadasaosparticipantes,incluindocritériosdeadesãoedesistênciaeoscanaisemquepoderãoserprestadasinformações;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "IV-adistribuidorapodeusarrecursosdacontadePesquisaeDesenvolvimento-P&DparaocusteiodoSandbox;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "a)calendáriodefaturamento,inclusiveodaCCEE;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "b)compartilhamentodeinformações;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "c)fluxoautomáticodeinformações;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "d)fluxofinanceiro;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "e)cobrançadetributoseencargos;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "f)tratamentodeerrosdemedição;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "g)tratamentodeerrosdefaturamentoedesituaçõesespeciais;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "h)impactosnanotafiscaldeenergiaelétricaeletrônica(NF3e);": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "i)padronizaçãodolayoutedasinformaçõesdafatura;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "j)inadimplência,cobrançaesuspensão;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "k)mecanismosparasoluçãodecontrovérsiasentredistribuidoraecomercializador;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "l)mapeamentoderiscos;e": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "m)incentivosepenalidadesaplicáveisnaoperacionalizaçãodofaturamento.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "VI-oSandboxdevecontemplarunidadesconsumidorascomcontratoscomcomercializadoresdemaisdeumaUnidadedaFederação;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "VII-aANEELeaCCEEpoderãoserconsultadasourequisitarinformaçõesduranteodesenvolvimentodoSandbox;e": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "VIII-apartirdaautorizaçãodoSandboxatéofimdavigênciadevemserencaminhadosàANEEL,semestralmente,relatóriosinformativoscontemplandooacompanhamento,osresultados,asdificuldadesenfrentadaseassoluçõesadotadasnoperíodo.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Parágrafoúnico.OSandboxRegulatóriodispostonesteartigopodeserdesenvolvidoporagentecomercializador,quedeveserapresentadoàANEELcomasadaptaçõesnecessáriaseasrespectivasjustificativas.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§1ºOgrupodetrabalhodeveráapresentaraANEELpropostadeaprimoramentoregulatórioe,casonecessário,manualdeinstruçõescomodetalhamentooperacional,comvistasacontemplaroobjetivodispostonocaput,noprazodeaté1anodapublicaçãodestaResolução.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§3ºAANEELeaCCEEdeverãoserconvidadasparaparticipardasreuniões.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§5ºAsinstituiçõesparticipantesdeverãodefiniracoordenaçãodogrupoedemaisaspectosrelacionadosàelaboraçãodotrabalho.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§6ºOcoordenadordogrupodetrabalhopoderáconvidarrepresentantesdeórgãoseentidadespúblicaseprivadasrelacionadasaosetorelétricoparaparticipardasreuniõeseaprestarassessoramentosobretemasespecíficos,semdireitoavoto.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§9ºOprazodispostonocaputpoderáserprorrogadomediantesolicitaçãofundamentadadogrupodetrabalhoeaprovaçãodaANEEL.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§11.Aprimeirareuniãodeveráocorrerematé60diasdapublicaçãodestaResolução.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-oCCERcelebradoentreoconsumidorparcialmentelivreeadistribuidorapoderásermantidoerenovado;e": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-90dias:paraoconsumidordosubgrupoASouA4;ou": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-180dias:paraosconsumidoresdosdemaissubgrupos.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§6ºAsolicitaçãodereduçãodomontantedeenergiaelétricaassociadoaoCCERporconsumidorparcialmentelivredeveterprazosparaatendimentoedemaiscondiçõessemelhantesaoscasosdemigraçãodeconsumidorpotencialmentelivreparaoACL.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-retornaraoACR,nostermosdoart.170daResoluçãoNormativanº1.000,de2021;ou": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-permanecernoACL.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-ematé180(centoeoitenta)diasdadatadesuapublicação,quantoao:": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.1ºEstaResoluçãoaprimoraaregulaçãodosserviçosdedistribuiçãoemfunçãodaaberturademercadoparaconsumidoresdoGrupoA,edáoutrasprovidências.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.2ºAResoluçãoNormativanº1.000,de7dedezembrode2021,passaavigorarcomasseguintesalterações:": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.1º.......................................................................................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-CâmaradeComercializaçãodeEnergiaElétrica-CCEE;e": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-OperadorNacionaldoSistemaElétrico-ONS.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.42.......................................................................................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.90.......................................................................................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§4ºOdispostonesteartigonãoseaplicanocasodeopçãoprevistanoart.68decompradaenergianoACL.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.96-A.NocasodemigraçãoparaoACLpelomodelosimplificadoparacomercializaçãovarejista,adistribuidoraéresponsávelporrealizarasseguintesações,apartirdanotificaçãoeletrônicafeitapelosistemadaCCEE:.........................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.138........................................................................................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.140........................................................................................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "V-demaissituaçõesemquehouverprevisãoexpressadeencerramentocontratual..........................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.142........................................................................................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.159.......................................................................................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-grupoAedemaisusuários:pormeiodeopçãodecompradaenergiaemumdosseguintesambientes:.........................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "b)AmbientedeContrataçãoLivre-ACL:comacelebraçãodoContratodeCompradeEnergianoAmbientedeContrataçãoLivre-CCEALoudoContratoparaComercializaçãoVarejista-CCV,comoagentevendedor.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "a)informaçõesdecontato;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "b)informaçõesdaatuação:classificação,quantidadedeconsumidoreseoutrasinformaçõesrelevantes;e": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.160.......................................................................................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§6ºNãocompeteàsagênciasestaduaisconveniadas,àANEELnemàCCEEmanifestarem-sesobreaconveniência,oportunidadeouobrigatoriedadedoexercíciodaopçãodispostanesseartigoparaoconsumidorsubmetidoàLeideLicitaçõeseContratos,nememitirdeclaraçãodequalquerespéciesobreaexclusividadedevendadeenergiapordeterminadoagenteousobreadispensadelicitação.\"(NR)": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§2ºNocasodoincisoIIdocaput,acomunicaçãoàdistribuidoradaopçãodoconsumidoreasdemaiscomunicaçõesprevistasnoSubmódulo1.8dosProcedimentosdeComercializaçãoserãorealizadaspormeiodosistemadaCCEE.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "a)sefaráadesãoàCCEE;ou": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "b)seserárepresentadoporagentevarejista,bemcomoaopçãopeloenquadramentonomodelosimplificadoparacomercializaçãovarejista.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "a)90dias:paraunidadeconsumidoradosubgrupoASouA4queseenquadrenomodelosimplificadoprevistonoSubmódulo1.8dosProcedimentosdeComercialização;ou": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "b)180dias:paraosdemais.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "a)apraticarosprazosreduzidosdemigraçãoatodasasunidadesconsumidorasquevieremamigrarposteriormenteareduçãoefetuada,duranteoperíodopreestabelecido;e": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "b)adaramplapublicidadeaadoçãodoprazoreduzidoeaeventualretornoaoprazoregular,inclusivepormeiodecomunicadoemsuapáginanainternetenainterfacepadronizadaparaoconsumidorexerceraopçãodemigração.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§8ºAopçãodoconsumidordequetrataocaputimplicaencerramentodoCCERquandoefetivadaamigração.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§9ºOenquadramentoseránomodelosimplificadoseoconsumidor,deformaobrigatóriaouvoluntária,forrepresentadoporagentevarejistaeatenderaosrequisitosprevistosnoSubmódulo1.8dosProcedimentosdeComercializaçãodaCCEE.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-reprovaramigração,informandoasrespectivasjustificativase,nocasodeinviabilidadetécnica,entregarrelatóriotécnicoquecomprove,observadoo§3ºeoart.416;ou": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "a)definirecomunicaraoconsumidoromêsemqueseoperaráamigração,observadaamodalidadeeaopçãodoconsumidor,conformedispostonoart.166;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "b)encaminharaoconsumidordocumentosqueprecisemserconhecidosouassinados;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "c)nocasodeenquadramentonomodelosimplificadoparacomercializaçãovarejista,conformeSubmódulo1.8dosProcedimentosdeComercialização,realizarasaçõesprevistasnoart.96-A;e": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "d)nocasodenãoenquadramentonaalínea\"c\",informarocronogramaeexecutar,quandonecessária,aadequaçãodosistemademediçãoedecomunicação,observadososprazosdemigraçãoeasdisposiçõesdoart.96.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-nocasodeenquadramentonomodelosimplificadoparacomercializaçãovarejista:dorecebimentodanotificaçãoeletrônicapeladistribuidorafeitapelosistemadaCCEE;e": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-nosdemaiscasos:dorecebimentodacomunicaçãodamigraçãoprevistanoart.166.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Parágrafoúnico.OdispostonesteartigonãoseaplicaparaomodelosimplificadoparacomercializaçãovarejistaprevistonoSubmódulo1.8dosProcedimentosdeComercialização.\"(NR)": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.167-A.Amanifestaçãodaopçãodequetrataoart.166implicaassunçãodaresponsabilidadepeloconsumidorderessarcimentodeeventuaisprejuízoscausadospelainterrupçãodoprocessodemigração.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-vistoriasevisitastécnicasrealizadas,conformevaloreshomologadospelaANEEL;e": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-adequaçãonosistemademedição.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-responsabilidadedoconsumidoroudoagentevarejista,nostermosdoart.167-B;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-responsabilidadedeterceiros,desdequesatisfeitasascondiçõesdoincisoIIdo§3ºdoart.323;ou": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "III-casofortuitooudeforçamaiorousituaçãodecalamidadepúblicadecretadaporórgãocompetente.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§3ºOinadimplementodeconsumidorlivreouespecialnoâmbitodaCCEEounoACLimpedenovacelebraçãocontratualcomadistribuidora,sendonecessárioqueoconsumidorefetueaquitaçãoounegociesuaspendênciaseadoteasprovidênciascabíveisjuntoàCCEEouaoagentevarejistacomquemestácontratado.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§6ºAoefetivaroretornodoconsumidoraoACR,nostermosdo§5º,amodelagemeopontodemediçãodoconsumidorserãoinativadospelaCCEE.\"(NR)": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.175.......................................................................................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.175-A.OsbenefíciostarifáriosconcedidosaosconsumidoresdoACR,inclusiveaTarifaSocialdeEnergiaElétrica-TSEEdequetrataaLeinº12.212,de20dejaneirode2010,eosdescontosespeciaisnastarifasdeenergiaelétricaaplicáveisàsatividadesdeirrigaçãoeaquiculturadequetrataoart.25daLeinº10.438,de26deabrilde2002,nãoseaplicamaoACL.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§1ºCabeaoconsumidorescolherentrepermanecernoACR,comosbenefíciostarifáriosaquetiverdireito,oumigrarparaoACLemcondiçõesdemercado.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.179.......................................................................................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§5ºOsbenefíciostarifáriosdispostosnesteartigonãoseaplicamaunidadeconsumidoralivreouespecial.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.186.......................................................................................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§9ºObenefíciotarifáriodispostonesteartigonãoseaplicaaunidadeconsumidoralivreouespecial.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.294.......................................................................................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.323.......................................................................................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§3º..................................................................................................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "III-aocomercializador,noscasosdispostosnoincisoIdo§1ºdoart.342-A..........................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.325.......................................................................................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "V-desistênciadaopçãodemigraçãoaoACL,dequetrataoart.167-A..........................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.333.......................................................................................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.346.......................................................................................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-serviçosdeinspeçãodosistemademedição;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-emissãodesegundaviadefatura;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "III-disponibilizaçãodosdadosdemedição;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "IV-regularizaçãodeimpedimentodeacessoparafinsdeleitura;ou": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "V-utilizaçãodoOpenEnergy..........................................................................\"(NR)": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.396.......................................................................................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "XVIII-exerceraopçãodeadquirirenergiaelétricacomoutrofornecedorparafinsdemigraçãoaoACL,observadasasinstruçõesdaANEEL;e": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "XIX-acessaroOpenEnergy,observadasasinstruçõesdaANEEL..........................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.476.......................................................................................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.627-A.......................................................................................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.629.......................................................................................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.655-D......................................................................................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§2ºAadesãoaoSCEEnãoseaplicaaunidadeconsumidoralivreouespecial..........................................................................\"(NR)": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "a)excluiraunidadeconsumidoracommicrogeraçãoouminigeraçãodistribuídadoSCEE,cancelaroregistrocomogeraçãodistribuídaerealocaroscréditosremanescentesconformeart.655-M;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "b)avaliarasinstalaçõesquepassarãoaserconsideradascomoderesponsabilidadedacentralgeradoraereclassificadascomodeinteresserestrito,nostermosdoart.35,inclusivecompossibilidadededeslocamentodopontodeconexãodesdequenamesmalinhaexistente,einformarasprovidênciasnecessáriaseoscustosparaointeressado,podendo,decomumacordo,serrealizadaacessãoonerosaconsiderandooValordeMercadoemUso-VMUeopagamentoserparcelado;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "c)informarasprovidênciasnecessáriaseoscustosparaqueointeressadoassumaaresponsabilidadetécnicaefinanceirapelosistemademediçãoparafaturamento,conformeart.233,podendo,emcasodeatendimentoaosrequisitosdoart.97e,decomumacordo,serrealizadaacessãoonerosaaointeressadoconsiderandooValordeMercadoemUso-VMUeopagamentoserparcelado;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "d)informarasadequaçõesnecessáriasnossistemasdetelecomunicação,proteção,comandoecontroleedemaisadequações,estritamentenecessáriasemfunçãodoenquadramentocomocentralgeradoracompotênciainstaladareduzida;e": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.3ºOAnexoIdaResoluçãoHomologatória(REH)nº2.992,de7dedezembrode2021,passaavigorarcomasseguintesalterações:TipologiaDescrição101INFORMAÇÃO......10123MercadoLivredeEnergia10124OpenEnergy....102RECLAMAÇÃO......10217AmbientedeContrataçãoLivre-ACL1021701Atrasonamigração1021702ExigênciasInadequadasparamigração1021799Outros...10299Outros...": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.4ºAResoluçãoNormativanº957,de7dedezembrode2021,passaavigorarcomaseguintealteração:": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.7º.......................................................................................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§4ºOprazoparaoconsumidorrequereroressarcimentoédeatédoismesesapartirdadatadopagamentodapenalidaderecebida,estandoadistribuidoraobrigadaaefetivararestituiçãodovalortotalcorrigidoematétrintadias,acontardadatadorequerimento.\"(NR)": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.5ºAResoluçãoNormativanº1.011,de29demarçode2022,passaavigorarcomaseguintealteração:": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§2ºAinobservânciadasobrigaçõesprevistasnesteartigosujeitaoagentedecomercializaçãoàspenalidadesprevistasnaResoluçãoNormativanº846,de11dejunho2019.\"(NR)": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.19........................................................................................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§3ºAscontrovérsiasdecorrentesexclusivamentedainterpretação,execução,validadeoueficáciadecláusulaslivrementepactuadasentreaspartesobservarãoosmecanismosdesoluçãodeconflitosprevistosnocontratoenalegislaçãoaplicável,incluindomediação,arbitragemouapreciaçãopeloPoderJudiciário.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§2ºOdispostonesteartigonãoafastaaobrigaçãodepagamentodaparcelaincontroversa.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§4ºAparcelacontroversapassaaserexigívelapartirdaapresentaçãoderespostafundamentadaedesfavorávelàreclamaçãopelocomercializadorvarejista,nostermosdoart.21-B,independentementedeposteriorregistrodareclamaçãonaplataformaConsumidor.gov.br,daadoçãodemecanismosdesoluçãodeconflitosprevistosnocontratoenalegislaçãoaplicáveloudesuasubmissãoàagênciaestadualconveniadaouàANEEL.\"(NR)": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.6ºAprovarosProcedimentosdeComercializaçãodeEnergiaElétrica,naformadossubmódulosdoAnexoI.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.7ºAResoluçãoNormativanº1.000,de7dedezembrode2021,passaavigorarcomaseguintealteração:": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "a)veiculaçãodepublicidadeconjuntaouanúncioscasados;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "b)usodoprestígioinstitucionaldadistribuidora;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-divulgaremseusiteinstitucionalofertas,linksderedirecionamentooumençõescomdestaqueàcomercializadora,inclusiveoutroagentequeatuenovarejo,doseumesmogrupoeconômico(direcionamentocomercial);": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "III-compartilharrecursoshumanosouinfraestruturacomcomercializadora,inclusiveoutroagentequeatuenovarejo,doseumesmogrupoeconômico;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "a)compartilharcomacomercializadora,inclusiveoutroagentequeatuenovarejo,doseumesmogrupoeconômico,informaçãosobreocorrênciadoexercíciodaopçãodemigração,dequetrataoart.166;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "b)adotarprocedimentoseprazosquefavoreçamamigraçãorealizadaparacomercializadora,inclusiveoutroagentequeatuenovarejo,doseumesmogrupoeconômico,emdetrimentodarealizadaparaoutrascomercializadoras;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "c)divulgaroupromoveracomercializadora,inclusiveoutroagentequeatuenovarejo,domesmogrupoeconômico,emsuapáginanainternetouporquaisquermeios;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "d)apresentarofertadecomercializadora,inclusiveoutroagentequeatuenovarejo,doseumesmogrupoeconômico,semqueoconsumidoredemaisusuáriostenhamsolicitadoousemquetenhamvoluntariamentecompartilhado,medianteexpressoeprévioconsentimento,seusdadoscomtalcomercializadora;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "a)compartilhardadosdoconsumidorsemoprévioconsentimento;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "b)restringiroudificultaroacessodoconsumidoraosprópriosdadosouaocompartilhamentodedados;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "c)exigiroucondicionaraopagamentodedébitosdotitularemoutraunidadeconsumidoraquenãoéobjetodamigraçãoaoexercíciodaopçãodemigraçãodequetrataoart.166ouaquaisqueroutrosserviçosrelacionadosaoprocessodemigraçãoaoACL;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "d)exigiraadaptação,regularizaçãoousubstituiçãodasinstalaçõesdeentradadeenergianoscasosemqueosistemademediçãoecomunicaçãoinstaladospermitiremacoletaeoenviodosdadosdeconsumoàCCEEnaformaeperiodicidadeprevistasnosProcedimentosdeComercializaçãodaCCEE;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "e)exigiraadaptação,regularizaçãoousubstituiçãodasinstalaçõesdeentradadeenergianoscasosemquenãoexistirinviabilidadetécnicaparainstalaçãodenovosistemademediçãoecomunicação;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "f)exigiracelebraçãodenovoCUSDouoaditivodoCUSDcelebradoporocasiãodamigraçãoaoACL,excetoemdecorrênciadeprevisãoexpressalegalouregulatória;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "g)isentarconsumidor,deformanãoisonômica,decobrançapeloencerramentocontratualantecipadodispostanoart.142;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "h)atrasaroprocessodemigraçãoaoACL;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Parágrafoúnico.ApráticadascondutasprevistasnesteartigosujeitaadistribuidoraàspenalidadesprevistasnaResoluçãoNormativanº846,de11dejunho2019.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.8ºOAnexoIIdaResoluçãoNormativanº948,de16denovembrode2021,passaavigorarcomasseguintesalterações:": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Parágrafoúnico.Enquadram-senascomunicaçõesdequetrataocaputproduto,serviço,faturaouqualquerinformação,divulgaçãooupropaganda,comreproduçãoouimitaçãodamarcaoulogotipo,notodoouemparte,sendonecessárioindicarosegmentodeatuaçãopormeiodainclusãovisíveldostermosrelativosàsatividadesdedistribuiçãoecomercialização,paraevitarerroouconfusãoentreasempresas.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.9ºOAnexoVdaResoluçãoNormativanº948,de16denovembrode2021,passaavigorarcomasseguintesalterações:": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.12...............................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-.........................................................................C:comercializadora,observadooincisoI;...........................................................................\"(NR)": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.16...............................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.10.AResoluçãoNormativanº846,de11dejunhode2019,passaavigorarcomaseguintealteração:": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.11........................................................................................................................................": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "XXIV-atrasar,dificultarourepresentarlesãoouameaçaaodireitodeoconsumidorimplementaroexercíciodaopçãodequetratamoart.15eoart.16daLeinº9.074,de7dejulhode1995.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.12.Ficainstituídogrupodetrabalhocomoobjetivodeavaliarasimplificaçãoepadronizaçãodasinformaçõesapresentadasnasfaturasdeenergiaelétricadeunidadesconsumidorasedemaisusuários,incluindounidadeconsumidoralivreouespecialeosambientesACLeACR.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "a)ConselhoNacionaldosConsumidoresdeEnergiaElétrica-Conacen;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "b)AssociaçãoNacionaldosConsumidoresdeEnergia-Anace;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "c)AssociaçãoBrasileiradeGrandesConsumidoresIndustriaisdeEnergiaedeConsumidoresLivres-ABRACEEnergia;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "d)AssociaçãoBrasileiradeGeraçãoDistribuída-ABGD;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "a)AssociaçãoBrasileiradeDistribuidorasdeEnergiaElétrica-Abradee;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "b)AssociaçãoBrasileiradeDistribuidorasdeEnergiadeMenorPorte-Abrademp;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "c)ConfederaçãodasCooperativasdeinfraestrutura-Infracoop;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "III-pelosagentesdecomercialização:AssociaçãoBrasileiradosComercializadoresdeEnergiaElétrica-ABRACEEL;e": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "IV-outrasinstituiçõesquemanifestaremàANEELouaogrupodetrabalho,aqualquertempo,ointeresseemparticipar,inclusivemedianteconvite.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§4ºCadamembrodogrupodetrabalhoterádoissuplentes,paraefeitosdesubstituiçãoemsuasausênciaseseusimpedimentos.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§7ºAsdespesasrelacionadasàparticipaçãodosrepresentantescorrerãoporcontadedotaçõesorçamentáriasdasrespectivasorganizaçõesquerepresentam,nãosendoconsideradotrabalhoremunerado.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§8ºOgrupodetrabalhosereunirá,emcaráterordinário,mensalmentee,emcaráterextraordinário,semprequeconvocadoporseucoordenador,queencaminharápreviamenteapautadareunião.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§10.Atéqueacoordenaçãodogruposejadefinidapelosparticipantes,aAbradeeexerceráacoordenaçãodeformatemporária,inclusiveparafinsdeagendamentodasreuniõesiniciais.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "§8ºCasooconsumidorparcialmentelivre,responsávelporunidadeconsumidoraconectadaàRedeBásica,fiqueinadimplentenoCCERemmaisdeumafaturamensalemumperíodode12mesesconsecutivos,adistribuidoranãoprecisaregistrarnaCCEEosmontantesdeenergiaelétricacontratadaatéaquitaçãototaldosdébitos.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "I-os§§4ºe5ºdoart.133,oincisoIdoart.148,o§5ºdoart.160,osincisosI,IIeoparágrafoúnicodoart.163,oart.164,aSeçãoIVdoCapítuloVdoTítuloI,oart.165,oart.169,oart.232,o§3ºdoart.293,alinhareferenteaoart.96-AdoAnexoIV,alinhareferenteaoart.166noAnexoIVdaResoluçãoNormativanº1.000,de7dedezembrode2021;": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "II-aalínea\"a\"doitem9eoitem17.3doAnexoVdaResoluçãoNormativanº956,de7dedezembrode2021;e": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "III-oincisoVIdoart.13daResoluçãoNormativanº1.011,de29demarçode2022.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   },
+   "Art.17.Osrepresentantesdacomercializaçãovarejistaterãoprazode6(seis)meses,acontardapublicaçãodestaResoluçãoNormativa,paraimplementarodispostonosarts.21-A,21-Be21-CdaResoluçãoNormativanº1.011,de29demarçode2022.": {
+    "url": "/fontes/dou_ren20261174.html",
+    "pagina": null,
+    "ultima_pagina": null,
+    "localizacao": "HTML oficial salvo"
+   }
+  }
+ },
+ "infracoes_demo": {
+  "Art. 12, XXVII": {
+   "trecho": "XXVII – a ausência, inadequação ou descumprimento do Plano de Manejo Vegetal, nos termos da regulação vigente; e",
+   "sha256": "efe4e35fb41aa1306846677ffc32a0c2a150ee6ac44aafe5f15e475e6ad05ad9"
+  },
+  "Art. 12, XXVIII": {
+   "trecho": "XXVIII – comunicar-se de forma ineficiente com o Poder Público em Situações de Emergência, nos termos da regulação vigente.",
+   "sha256": "efe4e35fb41aa1306846677ffc32a0c2a150ee6ac44aafe5f15e475e6ad05ad9"
+  }
+ }
+}

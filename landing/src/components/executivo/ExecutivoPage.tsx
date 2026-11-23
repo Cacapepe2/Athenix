@@ -1,3 +1,4 @@
+import { LinkFonte } from '../ui/LinkFonte'
 import { useEffect, useRef, useState } from 'react'
 import { NORMA_PADRAO, NORMAS, norma as dadosDa, prazos, queda, textoContagem, top5, urlPlanoCompleto, urlRelatorio, valorGeral, type LinhaTop5 } from '../../content/executivo'
 import { RespostasProvider, useRespostas } from '../plano/Respostas'
@@ -134,10 +135,11 @@ const COLUNA = 'flex flex-col gap-2 border-r border-line px-6 py-5 last:border-r
 const TITULO_COLUNA = 'text-[13px] font-bold'
 
 function Painel({ l, fechar }: { l: LinhaTop5; fechar: () => void }) {
+  const p = dadosDa(l.normaId).dados
   return <div className="painel-in">
     <div className="flex flex-wrap items-start justify-between gap-4 border-b-[length:var(--borda-forte)] border-obsidian px-6 py-5">
       <div className="flex min-w-0 flex-1 flex-col gap-1">
-        <span className="text-[13px] font-semibold">{l.dispositivo ?? 'dispositivo a confirmar'}</span>
+        <span className="text-[13px] font-semibold"><LinkFonte sha256={dadosDa(l.normaId).dados.norma.sha256} trecho={l.trecho}>{l.dispositivo ?? 'dispositivo a confirmar'}</LinkFonte></span>
         <span className="text-[22px] leading-tight font-bold">{l.frase}</span>
         <span className="text-xs">Título do bloco: resumo gerado por IA, a revisar.</span>
       </div>
@@ -153,11 +155,11 @@ function Painel({ l, fechar }: { l: LinhaTop5; fechar: () => void }) {
         <span className={TITULO_COLUNA}>Gravidade e valor por infração</span>
         <span className="text-[15px]">{l.valor ? `${l.gravidadeRotulo} · ${l.preliminar ? 'sugerida pela IA, aguarda revisão humana' : 'identificada no texto'}` : 'gravidade a enquadrar'}</span>
         {l.barras.length > 0 && <span className="text-xs">Atenuantes do art. 24: valem se a infração cessar e o dano for reparado antes da fiscalização.</span>}
-        {l.barras.map((b) => <div key={b.rotulo} className="grid grid-cols-[70px_minmax(0,1fr)_72px] items-center gap-2 text-xs">
-          <span>{b.rotulo}</span>
+        {l.barras.map((b) => { const m = p.reducao.medidas.find((m) => m.dispositivo.toLowerCase() === b.rotulo.toLowerCase()); return <div key={b.rotulo} className="grid grid-cols-[70px_minmax(0,1fr)_72px] items-center gap-2 text-xs">
+          <span>{m ? <LinkFonte sha256={m.sha256} trecho={m.trecho}>{b.rotulo}</LinkFonte> : b.rotulo}</span>
           <span className="block h-2 bg-trilho"><span className="barra" style={{ width: `${Math.max(b.fracao * 100, 2)}%`, background: b.cor === 'teto' ? 'var(--cor-barra-teto)' : b.cor === 'media' ? 'var(--cor-barra-media)' : 'var(--cor-barra-reducao)' }} /></span>
           <span className="text-right font-bold">{b.reais != null ? brlCurto(b.reais) : '—'}</span>
-        </div>)}
+        </div> })}
       </div>
       <div className={COLUNA}>
         <span className={TITULO_COLUNA}>O que fazer</span>

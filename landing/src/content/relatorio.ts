@@ -10,6 +10,7 @@ import { fraseProntidao, prontidao } from './prontidao.ts'
 import { perguntasParaOJuridico, type Pergunta } from './perguntas.ts'
 import type { Respostas } from './respostas.ts'
 import { linhasDeRevisao, type Revisoes } from './revisoes.ts'
+import type { RascunhoAneel } from './rascunhos-aneel.ts'
 
 export const AVISO_RELATORIO = 'Análise regulatória preliminar · não constitui parecer jurídico'
 
@@ -50,6 +51,7 @@ export interface Relatorio {
   lacunas: { nome: string; motivo: string }[]
   areas: AreaRelatorio[]
   perguntas: Pergunta[]
+  perguntasAneel: RascunhoAneel[]
   /** "Possíveis erros materiais da norma": redação de prazo defeituosa, leitura provável e esclarecimento. */
   errosMateriais: string[]
   revisoes: ReturnType<typeof linhasDeRevisao>
@@ -131,5 +133,6 @@ export function montarRelatorio(args: { sim: Simulacao | null; modo: Modo; diag:
     revisoes: linhasDeRevisao(args.revisoes ?? {}, plano),
     errosMateriais: (plano.erros_materiais ?? []).map((e) => `${e.dispositivo}: “${e.trecho}” (${e.problema}); leitura mais provável ${e.leitura_provavel}, ${e.rotulo}. ${e.esclarecimento ?? `Sugestão: ${e.sugestao}.`}`),
     perguntas: perguntasParaOJuridico(plano, normaDaUrl(), sim, modo, hojeIso),
+    perguntasAneel: plano.rascunhos_aneel,
   }
 }
