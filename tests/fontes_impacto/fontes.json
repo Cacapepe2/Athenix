@@ -3,6 +3,28 @@
  "ressalva_origem": "Os atos acima são oficiais (Lei 9.610/1998, art. 8º, IV): biblioteca da ANEEL e DOU. As cópias do Leis.org (termos de uso, cláusula 9) não ficam no repositório.",
  "documentos": [
   {
+   "id": "prodist4_v2",
+   "arquivo": "aren2021956_Prodist_modulo_4_v2.pdf",
+   "sha256": "47dfe164a9a704600ffc4e4f2d38c8d169b6a4829ee5b85bd8737a20e813bdc6",
+   "ato": "Anexo IV da REN 956/2021, Módulo 4 do PRODIST, versão v2 anterior à RN 1.137",
+   "url": "https://git.aneel.gov.br/publico/centralconteudo/-/raw/main/procreg/prodist/modulo04/aren2021956_Prodist_modulo_4_v2.pdf",
+   "obtido_em": "2026-11-22",
+   "paginas": 16,
+   "fonte": "oficial (repositório público da ANEEL; baixado e fornecido pelo fundador)",
+   "ressalva": "Versão anterior à RN 1.137 informada pelo fundador. Comparação limitada ao Módulo 4; não comprova o histórico de outros módulos ou atos."
+  },
+  {
+   "id": "prodist4_v3",
+   "arquivo": "aren20251137_Prodist_modulo_4_v3.pdf",
+   "sha256": "a0fb3b30563d4b7807ca5a5f91060b377d16410ba60c54aeca528c9853f3e3ae",
+   "ato": "Anexo IV da REN 956/2021, Módulo 4 do PRODIST, versão v3 da RN 1.137",
+   "url": "https://git.aneel.gov.br/publico/centralconteudo/-/raw/main/procreg/prodist/modulo04/aren20251137_Prodist_modulo_4_v3.pdf",
+   "obtido_em": "2026-11-22",
+   "paginas": 30,
+   "fonte": "oficial (repositório público da ANEEL; baixado e fornecido pelo fundador)",
+   "ressalva": "O rodapé cita a REN 1.137/2025, mas há divergências redacionais em relação ao PDF dessa norma. Não substitui a redação usada no plano."
+  },
+  {
    "id": "ren2019846",
    "arquivo": "atren2019846.pdf",
    "sha256": "efe4e35fb41aa1306846677ffc32a0c2a150ee6ac44aafe5f15e475e6ad05ad9",

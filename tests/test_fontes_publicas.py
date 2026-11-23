@@ -9,7 +9,7 @@ from scripts.demo import publicar_fontes as fontes
 def test_indice_reproduz_e_copias_mantem_hash_das_fontes_oficiais():
     indice = json.loads(fontes.INDICE.read_text(encoding="utf-8"))
     assert indice == fontes.compilar()
-    assert len(indice["documentos"]) == 7
+    assert len(indice["documentos"]) == 9  # mais as duas versões oficiais do Módulo 4
     for sha, f in indice["documentos"].items():
         copia = fontes.PUBLICO / f["url"].split("/")[-1]
         assert hashlib.sha256(copia.read_bytes()).hexdigest() == sha

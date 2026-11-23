@@ -372,6 +372,12 @@ def gerar(data=None, commit=None, arquivo=None, segmento="distribuicao"):
     trechos = esclarecimentos.carregar()
     esclarecimentos.anotar_plano(dados, Path(arquivo).stem, trechos)
     dados["rascunhos_aneel"] = rascunhos_aneel.montar(dados, Path(arquivo).stem, trechos)
+    from athenix.comparacao_prodist import montar as comparar_prodist
+
+    comparacao = comparar_prodist(dados, processado[1])
+    if comparacao:
+        dados["comparacao_anterior"] = comparacao
+        dados["rascunhos_aneel"] += rascunhos_aneel.divergencias_prodist(dados, comparacao)
     return dados, out
 
 

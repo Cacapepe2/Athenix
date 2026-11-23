@@ -38,6 +38,12 @@ def documentos():
         }
     )
     docs = {d["sha256"]: d for d in impacto.carregar()["fontes"].values()}
+    for norma in ("rn1137", "ren1174"):
+        p = json.loads(
+            (ROOT / f"landing/src/content/plano-{norma}.json").read_text(encoding="utf-8")
+        )
+        for d in p.get("comparacao_anterior", {}).get("fontes", {}).values():
+            docs[d["sha256"]] = d
     pasta = ROOT / "tests/fontes_impacto/esclarecimentos"
     for d in json.loads((pasta / "fontes.json").read_text(encoding="utf-8"))["documentos"]:
         aprovados[d["sha256"]] = pasta / d["arquivo"]
@@ -83,6 +89,19 @@ def localizar(texto, folhas, incerta=False):
 
 
 def citacoes(p):
+    comparacao = p.get("comparacao_anterior")
+    if comparacao:
+        for item in comparacao["itens"].values():
+            if item["classe"] == "alterado":
+                yield comparacao["fontes"]["v2"]["sha256"], item["anterior"]["trecho"], False
+                yield comparacao["fontes"]["v3"]["sha256"], item["atual"]["trecho"], False
+        for r in comparacao["registros"].values():
+            if not r["confere_v3"]:
+                yield (
+                    comparacao["fontes"]["v3"]["sha256"],
+                    comparacao["itens"][r["item"]]["atual"]["trecho"],
+                    False,
+                )
     for r in p.get("rascunhos_aneel", []):
         for f in r["referencias"]:
             yield f["fonte"]["sha256"], f["trecho"], False

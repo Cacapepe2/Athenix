@@ -2,8 +2,13 @@
 
 import hashlib
 import json
+from pathlib import Path
 
 from . import esclarecimentos
+from .normalizacao import espacos
+
+DIVERGENCIAS = Path(__file__).parent / "data/divergencias_prodist_perguntas.json"
+TIPO_DIVERGENCIA = "divergência entre o texto publicado da RN e a versão compilada do PRODIST"
 
 ROTULO = "rascunho — revisar antes de enviar"
 SEM_ALTERNATIVA = "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar."
@@ -136,3 +141,64 @@ def montar(out, norma, trechos):
             }
         )
     return list(grupos.values())
+
+
+def divergencias_prodist(out, comparacao, path=DIVERGENCIAS):
+    """Rascunhos para as divergências escolhidas pelo responsável entre o texto publicado da RN e a versão
+    compilada do PRODIST (v3). Cada fragmento precisa estar, literalmente, no trecho da RN e no item da v3."""
+    if not comparacao:
+        return []
+    v3 = comparacao["fontes"]["v3"]
+    rn = {k: out["norma"][k] for k in ("titulo", "url", "sha256")}
+    rascunhos = []
+    for d in json.loads(Path(path).read_text(encoding="utf-8"))["divergencias"]:
+        o = next((o for o in out["obrigacoes"] if o["dispositivo"] == d["dispositivo"]), None)
+        atual = comparacao["itens"].get(d["item"], {}).get("atual")
+        if not o or not atual:
+            raise ValueError(
+                f"Divergência sem dispositivo no plano ou item na v3: {d['dispositivo']}"
+            )
+        if espacos(d["rn"]) not in espacos(o["trecho"]) or espacos(d["v3"]) not in espacos(
+            atual["trecho"]
+        ):
+            raise ValueError(f"Fragmento não conferido na fonte: {d['dispositivo']}")
+        leituras = [
+            f"Texto publicado da RN 1.137: “{d['rn']}”.",
+            f"Versão compilada do PRODIST, Módulo 4 (v3), página {atual['pagina']}: “{d['v3']}”.",
+        ]
+        if d.get("hipotese_nao_conferida"):
+            leituras.append(d["hipotese_nao_conferida"])
+        chave = json.dumps([rn["sha256"], v3["sha256"], d], ensure_ascii=False, sort_keys=True)
+        rascunhos.append(
+            {
+                "id": "aneel-" + hashlib.sha256(chave.encode()).hexdigest()[:16],
+                "rotulo": ROTULO,
+                "tipo": TIPO_DIVERGENCIA,
+                "duvida": f"Qual redação do {d['dispositivo']} deve ser observada ({d['natureza']}): a do texto "
+                "publicado da RN 1.137 ou a da versão compilada do PRODIST, Módulo 4 (v3)?",
+                "leituras_possiveis": leituras,
+                "limite": "Divergência registrada pela comparação documental; nenhuma redação foi escolhida e "
+                "o plano continua citando o texto publicado da RN 1.137.",
+                "referencias": [
+                    {
+                        "dispositivo": f"RN 1.137 — {d['dispositivo']}",
+                        "trecho": o["trecho"],
+                        "itens": [o["id"]],
+                        "fonte": rn,
+                        "possiveis_esclarecimentos": [],
+                    },
+                    {
+                        "dispositivo": f"PRODIST, Módulo 4 (v3) — item {d['item']}, página {atual['pagina']}",
+                        "trecho": atual["trecho"],
+                        "itens": [o["id"]],
+                        "fonte": {
+                            "titulo": v3["titulo"],
+                            "url": v3["origem"],
+                            "sha256": v3["sha256"],
+                        },
+                        "possiveis_esclarecimentos": [],
+                    },
+                ],
+            }
+        )
+    return rascunhos
