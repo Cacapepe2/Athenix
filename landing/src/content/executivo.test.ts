@@ -102,7 +102,8 @@ test('links "detalhes" caem na âncora da obrigação certa, na página da norma
     const p = norma(id).dados
     for (const l of top5(id, SIM_INICIAL, 'preliminar', 5, DIA)) {
       assert.ok(p.obrigacoes.some((x) => x.id === l.id), `obrigação ${l.id} não existe em ${id}`)
-      assert.equal(l.link, `${urlPlanoCompleto(id)}#${idDaObrigacao(l.id)}`)
+      assert.equal(l.link, `${urlPlanoCompleto(id)}${id === 'rn1137' ? '?' : '&'}item=${l.id}#${idDaObrigacao(l.id)}`)
+      assert.ok(new URL(l.link, 'https://x.test').searchParams.get('item') === l.id)
       assert.equal(l.link, urlDetalhe(id, l.id))
     }
   }

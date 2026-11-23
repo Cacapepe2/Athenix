@@ -71,6 +71,12 @@
   [id] {
     scroll-margin-top: 5rem;
   }
+  /* Todo elemento com borda nos quatro lados leva o raio do token (borda só de um lado fica reta). */
+  .border,
+  .border-2,
+  [class*="border-[length"] {
+    border-radius: var(--raio);
+  }
   /* Seções recebem foco programático ao navegar pelo menu; o contorno seria ruído visual. */
   [tabindex="-1"]:focus {
     outline: none;
@@ -98,7 +104,7 @@
   }
 }
 
-/* Blocos clicáveis (executiva e plano): borda forte, sem raio; levanta 3px no hover, afunda ao clicar. */
+/* Blocos clicáveis (executiva e plano): borda forte, canto levemente arredondado (--raio); levanta 3px no hover, afunda ao clicar. */
 .bloco {
   border: var(--borda-forte) solid var(--cor-texto);
   border-radius: var(--raio);
@@ -153,6 +159,53 @@
 }
 .seg + .seg {
   margin-left: calc(var(--borda-forte) * -1);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.seg:has(+ .seg) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+/* Ação de fechar: borda e texto na cor de destaque (token). */
+.seg-destaque {
+  border-color: var(--cor-destaque-texto);
+  color: var(--cor-destaque-texto);
+}
+/* Botão de verdade: link de ação (Plano completo, Detalhes no plano, Baixar meu relatório). */
+.botao {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: var(--borda-forte) solid var(--cor-texto);
+  border-radius: var(--raio);
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--duracao-rapida) var(--curva),
+    color var(--duracao-rapida) var(--curva);
+}
+.botao:hover {
+  background: var(--cor-texto);
+  color: var(--cor-texto-invertido);
+}
+/* Principal: preto com filete vermelho embaixo; o vermelho fica só no detalhe. */
+.botao-escuro {
+  background: var(--cor-texto);
+  color: var(--cor-texto-invertido);
+  border-bottom-color: var(--cor-destaque);
+}
+.botao-escuro:hover {
+  background: var(--cor-barra-media);
+}
+.botao-escuro svg {
+  color: var(--cor-destaque);
 }
 .seg:hover {
   background: var(--cor-hover);
@@ -164,6 +217,8 @@
 /* Painel de detalhes: abre deslizando (grid-template-rows 0fr -> 1fr) com fade; ao fechar, o conteúdo fica até acabar. */
 .painel {
   display: grid;
+  overflow: hidden;
+  border-radius: var(--raio);
   grid-template-rows: 0fr;
   border: var(--borda-forte) solid transparent;
   transition:

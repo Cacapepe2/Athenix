@@ -88,7 +88,6 @@ function Bloco({ b, aberta, alternar }: { b: BlocoPlano; aberta: boolean; altern
           <span className="text-[15px] leading-normal">{b.trecho ? `“${b.trecho.trim()}”` : b.frase}</span>
           {b.sujeitoImplicito && <span className="text-xs font-semibold">Sujeito implícito (a revisar): o texto não diz “a distribuidora”; contamos como dever dela por ser norma dirigida às distribuidoras.</span>}
           <span className="text-[13px]"><LinkFonte sha256={NORMAS.find((n) => n.id === b.norma)!.dados.norma.sha256} trecho={b.trecho}>{b.dispositivo}</LinkFonte>{b.valor ? ` · ${b.gravidadeRotulo} (${b.preliminar ? 'sugerida pela IA, aguarda revisão humana' : 'identificada no texto'})` : ' · gravidade a enquadrar'}</span>
-          <span className="text-xs">Título do bloco: resumo gerado por IA, a revisar.</span>
         </div>
         <div className="flex flex-col gap-2">
           <span className="text-[13px] font-bold">Faça</span>

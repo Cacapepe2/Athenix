@@ -17,7 +17,7 @@ import { extrasDoCsv } from '../../content/relatorio'
 import { recomendacoesDoTema } from '../../content/recomendacoes'
 import { ABERTURA_PERGUNTAS, perguntasParaOJuridico } from '../../content/perguntas'
 import { CRITERIO_PRONTIDAO, fraseProntidao, prontidao } from '../../content/prontidao'
-import { contagemDeEnquadramentos, destaqueDaNorma, idDaObrigacao, tabelaDeGrupos, textoMaiorMulta, textoPrazoDoTema } from '../../content/executivo'
+import { contagemDeEnquadramentos, destaqueDaNorma, idDaObrigacao, tabelaDeGrupos, textoMaiorMulta, textoPrazoDoTema, urlPlanoCompleto } from '../../content/executivo'
 import { rotuloDoGrupo } from '../../content/gravidade'
 import {
   brl, brlCurto, comAtenuantePct, csvPlano, dataBR, decisoesDaSemana, exposicaoTema, lacuna, lerReais, manchete, NOTA_ADVERTENCIA, textoVencidas, textoVencidasComDetalhe, nomeDiag,
@@ -94,6 +94,8 @@ export function PlanoPage() {
   const [sim, setSim] = useState<Simulacao | null>(SIM_INICIAL)
   const [modo, setModo] = useState<Modo>('preliminar')
   // Diagnóstico gerado na própria página (contagem de cliques: cada clique rola até ele de novo).
+  // ?item=<id> (link "Detalhes no plano"): só aquela obrigação, sem o resto do plano.
+  const [itemUnico] = useState(() => { const id = typeof location !== 'undefined' ? new URLSearchParams(location.search).get('item') : null; return id ? plano.obrigacoes.find((o) => o.id === id) ?? null : null })
   const [geracao, setGeracao] = useState(0)
   const [soDiagnostico, setSoDiagnostico] = useState(false)
   const [imprimindo, setImprimindo] = useState(() => typeof location !== 'undefined' && new URLSearchParams(location.search).has('relatorio'))
@@ -145,8 +147,8 @@ export function PlanoPage() {
   }, [soDiagnostico])
 
   return <RespostasProvider norma={normaDaUrl()}><Cenario.Provider value={{ sim, modo, relatorio: () => setImprimindo(true) }}>
-    <header className="border-b border-line bg-ivory print:hidden"><div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-8"><a href="/" aria-label="Athenix, voltar ao início"><Logo /></a><nav aria-label="Páginas da demonstração" className="flex flex-wrap items-center justify-end gap-x-5 gap-y-1"><a href={URL_EXECUTIVO} className={`inline-flex min-h-11 items-center text-sm ${LINK}`}>Visão executiva →</a><a href="/" className={`inline-flex min-h-11 items-center text-sm ${LINK}`}>← Voltar ao site</a></nav></div></header>
-    <main id="plano" className={`mx-auto max-w-7xl space-y-14 px-4 pt-6 pb-8 sm:px-8 sm:pt-10 md:pb-28 print:pb-10 ${soDiagnostico ? 'so-diagnostico' : ''} ${imprimindo ? 'so-relatorio' : ''}`}>
+    <header className="border-b border-line bg-ivory print:hidden"><div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-8"><a href="/" aria-label="Athenix, voltar ao início"><Logo /></a><nav aria-label="Páginas da demonstração" className="flex flex-wrap items-center justify-end gap-x-5 gap-y-1"><a href={URL_EXECUTIVO} className={`inline-flex min-h-11 items-center text-sm ${LINK}`}>← Visão executiva</a><a href="/" className={`inline-flex min-h-11 items-center text-sm ${LINK}`}>← Voltar ao site</a></nav></div></header>
+    {itemUnico ? <ItemUnico o={itemUnico} /> : <main id="plano" className={`mx-auto max-w-7xl space-y-14 px-4 pt-6 pb-8 sm:px-8 sm:pt-10 md:pb-28 print:pb-10 ${soDiagnostico ? 'so-diagnostico' : ''} ${imprimindo ? 'so-relatorio' : ''}`}>
       <section aria-labelledby="titulo-plano" className="space-y-6">
         <p className={kicker}>Plano de ação · RN 1.137/2025 · {plano.perfil.rotulo.toLowerCase()} (não é empresa real)</p>
         <Porte setSim={setSim} />
@@ -236,9 +238,9 @@ export function PlanoPage() {
         <Expansivel id="como-calculamos" titulo="Como calculamos" resumo="grupos de gravidade, teto de cada um e contagem de deveres">{() => <ComoCalculamos />}</Expansivel>
         <Expansivel id="referencia" titulo="Referência do setor" resumo={`autos de infração publicados em distribuição (${plano.referencia_escala.autos}, amostra pequena)`}>{() => <ReferenciaSetor />}</Expansivel>
       </div>
-      <div className="print:hidden"><button type="button" onClick={() => setImprimindo(true)} className={BOTAO_ACENTO}><FileText aria-hidden="true" className="h-4 w-4" />Baixar meu relatório</button> <span className="text-sm">Página para imprimir ou salvar em PDF, com o que vocês escreveram e marcaram. Nada é enviado.</span></div>
+      <div className="print:hidden"><button type="button" onClick={() => setImprimindo(true)} className="botao botao-escuro"><FileText aria-hidden="true" className="h-4 w-4" />Baixar meu relatório</button> <span className="text-sm">Página para imprimir ou salvar em PDF, com o que vocês escreveram e marcaram. Nada é enviado.</span></div>
       <footer className="border-t border-line pt-6 text-sm text-ink-soft">{plano.aviso} Iniciativa em validação. Valores ilustrativos, que não indicam descumprimento de uma empresa real. Não constitui parecer jurídico. <a className={`ml-2 inline-flex min-h-11 items-center ${LINK} print:hidden`} href="/">Voltar à Athenix</a></footer>
-    </main>
+    </main>}
     <Relatorio ativo={imprimindo} fim={fimRelatorio} diag={diag} sim={sim} modo={modo} />
     <div role="note" className="z-30 border-t md:fixed md:inset-x-0 md:bottom-0 border-line bg-obsidian/95 px-4 py-2.5 text-center text-xs leading-snug text-ivory print:hidden">
       Iniciativa em validação · valores ilustrativos · não constitui parecer jurídico
@@ -640,6 +642,14 @@ function Atenuantes({ e }: { e: Exposicao }) {
 
 function Titulo({ o }: { o: Obrigacao }) {
   return <span className="font-medium [overflow-wrap:anywhere]">{o.titulo_completo}{o.titulo_origem === 'ia' && <Sparkles role="img" aria-label="título resumido com IA, a revisar" className="ml-1 inline h-3 w-3 text-slate-blue" />}</span>
+}
+
+/** Só a obrigação escolhida (link "Detalhes no plano" da visão executiva), com o caminho de volta ao plano completo. */
+function ItemUnico({ o }: { o: Obrigacao }) {
+  return <main id="plano" className="mx-auto max-w-4xl space-y-6 px-4 pt-6 pb-8 sm:px-8 sm:pt-10 md:pb-28 print:pb-10">
+    <p className="flex flex-wrap items-center gap-3"><a href={urlPlanoCompleto(normaDaUrl())} className="botao">← Plano completo</a><span className="text-sm text-ink-soft">{plano.norma.titulo} · só esta obrigação</span></p>
+    <ul><ItemObrigacao o={o} /></ul>
+  </main>
 }
 
 function ItemObrigacao({ o }: { o: Obrigacao }) {
