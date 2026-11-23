@@ -1,7 +1,7 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "4787ef0",
- "gerado_em": "2026-11-22",
+ "commit_origem": "b8ea695",
+ "gerado_em": "2026-11-23",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
   "titulo": "RN ANEEL 1.137/2025",
@@ -3535,7 +3535,7 @@
      "consultado_em": "2026-11-22",
      "trecho": "O prazo é de até 180 dias contados da data de publicação da norma. No caso da publicação em 30/10/2025, o prazo final para início das apurações é 28/04/2026."
     },
-    "confirmado_por": "fundador (Caio), por mensagem no PR #47",
+    "confirmado_por": "revisão humana da equipe",
     "confirmado_em": "2026-11-22"
    }
   },
@@ -5220,7 +5220,7 @@
    "titulo_origem": "regra",
    "titulo_completo": "Não ultrapassar o prazo de doze meses contados do final da Cessão Emergencial. Contratos de Cessão Emergencial de recursos humanos, equipamentos e materiais entre Partes Relacionadas",
    "sujeito_implicito": true,
-   "titulo_curto": null,
+   "titulo_curto": "Ressarcimento até 12 meses",
    "evite": null,
    "recomendacoes": [],
    "contexto": "",
@@ -5556,7 +5556,7 @@
      "consultado_em": "2026-11-22",
      "trecho": "Qual o prazo previsto para a ANEEL publicar as instruções complementares sobre comunicação de eventos climáticos severos? Ainda não há prazo estabelecido para a publicação das instruções pela ANEEL."
     },
-    "confirmado_por": "fundador (Caio), por mensagem no PR #47",
+    "confirmado_por": "revisão humana da equipe",
     "confirmado_em": "2026-11-22"
    }
   },
