@@ -239,7 +239,8 @@ export const urlPlanoCompleto = (id: NormaId) => (id === NORMA_PADRAO ? '/demo' 
 export const urlRelatorio = (id: NormaId) => (id === NORMA_PADRAO ? '/demo?relatorio=1' : `/demo?norma=${id}&relatorio=1`)
 export const idDaObrigacao = (id: string) => `obrigacao-${id}`
 /** Abre a obrigação certa na página completa da norma. */
-export const urlDetalhe = (id: NormaId, obrigacaoId: string) => `${urlPlanoCompleto(id)}#${idDaObrigacao(obrigacaoId)}`
+/** "Detalhes no plano": o plano da norma só com esta obrigação (?item=), aberta (#obrigacao-). */
+export const urlDetalhe = (id: NormaId, obrigacaoId: string) => `${urlPlanoCompleto(id)}${id === NORMA_PADRAO ? '?' : '&'}item=${obrigacaoId}#${idDaObrigacao(obrigacaoId)}`
 
 /** Título curto do bloco: o rótulo de até 5 palavras gerado por IA; sem ele, o título completo encurtado. */
 export function tituloCurto(o: Obrigacao): string {

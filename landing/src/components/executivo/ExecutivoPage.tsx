@@ -11,7 +11,6 @@ import { brlCurto, dataBR, normaDaUrl, textoVencidasComDetalhe, type NormaId, ty
 // fica no plano completo. Todos os números vêm de content/executivo.ts (planos gerados pelo motor).
 const MODO = 'preliminar' as const
 const PORTE_PADRAO = 'media'
-const LINK = 'font-semibold underline underline-offset-4 hover:text-acento'
 const GRANDE = 'block text-[64px] leading-[0.95] font-bold sm:text-[80px] lg:text-[96px]'
 const GRANDE_4 = 'block text-[56px] leading-[0.95] font-bold sm:text-[64px] lg:text-[72px]' // com o 4º número a linha tem 4 colunas
 const LEGENDA = 'text-[17px] font-semibold'
@@ -75,10 +74,10 @@ function Executiva({ normaId, setNormaId }: { normaId: NormaId; setNormaId: (id:
           {p.simulador.faixas.map((x) => <button key={x.id} type="button" className="seg" aria-pressed={faixa.id === x.id} onClick={() => setPorteId(x.id)}>R$ {x.base / 1e9} bi</button>)}
         </div>
       </div>
-      <a href={urlPlanoCompleto(normaId)} className={`text-[15px] ${LINK}`}>Plano completo →</a>
+      <a href={urlPlanoCompleto(normaId)} className="botao">Plano completo →</a>
     </header>
 
-    {p.comparacao_anterior && <p className="text-sm" aria-label="Resumo da comparação histórica"><strong>{resumoComparacao(p)}</strong><br />Apenas Módulo 4 do PRODIST · registros do plano · {p.comparacao_anterior.resumo.sem_fonte} sem fonte anterior · {p.comparacao_anterior.resumo.divergencias_v3} com divergência v3 × RN, a revisar.</p>}
+    {p.comparacao_anterior && <p aria-label="Resumo da comparação histórica" className="flex flex-wrap items-baseline gap-x-3 gap-y-1 text-sm"><strong>{resumoComparacao(p)}</strong><small className="text-xs">Base: Módulo 4 do PRODIST ({p.comparacao_anterior.resumo.sem_fonte} registros sem histórico anterior e {p.comparacao_anterior.resumo.divergencias_v3} com divergências entre a v3 e a RN)</small></p>}
     <section aria-label="Resumo" aria-live="polite" className="grid gap-8 [grid-template-columns:repeat(auto-fit,minmax(260px,1fr))]">
       <div className="flex flex-col gap-1.5">
         <span className={`${grande} text-acento`}>{v?.reais != null ? <><span className="mr-2 text-[0.4em] align-baseline">R$</span>{brlCurto(v.reais).replace('R$ ', '')}</> : 'a enquadrar'}</span>
@@ -104,7 +103,7 @@ function Executiva({ normaId, setNormaId }: { normaId: NormaId; setNormaId: (id:
     </section>
 
     <section aria-labelledby="comece-por" className="flex flex-col gap-3.5">
-      <div className="flex flex-wrap items-baseline justify-between gap-2">
+      <div className="flex flex-col gap-1">
         <h2 id="comece-por" className="text-[17px] font-bold">Comece por</h2>
         <span className="text-sm">Toque num item para ver o que fazer</span>
       </div>
@@ -133,8 +132,8 @@ function Executiva({ normaId, setNormaId }: { normaId: NormaId; setNormaId: (id:
     </section>
 
     <footer className="flex flex-wrap justify-between gap-3 border-t border-obsidian pt-3.5 text-[13px]">
-      <span>* preliminar · valores ilustrativos · não é parecer jurídico · dias contados até {hoje ? dataBR(hoje) : 'hoje'}</span>
-      <span className="flex gap-4"><a href={urlRelatorio(normaId)} className="font-semibold">Baixar meu relatório</a><a href={urlPlanoCompleto(normaId)} className="font-semibold">Plano completo →</a></span>
+      <span>* preliminar · títulos resumidos por IA · não é parecer jurídico · dias contados até {hoje ? dataBR(hoje) : 'hoje'}</span>
+      <span className="flex flex-wrap gap-3"><a href={urlRelatorio(normaId)} className="botao botao-escuro">Baixar meu relatório</a><a href={urlPlanoCompleto(normaId)} className="botao">Plano completo →</a></span>
     </footer>
   </main>
 }
@@ -149,9 +148,8 @@ function Painel({ l, fechar }: { l: LinhaTop5; fechar: () => void }) {
       <div className="flex min-w-0 flex-1 flex-col gap-1">
         <span className="text-[13px] font-semibold"><LinkFonte sha256={dadosDa(l.normaId).dados.norma.sha256} trecho={l.trecho}>{l.dispositivo ?? 'dispositivo a confirmar'}</LinkFonte></span>
         <span className="text-[22px] leading-tight font-bold">{l.frase}</span>
-        <span className="text-xs">Título do bloco: resumo gerado por IA, a revisar.</span>
       </div>
-      <button type="button" onClick={fechar} aria-label="Fechar detalhes" className="seg">Fechar ✕</button>
+      <button type="button" onClick={fechar} aria-label="Fechar detalhes" className="seg seg-destaque">Fechar ✕</button>
     </div>
     <div className="grid [grid-template-columns:repeat(auto-fit,minmax(220px,1fr))]">
       <div className={COLUNA}>
@@ -179,7 +177,7 @@ function Painel({ l, fechar }: { l: LinhaTop5; fechar: () => void }) {
         <span className={TITULO_COLUNA}>Defesa possível</span>
         <span className="text-[15px] leading-snug">{l.defesa.texto}</span>
         {l.defesa.origem && <span className="self-start border border-obsidian px-2 py-0.5 text-xs font-semibold">{l.defesa.origem}</span>}
-        <a href={l.link} className="mt-auto text-[15px] font-semibold underline underline-offset-4">Detalhes no plano →</a>
+        <a href={l.link} className="botao mt-auto self-start">Detalhes no plano →</a>
       </div>
     </div>
   </div>

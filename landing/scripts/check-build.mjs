@@ -9,7 +9,7 @@ for (const p of pages) {
   assert.ok(html.includes(`name="twitter:description" content="${p.description}"`))
   assert.ok(!html.includes('<div id="root"></div>'), `Sem conteúdo em ${p.path}`)
   assert.match(html, /<div id="root" data-dia="\d{4}-\d{2}-\d{2}">/, `Sem o dia do build em ${p.path}`)
-  const chaves = { '/': ['Ver demonstração', '/demo/executivo'], '/demo': ['3 decisões para esta semana', 'Visão executiva →', 'Limpar filtros', 'Mostrando'], '/demo/executivo': ['Comece por', 'Plano completo →', 'Toque num item', 'por infração', 'se agir antes da fiscalização', '* preliminar · valores ilustrativos · não é parecer jurídico'] }[p.path]
+  const chaves = { '/': ['Ver demonstração', '/demo/executivo'], '/demo': ['3 decisões para esta semana', '← Visão executiva', 'Limpar filtros', 'Mostrando'], '/demo/executivo': ['Comece por', 'Plano completo →', 'Toque num item', 'por infração', 'se agir antes da fiscalização', '* preliminar · títulos resumidos por IA · não é parecer jurídico'] }[p.path]
   for (const c of chaves) assert.ok(html.includes(c), `Falta "${c}" em ${p.path}`)
   // Nunca "Grupo IV" sozinho na visão executiva: sempre "infração grave (Grupo IV)".
   if (p.path === '/demo/executivo') assert.deepEqual(gruposSemNome(html), [], 'Grupo sem o nome da gravidade')
