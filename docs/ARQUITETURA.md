@@ -191,7 +191,7 @@ sobe o app FastAPI num banco SQLite descartável, envia o arquivo e lê as obrig
   reproduz só com o repositório.
 - **Áreas e recomendações são sugestões:** 1 dever segue com área "A definir" (RN 1.137, item 142, alínea f); 67 têm
   "área sugerida (IA)" com trecho literal conferido (`athenix/areas_ia.py`, `scripts/sugerir_areas_ia.py`), a revisar.
-- **Títulos curtos:** 2 deveres sem título curto da IA (1 por norma); a tela encurta
+- **Títulos curtos:** 1 dever sem título curto da IA (REN 1.174, o de 6 palavras); a tela encurta
   o título completo.
 - **PostgreSQL/Docker** está configurado (`compose.yaml`), mas não foi testado nesta conferência
   (máquina sem Docker); o caminho testado é SQLite.
