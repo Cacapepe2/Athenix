@@ -370,6 +370,11 @@ def gerar(data=None, commit=None, arquivo=None, segmento="distribuicao"):
     }
     # Erros materiais de prazo, leituras oficiais confirmadas e o relatório do que está "a confirmar".
     esclarecimentos.anotar_plano(dados, Path(arquivo).stem)
+    from athenix.comparacao_prodist import montar as comparar_prodist
+
+    comparacao = comparar_prodist(dados, processado[1])
+    if comparacao:
+        dados["comparacao_anterior"] = comparacao
     return dados, out
 
 

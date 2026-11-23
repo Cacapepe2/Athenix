@@ -7,6 +7,7 @@ import { AjudaGrupos } from './AjudaGrupos'
 import { BlocosObrigacoes } from './BlocosObrigacoes'
 import { RespostasProvider, useRespostas } from './Respostas'
 import { Relatorio } from './Relatorio'
+import { ComparacaoAnterior } from './ComparacaoAnterior'
 import { LIMITE_JA_FAZEMOS, type Respostas } from '../../content/respostas'
 import { extrasDoCsv } from '../../content/relatorio'
 import { recomendacoesDoTema } from '../../content/recomendacoes'
@@ -645,6 +646,7 @@ function ItemObrigacao({ o }: { o: Obrigacao }) {
 
 function PorQue({ o }: { o: Obrigacao }) {
   return <div className="mt-4 space-y-4 text-sm leading-relaxed">
+      <ComparacaoAnterior o={o} />
       <div><h5 className="font-semibold">O que a norma diz <Tag kind="source" /></h5>
         {o.sujeito_implicito && <p className="mt-1 text-xs font-semibold">Sujeito implícito (a revisar): o texto não diz “a distribuidora”; contamos como dever dela por ser norma dirigida às distribuidoras.</p>}
         {o.trecho ? <><blockquote className="mt-2 border-l-2 border-bronze bg-ivory p-3">“{o.trecho}”</blockquote><p className="mt-1 text-xs text-ink-soft">{o.dispositivo} · trecho literal conferido na fonte · <a className={LINK} href={plano.norma.url ?? undefined}>{plano.norma.titulo}</a></p></>

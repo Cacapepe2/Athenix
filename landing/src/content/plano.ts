@@ -184,6 +184,7 @@ export interface Tema {
 }
 
 export interface PlanoDados {
+  comparacao_anterior?: import('./comparacao.ts').ComparacaoDocumental
   gerado_por: string
   commit_origem: string
   gerado_em: string
