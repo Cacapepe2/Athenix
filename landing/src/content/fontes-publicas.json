@@ -1,5 +1,15 @@
 {
  "documentos": {
+  "47dfe164a9a704600ffc4e4f2d38c8d169b6a4829ee5b85bd8737a20e813bdc6": {
+   "arquivo": "tests/fontes_impacto/aren2021956_Prodist_modulo_4_v2.pdf",
+   "url": "/fontes/aren2021956_Prodist_modulo_4_v2.pdf",
+   "sha256": "47dfe164a9a704600ffc4e4f2d38c8d169b6a4829ee5b85bd8737a20e813bdc6"
+  },
+  "a0fb3b30563d4b7807ca5a5f91060b377d16410ba60c54aeca528c9853f3e3ae": {
+   "arquivo": "tests/fontes_impacto/aren20251137_Prodist_modulo_4_v3.pdf",
+   "url": "/fontes/aren20251137_Prodist_modulo_4_v3.pdf",
+   "sha256": "a0fb3b30563d4b7807ca5a5f91060b377d16410ba60c54aeca528c9853f3e3ae"
+  },
   "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887": {
    "arquivo": "tests/norma_poc/ren20251137.pdf",
    "url": "/fontes/ren20251137.pdf",
@@ -37,6 +47,118 @@
   }
  },
  "citacoes": {
+  "47dfe164a9a704600ffc4e4f2d38c8d169b6a4829ee5b85bd8737a20e813bdc6": {
+   "1.Alémdestaseçãointrodutória,estemóduloestáestruturadodaseguinteforma:Seção4.1–Dadosdecargaedespachodegeração:tratadosprocedimentoserequisitosparaofornecimentodeinformaçõesdecargaededespachodegeraçãoporpartedosusuáriosparaadistribuidora;Seção4.2–Programaçãodeintervençõeseminstalações:contémosprocedimentoseosrequisitosparaaprogramaçãodeintervençõeseminstalaçõesdedistribuição,nasDITquenãopertençamàrededeoperaçãodoSINedasinstalaçõesdeconexãodosusuários;Seção4.3–Controledacarga:tratadosprocedimentosaseremimplementadosedoscritériosbásicosaseremadotadospeladistribuidoraparaocontroledecargaemsituaçõesdecontingênciaouemergência;Seção4.4–Testesdasinstalações:defineosprocedimentoseasresponsabilidadesparaarealizaçãodetestesdasinstalaçõesnasatividadesdevistoria,aceitaçãodasinstalaçõeseavaliaçãodaqualidadedeatendimentonopontodeconexão;Seção4.5–Coordenaçãooperacional:apresentaosrequisitosmínimosparaorelacionamentooperacionalentreosCentrosdeOperaçãodaDistribuição-COD,doagentedetransmissãodetentordeDIT,doCentrodeDespachodeGeraçãoDistribuída-CDGDedemaisórgãosdeoperaçãodeinstalaçõesdosusuários;eSeção4.6–Recursosdecomunicaçãodevozedados:estabeleceosrecursosmínimosdecomunicaçãodevozededadosdoCODcomoCentrodeOperaçãodoagentedetransmissãodetentordeDIT,comoCDGDecomosusuários.Objetivos": {
+    "url": "/fontes/aren2021956_Prodist_modulo_4_v2.pdf#page=1",
+    "pagina": 1,
+    "ultima_pagina": 1,
+    "localizacao": "trecho literal"
+   }
+  },
+  "a0fb3b30563d4b7807ca5a5f91060b377d16410ba60c54aeca528c9853f3e3ae": {
+   "1.Alémdestaseçãointrodutória,estemóduloestáestruturadodaseguinteforma:Seção4.1–Dadosdecargaedespachodegeração:tratadosprocedimentoserequisitosparaofornecimentodeinformaçõesdecargaededespachodegeraçãoporpartedosusuáriosparaadistribuidora;Seção4.2–Programaçãodeintervençõeseminstalações:contémosprocedimentoseosrequisitosparaaprogramaçãodeintervençõeseminstalaçõesdedistribuição,nasDITquenãopertençamàrededeoperaçãodoSINedasinstalaçõesdeconexãodosusuários;Seção4.3–Controledacarga:tratadosprocedimentosaseremimplementadosedoscritériosbásicosaseremadotadospeladistribuidoraparaocontroledecargaemsituaçõesdecontingênciaouemergência;Seção4.4–Testesdasinstalações:defineosprocedimentoseasresponsabilidadesparaarealizaçãodetestesdasinstalaçõesnasatividadesdevistoria,aceitaçãodasinstalaçõeseavaliaçãodaqualidadedeatendimentonopontodeconexão;Seção4.5–Coordenaçãooperacional:apresentaosrequisitosmínimosparaorelacionamentooperacionalentreosCentrosdeOperaçãodaDistribuição-COD,doagentedetransmissãodetentordeDIT,doCentrodeDespachodeGeraçãoDistribuída-CDGDedemaisórgãosdeoperaçãodeinstalaçõesdosusuários;Seção4.6–Recursosdecomunicaçãodevozedados:estabeleceosrecursosmínimosdecomunicaçãodevozededadosdoCODcomoCentrodeOperaçãodoagentedetransmissãodetentordeDIT,comoCDGDecomosusuários;Seção4.7–Podaemanejovegetal:defineosprocedimentoseasresponsabilidadesquantoàsupressãoeomanejodavegetação;Seção4.8–ComunicaçãoentreDistribuidoraseConsumidoresemcasosdeinterrupçãonofornecimento:apresentaroscritériosparacomunicaçãocomosconsumidoresdurantesituaçõesdeinterrupçãoemergencialdofornecimentodeenergiaelétricadelongaduração,garantindotransparência,agilidadeeprecisãonasinformaçõesprestadas;Seção4.9-ComunicaçãoentreDistribuidorasePoderPúblicoemSituaçõesdeEmergência:apresentaroscritériosparacomunicaçãocomoPoderPúblicoemgeraldurantesituaçõesdeinterrupçãoemergencialdofornecimentodeenergiaelétricadelongaduração,garantindotransparência,agilidadeeprecisãonasinformaçõesprestadas;Seção4.10-CessãoEmergencialderecursoshumanos,equipamentosemateriaisentredistribuidoras:estabelecerascondiçõesparaarealizaçãodecessãoderecursoshumanos,equipamentosemateriaisentredistribuidoras,visandogarantiracontinuidadedoserviçoemsituaçõesdecrise,semcomprometerasegurançaoperacionalouoatendimentoaosconsumidoresporpartedadistribuidoracedente;eSeção4.11-PlanosdeContingência:estabeleceosprincípiosnorteadores,diretrizeserequisitosmínimosparaaelaboraçãoeimplementaçãodeplanosdecontingênciaporempresasdedistribuiçãodeenergiaelétrica.Objetivos": {
+    "url": "/fontes/aren20251137_Prodist_modulo_4_v3.pdf#page=1",
+    "pagina": 1,
+    "ultima_pagina": 2,
+    "localizacao": "trecho literal"
+   },
+   "107.Asdistribuidorasdeenergiadevemdisponibilizaremsítioeletrônico,emáreaabertaedefácilacesso,comatualizaçãoacada30minutos,asseguintesinformaçõesrelacionadasàsocorrênciasabertas:a)Númerodaocorrência;b)Município/bairrodaocorrênciaaberta;c)Dataehoradeiníciodaocorrênciaaberta;d)Tipodeocorrênciaaberta(programadaenãoprogramada);e)Sinalizaçãodostatusdaocorrênciaaberta(Empreparação/EmDeslocamento/EmExecução);f)Quantidadedeunidadesconsumidorasinterrompidasdaocorrênciaabertaeototaldaáreadeatuação;g)Duraçãodaocorrência(hh:mm);h)ConsumidorHoraInterrompido(CHI)daocorrênciaabertaeototaldaáreadeatuação;i)Quantidadedeocorrênciasabertassegregadaspormunicípioeototalnaáreadeatuação;j)Quantidadedeequipesematividadesegregadaspormunicípioeototalnaáreadeatuação;ek)Estágiodaoperação(conformeetapasdefinidasnoplanodecontingência).": {
+    "url": "/fontes/aren20251137_Prodist_modulo_4_v3.pdf#page=22",
+    "pagina": 22,
+    "ultima_pagina": 22,
+    "localizacao": "trecho literal"
+   },
+   "132.AoacionaromecanismodeCessãoEmergencialderecursos,adistribuidoracessionáriadeveenviaràsáreasdefiscalizaçãodaANEEL,ematé60diasapósofimdasituaçãoemergencial,relatóriocontendodiscriminaçãodasdespesasoucustosincorridosaseremreembolsadosàcedente,contendoasseguintesinformaçõesmínimas:a)valorglobaldacontrataçãocomdetalhamentodosrecursosenvolvidos,segregadosportipodegasto;b)duraçãodoContratodeCessãoEmergencialparaexecuçãodosserviçosrealizados;c)relaçãodasmatrículasdosprofissionaisquerealizaramosatendimentosdiscriminandofunção,remuneração,cargoseencargostotaisconformefolhadepagamentodacedente,horáriododespacho,localdoatendimentoeototaldehorasempregadasemserviço;d)valorindividualizadoporfrentedeserviçoemontantetotaldosserviçosrealizados;e)documentaçãocomprobatóriaediscriminaçãodetalhadadedespesascomequipamentosemateriais;f)documentaçãocomprobatóriaediscriminaçãodetalhadadeoutrasdespesasrealizadasnaoperaçãoemergencial;g)formadepagamento,observandooquedispõeoitem138;h)informaçõesseparadasporcedente,resguardandoarespectivaproporcionalidadenaCessãoEmergencialeaindividualidadedasconcessões;i)apresentaçãodasrazõesdaopçãopelautilizaçãoderecursoshumanospertencentesaoutrasempresas;j)atividadesdesenvolvidaspelasequipescedidas,registradasdetalhadamente,porlocalidade;k)detalhamentodastarefasdecampo,comdia,dataehora;l)detalhamentodostiposdeestruturasutilizadasnosatendimentos,comquantidadedeturmaseveículos(levesepesados);em)outrasinformaçõesquejulgarrelevantesobreaCessãoEmergencial.AcordodeCessãoEmergencialPrévio.": {
+    "url": "/fontes/aren20251137_Prodist_modulo_4_v3.pdf#page=25",
+    "pagina": 25,
+    "ultima_pagina": 26,
+    "localizacao": "trecho literal"
+   },
+   "138.OreembolsoàcedentenãodeveultrapassaroprazodedozemesescontadosdofinaldaCessãoEmergencial.ContratosdeCessãoEmergencialderecursoshumanos,equipamentosemateriaisentrePartesRelacionadas": {
+    "url": "/fontes/aren20251137_Prodist_modulo_4_v3.pdf#page=27",
+    "pagina": 27,
+    "ultima_pagina": 27,
+    "localizacao": "trecho literal"
+   },
+   "139.OscontratosdeCessãoEmergencialderecursoshumanos,equipamentosemateriaisentredistribuidorasetransmissorasesuaspartesrelacionadas,visandogarantiracontinuidadedoserviçoemsituaçõesdecrise,casosejamatendidasascondiçõesqueosautorizem,serãodispensadosdaobrigaçãodequetrataoart.18doMóduloVdaResoluçãoNormativanº948,de16denovembrode2021,semprejuízodefiscalizaçãoaposteriori,desdeque:a.sejamcomunicadasàANEELematé60(sessenta)diasapósofimdasituaçãoemergencial,medianterelatóriocontendodiscriminaçãodasdespesasoucustosincorridosaseremreembolsadospelacessionáriaàcedente;b.acessionáriadeverámanterdossiêindividualizadoemsuasedecontendoosdocumentoscomprobatóriosqueevidenciemaneutralidadedecustosedespesasreembolsadosàcedente,osquaispoderãoserrequisitadospelafiscalizaçãoporaté5(cinco)anosapósfimdoeventoemergencial.c.Ascessõesemergenciaisderecursoshumanos,equipamentosemateriaisentredistribuidorasetransmissorasesuaspartesrelacionadasdevemserreembolsadaspelacessionáriaàcedentegarantindoaneutralidadedaoperação,nãosetratandoderateioouprestaçãodeserviços,epreservandoaindividualidadedasconcessões.": {
+    "url": "/fontes/aren20251137_Prodist_modulo_4_v3.pdf#page=27",
+    "pagina": 27,
+    "ultima_pagina": 27,
+    "localizacao": "trecho literal"
+   },
+   "115.AcomunicaçãodeveserclaraetransparentecomointuitodegerarconfiançanorelacionamentoentreasdistribuidoraseoPoderPúblico,essencialparaaefetividadedasaçõesemconjunto.Paraessefim,adistribuidoradevesolicitaraoPoderPúblicomunicipal,estadualedistritalqueinformepreviamenteatédoisrepresentantesoficiaisdecadaente,queserãoosresponsáveispelorecebimentodascomunicaçõesemsituaçõesdeemergência.": {
+    "url": "/fontes/aren20251137_Prodist_modulo_4_v3.pdf#page=23",
+    "pagina": 23,
+    "ultima_pagina": 23,
+    "localizacao": "trecho literal"
+   },
+   "143.Oplanodecontingênciadeveobservarasseguintesdiretrizes:a)MonitoramentoClimáticoeMeteorológico:Realizarmonitoramentoperiódicodascondiçõesclimáticasemeteorológicas,informandoasequipesinternassobrepossíveisalertasderisco;b)GestãodeOcorrências:Implementaraçõesespecíficasconformeosníveisdecontingência;c)MobilizaçãodeRecursos:Definirprocedimentosparaamobilizaçãodeequipeserecursosadicionaisemdiferentesníveisdecontingência,garantindoaatuaçãomesmoemferiadosediasnãoúteis,deformaaasseguraracontinuidadeeaeficiêncianasaçõesderesposta;d)ComunicaçãoInterna:Estabelecerprocedimentosecanaiseficientesdecomunicaçãointernaparainformarecoordenaraçõesdurantecontingências;e)RelatórioseDocumentação:Manterregistrosdetalhadosdasaçõestomadasedosresultadosduranteascontingênciasdemodoaavaliarseasmedidastomadasestãoaderentesaoplanejado;f)TreinamentoseSimulações:Realizartreinamentosperiódicosousimulaçõesparaprepararasequipesparasituaçõesdecontingência;g)AtendimentoaoConsumidor:Estabelecerprocedimentosparatratamentoeresoluçãodedemandasextraordináriasdurantecontingências;h)CoordenaçãocomÓrgãosExternos:Definiraçõesparacomunicaçãoecoordenaçãocomautoridadespúblicaseórgãosreguladores;i)ApoioInterdepartamental:Estabelecerdiretrizesparaacolaboraçãoentrediferentesdepartamentoseáreasdaempresadurantesituaçõesdecontingência;j)FormalizaçãoeDivulgaçãodoPlano:OPlanodeContingênciadeveserformalizadoedocumentadodemaneiraclaraedetalhada,sendoamplamentedivulgadopormeiodecanaisinternosdemodoagarantirsuaacessibilidadeatodososcolaboradoresepartesinteressadas;ek)Cadeiadegovernança:Estabelecercomandonosníveisestratégico,táticoeoperacionalparaogerenciamentodecrisesecontingências,definindoresponsabilidadesefluxosdecomunicaçãoquegarantamumarespostacoordenada,eficienteesegura,deformaque,emsituaçõesdecrise,todososníveisdecomandoestejamclaramentedefinidoseoperacionalmentedisponíveis.RequisitosMínimos": {
+    "url": "/fontes/aren20251137_Prodist_modulo_4_v3.pdf#page=28",
+    "pagina": 28,
+    "ultima_pagina": 29,
+    "localizacao": "trecho literal"
+   },
+   "147.Asdistribuidorasdevemdisponibilizaraversãomaisatualizada,semaidentificaçãoecontatodosseusresponsáveispeloseuplanodecontingência,emseusítioeletrôniconaInternetenospostosdeatendimentopresencial,deformaacessívelaopúblico,comusodelinguagemclaraeadequada.": {
+    "url": "/fontes/aren20251137_Prodist_modulo_4_v3.pdf#page=30",
+    "pagina": 30,
+    "ultima_pagina": 30,
+    "localizacao": "trecho literal"
+   },
+   "110.Acomunicaçãodequetrataoitem103deveserrealizada,obrigatoriamente,pormeiodeSMSeaplicativosdemensagens,comenviodemensagensautomáticasaosconsumidoresafetados.Adicionalmente,asdistribuidoraspodemutilizar,deformacomplementareaseucritério,osseguintescanais:a)Aplicativosesítioeletrôniconainternet:comatualizaçãoemtemporealemplataformasdigitaismantidaspeladistribuidora;b)RedesSociais:comdivulgaçãodeinformaçõesviacontasoficiaisdadistribuidora.": {
+    "url": "/fontes/aren20251137_Prodist_modulo_4_v3.pdf#page=23",
+    "pagina": 23,
+    "ultima_pagina": 23,
+    "localizacao": "trecho literal"
+   },
+   "112.Adistribuidoradeveatualizarasinformaçõesreferentesàinterrupçãodequetrataoitem103,incluindoalteraçõesnotempoestimadoderestabelecimentoeoutrasinformaçõesrelevantesparaoconsumidor.": {
+    "url": "/fontes/aren20251137_Prodist_modulo_4_v3.pdf#page=23",
+    "pagina": 23,
+    "ultima_pagina": 23,
+    "localizacao": "trecho literal"
+   },
+   "119.AsdistribuidorasdevemestabelecerprotocolosdealertasparanotificarrapidamenteoPoderPúblico,conformeprevistonoitem113,sobreinterrupçõesdeenergiaesituaçõesquedemandemapoioimediatoparaaatuaçãoemcenáriosdeemergência.": {
+    "url": "/fontes/aren20251137_Prodist_modulo_4_v3.pdf#page=24",
+    "pagina": 24,
+    "ultima_pagina": 24,
+    "localizacao": "trecho literal"
+   },
+   "126.SegurançaOperacional:aCessãoEmergencialderecursonãodevecomprometerasegurançadasoperaçõesdasdistribuidorasenvolvidas.": {
+    "url": "/fontes/aren20251137_Prodist_modulo_4_v3.pdf#page=25",
+    "pagina": 25,
+    "ultima_pagina": 25,
+    "localizacao": "trecho literal"
+   },
+   "127.ProporcionalidadeeNecessidade:aCessãoEmergencialdeveserlimitadaànecessidadedemonstradapelasituaçãodecriseeproporcionalàcapacidadeoperacionaldisponíveldecadadistribuidora.": {
+    "url": "/fontes/aren20251137_Prodist_modulo_4_v3.pdf#page=25",
+    "pagina": 25,
+    "ultima_pagina": 25,
+    "localizacao": "trecho literal"
+   },
+   "129.Individualidadedaconcessão:todasasinformações,documentações,arquivoseregistroscontábeisrelacionadosàCessãoEmergencialdeverãoevidenciaraseparaçãoproporcionalàcadadistribuidoraoutransmissoracedente.SituaçõesAplicáveis": {
+    "url": "/fontes/aren20251137_Prodist_modulo_4_v3.pdf#page=25",
+    "pagina": 25,
+    "ultima_pagina": 25,
+    "localizacao": "trecho literal"
+   },
+   "133.AsdistribuidorasenvolvidasdevemformalizarAcordodeCessãoEmergencialPrévio,contendo:a)AssituaçõesdecriseemqueaCessãoEmergencialpoderásersolicitada;b)Onúmeroeascaracterísticasdasequipes(leves,pesadas,linhaviva)quepoderãosercedidas;c)AprevisãodeduraçãodaCessãoEmergencial;d)Aresponsabilidadepelasdespesasoperacionais;e)PrevisãodeCessãoEmergencialmantendo-seneutralidadedaspartesemrelaçãoarecursoshumanos,equipamentosemateriais;f)RealizaçãodetestesregularesdeCessãoEmergencial,simulandocenáriosdecriseparavalidaraeficáciadoprocessoeidentificarmelhoriasoperacionaisnointercâmbioderecursoshumanos,equipamentosemateriais;eg)Procedimentosclarosparaaintegraçãodeequipesexternas,comdefiniçãodetreinamentos,capacitaçõesepreparaçãopréviaadequadaparagarantirquetodososenvolvidosestejamalinhadoscomaspráticasdesegurançaeoperaçãodadistribuidorarequisitante.": {
+    "url": "/fontes/aren20251137_Prodist_modulo_4_v3.pdf#page=26",
+    "pagina": 26,
+    "ultima_pagina": 26,
+    "localizacao": "trecho literal"
+   },
+   "144.Oplanodecontingênciadeveconterosseguintesrequisitosmínimos:a)IdentificaçãoeAnálisedeRiscos:Identificarcomosfatoresderiscopotenciais,tantointernosquantoexternos,comomaiorníveldedetalhamentopossível.Aidentificaçãodeveincluiralocalização,naturezadorisco,frequênciahistóricadeocorrênciaeumaanálisecompletadosimpactospotenciaisassociadosacadarisco;b)DefiniçãodeNíveisdeContingência:Definirníveisdecontingênciaporcritériosobjetivos,devendoseratualizadosdeacordocomaevoluçãodascondiçõesoperativasemeteorológicas;c)PlanodeAçãoparaCadaNíveldeContingência:Desenvolverplanosdeaçãoespecíficosparacadaníveldecontingência,incluindoasresponsabilidadeseosprocedimentosaseremseguidos;d)InfraestruturadeApoio:Garantiradisponibilidadederecursoseinfraestruturanecessáriosparaaexecuçãodoplanodecontingência,emrelaçãoàequipamentos,sistemasdecomunicaçãoetransporte,incluindoinventário,especificaçãoelocalizaçãodeequipamentosdisponíveisesobressalentes,bemcomoveículosoperacionais;e)TreinamentoeCapacitação:Implementarprogramasdetreinamentoecapacitaçãocontínuosparatodososcolaboradoresenvolvidosnaexecuçãodoplanodecontingência;f)SimulaçõeseTestesRegulares:Realizarsimulaçõesoutestesperiódicosparaavaliaraeficáciadoplanodecontingênciaeidentificaráreasdemelhoria,inclusivecomaparticipaçãodeÓrgãosPúblicos;g)Atualizaçãodoplano:Manteradocumentaçãodoplanodecontingênciaatualizadaedisponívelparatodososcolaboradores,devendoconstaradataeonúmerodaversão,bemcomoassinaturadoresponsável;h)AvaliaçãoeMelhoriaContínua:Realizaravaliaçõesregularesdoplanodecontingênciaeimplementarmelhoriascombasenosresultadosdassimulações,testeseexperiênciasreaisdecontingência,visandoaperfeiçoaraefetividadedoplano;ei)Tratamentoparaunidadesconsumidorasespecíficas:Possuirmedidasrelacionadasaotratamentoparaunidadesconsumidorascadastradascomousuáriosdeequipamentosdeautonomialimitada(sobrevida)eparaaquelasqueprestemserviçoessencial,incluindoaspectosreferentesaocadastro,comunicaçãoeatendimentoemergencialparamitigarosefeitosdasinterrupçõesdofornecimentodeenergiaelétrica.": {
+    "url": "/fontes/aren20251137_Prodist_modulo_4_v3.pdf#page=29",
+    "pagina": 29,
+    "ultima_pagina": 30,
+    "localizacao": "trecho literal"
+   },
+   "145.Arealizaçãodesimuladosoudisponibilizaçãodetreinamentosatualizadosdeveserfeitacomperiodicidademáximadeumano.ParaocasodeterhavidoaplicaçãodoPlanodeContingência,aperiodicidademáximapodesercontadadasuaúltimaaplicação.Adisponibilizaçãodetreinamentosatualizados,tambémdeveserfornecidanamesmaperiodicidademáximaparaosagentesdesignadospeloPoderPúblico.": {
+    "url": "/fontes/aren20251137_Prodist_modulo_4_v3.pdf#page=30",
+    "pagina": 30,
+    "ultima_pagina": 30,
+    "localizacao": "trecho literal"
+   }
+  },
   "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887": {
    "148.Oplanodecontingênciadevepossuirversãododocumento,datadeaprovaçãoeidentificaçãoeassinaturado(s)responsável(is)técnico(s),sendopassíveldefiscalização.”(NR)": {
     "url": "/fontes/ren20251137.pdf#page=14",

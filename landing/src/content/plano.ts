@@ -186,6 +186,7 @@ export interface Tema {
 }
 
 export interface PlanoDados {
+  comparacao_anterior?: import('./comparacao.ts').ComparacaoDocumental
   rascunhos_aneel: RascunhoAneel[]
   gerado_por: string
   commit_origem: string

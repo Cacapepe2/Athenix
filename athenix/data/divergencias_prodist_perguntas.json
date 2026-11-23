@@ -1,0 +1,41 @@
+{
+ "nota": "Divergências entre o texto publicado da RN 1.137 e a versão compilada do PRODIST, Módulo 4 (v3), escolhidas pelo responsável em 22/11/2026 para virar rascunho de pergunta à ANEEL. Cada fragmento é conferido literalmente no trecho da RN e no item da v3 durante o export; se não conferir, o export para. Não se atribui erro a nenhuma das fontes.",
+ "divergencias": [
+  {
+   "item": "143",
+   "dispositivo": "item 143, alínea f",
+   "natureza": "sentido",
+   "rn": "treinamentos periódicos e simulações",
+   "v3": "treinamentos periódicos ou simulações"
+  },
+  {
+   "item": "143",
+   "dispositivo": "item 143, alínea d",
+   "natureza": "conteúdo",
+   "rn": "Estabelecer canais eficientes",
+   "v3": "Estabelecer procedimentos e canais eficientes"
+  },
+  {
+   "item": "110",
+   "dispositivo": "item 110",
+   "natureza": "remissão",
+   "rn": "de que trata o item 105",
+   "v3": "de que trata o item 103"
+  },
+  {
+   "item": "112",
+   "dispositivo": "item 112",
+   "natureza": "remissão",
+   "rn": "de que trata o item 105",
+   "v3": "de que trata o item 103"
+  },
+  {
+   "item": "119",
+   "dispositivo": "item 119",
+   "natureza": "remissão",
+   "rn": "conforme previsto no item 115",
+   "v3": "conforme previsto no item 113",
+   "hipotese_nao_conferida": "Na v3, o pedido de representantes oficiais ao Poder Público continua no item 115; a remissão ao item 113 pode estar desatualizada na versão compilada. Hipótese não conferida: o texto do item 113 da v3 não foi lido."
+  }
+ ]
+}
