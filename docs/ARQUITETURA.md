@@ -4,7 +4,7 @@ O Athenix automatiza o fluxo regulatório: da publicação da norma no Diário O
 dividido por área, com prazo, valor em risco e o que guardar como prova. Este documento mostra
 **como**: cada etapa, o módulo que a faz, como ela é testada e um exemplo real.
 
-Números e exemplos conferidos em 22/11/2026 no código da `main` em `1edde26`. Exemplos tirados de
+Números e exemplos conferidos em 22/11/2026 no código da `main` em `2859688`. Exemplos tirados de
 `landing/src/content/plano-rn1137.json`, o plano publicado da RN ANEEL 1.137/2025.
 
 ## Fluxo
@@ -129,7 +129,7 @@ sobe o app FastAPI num banco SQLite descartável, envia o arquivo e lê as obrig
   recomendações por obrigação vieram da IA, ficam em cache e cada uma cita um trecho literal do
   dispositivo.
 - **Módulo:** `athenix/tipos.py`, `athenix/areas.py` + `athenix/data/areas_por_tipo.json`,
-  `athenix/analise.py`, caches `athenix/data/recomendacoes_*.json`, `evite_*.json`,
+  `athenix/analise.py`, `athenix/areas_ia.py` (área sugerida pela IA só para o que a regra deixou em "A definir", com trecho literal conferido; cache `areas_ia_cache.json`), caches `athenix/data/recomendacoes_*.json`, `evite_*.json`,
   `titulos_curtos_*.json`.
 - **Testes:** `tests/test_tipos.py`, `tests/test_areas.py`, `tests/test_analise.py`,
   `tests/test_titulos_curtos.py`.
@@ -189,8 +189,9 @@ sobe o app FastAPI num banco SQLite descartável, envia o arquivo e lê as obrig
 - **Dados privados fora do Git:** 6 testes dependem de arquivos em `.local/` (CSV de autos, votos,
   cópia de conferência) e são pulados no CI; a referência de escala (mediana de 21 autos) não se
   reproduz só com o repositório.
-- **Áreas e recomendações são sugestões:** 68 deveres seguem com área "A definir" (34 + 34).
-- **Títulos curtos:** 6 deveres sem título curto da IA (2 na RN 1.137, 4 na REN 1.174); a tela encurta
+- **Áreas e recomendações são sugestões:** 1 dever segue com área "A definir" (RN 1.137, item 142, alínea f); 67 têm
+  "área sugerida (IA)" com trecho literal conferido (`athenix/areas_ia.py`, `scripts/sugerir_areas_ia.py`), a revisar.
+- **Títulos curtos:** 2 deveres sem título curto da IA (1 por norma); a tela encurta
   o título completo.
 - **PostgreSQL/Docker** está configurado (`compose.yaml`), mas não foi testado nesta conferência
   (máquina sem Docker); o caminho testado é SQLite.
