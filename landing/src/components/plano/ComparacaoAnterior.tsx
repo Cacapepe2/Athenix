@@ -11,7 +11,7 @@ export function ComparacaoAnterior({ o }: { o: Obrigacao }) {
   return <section aria-label="Comparação histórica" className="space-y-3 border-t border-line pt-3 text-sm">
     <h5 className="font-semibold">{CLASSES_HISTORICAS[r.classe]} · item {r.item} do Módulo 4</h5>
     <p>Comparação documental v2 × v3, anterior e posterior à RN 1.137. {r.classe === 'novo' ? 'O item não consta da v2 fornecida; isso não afirma ausência de dever equivalente em outro ato.' : 'Classificação pela redação do item completo.'}</p>
-    <p><a className="font-semibold underline underline-offset-4" href={c.fontes.v2.url + (item.anterior ? `#page=${item.anterior.pagina}` : '')} target="_blank" rel="noopener noreferrer">Fonte oficial anterior: v2</a> · SHA-256 <code className="break-all">{c.fontes.v2.sha256}</code></p>
+    <p><a className="font-semibold underline underline-offset-4" href={c.fontes.v2.url + (item.anterior ? `#page=${item.anterior.pagina}` : '')} target="_blank" rel="noopener noreferrer">Fonte oficial anterior: v2</a> · SHA-256 <span className="break-all">{c.fontes.v2.sha256}</span></p>
     {r.classe === 'alterado' && item.anterior && <div className="grid gap-4 sm:grid-cols-2">
       <div><strong>Antes · v2, item {r.item}</strong><blockquote><LinkFonte sha256={c.fontes.v2.sha256} trecho={item.anterior.trecho}>“{item.anterior.trecho}”</LinkFonte></blockquote></div>
       <div><strong>Atual · v3, item {r.item}</strong><blockquote><LinkFonte sha256={c.fontes.v3.sha256} trecho={item.atual.trecho}>“{item.atual.trecho}”</LinkFonte></blockquote></div>
