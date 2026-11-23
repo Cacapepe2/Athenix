@@ -3,7 +3,7 @@
  "modelo": "gpt-5-mini",
  "versao_do_prompt": "titulos-curtos-1",
  "prompt_hash": "88824c19d3988b48d13e3a5d7f4891184c4f8c7ebfe45368556791e26064df51",
- "gerado_em": "2026-11-21",
+ "gerado_em": "2026-11-22",
  "preco_usd_por_milhao": {
   "input": "0.275",
   "output": "2.20",
@@ -11,7 +11,7 @@
   "date": "2026-11-17",
   "currency": "USD"
  },
- "custo_total_da_execucao_usd": "0.0028",
+ "custo_total_da_execucao_usd": "0.0040",
  "titulos_curtos": {
   "59c5496d841c8794": "Aplicar benefício conforme prazo informado",
   "be6a76133085cee8": "Relatórios semestrais do Sandbox",
@@ -94,9 +94,12 @@
   "dff8615bdeeaf106": "Consumidor não obrigado a comprar",
   "17328d915cd7dc29": "Consumidor livre para escolher",
   "a0b9d489bb8af5f3": "Fechar solicitação sem encerrar CCER",
-  "f0fd6378ea9db150": "Cobrança de custos por desistência"
+  "f0fd6378ea9db150": "Cobrança de custos por desistência",
+  "10e369b8c79f3c68": "Medição permite envio de dados",
+  "0ebf1f2b460f7298": "Substituição de medição sem obras",
+  "c17096cc06163ed7": "Adequação com isonomia na transição"
  },
  "rejeitados": {
-  "16f2c52f324abe9d": "Retorno ao mercado regulado com notificação"
+  "16f2c52f324abe9d": "Retorno ao mercado só com notificação"
  }
 }

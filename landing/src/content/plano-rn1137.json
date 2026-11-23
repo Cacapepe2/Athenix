@@ -1,6 +1,6 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "a2ac6f4",
+ "commit_origem": "4787ef0",
  "gerado_em": "2026-11-22",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
@@ -2010,8 +2010,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Operação/Manutenção",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "Estágio da operação (conforme etapas definidas no plano de contingência)."
+   },
    "dispositivo": "item 107, alínea k",
    "erro_material": null,
    "esclarecimento": null
@@ -2486,8 +2490,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "Número da ocorrência;"
+   },
    "dispositivo": "item 107, alínea a",
    "erro_material": null,
    "esclarecimento": null
@@ -2584,8 +2592,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "Município/bairro da ocorrência aberta;"
+   },
    "dispositivo": "item 107, alínea b",
    "erro_material": null,
    "esclarecimento": null
@@ -2682,8 +2694,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "Data e hora de início da ocorrência aberta;"
+   },
    "dispositivo": "item 107, alínea c",
    "erro_material": null,
    "esclarecimento": null
@@ -2780,8 +2796,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "Tipo de ocorrência aberta (programada e não programada);"
+   },
    "dispositivo": "item 107, alínea d",
    "erro_material": null,
    "esclarecimento": null
@@ -2878,8 +2898,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Operação/Manutenção",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "Sinalização do status da ocorrência aberta (Em preparação/Em Deslocamento/Em Execução);"
+   },
    "dispositivo": "item 107, alínea e",
    "erro_material": null,
    "esclarecimento": null
@@ -2976,8 +3000,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Operação/Manutenção",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "Quantidade de unidades consumidoras interrompidas da ocorrência aberta e o total da área de atuação;"
+   },
    "dispositivo": "item 107, alínea f",
    "erro_material": null,
    "esclarecimento": null
@@ -3074,8 +3102,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Operação/Manutenção",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "Duração da ocorrência (hh:mm);"
+   },
    "dispositivo": "item 107, alínea g",
    "erro_material": null,
    "esclarecimento": null
@@ -3172,8 +3204,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Regulatório",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "Consumidor Hora Interrompido (CHI) da ocorrência aberta e o total da área de atuação;"
+   },
    "dispositivo": "item 107, alínea h",
    "erro_material": null,
    "esclarecimento": null
@@ -3270,8 +3306,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Operação/Manutenção",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "Quantidade de ocorrências abertas segregadas por município e o total na área de atuação;"
+   },
    "dispositivo": "item 107, alínea i",
    "erro_material": null,
    "esclarecimento": null
@@ -3368,8 +3408,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Operação/Manutenção",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "Quantidade de equipes em atividade, segregadas por município e o total na área de atuação;"
+   },
    "dispositivo": "item 107, alínea j",
    "erro_material": null,
    "esclarecimento": null
@@ -3985,8 +4029,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Regulatório",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "valor global da contratação com detalhamento dos recursos envolvidos, segregados por tipo de gasto;"
+   },
    "dispositivo": "item 132, alínea a",
    "erro_material": null,
    "esclarecimento": null
@@ -4055,8 +4103,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Jurídico",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "duração do Contrato de Cessão Emergencial para execução dos serviços realizados"
+   },
    "dispositivo": "item 132, alínea b",
    "erro_material": null,
    "esclarecimento": null
@@ -4154,8 +4206,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Operação/Manutenção",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "relação das matrículas dos profissionais que realizaram os atendimentos"
+   },
    "dispositivo": "item 132, alínea c",
    "erro_material": null,
    "esclarecimento": null
@@ -4253,8 +4309,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Regulatório",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "valor individualizado por frente de serviço e montante total dos serviços realizados"
+   },
    "dispositivo": "item 132, alínea d",
    "erro_material": null,
    "esclarecimento": null
@@ -6452,8 +6512,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Operação/Manutenção",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "Segurança: priorizar a segurança de todos os colaboradores e da população"
+   },
    "dispositivo": "item 142, alínea a",
    "erro_material": null,
    "esclarecimento": null
@@ -6559,8 +6623,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Operação/Manutenção",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "Eficiência: minimizar o impacto das contingências nas operações e na prestação dos serviços"
+   },
    "dispositivo": "item 142, alínea b",
    "erro_material": null,
    "esclarecimento": null
@@ -6663,8 +6731,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Regulatório",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "Responsabilidade: cumprir com as obrigações legais e regulamentares"
+   },
    "dispositivo": "item 142, alínea c",
    "erro_material": null,
    "esclarecimento": null
@@ -6768,8 +6840,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "Transparência: manter uma comunicação clara e aberta com todos os setores afetados"
+   },
    "dispositivo": "item 142, alínea d",
    "erro_material": null,
    "esclarecimento": null
@@ -6872,8 +6948,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Operação/Manutenção",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "Prevenção: antecipar problemas e definir protocolos de atuação"
+   },
    "dispositivo": "item 142, alínea e",
    "erro_material": null,
    "esclarecimento": null
@@ -6979,6 +7059,7 @@
    },
    "area": "A definir",
    "area_origem": null,
+   "area_motivo": "o trecho citado pela IA não está no texto do dever",
    "dispositivo": "item 142, alínea f",
    "erro_material": null,
    "esclarecimento": null
@@ -10649,8 +10730,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Meio Ambiente/Arborização",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "Remoção de Árvores: relatar os casos de remoção de árvores, detalhando a localização"
+   },
    "dispositivo": "item 101, alínea d",
    "erro_material": null,
    "esclarecimento": null
@@ -10739,8 +10824,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Meio Ambiente/Arborização",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "Programas de Substituição de Espécies: incluir dados sobre o número de substituição"
+   },
    "dispositivo": "item 101, alínea e",
    "erro_material": null,
    "esclarecimento": null
@@ -10922,8 +11011,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Meio Ambiente/Arborização",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "Convênios Celebrados: informar os convênios celebrados com o Poder Público Estadual"
+   },
    "dispositivo": "item 101, alínea g",
    "erro_material": null,
    "esclarecimento": null
@@ -11115,8 +11208,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "Motivo da Interrupção: informação sobre a causa da falha"
+   },
    "dispositivo": "item 109, alínea a",
    "erro_material": null,
    "esclarecimento": null
@@ -11207,8 +11304,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "Área Afetada: delimitação geográfica da interrupção"
+   },
    "dispositivo": "item 109, alínea b",
    "erro_material": null,
    "esclarecimento": null
@@ -11299,8 +11400,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "Unidades Consumidoras Impactadas: Número de unidades consumidoras afetadas"
+   },
    "dispositivo": "item 109, alínea c",
    "erro_material": null,
    "esclarecimento": null
@@ -11391,8 +11496,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "Previsão de Restabelecimento: estimativa de retorno do fornecimento"
+   },
    "dispositivo": "item 109, alínea d",
    "erro_material": null,
    "esclarecimento": null
@@ -11674,8 +11783,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "A comunicação deve facilitar a coordenação entre as distribuidoras e os órgãos governamentais"
+   },
    "dispositivo": "item 116",
    "erro_material": null,
    "esclarecimento": null
@@ -13163,7 +13276,7 @@
    "titulo_origem": "regra",
    "titulo_completo": "O tempo de cessão das equipes não pode comprometer significativamente o atendimento aos consumidores da distribuidora cedente",
    "sujeito_implicito": true,
-   "titulo_curto": null,
+   "titulo_curto": "Cessão sem prejudicar atendimento",
    "evite": null,
    "recomendacoes": [],
    "contexto": "",
@@ -13214,8 +13327,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Operação/Manutenção",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "O tempo de cessão das equipes não pode comprometer significativamente o atendimento"
+   },
    "dispositivo": "item 137",
    "erro_material": null,
    "esclarecimento": null
@@ -13401,8 +13518,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Regulatório",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "Verificabilidade: o plano deve ser estruturado de forma a permitir a verificação"
+   },
    "dispositivo": "item 142, alínea g",
    "erro_material": null,
    "esclarecimento": null
@@ -15152,8 +15273,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "atendimento telefônico"
+   },
    "dispositivo": "Art. 371-A, § 1º, inciso I",
    "erro_material": null,
    "esclarecimento": null
@@ -15244,8 +15369,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "atendimento presencial, com horário agendado"
+   },
    "dispositivo": "Art. 371-A, § 1º, inciso II",
    "erro_material": null,
    "esclarecimento": null
@@ -15337,8 +15466,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "canal de comunicação por texto (chat) com atendimento humano"
+   },
    "dispositivo": "Art. 371-A, § 1º, inciso III",
    "erro_material": null,
    "esclarecimento": null

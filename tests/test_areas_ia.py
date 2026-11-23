@@ -79,3 +79,19 @@ def test_sem_live_ou_sem_confirmacao_nao_chama(monkeypatch, capsys):
         '<obrigacao id="x"' in lotes[0]["usuario"]
         and "Comunicação/Atendimento" in lotes[0]["usuario"]
     )
+
+
+def test_planos_publicados_area_ia_na_lista_com_trecho_do_dever_ou_motivo():
+    import json
+
+    for nome in ("rn1137", "ren1174"):
+        p = json.loads(
+            (ROOT / f"landing/src/content/plano-{nome}.json").read_text(encoding="utf-8")
+        )
+        for o in p["obrigacoes"]:
+            if o.get("area_ia"):
+                assert o["area"] in areas_ia.opcoes() and o["area_origem"] == "ia"
+                assert o["area_ia"]["rotulo"] == "área sugerida (IA)"
+                assert areas_ia.espacos(o["area_ia"]["trecho"]) in areas_ia.espacos(o["trecho"])
+            if o["area"] == "A definir" and o["id"] in areas_ia.carregar()["reprovados"]:
+                assert o["area_motivo"]

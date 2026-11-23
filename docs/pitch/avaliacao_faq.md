@@ -4,7 +4,7 @@ O Athenix **acerta 10 de 10 cobertas · 16 não cobertas**. Cobertura: 10 de 26 
 
 Fonte: [FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)](https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025), consulta salva em 2026-11-22. SHA-256: `a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da`. Nenhuma consulta à rede ou chamada de IA nesta avaliação.
 
-Plano: `landing/src/content/plano-rn1137.json`, gerado em 2026-11-22, origem `a2ac6f4`; norma com SHA-256 `4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887`. O CI também confere a reprodução do plano. O motor e a linha de base não foram alterados.
+Plano: `landing/src/content/plano-rn1137.json`, gerado em 2026-11-22, origem `4787ef0`; norma com SHA-256 `4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887`. O CI também confere a reprodução do plano. O motor e a linha de base não foram alterados.
 
 ## Como ler o resultado
 
