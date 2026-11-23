@@ -1,6 +1,6 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "e85d0a6",
+ "commit_origem": "a2ac6f4",
  "gerado_em": "2026-11-22",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
@@ -21159,6 +21159,2497 @@
      "possiveis_esclarecimentos": []
     }
    ]
+  },
+  {
+   "id": "aneel-8031ef0bfbd37c9f",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "divergência entre o texto publicado da RN e a versão compilada do PRODIST",
+   "duvida": "Qual redação do item 143, alínea f deve ser observada (sentido): a do texto publicado da RN 1.137 ou a da versão compilada do PRODIST, Módulo 4 (v3)?",
+   "leituras_possiveis": [
+    "Texto publicado da RN 1.137: “treinamentos periódicos e simulações”.",
+    "Versão compilada do PRODIST, Módulo 4 (v3), página 28: “treinamentos periódicos ou simulações”."
+   ],
+   "limite": "Divergência registrada pela comparação documental; nenhuma redação foi escolhida e o plano continua citando o texto publicado da RN 1.137.",
+   "referencias": [
+    {
+     "dispositivo": "RN 1.137 — item 143, alínea f",
+     "trecho": "f) Treinamentos e Simulações: Realizar treinamentos periódicos e simulações para preparar as equipes para situações de contingência;",
+     "itens": [
+      "0c957f4631794730"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "PRODIST, Módulo 4 (v3) — item 143, página 28",
+     "trecho": "143. O plano de contingência deve observar as seguintes diretrizes: a) Monitoramento Climático e Meteorológico: Realizar monitoramento periódico das condições climáticas e meteorológicas, informando as equipes internas sobre possíveis alertas de risco; b) Gestão de Ocorrências: Implementar ações específicas conforme os níveis de contingência; c) Mobilização de Recursos: Definir procedimentos para a mobilização de equipes e recursos adicionais em diferentes níveis de contingência, garantindo a atuação mesmo em feriados e dias não úteis, de forma a assegurar a continuidade e a eficiência nas ações de resposta; d) Comunicação Interna: Estabelecer procedimentos e canais eficientes de comunicação interna para informar e coordenar ações durante contingências; e) Relatórios e Documentação: Manter registros detalhados das ações tomadas e dos resultados durante as contingências de modo a avaliar se as medidas tomadas estão aderentes ao planejado; f) Treinamentos e Simulações: Realizar treinamentos periódicos ou simulações para preparar as equipes para situações de contingência; g) Atendimento ao Consumidor: Estabelecer procedimentos para tratamento e resolução de demandas extraordinárias durante contingências; h) Coordenação com Órgãos Externos: Definir ações para comunicação e coordenação com autoridades públicas e órgãos reguladores; i) Apoio Interdepartamental: Estabelecer diretrizes para a colaboração entre diferentes departamentos e áreas da empresa durante situações de contingência; j) Formalização e Divulgação do Plano: O Plano de Contingência deve ser formalizado e documentado de maneira clara e detalhada, sendo amplamente divulgado por meio de canais internos de modo a garantir sua acessibilidade a todos os colaboradores e partes interessadas; e k) Cadeia de governança: Estabelecer comando nos níveis estratégico, tático e operacional para o gerenciamento de crises e contingências, definindo responsabilidades e fluxos de comunicação que garantam uma resposta coordenada, eficiente e segura, de forma que, em situações de crise, todos os níveis de comando estejam claramente definidos e operacionalmente disponíveis. Requisitos Mínimos",
+     "itens": [
+      "0c957f4631794730"
+     ],
+     "fonte": {
+      "titulo": "Anexo IV da REN 956/2021, Módulo 4 do PRODIST, versão v3 da RN 1.137",
+      "url": "https://git.aneel.gov.br/publico/centralconteudo/-/raw/main/procreg/prodist/modulo04/aren20251137_Prodist_modulo_4_v3.pdf",
+      "sha256": "a0fb3b30563d4b7807ca5a5f91060b377d16410ba60c54aeca528c9853f3e3ae"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-686fb4d192b3dd50",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "divergência entre o texto publicado da RN e a versão compilada do PRODIST",
+   "duvida": "Qual redação do item 143, alínea d deve ser observada (conteúdo): a do texto publicado da RN 1.137 ou a da versão compilada do PRODIST, Módulo 4 (v3)?",
+   "leituras_possiveis": [
+    "Texto publicado da RN 1.137: “Estabelecer canais eficientes”.",
+    "Versão compilada do PRODIST, Módulo 4 (v3), página 28: “Estabelecer procedimentos e canais eficientes”."
+   ],
+   "limite": "Divergência registrada pela comparação documental; nenhuma redação foi escolhida e o plano continua citando o texto publicado da RN 1.137.",
+   "referencias": [
+    {
+     "dispositivo": "RN 1.137 — item 143, alínea d",
+     "trecho": "d) Comunicação Interna: Estabelecer canais eficientes de comunicação interna para informar e coordenar ações durante contingências;",
+     "itens": [
+      "e9ca87b9dd7c9285"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "PRODIST, Módulo 4 (v3) — item 143, página 28",
+     "trecho": "143. O plano de contingência deve observar as seguintes diretrizes: a) Monitoramento Climático e Meteorológico: Realizar monitoramento periódico das condições climáticas e meteorológicas, informando as equipes internas sobre possíveis alertas de risco; b) Gestão de Ocorrências: Implementar ações específicas conforme os níveis de contingência; c) Mobilização de Recursos: Definir procedimentos para a mobilização de equipes e recursos adicionais em diferentes níveis de contingência, garantindo a atuação mesmo em feriados e dias não úteis, de forma a assegurar a continuidade e a eficiência nas ações de resposta; d) Comunicação Interna: Estabelecer procedimentos e canais eficientes de comunicação interna para informar e coordenar ações durante contingências; e) Relatórios e Documentação: Manter registros detalhados das ações tomadas e dos resultados durante as contingências de modo a avaliar se as medidas tomadas estão aderentes ao planejado; f) Treinamentos e Simulações: Realizar treinamentos periódicos ou simulações para preparar as equipes para situações de contingência; g) Atendimento ao Consumidor: Estabelecer procedimentos para tratamento e resolução de demandas extraordinárias durante contingências; h) Coordenação com Órgãos Externos: Definir ações para comunicação e coordenação com autoridades públicas e órgãos reguladores; i) Apoio Interdepartamental: Estabelecer diretrizes para a colaboração entre diferentes departamentos e áreas da empresa durante situações de contingência; j) Formalização e Divulgação do Plano: O Plano de Contingência deve ser formalizado e documentado de maneira clara e detalhada, sendo amplamente divulgado por meio de canais internos de modo a garantir sua acessibilidade a todos os colaboradores e partes interessadas; e k) Cadeia de governança: Estabelecer comando nos níveis estratégico, tático e operacional para o gerenciamento de crises e contingências, definindo responsabilidades e fluxos de comunicação que garantam uma resposta coordenada, eficiente e segura, de forma que, em situações de crise, todos os níveis de comando estejam claramente definidos e operacionalmente disponíveis. Requisitos Mínimos",
+     "itens": [
+      "e9ca87b9dd7c9285"
+     ],
+     "fonte": {
+      "titulo": "Anexo IV da REN 956/2021, Módulo 4 do PRODIST, versão v3 da RN 1.137",
+      "url": "https://git.aneel.gov.br/publico/centralconteudo/-/raw/main/procreg/prodist/modulo04/aren20251137_Prodist_modulo_4_v3.pdf",
+      "sha256": "a0fb3b30563d4b7807ca5a5f91060b377d16410ba60c54aeca528c9853f3e3ae"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-00af78b904dda256",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "divergência entre o texto publicado da RN e a versão compilada do PRODIST",
+   "duvida": "Qual redação do item 110 deve ser observada (remissão): a do texto publicado da RN 1.137 ou a da versão compilada do PRODIST, Módulo 4 (v3)?",
+   "leituras_possiveis": [
+    "Texto publicado da RN 1.137: “de que trata o item 105”.",
+    "Versão compilada do PRODIST, Módulo 4 (v3), página 23: “de que trata o item 103”."
+   ],
+   "limite": "Divergência registrada pela comparação documental; nenhuma redação foi escolhida e o plano continua citando o texto publicado da RN 1.137.",
+   "referencias": [
+    {
+     "dispositivo": "RN 1.137 — item 110",
+     "trecho": "110. A comunicação de que trata o item 105 deve ser realizada, obrigatoriamente, por meio de SMS e aplicativos de mensagens, com envio de mensagens automáticas aos consumidores afetados.",
+     "itens": [
+      "73f0657fc5edfaa2"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "PRODIST, Módulo 4 (v3) — item 110, página 23",
+     "trecho": "110. A comunicação de que trata o item 103 deve ser realizada, obrigatoriamente, por meio de SMS e aplicativos de mensagens, com envio de mensagens automáticas aos consumidores afetados. Adicionalmente, as distribuidoras podem utilizar, de forma complementar e a seu critério, os seguintes canais: a) Aplicativos e sítio eletrônico na internet: com atualização em tempo real em plataformas digitais mantidas pela distribuidora; b) Redes Sociais: com divulgação de informações via contas oficiais da distribuidora.",
+     "itens": [
+      "73f0657fc5edfaa2"
+     ],
+     "fonte": {
+      "titulo": "Anexo IV da REN 956/2021, Módulo 4 do PRODIST, versão v3 da RN 1.137",
+      "url": "https://git.aneel.gov.br/publico/centralconteudo/-/raw/main/procreg/prodist/modulo04/aren20251137_Prodist_modulo_4_v3.pdf",
+      "sha256": "a0fb3b30563d4b7807ca5a5f91060b377d16410ba60c54aeca528c9853f3e3ae"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-ed5e0e16cd5b0fbf",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "divergência entre o texto publicado da RN e a versão compilada do PRODIST",
+   "duvida": "Qual redação do item 112 deve ser observada (remissão): a do texto publicado da RN 1.137 ou a da versão compilada do PRODIST, Módulo 4 (v3)?",
+   "leituras_possiveis": [
+    "Texto publicado da RN 1.137: “de que trata o item 105”.",
+    "Versão compilada do PRODIST, Módulo 4 (v3), página 23: “de que trata o item 103”."
+   ],
+   "limite": "Divergência registrada pela comparação documental; nenhuma redação foi escolhida e o plano continua citando o texto publicado da RN 1.137.",
+   "referencias": [
+    {
+     "dispositivo": "RN 1.137 — item 112",
+     "trecho": "112. A distribuidora deve atualizar as informações referentes à interrupção de que trata o item 105, incluindo alterações no tempo estimado de restabelecimento e outras informações relevantes para o consumidor.",
+     "itens": [
+      "d0e8213e450b813b"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "PRODIST, Módulo 4 (v3) — item 112, página 23",
+     "trecho": "112. A distribuidora deve atualizar as informações referentes à interrupção de que trata o item 103, incluindo alterações no tempo estimado de restabelecimento e outras informações relevantes para o consumidor.",
+     "itens": [
+      "d0e8213e450b813b"
+     ],
+     "fonte": {
+      "titulo": "Anexo IV da REN 956/2021, Módulo 4 do PRODIST, versão v3 da RN 1.137",
+      "url": "https://git.aneel.gov.br/publico/centralconteudo/-/raw/main/procreg/prodist/modulo04/aren20251137_Prodist_modulo_4_v3.pdf",
+      "sha256": "a0fb3b30563d4b7807ca5a5f91060b377d16410ba60c54aeca528c9853f3e3ae"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-27dd69e6f134def9",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "divergência entre o texto publicado da RN e a versão compilada do PRODIST",
+   "duvida": "Qual redação do item 119 deve ser observada (remissão): a do texto publicado da RN 1.137 ou a da versão compilada do PRODIST, Módulo 4 (v3)?",
+   "leituras_possiveis": [
+    "Texto publicado da RN 1.137: “conforme previsto no item 115”.",
+    "Versão compilada do PRODIST, Módulo 4 (v3), página 24: “conforme previsto no item 113”.",
+    "Na v3, o pedido de representantes oficiais ao Poder Público continua no item 115; a remissão ao item 113 pode estar desatualizada na versão compilada. Hipótese não conferida: o texto do item 113 da v3 não foi lido."
+   ],
+   "limite": "Divergência registrada pela comparação documental; nenhuma redação foi escolhida e o plano continua citando o texto publicado da RN 1.137.",
+   "referencias": [
+    {
+     "dispositivo": "RN 1.137 — item 119",
+     "trecho": "119. As distribuidoras devem estabelecer protocolos de alertas para notificar rapidamente o Poder Público, conforme previsto no item 115, sobre interrupções de energia e situações que demandem apoio imediato para a atuação em cenários de emergência.",
+     "itens": [
+      "c5c8ba07ebe0b203"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "PRODIST, Módulo 4 (v3) — item 119, página 24",
+     "trecho": "119. As distribuidoras devem estabelecer protocolos de alertas para notificar rapidamente o Poder Público, conforme previsto no item 113, sobre interrupções de energia e situações que demandem apoio imediato para a atuação em cenários de emergência.",
+     "itens": [
+      "c5c8ba07ebe0b203"
+     ],
+     "fonte": {
+      "titulo": "Anexo IV da REN 956/2021, Módulo 4 do PRODIST, versão v3 da RN 1.137",
+      "url": "https://git.aneel.gov.br/publico/centralconteudo/-/raw/main/procreg/prodist/modulo04/aren20251137_Prodist_modulo_4_v3.pdf",
+      "sha256": "a0fb3b30563d4b7807ca5a5f91060b377d16410ba60c54aeca528c9853f3e3ae"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
   }
- ]
+ ],
+ "comparacao_anterior": {
+  "escopo": "Anexo IV da REN 956/2021 — Módulo 4 do PRODIST (v2 × v3)",
+  "fontes": {
+   "v2": {
+    "arquivo": "tests/fontes_impacto/aren2021956_Prodist_modulo_4_v2.pdf",
+    "sha256": "47dfe164a9a704600ffc4e4f2d38c8d169b6a4829ee5b85bd8737a20e813bdc6",
+    "titulo": "Anexo IV da REN 956/2021, Módulo 4 do PRODIST, versão v2 anterior à RN 1.137",
+    "url": "/fontes/aren2021956_Prodist_modulo_4_v2.pdf",
+    "origem": "https://git.aneel.gov.br/publico/centralconteudo/-/raw/main/procreg/prodist/modulo04/aren2021956_Prodist_modulo_4_v2.pdf"
+   },
+   "v3": {
+    "arquivo": "tests/fontes_impacto/aren20251137_Prodist_modulo_4_v3.pdf",
+    "sha256": "a0fb3b30563d4b7807ca5a5f91060b377d16410ba60c54aeca528c9853f3e3ae",
+    "titulo": "Anexo IV da REN 956/2021, Módulo 4 do PRODIST, versão v3 da RN 1.137",
+    "url": "/fontes/aren20251137_Prodist_modulo_4_v3.pdf",
+    "origem": "https://git.aneel.gov.br/publico/centralconteudo/-/raw/main/procreg/prodist/modulo04/aren20251137_Prodist_modulo_4_v3.pdf"
+   }
+  },
+  "resumo": {
+   "novo": 112,
+   "alterado": 0,
+   "ja_existia": 0,
+   "sem_fonte": 35,
+   "divergencias_v3": 20
+  },
+  "registros": {
+   "4bc7805026308769": {
+    "item": "103",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "09960ed39dc51125": {
+    "item": "148",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "d0d9b13f247409a5": {
+    "item": "108",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "7d0919bce4ef3fe9": {
+    "item": "107",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "cde0648e7a44c0f1": {
+    "item": "104",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "c3b421e728c88b65": {
+    "item": "105",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "8bf769e8049238bf": {
+    "item": "106",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "03038d3317d5920c": {
+    "item": "106",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "f210b1cb4b18cd93": {
+    "item": "107",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "454101d0c403c18d": {
+    "item": "107",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "2095e3040e47b7fe": {
+    "item": "107",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "7e175ea36f54d27d": {
+    "item": "107",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "04807cfc5d8b19fd": {
+    "item": "107",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "145e90e0d6e92fa1": {
+    "item": "107",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "bedd23cf7196cb9b": {
+    "item": "107",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "4530929b6c0a1c85": {
+    "item": "107",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "b5295bca7f3ea780": {
+    "item": "107",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "bf6d884740a66016": {
+    "item": "107",
+    "classe": "novo",
+    "confere_v3": false
+   },
+   "e863a4cbf5a00dd2": {
+    "item": "120",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "36d97e25c9c45652": {
+    "item": "113",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "eeabcc619985bac4": {
+    "item": "132",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "743176314038e1bc": {
+    "item": "132",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "63d080f10ea001db": {
+    "item": "132",
+    "classe": "novo",
+    "confere_v3": false
+   },
+   "5f85b262f557ee25": {
+    "item": "132",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "deeab00be5f0f68f": {
+    "item": "132",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "189be3218a0cbccf": {
+    "item": "132",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "4b62fdd082d510d6": {
+    "item": "132",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "002b589ec9ac2f4f": {
+    "item": "132",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "2be47277983ff641": {
+    "item": "132",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "ca89c86c91fab439": {
+    "item": "132",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "aacda5a99abb796e": {
+    "item": "132",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "88b6fa7ef4189740": {
+    "item": "132",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "768ca43e4161c231": {
+    "item": "132",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "610cc5d8b942d8ac": {
+    "item": "138",
+    "classe": "novo",
+    "confere_v3": false
+   },
+   "67dac8ada9048f75": {
+    "item": "139",
+    "classe": "novo",
+    "confere_v3": false
+   },
+   "def2aafb6310db09": {
+    "item": "94",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "4e4622fc78c94514": {
+    "item": "96",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "dd9e67e41aa4ea38": {
+    "item": "115",
+    "classe": "novo",
+    "confere_v3": false
+   },
+   "c730ffb2caee9101": {
+    "item": "118",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "b7c2d81bf787af70": {
+    "item": "140",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "5a66534ae45af0c6": {
+    "item": "141",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "db13351273cc2a40": {
+    "item": "142",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "98f4753768bef99f": {
+    "item": "142",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "085a6edc407f11ca": {
+    "item": "142",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "d6cf3c79ee1df588": {
+    "item": "142",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "4ee63c29f094247c": {
+    "item": "142",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "0eb8c29f185ec200": {
+    "item": "142",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "b70cb23b9e1c10a8": {
+    "item": "143",
+    "classe": "novo",
+    "confere_v3": false
+   },
+   "73a1dd36bbb85c25": {
+    "item": "143",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "2bc3aa12a7581a25": {
+    "item": "143",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "e9ca87b9dd7c9285": {
+    "item": "143",
+    "classe": "novo",
+    "confere_v3": false
+   },
+   "cff191219a7655d2": {
+    "item": "143",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "0c957f4631794730": {
+    "item": "143",
+    "classe": "novo",
+    "confere_v3": false
+   },
+   "748ad599f80e9086": {
+    "item": "143",
+    "classe": "novo",
+    "confere_v3": false
+   },
+   "dceeebc43adca549": {
+    "item": "143",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "1895f0f6fbc68d32": {
+    "item": "143",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "44d737dea32bb948": {
+    "item": "143",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "4239f86c4b4d91d5": {
+    "item": "143",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "5ecdf0d3f30f491b": {
+    "item": "144",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "046ed88cf4374559": {
+    "item": "144",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "a37f043943a39e11": {
+    "item": "144",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "151282e71a2cdaf5": {
+    "item": "144",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "d4aa10f3bb2b09db": {
+    "item": "144",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "11f1b97f51197a40": {
+    "item": "144",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "059e791026821b38": {
+    "item": "144",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "0b9113f77a4351b1": {
+    "item": "144",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "9297bd2b368c09b7": {
+    "item": "146",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "55d13ebfa6fe45cd": {
+    "item": "147",
+    "classe": "novo",
+    "confere_v3": false
+   },
+   "5cd25d0b31930a88": {
+    "item": "95",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "e85f635d48fa4eb0": {
+    "item": "97",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "cea824cf4f1bfdb6": {
+    "item": "99",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "78c1c664a404cd32": {
+    "item": "99",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "7e405a51e340f0da": {
+    "item": "99",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "a89b40289dcbd98a": {
+    "item": "99",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "deb6f6ab42dd1b07": {
+    "item": "100",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "acccde8d107ef0a7": {
+    "item": "101",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "84ab75dfdb69de0f": {
+    "item": "101",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "44bd912ddc392e7e": {
+    "item": "101",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "e2ce14fe1ddd043b": {
+    "item": "101",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "2bde82f330f7a375": {
+    "item": "101",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "ec71a30e02807a43": {
+    "item": "101",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "afcbf345324a3e49": {
+    "item": "101",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "e6a5fd13a95d9e25": {
+    "item": "102",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "6812a1cfa93391a2": {
+    "item": "109",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "091a033ee197530b": {
+    "item": "109",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "89f0cb5afdcb80cf": {
+    "item": "109",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "4c34d39fc8c7c83c": {
+    "item": "109",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "73f0657fc5edfaa2": {
+    "item": "110",
+    "classe": "novo",
+    "confere_v3": false
+   },
+   "d0e8213e450b813b": {
+    "item": "112",
+    "classe": "novo",
+    "confere_v3": false
+   },
+   "8b31ab179c001654": {
+    "item": "116",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "8927ba0ff3e8aeae": {
+    "item": "117",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "c5c8ba07ebe0b203": {
+    "item": "119",
+    "classe": "novo",
+    "confere_v3": false
+   },
+   "cea10544cc62dbe7": {
+    "item": "126",
+    "classe": "novo",
+    "confere_v3": false
+   },
+   "5c34e0b541763f48": {
+    "item": "127",
+    "classe": "novo",
+    "confere_v3": false
+   },
+   "ef6845fb40369ad2": {
+    "item": "129",
+    "classe": "novo",
+    "confere_v3": false
+   },
+   "a99fead68b4bd135": {
+    "item": "133",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "7de834f7377be0f9": {
+    "item": "133",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "75da33f12b23776b": {
+    "item": "133",
+    "classe": "novo",
+    "confere_v3": false
+   },
+   "3b0f6e7ae5d7a5cb": {
+    "item": "133",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "7a8218ee951a3605": {
+    "item": "133",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "7c1a7f748434daf2": {
+    "item": "134",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "51d4035c89333aa8": {
+    "item": "134",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "9596972c305943ee": {
+    "item": "134",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "921c74abaa653d5d": {
+    "item": "134",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "33981a4c29c4c4db": {
+    "item": "135",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "c8fa6b48cf963d61": {
+    "item": "136",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "084c9e1b8f25feff": {
+    "item": "137",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "dace5661de038677": {
+    "item": "139",
+    "classe": "novo",
+    "confere_v3": false
+   },
+   "a03bb494e4666bc9": {
+    "item": "142",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "87c61f480ef8ec6c": {
+    "item": "144",
+    "classe": "novo",
+    "confere_v3": false
+   },
+   "a1b6115028690bc1": {
+    "item": "145",
+    "classe": "novo",
+    "confere_v3": true
+   },
+   "9248ddd0d9436761": {
+    "item": "145",
+    "classe": "novo",
+    "confere_v3": false
+   }
+  },
+  "itens": {
+   "1": {
+    "classe": "alterado",
+    "anterior": {
+     "trecho": "1. Além desta seção introdutória, este módulo está estruturado da seguinte forma: Seção 4.1 – Dados de carga e despacho de geração: trata dos procedimentos e requisitos para o fornecimento de informações de carga e de despacho de geração por parte dos usuários para a distribuidora; Seção 4.2 – Programação de intervenções em instalações: contém os procedimentos e os requisitos para a programação de intervenções em instalações de distribuição, nas DIT que não pertençam à rede de operação do SIN e das instalações de conexão dos usuários; Seção 4.3 – Controle da carga: trata dos procedimentos a serem implementados e dos critérios básicos a serem adotados pela distribuidora para o controle de carga em situações de contingência ou emergência; Seção 4.4 – Testes das instalações: define os procedimentos e as responsabilidades para a realização de testes das instalações nas atividades de vistoria, aceitação das instalações e avaliação da qualidade de atendimento no ponto de conexão; Seção 4.5 – Coordenação operacional: apresenta os requisitos mínimos para o relacionamento operacional entre os Centros de Operação da Distribuição - COD, do agente de transmissão detentor de DIT, do Centro de Despacho de Geração Distribuída - CDGD e demais órgãos de operação de instalações dos usuários; e Seção 4.6 – Recursos de comunicação de voz e dados: estabelece os recursos mínimos de comunicação de voz e de dados do COD com o Centro de Operação do agente de transmissão detentor de DIT, com o CDGD e com os usuários. Objetivos",
+     "pagina": 1,
+     "ultima_pagina": 1
+    },
+    "atual": {
+     "trecho": "1. Além desta seção introdutória, este módulo está estruturado da seguinte forma: Seção 4.1 – Dados de carga e despacho de geração: trata dos procedimentos e requisitos para o fornecimento de informações de carga e de despacho de geração por parte dos usuários para a distribuidora; Seção 4.2 – Programação de intervenções em instalações: contém os procedimentos e os requisitos para a programação de intervenções em instalações de distribuição, nas DIT que não pertençam à rede de operação do SIN e das instalações de conexão dos usuários; Seção 4.3 – Controle da carga: trata dos procedimentos a serem implementados e dos critérios básicos a serem adotados pela distribuidora para o controle de carga em situações de contingência ou emergência; Seção 4.4 – Testes das instalações: define os procedimentos e as responsabilidades para a realização de testes das instalações nas atividades de vistoria, aceitação das instalações e avaliação da qualidade de atendimento no ponto de conexão; Seção 4.5 – Coordenação operacional: apresenta os requisitos mínimos para o relacionamento operacional entre os Centros de Operação da Distribuição - COD, do agente de transmissão detentor de DIT, do Centro de Despacho de Geração Distribuída - CDGD e demais órgãos de operação de instalações dos usuários; Seção 4.6 – Recursos de comunicação de voz e dados: estabelece os recursos mínimos de comunicação de voz e de dados do COD com o Centro de Operação do agente de transmissão detentor de DIT, com o CDGD e com os usuários; Seção 4.7 – Poda e manejo vegetal: define os procedimentos e as responsabilidades quanto à supressão e o manejo da vegetação; Seção 4.8 – Comunicação entre Distribuidoras e Consumidores em casos de interrupção no fornecimento: apresentar os critérios para comunicação com os consumidores durante situações de interrupção emergencial do fornecimento de energia elétrica de longa duração, garantindo transparência, agilidade e precisão nas informações prestadas; Seção 4.9 - Comunicação entre Distribuidoras e Poder Público em Situações de Emergência: apresentar os critérios para comunicação com o Poder Público em geral durante situações de interrupção emergencial do fornecimento de energia elétrica de longa duração, garantindo transparência, agilidade e precisão nas informações prestadas; Seção 4.10 - Cessão Emergencial de recursos humanos, equipamentos e materiais entre distribuidoras: estabelecer as condições para a realização de cessão de recursos humanos, equipamentos e materiais entre distribuidoras, visando garantir a continuidade do serviço em situações de crise, sem comprometer a segurança operacional ou o atendimento aos consumidores por parte da distribuidora cedente; e Seção 4.11 - Planos de Contingência: estabelece os princípios norteadores, diretrizes e requisitos mínimos para a elaboração e implementação de planos de contingência por empresas de distribuição de energia elétrica. Objetivos",
+     "pagina": 1,
+     "ultima_pagina": 2
+    }
+   },
+   "2": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "2. Estabelecer os procedimentos de operação dos sistemas de distribuição.",
+     "pagina": 1,
+     "ultima_pagina": 1
+    },
+    "atual": {
+     "trecho": "2. Estabelecer os procedimentos de operação dos sistemas de distribuição.",
+     "pagina": 2,
+     "ultima_pagina": 2
+    }
+   },
+   "3": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "3. Orientar a formulação de planos e programas operacionais dos sistemas de distribuição, incluindo: previsão de carga; programação de intervenções em instalações; controle da carga em situação de contingência ou emergência; controle da qualidade do suprimento de energia elétrica; e coordenação operacional dos sistemas.",
+     "pagina": 1,
+     "ultima_pagina": 2
+    },
+    "atual": {
+     "trecho": "3. Orientar a formulação de planos e programas operacionais dos sistemas de distribuição, incluindo: previsão de carga; programação de intervenções em instalações; controle da carga em situação de contingência ou emergência; controle da qualidade do suprimento de energia elétrica; e coordenação operacional dos sistemas.",
+     "pagina": 2,
+     "ultima_pagina": 2
+    }
+   },
+   "4": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "4. Padronizar os procedimentos de relacionamento operacional entre os centros de operação das distribuidoras, das transmissoras, dos centros de despacho de geração distribuída e demais unidades de operação das instalações dos usuários.",
+     "pagina": 2,
+     "ultima_pagina": 2
+    },
+    "atual": {
+     "trecho": "4. Padronizar os procedimentos de relacionamento operacional entre os centros de operação das distribuidoras, das transmissoras, dos centros de despacho de geração distribuída e demais unidades de operação das instalações dos usuários.",
+     "pagina": 2,
+     "ultima_pagina": 2
+    }
+   },
+   "5": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "5. Definir os procedimentos e responsabilidades das distribuidoras, dos agentes de transmissão detentores de DIT e dos usuários para a realização de testes das instalações nas atividades de comissionamento, aceitação das instalações e de avaliação da qualidade de atendimento no ponto de conexão.",
+     "pagina": 2,
+     "ultima_pagina": 2
+    },
+    "atual": {
+     "trecho": "5. Definir os procedimentos e responsabilidades das distribuidoras, dos agentes de transmissão detentores de DIT e dos usuários para a realização de testes das instalações nas atividades de comissionamento, aceitação das instalações e de avaliação da qualidade de atendimento no ponto de conexão.",
+     "pagina": 2,
+     "ultima_pagina": 2
+    }
+   },
+   "6": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "6. Definir os recursos mínimos necessários para garantir a comunicação de voz e de dados entre os centros de operação das distribuidoras, das transmissoras, dos centros de despacho de geração distribuída e demais unidades de operação das instalações dos usuários. Aplicabilidade",
+     "pagina": 2,
+     "ultima_pagina": 2
+    },
+    "atual": {
+     "trecho": "6. Definir os recursos mínimos necessários para garantir a comunicação de voz e de dados entre os centros de operação das distribuidoras, das transmissoras, dos centros de despacho de geração distribuída e demais unidades de operação das instalações dos usuários. Aplicabilidade",
+     "pagina": 2,
+     "ultima_pagina": 3
+    }
+   },
+   "7": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "7. Os procedimentos definidos nesse módulo devem ser observados por: distribuidoras; centrais geradoras conectadas ao sistema de distribuição ou às Demais Instalações de Transmissão – DIT; transmissoras detentoras de DIT, desde que não pertencentes à rede de operação do Sistema Interligado Nacional - SIN; consumidores com instalações conectadas em média ou alta tensão nos sistemas de distribuição ou em DIT; centros de despacho de geração distribuída; importadores de energia; e exportadores de energia.",
+     "pagina": 2,
+     "ultima_pagina": 2
+    },
+    "atual": {
+     "trecho": "7. Os procedimentos definidos nesse módulo devem ser observados por: distribuidoras; centrais geradoras conectadas ao sistema de distribuição ou às Demais Instalações de Transmissão – DIT; transmissoras detentoras de DIT, desde que não pertencentes à rede de operação do Sistema Interligado Nacional - SIN; consumidores com instalações conectadas em média ou alta tensão nos sistemas de distribuição ou em DIT; centros de despacho de geração distribuída; importadores de energia; e exportadores de energia.",
+     "pagina": 3,
+     "ultima_pagina": 3
+    }
+   },
+   "8": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "8. As informações previstas e verificadas de carga e de despacho de geração fornecidas pelos usuários devem ser aderentes às informações prestadas pelas distribuidoras ao ONS, com a mesma periodicidade, horizonte de abrangência, qualidade e requisitos estabelecidos nos Procedimentos de Rede.",
+     "pagina": 2,
+     "ultima_pagina": 2
+    },
+    "atual": {
+     "trecho": "8. As informações previstas e verificadas de carga e de despacho de geração fornecidas pelos usuários devem ser aderentes às informações prestadas pelas distribuidoras ao ONS, com a mesma periodicidade, horizonte de abrangência, qualidade e requisitos estabelecidos nos Procedimentos de Rede.",
+     "pagina": 3,
+     "ultima_pagina": 3
+    }
+   },
+   "9": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "9. As informações de carga e de despacho de geração destinam-se: ao desenvolvimento de estudos de planejamento e programação da operação elétrica e energética e para os estudos de ampliações e reforços; ao ajuste nos dados de carga; e a integrar os dados de carga verificados das distribuidoras.",
+     "pagina": 2,
+     "ultima_pagina": 3
+    },
+    "atual": {
+     "trecho": "9. As informações de carga e de despacho de geração destinam-se: ao desenvolvimento de estudos de planejamento e programação da operação elétrica e energética e para os estudos de ampliações e reforços; ao ajuste nos dados de carga; e a integrar os dados de carga verificados das distribuidoras.",
+     "pagina": 3,
+     "ultima_pagina": 3
+    }
+   },
+   "10": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "10. Os intercâmbios de informações necessários aos procedimentos operativos estão estabelecidos no Módulo 6 do PRODIST.",
+     "pagina": 3,
+     "ultima_pagina": 3
+    },
+    "atual": {
+     "trecho": "10. Os intercâmbios de informações necessários aos procedimentos operativos estão estabelecidos no Módulo 6 do PRODIST.",
+     "pagina": 3,
+     "ultima_pagina": 3
+    }
+   },
+   "11": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "11. Os dados previstos devem abranger um horizonte de até 5 anos. Responsabilidades",
+     "pagina": 3,
+     "ultima_pagina": 3
+    },
+    "atual": {
+     "trecho": "11. Os dados previstos devem abranger um horizonte de até 5 anos. Responsabilidades",
+     "pagina": 3,
+     "ultima_pagina": 4
+    }
+   },
+   "12": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "12. A distribuidora é responsável por: coletar, processar e validar os dados de carga e de despacho de geração previstos e verificados pelos usuários; estabelecer os prazos de envio e as rotinas de atualização das informações; estabelecer os meios de comunicação e a padronização dos arquivos eletrônicos que permitam a transferência dos dados de carga dos usuários; interagir com os usuários quando da necessidade de se obter esclarecimentos ou informações complementares relativas aos dados de carga; e obter, junto ao ONS, as informações dos dados de previsão de geração das centrais geradoras despachadas centralizadamente e conectadas ao sistema da distribuidora.",
+     "pagina": 3,
+     "ultima_pagina": 3
+    },
+    "atual": {
+     "trecho": "12. A distribuidora é responsável por: coletar, processar e validar os dados de carga e de despacho de geração previstos e verificados pelos usuários; estabelecer os prazos de envio e as rotinas de atualização das informações; estabelecer os meios de comunicação e a padronização dos arquivos eletrônicos que permitam a transferência dos dados de carga dos usuários; interagir com os usuários quando da necessidade de se obter esclarecimentos ou informações complementares relativas aos dados de carga; e obter, junto ao ONS, as informações dos dados de previsão de geração das centrais geradoras despachadas centralizadamente e conectadas ao sistema da distribuidora.",
+     "pagina": 4,
+     "ultima_pagina": 4
+    }
+   },
+   "13": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "13. O usuário é responsável por: fornecer informações consistentes relativas aos dados previstos e verificados de carga e de despacho de geração, conforme padrão e meios de comunicação definidos pela distribuidora; fornecer dados e informações complementares, quando solicitados; cumprir os prazos de envio de dados e a rotina de atualização estabelecidos pela distribuidora; e participar de reuniões quando convocados pela distribuidora.",
+     "pagina": 3,
+     "ultima_pagina": 3
+    },
+    "atual": {
+     "trecho": "13. O usuário é responsável por: fornecer informações consistentes relativas aos dados previstos e verificados de carga e de despacho de geração, conforme padrão e meios de comunicação definidos pela distribuidora; fornecer dados e informações complementares, quando solicitados; cumprir os prazos de envio de dados e a rotina de atualização estabelecidos pela distribuidora; e participar de reuniões quando convocados pela distribuidora.",
+     "pagina": 4,
+     "ultima_pagina": 4
+    }
+   },
+   "14": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "14. As responsabilidades do ONS estão estabelecidas nos Procedimentos de Rede.",
+     "pagina": 3,
+     "ultima_pagina": 3
+    },
+    "atual": {
+     "trecho": "14. As responsabilidades do ONS estão estabelecidas nos Procedimentos de Rede.",
+     "pagina": 4,
+     "ultima_pagina": 4
+    }
+   },
+   "15": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "15. O COD deve: coordenar e executar o processo de programação de intervenções em instalações do sistema de distribuição e de instalações dos usuários que interferem no sistema de distribuição; receber ou enviar aos usuários e aos agentes de transmissão detentores de DIT ou ao ONS, quando se tratar de Rede Básica, as solicitações de intervenções; analisar, otimizar, aprovar e, se necessário, cancelar as solicitações de intervenções, formalizando as respostas aos usuários, aos agentes de transmissão detentores de DIT ou ao ONS, quando se tratar de Rede Básica; realizar ou solicitar análises e estudos para verificar impactos ou interferências de uma ou mais intervenções no sistema de distribuição, visando garantir a qualidade do fornecimento de energia elétrica; manter atualizada a base de dados do sistema de distribuição sob sua supervisão, incluindo diagramas de operação, limites operativos de equipamentos, estudos operativos, estudos de proteção, dentre outros; convocar, quando necessário, os solicitantes de intervenções para participar de sua programação; caracterizar, nos casos de intervenções não programadas, se estas são de emergência ou de urgência; informar ao ONS as manobras e os desligamentos na rede de distribuição que tenham reflexo importante sobre a rede de operação; informar aos agentes de geração ou de transmissão afetados as intervenções na rede de distribuição que imponham limitações de geração em usinas submetidas ao despacho centralizado, bem como desligamentos ou restrições em equipamentos da rede de operação; conhecer as intervenções previstas e aprovadas pelo ONS para a Rede de Operação, de modo a interagir sempre que forem detectados riscos de sobrecargas nas instalações; e coordenar e executar junto ao ONS o processo de programação de intervenções em instalações do sistema de distribuição e em instalações dos usuários que interferem no sistema de transmissão ou no despacho de geração despachada centralizadamente.",
+     "pagina": 4,
+     "ultima_pagina": 4
+    },
+    "atual": {
+     "trecho": "15. O COD deve: coordenar e executar o processo de programação de intervenções em instalações do sistema de distribuição e de instalações dos usuários que interferem no sistema de distribuição; receber ou enviar aos usuários e aos agentes de transmissão detentores de DIT ou ao ONS, quando se tratar de Rede Básica, as solicitações de intervenções; analisar, otimizar, aprovar e, se necessário, cancelar as solicitações de intervenções, formalizando as respostas aos usuários, aos agentes de transmissão detentores de DIT ou ao ONS, quando se tratar de Rede Básica; realizar ou solicitar análises e estudos para verificar impactos ou interferências de uma ou mais intervenções no sistema de distribuição, visando garantir a qualidade do fornecimento de energia elétrica; manter atualizada a base de dados do sistema de distribuição sob sua supervisão, incluindo diagramas de operação, limites operativos de equipamentos, estudos operativos, estudos de proteção, dentre outros; convocar, quando necessário, os solicitantes de intervenções para participar de sua programação; caracterizar, nos casos de intervenções não programadas, se estas são de emergência ou de urgência; informar ao ONS as manobras e os desligamentos na rede de distribuição que tenham reflexo importante sobre a rede de operação; informar aos agentes de geração ou de transmissão afetados as intervenções na rede de distribuição que imponham limitações de geração em usinas submetidas ao despacho centralizado, bem como desligamentos ou restrições em equipamentos da rede de operação; conhecer as intervenções previstas e aprovadas pelo ONS para a Rede de Operação, de modo a interagir sempre que forem detectados riscos de sobrecargas nas instalações; e coordenar e executar junto ao ONS o processo de programação de intervenções em instalações do sistema de distribuição e em instalações dos usuários que interferem no sistema de transmissão ou no despacho de geração despachada centralizadamente.",
+     "pagina": 4,
+     "ultima_pagina": 5
+    }
+   },
+   "16": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "16. A Distribuidora Acessante, o Consumidor, a Central Geradora e o CDGD devem: encaminhar ao COD os pedidos de intervenções; informar ao COD, com antecedência mínima de um dia útil, quaisquer alterações ou cancelamentos nos pedidos de intervenções; participar da análise da intervenção quando convocado pelo COD; caracterizar, nas solicitações de intervenções, as situações de elevados riscos de desligamentos e acidentes que possam ocorrer na sua execução e nas manobras necessárias para sua realização; e Caracterizar, nos casos de intervenções não programadas, se estas são de emergência ou de urgência.",
+     "pagina": 4,
+     "ultima_pagina": 4
+    },
+    "atual": {
+     "trecho": "16. A Distribuidora Acessante, o Consumidor, a Central Geradora e o CDGD devem: encaminhar ao COD os pedidos de intervenções; informar ao COD, com antecedência mínima de um dia útil, quaisquer alterações ou cancelamentos nos pedidos de intervenções; participar da análise da intervenção quando convocado pelo COD; caracterizar, nas solicitações de intervenções, as situações de elevados riscos de desligamentos e acidentes que possam ocorrer na sua execução e nas manobras necessárias para sua realização; e Caracterizar, nos casos de intervenções não programadas, se estas são de emergência ou de urgência.",
+     "pagina": 5,
+     "ultima_pagina": 5
+    }
+   },
+   "17": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "17. Os agentes de Transmissão ou o Centro de Operação de Agente de Transmissão – COT devem: coordenar e executar o processo de programação de intervenções nas DIT, em comum acordo com o COD; receber ou enviar ao COD as solicitações de intervenções; analisar, otimizar, aprovar e, se necessário, cancelar as solicitações de intervenções, formalizando as respostas e interagindo com o COD, caso seja necessário alterar o período, a duração ou as condições em que foi solicitada a intervenção; informar ao COD, com antecedência mínima de um dia útil, quaisquer alterações ou cancelamento de pedido de intervenção aprovado previamente; convocar, quando necessário, os solicitantes de intervenções para participarem da sua programação ou da sua análise junto ao COD; realizar ou solicitar análises e estudos, quando necessário, para verificar impactos ou interferências de uma ou mais intervenções no sistema; definir, nas solicitações de intervenções, as situações de elevados riscos de desligamentos e acidentes que possam ocorrer na sua execução e nas manobras necessárias para sua realização; caracterizar, nos casos de intervenções não programadas, se estas são de emergência ou de urgência; e manter atualizada a base de dados das instalações de transmissão sob sua supervisão, incluindo diagramas de operação, limites operativos de equipamentos, estudos operativos, estudos de proteção, dentre outros. Planejamento das intervenções",
+     "pagina": 5,
+     "ultima_pagina": 5
+    },
+    "atual": {
+     "trecho": "17. Os agentes de Transmissão ou o Centro de Operação de Agente de Transmissão – COT devem: coordenar e executar o processo de programação de intervenções nas DIT, em comum acordo com o COD; receber ou enviar ao COD as solicitações de intervenções; analisar, otimizar, aprovar e, se necessário, cancelar as solicitações de intervenções, formalizando as respostas e interagindo com o COD, caso seja necessário alterar o período, a duração ou as condições em que foi solicitada a intervenção; informar ao COD, com antecedência mínima de um dia útil, quaisquer alterações ou cancelamento de pedido de intervenção aprovado previamente; convocar, quando necessário, os solicitantes de intervenções para participarem da sua programação ou da sua análise junto ao COD; realizar ou solicitar análises e estudos, quando necessário, para verificar impactos ou interferências de uma ou mais intervenções no sistema; definir, nas solicitações de intervenções, as situações de elevados riscos de desligamentos e acidentes que possam ocorrer na sua execução e nas manobras necessárias para sua realização; caracterizar, nos casos de intervenções não programadas, se estas são de emergência ou de urgência; e manter atualizada a base de dados das instalações de transmissão sob sua supervisão, incluindo diagramas de operação, limites operativos de equipamentos, estudos operativos, estudos de proteção, dentre outros. Planejamento das intervenções",
+     "pagina": 5,
+     "ultima_pagina": 6
+    }
+   },
+   "18": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "18. A distribuidora, o agente de transmissão detentor de DIT e os usuários devem: realizar o planejamento do serviço e a análise de riscos de acidentes antes de qualquer intervenção em instalações; preencher, dentro dos prazos estabelecidos no Módulo 6 do PRODIST, o pedido de programação de intervenção, citando as condições requeridas e as observações do planejamento; e informar ao ONS a realização de intervenções que interfiram no sistema de transmissão ou no despacho de geração despachada centralizadamente. Informações para elaboração dos pedidos de intervenções",
+     "pagina": 5,
+     "ultima_pagina": 5
+    },
+    "atual": {
+     "trecho": "18. A distribuidora, o agente de transmissão detentor de DIT e os usuários devem: realizar o planejamento do serviço e a análise de riscos de acidentes antes de qualquer intervenção em instalações; preencher, dentro dos prazos estabelecidos no Módulo 6 do PRODIST, o pedido de programação de intervenção, citando as condições requeridas e as observações do planejamento; e informar ao ONS a realização de intervenções que interfiram no sistema de transmissão ou no despacho de geração despachada centralizadamente. Informações para elaboração dos pedidos de intervenções",
+     "pagina": 6,
+     "ultima_pagina": 6
+    }
+   },
+   "19": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "19. Os pedidos de intervenções de distribuidoras, agentes de transmissão, importadores de energia, exportadores de energia, centrais geradoras ou centros de despacho de geração distribuída devem ser encaminhados ao COD ou ao COT, conforme estabelecido no respectivo acordo operativo.",
+     "pagina": 5,
+     "ultima_pagina": 5
+    },
+    "atual": {
+     "trecho": "19. Os pedidos de intervenções de distribuidoras, agentes de transmissão, importadores de energia, exportadores de energia, centrais geradoras ou centros de despacho de geração distribuída devem ser encaminhados ao COD ou ao COT, conforme estabelecido no respectivo acordo operativo.",
+     "pagina": 6,
+     "ultima_pagina": 6
+    }
+   },
+   "20": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "20. Os pedidos de intervenções de distribuidoras, agentes de transmissão, importadores de energia, exportadores de energia, centrais geradoras ou centros de despacho de geração distribuída devem seguir o modelo e os meios de comunicação definidos entre as partes e conter, no mínimo, as informações relacionadas no Módulo 6 do PRODIST.",
+     "pagina": 6,
+     "ultima_pagina": 6
+    },
+    "atual": {
+     "trecho": "20. Os pedidos de intervenções de distribuidoras, agentes de transmissão, importadores de energia, exportadores de energia, centrais geradoras ou centros de despacho de geração distribuída devem seguir o modelo e os meios de comunicação definidos entre as partes e conter, no mínimo, as informações relacionadas no Módulo 6 do PRODIST.",
+     "pagina": 6,
+     "ultima_pagina": 7
+    }
+   },
+   "21": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "21. Os consumidores devem formalizar os pedidos de intervenções junto à distribuidora, conforme modelo e meios de comunicação definidos entre as partes e conter, no mínimo, as informações relacionadas no Módulo 6 do PRODIST.",
+     "pagina": 6,
+     "ultima_pagina": 6
+    },
+    "atual": {
+     "trecho": "21. Os consumidores devem formalizar os pedidos de intervenções junto à distribuidora, conforme modelo e meios de comunicação definidos entre as partes e conter, no mínimo, as informações relacionadas no Módulo 6 do PRODIST.",
+     "pagina": 7,
+     "ultima_pagina": 7
+    }
+   },
+   "22": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "22. A distribuidora e o agente de transmissão proprietário de equipamento sujeito a intervenções devem encaminhar ao consumidor as informações relacionadas no Módulo 6 do PRODIST, quando o referido equipamento estiver nas instalações de conexão do consumidor.",
+     "pagina": 6,
+     "ultima_pagina": 6
+    },
+    "atual": {
+     "trecho": "22. A distribuidora e o agente de transmissão proprietário de equipamento sujeito a intervenções devem encaminhar ao consumidor as informações relacionadas no Módulo 6 do PRODIST, quando o referido equipamento estiver nas instalações de conexão do consumidor.",
+     "pagina": 7,
+     "ultima_pagina": 7
+    }
+   },
+   "23": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "23. As solicitações de intervenções em equipamentos de propriedade de agente de transmissão em instalações de conexão de consumidores devem ser encaminhadas à distribuidora com a qual têm Contrato. Prazos para solicitação do pedido de intervenção",
+     "pagina": 6,
+     "ultima_pagina": 6
+    },
+    "atual": {
+     "trecho": "23. As solicitações de intervenções em equipamentos de propriedade de agente de transmissão em instalações de conexão de consumidores devem ser encaminhadas à distribuidora com a qual têm Contrato. Prazos para solicitação do pedido de intervenção",
+     "pagina": 7,
+     "ultima_pagina": 7
+    }
+   },
+   "24": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "24. O pedido de programação de intervenção deve ser enviado ao COD ou ao COT, conforme estabelecido em acordo operativo e indicado no Módulo 6 do PRODIST.",
+     "pagina": 6,
+     "ultima_pagina": 6
+    },
+    "atual": {
+     "trecho": "24. O pedido de programação de intervenção deve ser enviado ao COD ou ao COT, conforme estabelecido em acordo operativo e indicado no Módulo 6 do PRODIST.",
+     "pagina": 7,
+     "ultima_pagina": 7
+    }
+   },
+   "25": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "25. A resposta à solicitação do pedido de intervenção deve seguir o disposto no Módulo 6 do PRODIST.",
+     "pagina": 6,
+     "ultima_pagina": 6
+    },
+    "atual": {
+     "trecho": "25. A resposta à solicitação do pedido de intervenção deve seguir o disposto no Módulo 6 do PRODIST.",
+     "pagina": 7,
+     "ultima_pagina": 7
+    }
+   },
+   "26": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "26. O pedido de desligamento que implique interrupções a outros consumidores deve ser solicitado ao COD com antecedência mínima de 10 dias úteis.",
+     "pagina": 6,
+     "ultima_pagina": 6
+    },
+    "atual": {
+     "trecho": "26. O pedido de desligamento que implique interrupções a outros consumidores deve ser solicitado ao COD com antecedência mínima de 10 dias úteis.",
+     "pagina": 7,
+     "ultima_pagina": 7
+    }
+   },
+   "27": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "27. O pedido de desligamento que não implique interrupções a outros consumidores deve ser solicitado ao COD com antecedência mínima de 5 dias úteis.",
+     "pagina": 6,
+     "ultima_pagina": 6
+    },
+    "atual": {
+     "trecho": "27. O pedido de desligamento que não implique interrupções a outros consumidores deve ser solicitado ao COD com antecedência mínima de 5 dias úteis.",
+     "pagina": 7,
+     "ultima_pagina": 7
+    }
+   },
+   "28": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "28. O ONS deve ser comunicado com antecedência mínima de 15 dias quando a intervenção programada exigir transferência de carga entre subestações da Rede de Operação. Condições e critérios para programação das solicitações de intervenções",
+     "pagina": 6,
+     "ultima_pagina": 6
+    },
+    "atual": {
+     "trecho": "28. O ONS deve ser comunicado com antecedência mínima de 15 dias quando a intervenção programada exigir transferência de carga entre subestações da Rede de Operação. Condições e critérios para programação das solicitações de intervenções",
+     "pagina": 7,
+     "ultima_pagina": 7
+    }
+   },
+   "29": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "29. As liberações de equipamentos e instalações devem ser programadas em função dos seguintes critérios: preservação da segurança das equipes de trabalho envolvidas; preservação da segurança do próprio sistema; preservação da segurança de pessoas, equipamentos, instalações e bens de terceiros; preservação da qualidade da energia elétrica aos consumidores; preservação do meio ambiente; compatibilização das intervenções simultâneas; compatibilização com os Procedimentos de Rede, quando tratar-se de programação de solicitações de intervenções em equipamentos e instalações da rede de operação do SIN; e otimização da programação dos desligamentos de urgência quanto ao período de carga mais favorável para o sistema, garantida sua realização em qualquer período de carga.",
+     "pagina": 6,
+     "ultima_pagina": 7
+    },
+    "atual": {
+     "trecho": "29. As liberações de equipamentos e instalações devem ser programadas em função dos seguintes critérios: preservação da segurança das equipes de trabalho envolvidas; preservação da segurança do próprio sistema; preservação da segurança de pessoas, equipamentos, instalações e bens de terceiros; preservação da qualidade da energia elétrica aos consumidores; preservação do meio ambiente; compatibilização das intervenções simultâneas; compatibilização com os Procedimentos de Rede, quando tratar-se de programação de solicitações de intervenções em equipamentos e instalações da rede de operação do SIN; e otimização da programação dos desligamentos de urgência quanto ao período de carga mais favorável para o sistema, garantida sua realização em qualquer período de carga.",
+     "pagina": 7,
+     "ultima_pagina": 8
+    }
+   },
+   "30": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "30. O COD ou o COT, conforme tratar-se de instalações de distribuição ou DIT, respectivamente, deve garantir a condição para execução de procedimentos especiais ou manobras junto aos usuários envolvidos.",
+     "pagina": 7,
+     "ultima_pagina": 7
+    },
+    "atual": {
+     "trecho": "30. O COD ou o COT, conforme tratar-se de instalações de distribuição ou DIT, respectivamente, deve garantir a condição para execução de procedimentos especiais ou manobras junto aos usuários envolvidos.",
+     "pagina": 8,
+     "ultima_pagina": 8
+    }
+   },
+   "31": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "31. O COD ou o COT deve notificar o solicitante da intervenção quando seu pedido for negado em função do não-atendimento aos critérios listados no item 29, mantendo-se esse registro arquivado.",
+     "pagina": 7,
+     "ultima_pagina": 7
+    },
+    "atual": {
+     "trecho": "31. O COD ou o COT deve notificar o solicitante da intervenção quando seu pedido for negado em função do não-atendimento aos critérios listados no item 29, mantendo-se esse registro arquivado.",
+     "pagina": 8,
+     "ultima_pagina": 8
+    }
+   },
+   "32": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "32. O COD ou o COT pode solicitar desenhos, diagramas explicativos ou descrição de etapas sobre a intervenção desejada, sempre que julgar necessário, visando facilitar o atendimento.",
+     "pagina": 7,
+     "ultima_pagina": 7
+    },
+    "atual": {
+     "trecho": "32. O COD ou o COT pode solicitar desenhos, diagramas explicativos ou descrição de etapas sobre a intervenção desejada, sempre que julgar necessário, visando facilitar o atendimento.",
+     "pagina": 8,
+     "ultima_pagina": 8
+    }
+   },
+   "33": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "33. Um equipamento do sistema ou da instalação de conexão está programado para intervenção se houver: no COD ou no COT, um pedido de liberação de equipamento já aprovado; e na instalação, uma permissão para trabalho.",
+     "pagina": 7,
+     "ultima_pagina": 7
+    },
+    "atual": {
+     "trecho": "33. Um equipamento do sistema ou da instalação de conexão está programado para intervenção se houver: no COD ou no COT, um pedido de liberação de equipamento já aprovado; e na instalação, uma permissão para trabalho.",
+     "pagina": 8,
+     "ultima_pagina": 8
+    }
+   },
+   "34": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "34. As intervenções no Esquema Regional de Alívio de Carga – ERAC instalados no sistema de distribuição não podem exceder a 10% da carga do esquema por estágio.",
+     "pagina": 7,
+     "ultima_pagina": 7
+    },
+    "atual": {
+     "trecho": "34. As intervenções no Esquema Regional de Alívio de Carga – ERAC instalados no sistema de distribuição não podem exceder a 10% da carga do esquema por estágio.",
+     "pagina": 8,
+     "ultima_pagina": 8
+    }
+   },
+   "35": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "35. A alteração de despacho de geração, necessária ao atendimento das condições requeridas para a intervenção, deve ser providenciada junto ao ONS. Liberação das intervenções",
+     "pagina": 7,
+     "ultima_pagina": 7
+    },
+    "atual": {
+     "trecho": "35. A alteração de despacho de geração, necessária ao atendimento das condições requeridas para a intervenção, deve ser providenciada junto ao ONS. Liberação das intervenções",
+     "pagina": 8,
+     "ultima_pagina": 8
+    }
+   },
+   "36": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "36. As intervenções de qualquer natureza em equipamentos do sistema ou da instalação de conexão só podem ser liberadas com a prévia autorização do COD ou do COT envolvidos.",
+     "pagina": 7,
+     "ultima_pagina": 7
+    },
+    "atual": {
+     "trecho": "36. As intervenções de qualquer natureza em equipamentos do sistema ou da instalação de conexão só podem ser liberadas com a prévia autorização do COD ou do COT envolvidos.",
+     "pagina": 8,
+     "ultima_pagina": 8
+    }
+   },
+   "37": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "37. A intervenção pode ser iniciada depois de observados os seguintes passos: análise in loco do risco de acidentes de qualquer natureza, que deve ser feita na fase de planejamento da intervenção pelo supervisor de serviço e sua equipe; conclusão das manobras necessárias; colocação das sinalizações de advertência e dos dispositivos de bloqueio físico pertinentes; e autorização para o início dos serviços contidos nos documentos envolvidos na liberação.",
+     "pagina": 7,
+     "ultima_pagina": 7
+    },
+    "atual": {
+     "trecho": "37. A intervenção pode ser iniciada depois de observados os seguintes passos: análise in loco do risco de acidentes de qualquer natureza, que deve ser feita na fase de planejamento da intervenção pelo supervisor de serviço e sua equipe; conclusão das manobras necessárias; colocação das sinalizações de advertência e dos dispositivos de bloqueio físico pertinentes; e autorização para o início dos serviços contidos nos documentos envolvidos na liberação.",
+     "pagina": 8,
+     "ultima_pagina": 9
+    }
+   },
+   "38": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "38. As condições impeditivas à liberação das intervenções são: condições climáticas adversas; impedimentos de qualquer natureza ao acesso das equipes de trabalho; necessidade de atendimento de urgência ou ocorrência no sistema; indisponibilidades não previstas que venham a colocar em risco a confiabilidade do sistema; e condições hidrológicas adversas ou indisponibilidade de central geradora que resultem em violação dos limites operativos do sistema.",
+     "pagina": 7,
+     "ultima_pagina": 8
+    },
+    "atual": {
+     "trecho": "38. As condições impeditivas à liberação das intervenções são: condições climáticas adversas; impedimentos de qualquer natureza ao acesso das equipes de trabalho; necessidade de atendimento de urgência ou ocorrência no sistema; indisponibilidades não previstas que venham a colocar em risco a confiabilidade do sistema; e condições hidrológicas adversas ou indisponibilidade de central geradora que resultem em violação dos limites operativos do sistema.",
+     "pagina": 9,
+     "ultima_pagina": 9
+    }
+   },
+   "39": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "39. Havendo atraso em relação ao início programado da intervenção, o COD ou o COT envolvidos devem reavaliar as condições, podendo prorrogar o término previsto, reprogramar ou cancelar a programação.",
+     "pagina": 8,
+     "ultima_pagina": 8
+    },
+    "atual": {
+     "trecho": "39. Havendo atraso em relação ao início programado da intervenção, o COD ou o COT envolvidos devem reavaliar as condições, podendo prorrogar o término previsto, reprogramar ou cancelar a programação.",
+     "pagina": 9,
+     "ultima_pagina": 9
+    }
+   },
+   "40": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "40. As intervenções já aprovadas e que não venham a se realizar em função das condições impeditivas listadas no item 38 podem ser reprogramadas com prazos inferiores aos estipulados nos itens 26 a 28, com concordância dos agentes envolvidos.",
+     "pagina": 8,
+     "ultima_pagina": 8
+    },
+    "atual": {
+     "trecho": "40. As intervenções já aprovadas e que não venham a se realizar em função das condições impeditivas listadas no item 38 podem ser reprogramadas com prazos inferiores aos estipulados nos itens 26 a 28, com concordância dos agentes envolvidos.",
+     "pagina": 9,
+     "ultima_pagina": 9
+    }
+   },
+   "41": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "41. A distribuidora deve selecionar as unidades consumidoras, subestações e alimentadores sujeitos às ações de controle de carga transitórias, baseada nas diretrizes de priorização e montantes de corte de carga determinadas pelo ONS para os Sistemas Especiais de Proteção – SEP, e em estudos próprios.",
+     "pagina": 8,
+     "ultima_pagina": 8
+    },
+    "atual": {
+     "trecho": "41. A distribuidora deve selecionar as unidades consumidoras, subestações e alimentadores sujeitos às ações de controle de carga transitórias, baseada nas diretrizes de priorização e montantes de corte de carga determinadas pelo ONS para os Sistemas Especiais de Proteção – SEP, e em estudos próprios.",
+     "pagina": 9,
+     "ultima_pagina": 9
+    }
+   },
+   "42": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "42. A distribuidora deve estabelecer procedimentos detalhados das ações, diretrizes e instruções de operação.",
+     "pagina": 8,
+     "ultima_pagina": 8
+    },
+    "atual": {
+     "trecho": "42. A distribuidora deve estabelecer procedimentos detalhados das ações, diretrizes e instruções de operação.",
+     "pagina": 9,
+     "ultima_pagina": 9
+    }
+   },
+   "43": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "43. A distribuidora deve elaborar um documento denominado Mensagens Operativas, quando for necessário alterar as instruções operativas vigentes.",
+     "pagina": 8,
+     "ultima_pagina": 8
+    },
+    "atual": {
+     "trecho": "43. A distribuidora deve elaborar um documento denominado Mensagens Operativas, quando for necessário alterar as instruções operativas vigentes.",
+     "pagina": 9,
+     "ultima_pagina": 9
+    }
+   },
+   "44": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "44. A distribuidora deve elaborar um documento denominado Tabelas de Prioridade Regional – PR, contendo a priorização do corte de carga manual em subestações para atender necessidades de corte de carga.",
+     "pagina": 8,
+     "ultima_pagina": 8
+    },
+    "atual": {
+     "trecho": "44. A distribuidora deve elaborar um documento denominado Tabelas de Prioridade Regional – PR, contendo a priorização do corte de carga manual em subestações para atender necessidades de corte de carga.",
+     "pagina": 9,
+     "ultima_pagina": 9
+    }
+   },
+   "45": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "45. A distribuidora deve elaborar um documento denominado Tabelas de Prioridade de Alimentadores por Subestação – PAS, contendo a priorização do corte de carga manual em alimentadores de subestações para atender a necessidades de corte de carga. Atribuições",
+     "pagina": 8,
+     "ultima_pagina": 8
+    },
+    "atual": {
+     "trecho": "45. A distribuidora deve elaborar um documento denominado Tabelas de Prioridade de Alimentadores por Subestação – PAS, contendo a priorização do corte de carga manual em alimentadores de subestações para atender a necessidades de corte de carga. Atribuições",
+     "pagina": 9,
+     "ultima_pagina": 10
+    }
+   },
+   "46": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "46. A distribuidora tem as seguintes atribuições no controle de carga: definir os montantes globais de cortes de carga por ações de controle de carga urgentes para contingências nos sistemas de distribuição que resultem em redução da capacidade de suprimento; implantar os esquemas de corte automáticos de carga definidos pelos estudos do ONS, com os respectivos montantes e ajustes; implantar os esquemas de corte automáticos de carga definidos pelos próprios estudos de planejamento da operação elétrica, com os respectivos montantes e ajustes; elaborar Instruções de Operação para situações de contingências com diretrizes para ações de controle de carga urgentes, de corte manual de carga ou redução de carga por meio de redução de tensão a níveis tecnicamente aceitáveis; elaborar Mensagens Operativas para situações de contingências com diretrizes para ações de controle de carga programáveis, de corte manual de carga ou redução de carga por meio de redução de tensão a níveis tecnicamente aceitáveis; elaborar Instruções de Operação com diretrizes para o restabelecimento das condições de tensão e das cargas desligadas pelos esquemas de corte automático ou pelo corte manual; elaborar e manter atualizadas as Tabelas de Prioridade Regional e Tabelas de Prioridade de Alimentadores por Subestação, estabelecendo os diversos montantes de carga a serem cortados, levando em consideração os montantes estabelecidos pelo ONS, os tempos de execução dos cortes compatíveis à necessidade, a duração do desligamento dos alimentadores, os critérios para rodízio bem como a infraestrutura necessária para a execução do plano de corte; atualizar as Tabelas de Prioridade Regional e Tabelas de Prioridade de Alimentadores por Subestação sempre que se verificarem alterações significativas na carga ou na configuração do sistema de distribuição; definir o conjunto de informações que serão fornecidas aos consumidores quando da execução dos cortes, por meio de serviços de atendimento disponibilizados pelas distribuidoras para informações; constituir um banco de dados com as informações cadastrais fornecidas pelos consumidores, conforme estabelecido no Módulo 6 do PRODIST; priorizar a continuidade de suprimento das cargas relacionadas aos serviços essenciais; operacionalizar o corte de carga na sua área de concessão e no relacionamento com seus consumidores; analisar, em caráter de urgência, a possibilidade de restabelecer o fornecimento de energia elétrica de unidades consumidoras que exerçam atividades essenciais e que disponham de geração autônoma, no caso de pane em seus sistemas ou de insuficiência de fornecimento; analisar a possibilidade de não efetuar o corte comunicado, ou de restabelecer emergencialmente o fornecimento de energia elétrica, em áreas ou situações que representem risco para a integridade de pessoas, quando solicitado pela Defesa Civil; informar aos consumidores as medidas que foram ou que serão adotadas, relacionadas à redução ou interrupção de seu atendimento, suas razões e sua programação; supervisionar, comandar e executar as ações para gerenciamento de carga do sistema de distribuição, atendendo as diretrizes das Instruções de Operação e das Mensagens Operativas; atender as prioridades e os montantes de corte de carga estabelecidas nas Tabelas de Prioridade Regional e Tabelas de Prioridade de Alimentadores por Subestação, levando em consideração a duração do desligamento dos alimentadores e os critérios para rodízio, bem como a infraestrutura necessária para a execução do plano de corte; manter atualizadas as informações sobre as disponibilidades das centrais geradoras, objetivando sua utilização em situações de contingência; solicitar auxílio de geração às centrais geradoras, antes de adotar qualquer ação de controle de carga urgente ou programável; solicitar diretamente ao centro de operação do ONS, com o qual se relaciona, o auxílio de geração para usinas despachadas centralizadamente; informar previamente ao ONS os remanejamentos de carga entre as subestações da sua rede de distribuição que possam provocar impactos na Rede de Operação do SIN, conforme disposto nos Procedimentos de Rede; e coordenar, em sua área de concessão, as ações de gerenciamento da carga motivadas por eventos na Rede de Operação, conforme estabelecido nos Procedimentos de Rede.",
+     "pagina": 8,
+     "ultima_pagina": 10
+    },
+    "atual": {
+     "trecho": "46. A distribuidora tem as seguintes atribuições no controle de carga: definir os montantes globais de cortes de carga por ações de controle de carga urgentes para contingências nos sistemas de distribuição que resultem em redução da capacidade de suprimento; implantar os esquemas de corte automáticos de carga definidos pelos estudos do ONS, com os respectivos montantes e ajustes; implantar os esquemas de corte automáticos de carga definidos pelos próprios estudos de planejamento da operação elétrica, com os respectivos montantes e ajustes; elaborar Instruções de Operação para situações de contingências com diretrizes para ações de controle de carga urgentes, de corte manual de carga ou redução de carga por meio de redução de tensão a níveis tecnicamente aceitáveis; elaborar Mensagens Operativas para situações de contingências com diretrizes para ações de controle de carga programáveis, de corte manual de carga ou redução de carga por meio de redução de tensão a níveis tecnicamente aceitáveis; elaborar Instruções de Operação com diretrizes para o restabelecimento das condições de tensão e das cargas desligadas pelos esquemas de corte automático ou pelo corte manual; elaborar e manter atualizadas as Tabelas de Prioridade Regional e Tabelas de Prioridade de Alimentadores por Subestação, estabelecendo os diversos montantes de carga a serem cortados, levando em consideração os montantes estabelecidos pelo ONS, os tempos de execução dos cortes compatíveis à necessidade, a duração do desligamento dos alimentadores, os critérios para rodízio bem como a infraestrutura necessária para a execução do plano de corte; atualizar as Tabelas de Prioridade Regional e Tabelas de Prioridade de Alimentadores por Subestação sempre que se verificarem alterações significativas na carga ou na configuração do sistema de distribuição; definir o conjunto de informações que serão fornecidas aos consumidores quando da execução dos cortes, por meio de serviços de atendimento disponibilizados pelas distribuidoras para informações; constituir um banco de dados com as informações cadastrais fornecidas pelos consumidores, conforme estabelecido no Módulo 6 do PRODIST; priorizar a continuidade de suprimento das cargas relacionadas aos serviços essenciais; operacionalizar o corte de carga na sua área de concessão e no relacionamento com seus consumidores; analisar, em caráter de urgência, a possibilidade de restabelecer o fornecimento de energia elétrica de unidades consumidoras que exerçam atividades essenciais e que disponham de geração autônoma, no caso de pane em seus sistemas ou de insuficiência de fornecimento; analisar a possibilidade de não efetuar o corte comunicado, ou de restabelecer emergencialmente o fornecimento de energia elétrica, em áreas ou situações que representem risco para a integridade de pessoas, quando solicitado pela Defesa Civil; informar aos consumidores as medidas que foram ou que serão adotadas, relacionadas à redução ou interrupção de seu atendimento, suas razões e sua programação; supervisionar, comandar e executar as ações para gerenciamento de carga do sistema de distribuição, atendendo as diretrizes das Instruções de Operação e das Mensagens Operativas; atender as prioridades e os montantes de corte de carga estabelecidas nas Tabelas de Prioridade Regional e Tabelas de Prioridade de Alimentadores por Subestação, levando em consideração a duração do desligamento dos alimentadores e os critérios para rodízio, bem como a infraestrutura necessária para a execução do plano de corte; manter atualizadas as informações sobre as disponibilidades das centrais geradoras, objetivando sua utilização em situações de contingência; solicitar auxílio de geração às centrais geradoras, antes de adotar qualquer ação de controle de carga urgente ou programável; solicitar diretamente ao centro de operação do ONS, com o qual se relaciona, o auxílio de geração para usinas despachadas centralizadamente; informar previamente ao ONS os remanejamentos de carga entre as subestações da sua rede de distribuição que possam provocar impactos na Rede de Operação do SIN, conforme disposto nos Procedimentos de Rede; e coordenar, em sua área de concessão, as ações de gerenciamento da carga motivadas por eventos na Rede de Operação, conforme estabelecido nos Procedimentos de Rede.",
+     "pagina": 10,
+     "ultima_pagina": 11
+    }
+   },
+   "47": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "47. A central geradora não despachada centralizadamente ou o CDGD têm as seguintes atribuições no controle de carga: fornecer as informações relacionadas à sua geração quando acionados pelo COD, conforme estabelecido no Módulo 6 do PRODIST; e quando acionados pelo COD: disponibilizar eventuais folgas de geração; suspender manutenção já iniciada de centrais geradoras, se possível; e cancelar manutenção programada ou não programada de centrais geradoras.",
+     "pagina": 10,
+     "ultima_pagina": 10
+    },
+    "atual": {
+     "trecho": "47. A central geradora não despachada centralizadamente ou o CDGD têm as seguintes atribuições no controle de carga: fornecer as informações relacionadas à sua geração quando acionados pelo COD, conforme estabelecido no Módulo 6 do PRODIST; e quando acionados pelo COD: disponibilizar eventuais folgas de geração; suspender manutenção já iniciada de centrais geradoras, se possível; e cancelar manutenção programada ou não programada de centrais geradoras.",
+     "pagina": 11,
+     "ultima_pagina": 11
+    }
+   },
+   "48": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "48. Os consumidores têm as seguintes atribuições no controle de carga: manter atualizado seu cadastro junto à distribuidora para receber comunicações especiais de interrupção de fornecimento, caso sejam classificados como prestadores de serviços essenciais, conforme definido no Módulo 1 do PRODIST; e atender à distribuidora quando for solicitado o corte de carga em situações de necessidade do sistema. Orientações técnicas",
+     "pagina": 10,
+     "ultima_pagina": 10
+    },
+    "atual": {
+     "trecho": "48. Os consumidores têm as seguintes atribuições no controle de carga: manter atualizado seu cadastro junto à distribuidora para receber comunicações especiais de interrupção de fornecimento, caso sejam classificados como prestadores de serviços essenciais, conforme definido no Módulo 1 do PRODIST; e atender à distribuidora quando for solicitado o corte de carga em situações de necessidade do sistema. Orientações técnicas",
+     "pagina": 12,
+     "ultima_pagina": 12
+    }
+   },
+   "49": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "49. São ações para o controle de carga: o corte indireto, pela redução manual do nível de tensão a níveis tecnicamente aceitáveis; e o corte direto, podendo ser manual ou automático.",
+     "pagina": 10,
+     "ultima_pagina": 10
+    },
+    "atual": {
+     "trecho": "49. São ações para o controle de carga: o corte indireto, pela redução manual do nível de tensão a níveis tecnicamente aceitáveis; e o corte direto, podendo ser manual ou automático.",
+     "pagina": 12,
+     "ultima_pagina": 12
+    }
+   },
+   "50": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "50. As ações de controle de carga podem ser classificadas da seguinte forma: Quanto à duração: de curta duração – inferior a 4 horas, podendo durar poucos segundos; de média duração – entre 4 e 24 horas; e de longa duração – superior a 24 horas, podendo abranger períodos mais prolongados. Quanto ao tempo requerido para aplicação: transitórias – ações automáticas preventivas, implantadas por meio de esquemas especiais, para evitar o colapso no sistema em regime transitório; urgentes – ações automáticas ou ações manuais corretivas, quando decorrentes de contingências que impõem ao sistema o risco iminente de violação de qualquer grandeza operativa ou quando já constatada esta violação; e programáveis – ações manuais preventivas decorrentes de contingências que impõem ao sistema o risco iminente de violação de qualquer grandeza operativa.",
+     "pagina": 10,
+     "ultima_pagina": 11
+    },
+    "atual": {
+     "trecho": "50. As ações de controle de carga podem ser classificadas da seguinte forma: Quanto à duração: de curta duração – inferior a 4 horas, podendo durar poucos segundos; de média duração – entre 4 e 24 horas; e de longa duração – superior a 24 horas, podendo abranger períodos mais prolongados. Quanto ao tempo requerido para aplicação: transitórias – ações automáticas preventivas, implantadas por meio de esquemas especiais, para evitar o colapso no sistema em regime transitório; urgentes – ações automáticas ou ações manuais corretivas, quando decorrentes de contingências que impõem ao sistema o risco iminente de violação de qualquer grandeza operativa ou quando já constatada esta violação; e programáveis – ações manuais preventivas decorrentes de contingências que impõem ao sistema o risco iminente de violação de qualquer grandeza operativa.",
+     "pagina": 12,
+     "ultima_pagina": 12
+    }
+   },
+   "51": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "51. Toda e qualquer disponibilidade de geração da central geradora, despachada centralizadamente ou não, deve ser utilizada prioritariamente às ações de controle de carga.",
+     "pagina": 11,
+     "ultima_pagina": 11
+    },
+    "atual": {
+     "trecho": "51. Toda e qualquer disponibilidade de geração da central geradora, despachada centralizadamente ou não, deve ser utilizada prioritariamente às ações de controle de carga.",
+     "pagina": 12,
+     "ultima_pagina": 12
+    }
+   },
+   "52": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "52. Os remanejamentos de carga devem ser priorizados em relação às ações de corte direto manual.",
+     "pagina": 11,
+     "ultima_pagina": 11
+    },
+    "atual": {
+     "trecho": "52. Os remanejamentos de carga devem ser priorizados em relação às ações de corte direto manual.",
+     "pagina": 12,
+     "ultima_pagina": 12
+    }
+   },
+   "53": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "53. A distribuidora deve dispor de Instruções de Operação ou Mensagens Operativas contendo os procedimentos para controle de sua carga.",
+     "pagina": 11,
+     "ultima_pagina": 11
+    },
+    "atual": {
+     "trecho": "53. A distribuidora deve dispor de Instruções de Operação ou Mensagens Operativas contendo os procedimentos para controle de sua carga.",
+     "pagina": 13,
+     "ultima_pagina": 13
+    }
+   },
+   "54": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "54. Para o controle de carga de longa duração, a distribuidora deve prever nos Acordos Operativos: a possibilidade de estabelecer com os consumidores e centrais geradoras a redução das demandas; os critérios que serão utilizados para o estabelecimento dos consumidores e centrais geradoras que terão sua demanda reduzida; e a compensação dos montantes reduzidos nos períodos de menor restrição do sistema elétrico.",
+     "pagina": 11,
+     "ultima_pagina": 11
+    },
+    "atual": {
+     "trecho": "54. Para o controle de carga de longa duração, a distribuidora deve prever nos Acordos Operativos: a possibilidade de estabelecer com os consumidores e centrais geradoras a redução das demandas; os critérios que serão utilizados para o estabelecimento dos consumidores e centrais geradoras que terão sua demanda reduzida; e a compensação dos montantes reduzidos nos períodos de menor restrição do sistema elétrico.",
+     "pagina": 13,
+     "ultima_pagina": 13
+    }
+   },
+   "55": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "55. A distribuidora e os usuários que estejam sob ação de controle de carga por redução de tensão não podem corrigir a tensão de seus sistemas, qualquer que seja o recurso de que disponham.",
+     "pagina": 11,
+     "ultima_pagina": 11
+    },
+    "atual": {
+     "trecho": "55. A distribuidora e os usuários que estejam sob ação de controle de carga por redução de tensão não podem corrigir a tensão de seus sistemas, qualquer que seja o recurso de que disponham.",
+     "pagina": 13,
+     "ultima_pagina": 13
+    }
+   },
+   "56": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "56. O processo de restabelecimento manual das cargas por corte direto ou indireto inicia-se somente após o comprovado retorno do sistema ou da rede local às condições normais de operação.",
+     "pagina": 11,
+     "ultima_pagina": 11
+    },
+    "atual": {
+     "trecho": "56. O processo de restabelecimento manual das cargas por corte direto ou indireto inicia-se somente após o comprovado retorno do sistema ou da rede local às condições normais de operação.",
+     "pagina": 13,
+     "ultima_pagina": 13
+    }
+   },
+   "57": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "57. Durante o processo de restabelecimento da carga: a ordem de priorização de restabelecimento deve ser inversa em relação à ordem estabelecida para corte, obedecendo às condições e diretrizes explicitadas em instruções de operação dos Procedimentos de Rede; e deve-se garantir o restabelecimento dos montantes mínimos de carga, não ultrapassando os limites máximos estabelecidos para cada etapa da recomposição.",
+     "pagina": 11,
+     "ultima_pagina": 11
+    },
+    "atual": {
+     "trecho": "57. Durante o processo de restabelecimento da carga: a ordem de priorização de restabelecimento deve ser inversa em relação à ordem estabelecida para corte, obedecendo às condições e diretrizes explicitadas em instruções de operação dos Procedimentos de Rede; e deve-se garantir o restabelecimento dos montantes mínimos de carga, não ultrapassando os limites máximos estabelecidos para cada etapa da recomposição.",
+     "pagina": 13,
+     "ultima_pagina": 13
+    }
+   },
+   "58": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "58. No caso particular de cargas desligadas por ação do ERAC, a ordem de priorização de restabelecimento deve ser direta em relação à ordem dos estágios de corte, para garantia da segurança do sistema em caso de nova queda de frequência resultante do processo de restabelecimento das cargas.",
+     "pagina": 11,
+     "ultima_pagina": 12
+    },
+    "atual": {
+     "trecho": "58. No caso particular de cargas desligadas por ação do ERAC, a ordem de priorização de restabelecimento deve ser direta em relação à ordem dos estágios de corte, para garantia da segurança do sistema em caso de nova queda de frequência resultante do processo de restabelecimento das cargas.",
+     "pagina": 13,
+     "ultima_pagina": 13
+    }
+   },
+   "59": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "59. Quando tiverem sido adotadas ações simultâneas de corte direto de carga e redução de carga por meio de redução de tensão, a prioridade no restabelecimento deve ser dada às cargas efetivamente interrompidas, antes da normalização da tensão.",
+     "pagina": 12,
+     "ultima_pagina": 12
+    },
+    "atual": {
+     "trecho": "59. Quando tiverem sido adotadas ações simultâneas de corte direto de carga e redução de carga por meio de redução de tensão, a prioridade no restabelecimento deve ser dada às cargas efetivamente interrompidas, antes da normalização da tensão.",
+     "pagina": 13,
+     "ultima_pagina": 13
+    }
+   },
+   "60": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "60. Em situações de contingências que resultem em sobrecarga nos equipamentos da rede de distribuição, devem-se explorar os limites de sobrecarga destes equipamentos antes da adoção de qualquer ação de controle de carga. Diretrizes para priorização de cargas",
+     "pagina": 12,
+     "ultima_pagina": 12
+    },
+    "atual": {
+     "trecho": "60. Em situações de contingências que resultem em sobrecarga nos equipamentos da rede de distribuição, devem-se explorar os limites de sobrecarga destes equipamentos antes da adoção de qualquer ação de controle de carga. Diretrizes para priorização de cargas",
+     "pagina": 13,
+     "ultima_pagina": 13
+    }
+   },
+   "61": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "61. A distribuidora deve definir critérios para classificação e priorização das unidades consumidoras, para fins de controle de carga, respeitadas aquelas que prestam serviços essenciais, conforme definido no Módulo 1 do PRODIST.",
+     "pagina": 12,
+     "ultima_pagina": 12
+    },
+    "atual": {
+     "trecho": "61. A distribuidora deve definir critérios para classificação e priorização das unidades consumidoras, para fins de controle de carga, respeitadas aquelas que prestam serviços essenciais, conforme definido no Módulo 1 do PRODIST.",
+     "pagina": 13,
+     "ultima_pagina": 13
+    }
+   },
+   "62": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "62. As cargas interruptíveis por contrato devem ser as primeiras indicadas para corte.",
+     "pagina": 12,
+     "ultima_pagina": 12
+    },
+    "atual": {
+     "trecho": "62. As cargas interruptíveis por contrato devem ser as primeiras indicadas para corte.",
+     "pagina": 14,
+     "ultima_pagina": 14
+    }
+   },
+   "63": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "63. A Priorização de Alimentadores por Subestação – PAS deve atender aos desligamentos relacionados a uma única subestação, considerando-se tipos de unidades consumidoras.",
+     "pagina": 12,
+     "ultima_pagina": 12
+    },
+    "atual": {
+     "trecho": "63. A Priorização de Alimentadores por Subestação – PAS deve atender aos desligamentos relacionados a uma única subestação, considerando-se tipos de unidades consumidoras.",
+     "pagina": 14,
+     "ultima_pagina": 14
+    }
+   },
+   "64": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "64. Os critérios que devem orientar a elaboração da PAS são: alimentadores com unidades consumidoras da mesma classe, sempre que possível, devem receber tratamento análogo; cada subestação deve conter prioridades de desligamentos específicos para cada período de carga leve, média e pesada; e deve conter uma estimativa da contribuição de carga de cada um dos alimentadores da subestação para cada período. Aviso aos usuários",
+     "pagina": 12,
+     "ultima_pagina": 12
+    },
+    "atual": {
+     "trecho": "64. Os critérios que devem orientar a elaboração da PAS são: alimentadores com unidades consumidoras da mesma classe, sempre que possível, devem receber tratamento análogo; cada subestação deve conter prioridades de desligamentos específicos para cada período de carga leve, média e pesada; e deve conter uma estimativa da contribuição de carga de cada um dos alimentadores da subestação para cada período. Aviso aos usuários",
+     "pagina": 14,
+     "ultima_pagina": 14
+    }
+   },
+   "65": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "65. Nos casos de ações de controle de carga programáveis, a distribuidora deve avisar a todos os seus consumidores, utilizando-se de meio de comunicação apropriado, as medidas que serão adotadas com relação à redução ou interrupção de seu fornecimento, suas razões e sua programação, observando os procedimentos definidos no Módulo 8 do PRODIST.",
+     "pagina": 12,
+     "ultima_pagina": 12
+    },
+    "atual": {
+     "trecho": "65. Nos casos de ações de controle de carga programáveis, a distribuidora deve avisar a todos os seus consumidores, utilizando-se de meio de comunicação apropriado, as medidas que serão adotadas com relação à redução ou interrupção de seu fornecimento, suas razões e sua programação, observando os procedimentos definidos no Módulo 8 do PRODIST.",
+     "pagina": 14,
+     "ultima_pagina": 14
+    }
+   },
+   "66": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "66. A distribuidora acessada pode requerer o acompanhamento dos seguintes testes: desempenho da funcionalidade, coordenação e ajustes de todas as funções de proteção mínimas nas centrais geradoras, definidas no Módulo 3 do PRODIST; avaliação do desempenho dinâmico de sistemas de controle de tensão e de frequência das centrais geradoras; adequação de operação do disjuntor de conexão durante a eliminação de faltas, incluindo a sua operação manual ou automática; verificação do desempenho dos dispositivos instalados para a desconexão das centrais geradoras, caso não seja permitida a operação ilhada ou a injeção de potência no sistema pela geração distribuída; levantamento da curva de capabilidade das centrais geradoras; e levantamento dos limites mínimos e máximos de geração de potência ativa das centrais geradoras.",
+     "pagina": 12,
+     "ultima_pagina": 13
+    },
+    "atual": {
+     "trecho": "66. A distribuidora acessada pode requerer o acompanhamento dos seguintes testes: desempenho da funcionalidade, coordenação e ajustes de todas as funções de proteção mínimas nas centrais geradoras, definidas no Módulo 3 do PRODIST; avaliação do desempenho dinâmico de sistemas de controle de tensão e de frequência das centrais geradoras; adequação de operação do disjuntor de conexão durante a eliminação de faltas, incluindo a sua operação manual ou automática; verificação do desempenho dos dispositivos instalados para a desconexão das centrais geradoras, caso não seja permitida a operação ilhada ou a injeção de potência no sistema pela geração distribuída; levantamento da curva de capabilidade das centrais geradoras; e levantamento dos limites mínimos e máximos de geração de potência ativa das centrais geradoras.",
+     "pagina": 14,
+     "ultima_pagina": 15
+    }
+   },
+   "67": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "67. Os testes de instalações de centrais geradoras despachadas centralizadamente devem atender aos Procedimentos de Rede e aos Procedimentos de Distribuição. Testes de desempenho dos sistemas de distribuição, dos equipamentos conectados e dos pontos de conexão com as DIT",
+     "pagina": 13,
+     "ultima_pagina": 13
+    },
+    "atual": {
+     "trecho": "67. Os testes de instalações de centrais geradoras despachadas centralizadamente devem atender aos Procedimentos de Rede e aos Procedimentos de Distribuição. Testes de desempenho dos sistemas de distribuição, dos equipamentos conectados e dos pontos de conexão com as DIT",
+     "pagina": 15,
+     "ultima_pagina": 15
+    }
+   },
+   "68": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "68. A distribuidora acessada deve definir a necessidade e a periodicidade de testes de qualidade da energia elétrica nos pontos de conexão, conforme requisitos definidos no Módulo 8 do PRODIST.",
+     "pagina": 13,
+     "ultima_pagina": 13
+    },
+    "atual": {
+     "trecho": "68. A distribuidora acessada deve definir a necessidade e a periodicidade de testes de qualidade da energia elétrica nos pontos de conexão, conforme requisitos definidos no Módulo 8 do PRODIST.",
+     "pagina": 15,
+     "ultima_pagina": 15
+    }
+   },
+   "69": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "69. A distribuidora acessada pode solicitar ao usuário que realize testes em suas instalações, quando da necessidade de comprovar a origem de problemas de qualidade da energia elétrica, conforme requisitos definidos no Módulo 8 do PRODIST.",
+     "pagina": 13,
+     "ultima_pagina": 13
+    },
+    "atual": {
+     "trecho": "69. A distribuidora acessada pode solicitar ao usuário que realize testes em suas instalações, quando da necessidade de comprovar a origem de problemas de qualidade da energia elétrica, conforme requisitos definidos no Módulo 8 do PRODIST.",
+     "pagina": 15,
+     "ultima_pagina": 15
+    }
+   },
+   "70": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "70. O usuário pode requerer e acompanhar a realização de testes, pela distribuidora acessada, para verificação das condições de fornecimento, quando identificar problemas envolvendo a qualidade da energia elétrica no ponto de conexão.",
+     "pagina": 13,
+     "ultima_pagina": 13
+    },
+    "atual": {
+     "trecho": "70. O usuário pode requerer e acompanhar a realização de testes, pela distribuidora acessada, para verificação das condições de fornecimento, quando identificar problemas envolvendo a qualidade da energia elétrica no ponto de conexão.",
+     "pagina": 15,
+     "ultima_pagina": 15
+    }
+   },
+   "71": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "71. A distribuidora deve informar antecipadamente aos usuários sobre a realização de testes em seu sistema e disponibilizar os resultados obtidos.",
+     "pagina": 13,
+     "ultima_pagina": 13
+    },
+    "atual": {
+     "trecho": "71. A distribuidora deve informar antecipadamente aos usuários sobre a realização de testes em seu sistema e disponibilizar os resultados obtidos.",
+     "pagina": 15,
+     "ultima_pagina": 15
+    }
+   },
+   "72": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "72. A distribuidora acessada deve estabelecer os procedimentos operacionais a serem seguidos durante a realização dos testes das instalações.",
+     "pagina": 13,
+     "ultima_pagina": 13
+    },
+    "atual": {
+     "trecho": "72. A distribuidora acessada deve estabelecer os procedimentos operacionais a serem seguidos durante a realização dos testes das instalações.",
+     "pagina": 15,
+     "ultima_pagina": 15
+    }
+   },
+   "73": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "73. Os procedimentos de teste que envolvam relacionamentos entre agente de transmissão e usuário devem ser acompanhados pela distribuidora com a qual o consumidor tenha Contrato.",
+     "pagina": 13,
+     "ultima_pagina": 13
+    },
+    "atual": {
+     "trecho": "73. Os procedimentos de teste que envolvam relacionamentos entre agente de transmissão e usuário devem ser acompanhados pela distribuidora com a qual o consumidor tenha Contrato.",
+     "pagina": 15,
+     "ultima_pagina": 15
+    }
+   },
+   "74": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "74. O Centro de Operação da distribuição – COD tem as seguintes atribuições: coordenar, supervisionar, comandar e executar as ações operativas nas instalações de distribuição que não pertençam à rede de operação do SIN; obter junto aos usuários as informações necessárias à coordenação, supervisão e controle da operação de instalações; elaborar, atualizar e disponibilizar aos usuários as instruções de operação com procedimentos para instalações que interferem no sistema de distribuição; e informar aos usuários sobre condições operativas no sistema de distribuição que possam interferir na operação de suas instalações.",
+     "pagina": 13,
+     "ultima_pagina": 14
+    },
+    "atual": {
+     "trecho": "74. O Centro de Operação da distribuição – COD tem as seguintes atribuições: coordenar, supervisionar, comandar e executar as ações operativas nas instalações de distribuição que não pertençam à rede de operação do SIN; obter junto aos usuários as informações necessárias à coordenação, supervisão e controle da operação de instalações; elaborar, atualizar e disponibilizar aos usuários as instruções de operação com procedimentos para instalações que interferem no sistema de distribuição; e informar aos usuários sobre condições operativas no sistema de distribuição que possam interferir na operação de suas instalações.",
+     "pagina": 15,
+     "ultima_pagina": 16
+    }
+   },
+   "75": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "75. O acessante e o CDGD têm as seguintes atribuições: supervisionar, comandar e executar as ações determinadas pelos COD para a operação em suas instalações de conexão; informar ao COD com o qual se relaciona, a programação de geração para o período que for definido e as alterações nos limites e restrições operacionais de suas instalações; comunicar de imediato ao COD com o qual se relaciona os desligamentos de emergência efetuados ou ocorridos em suas instalações; organizar e manter atualizados normas, instruções e diagramas para operação das instalações; implantar os procedimentos definidos nas instruções de operação nas instalações sob sua responsabilidade; disponibilizar ao COD, quando solicitado, instruções de operação específicas; e manter pessoal habilitado para o relacionamento operacional durante 24 horas por dia.",
+     "pagina": 14,
+     "ultima_pagina": 14
+    },
+    "atual": {
+     "trecho": "75. O acessante e o CDGD têm as seguintes atribuições: supervisionar, comandar e executar as ações determinadas pelos COD para a operação em suas instalações de conexão; informar ao COD com o qual se relaciona, a programação de geração para o período que for definido e as alterações nos limites e restrições operacionais de suas instalações; comunicar de imediato ao COD com o qual se relaciona os desligamentos de emergência efetuados ou ocorridos em suas instalações; organizar e manter atualizados normas, instruções e diagramas para operação das instalações; implantar os procedimentos definidos nas instruções de operação nas instalações sob sua responsabilidade; disponibilizar ao COD, quando solicitado, instruções de operação específicas; e manter pessoal habilitado para o relacionamento operacional durante 24 horas por dia.",
+     "pagina": 16,
+     "ultima_pagina": 16
+    }
+   },
+   "76": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "76. O CDGD realiza a gestão técnica e administrativa das centrais do agrupamento, sendo suas funções: limitar a potência a ser injetada no sistema de distribuição; controlar a tensão e a potência reativa; desconectar as centrais geradoras, quando necessário; coordenar os procedimentos de entrada e saída de serviço; e definir previsões de produção de energia.",
+     "pagina": 14,
+     "ultima_pagina": 14
+    },
+    "atual": {
+     "trecho": "76. O CDGD realiza a gestão técnica e administrativa das centrais do agrupamento, sendo suas funções: limitar a potência a ser injetada no sistema de distribuição; controlar a tensão e a potência reativa; desconectar as centrais geradoras, quando necessário; coordenar os procedimentos de entrada e saída de serviço; e definir previsões de produção de energia.",
+     "pagina": 16,
+     "ultima_pagina": 16
+    }
+   },
+   "77": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "77. O COT tem as seguintes atribuições: coordenar, supervisionar e controlar as DIT; definir condições de emergência nas DIT; implantar os procedimentos definidos em acordos operativos relacionados às DIT; e informar ao COD sobre condições operativas das DIT que possam interferir na operação do sistema de distribuição ou de usuários diretamente atendidos pela DIT. Operação ilhada",
+     "pagina": 14,
+     "ultima_pagina": 15
+    },
+    "atual": {
+     "trecho": "77. O COT tem as seguintes atribuições: coordenar, supervisionar e controlar as DIT; definir condições de emergência nas DIT; implantar os procedimentos definidos em acordos operativos relacionados às DIT; e informar ao COD sobre condições operativas das DIT que possam interferir na operação do sistema de distribuição ou de usuários diretamente atendidos pela DIT. Operação ilhada",
+     "pagina": 16,
+     "ultima_pagina": 17
+    }
+   },
+   "78": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "78. A operação de central geradora alimentando uma parcela eletricamente isolada do sistema de distribuição, bem como as condições em que essa operação é permitida pela distribuidora, devem constar de Acordo Operativo estabelecido com a central geradora ou a transmissora envolvida, quando for o caso.",
+     "pagina": 15,
+     "ultima_pagina": 15
+    },
+    "atual": {
+     "trecho": "78. A operação de central geradora alimentando uma parcela eletricamente isolada do sistema de distribuição, bem como as condições em que essa operação é permitida pela distribuidora, devem constar de Acordo Operativo estabelecido com a central geradora ou a transmissora envolvida, quando for o caso.",
+     "pagina": 17,
+     "ultima_pagina": 17
+    }
+   },
+   "79": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "79. A central geradora, responsável pelo controle de frequência da parcela eletricamente isolada do sistema de distribuição, deve ser dotada de controle automático de geração (CAG), ou qualquer outra tecnologia capaz de desempenhar a mesma função, caso a operação ilhada seja utilizada de forma permanente.",
+     "pagina": 15,
+     "ultima_pagina": 15
+    },
+    "atual": {
+     "trecho": "79. A central geradora, responsável pelo controle de frequência da parcela eletricamente isolada do sistema de distribuição, deve ser dotada de controle automático de geração (CAG), ou qualquer outra tecnologia capaz de desempenhar a mesma função, caso a operação ilhada seja utilizada de forma permanente.",
+     "pagina": 17,
+     "ultima_pagina": 17
+    }
+   },
+   "80": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "80. A distribuidora deve realizar estudos, instruções operativas e de segurança específicos para a operação ilhada.",
+     "pagina": 15,
+     "ultima_pagina": 15
+    },
+    "atual": {
+     "trecho": "80. A distribuidora deve realizar estudos, instruções operativas e de segurança específicos para a operação ilhada.",
+     "pagina": 17,
+     "ultima_pagina": 17
+    }
+   },
+   "81": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "81. A central geradora deve fornecer as informações necessárias para a elaboração dos estudos de regime permanente e dinâmico e, quando solicitado pela distribuidora, ajustar os parâmetros dos sistemas de controle de forma a garantir o desempenho adequado do sistema. Comunicação de ocorrências",
+     "pagina": 15,
+     "ultima_pagina": 15
+    },
+    "atual": {
+     "trecho": "81. A central geradora deve fornecer as informações necessárias para a elaboração dos estudos de regime permanente e dinâmico e, quando solicitado pela distribuidora, ajustar os parâmetros dos sistemas de controle de forma a garantir o desempenho adequado do sistema. Comunicação de ocorrências",
+     "pagina": 17,
+     "ultima_pagina": 17
+    }
+   },
+   "82": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "82. As informações relativas às ocorrências intercambiadas entre os agentes e a distribuidora encontram-se no Módulo 6 do PRODIST. Análise de perturbações",
+     "pagina": 15,
+     "ultima_pagina": 15
+    },
+    "atual": {
+     "trecho": "82. As informações relativas às ocorrências intercambiadas entre os agentes e a distribuidora encontram-se no Módulo 6 do PRODIST. Análise de perturbações",
+     "pagina": 17,
+     "ultima_pagina": 17
+    }
+   },
+   "83": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "83. O processo de análise de perturbação deve ser executado quando houver solicitação formal dos agentes envolvidos, e deve estar concluído no prazo de até 30 dias da data da solicitação formal.",
+     "pagina": 15,
+     "ultima_pagina": 15
+    },
+    "atual": {
+     "trecho": "83. O processo de análise de perturbação deve ser executado quando houver solicitação formal dos agentes envolvidos, e deve estar concluído no prazo de até 30 dias da data da solicitação formal.",
+     "pagina": 17,
+     "ultima_pagina": 17
+    }
+   },
+   "84": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "84. No processo de análise de perturbação, devem ser identificadas as anormalidades que tiveram influência na perturbação e dificultaram tanto a operação quanto a recomposição do sistema afetado, desde o início da perturbação até a sua normalização, verificando-se o seguinte: cumprimento e adequação dos procedimentos operativos; providências para restabelecimento do sistema; desempenho dos sistemas de comunicação; e o desempenho das proteções e esquemas de controle de emergências.",
+     "pagina": 15,
+     "ultima_pagina": 15
+    },
+    "atual": {
+     "trecho": "84. No processo de análise de perturbação, devem ser identificadas as anormalidades que tiveram influência na perturbação e dificultaram tanto a operação quanto a recomposição do sistema afetado, desde o início da perturbação até a sua normalização, verificando-se o seguinte: cumprimento e adequação dos procedimentos operativos; providências para restabelecimento do sistema; desempenho dos sistemas de comunicação; e o desempenho das proteções e esquemas de controle de emergências.",
+     "pagina": 17,
+     "ultima_pagina": 17
+    }
+   },
+   "85": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "85. Deve ser analisado o comportamento do sistema elétrico, verificando: o desempenho diante de perturbação; e as previsões contidas nos estudos elétricos.",
+     "pagina": 15,
+     "ultima_pagina": 16
+    },
+    "atual": {
+     "trecho": "85. Deve ser analisado o comportamento do sistema elétrico, verificando: o desempenho diante de perturbação; e as previsões contidas nos estudos elétricos.",
+     "pagina": 18,
+     "ultima_pagina": 18
+    }
+   },
+   "86": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "86. Como produto da análise de perturbação deve ser gerado um relatório contendo, no mínimo: a descrição detalhada da perturbação; a análise da operação em tempo real, detalhando as ações realizadas durante a contingência e o desempenho do sistema; as providências tomadas e em andamento; as recomendações; e as conclusões.",
+     "pagina": 16,
+     "ultima_pagina": 16
+    },
+    "atual": {
+     "trecho": "86. Como produto da análise de perturbação deve ser gerado um relatório contendo, no mínimo: a descrição detalhada da perturbação; a análise da operação em tempo real, detalhando as ações realizadas durante a contingência e o desempenho do sistema; as providências tomadas e em andamento; as recomendações; e as conclusões.",
+     "pagina": 18,
+     "ultima_pagina": 18
+    }
+   },
+   "87": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "87. Os COD devem manter os relatórios e os registros relativos às perturbações pelo período de 10 anos.",
+     "pagina": 16,
+     "ultima_pagina": 16
+    },
+    "atual": {
+     "trecho": "87. Os COD devem manter os relatórios e os registros relativos às perturbações pelo período de 10 anos.",
+     "pagina": 18,
+     "ultima_pagina": 18
+    }
+   },
+   "88": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "88. Os usuários são responsáveis por implementar e disponibilizar os recursos de comunicação de voz com o COD, sem ônus para a distribuidora.",
+     "pagina": 16,
+     "ultima_pagina": 16
+    },
+    "atual": {
+     "trecho": "88. Os usuários são responsáveis por implementar e disponibilizar os recursos de comunicação de voz com o COD, sem ônus para a distribuidora.",
+     "pagina": 18,
+     "ultima_pagina": 18
+    }
+   },
+   "89": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "89. A implementação de serviços de comunicação de voz, assim como a qualidade e a disponibilidade desses serviços entre o COD, o COT e CDGD devem ser estabelecidas entre as partes e definidas em Acordo Operativo. Recursos de comunicação de dados",
+     "pagina": 16,
+     "ultima_pagina": 16
+    },
+    "atual": {
+     "trecho": "89. A implementação de serviços de comunicação de voz, assim como a qualidade e a disponibilidade desses serviços entre o COD, o COT e CDGD devem ser estabelecidas entre as partes e definidas em Acordo Operativo. Recursos de comunicação de dados",
+     "pagina": 18,
+     "ultima_pagina": 18
+    }
+   },
+   "90": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "90. A implementação de serviços de comunicação de dados entre os usuários e o COD, bem como a qualidade e a disponibilidade desses serviços, são de responsabilidade dos usuários.",
+     "pagina": 16,
+     "ultima_pagina": 16
+    },
+    "atual": {
+     "trecho": "90. A implementação de serviços de comunicação de dados entre os usuários e o COD, bem como a qualidade e a disponibilidade desses serviços, são de responsabilidade dos usuários.",
+     "pagina": 18,
+     "ultima_pagina": 18
+    }
+   },
+   "91": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "91. Cabe aos usuários disponibilizarem os dados solicitados pela distribuidora, definidos no Acordo Operativo.",
+     "pagina": 16,
+     "ultima_pagina": 16
+    },
+    "atual": {
+     "trecho": "91. Cabe aos usuários disponibilizarem os dados solicitados pela distribuidora, definidos no Acordo Operativo.",
+     "pagina": 18,
+     "ultima_pagina": 18
+    }
+   },
+   "92": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "92. O COD e o COT devem compartilhar dados de supervisão e controle que permitam monitorar em tempo real os estados e grandezas elétricas do sistema nos pontos de conexão das instalações de distribuição e das DIT.",
+     "pagina": 16,
+     "ultima_pagina": 16
+    },
+    "atual": {
+     "trecho": "92. O COD e o COT devem compartilhar dados de supervisão e controle que permitam monitorar em tempo real os estados e grandezas elétricas do sistema nos pontos de conexão das instalações de distribuição e das DIT.",
+     "pagina": 18,
+     "ultima_pagina": 19
+    }
+   },
+   "93": {
+    "classe": "ja_existia",
+    "anterior": {
+     "trecho": "93. A implementação de serviços de comunicação de dados, bem como a qualidade e a disponibilidade desses serviços entre o COD, o COT e o CDGD devem ser estabelecidas entre as partes e definidas em Acordo Operativo.",
+     "pagina": 16,
+     "ultima_pagina": 16
+    },
+    "atual": {
+     "trecho": "93. A implementação de serviços de comunicação de dados, bem como a qualidade e a disponibilidade desses serviços entre o COD, o COT e o CDGD devem ser estabelecidas entre as partes e definidas em Acordo Operativo.",
+     "pagina": 19,
+     "ultima_pagina": 19
+    }
+   },
+   "94": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "94. As distribuidoras devem estabelecer um plano de manejo vegetal na sua área de atuação, que contemple a vegetação que interfira em suas redes de distribuição, em coordenação com o Poder Público Municipal e em articulação com os órgãos competentes do Poder Público Estadual e Distrital, e com vistas a garantir a segurança da rede de distribuição, a qualidade, eficiência e a continuidade do fornecimento de energia elétrica.",
+     "pagina": 19,
+     "ultima_pagina": 19
+    }
+   },
+   "95": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "95. As distribuidoras deverão celebrar convênios, acordos de cooperação ou outros instrumentos formais com os entes públicos municipais, distritais e estaduais, com vistas à definição de protocolos de atuação coordenada para o manejo da vegetação que interfira na segurança e continuidade do serviço público de distribuição de energia elétrica, devendo prever, de forma clara, as responsabilidades de cada parte quanto à inspeção, poda preventiva, remoção e substituição de árvores, respeitando as competências legais e ambientais de cada ente federativo, bem como os procedimentos técnicos e operacionais necessários à execução das ações.",
+     "pagina": 19,
+     "ultima_pagina": 19
+    }
+   },
+   "96": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "96. As distribuidoras devem garantir a rápida remoção de árvores ou galhos caídos sobre a rede, atuando de forma coordenada com o Poder Público Estadual, Distrital ou Municipal, dispondo de autonomia necessária para adotar medidas urgentes que assegurem a rápida recuperação do serviço em situações de emergência.",
+     "pagina": 19,
+     "ultima_pagina": 19
+    }
+   },
+   "97": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "97. A escolha de tecnologias, projetos e estratégias operacionais pelas distribuidoras deve considerar os desafios específicos da vegetação local, incluindo aspectos como espécies predominantes, sazonalidade e características de crescimento de forma a garantir a prestação do serviço adequado.",
+     "pagina": 19,
+     "ultima_pagina": 19
+    }
+   },
+   "98": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "98. As distribuidoras são responsáveis pela realização de ações preventivas, devendo atuar junto ao Poder Público Estadual, Distrital e Municipal e manter os registros das solicitações conforme dispõe o item 104, e corretivas, visando garantir a segurança da rede de distribuição, a qualidade, a eficiência e a continuidade do fornecimento de energia elétrica, por meio do manejo adequado da vegetação, sempre seguindo às legislações pertinentes. 98.1. A notificação da distribuidora ao Poder Público Municipal não a exime de suas obrigações quanto à qualidade, eficiência e continuidade na prestação do serviço de distribuição de energia elétrica, devendo manter atuação diligente e tempestiva. Diretrizes para o manejo vegetal",
+     "pagina": 19,
+     "ultima_pagina": 20
+    }
+   },
+   "99": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "99. As distribuidoras de energia elétrica devem realizar inspeções periódicas na vegetação que possam interferir no funcionamento das redes de distribuição, com base na sua estratégia operacional e em uma avaliação de risco, atuando em coordenação com os órgãos competentes do Poder Público Estadual, Distrital e Municipal, e adotando as seguintes medidas: a) Inspeção regular: realizar a inspeção visual periódica das redes elétricas e da vegetação próxima ou utilizar de sistema de gestão que possibilite a criação de ciclos de podas reduzindo a necessidade de deslocamento de equipe, a fim de identificar árvores ou galhos que possam representar risco de queda sobre a rede de distribuição; b) Poda preventiva: realizar, em articulação com o Poder Público Estadual, Distrital e Municipal e em conformidade com as normas técnicas, podas preventivas para manter distância de segurança entre a vegetação e a rede elétrica, minimizando o risco de acidentes e interrupções no fornecimento de energia; c) Remoção de vegetação de risco: quando identificadas árvores ou partes da vegetação que, devido ao seu estado, porte ou localização, apresentem risco iminente à segurança das redes elétricas, as distribuidoras deverão comunicar imediatamente a necessidade de eliminação do risco ao órgão competente do Poder Público Estadual, Distrital ou Municipal, e articular as ações necessárias para eliminação do risco, prestando apoio técnico necessário, inclusive com o desligamento da rede elétrica, quando aplicável, observando os convênios de cooperação entre os entes envolvidos, respeitando as competências legais e a legislação pertinente; d) Substituição de árvores: as distribuidoras devem por meio de programas estimular o plantio de novas espécies adequadas ao convívio com as redes elétricas, em conformidade com os planos municipais de arborização.",
+     "pagina": 20,
+     "ultima_pagina": 20
+    }
+   },
+   "100": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "100. As distribuidoras devem elaborar Relatório Anual de Gestão do Manejo Vegetal, documentando de forma detalhada todas as atividades relacionadas à gestão da vegetação que interfira na rede de distribuição de energia, que servirá como ferramenta de transparência e controle para assegurar que as ações de manejo vegetal sejam realizadas de forma eficaz, em conformidade com as normas técnicas e ambientais, e com o objetivo de garantir a segurança e a continuidade do fornecimento de energia elétrica.",
+     "pagina": 20,
+     "ultima_pagina": 20
+    }
+   },
+   "101": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "101. O Relatório Anual de Gestão do Manejo Vegetal deve conter no mínimo a descrição das seguintes atividades realizadas: a) Inspeções Visuais: relatar o número de inspeções realizadas nas redes elétricas e vegetação, bem como a extensão das redes inspecionadas, destacando as áreas de risco identificadas por conjunto elétrico; b) Podas Preventivas: descrever as ações de poda realizadas e as ações indicadas ao Poder Público Municipal, incluindo o número de árvores podadas por conjunto elétrico; c) Podas Corretivas: descrever as ações de poda realizadas, incluindo o número de árvores podadas por conjunto elétrico; d) Remoção de Árvores: relatar os casos de remoção de árvores, detalhando a localização, o motivo da remoção (risco iminente, doenças, porte inadequado) por conjunto elétrico; e) Programas de Substituição de Espécies: incluir dados sobre o número de substituição de árvores inadequadas por espécies mais apropriadas por conjunto elétrico; f) Aceiro de faixas de servidão: relatar o aceiro da vegetação realizado em faixas de servidão das redes e linhas de distribuição por conjunto elétrico; e g) Convênios Celebrados: informar os convênios celebrados com o Poder Público Estadual, Distrital ou Municipal da sua área de atuação, bem como as tratativas com esses entes para a celebração de convênios.",
+     "pagina": 20,
+     "ultima_pagina": 21
+    }
+   },
+   "102": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "102. As distribuidoras devem disponibilizar a versão mais atualizada de seu Relatório Anual de Gestão do Manejo Vegetal em seu sítio eletrônico na Internet e nos postos de atendimento presencial, de forma acessível ao público, com uso de linguagem clara e adequada, conforme prazo constante do Módulo 6.",
+     "pagina": 21,
+     "ultima_pagina": 21
+    }
+   },
+   "103": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "103. As distribuidoras devem disponibilizar a versão mais atualizada de seu plano de manejo vegetal em seu sítio eletrônico na Internet e nos postos de atendimento presencial, de forma acessível ao público, com uso de linguagem clara e adequada, conforme prazo constante do Módulo 6.",
+     "pagina": 21,
+     "ultima_pagina": 21
+    }
+   },
+   "104": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "104. As distribuidoras devem manter registro detalhado durante o período de 05 anos de todas as solicitações relacionadas ao serviço de manejo da vegetação que ofereça risco à segurança das redes elétricas e à continuidade do fornecimento de energia elétrica, incluídas tanto as solicitações realizadas pelo Poder Público Municipal quanto aquelas registradas pelas próprias distribuidoras e enviadas ao Poder Público Municipal, devendo o compartilhamento de informações estar em conformidade com as disposições da Lei Geral de Proteção de Dados (LGPD).",
+     "pagina": 21,
+     "ultima_pagina": 21
+    }
+   },
+   "105": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "105. As distribuidoras devem comunicar aos consumidores, por meio dos canais disponíveis, a provável causa da interrupção, a área afetada e o tempo previsto para a normalização do fornecimento em até 15 (quinze) minutos após o conhecimento da causa da interrupção. Independentemente do momento em que a causa for identificada, a comunicação contendo essas informações deve ser realizada em até 1 (uma) hora após o reconhecimento da ocorrência da interrupção no fornecimento de energia elétrica.",
+     "pagina": 21,
+     "ultima_pagina": 21
+    }
+   },
+   "106": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "106. As distribuidoras de energia devem disponibilizar em sítio eletrônico, com atualização a cada 30 minutos, o número total de unidades consumidoras afetadas por interrupções, discriminado em mapa por bairro, no mínimo. Alternativamente, podem oferecer uma visualização interativa da rede elétrica, com mapa de arruamento, que permita aos consumidores identificarem a extensão e a duração das interrupções diretamente no mapa. Além disso, o número total de unidades consumidoras afetadas deve ser apresentado por tempo de interrupção, com as seguintes faixas de duração: 1h, 3h, 6h, 12h, 24h e 48h ou mais.",
+     "pagina": 21,
+     "ultima_pagina": 22
+    }
+   },
+   "107": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "107. As distribuidoras de energia devem disponibilizar em sítio eletrônico, em área aberta e de fácil acesso, com atualização a cada 30 minutos, as seguintes informações relacionadas às ocorrências abertas: a) Número da ocorrência; b) Município/bairro da ocorrência aberta; c) Data e hora de início da ocorrência aberta; d) Tipo de ocorrência aberta (programada e não programada); e) Sinalização do status da ocorrência aberta (Em preparação/Em Deslocamento/Em Execução); f) Quantidade de unidades consumidoras interrompidas da ocorrência aberta e o total da área de atuação; g) Duração da ocorrência (hh:mm); h) Consumidor Hora Interrompido (CHI) da ocorrência aberta e o total da área de atuação; i) Quantidade de ocorrências abertas segregadas por município e o total na área de atuação; j) Quantidade de equipes em atividade segregadas por município e o total na área de atuação; e k) Estágio da operação (conforme etapas definidas no plano de contingência).",
+     "pagina": 22,
+     "ultima_pagina": 22
+    }
+   },
+   "108": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "108. As distribuidoras devem disponibilizar a versão mais atualizada de seu plano de comunicação em seu sítio eletrônico na Internet e nos postos de atendimento presencial, de forma acessível ao público, com uso de linguagem clara e adequada. Informações Detalhadas",
+     "pagina": 22,
+     "ultima_pagina": 22
+    }
+   },
+   "109": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "109. As informações prestadas ao consumidor devem incluir: a) Motivo da Interrupção: informação sobre a causa da falha, conforme “ANEXO 8.C: Lista de fatos geradores para classificação de interrupções do fornecimento de energia elétrica” do Módulo 8 (se disponível); b) Área Afetada: delimitação geográfica da interrupção; c) Unidades Consumidoras Impactadas: Número de unidades consumidoras afetadas; e d) Previsão de Restabelecimento: estimativa de retorno do fornecimento, com base na melhor informação disponível. Canais de Comunicação",
+     "pagina": 22,
+     "ultima_pagina": 23
+    }
+   },
+   "110": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "110. A comunicação de que trata o item 103 deve ser realizada, obrigatoriamente, por meio de SMS e aplicativos de mensagens, com envio de mensagens automáticas aos consumidores afetados. Adicionalmente, as distribuidoras podem utilizar, de forma complementar e a seu critério, os seguintes canais: a) Aplicativos e sítio eletrônico na internet: com atualização em tempo real em plataformas digitais mantidas pela distribuidora; b) Redes Sociais: com divulgação de informações via contas oficiais da distribuidora.",
+     "pagina": 23,
+     "ultima_pagina": 23
+    }
+   },
+   "111": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "111. O consumidor e demais usuários podem, a qualquer tempo, solicitar a suspensão do envio da comunicação por meio de SMS e aplicativos de mensagens. Atualizações Periódicas",
+     "pagina": 23,
+     "ultima_pagina": 23
+    }
+   },
+   "112": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "112. A distribuidora deve atualizar as informações referentes à interrupção de que trata o item 103, incluindo alterações no tempo estimado de restabelecimento e outras informações relevantes para o consumidor.",
+     "pagina": 23,
+     "ultima_pagina": 23
+    }
+   },
+   "113": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "113. As distribuidoras de energia devem disponibilizar uma API (Application Programming Interface) ou outra solução tecnológica segura, conforme instrução técnica emitida pela ANEEL, permitindo que a ANEEL extraia os dados de interrupção do fornecimento diretamente da fonte, com observância aos critérios de segurança cibernética, disponibilidade e integridade de sistemas.",
+     "pagina": 23,
+     "ultima_pagina": 23
+    }
+   },
+   "114": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "114. A ANEEL estabelecerá procedimento para comunicação e acompanhamento das situações de crise enfrentadas pelas distribuidoras. Diretrizes de Comunicação",
+     "pagina": 23,
+     "ultima_pagina": 23
+    }
+   },
+   "115": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "115. A comunicação deve ser clara e transparente com o intuito de gerar confiança no relacionamento entre as distribuidoras e o Poder Público, essencial para a efetividade das ações em conjunto. Para esse fim, a distribuidora deve solicitar ao Poder Público municipal, estadual e distrital que informe previamente até dois representantes oficiais de cada ente, que serão os responsáveis pelo recebimento das comunicações em situações de emergência.",
+     "pagina": 23,
+     "ultima_pagina": 23
+    }
+   },
+   "116": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "116. A comunicação deve facilitar a coordenação entre as distribuidoras e os órgãos governamentais, permitindo uma resposta integrada a crises e eventos adversos. Critérios de Comunicação",
+     "pagina": 23,
+     "ultima_pagina": 24
+    }
+   },
+   "117": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "117. As distribuidoras devem notificar o Poder Público imediatamente após a identificação de um evento crítico, utilizando canais de comunicação oficiais previamente estabelecidos.",
+     "pagina": 24,
+     "ultima_pagina": 24
+    }
+   },
+   "118": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "118. As distribuidoras devem garantir que os canais de comunicação oficiais estejam acessíveis e operacionais em situações de emergência em comum acordo com o Poder Público.",
+     "pagina": 24,
+     "ultima_pagina": 24
+    }
+   },
+   "119": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "119. As distribuidoras devem estabelecer protocolos de alertas para notificar rapidamente o Poder Público, conforme previsto no item 113, sobre interrupções de energia e situações que demandem apoio imediato para a atuação em cenários de emergência.",
+     "pagina": 24,
+     "ultima_pagina": 24
+    }
+   },
+   "120": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "120. As distribuidoras devem realizar comunicações formais, com periodicidade anual, aos representantes do Poder Público, detalhando a execução dos protocolos estabelecidos de modo a garantir que todos os envolvidos estejam familiarizados com os procedimentos de comunicação.",
+     "pagina": 24,
+     "ultima_pagina": 24
+    }
+   },
+   "121": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "121. Estabelecer as condições para a realização de Cessão Emergencial de recursos humanos, equipamentos e materiais entre distribuidoras, visando garantir a continuidade do serviço em situações de crise, sem comprometer a segurança operacional ou o atendimento aos consumidores por parte da distribuidora cedente. Definições",
+     "pagina": 24,
+     "ultima_pagina": 24
+    }
+   },
+   "122": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "122. Situação de Crise: Evento que afeta significativamente a capacidade operacional da distribuidora, relacionado a eventos extraordinários e cuja caracterização esteja objetivamente definida no Plano de Contingência.",
+     "pagina": 24,
+     "ultima_pagina": 24
+    }
+   },
+   "123": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "123. Cessão Emergencial de Recursos: Cessão temporária de profissionais técnicos ou operacionais ou de equipamentos e materiais de uma distribuidora ou transmissora para uma distribuidora para auxiliar em situações de crise.",
+     "pagina": 24,
+     "ultima_pagina": 24
+    }
+   },
+   "124": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "124. Recursos Disponíveis: Totalidade dos recursos humanos (próprios ou terceirizados), material e de equipamento à disposição da distribuidora mediante contrato. Princípios da Cessão Emergencial",
+     "pagina": 24,
+     "ultima_pagina": 24
+    }
+   },
+   "125": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "125. Colaboração e Solidariedade: as distribuidoras ou transmissoras podem promover o auxílio à distribuidora, somente em situações de crise, visando a minimização dos impactos e a retomada do fornecimento de energia no menor tempo possível.",
+     "pagina": 24,
+     "ultima_pagina": 25
+    }
+   },
+   "126": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "126. Segurança Operacional: a Cessão Emergencial de recurso não deve comprometer a segurança das operações das distribuidoras envolvidas.",
+     "pagina": 25,
+     "ultima_pagina": 25
+    }
+   },
+   "127": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "127. Proporcionalidade e Necessidade: a Cessão Emergencial deve ser limitada à necessidade demonstrada pela situação de crise e proporcional à capacidade operacional disponível de cada distribuidora.",
+     "pagina": 25,
+     "ultima_pagina": 25
+    }
+   },
+   "128": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "128. Neutralidade: os valores referentes aos custos ou despesas incorridos pela cedente em função da Cessão Emergencial de recursos serão reembolsados pela cessionária à cedente pelo valor incorrido, proporcional à folha de pagamento de pessoal ou despesa ou custo pelo uso de equipamento ou materiais, sem que haja lucro, remuneração ou rentabilidade de qualquer tipo, tendo em vista o caráter de colaboração e solidariedade.",
+     "pagina": 25,
+     "ultima_pagina": 25
+    }
+   },
+   "129": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "129. Individualidade da concessão: todas as informações, documentações, arquivos e registros contábeis relacionados à Cessão Emergencial deverão evidenciar a separação proporcional à cada distribuidora ou transmissora cedente. Situações Aplicáveis",
+     "pagina": 25,
+     "ultima_pagina": 25
+    }
+   },
+   "130": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "130. A Cessão Emergencial de recursos somente pode ser realizada em situações de crise em que seja atingido o nível de severidade mais elevado, objetivamente definido no Plano de Contingência.",
+     "pagina": 25,
+     "ultima_pagina": 25
+    }
+   },
+   "131": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "131. A Cessão Emergencial de recursos somente pode ser realizada em situações em que a distribuidora tenha atingido limite operacional crítico em relação aos seus recursos disponíveis no atendimento direto à situação de crise, devendo tal situação ser devidamente demonstrada e documentada em relatório circunstanciado do evento que gerou a situação de crise. Intercâmbio de Informações",
+     "pagina": 25,
+     "ultima_pagina": 25
+    }
+   },
+   "132": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "132. Ao acionar o mecanismo de Cessão Emergencial de recursos, a distribuidora cessionária deve enviar às áreas de fiscalização da ANEEL, em até 60 dias após o fim da situação emergencial, relatório contendo discriminação das despesas ou custos incorridos a serem reembolsados à cedente, contendo as seguintes informações mínimas: a) valor global da contratação com detalhamento dos recursos envolvidos, segregados por tipo de gasto; b) duração do Contrato de Cessão Emergencial para execução dos serviços realizados; c) relação das matrículas dos profissionais que realizaram os atendimentos discriminando função, remuneração, cargos e encargos totais conforme folha de pagamento da cedente, horário do despacho, local do atendimento e o total de horas empregadas em serviço; d) valor individualizado por frente de serviço e montante total dos serviços realizados; e) documentação comprobatória e discriminação detalhada de despesas com equipamentos e materiais; f) documentação comprobatória e discriminação detalhada de outras despesas realizadas na operação emergencial; g) forma de pagamento, observando o que dispõe o item 138; h) informações separadas por cedente, resguardando a respectiva proporcionalidade na Cessão Emergencial e a individualidade das concessões; i) apresentação das razões da opção pela utilização de recursos humanos pertencentes a outras empresas; j) atividades desenvolvidas pelas equipes cedidas, registradas detalhadamente, por localidade; k) detalhamento das tarefas de campo, com dia, data e hora; l) detalhamento dos tipos de estruturas utilizadas nos atendimentos, com quantidade de turmas e veículos (leves e pesados); e m) outras informações que julgar relevante sobre a Cessão Emergencial. Acordo de Cessão Emergencial Prévio.",
+     "pagina": 25,
+     "ultima_pagina": 26
+    }
+   },
+   "133": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "133. As distribuidoras envolvidas devem formalizar Acordo de Cessão Emergencial Prévio, contendo: a) As situações de crise em que a Cessão Emergencial poderá ser solicitada; b) O número e as características das equipes (leves, pesadas, linha viva) que poderão ser cedidas; c) A previsão de duração da Cessão Emergencial; d) A responsabilidade pelas despesas operacionais; e) Previsão de Cessão Emergencial mantendo-se neutralidade das partes em relação a recursos humanos, equipamentos e materiais; f) Realização de testes regulares de Cessão Emergencial, simulando cenários de crise para validar a eficácia do processo e identificar melhorias operacionais no intercâmbio de recursos humanos, equipamentos e materiais; e g) Procedimentos claros para a integração de equipes externas, com definição de treinamentos, capacitações e preparação prévia adequada para garantir que todos os envolvidos estejam alinhados com as práticas de segurança e operação da distribuidora requisitante.",
+     "pagina": 26,
+     "ultima_pagina": 26
+    }
+   },
+   "134": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "134. O acordo deve prever cláusulas sobre: a) Reembolso de despesas com horas de trabalho dos recursos humanos, proporcionais à remuneração, cargos e encargos, conforme folha de pagamento da cedente; b) Reembolso de despesas com equipamentos e materiais cedidos, proporcionais ao valor original para a cedente; c) Seguros e indenizações em caso de acidentes durante a Cessão Emergencial; e d) Neutralidade dos valores para o reembolso à(s) cedente(s) pela requisitante. Critérios de Cessão de Equipes",
+     "pagina": 26,
+     "ultima_pagina": 27
+    }
+   },
+   "135": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "135. As equipes cedidas devem possuir capacitação e experiência compatíveis com as atividades a serem desenvolvidas na distribuidora cedente.",
+     "pagina": 27,
+     "ultima_pagina": 27
+    }
+   },
+   "136": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "136. A distribuidora cessionária deve prover condições adequadas de trabalho, como alimentação, transporte, hospedagem e segurança para as equipes objeto da Cessão Emergencial.",
+     "pagina": 27,
+     "ultima_pagina": 27
+    }
+   },
+   "137": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "137. O tempo de cessão das equipes não pode comprometer significativamente o atendimento aos consumidores da distribuidora cedente.",
+     "pagina": 27,
+     "ultima_pagina": 27
+    }
+   },
+   "138": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "138. O reembolso à cedente não deve ultrapassar o prazo de doze meses contados do final da Cessão Emergencial. Contratos de Cessão Emergencial de recursos humanos, equipamentos e materiais entre Partes Relacionadas",
+     "pagina": 27,
+     "ultima_pagina": 27
+    }
+   },
+   "139": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "139. Os contratos de Cessão Emergencial de recursos humanos, equipamentos e materiais entre distribuidoras e transmissoras e suas partes relacionadas, visando garantir a continuidade do serviço em situações de crise, caso sejam atendidas as condições que os autorizem, serão dispensados da obrigação de que trata o art. 18 do Módulo V da Resolução Normativa nº 948, de 16 de novembro de 2021, sem prejuízo de fiscalização a posteriori, desde que: a. sejam comunicadas à ANEEL em até 60 (sessenta) dias após o fim da situação emergencial, mediante relatório contendo discriminação das despesas ou custos incorridos a serem reembolsados pela cessionária à cedente; b. a cessionária deverá manter dossiê individualizado em sua sede contendo os documentos comprobatórios que evidenciem a neutralidade de custos e despesas reembolsados à cedente, os quais poderão ser requisitados pela fiscalização por até 5 (cinco) anos após fim do evento emergencial. c. As cessões emergenciais de recursos humanos, equipamentos e materiais entre distribuidoras e transmissoras e suas partes relacionadas devem ser reembolsadas pela cessionária à cedente garantindo a neutralidade da operação, não se tratando de rateio ou prestação de serviços, e preservando a individualidade das concessões.",
+     "pagina": 27,
+     "ultima_pagina": 27
+    }
+   },
+   "140": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "140. O plano de contingência deve ser elaborado de forma a garantir a continuidade do fornecimento de energia elétrica, minimizar os impactos das contingências e responder a eventos críticos de forma eficaz, sempre assegurando a segurança dos colaboradores e da população.",
+     "pagina": 28,
+     "ultima_pagina": 28
+    }
+   },
+   "141": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "141. O plano de contingência deve conter os nomes e telefones de contato dos responsáveis. Princípios Norteadores",
+     "pagina": 28,
+     "ultima_pagina": 28
+    }
+   },
+   "142": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "142. O plano de contingência deve ser baseado nos seguintes princípios norteadores: a) Segurança: priorizar a segurança de todos os colaboradores e da população; b) Eficiência: minimizar o impacto das contingências nas operações e na prestação dos serviços; c) Responsabilidade: cumprir com as obrigações legais e regulamentares; d) Transparência: manter uma comunicação clara e aberta com todos os setores afetados; e) Prevenção: antecipar problemas e definir protocolos de atuação para o enfrentamento de situações críticas; f) Adaptabilidade: garantir a capacidade de adaptação frente às mudanças nas condições climáticas e operacionais, ajustando as estratégias conforme as circunstâncias específicas de cada evento; e g) Verificabilidade: o plano deve ser estruturado de forma a permitir a verificação da sua continuidade e eficiência de execução. Diretrizes",
+     "pagina": 28,
+     "ultima_pagina": 28
+    }
+   },
+   "143": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "143. O plano de contingência deve observar as seguintes diretrizes: a) Monitoramento Climático e Meteorológico: Realizar monitoramento periódico das condições climáticas e meteorológicas, informando as equipes internas sobre possíveis alertas de risco; b) Gestão de Ocorrências: Implementar ações específicas conforme os níveis de contingência; c) Mobilização de Recursos: Definir procedimentos para a mobilização de equipes e recursos adicionais em diferentes níveis de contingência, garantindo a atuação mesmo em feriados e dias não úteis, de forma a assegurar a continuidade e a eficiência nas ações de resposta; d) Comunicação Interna: Estabelecer procedimentos e canais eficientes de comunicação interna para informar e coordenar ações durante contingências; e) Relatórios e Documentação: Manter registros detalhados das ações tomadas e dos resultados durante as contingências de modo a avaliar se as medidas tomadas estão aderentes ao planejado; f) Treinamentos e Simulações: Realizar treinamentos periódicos ou simulações para preparar as equipes para situações de contingência; g) Atendimento ao Consumidor: Estabelecer procedimentos para tratamento e resolução de demandas extraordinárias durante contingências; h) Coordenação com Órgãos Externos: Definir ações para comunicação e coordenação com autoridades públicas e órgãos reguladores; i) Apoio Interdepartamental: Estabelecer diretrizes para a colaboração entre diferentes departamentos e áreas da empresa durante situações de contingência; j) Formalização e Divulgação do Plano: O Plano de Contingência deve ser formalizado e documentado de maneira clara e detalhada, sendo amplamente divulgado por meio de canais internos de modo a garantir sua acessibilidade a todos os colaboradores e partes interessadas; e k) Cadeia de governança: Estabelecer comando nos níveis estratégico, tático e operacional para o gerenciamento de crises e contingências, definindo responsabilidades e fluxos de comunicação que garantam uma resposta coordenada, eficiente e segura, de forma que, em situações de crise, todos os níveis de comando estejam claramente definidos e operacionalmente disponíveis. Requisitos Mínimos",
+     "pagina": 28,
+     "ultima_pagina": 29
+    }
+   },
+   "144": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "144. O plano de contingência deve conter os seguintes requisitos mínimos: a) Identificação e Análise de Riscos: Identificar com os fatores de risco potenciais, tanto internos quanto externos, com o maior nível de detalhamento possível. A identificação deve incluir a localização, natureza do risco, frequência histórica de ocorrência e uma análise completa dos impactos potenciais associados a cada risco; b) Definição de Níveis de Contingência: Definir níveis de contingência por critérios objetivos, devendo ser atualizados de acordo com a evolução das condições operativas e meteorológicas; c) Plano de Ação para Cada Nível de Contingência: Desenvolver planos de ação específicos para cada nível de contingência, incluindo as responsabilidades e os procedimentos a serem seguidos; d) Infraestrutura de Apoio: Garantir a disponibilidade de recursos e infraestrutura necessários para a execução do plano de contingência, em relação à equipamentos, sistemas de comunicação e transporte, incluindo inventário, especificação e localização de equipamentos disponíveis e sobressalentes, bem como veículos operacionais; e) Treinamento e Capacitação: Implementar programas de treinamento e capacitação contínuos para todos os colaboradores envolvidos na execução do plano de contingência; f) Simulações e Testes Regulares: Realizar simulações ou testes periódicos para avaliar a eficácia do plano de contingência e identificar áreas de melhoria, inclusive com a participação de Órgãos Públicos; g) Atualização do plano: Manter a documentação do plano de contingência atualizada e disponível para todos os colaboradores, devendo constar a data e o número da versão, bem como assinatura do responsável; h) Avaliação e Melhoria Contínua: Realizar avaliações regulares do plano de contingência e implementar melhorias com base nos resultados das simulações, testes e experiências reais de contingência, visando aperfeiçoar a efetividade do plano; e i) Tratamento para unidades consumidoras específicas: Possuir medidas relacionadas ao tratamento para unidades consumidoras cadastradas como usuários de equipamentos de autonomia limitada (sobrevida) e para aquelas que prestem serviço essencial, incluindo aspectos referentes ao cadastro, comunicação e atendimento emergencial para mitigar os efeitos das interrupções do fornecimento de energia elétrica.",
+     "pagina": 29,
+     "ultima_pagina": 30
+    }
+   },
+   "145": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "145. A realização de simulados ou disponibilização de treinamentos atualizados deve ser feita com periodicidade máxima de um ano. Para o caso de ter havido aplicação do Plano de Contingência, a periodicidade máxima pode ser contada da sua última aplicação. A disponibilização de treinamentos atualizados, também deve ser fornecida na mesma periodicidade máxima para os agentes designados pelo Poder Público.",
+     "pagina": 30,
+     "ultima_pagina": 30
+    }
+   },
+   "146": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "146. A revisão do plano de contingência deverá ser feita sempre que necessário e com periodicidade máxima de um ano.",
+     "pagina": 30,
+     "ultima_pagina": 30
+    }
+   },
+   "147": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "147. As distribuidoras devem disponibilizar a versão mais atualizada, sem a identificação e contato dos seus responsáveis pelo seu plano de contingência, em seu sítio eletrônico na Internet e nos postos de atendimento presencial, de forma acessível ao público, com uso de linguagem clara e adequada.",
+     "pagina": 30,
+     "ultima_pagina": 30
+    }
+   },
+   "148": {
+    "classe": "novo",
+    "anterior": null,
+    "atual": {
+     "trecho": "148. O plano de contingência deve possuir versão do documento, data de aprovação e identificação e assinatura do(s) responsável(is) técnico(s), sendo passível de fiscalização.",
+     "pagina": 30,
+     "ultima_pagina": 30
+    }
+   }
+  },
+  "limite": "Classificação pela presença e redação do item na v2/v3, sem inferir o histórico dos demais módulos ou atos. Divergências v3 × RN 1.137 exigem revisão; a fonte e os deveres do plano são preservados."
+ }
 }

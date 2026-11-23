@@ -4,6 +4,7 @@ import { NORMA_PADRAO, NORMAS, norma as dadosDa, prazos, queda, textoContagem, t
 import { RespostasProvider, useRespostas } from '../plano/Respostas'
 import { prontidao } from '../../content/prontidao'
 import { useHoje } from '../../hooks/useHoje'
+import { resumoComparacao } from '../../content/comparacao'
 import { brlCurto, dataBR, normaDaUrl, textoVencidasComDetalhe, type NormaId, type Simulacao } from '../../content/plano'
 
 // Visão executiva (/demo/executivo): três números e até cinco blocos clicáveis. Muito pouco texto; o resto
@@ -77,6 +78,7 @@ function Executiva({ normaId, setNormaId }: { normaId: NormaId; setNormaId: (id:
       <a href={urlPlanoCompleto(normaId)} className={`text-[15px] ${LINK}`}>Plano completo →</a>
     </header>
 
+    {p.comparacao_anterior && <p className="text-sm" aria-label="Resumo da comparação histórica"><strong>{resumoComparacao(p)}</strong><br />Apenas Módulo 4 do PRODIST · registros do plano · {p.comparacao_anterior.resumo.sem_fonte} sem fonte anterior · {p.comparacao_anterior.resumo.divergencias_v3} com divergência v3 × RN, a revisar.</p>}
     <section aria-label="Resumo" aria-live="polite" className="grid gap-8 [grid-template-columns:repeat(auto-fit,minmax(260px,1fr))]">
       <div className="flex flex-col gap-1.5">
         <span className={`${grande} text-acento`}>{v?.reais != null ? <><span className="mr-2 text-[0.4em] align-baseline">R$</span>{brlCurto(v.reais).replace('R$ ', '')}</> : 'a enquadrar'}</span>

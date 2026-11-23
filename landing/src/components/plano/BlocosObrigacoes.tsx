@@ -4,6 +4,7 @@ import { brlCurto, dataBR, HOJE, normaDaUrl, pct, type Modo, type Simulacao } fr
 import { norma as dadosDa, NORMAS, urlPlanoCompleto } from '../../content/executivo'
 import { calendarioIcs, tarefasCsv } from '../../content/tarefas'
 import { FILTROS_INICIAIS, OPCOES, blocosDoPlano, filtrar, filtrosDaUrl, urlComFiltros, type BlocoPlano, type Filtros } from '../../content/filtros'
+import { ComparacaoAnterior } from './ComparacaoAnterior'
 import { RevisaoLocal } from './RevisaoLocal'
 
 // Plano completo, por obrigação: filtros à esquerda (empilham no celular) e blocos clicáveis. Mesma lógica
@@ -80,6 +81,7 @@ function Bloco({ b, aberta, alternar }: { b: BlocoPlano; aberta: boolean; altern
     </button>
     <div id={painel} role="region" aria-label={`Detalhes de ${b.dispositivo ?? 'obrigação'}`} hidden={!aberta} className="border-[length:var(--borda-forte)] border-t-0 border-obsidian bg-white">
       {aberta && o && b.norma === normaDaUrl() && <div className="p-5"><RevisaoLocal o={o} /></div>}
+      {aberta && o && b.norma === normaDaUrl() && <div className="p-5"><ComparacaoAnterior o={o} /></div>}
       {aberta && <div className="grid gap-6 p-5 [grid-template-columns:repeat(auto-fit,minmax(240px,1fr))]">
         <div className="flex flex-col gap-2">
           <span className="text-[13px] font-bold">O que a norma exige</span>
