@@ -34,20 +34,21 @@ python -m pytest -q                                  # 2. testar    (~2 min)
 python -m athenix processar tests/norma_poc/ren20251137.pdf --saida plano.json   # 3. processar (~15 s)
 ```
 
-Saída do passo 3 (conferida num clone e venv novos em 22/11/2026, commit `d2b058b`):
+Saída do passo 3 (conferida em 22/11/2026 na `main` em `a7217a5`):
 
 ```text
 Athenix · processar ren20251137.pdf para distribuidora
   Norma: RN ANEEL 1.137/2025 (sem chamada de IA nem rede; sugestões de IA só do cache versionado, marcadas)
   1. Obrigações extraídas: 170 dispositivos lidos
-  2. Deveres da distribuidora: 153 · outros dispositivos (faculdades, direitos, outros agentes): 16 · fora do perfil: 1
-  3. Prazos: 25 vencidas · 0 nos próximos 90 dias · 2 recorrentes · 126 sem data
-  4. Enquadramento na REN 846: 42 identificados no texto · 111 a confirmar (102 com sugestão da IA em cache, marcadas) · 0 sem multa
+  2. Deveres da distribuidora: 147 · outros dispositivos (faculdades, direitos, outros agentes): 22 · fora do perfil: 1
+  3. Prazos: 19 vencidas · 0 nos próximos 90 dias · 2 recorrentes · 126 sem data
+  4. Enquadramento na REN 846: 41 identificados no texto · 106 a confirmar (98 com sugestão da IA em cache, marcadas) · 0 sem multa
   5. Temas: 8 · plano gravado em plano.json
 ```
 
-No clone limpo o passo 2 dá `554 passed, 6 skipped`: os 6 dependem de dados locais que não vão para
-o Git (CSV de autos, votos da ANEEL). A segunda norma:
+No CI o passo 2 dá `591 passed, 6 skipped`: os 6 dependem de dados locais que não vão para o Git
+(CSV de autos, votos da ANEEL); com esses dados presentes, `597 passed`. As 19 vencidas do passo 3 são
+8 obrigações e 11 itens de detalhe. A segunda norma:
 `python -m athenix processar tests/fontes_impacto/dou/dou_ren20261174.html --saida plano.json`.
 
 ## Como funciona
@@ -68,12 +69,12 @@ alcança, sempre com citação literal conferida na fonte e marcada como "aguard
 Cada etapa, com o módulo, os testes e um exemplo real: [docs/ARQUITETURA.md](docs/ARQUITETURA.md).
 O que existe e o que funciona, com a saída dos comandos: [docs/INVENTARIO_TECNICO.md](docs/INVENTARIO_TECNICO.md).
 
-## Qualidade (números conferidos em 22/11/2026, código da `main` em `d2b058b`)
+## Qualidade (números conferidos em 22/11/2026, código da `main` em `a7217a5`)
 
 | | Número | De onde vem |
 | :-- | :-- | :-- |
-| Testes automatizados | **560 em Python + 115 no site** | `python -m pytest -q`; `npm test` no CI |
-| CI | **verde em Ubuntu, Windows e macOS** | `.github/workflows/ci.yml`, execução 45054510595 |
+| Testes automatizados | **597 em Python + 125 no site** | `python -m pytest -q`; `npm test` no CI |
+| CI | **verde em Ubuntu, Windows e macOS** | `.github/workflows/ci.yml`, execução 45090430867 |
 | Trava do gabarito | **29 de 29 casos** (9 de vigência e transição da REN 1.174), citações corretas 0,9961, sem regressão | `python scripts/avaliar.py --rotulo local --comparar tests/baseline/metricas_v2.json` |
 | Citações conferidas contra o arquivo oficial, com outro extrator | **536 de 536** (RN 1.137: 228; REN 1.174: 308) | `python scripts/demo/conferir_citacoes.py` |
 | Segunda leitura independente da REN 846 (outro modelo) | **108 de 108 infrações no mesmo grupo** (catálogo: 109) | `python scripts/demo/conferir_segunda_leitura.py` |
@@ -125,16 +126,21 @@ Os CSVs dos dados abertos de autos de infração ficam fora do Git e alimentam s
 - Nenhum enquadramento revisado por especialista; na REN 1.174 todos são sugestão da IA.
 - Prazos provisórios, contados da publicação ou da vigência.
 - Deveres de sujeito impessoal contam como da distribuidora, marcados "sujeito implícito (a revisar)":
-  64 de 153 na RN 1.137 e 37 de 85 na REN 1.174.
+  63 de 147 na RN 1.137 e 37 de 75 na REN 1.174.
 - Marcos de vigência e transição lidos da própria norma. Na REN 1.174, 6 deveres sem artigo no bloco do
   art. 2º usam o artigo inferido pela posição (342-A, 655-Y), marcados "a confirmar".
-- Vencidas na RN 1.137: 14 obrigações · 11 itens de detalhe (25 deveres; as alíneas do item 107 contam como
-  detalhe). Prazo do art. 13, VI ("180 dias mês") e do art. 14 esclarecidos pelo FAQ oficial da ANEEL.
+- Vencidas na RN 1.137: 8 obrigações · 11 itens de detalhe (19 registros; os prazos do art. 13, I a V, valem
+  nos itens que eles citam). Prazo do art. 13, VI ("180 dias mês") e do art. 14 esclarecidos pelo FAQ oficial da ANEEL.
+- REN 1.174: 75 deveres e mais 10 "dever condicional: se aderir ao sandbox" (art. 11 e art. 166, § 6º, I),
+  fora do top 5, da exposição e da agenda principal.
 - Auditoria de 21/11/2026: C1 e A1 corrigidos no #46; A2 (relatório-piloto no CI), M1 (área de tipo
   "a revisar") e M2 (script antigo de IA sob a mesma trava de modo e custo) no #48. Abertos: M3
   (comentários antigos) e B1 (tamanho do bundle); 6 deveres sem título curto (a tela usa o título completo).
-- Duas normas no plano; 77 deveres com área "A definir" (34 + 43: tipo "a revisar" sem área sugerida pela
+- Duas normas no plano; 68 deveres com área "A definir" (34 + 34: tipo "a revisar" sem área sugerida pela
   IA não herda mais a área do tipo da regra); PostgreSQL não testado nesta conferência.
+- Produção: a executiva emite o erro 418 do React (hidratação) à noite em São Paulo, e o plano completo emite o mesmo
+  erro em qualquer dia depois do build. As páginas funcionam porque o React refaz a renderização no navegador.
+  Correção no #54 (draft, aguarda autorização).
 
 **Roteiro:**
 1. Monitoramento automático do DOU (desenho em [docs/INLABS.md](docs/INLABS.md)).
