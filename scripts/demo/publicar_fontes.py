@@ -111,7 +111,7 @@ def citacoes(p):
     for lista in ("obrigacoes", "outros_dispositivos", "sem_dever_identificado"):
         for o in p[lista]:
             yield sha, o.get("trecho"), False
-            for k in ("marco", "condicao"):
+            for k in ("marco", "condicao", "area_ia"):
                 yield sha, (o.get(k) or {}).get("trecho"), False
             f = (o.get("esclarecimento") or {}).get("fonte")
             if f:

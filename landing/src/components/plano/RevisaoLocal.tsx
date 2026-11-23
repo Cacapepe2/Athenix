@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { normaDaUrl, plano, type Obrigacao } from '../../content/plano'
 import { camposDaObrigacao, exportarRevisoes, LIMITE_CORRECAO, ROTULOS_REVISAO, type CampoRevisao } from '../../content/revisoes'
 import { useRespostas } from './Respostas'
+import { LinkFonte } from '../ui/LinkFonte'
 
 const BOTAO = 'min-h-11 cursor-pointer rounded-lg border border-slate-blue/40 px-3 py-2 text-sm font-semibold text-slate-blue hover:bg-slate-blue/5 disabled:cursor-default disabled:opacity-50'
 
@@ -38,6 +39,8 @@ export function RevisaoLocal({ o }: { o: Obrigacao }) {
     <p className="text-sm text-ink-soft">Confirme ou corrija sua leitura. Fica só neste navegador e aparece no relatório; os cálculos e as sugestões da análise automática continuam com os valores originais.</p>
     {!revisoesPersistentes && <p role="status" className="text-sm font-semibold">O navegador bloqueou o armazenamento. Suas revisões ficam em memória e serão perdidas ao fechar; exporte o JSON para guardá-las.</p>}
     {Object.entries(camposDaObrigacao(o)).map(([campo, original]) => <Campo key={campo} o={o} campo={campo as CampoRevisao} original={original} />)}
+    {o.area_ia && <p className="text-sm" data-area-ia><strong>{o.area_ia.rotulo}</strong> · Sugestão, aguarda revisão humana. Trecho citado: <LinkFonte sha256={plano.norma.sha256} trecho={o.area_ia.trecho}>“{o.area_ia.trecho}”</LinkFonte></p>}
+    {o.area_motivo && <p className="text-sm" data-area-motivo>Área continua “A definir”: {o.area_motivo}.</p>}
     <button className={BOTAO} type="button" onClick={baixar} disabled={!Object.keys(revisoes).length}>Exportar revisões desta norma (JSON)</button>
   </section>
 }
