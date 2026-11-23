@@ -89,7 +89,7 @@ const temas = [...blocos.entries()].filter(([sel]) => /\[data-tema=/.test(sel))
 
 test('tokens.css tem o bloco base com todos os tokens pedidos', () => {
   for (const nome of ['--cor-fundo', '--cor-texto', '--cor-texto-invertido', '--cor-destaque', '--cor-destaque-texto', '--cor-evite', '--cor-linha-suave', '--cor-hover', '--cor-barra-teto', '--cor-barra-media', '--cor-barra-reducao', '--cor-trilho', '--fonte-base', '--raio', '--borda-forte', '--borda-titulo', '--sombra-hover', '--duracao-rapida', '--duracao-painel', '--curva']) assert.ok(base[nome], nome)
-  assert.equal(base['--raio'], '4px')
+  assert.equal(base['--raio'], '6px')
 })
 
 for (const [nome, vars] of [[':root', base] as const, ...temas.map(([sel, v]) => [sel, { ...base, ...v }] as const)]) {

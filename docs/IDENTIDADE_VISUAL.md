@@ -24,7 +24,7 @@ cantos arredondados, sombra suave, rótulos em caixa-alta espaçada. Os protóti
 | `--cor-barra-teto` / `-media` / `-reducao` | `#111111` / `#555555` / `#c8261a` | três barras do painel |
 | `--cor-trilho` | `#eeeeee` | fundo das barras |
 | `--fonte-base` | Inter Tight, Helvetica Neue, Arial | única família |
-| `--raio` | `4px` | cantos levemente arredondados em tudo que tem borda (`--raio-ponto: 50%` só para o pontinho de status) |
+| `--raio` | `6px` | cantos levemente arredondados em tudo que tem borda (cards, painéis, botões, selos e caixas) (`--raio-ponto: 50%` só para o pontinho de status) |
 | `--borda-forte` / `--borda-titulo` | `2px` / `3px` | bloco e seletor / linha sob o título |
 | `--sombra-hover` | `5px 5px 0 var(--cor-texto)` | sombra dura do bloco no hover |
 | `--duracao-rapida` / `--duracao-painel` / `--curva` | `160ms` / `320ms` / `cubic-bezier(.2,.7,.2,1)` | animações |
