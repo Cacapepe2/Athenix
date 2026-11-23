@@ -102,6 +102,11 @@ def citacoes(p):
                     comparacao["itens"][r["item"]]["atual"]["trecho"],
                     False,
                 )
+    for r in p.get("rascunhos_aneel", []):
+        for f in r["referencias"]:
+            yield f["fonte"]["sha256"], f["trecho"], False
+            for e in f["possiveis_esclarecimentos"]:
+                yield e["fonte"]["sha256"], e["citacao"], False
     sha = p["norma"]["sha256"]
     for lista in ("obrigacoes", "outros_dispositivos", "sem_dever_identificado"):
         for o in p[lista]:

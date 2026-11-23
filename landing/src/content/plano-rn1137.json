@@ -1,6 +1,6 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "fbab545",
+ "commit_origem": "ec9ea79",
  "gerado_em": "2026-11-22",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
@@ -18184,6 +18184,2983 @@
    }
   ]
  },
+ "rascunhos_aneel": [
+  {
+   "id": "aneel-0fc666f9358ebffc",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "sujeito incerto",
+   "duvida": "A responsabilidade pelo dever descrito deve ser atribuída à distribuidora, embora o sujeito não esteja expresso?",
+   "leituras_possiveis": [
+    "Hipótese usada no plano: dever da distribuidora, por ser norma dirigida às distribuidoras.",
+    "O dispositivo não nomeia o sujeito; a atribuição permanece sem confirmação até esclarecimento."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "item 148",
+     "trecho": "148. O plano de contingência deve possuir versão do documento, data de aprovação e identificação e assinatura do(s) responsável(is) técnico(s), sendo passível de fiscalização.” (NR)",
+     "itens": [
+      "09960ed39dc51125"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 106",
+     "trecho": "Além disso, o número total de unidades consumidoras afetadas deve ser apresentado por tempo de interrupção, com as seguintes faixas de duração:",
+     "itens": [
+      "03038d3317d5920c"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 172",
+     "trecho": "172. Os indicadores devem ser apurados mensalmente, considerando o mês civil, com exceção dos indicadores DICRI e DISE, que devem ser apurados por interrupção ocorrida em Dia Crítico ou em Situação de Emergência, respectivamente.",
+     "itens": [
+      "ef8c0e08544c2dc6"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": [
+      {
+       "citacao": "3.5 Ajustes retroativos no XML de compensações por DISE impactam a avaliação da governança regulatória? Os indicadores de compensações por DISE serão criados de forma independente dos indicadores de compensações normais, a exemplo do que ocorre com o DICRI. Assim, não haverá impacto na avaliação de governança pela alteração de dados. 4. Plano de Contingência",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      },
+      {
+       "citacao": "3.1 Como deve ser interpretado o comando regulatório “2 meses após a publicação da norma” para fins de aplicação retroativa do DISE? Considerando a publicação da norma em 30/10/2025, o marco de 2 meses ocorre em 30/12/2025, de modo que os efeitos retroativos passam a incidir a partir de 31/12/2025. Contudo, como a apuração dos indicadores de continuidade no âmbito do PRODIST é realizada em base mensal, embora haja incidência a partir de 31/12/2025, a primeira apuração completa se dá no mês de janeiro de 2026, razão pela qual não se considera o dia isolado de 31/12/2025 como um período autônomo de apuração.",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      }
+     ]
+    },
+    {
+     "dispositivo": "item 138",
+     "trecho": "138. O ressarcimento à cedente não deve ultrapassar o prazo de doze meses contados do final da Cessão Emergencial. Contratos de Cessão Emergencial de recursos humanos, equipamentos e materiais entre Partes Relacionadas",
+     "itens": [
+      "610cc5d8b942d8ac"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 140",
+     "trecho": "140. O plano de contingência deve ser elaborado de forma a garantir a continuidade do fornecimento de energia elétrica, minimizar os impactos das contingências e responder a eventos críticos de forma eficaz, sempre assegurando a segurança dos colaboradores e da população.",
+     "itens": [
+      "b7c2d81bf787af70"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 141",
+     "trecho": "141. O plano de contingência deve conter os nomes e telefones de contato dos responsáveis. Princípios Norteadores",
+     "itens": [
+      "5a66534ae45af0c6"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 142, alínea a",
+     "trecho": "a) Segurança: priorizar a segurança de todos os colaboradores e da população;",
+     "itens": [
+      "db13351273cc2a40"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 142, alínea b",
+     "trecho": "b) Eficiência: minimizar o impacto das contingências nas operações e na prestação dos serviços;",
+     "itens": [
+      "98f4753768bef99f"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 142, alínea c",
+     "trecho": "c) Responsabilidade: cumprir com as obrigações legais e regulamentares;",
+     "itens": [
+      "085a6edc407f11ca"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 142, alínea d",
+     "trecho": "d) Transparência: manter uma comunicação clara e aberta com todos os setores afetados;",
+     "itens": [
+      "d6cf3c79ee1df588"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 142, alínea e",
+     "trecho": "e) Prevenção: antecipar problemas e definir protocolos de atuação para o enfrentamento de situações críticas;",
+     "itens": [
+      "4ee63c29f094247c"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 142, alínea f",
+     "trecho": "f) Adaptabilidade: garantir a capacidade de adaptação frente às mudanças nas condições climáticas e operacionais, ajustando as estratégias conforme as circunstâncias específicas de cada evento; e",
+     "itens": [
+      "0eb8c29f185ec200"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 143, alínea a",
+     "trecho": "a) Monitoramento Climático e Meteorológico: Realizar monitoramento periódico das condições climáticas e meteorológicas informando as equipes internas sobre possíveis alertas de risco;",
+     "itens": [
+      "b70cb23b9e1c10a8"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 143, alínea b",
+     "trecho": "b) Gestão de Ocorrências: Implementar ações específicas conforme os níveis de contingência;",
+     "itens": [
+      "73a1dd36bbb85c25"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 143, alínea c",
+     "trecho": "c) Mobilização de Recursos: Definir procedimentos para a mobilização de equipes e recursos adicionais em diferentes níveis de contingência, garantindo a atuação mesmo em feriados e dias não úteis, de forma a assegurar a continuidade e a eficiência nas ações de resposta;",
+     "itens": [
+      "2bc3aa12a7581a25"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 143, alínea d",
+     "trecho": "d) Comunicação Interna: Estabelecer canais eficientes de comunicação interna para informar e coordenar ações durante contingências;",
+     "itens": [
+      "e9ca87b9dd7c9285"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 143, alínea e",
+     "trecho": "e) Relatórios e Documentação: Manter registros detalhados das ações tomadas e dos resultados durante as contingências de modo a avaliar se as medidas tomadas estão aderentes ao planejado;",
+     "itens": [
+      "cff191219a7655d2"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 143, alínea f",
+     "trecho": "f) Treinamentos e Simulações: Realizar treinamentos periódicos e simulações para preparar as equipes para situações de contingência;",
+     "itens": [
+      "0c957f4631794730"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 143, alínea g",
+     "trecho": "g) Atendimento ao Consumidor: Estabelecer procedimentos para a tratamento e resolução de demandas extraordinárias durante contingências;",
+     "itens": [
+      "748ad599f80e9086"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 143, alínea h",
+     "trecho": "h) Coordenação com Órgãos Externos: Definir ações para comunicação e coordenação com autoridades públicas e órgãos reguladores;",
+     "itens": [
+      "dceeebc43adca549"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 143, alínea i",
+     "trecho": "i) Apoio Interdepartamental: Estabelecer diretrizes para a colaboração entre diferentes departamentos e áreas da empresa durante situações de contingência;",
+     "itens": [
+      "1895f0f6fbc68d32"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 143, alínea j",
+     "trecho": "j) Formalização e Divulgação do Plano: O Plano de Contingência deve ser formalizado e documentado de maneira clara e detalhada, sendo amplamente divulgado por meio de canais internos de modo a garantir sua acessibilidade a todos os colaboradores e partes interessadas; e",
+     "itens": [
+      "44d737dea32bb948"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 143, alínea k",
+     "trecho": "k) Cadeia de governança: Estabelecer comando nos níveis estratégico, tático e operacional para o gerenciamento de crises e contingências, definindo responsabilidades e fluxos de comunicação que garantam uma resposta coordenada, eficiente e segura, de forma que, em situações de crise, todos os níveis de comando estejam claramente definidos e operacionalmente disponíveis. Requisitos Mínimos",
+     "itens": [
+      "4239f86c4b4d91d5"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 144, alínea b",
+     "trecho": "b) Definição de Níveis de Contingência: Definir níveis de contingência por critérios objetivos, devendo ser atualizados de acordo com a evolução das condições operativas e meteorológicas;",
+     "itens": [
+      "5ecdf0d3f30f491b"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 144, alínea c",
+     "trecho": "c) Plano de Ação para Cada Nível de Contingência: Desenvolver planos de ação específicos para cada nível de contingência, incluindo as responsabilidades e os procedimentos a serem seguidos;",
+     "itens": [
+      "046ed88cf4374559"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 144, alínea d",
+     "trecho": "d) Infraestrutura de Apoio: Garantir a disponibilidade de recursos e infraestrutura necessários para a execução do plano de contingência, em relação à equipamentos, sistemas de comunicação e transporte, incluindo inventário, especificação e localização de equipamentos disponíveis e sobressalentes, bem como veículos operacionais;",
+     "itens": [
+      "a37f043943a39e11"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 144, alínea e",
+     "trecho": "e) Treinamento e Capacitação: Implementar programas de treinamento e capacitação contínuos para todos os colaboradores envolvidos na execução do plano de contingência;",
+     "itens": [
+      "151282e71a2cdaf5"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 144, alínea f",
+     "trecho": "f) Simulações e Testes Regulares: Realizar simulações ou testes periódicos para avaliar a eficácia do plano de contingência e identificar áreas de melhoria, inclusive com a participação de Órgãos Públicos;",
+     "itens": [
+      "d4aa10f3bb2b09db"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 144, alínea g",
+     "trecho": "g) Atualização do plano: Manter a documentação do plano de contingência atualizada e disponível para todos os colaboradores, devendo constar a data e o número da versão, bem como assinatura do responsável;",
+     "itens": [
+      "11f1b97f51197a40"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 144, alínea h",
+     "trecho": "h) Avaliação e Melhoria Contínua: Realizar avaliações regulares do plano de contingência e implementar melhorias com base nos resultados das simulações, testes e experiências reais de contingência, visando aperfeiçoar a efetividade do plano; e",
+     "itens": [
+      "059e791026821b38"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 144, alínea i",
+     "trecho": "i) Tratamento para unidades consumidoras específicas: Possuir medidas relacionadas ao tratamento para unidades consumidoras cadastradas como usuários de equipamentos de autonomia limitada (sobrevida) e para aquelas que prestem serviço essencial, incluindo aspectos referentes ao cadastro, comunicação e atendimento emergencial para mitigar os efeitos das interrupções do fornecimento de energia elétrica.",
+     "itens": [
+      "0b9113f77a4351b1"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 146",
+     "trecho": "146. A revisão do plano de contingência deverá ser feita sempre que necessário e com periodicidade máxima de um ano.",
+     "itens": [
+      "9297bd2b368c09b7"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 101, alínea a",
+     "trecho": "a) Inspeções Visuais: relatar o número de inspeções realizadas nas redes elétricas e vegetação, bem como a extensão das redes inspecionadas, destacando as áreas de risco identificadas por conjunto elétrico;",
+     "itens": [
+      "acccde8d107ef0a7"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 101, alínea b",
+     "trecho": "b) Podas Preventivas: descrever as ações de poda realizadas e as ações indicadas ao Poder Público Municipal, incluindo o número de árvores podadas por conjunto elétrico;",
+     "itens": [
+      "84ab75dfdb69de0f"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 101, alínea c",
+     "trecho": "c) Podas Corretivas: descrever as ações de poda realizadas, incluindo o número de árvores podadas por conjunto elétrico;",
+     "itens": [
+      "44bd912ddc392e7e"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 101, alínea d",
+     "trecho": "d) Remoção de Árvores: relatar os casos de remoção de árvores, detalhando a localização, o motivo da remoção (risco iminente, doenças, porte inadequado) por conjunto elétrico;",
+     "itens": [
+      "e2ce14fe1ddd043b"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 101, alínea e",
+     "trecho": "e) Programas de Substituição de Espécies: incluir dados sobre o número de substituição de árvores inadequadas por espécies mais apropriadas por conjunto elétrico;",
+     "itens": [
+      "2bde82f330f7a375"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 101, alínea f",
+     "trecho": "f) Aceiro de faixas de servidão: relatar o aceiro da vegetação realizado em faixas de servidão das redes e linhas de distribuição por conjunto elétrico; e",
+     "itens": [
+      "ec71a30e02807a43"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 101, alínea g",
+     "trecho": "g) Convênios Celebrados: informar os convênios celebrados com o Poder Público Estadual, Distrital ou Municipal da sua área de atuação, bem como as tratativas com esses entes para a celebração de convênios.",
+     "itens": [
+      "afcbf345324a3e49"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 109, alínea a",
+     "trecho": "a) Motivo da Interrupção: informação sobre a causa da falha, conforme “ANEXO 8.C: Lista de fatos geradores para classificação de interrupções do fornecimento de energia elétrica” do Módulo 8 (se disponível);",
+     "itens": [
+      "6812a1cfa93391a2"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 109, alínea b",
+     "trecho": "b) Área Afetada: delimitação geográfica da interrupção;",
+     "itens": [
+      "091a033ee197530b"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 109, alínea c",
+     "trecho": "c) Unidades Consumidoras Impactadas: Número de unidades consumidoras afetadas; e",
+     "itens": [
+      "89f0cb5afdcb80cf"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 109, alínea d",
+     "trecho": "d) Previsão de Restabelecimento: estimativa de retorno do fornecimento, com base na melhor informação disponível. Canais de Comunicação",
+     "itens": [
+      "4c34d39fc8c7c83c"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 110",
+     "trecho": "110. A comunicação de que trata o item 105 deve ser realizada, obrigatoriamente, por meio de SMS e aplicativos de mensagens, com envio de mensagens automáticas aos consumidores afetados.",
+     "itens": [
+      "73f0657fc5edfaa2"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": [
+      {
+       "citacao": "5.3 Notificações via “push” podem substituir o envio por SMS e aplicativos de mensagens? Notificações via “push” podem ser usadas como canal complementar, mas não substituem o requisito mínimo do item 110: a comunicação do item 105 deve ser realizada obrigatoriamente por SMS e aplicativos de mensagens (com envio automático). Portanto, é possível adotar push para reforço do aviso, desde que as comunicações obrigatórias por SMS e app de mensagens sejam realizadas dentro dos prazos.",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      }
+     ]
+    },
+    {
+     "dispositivo": "item 116",
+     "trecho": "116. A comunicação deve facilitar a coordenação entre as distribuidoras e os órgãos governamentais, permitindo uma resposta integrada a crises e eventos adversos. Critérios de Comunicação",
+     "itens": [
+      "8b31ab179c001654"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 126",
+     "trecho": "126. Segurança Operacional: A Cessão Emergencial de recursos não deve comprometer a segurança das operações das distribuidoras envolvidas.",
+     "itens": [
+      "cea10544cc62dbe7"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 127",
+     "trecho": "127. Proporcionalidade e Necessidade: A Cessão Emergencial deve ser limitada à necessidade demonstrada pela situação de crise e proporcional à capacidade operacional disponível de cada distribuidora.",
+     "itens": [
+      "5c34e0b541763f48"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 134, alínea a",
+     "trecho": "a) Reembolso de despesas com horas de trabalho dos recursos humanos, proporcionais à remuneração, cargos e encargos, conforme folha de pagamento da cedente;",
+     "itens": [
+      "7c1a7f748434daf2"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 134, alínea b",
+     "trecho": "b) Reembolso de despesas com equipamentos e materiais cedidos, proporcionais ao valor original para a cedente;",
+     "itens": [
+      "51d4035c89333aa8"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 134, alínea c",
+     "trecho": "c) Seguros e indenizações em caso de acidentes durante a Cessão Emergencial; e",
+     "itens": [
+      "9596972c305943ee"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 134, alínea d",
+     "trecho": "d) Neutralidade dos valores para o reembolso à(s) cedente(s) pela requisitante. Critérios de Cessão de Equipes",
+     "itens": [
+      "921c74abaa653d5d"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 135",
+     "trecho": "135. As equipes cedidas devem possuir capacitação e experiência compatíveis com as atividades a serem desenvolvidas na distribuidora cedente.",
+     "itens": [
+      "33981a4c29c4c4db"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 137",
+     "trecho": "137. O tempo de cessão das equipes não pode comprometer significativamente o atendimento aos consumidores da distribuidora cedente.",
+     "itens": [
+      "084c9e1b8f25feff"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 142, alínea g",
+     "trecho": "g) Verificabilidade: o plano deve ser estruturado de forma a permitir a verificação da sua continuidade e eficiência de execução. Diretrizes",
+     "itens": [
+      "a03bb494e4666bc9"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 144, alínea a",
+     "trecho": "a) Identificação e Análise de Riscos: Identificar os fatores de risco potenciais, tanto internos quanto externos, com o maior nível de detalhamento possível. A identificação deve incluir a localização, natureza do risco, frequência histórica de ocorrência e uma análise completa dos impactos potenciais associados a cada risco;",
+     "itens": [
+      "87c61f480ef8ec6c"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 145",
+     "trecho": "145. A realização de simulados ou disponibilização de treinamentos atualizados deve ser feita com periodicidade máxima de um ano.",
+     "itens": [
+      "a1b6115028690bc1"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 145, alínea b",
+     "trecho": "b) A disponibilização de treinamentos atualizados, também deve ser fornecida na mesma periodicidade máxima para os agentes designados pelo Poder Público.",
+     "itens": [
+      "9248ddd0d9436761"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 180-A",
+     "trecho": "180-A. Na apuração do indicador DISE não devem ser consideradas as interrupções previstas no item 178, com exceção da alínea “c”.",
+     "itens": [
+      "d2970d662176d42f"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": [
+      {
+       "citacao": "3.2 Qual é o prazo para início das apurações do indicador DISE? O prazo é de até 180 dias contados da data de publicação da norma. No caso da publicação em 30/10/2025, o prazo final para início das apurações é 28/04/2026.",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      },
+      {
+       "citacao": "3.1 Como deve ser interpretado o comando regulatório “2 meses após a publicação da norma” para fins de aplicação retroativa do DISE? Considerando a publicação da norma em 30/10/2025, o marco de 2 meses ocorre em 30/12/2025, de modo que os efeitos retroativos passam a incidir a partir de 31/12/2025. Contudo, como a apuração dos indicadores de continuidade no âmbito do PRODIST é realizada em base mensal, embora haja incidência a partir de 31/12/2025, a primeira apuração completa se dá no mês de janeiro de 2026, razão pela qual não se considera o dia isolado de 31/12/2025 como um período autônomo de apuração.",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      }
+     ]
+    },
+    {
+     "dispositivo": "item 226",
+     "trecho": "226. Para unidades consumidoras com CCD e distribuidoras conectadas ao sistema de distribuição, as compensações associadas às violações dos limites de continuidade DIC, FIC, DMIC, DICRI e DISE por ponto de conexão devem ser estabelecidas nos respectivos contratos, obedecendo aos critérios deste Módulo.",
+     "itens": [
+      "12c8dc53c25f41a2"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": [
+      {
+       "citacao": "3.5 Ajustes retroativos no XML de compensações por DISE impactam a avaliação da governança regulatória? Os indicadores de compensações por DISE serão criados de forma independente dos indicadores de compensações normais, a exemplo do que ocorre com o DICRI. Assim, não haverá impacto na avaliação de governança pela alteração de dados. 4. Plano de Contingência",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      },
+      {
+       "citacao": "3.4 Como devem ser realizadas as compensações financeiras relativas às violações do DISE nesse período inicial? As compensações devem observar os procedimentos e prazos estabelecidos no Módulo 8 do PRODIST, sendo calculadas com base nas apurações dos meses abrangidos pelo efeito retroativo. Uma vez iniciadas as apurações dentro do prazo regulamentar (até 28/04/2026), as distribuidoras devem proceder ao pagamento das compensações conforme dispõe o item 219 da Seção 8.2 do Módulo 8 do PRODIST. Tendo em vista que os meses de janeiro, fevereiro, março e abril se encontram no período de vigência da norma, as compensações apuradas relativas a esses meses devem ser creditadas na fatura apresentada em até 2 meses após o período de apuração do mês de abril. Assim, a fatura apresentada no mês de junho é a última na qual podem ser efetuadas as compensações de janeiro a abril.",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      }
+     ]
+    },
+    {
+     "dispositivo": "item 227, alínea d",
+     "trecho": "d) quando ocorrer violação dos indicadores DICRI ou DISE, a compensação deve ser realizada sem prejuízo das compensações por violação dos indicadores DIC, FIC e DMIC, podendo inclusive haver compensações referentes a mais de uma violação do limite dos indicadores DICRI e DISE no mesmo mês, hipótese em que deve ser paga a soma das compensações calculadas para cada violação.”(NR)",
+     "itens": [
+      "09fc14322d39e994"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": [
+      {
+       "citacao": "3.5 Ajustes retroativos no XML de compensações por DISE impactam a avaliação da governança regulatória? Os indicadores de compensações por DISE serão criados de forma independente dos indicadores de compensações normais, a exemplo do que ocorre com o DICRI. Assim, não haverá impacto na avaliação de governança pela alteração de dados. 4. Plano de Contingência",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      },
+      {
+       "citacao": "3.4 Como devem ser realizadas as compensações financeiras relativas às violações do DISE nesse período inicial? As compensações devem observar os procedimentos e prazos estabelecidos no Módulo 8 do PRODIST, sendo calculadas com base nas apurações dos meses abrangidos pelo efeito retroativo. Uma vez iniciadas as apurações dentro do prazo regulamentar (até 28/04/2026), as distribuidoras devem proceder ao pagamento das compensações conforme dispõe o item 219 da Seção 8.2 do Módulo 8 do PRODIST. Tendo em vista que os meses de janeiro, fevereiro, março e abril se encontram no período de vigência da norma, as compensações apuradas relativas a esses meses devem ser creditadas na fatura apresentada em até 2 meses após o período de apuração do mês de abril. Assim, a fatura apresentada no mês de junho é a última na qual podem ser efetuadas as compensações de janeiro a abril.",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      },
+      {
+       "citacao": "3.1 Como deve ser interpretado o comando regulatório “2 meses após a publicação da norma” para fins de aplicação retroativa do DISE? Considerando a publicação da norma em 30/10/2025, o marco de 2 meses ocorre em 30/12/2025, de modo que os efeitos retroativos passam a incidir a partir de 31/12/2025. Contudo, como a apuração dos indicadores de continuidade no âmbito do PRODIST é realizada em base mensal, embora haja incidência a partir de 31/12/2025, a primeira apuração completa se dá no mês de janeiro de 2026, razão pela qual não se considera o dia isolado de 31/12/2025 como um período autônomo de apuração.",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      }
+     ]
+    },
+    {
+     "dispositivo": "Art. 371-A, § 1º, inciso I",
+     "trecho": "I - atendimento telefônico;",
+     "itens": [
+      "126360571edbf06f"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 371-A, § 1º, inciso II",
+     "trecho": "II - atendimento presencial, com horário agendado; e",
+     "itens": [
+      "281df590db114e9c"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 371-A, § 1º, inciso III",
+     "trecho": "III - canal de comunicação por texto (chat) com atendimento humano, durante horário comercial.",
+     "itens": [
+      "998de9a8013d5d95"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-a57eb37f4ad72734",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 9º, II (Grupo I); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "item 108",
+     "trecho": "108. As distribuidoras devem disponibilizar a versão mais atualizada de seu plano de comunicação em seu sítio eletrônico na Internet e nos postos de atendimento presencial, de forma acessível ao público, com uso de linguagem clara e adequada. Informações Detalhadas",
+     "itens": [
+      "d0d9b13f247409a5"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 102",
+     "trecho": "102. As distribuidoras devem disponibilizar a versão mais atualizada de seu Relatório Anual de Gestão do Manejo Vegetal em seu sítio eletrônico na Internet e nos postos de atendimento presencial, de forma acessível ao público, com uso de linguagem clara e adequada, conforme prazo constante do Módulo 6.",
+     "itens": [
+      "e6a5fd13a95d9e25"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 23-E",
+     "trecho": "23-E. A distribuidora deve disponibilizar em sítio eletrônico e nos postos de atendimento presencial, com uso de linguagem clara e adequada, a versão mais atualizada de seu Relatório Anual de Gestão do Manejo Vegetal.",
+     "itens": [
+      "3a5135b149a7617f"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 23-I",
+     "trecho": "23-I. A distribuidora deve disponibilizar em sítio eletrônico e nos postos de atendimento presencial, com uso de linguagem clara e adequada, o seu Plano de Comunicação.",
+     "itens": [
+      "803c9683ab926f35"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-487945f60e502fc2",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 12, XXVII (Grupo IV); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "item 104",
+     "trecho": "104. As distribuidoras devem manter registro detalhado durante o período de 05 anos de todas as solicitações relacionadas ao serviço de manejo da vegetação que ofereça risco à segurança das redes elétricas e à continuidade do fornecimento de energia elétrica, incluídas tanto as solicitações realizadas pelo Poder Público Municipal quanto aquelas registradas pelas próprias distribuidoras e enviadas ao Poder Público Municipal, devendo o compartilhamento de informações estar em conformidade com as disposições da Lei Geral de Proteção de Dados (LGPD).",
+     "itens": [
+      "cde0648e7a44c0f1"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 95",
+     "trecho": "95. As distribuidoras deverão celebrar convênios, acordos de cooperação ou outros instrumentos formais com os entes públicos municipais, distritais e estaduais, com vistas à definição de protocolos de atuação coordenada para o manejo da vegetação que interfira na segurança e continuidade do serviço público de distribuição de energia elétrica, devendo prever, de forma clara, as responsabilidades de cada parte quanto à inspeção, poda preventiva, remoção e substituição de árvores, respeitando as competências legais e ambientais de cada ente federativo, bem como os procedimentos técnicos e operacionais necessários à execução das ações.",
+     "itens": [
+      "5cd25d0b31930a88"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 97",
+     "trecho": "97. A escolha de tecnologias, projetos e estratégias operacionais pelas distribuidoras deve considerar os desafios específicos da vegetação local, incluindo aspectos como espécies predominantes, sazonalidade e características de crescimento de forma a garantir a prestação do serviço adequado.",
+     "itens": [
+      "e85f635d48fa4eb0"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 99, alínea a",
+     "trecho": "a) Inspeção regular: realizar a inspeção visual periódica das redes elétricas e da vegetação próxima ou utilizar de sistema de gestão que possibilite a criação de ciclos de podas reduzindo a necessidade de deslocamento de equipe, a fim de identificar árvores ou galhos que possam representar risco de queda sobre a rede de distribuição;",
+     "itens": [
+      "cea824cf4f1bfdb6"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 99, alínea b",
+     "trecho": "b) Poda preventiva: realizar, em articulação com o Poder Público Estadual, Distrital e Municipal e em conformidade com as normas técnicas, podas preventivas para manter distância de segurança entre a vegetação e a rede elétrica, minimizando o risco de acidentes e interrupções no fornecimento de energia;",
+     "itens": [
+      "78c1c664a404cd32"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 99, alínea c",
+     "trecho": "c) Remoção de vegetação de risco: quando identificadas árvores ou partes da vegetação que, devido ao seu estado, porte ou localização, apresentem risco iminente à segurança das redes elétricas, as distribuidoras deverão comunicar imediatamente a necessidade de eliminação do risco ao órgão competente do Poder Público Estadual, Distrital ou Municipal, e articular as ações necessárias para eliminação do risco, prestando apoio técnico necessário, inclusive com o desligamento da rede elétrica, quando aplicável, observando os convênios de cooperação entre os entes envolvidos, respeitando as competências legais e a legislação pertinente;",
+     "itens": [
+      "7e405a51e340f0da"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 99, alínea d",
+     "trecho": "d) Substituição de árvores: as distribuidoras devem por meio de programas estimular o plantio de novas espécies adequadas ao convívio com as redes elétricas, em conformidade com os planos municipais de arborização.",
+     "itens": [
+      "a89b40289dcbd98a"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 100",
+     "trecho": "100. As distribuidoras devem elaborar Relatório Anual de Gestão do Manejo Vegetal, documentando de forma detalhada todas as atividades relacionadas à gestão da vegetação que interfira na rede de distribuição de energia, que servirá como ferramenta de transparência e controle para assegurar que as ações de manejo vegetal sejam realizadas de forma eficaz, em conformidade com as normas técnicas e ambientais, e com o objetivo de garantir a segurança e a continuidade do fornecimento de energia elétrica.",
+     "itens": [
+      "deb6f6ab42dd1b07"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 101, alínea a",
+     "trecho": "a) Inspeções Visuais: relatar o número de inspeções realizadas nas redes elétricas e vegetação, bem como a extensão das redes inspecionadas, destacando as áreas de risco identificadas por conjunto elétrico;",
+     "itens": [
+      "acccde8d107ef0a7"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 101, alínea b",
+     "trecho": "b) Podas Preventivas: descrever as ações de poda realizadas e as ações indicadas ao Poder Público Municipal, incluindo o número de árvores podadas por conjunto elétrico;",
+     "itens": [
+      "84ab75dfdb69de0f"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 101, alínea c",
+     "trecho": "c) Podas Corretivas: descrever as ações de poda realizadas, incluindo o número de árvores podadas por conjunto elétrico;",
+     "itens": [
+      "44bd912ddc392e7e"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 101, alínea d",
+     "trecho": "d) Remoção de Árvores: relatar os casos de remoção de árvores, detalhando a localização, o motivo da remoção (risco iminente, doenças, porte inadequado) por conjunto elétrico;",
+     "itens": [
+      "e2ce14fe1ddd043b"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 101, alínea e",
+     "trecho": "e) Programas de Substituição de Espécies: incluir dados sobre o número de substituição de árvores inadequadas por espécies mais apropriadas por conjunto elétrico;",
+     "itens": [
+      "2bde82f330f7a375"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 101, alínea f",
+     "trecho": "f) Aceiro de faixas de servidão: relatar o aceiro da vegetação realizado em faixas de servidão das redes e linhas de distribuição por conjunto elétrico; e",
+     "itens": [
+      "ec71a30e02807a43"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-779f42238d40f8ad",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 11, XXIII (Grupo III); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "item 105",
+     "trecho": "105. As distribuidoras devem comunicar aos consumidores, por meio dos canais disponíveis, a provável causa da interrupção, a área afetada e o tempo previsto para a normalização do fornecimento em até 15 (quinze) minutos após o conhecimento da causa da interrupção. Independentemente do momento em que a causa for identificada, a comunicação contendo essas informações deve ser realizada em até 1 (uma) hora após o reconhecimento da ocorrência da interrupção no fornecimento de energia elétrica.",
+     "itens": [
+      "c3b421e728c88b65"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 106",
+     "trecho": "106. As distribuidoras de energia devem disponibilizar em sítio eletrônico, com atualização a cada 30 minutos, o número total de unidades consumidoras afetadas por interrupções, discriminado em mapa por bairro, no mínimo.",
+     "itens": [
+      "8bf769e8049238bf"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 107, alínea a",
+     "trecho": "a) Número da ocorrência;",
+     "itens": [
+      "f210b1cb4b18cd93"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 107, alínea b",
+     "trecho": "b) Município/bairro da ocorrência aberta;",
+     "itens": [
+      "454101d0c403c18d"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 107, alínea c",
+     "trecho": "c) Data e hora de início da ocorrência aberta;",
+     "itens": [
+      "2095e3040e47b7fe"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 107, alínea d",
+     "trecho": "d) Tipo de ocorrência aberta (programada e não programada);",
+     "itens": [
+      "7e175ea36f54d27d"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 107, alínea e",
+     "trecho": "e) Sinalização do status da ocorrência aberta (Em preparação/Em Deslocamento/Em Execução);",
+     "itens": [
+      "04807cfc5d8b19fd"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 107, alínea f",
+     "trecho": "f) Quantidade de unidades consumidoras interrompidas da ocorrência aberta e o total da área de atuação;",
+     "itens": [
+      "145e90e0d6e92fa1"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 107, alínea g",
+     "trecho": "g) Duração da ocorrência (hh:mm);",
+     "itens": [
+      "bedd23cf7196cb9b"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 107, alínea h",
+     "trecho": "h) Consumidor Hora Interrompido (CHI) da ocorrência aberta e o total da área de atuação;",
+     "itens": [
+      "4530929b6c0a1c85"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 107, alínea i",
+     "trecho": "i) Quantidade de ocorrências abertas segregadas por município e o total na área de atuação;",
+     "itens": [
+      "b5295bca7f3ea780"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 107, alínea j",
+     "trecho": "j) Quantidade de equipes em atividade, segregadas por município e o total na área de atuação; e",
+     "itens": [
+      "bf6d884740a66016"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 109, alínea a",
+     "trecho": "a) Motivo da Interrupção: informação sobre a causa da falha, conforme “ANEXO 8.C: Lista de fatos geradores para classificação de interrupções do fornecimento de energia elétrica” do Módulo 8 (se disponível);",
+     "itens": [
+      "6812a1cfa93391a2"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 109, alínea b",
+     "trecho": "b) Área Afetada: delimitação geográfica da interrupção;",
+     "itens": [
+      "091a033ee197530b"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 109, alínea c",
+     "trecho": "c) Unidades Consumidoras Impactadas: Número de unidades consumidoras afetadas; e",
+     "itens": [
+      "89f0cb5afdcb80cf"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 109, alínea d",
+     "trecho": "d) Previsão de Restabelecimento: estimativa de retorno do fornecimento, com base na melhor informação disponível. Canais de Comunicação",
+     "itens": [
+      "4c34d39fc8c7c83c"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 110",
+     "trecho": "110. A comunicação de que trata o item 105 deve ser realizada, obrigatoriamente, por meio de SMS e aplicativos de mensagens, com envio de mensagens automáticas aos consumidores afetados.",
+     "itens": [
+      "73f0657fc5edfaa2"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": [
+      {
+       "citacao": "5.3 Notificações via “push” podem substituir o envio por SMS e aplicativos de mensagens? Notificações via “push” podem ser usadas como canal complementar, mas não substituem o requisito mínimo do item 110: a comunicação do item 105 deve ser realizada obrigatoriamente por SMS e aplicativos de mensagens (com envio automático). Portanto, é possível adotar push para reforço do aviso, desde que as comunicações obrigatórias por SMS e app de mensagens sejam realizadas dentro dos prazos.",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      }
+     ]
+    },
+    {
+     "dispositivo": "item 112",
+     "trecho": "112. A distribuidora deve atualizar as informações referentes à interrupção de que trata o item 105, incluindo alterações no tempo estimado de restabelecimento e outras informações relevantes para o consumidor.",
+     "itens": [
+      "d0e8213e450b813b"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 23-B",
+     "trecho": "23-B. A distribuidora deve comunicar ao consumidor, após o reconhecimento da ocorrência de interrupções no fornecimento de energia elétrica, informações sobre o evento.",
+     "itens": [
+      "f6f4a14d4a6ded86"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 23-C",
+     "trecho": "23-C. A distribuidora deve disponibilizar aos consumidores o número total de unidades consumidoras afetadas por interrupções.",
+     "itens": [
+      "002a92c57c58b27b"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 371-A, § 6º",
+     "trecho": "§ 6º No tratamento de interrupções emergenciais, a distribuidora deve observar as disposições relacionadas ao atendimento previstas no Módulo 4 do PRODIST.",
+     "itens": [
+      "2d90cfedd6fa12bb"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-1ba22d9ffb29ea51",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 9º, XIV (Grupo I); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "item 106",
+     "trecho": "Além disso, o número total de unidades consumidoras afetadas deve ser apresentado por tempo de interrupção, com as seguintes faixas de duração:",
+     "itens": [
+      "03038d3317d5920c"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 142, alínea g",
+     "trecho": "g) Verificabilidade: o plano deve ser estruturado de forma a permitir a verificação da sua continuidade e eficiência de execução. Diretrizes",
+     "itens": [
+      "a03bb494e4666bc9"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-4d8a666fd8a5701b",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 10, II (Grupo II); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "Art. 13, inciso VI",
+     "trecho": "VI - Até 180 (cento e oitenta) dias mês para iniciar as apurações do Duração da Interrupção Individual ocorrida em Situação de Emergência por Unidade Consumidora ou por Ponto de Conexão – DISE e observar as disposições da Seção 8.2 do Módulo 8 do PRODIST com o corresponde pagamento de compensações por transgressão desse indicador, com efeitos retroativos a 2 meses após a publicação da norma;",
+     "itens": [
+      "6c0622d9f1615d32"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": [
+      {
+       "citacao": "3.4 Como devem ser realizadas as compensações financeiras relativas às violações do DISE nesse período inicial? As compensações devem observar os procedimentos e prazos estabelecidos no Módulo 8 do PRODIST, sendo calculadas com base nas apurações dos meses abrangidos pelo efeito retroativo. Uma vez iniciadas as apurações dentro do prazo regulamentar (até 28/04/2026), as distribuidoras devem proceder ao pagamento das compensações conforme dispõe o item 219 da Seção 8.2 do Módulo 8 do PRODIST. Tendo em vista que os meses de janeiro, fevereiro, março e abril se encontram no período de vigência da norma, as compensações apuradas relativas a esses meses devem ser creditadas na fatura apresentada em até 2 meses após o período de apuração do mês de abril. Assim, a fatura apresentada no mês de junho é a última na qual podem ser efetuadas as compensações de janeiro a abril.",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      },
+      {
+       "citacao": "3.1 Como deve ser interpretado o comando regulatório “2 meses após a publicação da norma” para fins de aplicação retroativa do DISE? Considerando a publicação da norma em 30/10/2025, o marco de 2 meses ocorre em 30/12/2025, de modo que os efeitos retroativos passam a incidir a partir de 31/12/2025. Contudo, como a apuração dos indicadores de continuidade no âmbito do PRODIST é realizada em base mensal, embora haja incidência a partir de 31/12/2025, a primeira apuração completa se dá no mês de janeiro de 2026, razão pela qual não se considera o dia isolado de 31/12/2025 como um período autônomo de apuração.",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      },
+      {
+       "citacao": "3.2 Qual é o prazo para início das apurações do indicador DISE? O prazo é de até 180 dias contados da data de publicação da norma. No caso da publicação em 30/10/2025, o prazo final para início das apurações é 28/04/2026.",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      }
+     ]
+    },
+    {
+     "dispositivo": "item 172",
+     "trecho": "172. Os indicadores devem ser apurados mensalmente, considerando o mês civil, com exceção dos indicadores DICRI e DISE, que devem ser apurados por interrupção ocorrida em Dia Crítico ou em Situação de Emergência, respectivamente.",
+     "itens": [
+      "ef8c0e08544c2dc6"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": [
+      {
+       "citacao": "3.5 Ajustes retroativos no XML de compensações por DISE impactam a avaliação da governança regulatória? Os indicadores de compensações por DISE serão criados de forma independente dos indicadores de compensações normais, a exemplo do que ocorre com o DICRI. Assim, não haverá impacto na avaliação de governança pela alteração de dados. 4. Plano de Contingência",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      },
+      {
+       "citacao": "3.1 Como deve ser interpretado o comando regulatório “2 meses após a publicação da norma” para fins de aplicação retroativa do DISE? Considerando a publicação da norma em 30/10/2025, o marco de 2 meses ocorre em 30/12/2025, de modo que os efeitos retroativos passam a incidir a partir de 31/12/2025. Contudo, como a apuração dos indicadores de continuidade no âmbito do PRODIST é realizada em base mensal, embora haja incidência a partir de 31/12/2025, a primeira apuração completa se dá no mês de janeiro de 2026, razão pela qual não se considera o dia isolado de 31/12/2025 como um período autônomo de apuração.",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "aneel-43718f553f8b16c8",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 12, XXVIII (Grupo IV); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "item 120",
+     "trecho": "120. As distribuidoras devem realizar comunicações formais, com periodicidade anual, aos representantes do Poder Público, detalhando a execução dos protocolos estabelecidos de modo a garantir que todos os envolvidos estejam familiarizados com os procedimentos de comunicação.",
+     "itens": [
+      "e863a4cbf5a00dd2"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 14",
+     "trecho": "Art. 14. As distribuidoras devem implantar processo de comunicação e acompanhamento da evolução dos eventos climáticos severos de que trata o item 114 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, em até 30 (trinta) dias, contados da publicação das instruções pela ANEEL.",
+     "itens": [
+      "aa970d563840ad15"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": [
+      {
+       "citacao": "1.8 Qual o prazo previsto para a ANEEL publicar as instruções complementares sobre comunicação de eventos climáticos severos? Ainda não há prazo estabelecido para a publicação das instruções pela ANEEL.",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      },
+      {
+       "citacao": "4.4 Quais são o gatilho, o prazo e o canal para envio de alertas meteorológicos à ANEEL no contexto do Plano de Contingência? O envio de alertas meteorológicos à ANEEL (Tabela 25 do Módulo 6) tem como gatilho os alertas que justifiquem o acionamento do Plano de Contingência, em qualquer nível. O prazo e o canal devem seguir o Plano de Comunicação e o procedimento a ser estabelecido pela ANEEL (item 114), que serão publicados oportunamente. Até a publicação desse procedimento, a distribuidora deve manter registro e evidências internas do acionamento e dos alertas correlatos, para apresentação à fiscalização quando demandado. 5. Comunicação com Consumidores",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      }
+     ]
+    },
+    {
+     "dispositivo": "item 116",
+     "trecho": "116. A comunicação deve facilitar a coordenação entre as distribuidoras e os órgãos governamentais, permitindo uma resposta integrada a crises e eventos adversos. Critérios de Comunicação",
+     "itens": [
+      "8b31ab179c001654"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 117",
+     "trecho": "117. As distribuidoras devem notificar o Poder Público imediatamente após a identificação de um evento crítico, utilizando canais de comunicação oficiais previamente estabelecidos.",
+     "itens": [
+      "8927ba0ff3e8aeae"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 119",
+     "trecho": "119. As distribuidoras devem estabelecer protocolos de alertas para notificar rapidamente o Poder Público, conforme previsto no item 115, sobre interrupções de energia e situações que demandem apoio imediato para a atuação em cenários de emergência.",
+     "itens": [
+      "c5c8ba07ebe0b203"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 23-L",
+     "trecho": "23-L. A distribuidora deve notificar o Poder Público imediatamente após a identificação de um evento crítico, utilizando canais de comunicação oficiais previamente estabelecidos.",
+     "itens": [
+      "1fe6934a9f4b19be"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 371-A",
+     "trecho": "Art. 371-A A distribuidora deve estabelecer canais adicionais de comunicação exclusivos ao atendimento de órgão central e representantes designados dos poderes públicos municipal, distrital e estadual.",
+     "itens": [
+      "75085cea3e560534"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 371-A, § 3º",
+     "trecho": "§ 3º A distribuidora deve designar um ou mais representantes institucionais para atendimento exclusivo dos poderes públicos municipal, distrital e estadual, garantindo comunicação direta e eficaz.",
+     "itens": [
+      "77a522bdd6019b09"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 371-A, § 4º",
+     "trecho": "§ 4º A distribuidora deve agendar e realizar, sempre que solicitado pelos poderes públicos municipal, distrital e estadual, reuniões via plataforma de videoconferência com os seus representantes institucionais.",
+     "itens": [
+      "c2463cce63f5243a"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-33598ab08398d96c",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 9º, VI (Grupo I); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "item 113",
+     "trecho": "113. As distribuidoras de energia devem disponibilizar uma API (Application Programming Interface) ou outra solução tecnológica segura, conforme instrução técnica emitida pela ANEEL, permitindo que a ANEEL extraia os dados de interrupção do fornecimento diretamente da fonte, com observância aos critérios de segurança cibernética, disponibilidade e integridade de sistemas.",
+     "itens": [
+      "36d97e25c9c45652"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": [
+      {
+       "citacao": "1.9 As instruções quanto disponibilização da API de que trata item 113 do Módulo 4 do PRODIST já foram publicadas pela ANEEL? A ANEEL encaminhou às distribuidoras o Ofício Conjunto Circular nº 1/2025‑SMA‑STD/ANEEL (SEI nº 48500.008437/2025-43), contendo orientações e especificações técnicas preliminares voltadas à implantação da API (Application Programming Interface), em 05 de agosto de 2025. 2. Manejo Vegetal",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      }
+     ]
+    },
+    {
+     "dispositivo": "Art. 16",
+     "trecho": "Art. 16 As distribuidoras deverão informar e manter, por até cinco anos, em seu sítio eletrônico, os indicadores estabelecidos nos incisos V e VI do caput do art. 4º; do Decreto 12.068, de 20 de julho de 2024, em até 30 dias, contados da publicação das instruções pela ANEEL.",
+     "itens": [
+      "6a75e130ecf1cdda"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-ef543e1162b00e4d",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 11, V (Grupo III); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "item 132, alínea a",
+     "trecho": "a) valor global da contratação com detalhamento dos recursos envolvidos, segregados por tipo de gasto;",
+     "itens": [
+      "eeabcc619985bac4"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 132, alínea c",
+     "trecho": "c) relação das matrículas dos profissionais que realizaram os atendimentos, discriminando função, remuneração, cargos e encargos totais conforme folha de pagamento da cedente, horário do despacho, local do atendimento e o total de horas empregadas em serviço;",
+     "itens": [
+      "63d080f10ea001db"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 132, alínea d",
+     "trecho": "d) valor individualizado por frente de serviço e montante total dos serviços realizados;",
+     "itens": [
+      "5f85b262f557ee25"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 132, alínea e",
+     "trecho": "e) documentação comprobatória e discriminação detalhada de despesas com equipamentos e materiais;",
+     "itens": [
+      "deeab00be5f0f68f"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 132, alínea f",
+     "trecho": "f) documentação comprobatória e discriminação detalhada de outras despesas realizadas na operação emergencial;",
+     "itens": [
+      "189be3218a0cbccf"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 132, alínea g",
+     "trecho": "g) forma de pagamento, observando o que dispõe o item 138;",
+     "itens": [
+      "4b62fdd082d510d6"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 132, alínea h",
+     "trecho": "h) informações separadas por cedente, resguardando a respectiva proporcionalidade na Cessão Emergencial e a individualidade das concessões;",
+     "itens": [
+      "002b589ec9ac2f4f"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 132, alínea i",
+     "trecho": "i) apresentação das razões da opção pela utilização de recursos humanos pertencentes a outras empresas;",
+     "itens": [
+      "2be47277983ff641"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 132, alínea j",
+     "trecho": "j) atividades desenvolvidas pelas equipes cedidas, registradas detalhadamente, por localidade;",
+     "itens": [
+      "ca89c86c91fab439"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 132, alínea k",
+     "trecho": "k) detalhamento das tarefas de campo, com dia, data e hora;",
+     "itens": [
+      "aacda5a99abb796e"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 132, alínea l",
+     "trecho": "l) detalhamento dos tipos de estruturas utilizadas nos atendimentos, com quantidade de turmas e veículos (leves e pesados); e",
+     "itens": [
+      "88b6fa7ef4189740"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 132, alínea m",
+     "trecho": "m) outras informações que julgar relevante sobre a Cessão Emergencial. Acordo de Cessão Emergencial Prévio.",
+     "itens": [
+      "768ca43e4161c231"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 134, alínea a",
+     "trecho": "a) Reembolso de despesas com horas de trabalho dos recursos humanos, proporcionais à remuneração, cargos e encargos, conforme folha de pagamento da cedente;",
+     "itens": [
+      "7c1a7f748434daf2"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 23-A",
+     "trecho": "23-A. A distribuidora deve enviar às áreas de fiscalização da ANEEL relatório contendo discriminação das despesas ou custos incorridos a serem reembolsados à cedente relativos à Cessão Emergencial de recursos humanos, equipamentos e materiais utilizados, além de outras informações pertinentes.",
+     "itens": [
+      "1b3991405c9d043c"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-00b989eaeae73f19",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "item 132, alínea b",
+     "trecho": "b) duração do Contrato de Cessão Emergencial para execução dos serviços realizados;",
+     "itens": [
+      "743176314038e1bc"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 139, alínea b",
+     "trecho": "b) a cessionária deverá manter dossiê individualizado em sua sede contendo os documentos comprobatórios que evidenciem a neutralidade de custos e despesas reembolsados à cedente, os quais poderão ser requisitados pela fiscalização por até 5 (cinco) anos após fim do evento emergencial.",
+     "itens": [
+      "67dac8ada9048f75"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 219",
+     "trecho": "“219. No caso de violação do limite de continuidade individual dos indicadores DIC, FIC, DMIC, DICRI e DISE a distribuidora deve calcular a compensação ao consumidor ou central geradora, inclusive aqueles conectados em DIT, e efetuar o crédito na fatura apresentada em até 2 meses após o período de apuração.",
+     "itens": [
+      "fa76d96bea74ec08"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": [
+      {
+       "citacao": "3.4 Como devem ser realizadas as compensações financeiras relativas às violações do DISE nesse período inicial? As compensações devem observar os procedimentos e prazos estabelecidos no Módulo 8 do PRODIST, sendo calculadas com base nas apurações dos meses abrangidos pelo efeito retroativo. Uma vez iniciadas as apurações dentro do prazo regulamentar (até 28/04/2026), as distribuidoras devem proceder ao pagamento das compensações conforme dispõe o item 219 da Seção 8.2 do Módulo 8 do PRODIST. Tendo em vista que os meses de janeiro, fevereiro, março e abril se encontram no período de vigência da norma, as compensações apuradas relativas a esses meses devem ser creditadas na fatura apresentada em até 2 meses após o período de apuração do mês de abril. Assim, a fatura apresentada no mês de junho é a última na qual podem ser efetuadas as compensações de janeiro a abril.",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      },
+      {
+       "citacao": "3.5 Ajustes retroativos no XML de compensações por DISE impactam a avaliação da governança regulatória? Os indicadores de compensações por DISE serão criados de forma independente dos indicadores de compensações normais, a exemplo do que ocorre com o DICRI. Assim, não haverá impacto na avaliação de governança pela alteração de dados. 4. Plano de Contingência",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      },
+      {
+       "citacao": "3.1 Como deve ser interpretado o comando regulatório “2 meses após a publicação da norma” para fins de aplicação retroativa do DISE? Considerando a publicação da norma em 30/10/2025, o marco de 2 meses ocorre em 30/12/2025, de modo que os efeitos retroativos passam a incidir a partir de 31/12/2025. Contudo, como a apuração dos indicadores de continuidade no âmbito do PRODIST é realizada em base mensal, embora haja incidência a partir de 31/12/2025, a primeira apuração completa se dá no mês de janeiro de 2026, razão pela qual não se considera o dia isolado de 31/12/2025 como um período autônomo de apuração.",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      }
+     ]
+    },
+    {
+     "dispositivo": "item 127",
+     "trecho": "127. Proporcionalidade e Necessidade: A Cessão Emergencial deve ser limitada à necessidade demonstrada pela situação de crise e proporcional à capacidade operacional disponível de cada distribuidora.",
+     "itens": [
+      "5c34e0b541763f48"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 137",
+     "trecho": "137. O tempo de cessão das equipes não pode comprometer significativamente o atendimento aos consumidores da distribuidora cedente.",
+     "itens": [
+      "084c9e1b8f25feff"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 23-G",
+     "trecho": "23-G. As distribuidoras deverão informar e manter, por até cinco anos, em seu sítio eletrônico, a qualidade na prestação do serviço de distribuição de energia elétrica, por meio da apuração de indicadores de continuidade do fornecimento, permitindo a avaliação do percentual de cumprimento dos limites de conjuntos elétricos, além do valor global da distribuidora.",
+     "itens": [
+      "33074e8a1fe3ae59"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 23-H",
+     "trecho": "23-H. As distribuidoras deverão informar e manter, por até cinco anos, em seu sítio eletrônico, os indicadores de duração e frequência de interrupções (DEC e FEC) efetivamente percebidas pelos usuários, sem aplicação de expurgos.",
+     "itens": [
+      "dac445af2c7897a3"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 220-A",
+     "trecho": "220-A. A distribuidora deve efetuar uma compensação ao consumidor ou central geradora de média ou baixa tensão para cada interrupção ocorrida em Situação de Emergência que superar o limite do indicador DISE.”(NR)",
+     "itens": [
+      "1c9deb8e873af795"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-6f199300ba5328c0",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 11, XVIII (Grupo III); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "item 138",
+     "trecho": "138. O ressarcimento à cedente não deve ultrapassar o prazo de doze meses contados do final da Cessão Emergencial. Contratos de Cessão Emergencial de recursos humanos, equipamentos e materiais entre Partes Relacionadas",
+     "itens": [
+      "610cc5d8b942d8ac"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 139, alínea c",
+     "trecho": "c) As cessões emergenciais de recursos humanos, equipamentos e materiais entre distribuidoras e transmissoras e suas partes relacionadas devem ser reembolsadas pela cessionária à cedente garantindo a neutralidade da operação, não se tratando de rateio ou prestação de serviços, e preservando a individualidade das concessões.",
+     "itens": [
+      "dace5661de038677"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-fe7e15f6e4209064",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 10, XX (Grupo II); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "Art. 15",
+     "trecho": "Art. 15. As distribuidoras devem disponibilizar a API de que trata item 113 do Anexo IV da Resolução Normativa nº 956, de 7 de dezembro de 2021, com redação dada pelo art. 3º desta Resolução Normativa em até 60 (sessenta) dias, contados da publicação das instruções pela ANEEL.",
+     "itens": [
+      "49c69256fe352127"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": [
+      {
+       "citacao": "1.9 As instruções quanto disponibilização da API de que trata item 113 do Módulo 4 do PRODIST já foram publicadas pela ANEEL? A ANEEL encaminhou às distribuidoras o Ofício Conjunto Circular nº 1/2025‑SMA‑STD/ANEEL (SEI nº 48500.008437/2025-43), contendo orientações e especificações técnicas preliminares voltadas à implantação da API (Application Programming Interface), em 05 de agosto de 2025. 2. Manejo Vegetal",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      }
+     ]
+    },
+    {
+     "dispositivo": "item 101, alínea g",
+     "trecho": "g) Convênios Celebrados: informar os convênios celebrados com o Poder Público Estadual, Distrital ou Municipal da sua área de atuação, bem como as tratativas com esses entes para a celebração de convênios.",
+     "itens": [
+      "afcbf345324a3e49"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 23-K",
+     "trecho": "23-K. A distribuidora deve disponibilizar à ANEEL uma API (Application Programming Interface) que possibilite a consulta de dados de interrupção do fornecimento diretamente dos sistemas das distribuidoras.",
+     "itens": [
+      "d562851a554d9830"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": [
+      {
+       "citacao": "1.9 As instruções quanto disponibilização da API de que trata item 113 do Módulo 4 do PRODIST já foram publicadas pela ANEEL? A ANEEL encaminhou às distribuidoras o Ofício Conjunto Circular nº 1/2025‑SMA‑STD/ANEEL (SEI nº 48500.008437/2025-43), contendo orientações e especificações técnicas preliminares voltadas à implantação da API (Application Programming Interface), em 05 de agosto de 2025. 2. Manejo Vegetal",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "aneel-9621a29328ed70d7",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 12, V (Grupo IV); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "item 126",
+     "trecho": "126. Segurança Operacional: A Cessão Emergencial de recursos não deve comprometer a segurança das operações das distribuidoras envolvidas.",
+     "itens": [
+      "cea10544cc62dbe7"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-2453ff286780975d",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 10, XII (Grupo II); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "item 129",
+     "trecho": "129. Individualidade das concessionárias: todas as informações, documentações, arquivos e registros contábeis relacionados à Cessão Emergencial deverão evidenciar a proporção de cada distribuidora ou transmissora cedente. Situações Aplicáveis",
+     "itens": [
+      "ef6845fb40369ad2"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-48faba2a0713027f",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 11, XIX (Grupo III); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "item 133, alínea c",
+     "trecho": "c) A previsão de duração da Cessão Emergencial;",
+     "itens": [
+      "a99fead68b4bd135"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 133, alínea d",
+     "trecho": "d) A responsabilidade pelas despesas operacionais;",
+     "itens": [
+      "7de834f7377be0f9"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 134, alínea b",
+     "trecho": "b) Reembolso de despesas com equipamentos e materiais cedidos, proporcionais ao valor original para a cedente;",
+     "itens": [
+      "51d4035c89333aa8"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 134, alínea d",
+     "trecho": "d) Neutralidade dos valores para o reembolso à(s) cedente(s) pela requisitante. Critérios de Cessão de Equipes",
+     "itens": [
+      "921c74abaa653d5d"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 226",
+     "trecho": "226. Para unidades consumidoras com CCD e distribuidoras conectadas ao sistema de distribuição, as compensações associadas às violações dos limites de continuidade DIC, FIC, DMIC, DICRI e DISE por ponto de conexão devem ser estabelecidas nos respectivos contratos, obedecendo aos critérios deste Módulo.",
+     "itens": [
+      "12c8dc53c25f41a2"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": [
+      {
+       "citacao": "3.5 Ajustes retroativos no XML de compensações por DISE impactam a avaliação da governança regulatória? Os indicadores de compensações por DISE serão criados de forma independente dos indicadores de compensações normais, a exemplo do que ocorre com o DICRI. Assim, não haverá impacto na avaliação de governança pela alteração de dados. 4. Plano de Contingência",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      },
+      {
+       "citacao": "3.4 Como devem ser realizadas as compensações financeiras relativas às violações do DISE nesse período inicial? As compensações devem observar os procedimentos e prazos estabelecidos no Módulo 8 do PRODIST, sendo calculadas com base nas apurações dos meses abrangidos pelo efeito retroativo. Uma vez iniciadas as apurações dentro do prazo regulamentar (até 28/04/2026), as distribuidoras devem proceder ao pagamento das compensações conforme dispõe o item 219 da Seção 8.2 do Módulo 8 do PRODIST. Tendo em vista que os meses de janeiro, fevereiro, março e abril se encontram no período de vigência da norma, as compensações apuradas relativas a esses meses devem ser creditadas na fatura apresentada em até 2 meses após o período de apuração do mês de abril. Assim, a fatura apresentada no mês de junho é a última na qual podem ser efetuadas as compensações de janeiro a abril.",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "aneel-e3e74ea070221e2c",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 12, III (Grupo IV); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "item 133, alínea e",
+     "trecho": "e) Previsão de Cessão Emergencial, mantendo-se neutralidade das partes em relação a recursos humanos, equipamentos e materiais;",
+     "itens": [
+      "75da33f12b23776b"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-d48b6f1acbe9447e",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 12, XXVI (Grupo IV); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "item 133, alínea f",
+     "trecho": "f) Realização de testes regulares de Cessão Emergencial, simulando cenários de crise para validar a eficácia do processo e identificar melhorias operacionais no intercâmbio de recursos humanos, equipamentos e materiais; e",
+     "itens": [
+      "3b0f6e7ae5d7a5cb"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 136",
+     "trecho": "136. A distribuidora cessionária deve prover condições adequadas de trabalho, como alimentação, transporte, hospedagem e segurança para as equipes objeto da Cessão Emergencial.",
+     "itens": [
+      "c8fa6b48cf963d61"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 144, alínea a",
+     "trecho": "a) Identificação e Análise de Riscos: Identificar os fatores de risco potenciais, tanto internos quanto externos, com o maior nível de detalhamento possível. A identificação deve incluir a localização, natureza do risco, frequência histórica de ocorrência e uma análise completa dos impactos potenciais associados a cada risco;",
+     "itens": [
+      "87c61f480ef8ec6c"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-e0e15308dcb8476f",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 10, VI (Grupo II); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "item 133, alínea g",
+     "trecho": "g) Procedimentos claros para a integração de equipes externas, com definição de treinamentos, capacitações e preparação prévia adequada para garantir que todos os envolvidos estejam alinhados com as práticas de segurança e operação da distribuidora requisitante.",
+     "itens": [
+      "7a8218ee951a3605"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-bd0e5246ffd8c309",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 12, VIII (Grupo IV); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "item 134, alínea c",
+     "trecho": "c) Seguros e indenizações em caso de acidentes durante a Cessão Emergencial; e",
+     "itens": [
+      "9596972c305943ee"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-dc4b23a9959e5b30",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 9º, IX (Grupo I); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "item 135",
+     "trecho": "135. As equipes cedidas devem possuir capacitação e experiência compatíveis com as atividades a serem desenvolvidas na distribuidora cedente.",
+     "itens": [
+      "33981a4c29c4c4db"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 145",
+     "trecho": "145. A realização de simulados ou disponibilização de treinamentos atualizados deve ser feita com periodicidade máxima de um ano.",
+     "itens": [
+      "a1b6115028690bc1"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "item 145, alínea b",
+     "trecho": "b) A disponibilização de treinamentos atualizados, também deve ser fornecida na mesma periodicidade máxima para os agentes designados pelo Poder Público.",
+     "itens": [
+      "9248ddd0d9436761"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-6a04ad7f4ea421fd",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 10, I (Grupo II); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "item 23-D",
+     "trecho": "23-D. A distribuidora deve disponibilizar em sítio eletrônico informações relacionadas às ocorrências abertas.",
+     "itens": [
+      "2cab65c1fc58df50"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-044bc8fbcf04f1ea",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 11, VII (Grupo III); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "item 180-A",
+     "trecho": "180-A. Na apuração do indicador DISE não devem ser consideradas as interrupções previstas no item 178, com exceção da alínea “c”.",
+     "itens": [
+      "d2970d662176d42f"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": [
+      {
+       "citacao": "3.2 Qual é o prazo para início das apurações do indicador DISE? O prazo é de até 180 dias contados da data de publicação da norma. No caso da publicação em 30/10/2025, o prazo final para início das apurações é 28/04/2026.",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      },
+      {
+       "citacao": "3.1 Como deve ser interpretado o comando regulatório “2 meses após a publicação da norma” para fins de aplicação retroativa do DISE? Considerando a publicação da norma em 30/10/2025, o marco de 2 meses ocorre em 30/12/2025, de modo que os efeitos retroativos passam a incidir a partir de 31/12/2025. Contudo, como a apuração dos indicadores de continuidade no âmbito do PRODIST é realizada em base mensal, embora haja incidência a partir de 31/12/2025, a primeira apuração completa se dá no mês de janeiro de 2026, razão pela qual não se considera o dia isolado de 31/12/2025 como um período autônomo de apuração.",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "aneel-e20c603d980fbdbe",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 10, XV (Grupo II); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "item 227, alínea d",
+     "trecho": "d) quando ocorrer violação dos indicadores DICRI ou DISE, a compensação deve ser realizada sem prejuízo das compensações por violação dos indicadores DIC, FIC e DMIC, podendo inclusive haver compensações referentes a mais de uma violação do limite dos indicadores DICRI e DISE no mesmo mês, hipótese em que deve ser paga a soma das compensações calculadas para cada violação.”(NR)",
+     "itens": [
+      "09fc14322d39e994"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": [
+      {
+       "citacao": "3.5 Ajustes retroativos no XML de compensações por DISE impactam a avaliação da governança regulatória? Os indicadores de compensações por DISE serão criados de forma independente dos indicadores de compensações normais, a exemplo do que ocorre com o DICRI. Assim, não haverá impacto na avaliação de governança pela alteração de dados. 4. Plano de Contingência",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      },
+      {
+       "citacao": "3.4 Como devem ser realizadas as compensações financeiras relativas às violações do DISE nesse período inicial? As compensações devem observar os procedimentos e prazos estabelecidos no Módulo 8 do PRODIST, sendo calculadas com base nas apurações dos meses abrangidos pelo efeito retroativo. Uma vez iniciadas as apurações dentro do prazo regulamentar (até 28/04/2026), as distribuidoras devem proceder ao pagamento das compensações conforme dispõe o item 219 da Seção 8.2 do Módulo 8 do PRODIST. Tendo em vista que os meses de janeiro, fevereiro, março e abril se encontram no período de vigência da norma, as compensações apuradas relativas a esses meses devem ser creditadas na fatura apresentada em até 2 meses após o período de apuração do mês de abril. Assim, a fatura apresentada no mês de junho é a última na qual podem ser efetuadas as compensações de janeiro a abril.",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      },
+      {
+       "citacao": "3.1 Como deve ser interpretado o comando regulatório “2 meses após a publicação da norma” para fins de aplicação retroativa do DISE? Considerando a publicação da norma em 30/10/2025, o marco de 2 meses ocorre em 30/12/2025, de modo que os efeitos retroativos passam a incidir a partir de 31/12/2025. Contudo, como a apuração dos indicadores de continuidade no âmbito do PRODIST é realizada em base mensal, embora haja incidência a partir de 31/12/2025, a primeira apuração completa se dá no mês de janeiro de 2026, razão pela qual não se considera o dia isolado de 31/12/2025 como um período autônomo de apuração.",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "aneel-a2bb4e3577de0e9d",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 9º, XIII (Grupo I); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "Art. 371-A, § 1º, inciso I",
+     "trecho": "I - atendimento telefônico;",
+     "itens": [
+      "126360571edbf06f"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 371-A, § 1º, inciso II",
+     "trecho": "II - atendimento presencial, com horário agendado; e",
+     "itens": [
+      "281df590db114e9c"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 371-A, § 1º, inciso III",
+     "trecho": "III - canal de comunicação por texto (chat) com atendimento humano, durante horário comercial.",
+     "itens": [
+      "998de9a8013d5d95"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    },
+    {
+     "dispositivo": "Art. 371-A, § 5º",
+     "trecho": "§ 5º O atendimento telefônico exclusivo previsto no §1º deve ter, no caso de urgência/emergência, disponibilidade ininterrupta durante 24 horas por dia e 7 dias por semana, com atendimento humano durante todo o período de funcionamento.",
+     "itens": [
+      "74974c33b8c6f524"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-16f63ca8f7caed19",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 9º, V (Grupo I); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "Art. 371-A, § 7º",
+     "trecho": "§ 7º A distribuidora deve entregar e manter atualizado junto aos poderes públicos municipal, distrital e estadual a relação dos canais exclusivos e as informações de contato dos representantes institucionais estabelecidos com os horários de atendimento. ....................................................................................................”(NR)",
+     "itens": [
+      "94541d2019cf4f5c"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-66f2fbbfdb51cfe9",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "enquadramento sem texto",
+   "duvida": "Qual enquadramento da REN 846 se aplica ao dispositivo e qual fundamento sustenta essa leitura?",
+   "leituras_possiveis": [
+    "Sugestão já registrada pela IA: Art. 11, IV (Grupo III); aguarda revisão humana.",
+    "O texto da obrigação não identifica a infração; o enquadramento permanece em aberto."
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "Art. 19, inciso XIII, alínea c",
+     "trecho": "c) As cessões emergenciais de recursos humanos, equipamentos e materiais entre distribuidoras e transmissoras e suas partes relacionadas devem ser reembolsadas pela cessionária à cedente garantindo a neutralidade da operação, não se tratando de rateio ou prestação de serviços, e preservando a individualidade das concessões. ....................................................................................................”(NR)",
+     "itens": [
+      "d6664266cb6f2dc2"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  },
+  {
+   "id": "aneel-e3e14b3b114583f1",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "referência a outra norma",
+   "duvida": "Qual dispositivo da norma referenciada se aplica a este comando e como deve ser cumprida a remissão?",
+   "leituras_possiveis": [
+    "Remissão não resolvida pelo motor: Até 180 (cento e oitenta) dias mês para iniciar as apurações do Duração da Interrupção Individual ocorrida em Situação d"
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "Art. 13, VI",
+     "trecho": "VI - Até 180 (cento e oitenta) dias mês para iniciar as apurações do Duração da Interrupção Individual ocorrida em Situação de Emergência por Unidade Consumidora ou por Ponto de Conexão – DISE e observar as disposições da Seção 8.2 do Módulo 8 do PRODIST com o corresponde pagamento de compensações por transgressão desse indicador, com efeitos retroativos a 2 meses após a publicação da norma;",
+     "itens": [
+      "6c0622d9f1615d32"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": [
+      {
+       "citacao": "3.4 Como devem ser realizadas as compensações financeiras relativas às violações do DISE nesse período inicial? As compensações devem observar os procedimentos e prazos estabelecidos no Módulo 8 do PRODIST, sendo calculadas com base nas apurações dos meses abrangidos pelo efeito retroativo. Uma vez iniciadas as apurações dentro do prazo regulamentar (até 28/04/2026), as distribuidoras devem proceder ao pagamento das compensações conforme dispõe o item 219 da Seção 8.2 do Módulo 8 do PRODIST. Tendo em vista que os meses de janeiro, fevereiro, março e abril se encontram no período de vigência da norma, as compensações apuradas relativas a esses meses devem ser creditadas na fatura apresentada em até 2 meses após o período de apuração do mês de abril. Assim, a fatura apresentada no mês de junho é a última na qual podem ser efetuadas as compensações de janeiro a abril.",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      },
+      {
+       "citacao": "3.1 Como deve ser interpretado o comando regulatório “2 meses após a publicação da norma” para fins de aplicação retroativa do DISE? Considerando a publicação da norma em 30/10/2025, o marco de 2 meses ocorre em 30/12/2025, de modo que os efeitos retroativos passam a incidir a partir de 31/12/2025. Contudo, como a apuração dos indicadores de continuidade no âmbito do PRODIST é realizada em base mensal, embora haja incidência a partir de 31/12/2025, a primeira apuração completa se dá no mês de janeiro de 2026, razão pela qual não se considera o dia isolado de 31/12/2025 como um período autônomo de apuração.",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      },
+      {
+       "citacao": "3.2 Qual é o prazo para início das apurações do indicador DISE? O prazo é de até 180 dias contados da data de publicação da norma. No caso da publicação em 30/10/2025, o prazo final para início das apurações é 28/04/2026.",
+       "fonte": {
+        "titulo": "FAQ - Resolução Normativa nº 1.137/2025 (ANEEL)",
+        "tipo": "FAQ",
+        "url": "https://www.gov.br/aneel/pt-br/acesso-a-informacao/perguntas-frequentes/faq-resolucao-normativa-no-1-137-2025",
+        "arquivo": "faq_ren20251137.html",
+        "sha256": "a3ace3d565c44118f29952ebad2b7a5012ab1e210d3d97e687a601f3b276f4da",
+        "consultado_em": "2026-11-22"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "aneel-4bb105a0254bc29e",
+   "rotulo": "rascunho — revisar antes de enviar",
+   "tipo": "referência a outra norma",
+   "duvida": "Qual dispositivo da norma referenciada se aplica a este comando e como deve ser cumprida a remissão?",
+   "leituras_possiveis": [
+    "Remissão não resolvida pelo motor: art. 4º; do Decreto 12.068, de 20 de julho de 2"
+   ],
+   "limite": "As leituras normativas alternativas não estão determinadas nos dados; revisar a interpretação antes de enviar.",
+   "referencias": [
+    {
+     "dispositivo": "Art. 16",
+     "trecho": "Art. 16 As distribuidoras deverão informar e manter, por até cinco anos, em seu sítio eletrônico, os indicadores estabelecidos nos incisos V e VI do caput do art. 4º; do Decreto 12.068, de 20 de julho de 2024, em até 30 dias, contados da publicação das instruções pela ANEEL.",
+     "itens": [
+      "6a75e130ecf1cdda"
+     ],
+     "fonte": {
+      "titulo": "RN ANEEL 1.137/2025",
+      "url": "https://www2.aneel.gov.br/cedoc/ren20251137.pdf",
+      "sha256": "4a581592e981158bb9a9ebbbed10a019d3c06399fd2890389bf88f3609cc5887"
+     },
+     "possiveis_esclarecimentos": []
+    }
+   ]
+  }
+ ],
  "comparacao_anterior": {
   "escopo": "Anexo IV da REN 956/2021 — Módulo 4 do PRODIST (v2 × v3)",
   "fontes": {
