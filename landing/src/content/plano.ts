@@ -68,6 +68,7 @@ export interface Medida extends Citacao {
 }
 
 export interface Obrigacao {
+  esclarecimento?: { fonte: { sha256: string; trecho: string } } | null
   id: string
   titulo: string
   titulo_origem: 'regra' | 'ia'

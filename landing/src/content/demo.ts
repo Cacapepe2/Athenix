@@ -1,3 +1,4 @@
+import fontes from './fontes-publicas.json' with { type: 'json' }
 // Dados REAIS da RN ANEEL 1.137/2025, gerados por scripts/exportar_demo_site.py a partir do pipeline do
 // Athenix (extração por regras, sem IA). Os valores de impacto são ESTIMATIVA ILUSTRATIVA, com o perfil de
 // uma distribuidora ilustrativa (não é empresa real). Nenhum número é digitado aqui: tudo vem do JSON.
@@ -30,7 +31,7 @@ export interface Impact {
   /** Teto legal aplicado sobre a base (ROL) porque o faturamento bruto não foi informado. */
   legalCapUnderestimated: boolean | null
   groups: string[]
-  framings: { dispositivo: string; grupo: string; trecho: string }[]
+  framings: { dispositivo: string; grupo: string; trecho: string; sha256: string }[]
   premises: string[]
   sources: string[]
 }
@@ -109,7 +110,7 @@ export const obligations: Obligation[] = dados.obrigacoes.map((o) => ({
     legalCapPct: o.impacto.teto_legal_pct,
     legalCapUnderestimated: o.impacto.teto_legal_subestimado,
     groups: o.impacto.grupos,
-    framings: o.impacto.enquadramentos,
+    framings: o.impacto.enquadramentos.map((f) => ({ ...f, ...fontes.infracoes_demo[f.dispositivo as keyof typeof fontes.infracoes_demo] })),
     premises: o.impacto.premissas,
     sources: o.impacto.fontes,
   },

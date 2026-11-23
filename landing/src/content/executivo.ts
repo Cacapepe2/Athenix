@@ -394,14 +394,14 @@ export function contagemDeEnquadramentos(p: PlanoDados): ContagemEnquadramentos 
   return { identificados, sugeridos, texto: `${plural(identificados, 'enquadramento identificado', 'enquadramentos identificados')} no texto · ${plural(sugeridos, 'sugerido', 'sugeridos')} pela IA, aguardando revisão` }
 }
 
-export interface LinhaGrupo { grupo: Grupo; nome: string; rotulo: string; pct: number | null; dispositivo: string | null; trecho: string | null }
+export interface LinhaGrupo { sha256: string; grupo: Grupo; nome: string; rotulo: string; pct: number | null; dispositivo: string | null; trecho: string | null }
 
 /** Tabela "Como calculamos": teto de cada grupo e o teto legal, com a citação de cada um. */
-export function tabelaDeGrupos(p: PlanoDados): { grupos: LinhaGrupo[]; tetoLegal: { pct: number | null; dispositivo: string; trecho: string } | null } {
+export function tabelaDeGrupos(p: PlanoDados): { grupos: LinhaGrupo[]; tetoLegal: { pct: number | null; dispositivo: string; trecho: string; sha256: string } | null } {
   const grupos = GRUPOS.map((g) => {
     const e = p.escala_de_gravidade[`limite_grupo_${g}`]
-    return { grupo: g, nome: nomeDaGravidade(g), rotulo: rotuloDoGrupo(g), pct: e?.percentual ?? null, dispositivo: e?.dispositivo ?? null, trecho: e?.trecho ?? null }
+    return { sha256: e?.sha256 ?? '', grupo: g, nome: nomeDaGravidade(g), rotulo: rotuloDoGrupo(g), pct: e?.percentual ?? null, dispositivo: e?.dispositivo ?? null, trecho: e?.trecho ?? null }
   })
   const t = p.escala_de_gravidade.teto_legal_lei
-  return { grupos, tetoLegal: t ? { pct: t.percentual, dispositivo: t.dispositivo, trecho: t.trecho } : null }
+  return { grupos, tetoLegal: t ? { pct: t.percentual, dispositivo: t.dispositivo, trecho: t.trecho, sha256: t.sha256 } : null }
 }
