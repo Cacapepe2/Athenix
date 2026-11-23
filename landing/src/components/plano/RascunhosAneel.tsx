@@ -1,4 +1,5 @@
 import type { RascunhoAneel } from '../../content/rascunhos-aneel'
+import { LinkFonte } from '../ui/LinkFonte'
 
 export function RascunhosAneel({ rascunhos }: { rascunhos: RascunhoAneel[] }) {
   return <ol className="space-y-4 text-sm">
@@ -10,11 +11,11 @@ export function RascunhosAneel({ rascunhos }: { rascunhos: RascunhoAneel[] }) {
       {r.limite && <p className="mt-2 text-xs">{r.limite}</p>}
       <ul className="mt-3 space-y-3">{r.referencias.map((f, i) => <li key={i}>
         <p className="font-semibold">{f.dispositivo}</p>
-        <blockquote className="mt-1 border-l-2 border-obsidian pl-3">“{f.trecho}”</blockquote>
+        <blockquote className="mt-1 border-l-2 border-obsidian pl-3"><LinkFonte sha256={f.fonte.sha256} trecho={f.trecho}>“{f.trecho}”</LinkFonte></blockquote>
         <p className="mt-1 break-all text-xs">{f.fonte.titulo} · SHA-256 {f.fonte.sha256}</p>
         {f.possiveis_esclarecimentos.map((e, j) => <div key={j} className="mt-2 border border-line p-2 text-xs">
           <p className="font-semibold">Possível esclarecimento · vínculo com esta dúvida ainda não confirmado</p>
-          <blockquote className="mt-1">“{e.citacao}”</blockquote>
+          <blockquote className="mt-1"><LinkFonte sha256={e.fonte.sha256} trecho={e.citacao}>“{e.citacao}”</LinkFonte></blockquote>
           <p className="mt-1 break-all"><a className="font-semibold underline underline-offset-4" href={e.fonte.url} target="_blank" rel="noopener noreferrer">{e.fonte.titulo}</a> · consulta {e.fonte.consultado_em} · SHA-256 {e.fonte.sha256}</p>
         </div>)}
       </li>)}</ul>
