@@ -2,6 +2,7 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { planos } from './plano.ts'
 import { resumoComparacao } from './comparacao.ts'
+import { fonteDaCitacao } from './fontes.ts'
 
 test('comparação real explicita escopo, dados sem fonte e divergências sem alterar deveres', () => {
   const p = planos.rn1137
@@ -14,6 +15,8 @@ test('comparação real explicita escopo, dados sem fonte e divergências sem al
   assert.match(o.trecho!, /aos Poderes Públicos/)
   assert.match(c.itens['115'].atual.trecho, /ao Poder Público/)
   assert.equal(c.itens['1'].classe, 'alterado')
+  assert.match(fonteDaCitacao(c.fontes.v2.sha256, c.itens['1'].anterior!.trecho)!, /\.pdf#page=1$/)
+  assert.match(fonteDaCitacao(c.fontes.v3.sha256, c.itens['115'].atual.trecho)!, /\.pdf#page=\d+$/)
   assert.equal(c.itens['92'].classe, 'ja_existia')
   assert.equal(resumoComparacao(planos.ren1174), null)
 })

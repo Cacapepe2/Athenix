@@ -1,3 +1,4 @@
+import { LinkFonte } from '../ui/LinkFonte'
 import { motion } from 'motion/react'
 import { demoNorm, type Article } from '../../content/demo'
 import { splitAnchor } from '../../lib/text'
@@ -62,6 +63,7 @@ export function DocumentView({ marks = {}, markLabels = {}, focusId, animateMark
               ) : (
                 a.text
               )}
+              <span className="ml-2 text-xs"><LinkFonte sha256={demoNorm.sha256} trecho={a.text}>{a.label} ↗</LinkFonte></span>
             </p>
           )
         })}

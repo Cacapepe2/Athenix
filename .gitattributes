@@ -5,3 +5,4 @@ tests/fontes_impacto/*.htm binary
 tests/gabarito/*.htm binary
 tests/corpus_planalto/*.htm binary
 tests/fontes_impacto/dou/*.html binary
+landing/public/fontes/* binary
