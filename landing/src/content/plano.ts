@@ -80,6 +80,10 @@ export interface Obrigacao {
   area: string
   /** "regra": tipo achado pela regra; "ia": tipo sugerido pela IA (área sugerida (IA)); null: A definir. */
   area_origem: 'regra' | 'ia' | null
+  /** Área escolhida pela IA para dever que estava "A definir", com o trecho literal do dever que a justifica. */
+  area_ia?: { rotulo: string; trecho: string }
+  /** Por que o dever continua "A definir" depois da sugestão da IA (reprovada). */
+  area_motivo?: string
   /** "Evite" sugerido pela IA (cita trecho do dispositivo); null: a tela não mostra a linha. */
   evite: { acao: string; trecho_citado: string } | null
   /** Ações específicas sugeridas pela IA para este dispositivo (cada uma cita uma expressão literal dele). */

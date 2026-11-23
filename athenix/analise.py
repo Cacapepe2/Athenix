@@ -14,7 +14,7 @@ sai marcado "só pela regra · IA não consultada" e a pessoa decide. Quando a r
 import json
 from pathlib import Path
 
-from . import areas, dependencias, tipos, tipos_ia
+from . import areas, areas_ia, dependencias, tipos, tipos_ia
 from .evidence import verify
 from .normalizacao import espacos
 
@@ -68,13 +68,14 @@ def _tipo_final(texto, detalhe, cache_ia, oid, cfg):
     return {"id": tipo, "nome": nome, "situacao": "so_regra", "por": SO_REGRA}
 
 
-def montar(out, rows, extraction, cache_ia=None):
+def montar(out, rows, extraction, cache_ia=None, cache_areas=None):
     """Anexa `analise` às obrigações principais de cada tema de `out` (plano.montar) e devolve o
     bloco global (manuais, dependências, prática por tema)."""
     cfg_tipos = tipos.carregar()
     cfg_areas = areas.carregar()
     cfg_dep = dependencias.carregar()
     cache_ia = tipos_ia.carregar_cache() if cache_ia is None else cache_ia
+    cache_areas = areas_ia.carregar() if cache_areas is None else cache_areas
     units = extraction["units"]
     por_unidade = {u["id"]: u for u in units}
     por_obrigacao = {o["id"]: o for o in out["obrigacoes"]}
@@ -126,6 +127,8 @@ def montar(out, rows, extraction, cache_ia=None):
                 texto,
                 cfg_areas,
             )
+            # Ainda "A definir": área sugerida (IA) com trecho literal conferido, ou o motivo da reprovação.
+            areas_ia.aplicar(o, texto, cache_areas, cfg_areas)
     pratica = {}
     for tema, dep in PRATICA_POR_TEMA.items():
         deps.setdefault(dep, dependencias.manual_da_dependencia(dep, cfg_dep))

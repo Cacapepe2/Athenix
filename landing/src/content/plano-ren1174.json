@@ -1,7 +1,7 @@
 {
  "gerado_por": "scripts/exportar_plano_demo.py",
- "commit_origem": "a2ac6f4",
- "gerado_em": "2026-11-22",
+ "commit_origem": "b8ea695",
+ "gerado_em": "2026-11-23",
  "aviso": "Estimativa com base nas premissas listadas, não constitui parecer jurídico.",
  "norma": {
   "titulo": "REN ANEEL 1.174/2026",
@@ -879,8 +879,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Jurídico",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "A distribuidora deve ressarcir ao consumidor a penalidade paga decorrente de erro de medição"
+   },
    "dispositivo": "Art. 7º, § 3º",
    "erro_material": null,
    "esclarecimento": null
@@ -1067,8 +1071,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Regulatório",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "deve ser calculado considerando a média dos 12 últimos consumos de energia elétrica"
+   },
    "dispositivo": "Art. 142, inciso IV, alínea b",
    "erro_material": null,
    "esclarecimento": null
@@ -1439,8 +1447,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "deve fornecer protocolo quando receber a comunicação"
+   },
    "dispositivo": "Art. 166, § 3º",
    "erro_material": null,
    "esclarecimento": null
@@ -1818,8 +1830,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Operação/Manutenção",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "descritivo detalhado e justificativas das inviabilidades técnicas"
+   },
    "dispositivo": "Art. 166-A, § 3º, inciso I",
    "erro_material": null,
    "esclarecimento": null
@@ -1913,8 +1929,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Operação/Manutenção",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "indicação das providências de adaptação, regularização ou substituição nas instalações de entrada"
+   },
    "dispositivo": "Art. 166-A, § 3º, inciso II",
    "erro_material": null,
    "esclarecimento": null
@@ -1974,8 +1994,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Regulatório",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "será encerrada pela distribuidora, não ocorrendo o encerramento do CCER"
+   },
    "dispositivo": "Art. 166-A, § 4º",
    "erro_material": null,
    "esclarecimento": null
@@ -2035,8 +2059,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Regulatório",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "o CCER será mantido, devendo a distribuidora efetuar a cobrança no faturamento"
+   },
    "dispositivo": "Art. 167-A, Parágrafo único",
    "erro_material": null,
    "esclarecimento": null
@@ -2127,8 +2155,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "notificar o consumidor sobre o atraso e a possibilidade de encerramento do processo de migração"
+   },
    "dispositivo": "Art. 167-B, inciso I",
    "erro_material": null,
    "esclarecimento": null
@@ -2217,8 +2249,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Regulatório",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "faturar o consumidor conforme as disposições aplicáveis do art. 168"
+   },
    "dispositivo": "Art. 167-B, inciso II",
    "erro_material": null,
    "esclarecimento": null
@@ -2397,8 +2433,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Regulatório",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "a distribuidora não poderá faturar o consumo de energia elétrica"
+   },
    "dispositivo": "Art. 167-C",
    "erro_material": null,
    "esclarecimento": null
@@ -2489,8 +2529,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Operação/Manutenção",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "o prazo de migração informado pela distribuidora"
+   },
    "dispositivo": "Art. 167-C, § 2º, inciso I",
    "erro_material": null,
    "esclarecimento": null
@@ -2676,8 +2720,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "encaminhar ao consumidor o CCER com a data solicitada ou com a data possível"
+   },
    "dispositivo": "Art. 170, § 4º, inciso II",
    "erro_material": null,
    "esclarecimento": null
@@ -2739,8 +2787,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Regulatório",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "somente será realizada pela distribuidora após notificação pela CCEE"
+   },
    "dispositivo": "Art. 170, § 5º",
    "erro_material": null,
    "esclarecimento": null
@@ -2831,8 +2883,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "o agente de comercialização e o agente de distribuição são pessoas jurídicas distintas"
+   },
    "dispositivo": "Art. 9º-A, inciso I",
    "erro_material": null,
    "esclarecimento": null
@@ -2924,8 +2980,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "os preços praticados pelo agente de comercialização não são tarifas reguladas pela ANEEL;"
+   },
    "dispositivo": "Art. 9º-A, inciso II",
    "erro_material": null,
    "esclarecimento": null
@@ -3016,8 +3076,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "o consumidor não é obrigado a comprar energia"
+   },
    "dispositivo": "Art. 9º-A, inciso III",
    "erro_material": null,
    "esclarecimento": null
@@ -3109,8 +3173,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "o consumidor é livre para escolher e contratar qualquer outro agente de comercialização"
+   },
    "dispositivo": "Art. 9º-A, inciso IV",
    "erro_material": null,
    "esclarecimento": null
@@ -3805,7 +3873,7 @@
    "titulo_origem": "regra",
    "titulo_completo": "O sistema de medição e comunicação instalados permitirem a coleta e o envio dos dados de consumo à Câmara de Comercialização de Energia Elétrica - CCEE na forma e periodicidade previstas nos Procedimentos de Comercialização da CCEE; ou",
    "sujeito_implicito": false,
-   "titulo_curto": null,
+   "titulo_curto": "Medição permite envio de dados",
    "evite": null,
    "recomendacoes": [],
    "contexto": "§ 2º A distribuidora não pode exigir a adaptação, regularização ou substituição das instalações de entrada de energia como condição para migração para o Ambiente de Contratação Livre - ACL caso sejam satisfeitas pelo menos umas das duas condições a seguir:",
@@ -3857,8 +3925,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "TI/Sistemas",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "o sistema de medição e comunicação instalados permitirem a coleta e o envio dos dados de consumo"
+   },
    "dispositivo": "Art. 42, § 2º, inciso I",
    "erro_material": null,
    "esclarecimento": null
@@ -3869,7 +3941,7 @@
    "titulo_origem": "regra",
    "titulo_completo": "For possível a substituição do sistema de medição e comunicação sem a necessidade de alteração nas instalações do consumidor",
    "sujeito_implicito": false,
-   "titulo_curto": null,
+   "titulo_curto": "Substituição de medição sem obras",
    "evite": null,
    "recomendacoes": [],
    "contexto": "§ 2º A distribuidora não pode exigir a adaptação, regularização ou substituição das instalações de entrada de energia como condição para migração para o Ambiente de Contratação Livre - ACL caso sejam satisfeitas pelo menos umas das duas condições a seguir:",
@@ -3921,8 +3993,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Operação/Manutenção",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "substituição do sistema de medição e comunicação sem a necessidade de alteração nas instalações do consumidor."
+   },
    "dispositivo": "Art. 42, § 2º, inciso II",
    "erro_material": null,
    "esclarecimento": null
@@ -4516,8 +4592,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Regulatório",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "a distribuidora deve comunicar a CCEE"
+   },
    "dispositivo": "Art. 138, § 10",
    "erro_material": null,
    "esclarecimento": null
@@ -4897,8 +4977,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Regulatório",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "deve ser definido conforme o montante de energia elétrica medido."
+   },
    "dispositivo": "Art. 163",
    "erro_material": null,
    "esclarecimento": null
@@ -4989,8 +5073,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "fica autorizada a efetuar o faturamento e a cobrança mensal de energia elétrica"
+   },
    "dispositivo": "Art. 168, inciso I",
    "erro_material": null,
    "esclarecimento": null
@@ -5081,8 +5169,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Jurídico",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "o pagamento do valor do inciso II é devido enquanto presentes as condições"
+   },
    "dispositivo": "Art. 168, inciso III",
    "erro_material": null,
    "esclarecimento": null
@@ -5144,8 +5236,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Regulatório",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "a unidade consumidora não participa do SCEE"
+   },
    "dispositivo": "Art. 168, inciso VII",
    "erro_material": null,
    "esclarecimento": null
@@ -5236,8 +5332,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Regulatório",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "a distribuidora deve faturar o uso do sistema de distribuição"
+   },
    "dispositivo": "Art. 294, § 4º",
    "erro_material": null,
    "esclarecimento": null
@@ -5326,8 +5426,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "deve ser comprovadamente e previamente autorizada, mediante manifestação voluntária do consumidor."
+   },
    "dispositivo": "§ 2º",
    "erro_material": null,
    "esclarecimento": null
@@ -5421,8 +5525,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Regulatório",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "devem ser disponibilizadas gratuitamente ao consumidor"
+   },
    "dispositivo": "§ 3º",
    "erro_material": null,
    "esclarecimento": null
@@ -5511,8 +5619,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Regulatório",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "É vedada a cobrança entre a distribuidora e o comercializador"
+   },
    "dispositivo": "§ 5º",
    "erro_material": null,
    "esclarecimento": null
@@ -5966,8 +6078,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Regulatório",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "No caso de interesse de migração ao ACL de unidade consumidora com microgeração ou minigeração distribuída"
+   },
    "dispositivo": "Art. 655-Y",
    "erro_material": null,
    "esclarecimento": null
@@ -6240,8 +6356,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "O atendimento de consumidor pela distribuidora local deve ser formalmente comunicado por ela à CCEE"
+   },
    "dispositivo": "Art. 19, § 9º",
    "erro_material": null,
    "esclarecimento": null
@@ -6440,8 +6560,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Comunicação/Atendimento",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "A resposta às reclamações deve ser apresentada em até 5 (cinco) dias úteis"
+   },
    "dispositivo": "Art. 21-B, § 1º",
    "erro_material": null,
    "esclarecimento": null
@@ -6536,8 +6660,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Regulatório",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "deverá enviar à Superintendência de Fiscalização Econômica, Financeira e de Mercado - SFF, da ANEEL"
+   },
    "dispositivo": "Art. 4º",
    "erro_material": null,
    "esclarecimento": null
@@ -7015,8 +7143,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Regulatório",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "deverão ser registrados na CCEE conforme Procedimentos de Comercialização"
+   },
    "dispositivo": "Art. 13, § 7º",
    "erro_material": null,
    "esclarecimento": null
@@ -7603,7 +7735,7 @@
    "titulo_origem": "regra",
    "titulo_completo": "A adequação pela distribuidora dentro do período de transição deve ser realizada com isonomia, aplicando-se à todas as situações a partir da implementação do dispositivo",
    "sujeito_implicito": false,
-   "titulo_curto": null,
+   "titulo_curto": "Adequação com isonomia na transição",
    "evite": null,
    "recomendacoes": [],
    "contexto": "Art. 16. A adequação às alterações promovidas por esta Resolução deve ser realizada nos seguintes prazos, devendo ser mantida a aplicação das disposições anteriores até a implementação das alterações:",
@@ -7681,8 +7813,12 @@
     },
     "dependencias_no_texto": []
    },
-   "area": "A definir",
-   "area_origem": null,
+   "area": "Regulatório",
+   "area_origem": "ia",
+   "area_ia": {
+    "rotulo": "área sugerida (IA)",
+    "trecho": "A adequação pela distribuidora dentro do período de transição deve ser realizada com isonomia"
+   },
    "dispositivo": "Art. 16, Parágrafo único",
    "erro_material": null,
    "esclarecimento": null

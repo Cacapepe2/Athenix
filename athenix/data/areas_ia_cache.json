@@ -1,0 +1,289 @@
+{
+ "aviso": "Áreas sugeridas pela IA (área sugerida (IA)) para deveres em A definir; aguardam revisão humana.",
+ "modelo": "gpt-5-mini",
+ "versao_do_prompt": "areas-v1",
+ "prompt_hash": "b2d8ae5b1498bfad14e437b6586ddae056c12ff31ca30ecfa2dcae4633e44904",
+ "gerado_em": "2026-11-22",
+ "preco_usd_por_milhao": {
+  "input": "0.275",
+  "output": "2.20",
+  "source": "https://azure.microsoft.com/pt-br/pricing/details/azure-openai/",
+  "date": "2026-11-17",
+  "currency": "USD"
+ },
+ "custo_total_da_execucao_usd": "0.0403",
+ "falhas": [],
+ "areas": {
+  "7d0919bce4ef3fe9": {
+   "area": "Operação/Manutenção",
+   "trecho": "Estágio da operação (conforme etapas definidas no plano de contingência)."
+  },
+  "f210b1cb4b18cd93": {
+   "area": "Comunicação/Atendimento",
+   "trecho": "Número da ocorrência;"
+  },
+  "454101d0c403c18d": {
+   "area": "Comunicação/Atendimento",
+   "trecho": "Município/bairro da ocorrência aberta;"
+  },
+  "2095e3040e47b7fe": {
+   "area": "Comunicação/Atendimento",
+   "trecho": "Data e hora de início da ocorrência aberta;"
+  },
+  "7e175ea36f54d27d": {
+   "area": "Comunicação/Atendimento",
+   "trecho": "Tipo de ocorrência aberta (programada e não programada);"
+  },
+  "04807cfc5d8b19fd": {
+   "area": "Operação/Manutenção",
+   "trecho": "Sinalização do status da ocorrência aberta (Em preparação/Em Deslocamento/Em Execução);"
+  },
+  "145e90e0d6e92fa1": {
+   "area": "Operação/Manutenção",
+   "trecho": "Quantidade de unidades consumidoras interrompidas da ocorrência aberta e o total da área de atuação;"
+  },
+  "bedd23cf7196cb9b": {
+   "area": "Operação/Manutenção",
+   "trecho": "Duração da ocorrência (hh:mm);"
+  },
+  "4530929b6c0a1c85": {
+   "area": "Regulatório",
+   "trecho": "Consumidor Hora Interrompido (CHI) da ocorrência aberta e o total da área de atuação;"
+  },
+  "b5295bca7f3ea780": {
+   "area": "Operação/Manutenção",
+   "trecho": "Quantidade de ocorrências abertas segregadas por município e o total na área de atuação;"
+  },
+  "bf6d884740a66016": {
+   "area": "Operação/Manutenção",
+   "trecho": "Quantidade de equipes em atividade, segregadas por município e o total na área de atuação;"
+  },
+  "eeabcc619985bac4": {
+   "area": "Regulatório",
+   "trecho": "valor global da contratação com detalhamento dos recursos envolvidos, segregados por tipo de gasto;"
+  },
+  "743176314038e1bc": {
+   "area": "Jurídico",
+   "trecho": "duração do Contrato de Cessão Emergencial para execução dos serviços realizados"
+  },
+  "63d080f10ea001db": {
+   "area": "Operação/Manutenção",
+   "trecho": "relação das matrículas dos profissionais que realizaram os atendimentos"
+  },
+  "5f85b262f557ee25": {
+   "area": "Regulatório",
+   "trecho": "valor individualizado por frente de serviço e montante total dos serviços realizados"
+  },
+  "db13351273cc2a40": {
+   "area": "Operação/Manutenção",
+   "trecho": "Segurança: priorizar a segurança de todos os colaboradores e da população"
+  },
+  "98f4753768bef99f": {
+   "area": "Operação/Manutenção",
+   "trecho": "Eficiência: minimizar o impacto das contingências nas operações e na prestação dos serviços"
+  },
+  "085a6edc407f11ca": {
+   "area": "Regulatório",
+   "trecho": "Responsabilidade: cumprir com as obrigações legais e regulamentares"
+  },
+  "d6cf3c79ee1df588": {
+   "area": "Comunicação/Atendimento",
+   "trecho": "Transparência: manter uma comunicação clara e aberta com todos os setores afetados"
+  },
+  "4ee63c29f094247c": {
+   "area": "Operação/Manutenção",
+   "trecho": "Prevenção: antecipar problemas e definir protocolos de atuação"
+  },
+  "e2ce14fe1ddd043b": {
+   "area": "Meio Ambiente/Arborização",
+   "trecho": "Remoção de Árvores: relatar os casos de remoção de árvores, detalhando a localização"
+  },
+  "2bde82f330f7a375": {
+   "area": "Meio Ambiente/Arborização",
+   "trecho": "Programas de Substituição de Espécies: incluir dados sobre o número de substituição"
+  },
+  "afcbf345324a3e49": {
+   "area": "Meio Ambiente/Arborização",
+   "trecho": "Convênios Celebrados: informar os convênios celebrados com o Poder Público Estadual"
+  },
+  "6812a1cfa93391a2": {
+   "area": "Comunicação/Atendimento",
+   "trecho": "Motivo da Interrupção: informação sobre a causa da falha"
+  },
+  "091a033ee197530b": {
+   "area": "Comunicação/Atendimento",
+   "trecho": "Área Afetada: delimitação geográfica da interrupção"
+  },
+  "89f0cb5afdcb80cf": {
+   "area": "Comunicação/Atendimento",
+   "trecho": "Unidades Consumidoras Impactadas: Número de unidades consumidoras afetadas"
+  },
+  "4c34d39fc8c7c83c": {
+   "area": "Comunicação/Atendimento",
+   "trecho": "Previsão de Restabelecimento: estimativa de retorno do fornecimento"
+  },
+  "8b31ab179c001654": {
+   "area": "Comunicação/Atendimento",
+   "trecho": "A comunicação deve facilitar a coordenação entre as distribuidoras e os órgãos governamentais"
+  },
+  "084c9e1b8f25feff": {
+   "area": "Operação/Manutenção",
+   "trecho": "O tempo de cessão das equipes não pode comprometer significativamente o atendimento"
+  },
+  "a03bb494e4666bc9": {
+   "area": "Regulatório",
+   "trecho": "Verificabilidade: o plano deve ser estruturado de forma a permitir a verificação"
+  },
+  "126360571edbf06f": {
+   "area": "Comunicação/Atendimento",
+   "trecho": "atendimento telefônico"
+  },
+  "281df590db114e9c": {
+   "area": "Comunicação/Atendimento",
+   "trecho": "atendimento presencial, com horário agendado"
+  },
+  "998de9a8013d5d95": {
+   "area": "Comunicação/Atendimento",
+   "trecho": "canal de comunicação por texto (chat) com atendimento humano"
+  },
+  "34af6f68128e5133": {
+   "area": "Jurídico",
+   "trecho": "A distribuidora deve ressarcir ao consumidor a penalidade paga decorrente de erro de medição"
+  },
+  "0b3bd6ad5b32c8bd": {
+   "area": "Regulatório",
+   "trecho": "deve ser calculado considerando a média dos 12 últimos consumos de energia elétrica"
+  },
+  "8ca5f1def5e87ce5": {
+   "area": "Comunicação/Atendimento",
+   "trecho": "deve fornecer protocolo quando receber a comunicação"
+  },
+  "8ceadb0f8fb6a1b2": {
+   "area": "Operação/Manutenção",
+   "trecho": "descritivo detalhado e justificativas das inviabilidades técnicas"
+  },
+  "c0a868f1dc449059": {
+   "area": "Operação/Manutenção",
+   "trecho": "indicação das providências de adaptação, regularização ou substituição nas instalações de entrada"
+  },
+  "a0b9d489bb8af5f3": {
+   "area": "Regulatório",
+   "trecho": "será encerrada pela distribuidora, não ocorrendo o encerramento do CCER"
+  },
+  "f0fd6378ea9db150": {
+   "area": "Regulatório",
+   "trecho": "o CCER será mantido, devendo a distribuidora efetuar a cobrança no faturamento"
+  },
+  "710f9b643c7508e6": {
+   "area": "Comunicação/Atendimento",
+   "trecho": "notificar o consumidor sobre o atraso e a possibilidade de encerramento do processo de migração"
+  },
+  "25765596a71be59c": {
+   "area": "Regulatório",
+   "trecho": "faturar o consumidor conforme as disposições aplicáveis do art. 168"
+  },
+  "8a0223ac7c168448": {
+   "area": "Regulatório",
+   "trecho": "a distribuidora não poderá faturar o consumo de energia elétrica"
+  },
+  "32bb87c4bbe606c4": {
+   "area": "Operação/Manutenção",
+   "trecho": "o prazo de migração informado pela distribuidora"
+  },
+  "a93cae63c466b658": {
+   "area": "Comunicação/Atendimento",
+   "trecho": "encaminhar ao consumidor o CCER com a data solicitada ou com a data possível"
+  },
+  "16f2c52f324abe9d": {
+   "area": "Regulatório",
+   "trecho": "somente será realizada pela distribuidora após notificação pela CCEE"
+  },
+  "f958a912777a3264": {
+   "area": "Comunicação/Atendimento",
+   "trecho": "o agente de comercialização e o agente de distribuição são pessoas jurídicas distintas"
+  },
+  "f4d8768ac72bd7d3": {
+   "area": "Comunicação/Atendimento",
+   "trecho": "os preços praticados pelo agente de comercialização não são tarifas reguladas pela ANEEL;"
+  },
+  "dff8615bdeeaf106": {
+   "area": "Comunicação/Atendimento",
+   "trecho": "o consumidor não é obrigado a comprar energia"
+  },
+  "17328d915cd7dc29": {
+   "area": "Comunicação/Atendimento",
+   "trecho": "o consumidor é livre para escolher e contratar qualquer outro agente de comercialização"
+  },
+  "10e369b8c79f3c68": {
+   "area": "TI/Sistemas",
+   "trecho": "o sistema de medição e comunicação instalados permitirem a coleta e o envio dos dados de consumo"
+  },
+  "0ebf1f2b460f7298": {
+   "area": "Operação/Manutenção",
+   "trecho": "substituição do sistema de medição e comunicação sem a necessidade de alteração nas instalações do consumidor."
+  },
+  "144816bda2da3a17": {
+   "area": "Regulatório",
+   "trecho": "a distribuidora deve comunicar a CCEE"
+  },
+  "6ac8b71ebc7d780e": {
+   "area": "Regulatório",
+   "trecho": "deve ser definido conforme o montante de energia elétrica medido."
+  },
+  "256d3b52eb869bf7": {
+   "area": "Comunicação/Atendimento",
+   "trecho": "fica autorizada a efetuar o faturamento e a cobrança mensal de energia elétrica"
+  },
+  "feb344531c216efe": {
+   "area": "Jurídico",
+   "trecho": "o pagamento do valor do inciso II é devido enquanto presentes as condições"
+  },
+  "e7bbeed0a84f40bd": {
+   "area": "Regulatório",
+   "trecho": "a unidade consumidora não participa do SCEE"
+  },
+  "f77d812ee26acece": {
+   "area": "Regulatório",
+   "trecho": "a distribuidora deve faturar o uso do sistema de distribuição"
+  },
+  "542b07c93c1a9898": {
+   "area": "Comunicação/Atendimento",
+   "trecho": "deve ser comprovadamente e previamente autorizada, mediante manifestação voluntária do consumidor."
+  },
+  "4a15738dfbb6bcee": {
+   "area": "Regulatório",
+   "trecho": "devem ser disponibilizadas gratuitamente ao consumidor"
+  },
+  "33b4a458e340917c": {
+   "area": "Regulatório",
+   "trecho": "É vedada a cobrança entre a distribuidora e o comercializador"
+  },
+  "efb86cc4a7e1b3ee": {
+   "area": "Regulatório",
+   "trecho": "No caso de interesse de migração ao ACL de unidade consumidora com microgeração ou minigeração distribuída"
+  },
+  "de74db97765787be": {
+   "area": "Comunicação/Atendimento",
+   "trecho": "O atendimento de consumidor pela distribuidora local deve ser formalmente comunicado por ela à CCEE"
+  },
+  "48facbbb1cb1cce4": {
+   "area": "Comunicação/Atendimento",
+   "trecho": "A resposta às reclamações deve ser apresentada em até 5 (cinco) dias úteis"
+  },
+  "728895c11bbe26d8": {
+   "area": "Regulatório",
+   "trecho": "deverá enviar à Superintendência de Fiscalização Econômica, Financeira e de Mercado - SFF, da ANEEL"
+  },
+  "26c6fa3441f9a408": {
+   "area": "Regulatório",
+   "trecho": "deverão ser registrados na CCEE conforme Procedimentos de Comercialização"
+  },
+  "c17096cc06163ed7": {
+   "area": "Regulatório",
+   "trecho": "A adequação pela distribuidora dentro do período de transição deve ser realizada com isonomia"
+  }
+ },
+ "reprovados": {
+  "0eb8c29f185ec200": "o trecho citado pela IA não está no texto do dever"
+ }
+}

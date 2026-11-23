@@ -41,3 +41,23 @@ def test_validacao_recusa_mais_de_cinco_palavras_e_produto_fora_do_texto():
     assert tc.validar("Publicar o plano de contingência no site", o) is None
     assert tc.validar("Publicar plano em PDF", o) is None
     assert tc.validar("", o) is None
+
+
+def test_numero_e_extenso_sao_equivalentes_na_validacao():
+    from athenix.normalizacao import numeros
+
+    assert numeros("prazo de doze meses") == numeros("prazo de 12 meses") == {12}
+    assert 180 in numeros("180 (cento e oitenta) dias") and 180 in numeros("cento e oitenta dias")
+    assert 21 in numeros("vinte e um dias") and 2500 in numeros("dois mil e quinhentos")
+    assert numeros("um plano de uma área") == set()  # "um"/"uma" sozinhos são artigo
+    o = {
+        "trecho": "O ressarcimento não deve ultrapassar o prazo de doze meses.",
+        "titulo_completo": "Ressarcimento",
+        "contexto": "",
+    }
+    assert tc.validar("Ressarcimento até 12 meses", o) == "Ressarcimento até 12 meses"
+    assert tc.validar("Ressarcimento até doze meses", o) == "Ressarcimento até doze meses"
+    assert tc.validar("Ressarcimento até 24 meses", o) is None  # número que o dispositivo não traz
+    assert tc.validar("Ressarcimento até vinte meses", o) is None
+    o12 = {**o, "trecho": "O prazo é de 12 (doze) meses."}
+    assert tc.validar("Prazo de doze meses", o12) == "Prazo de doze meses"

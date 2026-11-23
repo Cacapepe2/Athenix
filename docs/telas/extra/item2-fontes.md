@@ -75,4 +75,4 @@ não o comportamento de todos os visualizadores. A marca de redação incerta n�
 O índice acrescenta aproximadamente 33 kB gzip ao pacote inicial (186 kB contra 153 kB); o aviso de
 chunk grande permanece. Não houve medição de desempenho em dispositivo móvel real.
 
-Caio precisa revisar a prévia e decidir o merge. Nenhuma chamada paga, leitura de `.env` ou `.local/`.
+O responsável precisa revisar a prévia e decidir o merge. Nenhuma chamada paga, leitura de `.env` ou `.local/`.
