@@ -16,6 +16,10 @@ for (const p of pages) {
     assert.equal([...html.matchAll(/aria-controls="painel"/g)].length, 5, 'cinco blocos clicáveis')
     assert.ok(html.includes('role="region"') && html.includes('aria-expanded="false"'))
     assert.ok(!/Como calculamos|Referência do setor|deveres identificados/.test(html), 'texto que sai da primeira tela')
+    // Datas só no navegador, depois da montagem (hooks/useHoje): o build roda em UTC e noutro dia (erro 418 do React).
+    assert.ok(!/vencida há|vence em \d|dias contados até \d|\d{2}\/\d{2}\/20\d{2}/.test(html), 'data no HTML pré-renderizado')
+    const texto = html.replaceAll('<!-- -->', '')
+    assert.ok(texto.includes('dias contados até hoje') && texto.includes('prazo contado com a data de hoje'), 'estado neutro das datas')
   }
   if (p.path === '/demo') assert.ok(html.includes('Não constitui parecer jurídico') && html.includes('Iniciativa em validação'))
   assert.ok(!/R\$\s*0(?:[,.]00)?\s+a\s+R\$/.test(html))
