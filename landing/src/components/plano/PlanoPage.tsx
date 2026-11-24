@@ -147,7 +147,7 @@ export function PlanoPage() {
   }, [soDiagnostico])
 
   return <RespostasProvider norma={normaDaUrl()}><Cenario.Provider value={{ sim, modo, relatorio: () => setImprimindo(true) }}>
-    <header className="border-b border-line bg-ivory print:hidden"><div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-8"><a href="/" aria-label="Athenix, voltar ao início"><Logo /></a><nav aria-label="Páginas da demonstração" className="flex flex-wrap items-center justify-end gap-x-5 gap-y-1"><a href={URL_EXECUTIVO} className={`inline-flex min-h-11 items-center text-sm ${LINK}`}>← Visão executiva</a><a href="/" className={`inline-flex min-h-11 items-center text-sm ${LINK}`}>← Voltar ao site</a></nav></div></header>
+    <header className="border-b border-line bg-ivory print:hidden"><div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-4 gap-y-3 px-4 py-4 sm:px-8"><a href="/" aria-label="Athenix, voltar ao início"><Logo /></a><nav aria-label="Páginas da demonstração" className="flex flex-wrap items-center gap-2"><a href={URL_EXECUTIVO} className="botao">← Visão executiva</a><a href="/" className="botao">← Voltar ao site</a></nav></div></header>
     {itemUnico ? <ItemUnico o={itemUnico} /> : <main id="plano" className={`mx-auto max-w-7xl space-y-14 px-4 pt-6 pb-8 sm:px-8 sm:pt-10 md:pb-28 print:pb-10 ${soDiagnostico ? 'so-diagnostico' : ''} ${imprimindo ? 'so-relatorio' : ''}`}>
       <section aria-labelledby="titulo-plano" className="space-y-6">
         <p className={kicker}>Plano de ação · RN 1.137/2025 · {plano.perfil.rotulo.toLowerCase()} (não é empresa real)</p>
@@ -239,7 +239,7 @@ export function PlanoPage() {
         <Expansivel id="referencia" titulo="Referência do setor" resumo={`autos de infração publicados em distribuição (${plano.referencia_escala.autos}, amostra pequena)`}>{() => <ReferenciaSetor />}</Expansivel>
       </div>
       <div className="print:hidden"><button type="button" onClick={() => setImprimindo(true)} className="botao botao-escuro"><FileText aria-hidden="true" className="h-4 w-4" />Baixar meu relatório</button> <span className="text-sm">Página para imprimir ou salvar em PDF, com o que vocês escreveram e marcaram. Nada é enviado.</span></div>
-      <footer className="border-t border-line pt-6 text-sm text-ink-soft">{plano.aviso} Iniciativa em validação. Não constitui parecer jurídico. <a className={`ml-2 inline-flex min-h-11 items-center ${LINK} print:hidden`} href="/">Voltar à Athenix</a></footer>
+      <footer className="border-t border-line pt-6 text-sm text-ink-soft">{plano.aviso} Iniciativa em validação. Não constitui parecer jurídico. <a className="botao ml-2 print:hidden" href="/">← Voltar à Athenix</a></footer>
     </main>}
     <Relatorio ativo={imprimindo} fim={fimRelatorio} diag={diag} sim={sim} modo={modo} />
     <div role="note" className="z-30 border-t md:fixed md:inset-x-0 md:bottom-0 border-line bg-obsidian/95 px-4 py-2.5 text-center text-xs leading-snug text-ivory print:hidden">
@@ -647,7 +647,7 @@ function Titulo({ o }: { o: Obrigacao }) {
 /** Só a obrigação escolhida (link "Detalhes no plano" da visão executiva), com o caminho de volta ao plano completo. */
 function ItemUnico({ o }: { o: Obrigacao }) {
   return <main id="plano" className="mx-auto max-w-4xl space-y-6 px-4 pt-6 pb-8 sm:px-8 sm:pt-10 md:pb-28 print:pb-10">
-    <p className="flex flex-wrap items-center gap-3"><a href={urlPlanoCompleto(normaDaUrl())} className="botao">← Plano completo</a><span className="text-sm text-ink-soft">{plano.norma.titulo} · só esta obrigação</span></p>
+    <p className="flex flex-wrap items-center gap-3"><a href={urlPlanoCompleto(normaDaUrl())} className="botao">← Plano completo</a><a href={URL_EXECUTIVO} className="botao">← Visão executiva</a><span className="text-sm text-ink-soft">{plano.norma.titulo} · só esta obrigação</span></p>
     <ul><ItemObrigacao o={o} /></ul>
   </main>
 }
