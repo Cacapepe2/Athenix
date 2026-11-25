@@ -214,6 +214,77 @@
   background: var(--cor-texto);
   color: var(--cor-texto-invertido);
 }
+/* Revisão pessoal: a escolha feita fica em terracota; limpar é uma ação menor, em amarelo claro. */
+.escolha[aria-pressed="true"],
+.escolha[aria-pressed="true"]:hover {
+  background: var(--cor-destaque-texto);
+  border-color: var(--cor-destaque-texto);
+  color: var(--cor-texto-invertido);
+}
+.botao-limpar {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border: 1px solid var(--cor-limpar-borda);
+  border-radius: var(--raio);
+  background: var(--cor-limpar-fundo);
+  color: var(--cor-destaque-texto);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.botao-limpar:hover {
+  background: var(--cor-limpar-hover);
+}
+/* Menu lateral do plano: fixo no computador; o tópico em leitura cresce e mostra os subtópicos. */
+.menu-abrir {
+  width: 100%;
+}
+.menu-topico {
+  padding: 8px 0;
+  line-height: 1.2;
+  display: flex;
+  min-height: 44px;
+  flex: 1;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+.menu-topico:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.menu-topico[aria-current] {
+  color: var(--cor-destaque-texto);
+  font-size: 18px;
+  font-weight: 700;
+}
+.menu-sub {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--duracao-painel) var(--curva);
+}
+.menu-sub[data-aberto="true"] {
+  grid-template-rows: 1fr;
+}
+.menu-sub > ul {
+  min-height: 0;
+  overflow: hidden;
+}
+@media (min-width: 80rem) {
+  .menu-abrir {
+    display: none;
+  }
+  .menu-lateral {
+    position: sticky;
+    top: 24px;
+    max-height: calc(100vh - 96px);
+    overflow-y: auto;
+  }
+}
+
 /* Painel de detalhes: abre deslizando (grid-template-rows 0fr -> 1fr) com fade; ao fechar, o conteúdo fica até acabar. */
 .painel {
   display: grid;
@@ -293,6 +364,7 @@
   .seg,
   .painel,
   .painel-in,
+  .menu-sub,
   .barra {
     transition: none;
   }
