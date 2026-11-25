@@ -21,7 +21,7 @@ import { extrasDoCsv } from '../../content/relatorio'
 import { recomendacoesDoTema } from '../../content/recomendacoes'
 import { ABERTURA_PERGUNTAS, perguntasParaOJuridico } from '../../content/perguntas'
 import { CRITERIO_PRONTIDAO, fraseProntidao, prontidao } from '../../content/prontidao'
-import { contagemDeEnquadramentos, destaqueDaNorma, idDaObrigacao, tabelaDeGrupos, textoMaiorMulta, textoPrazoDoTema, urlPlanoCompleto } from '../../content/executivo'
+import { contagemDeEnquadramentos, destaqueDaNorma, idDaObrigacao, NORMAS, tabelaDeGrupos, textoMaiorMulta, textoPrazoDoTema, urlPlanoCompleto } from '../../content/executivo'
 import { rotuloDoGrupo } from '../../content/gravidade'
 import {
   brl, brlCurto, comAtenuantePct, csvPlano, dataBR, decisoesDaSemana, exposicaoTema, lacuna, lerReais, manchete, NOTA_ADVERTENCIA, HOJE, textoVencidas, textoVencidasComDetalhe, nomeDiag,
@@ -29,6 +29,8 @@ import {
   type Citacao, type OutroDispositivo, type Diagnostico, type Diagnosticos, type Exposicao, type Manchete, type Medida, type Modo, type Obrigacao, type Simulacao, type Situacao, type Tema,
 } from '../../content/plano'
 
+/** Nome da norma aberta (RN 1.137 ou, com ?norma=, REN 1.174). */
+const ROTULO_NORMA = NORMAS.find((n) => n.id === normaDaUrl())!.rotulo
 const r = plano.resumo
 /** A visão executiva da mesma norma (/demo/executivo, ou com ?norma=). */
 const URL_EXECUTIVO = normaDaUrl() === 'rn1137' ? '/demo/executivo' : `/demo/executivo?norma=${normaDaUrl()}`
@@ -181,7 +183,7 @@ export function PlanoPage() {
     <MenuLateral grupos={menu} />
     <main id="plano" className={`min-w-0 space-y-14 pt-6 pb-8 md:pb-28 xl:pt-0 print:pb-10 ${soDiagnostico ? 'so-diagnostico' : ''} ${imprimindo ? 'so-relatorio' : ''}`}>
       <section id="visao-geral" aria-labelledby="titulo-plano" className="space-y-6">
-        <p className={kicker}>Plano de ação · RN 1.137/2025 · {plano.perfil.rotulo.toLowerCase()} (não é empresa real)</p>
+        <p className={kicker}>Plano de ação · {ROTULO_NORMA} · {plano.perfil.rotulo.toLowerCase()} (não é empresa real)</p>
         <Porte setSim={setSim} />
         <p className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-2xl border border-slate-blue/40 border-l-4 border-l-slate-blue bg-acento-claro py-2 pr-4 pl-3 text-sm text-obsidian print:hidden">
           <span data-acento="etiqueta" className="inline-flex shrink-0 items-center bg-acento-escuro px-3 py-1 text-xs leading-none font-bold text-white ">Novo</span>
@@ -195,7 +197,7 @@ export function PlanoPage() {
           <div className="rounded-2xl border border-line bg-white p-5 sm:p-7">
             <p className="flex flex-wrap items-center gap-2 text-sm text-ink-soft">
               <Tag kind="pending" label="preliminar" />
-              <span>Distribuidora de {sim ? brlCurto(sim.base) : 'receita a informar'} · RN 1.137/2025</span>
+              <span>Distribuidora de {sim ? brlCurto(sim.base) : 'receita a informar'} · {ROTULO_NORMA}</span>
             </p>
             <h1 id="titulo-plano" className="font-display mt-3 text-[1.75rem] leading-tight sm:text-[2.6rem] sm:leading-[1.12]"><TextoManchete m={m} /></h1>
             <p className="mt-2 text-sm text-ink-soft">{textoVencidasComDetalhe({ obrigacoes: m.obrigacoesVencidas, detalhes: m.detalhesVencidos })} · datas provisórias · os valores não se somam</p>
@@ -336,7 +338,7 @@ function DiagnosticoGerado({ ref, diag, temas, decisoes, m, imprimir, fechar }: 
       </div>
     </div>
     <h2 id="titulo-diagnostico" className="font-display mt-3 text-[2rem] text-obsidian leading-tight sm:text-[2.6rem] sm:leading-[1.1]"><TextoManchete m={m} /></h2>
-    <p className="mt-3 text-sm text-ink-soft">Data de referência {dataBR(plano.perfil.data_referencia)} · Porte: {nomePorte(sim)} · RN 1.137/2025 · {modo === 'preliminar' ? 'cenário preliminar' : 'só enquadramentos identificados no texto'} · {plano.perfil.rotulo.toLowerCase()} (não é empresa real)</p>
+    <p className="mt-3 text-sm text-ink-soft">Data de referência {dataBR(plano.perfil.data_referencia)} · Porte: {nomePorte(sim)} · {ROTULO_NORMA} · {modo === 'preliminar' ? 'cenário preliminar' : 'só enquadramentos identificados no texto'} · {plano.perfil.rotulo.toLowerCase()} (não é empresa real)</p>
     <p className="mt-5 max-w-4xl text-lg leading-relaxed">{resumoDiagnostico(plano.temas, diag, sim, modo)}</p>
     {algumSugerido && <p className="mt-3 flex flex-wrap items-center gap-2 text-sm"><Tag kind="ai" label="Interpretação da IA · aguarda revisão humana" /><span className="text-ink-soft">Valores marcados “sugerido” usam o enquadramento sugerido pela IA ({PRELIMINAR}).</span></p>}
 
