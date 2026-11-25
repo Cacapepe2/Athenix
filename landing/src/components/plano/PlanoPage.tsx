@@ -21,7 +21,7 @@ import { extrasDoCsv } from '../../content/relatorio'
 import { recomendacoesDoTema } from '../../content/recomendacoes'
 import { ABERTURA_PERGUNTAS, perguntasParaOJuridico } from '../../content/perguntas'
 import { CRITERIO_PRONTIDAO, fraseProntidao, prontidao } from '../../content/prontidao'
-import { contagemDeEnquadramentos, destaqueDaNorma, idDaObrigacao, tabelaDeGrupos, textoMaiorMulta, textoPrazoDoTema, urlPlanoCompleto } from '../../content/executivo'
+import { contagemDeEnquadramentos, destaqueDaNorma, idDaObrigacao, NORMAS, tabelaDeGrupos, textoMaiorMulta, textoPrazoDoTema, urlPlanoCompleto } from '../../content/executivo'
 import { rotuloDoGrupo } from '../../content/gravidade'
 import {
   brl, brlCurto, comAtenuantePct, csvPlano, dataBR, decisoesDaSemana, exposicaoTema, lacuna, lerReais, manchete, NOTA_ADVERTENCIA, HOJE, textoVencidas, textoVencidasComDetalhe, nomeDiag,
@@ -29,6 +29,8 @@ import {
   type Citacao, type OutroDispositivo, type Diagnostico, type Diagnosticos, type Exposicao, type Manchete, type Medida, type Modo, type Obrigacao, type Simulacao, type Situacao, type Tema,
 } from '../../content/plano'
 
+/** Nome da norma aberta (RN 1.137 ou, com ?norma=, REN 1.174). */
+const ROTULO_NORMA = NORMAS.find((n) => n.id === normaDaUrl())!.rotulo
 const r = plano.resumo
 /** A visão executiva da mesma norma (/demo/executivo, ou com ?norma=). */
 const URL_EXECUTIVO = normaDaUrl() === 'rn1137' ? '/demo/executivo' : `/demo/executivo?norma=${normaDaUrl()}`
@@ -160,9 +162,9 @@ export function PlanoPage() {
 
   const menu: GrupoMenu[] = [
     { id: 'visao-geral', rotulo: 'Visão geral', itens: [{ rotulo: 'Porte da distribuidora', href: '#porte' }, { rotulo: 'Decisões da semana', href: '#decisoes' }] },
+    { id: 'obrigacoes', rotulo: 'Obrigações', conteudo: <><p className="pt-1 pb-2 text-[11px]" data-contador-menu>Mostrando {filtrar(blocos, filtros).length} de {blocos.length}</p><FiltrosMenu filtros={filtros} mudar={mudarFiltros} /></> },
     { id: 'temas', rotulo: 'Temas por valor em risco', itens: temas.map((t) => ({ rotulo: t.nome, href: `#tema-${t.id}` })) },
     { id: 'seu-diagnostico', rotulo: 'Diagnóstico', itens: [{ rotulo: 'Gerar diagnóstico', href: '#seu-diagnostico' }] },
-    { id: 'obrigacoes', rotulo: 'Obrigações', conteudo: <><p className="pt-2 pl-4 text-xs" data-contador-menu>Mostrando {filtrar(blocos, filtros).length} de {blocos.length}</p><FiltrosMenu filtros={filtros} mudar={mudarFiltros} /></> },
     { id: 'aprofundar', rotulo: 'Para aprofundar', itens: [
       { rotulo: 'Como reduzir a exposição', href: '#reduzir' },
       { rotulo: 'Quando cada coisa vence', href: '#linha' },
@@ -177,11 +179,11 @@ export function PlanoPage() {
 
   return <RespostasProvider norma={normaDaUrl()}><Cenario.Provider value={{ sim, modo, relatorio: () => setImprimindo(true) }}>
     <header className="border-b border-line bg-ivory print:hidden"><div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-4 gap-y-3 px-4 py-4 sm:px-8"><a href="/" aria-label="Athenix, voltar ao início"><Logo /></a><nav aria-label="Páginas da demonstração" className="flex flex-wrap items-center gap-2">{itemUnico && <a href={urlPlanoCompleto(normaDaUrl())} className="botao">← Plano completo</a>}<a href={URL_EXECUTIVO} className="botao">← Visão executiva</a><a href="/" className="botao">← Voltar ao site</a></nav></div></header>
-    {itemUnico ? <ItemUnico o={itemUnico} /> : <div className="mx-auto max-w-[1440px] px-4 pt-6 sm:px-8 sm:pt-10 xl:grid xl:grid-cols-[220px_minmax(0,1fr)] xl:items-start xl:gap-10 print:block">
+    {itemUnico ? <ItemUnico o={itemUnico} /> : <div className="mx-auto max-w-[1440px] px-4 pt-6 sm:px-8 sm:pt-10 xl:grid xl:grid-cols-[256px_minmax(0,1fr)] xl:items-start xl:gap-10 print:block">
     <MenuLateral grupos={menu} />
     <main id="plano" className={`min-w-0 space-y-14 pt-6 pb-8 md:pb-28 xl:pt-0 print:pb-10 ${soDiagnostico ? 'so-diagnostico' : ''} ${imprimindo ? 'so-relatorio' : ''}`}>
       <section id="visao-geral" aria-labelledby="titulo-plano" className="space-y-6">
-        <p className={kicker}>Plano de ação · RN 1.137/2025 · {plano.perfil.rotulo.toLowerCase()} (não é empresa real)</p>
+        <p className={kicker}>Plano de ação · {ROTULO_NORMA} · {plano.perfil.rotulo.toLowerCase()} (não é empresa real)</p>
         <Porte setSim={setSim} />
         <p className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-2xl border border-slate-blue/40 border-l-4 border-l-slate-blue bg-acento-claro py-2 pr-4 pl-3 text-sm text-obsidian print:hidden">
           <span data-acento="etiqueta" className="inline-flex shrink-0 items-center bg-acento-escuro px-3 py-1 text-xs leading-none font-bold text-white ">Novo</span>
@@ -195,7 +197,7 @@ export function PlanoPage() {
           <div className="rounded-2xl border border-line bg-white p-5 sm:p-7">
             <p className="flex flex-wrap items-center gap-2 text-sm text-ink-soft">
               <Tag kind="pending" label="preliminar" />
-              <span>Distribuidora de {sim ? brlCurto(sim.base) : 'receita a informar'} · RN 1.137/2025</span>
+              <span>Distribuidora de {sim ? brlCurto(sim.base) : 'receita a informar'} · {ROTULO_NORMA}</span>
             </p>
             <h1 id="titulo-plano" className="font-display mt-3 text-[1.75rem] leading-tight sm:text-[2.6rem] sm:leading-[1.12]"><TextoManchete m={m} /></h1>
             <p className="mt-2 text-sm text-ink-soft">{textoVencidasComDetalhe({ obrigacoes: m.obrigacoesVencidas, detalhes: m.detalhesVencidos })} · datas provisórias · os valores não se somam</p>
@@ -231,6 +233,8 @@ export function PlanoPage() {
         </div>
       </section>
 
+      <BlocosObrigacoes todos={blocos} filtros={filtros} mudar={mudarFiltros} />
+
       <Prontidao sim={sim} modo={modo} />
 
       <section aria-labelledby="temas" className={gerado ? 'print:hidden' : ''}>
@@ -256,8 +260,6 @@ export function PlanoPage() {
             </div>}
         </div>
       </section>
-
-      <BlocosObrigacoes todos={blocos} filtros={filtros} mudar={mudarFiltros} />
 
       <div id="aprofundar" className="space-y-4 print:hidden">
         <Expansivel id="reduzir" titulo="Como reduzir a exposição" resumo="atenuantes do art. 24 da REN 846, regras comuns e valores por tema">{() => <ComoReduzir temas={temas} />}</Expansivel>
@@ -336,7 +338,7 @@ function DiagnosticoGerado({ ref, diag, temas, decisoes, m, imprimir, fechar }: 
       </div>
     </div>
     <h2 id="titulo-diagnostico" className="font-display mt-3 text-[2rem] text-obsidian leading-tight sm:text-[2.6rem] sm:leading-[1.1]"><TextoManchete m={m} /></h2>
-    <p className="mt-3 text-sm text-ink-soft">Data de referência {dataBR(plano.perfil.data_referencia)} · Porte: {nomePorte(sim)} · RN 1.137/2025 · {modo === 'preliminar' ? 'cenário preliminar' : 'só enquadramentos identificados no texto'} · {plano.perfil.rotulo.toLowerCase()} (não é empresa real)</p>
+    <p className="mt-3 text-sm text-ink-soft">Data de referência {dataBR(plano.perfil.data_referencia)} · Porte: {nomePorte(sim)} · {ROTULO_NORMA} · {modo === 'preliminar' ? 'cenário preliminar' : 'só enquadramentos identificados no texto'} · {plano.perfil.rotulo.toLowerCase()} (não é empresa real)</p>
     <p className="mt-5 max-w-4xl text-lg leading-relaxed">{resumoDiagnostico(plano.temas, diag, sim, modo)}</p>
     {algumSugerido && <p className="mt-3 flex flex-wrap items-center gap-2 text-sm"><Tag kind="ai" label="Interpretação da IA · aguarda revisão humana" /><span className="text-ink-soft">Valores marcados “sugerido” usam o enquadramento sugerido pela IA ({PRELIMINAR}).</span></p>}
 
