@@ -1,7 +1,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { planos } from './plano.ts'
-import { resumoComparacao } from './comparacao.ts'
+import { fraseComparacao, resumoComparacao, textoDeveresCriados } from './comparacao.ts'
 import { fonteDaCitacao } from './fontes.ts'
 
 test('comparação real explicita escopo, dados sem fonte e divergências sem alterar deveres', () => {
@@ -19,4 +19,7 @@ test('comparação real explicita escopo, dados sem fonte e divergências sem al
   assert.match(fonteDaCitacao(c.fontes.v3.sha256, c.itens['115'].atual.trecho)!, /\.pdf#page=\d+$/)
   assert.equal(c.itens['92'].classe, 'ja_existia')
   assert.equal(resumoComparacao(planos.ren1174), null)
+  assert.equal(textoDeveresCriados(p), `${c.resumo.novo} deveres criados pela RN 1.137 no PRODIST`)
+  assert.equal(textoDeveresCriados(planos.ren1174), null)
+  for (const k of ['novo', 'alterado', 'ja_existia'] as const) assert.doesNotMatch(fraseComparacao(k), /v[123]\b|SHA/)
 })

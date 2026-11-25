@@ -10,7 +10,18 @@ export interface ComparacaoDocumental {
   registros: Record<string, { item: string; classe: ClasseHistorica; confere_v3: boolean }>
   itens: Record<string, { classe: ClasseHistorica; anterior: TrechoHistorico | null; atual: TrechoHistorico }>
 }
-export const CLASSES_HISTORICAS = { novo: 'novo', alterado: 'alterado', ja_existia: 'já existia' }
+/** Frase simples para quem lê a obrigação; as fontes e os hashes ficam no JSON do plano. */
+export const fraseComparacao = (c: ClasseHistorica): string => ({
+  novo: 'Obrigação nova: entrou no Módulo 4 do PRODIST com a RN 1.137.',
+  alterado: 'Obrigação alterada pela RN 1.137 no Módulo 4 do PRODIST.',
+  ja_existia: 'Obrigação que já existia no Módulo 4 do PRODIST.',
+})[c]
+/** Linha do topo da executiva; o número vem do comparador. */
+export function textoDeveresCriados(p: PlanoDados): string | null {
+  const n = p.comparacao_anterior?.resumo.novo
+  return n == null ? null : `${n} ${n === 1 ? 'dever criado' : 'deveres criados'} pela RN 1.137 no PRODIST`
+}
+/** Contagem completa do comparador (página do plano). */
 export function resumoComparacao(p: PlanoDados): string | null {
   const r = p.comparacao_anterior?.resumo
   return r ? `${r.novo} novos · ${r.alterado} alterados · ${r.ja_existia} já existiam` : null
