@@ -269,9 +269,45 @@
 .menu-sub[data-aberto="true"] {
   grid-template-rows: 1fr;
 }
-.menu-sub > ul {
+.menu-sub > div {
   min-height: 0;
   overflow: hidden;
+}
+.filtro {
+  min-height: 36px;
+  padding: 6px 10px;
+  border-left: var(--borda-titulo) solid var(--cor-linha-suave);
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+}
+.filtro:hover {
+  background: var(--cor-hover);
+}
+.filtro[aria-pressed="true"] {
+  border-left-color: var(--cor-destaque-texto);
+  background: var(--cor-hover);
+  font-weight: 700;
+}
+/* Celular e tablet: o botão acompanha a rolagem e os tópicos abrem por cima da página. */
+@media (max-width: 79.99rem) {
+  .menu-lateral {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    padding: 8px 0;
+    background: var(--cor-fundo);
+  }
+  .menu-topicos {
+    position: absolute;
+    inset: 100% 0 auto;
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: 0 12px;
+    border: var(--borda-forte) solid var(--cor-texto);
+    border-radius: var(--raio);
+    background: var(--cor-fundo);
+  }
 }
 @media (min-width: 80rem) {
   .menu-abrir {
@@ -375,16 +411,6 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-}
-
-/* Filtros em pilha (plano completo): mesmo seletor segmentado, na vertical e alinhado à esquerda. */
-.pilha .seg {
-  width: 100%;
-  text-align: left;
-}
-.pilha .seg + .seg {
-  margin-left: 0;
-  margin-top: calc(var(--borda-forte) * -1);
 }
 
 /* Relatório de trabalho: fora da tela; ao imprimir, sai só ele, em A4, com o cabeçalho da tabela repetido. */

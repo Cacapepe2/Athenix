@@ -19,7 +19,9 @@
   --cor-trilho: #eeeeee;
 
   --fonte-base: "Inter Tight Variable", "Inter Tight", "Helvetica Neue", Arial, sans-serif;
-  --tamanho-data-executiva: 48px;
+  --tamanho-numero: clamp(51px, 6.4vw, 77px);
+  --tamanho-numero-4: clamp(45px, 4.8vw, 58px);
+  --tamanho-data-executiva: 38px;
 
   --raio: 6px;
   --raio-ponto: 50%;

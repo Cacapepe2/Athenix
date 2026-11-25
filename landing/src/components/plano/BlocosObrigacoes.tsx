@@ -1,15 +1,16 @@
 import { LinkFonte } from '../ui/LinkFonte'
-import { useEffect, useMemo, useState } from 'react'
-import { brlCurto, dataBR, HOJE, normaDaUrl, pct, type Modo, type Simulacao } from '../../content/plano'
+import { useMemo, useState } from 'react'
+import { ValorInfracao } from '../ui/ValorInfracao'
+import { brlCurto, dataBR, HOJE, normaDaUrl, pct } from '../../content/plano'
 import { norma as dadosDa, NORMAS, urlPlanoCompleto } from '../../content/executivo'
 import { calendarioIcs, tarefasCsv } from '../../content/tarefas'
-import { FILTROS_INICIAIS, OPCOES, blocosDoPlano, filtrar, filtrosDaUrl, urlComFiltros, type BlocoPlano, type Filtros } from '../../content/filtros'
+import { FILTROS_TODAS, filtrar, type BlocoPlano, type Filtros } from '../../content/filtros'
 import { ComparacaoAnterior } from './ComparacaoAnterior'
 import { RevisaoLocal } from './RevisaoLocal'
 
-// Plano completo, por obrigação: filtros à esquerda (empilham no celular) e blocos clicáveis. Mesma lógica
+// Plano completo, por obrigação: blocos clicáveis; os filtros ficam no menu lateral (FiltrosMenu). Mesma lógica
 // da página executiva (content/executivo.ts); a URL guarda os filtros (?norma=…&situacao=…).
-const valorCurto = (b: BlocoPlano) => (b.valor ? (b.valor.reais != null ? `${brlCurto(b.valor.reais)}${b.preliminar ? '*' : ''}` : `${pct(b.valor.pct)}${b.preliminar ? '*' : ''}`) : 'a enquadrar')
+const valorCurto = (b: BlocoPlano) => (b.valor ? (b.valor.reais != null ? brlCurto(b.valor.reais) : pct(b.valor.pct)) : 'a enquadrar')
 
 function baixar(nome: string, conteudo: string, tipo: string) {
   const url = URL.createObjectURL(new Blob([conteudo], { type: tipo }))
@@ -19,50 +20,31 @@ function baixar(nome: string, conteudo: string, tipo: string) {
 }
 const slug = (t: string) => t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 
-export function BlocosObrigacoes({ sim, modo, pedido }: { sim: Simulacao | null; modo: Modo; pedido?: { situacao: Filtros['situacao'] } | null }) {
-  const [filtros, setFiltros] = useState<Filtros>(() => (typeof location === 'undefined' ? FILTROS_INICIAIS : filtrosDaUrl(location.search)))
+export function BlocosObrigacoes({ todos, filtros, mudar }: { todos: BlocoPlano[]; filtros: Filtros; mudar: (f: Filtros) => void }) {
   const [aberto, setAberto] = useState<string | null>(null)
-  const todos = useMemo(() => blocosDoPlano(sim, modo, HOJE), [sim, modo])
-  const visiveis = filtrar(todos, filtros)
-
-  const mudar = (novo: Filtros) => {
-    setFiltros(novo)
-    setAberto(null)
-    history.replaceState(history.state, '', `${location.pathname}${urlComFiltros(location.search, novo)}${location.hash}`)
-  }
-  // Atalho do menu lateral: só a situação pedida (os outros filtros ficam como estão).
-  useEffect(() => { if (pedido) mudar({ ...filtros, situacao: pedido.situacao }) }, [pedido]) // cada clique cria um pedido novo
+  const visiveis = useMemo(() => filtrar(todos, filtros), [todos, filtros])
   const naPagina = normaDaUrl()
   const outra = filtros.norma !== 'todas' && filtros.norma !== naPagina ? filtros.norma : null
-  const temFiltro = OPCOES.some((o) => filtros[o.chave] !== 'todas')
 
   return <section id="obrigacoes" aria-labelledby="titulo-obrigacoes" className="space-y-4 print:hidden">
     <h2 id="titulo-obrigacoes" className="border-b-[length:var(--borda-titulo)] border-obsidian pb-3 text-[32px] leading-none font-bold ">Obrigações</h2>
-    <div className="flex flex-wrap items-start gap-8">
-      <aside aria-label="Filtros" className="flex max-w-full flex-[1_1_220px] flex-col gap-5 sm:max-w-[260px]">
-        {OPCOES.map((g) => <fieldset key={g.chave} className="pilha flex flex-col">
-          <legend className="mb-1.5 p-0 text-[13px] font-bold">{g.titulo}</legend>
-          {g.opcoes.map((o) => <button key={o.valor} type="button" className="seg" aria-pressed={filtros[g.chave] === o.valor} onClick={() => mudar({ ...filtros, [g.chave]: o.valor })}>{o.rotulo}</button>)}
-        </fieldset>)}
-        <div className="flex flex-col gap-2 border-t border-obsidian pt-4">
-          <span className="text-[13px] font-bold">Quem faz o quê</span>
-          <button type="button" className="seg" onClick={() => baixar(`tarefas-${filtros.area === 'todas' ? 'todas-as-areas' : slug(filtros.area)}.csv`, `﻿${tarefasCsv(visiveis, filtros.area === 'todas' ? null : filtros.area)}`, 'text/csv;charset=utf-8')}>Baixar tarefas da área (CSV)</button>
-          <button type="button" className="seg" onClick={() => baixar('prazos-athenix.ics', calendarioIcs(NORMAS.map((n) => ({ norma: n.id, vigencia: n.dados.norma.vigencia, blocos: visiveis.filter((b) => b.norma === n.id), trechos: Object.fromEntries(n.dados.obrigacoes.map((o) => [o.id, o.trecho ?? ''])) })), filtros.area === 'todas' ? null : filtros.area), 'text/calendar;charset=utf-8')}>Adicionar prazos ao calendário (.ics)</button>
-          <span className="text-xs">A área é sugestão: pela regra do tipo da obrigação ou, quando a regra não acha, “área sugerida (IA)”, marcada no CSV e no relatório. O arquivo sai só no seu navegador. Respeita os filtros acima.</span>
-        </div>
-        <button type="button" disabled={!temFiltro} onClick={() => mudar(FILTROS_INICIAIS)} className="min-h-11 cursor-pointer py-2.5 text-left text-sm font-semibold underline underline-offset-4 disabled:cursor-default disabled:no-underline disabled:opacity-60">Limpar filtros</button>
-      </aside>
-
-      <div className="flex min-w-0 flex-[999_1_560px] flex-col gap-3.5">
+      <div className="flex min-w-0 flex-col gap-3.5">
         {outra && <p className="border-[length:var(--borda-forte)] border-obsidian px-4 py-2.5 text-sm font-semibold">Mostrando obrigações da {dadosDa(outra).rotulo.replace('/2025', '').replace('/2026', '')}. O resto da página é da {dadosDa(naPagina).rotulo.replace('/2025', '').replace('/2026', '')} · <a href={urlPlanoCompleto(outra)} className="underline underline-offset-4 hover:text-acento">Ver a página da {dadosDa(outra).rotulo.replace('/2025', '').replace('/2026', '')} →</a></p>}
         <p className="text-sm" aria-live="polite">Mostrando <strong>{visiveis.length}</strong> de {todos.length} obrigações · clique num bloco para abrir · dias contados até {dataBR(HOJE)}</p>
         <div className="grid gap-3 [grid-template-columns:repeat(auto-fill,minmax(220px,1fr))]">
           {visiveis.map((b) => <Bloco key={`${b.norma}-${b.id}`} b={b} aberta={aberto === `${b.norma}-${b.id}`} alternar={() => setAberto(aberto === `${b.norma}-${b.id}` ? null : `${b.norma}-${b.id}`)} />)}
         </div>
-        {visiveis.length === 0 && <p className="border-[length:var(--borda-forte)] border-obsidian p-6 text-[15px]">Nenhuma obrigação com esses filtros. Limpe um dos filtros à esquerda.</p>}
-        <p className="text-[13px]">* preliminar = enquadramento sugerido pela IA, aguardando revisão · “identificado no texto” = a norma nomeia a infração · títulos resumidos por IA · não constitui parecer jurídico.</p>
+        {visiveis.length === 0 && <div className="flex flex-wrap items-center gap-4 border-[length:var(--borda-forte)] border-obsidian p-6 text-[15px]"><p>Nenhuma obrigação com estes filtros</p><button type="button" className="botao" onClick={() => mudar(FILTROS_TODAS)}>Mostrar todas</button></div>}
+        <div className="flex flex-col gap-2">
+          <span className="text-[13px] font-bold">Quem faz o quê</span>
+          <div className="flex flex-wrap gap-2">
+            <button type="button" className="botao" onClick={() => baixar(`tarefas-${filtros.area === 'todas' ? 'todas-as-areas' : slug(filtros.area)}.csv`, `﻿${tarefasCsv(visiveis, filtros.area === 'todas' ? null : filtros.area)}`, 'text/csv;charset=utf-8')}>Baixar tarefas da área (CSV)</button>
+            <button type="button" className="botao" onClick={() => baixar('prazos-athenix.ics', calendarioIcs(NORMAS.map((n) => ({ norma: n.id, vigencia: n.dados.norma.vigencia, blocos: visiveis.filter((b) => b.norma === n.id), trechos: Object.fromEntries(n.dados.obrigacoes.map((o) => [o.id, o.trecho ?? ''])) })), filtros.area === 'todas' ? null : filtros.area), 'text/calendar;charset=utf-8')}>Adicionar prazos ao calendário (.ics)</button>
+          </div>
+          <span className="text-xs">A área é sugestão: pela regra do tipo da obrigação ou, quando a regra não acha, “área sugerida (IA)”, marcada no CSV e no relatório. O arquivo sai só no seu navegador. Respeita os filtros do menu.</span>
+        </div>
+        <p className="text-[13px]">preliminar = enquadramento sugerido pela IA, aguardando revisão · “identificado no texto” = a norma nomeia a infração · títulos resumidos por IA · não constitui parecer jurídico.</p>
       </div>
-    </div>
   </section>
 }
 
@@ -75,7 +57,7 @@ function Bloco({ b, aberta, alternar }: { b: BlocoPlano; aberta: boolean; altern
       <span className="text-xs font-semibold">{b.normaRotulo.replace('/2025', '').replace('/2026', '')} · {b.dispositivo ?? 'dispositivo a confirmar'}</span>
       <span className="text-base leading-tight font-semibold">{b.titulo}</span>
       <span className="mt-auto flex flex-col gap-1">
-        <span className="text-[28px] font-bold whitespace-nowrap">{valorCurto(b)}</span>
+        <ValorInfracao texto={valorCurto(b)} enquadrado={!!b.valor} preliminar={!!b.preliminar} />
         <span className={`inline-flex items-center gap-1.5 text-xs font-semibold ${vencida && !aberta ? 'text-bronze-deep' : ''}`}>
           {vencida && <span aria-hidden="true" className="inline-block h-2 w-2 rounded-full bg-acento" />}{b.prazoCurto}
         </span>

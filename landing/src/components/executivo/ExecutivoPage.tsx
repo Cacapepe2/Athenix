@@ -1,22 +1,26 @@
 import { LinkFonte } from '../ui/LinkFonte'
+import { SeloPreliminar, ValorInfracao } from '../ui/ValorInfracao'
 import { useEffect, useRef, useState } from 'react'
-import { Pointer } from 'lucide-react'
+import { MousePointerClick } from 'lucide-react'
 import { NORMA_PADRAO, NORMAS, norma as dadosDa, prazos, queda, textoContagem, top5, urlPlanoCompleto, urlRelatorio, valorGeral, type LinhaTop5 } from '../../content/executivo'
 import { RespostasProvider, useRespostas } from '../plano/Respostas'
 import { prontidao } from '../../content/prontidao'
 import { useHoje } from '../../hooks/useHoje'
-import { resumoComparacao } from '../../content/comparacao'
-import { brlCurto, dataBR, normaDaUrl, textoVencidasComDetalhe, type NormaId, type Simulacao } from '../../content/plano'
+import { textoDeveresCriados } from '../../content/comparacao'
+import { brlCurto, dataBR, normaDaUrl, pct, textoVencidas, type NormaId, type Simulacao } from '../../content/plano'
 
 // Visão executiva (/demo/executivo): três números e até cinco blocos clicáveis. Muito pouco texto; o resto
 // fica no plano completo. Todos os números vêm de content/executivo.ts (planos gerados pelo motor).
 const MODO = 'preliminar' as const
 const PORTE_PADRAO = 'media'
-const GRANDE = 'block text-[64px] leading-[0.95] font-bold sm:text-[80px] lg:text-[96px]'
-const GRANDE_4 = 'block text-[56px] leading-[0.95] font-bold sm:text-[64px] lg:text-[72px]' // com o 4º número a linha tem 4 colunas
+const GRANDE = 'block self-baseline text-[length:var(--tamanho-numero)] leading-[0.95] font-bold'
+const GRANDE_4 = 'block self-baseline text-[length:var(--tamanho-numero-4)] leading-[0.95] font-bold' // com o 4º número a linha tem 4 colunas
 const LEGENDA = 'text-[17px] font-semibold'
+const DETALHE = 'text-xs'
+// Cada coluna ocupa as mesmas três linhas (número, legenda, detalhe), então números e textos começam na mesma altura.
+const COLUNA_NUMERO = 'row-span-3 mt-6 grid grid-rows-subgrid first:mt-0 lg:mt-0'
 
-const valorDoBloco = (l: LinhaTop5) => (l.valor?.reais != null ? `${brlCurto(l.valor.reais)}${l.preliminar ? '*' : ''}` : 'a enquadrar')
+const valorDoBloco = (l: LinhaTop5) => (l.valor?.reais != null ? brlCurto(l.valor.reais) : 'a enquadrar')
 
 export function ExecutivoPage() {
   const [normaId, setNormaId] = useState<NormaId>(normaDaUrl)
@@ -77,39 +81,45 @@ function Executiva({ normaId, setNormaId }: { normaId: NormaId; setNormaId: (id:
       </div>
     </header>
 
-    {p.comparacao_anterior && <p aria-label="Resumo da comparação histórica" className="flex flex-wrap items-baseline gap-x-3 gap-y-1 text-sm"><strong>{resumoComparacao(p)}</strong><small className="text-xs">Base: Módulo 4 do PRODIST ({p.comparacao_anterior.resumo.sem_fonte} registros sem histórico anterior e {p.comparacao_anterior.resumo.divergencias_v3} com divergências entre a v3 e a RN)</small></p>}
-    <section aria-label="Resumo" aria-live="polite" className="grid gap-8 [grid-template-columns:repeat(auto-fit,minmax(260px,1fr))]">
-      <div className="flex flex-col gap-1.5">
+    {p.comparacao_anterior && <p aria-label="Resumo da comparação histórica" className="flex flex-wrap items-baseline gap-x-3 gap-y-1 text-sm"><strong>{textoDeveresCriados(p)}</strong><small className="text-xs">Base: Módulo 4 do PRODIST ({p.comparacao_anterior.resumo.sem_fonte} registros sem histórico anterior e {p.comparacao_anterior.resumo.divergencias_v3} com divergências entre a v3 e a RN)</small></p>}
+    <section aria-label="Resumo" aria-live="polite" className={`grid gap-x-8 gap-y-1.5 ${pr.algumaMarcada ? 'lg:grid-cols-4' : 'lg:grid-cols-3'}`}>
+      <div className={COLUNA_NUMERO}>
         <span className={`${grande} text-acento`}>{v?.reais != null ? <><span className="mr-2 text-[0.4em] align-baseline">R$</span>{brlCurto(v.reais).replace('R$ ', '')}</> : 'a enquadrar'}</span>
-        <span className={LEGENDA}>por infração{preliminar ? '*' : ''}</span>
+        <span className={`${LEGENDA} flex flex-wrap items-center gap-2`}>por infração{preliminar && <SeloPreliminar />}</span>
+        <span className={DETALHE}>{v && `= ${pct(v.pct)} da receita anual`}</span>
       </div>
-      <div className="flex flex-col gap-1.5">
+      <div className={COLUNA_NUMERO}>
         <span className={grande}>{q ? `−${Math.round(q.reducaoPct)}%` : '—'}</span>
         <span className={LEGENDA}>se agir antes da fiscalização</span>
+        <span className={DETALHE} />
       </div>
-      <div className="flex flex-col gap-1.5">
+      <div className={COLUNA_NUMERO}>
         {!pz
-          ? <><span className={grande} aria-hidden="true">—</span><span className={LEGENDA}>prazos contados com a data de hoje</span></>
+          ? <><span className={grande} aria-hidden="true">—</span><span className={LEGENDA}>prazos</span></>
           : pz.vencidas > 0
-          ? <><span className={grande}>{pz.vencidas}</span><span className={LEGENDA}>{textoVencidasComDetalhe({ obrigacoes: pz.vencidas, detalhes: pz.detalhes }).replace(/^\d+ /, '')}</span></>
+          ? <><span className={grande}>{pz.vencidas}</span><span className={LEGENDA}>{textoVencidas(pz.vencidas).replace(/^\d+ /, '')}</span></>
           : pz.proximoMarco
-            ? <><span className="block text-[length:var(--tamanho-data-executiva)] leading-[0.95] font-bold">{dataBR(pz.proximoMarco.data)}</span><span className={LEGENDA}>próximo marco · {pz.proximoMarco.tipo}</span></>
+            ? <><span className="block self-baseline text-[length:var(--tamanho-data-executiva)] leading-[0.95] font-bold">{dataBR(pz.proximoMarco.data)}</span><span className={LEGENDA}>próximo marco</span></>
             : pz.proxima
               ? <><span className={grande}>{pz.proxima.dias} dias</span><span className={LEGENDA}>até o próximo prazo</span></>
               : <><span className={grande}>—</span><span className={LEGENDA}>nenhum prazo a vencer</span></>}
-        {pz?.contagem && <span className="text-xs">{textoContagem(pz.contagem)}</span>}
+        <span className={DETALHE}>{!pz ? 'contados com a data de hoje' : [
+          pz.vencidas > 0 && pz.detalhes > 0 && `${pz.detalhes} ${pz.detalhes === 1 ? 'item de detalhe' : 'itens de detalhe'}`,
+          pz.vencidas === 0 && pz.proximoMarco?.tipo,
+          pz.contagem && textoContagem(pz.contagem),
+        ].filter(Boolean).join(' · ')}</span>
       </div>
-      {pr.algumaMarcada && <div className="flex flex-col gap-1.5"><span className={grande}>{pr.geral.x} de {pr.geral.y}</span><span className={LEGENDA}>provas em mãos · checklist sugerido</span></div>}
+      {pr.algumaMarcada && <div className={COLUNA_NUMERO}><span className={grande}>{pr.geral.x} de {pr.geral.y}</span><span className={LEGENDA}>provas em mãos</span><span className={DETALHE}>checklist sugerido</span></div>}
     </section>
 
     <section aria-labelledby="comece-por" className="flex flex-col gap-3.5">
-      <div className="flex items-center gap-3.5">
-        <span aria-hidden="true" className="grid h-12 w-12 shrink-0 place-items-center rounded-lg bg-obsidian text-white"><Pointer className="h-6 w-6" /></span>
+      <div className="flex items-start gap-3">
+        <MousePointerClick aria-hidden="true" className="h-6 w-6 shrink-0 sm:h-7 sm:w-7" />
         <div className="flex min-w-0 flex-col gap-0.5">
           <p className="text-[20px] leading-tight font-bold sm:text-[24px]">Toque num item para ver o que fazer</p>
           <h2 id="comece-por" className="text-[15px] font-semibold text-bronze-deep">Comece por</h2>
         </div>
-        <span aria-hidden="true" className="hidden flex-1 border-t border-line sm:block" />
+        <span aria-hidden="true" className="mt-3.5 hidden flex-1 border-t border-line sm:block" />
       </div>
       <div className="grid gap-3 [grid-template-columns:repeat(auto-fill,minmax(190px,1fr))]">
         {linhas.map((l) => {
@@ -120,7 +130,7 @@ function Executiva({ normaId, setNormaId }: { normaId: NormaId; setNormaId: (id:
               <span aria-hidden="true" className={`inline-block h-2 w-2 rounded-full ${vencida ? 'bg-acento' : aberta ? 'bg-white' : 'bg-obsidian'}`} />{hoje ? l.prazoCurto : 'prazo contado com a data de hoje'}
             </span>
             <span className="text-base leading-tight font-semibold">{l.titulo}</span>
-            <span className="mt-auto text-[30px] font-bold ">{valorDoBloco(l)}</span>
+            <span className="mt-auto"><ValorInfracao texto={valorDoBloco(l)} enquadrado={l.valor?.reais != null} preliminar={!!l.preliminar} className="text-[30px]" /></span>
             <span className="flex items-center justify-between border-t border-current pt-2.5 text-[13px] font-semibold">
               <span>{aberta ? 'Fechar' : 'Ver o que fazer'}</span><span aria-hidden="true" className="seta text-lg">{aberta ? '↑' : '↓'}</span>
             </span>
@@ -136,7 +146,7 @@ function Executiva({ normaId, setNormaId }: { normaId: NormaId; setNormaId: (id:
     </section>
 
     <footer className="flex flex-wrap justify-between gap-3 border-t border-obsidian pt-3.5 text-[13px]">
-      <span>* preliminar · títulos resumidos por IA · não é parecer jurídico · dias contados até {hoje ? dataBR(hoje) : 'hoje'}</span>
+      <span className="min-w-0 flex-[1_1_420px]">preliminar = enquadramento sugerido pela IA, aguarda revisão humana · títulos resumidos por IA · não é parecer jurídico · dias contados até {hoje ? dataBR(hoje) : 'hoje'}</span>
       <span className="flex flex-wrap gap-3"><a href={urlRelatorio(normaId)} className="botao botao-escuro">Baixar meu relatório</a><a href={urlPlanoCompleto(normaId)} className="botao">Plano completo →</a></span>
     </footer>
   </main>

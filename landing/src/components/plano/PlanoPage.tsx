@@ -9,7 +9,9 @@ import { Chevron } from '../ui/Chevron'
 import { AjudaGrupos } from './AjudaGrupos'
 import { BlocosObrigacoes } from './BlocosObrigacoes'
 import { MenuLateral, type GrupoMenu } from './MenuLateral'
-import { OPCOES as FILTROS, type FiltroSituacao } from '../../content/filtros'
+import { FiltrosMenu } from './FiltrosMenu'
+import { blocosDoPlano, filtrar, filtrosDaUrl, filtrosIniciais, urlComFiltros, type Filtros } from '../../content/filtros'
+import { resumoComparacao } from '../../content/comparacao'
 import { RespostasProvider, useRespostas } from './Respostas'
 import { Relatorio } from './Relatorio'
 import { ComparacaoAnterior } from './ComparacaoAnterior'
@@ -22,7 +24,7 @@ import { CRITERIO_PRONTIDAO, fraseProntidao, prontidao } from '../../content/pro
 import { contagemDeEnquadramentos, destaqueDaNorma, idDaObrigacao, tabelaDeGrupos, textoMaiorMulta, textoPrazoDoTema, urlPlanoCompleto } from '../../content/executivo'
 import { rotuloDoGrupo } from '../../content/gravidade'
 import {
-  brl, brlCurto, comAtenuantePct, csvPlano, dataBR, decisoesDaSemana, exposicaoTema, lacuna, lerReais, manchete, NOTA_ADVERTENCIA, textoVencidas, textoVencidasComDetalhe, nomeDiag,
+  brl, brlCurto, comAtenuantePct, csvPlano, dataBR, decisoesDaSemana, exposicaoTema, lacuna, lerReais, manchete, NOTA_ADVERTENCIA, HOJE, textoVencidas, textoVencidasComDetalhe, nomeDiag,
   normaDaUrl, obrigacao, ordenarTemas, pct, plano, reaisDe, resumoDiagnostico, situacaoPrazo, SIM_INICIAL, textoFaixa,
   type Citacao, type OutroDispositivo, type Diagnostico, type Diagnosticos, type Exposicao, type Manchete, type Medida, type Modo, type Obrigacao, type Simulacao, type Situacao, type Tema,
 } from '../../content/plano'
@@ -99,7 +101,14 @@ export function PlanoPage() {
   // ?item=<id> (link "Detalhes no plano"): só aquela obrigação, sem o resto do plano.
   const [itemUnico] = useState(() => { const id = typeof location !== 'undefined' ? new URLSearchParams(location.search).get('item') : null; return id ? plano.obrigacoes.find((o) => o.id === id) ?? null : null })
   const [geracao, setGeracao] = useState(0)
-  const [pedido, setPedido] = useState<{ situacao: FiltroSituacao } | null>(null)
+  const [filtros, setFiltros] = useState<Filtros>(() => (typeof location === 'undefined' ? filtrosIniciais(normaDaUrl()) : filtrosDaUrl(location.search)))
+  const blocos = useMemo(() => blocosDoPlano(sim, modo, HOJE), [sim, modo])
+  const mudarFiltros = (novo: Filtros) => {
+    setFiltros(novo)
+    history.replaceState(history.state, '', `${location.pathname}${urlComFiltros(location.search, novo)}${location.hash}`)
+    // A lista muda de tamanho: volta ao começo da seção para o resultado ficar à vista.
+    requestAnimationFrame(() => document.getElementById('obrigacoes')?.scrollIntoView({ block: 'start', behavior: 'instant' }))
+  }
   const [soDiagnostico, setSoDiagnostico] = useState(false)
   const [imprimindo, setImprimindo] = useState(() => typeof location !== 'undefined' && new URLSearchParams(location.search).has('relatorio'))
   const fimRelatorio = useCallback(() => {
@@ -153,7 +162,7 @@ export function PlanoPage() {
     { id: 'visao-geral', rotulo: 'Visão geral', itens: [{ rotulo: 'Porte da distribuidora', href: '#porte' }, { rotulo: 'Decisões da semana', href: '#decisoes' }] },
     { id: 'temas', rotulo: 'Temas por valor em risco', itens: temas.map((t) => ({ rotulo: t.nome, href: `#tema-${t.id}` })) },
     { id: 'seu-diagnostico', rotulo: 'Diagnóstico', itens: [{ rotulo: 'Gerar diagnóstico', href: '#seu-diagnostico' }] },
-    { id: 'obrigacoes', rotulo: 'Obrigações', itens: FILTROS.find((o) => o.chave === 'situacao')!.opcoes.map((o) => ({ rotulo: o.rotulo, href: '#obrigacoes', aoClicar: () => setPedido({ situacao: o.valor as FiltroSituacao }) })) },
+    { id: 'obrigacoes', rotulo: 'Obrigações', conteudo: <><p className="pt-2 pl-4 text-xs" data-contador-menu>Mostrando {filtrar(blocos, filtros).length} de {blocos.length}</p><FiltrosMenu filtros={filtros} mudar={mudarFiltros} /></> },
     { id: 'aprofundar', rotulo: 'Para aprofundar', itens: [
       { rotulo: 'Como reduzir a exposição', href: '#reduzir' },
       { rotulo: 'Quando cada coisa vence', href: '#linha' },
@@ -167,7 +176,7 @@ export function PlanoPage() {
   ]
 
   return <RespostasProvider norma={normaDaUrl()}><Cenario.Provider value={{ sim, modo, relatorio: () => setImprimindo(true) }}>
-    <header className="border-b border-line bg-ivory print:hidden"><div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-4 gap-y-3 px-4 py-4 sm:px-8"><a href="/" aria-label="Athenix, voltar ao início"><Logo /></a><nav aria-label="Páginas da demonstração" className="flex flex-wrap items-center gap-2"><a href={URL_EXECUTIVO} className="botao">← Visão executiva</a><a href="/" className="botao">← Voltar ao site</a></nav></div></header>
+    <header className="border-b border-line bg-ivory print:hidden"><div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-4 gap-y-3 px-4 py-4 sm:px-8"><a href="/" aria-label="Athenix, voltar ao início"><Logo /></a><nav aria-label="Páginas da demonstração" className="flex flex-wrap items-center gap-2">{itemUnico && <a href={urlPlanoCompleto(normaDaUrl())} className="botao">← Plano completo</a>}<a href={URL_EXECUTIVO} className="botao">← Visão executiva</a><a href="/" className="botao">← Voltar ao site</a></nav></div></header>
     {itemUnico ? <ItemUnico o={itemUnico} /> : <div className="mx-auto max-w-[1440px] px-4 pt-6 sm:px-8 sm:pt-10 xl:grid xl:grid-cols-[220px_minmax(0,1fr)] xl:items-start xl:gap-10 print:block">
     <MenuLateral grupos={menu} />
     <main id="plano" className={`min-w-0 space-y-14 pt-6 pb-8 md:pb-28 xl:pt-0 print:pb-10 ${soDiagnostico ? 'so-diagnostico' : ''} ${imprimindo ? 'so-relatorio' : ''}`}>
@@ -248,7 +257,7 @@ export function PlanoPage() {
         </div>
       </section>
 
-      <BlocosObrigacoes sim={sim} modo={modo} pedido={pedido} />
+      <BlocosObrigacoes todos={blocos} filtros={filtros} mudar={mudarFiltros} />
 
       <div id="aprofundar" className="space-y-4 print:hidden">
         <Expansivel id="reduzir" titulo="Como reduzir a exposição" resumo="atenuantes do art. 24 da REN 846, regras comuns e valores por tema">{() => <ComoReduzir temas={temas} />}</Expansivel>
@@ -371,11 +380,11 @@ function Expansivel({ id, titulo, resumo, children }: { id: string; titulo: stri
   </details></section>
 }
 
-/** Fonte, SHA-256 e origem da redação da infração citada (conferidas pelo export), no formato das atenuantes. */
+/** Link discreto para o texto da REN 846; arquivo, hash e origem da redação ficam no JSON do plano. */
 function ProvInfracao({ d }: { d: string }) {
   const i = plano.infracoes[d]
   if (!i) return null
-  return <span className="mt-1 block break-all text-xs text-ink-soft">Fonte: <LinkFonte sha256={i.fonte.sha256} trecho={i.trecho}>{i.fonte.titulo}</LinkFonte> ({i.fonte.arquivo}) · SHA-256 {i.fonte.sha256} · redação: {i.origem_da_redacao}{i.conferido_na_fonte ? ' · trecho conferido no arquivo' : ''}</span>
+  return <span className="mt-1 block text-xs text-ink-soft"><LinkFonte sha256={i.fonte.sha256} trecho={i.trecho}>Ver o texto da REN 846</LinkFonte></span>
 }
 
 /** As duas redações datadas de um dispositivo, com fonte, vigência e estado. A futura segue incerta. */
@@ -418,6 +427,7 @@ function Metodo() {
   return <div className="max-w-3xl space-y-3 text-sm leading-relaxed">
     <p>Contagens: {r.aplicaveis} obrigações para distribuidoras · {r.por_situacao.vencida} com prazo vencido · {r.por_situacao['90dias']} vencem em 90 dias · {r.por_situacao.recorrente} recorrentes · {semData} sem data ({r.por_situacao.evento} dependem de evento).</p>
     <p>A leitura automática da norma identificou {r.identificadas} itens. {r.fora_do_perfil} {r.fora_do_perfil === 1 ? 'vale' : 'valem'} só para transmissoras; {r.outros_dispositivos} ficam fora da contagem principal (incluem deveres condicionais, faculdades e regras de transição: veja “Outros dispositivos relevantes”); os {r.aplicaveis} deveres restantes entram neste plano. Em {r.na_fila} o texto da obrigação nomeia o instrumento de uma infração da REN 846 e o grupo de multa é identificado; {r.a_confirmar} aguardam a confirmação do enquadramento por uma pessoa; {r.sem_multa} não têm multa estimável.</p>
+    {plano.comparacao_anterior && <p>Comparação com o Módulo 4 do PRODIST: {resumoComparacao(plano)} · {plano.comparacao_anterior.resumo.sem_fonte} sem histórico anterior · {plano.comparacao_anterior.resumo.divergencias_v3} com divergências entre o texto publicado da RN e a versão compilada do PRODIST. A comparação não afirma ausência de dever equivalente em outro ato.</p>}
     <p>Os temas seguem as seções da própria norma (por exemplo, “{plano.temas[0].fontes[0]?.titulo}”). Disposições transitórias vão para o tema do primeiro assunto que nomeiam.</p>
     <p>Prazos: calculados pelo motor temporal a partir da publicação ({dataBR(plano.norma.vigencia)}). Ficam provisórios até uma pessoa confirmar a contagem.</p>
     <p>Exposição: teto do grupo de infração (REN 846, Art. 8º) sobre a receita operacional líquida, limitado pelo teto legal. Sem simulação, a receita é a ilustrativa de {brl(plano.perfil.base_reais)}. {plano.perfil.origem_base} Sem faturamento bruto informado, o teto legal pode estar subestimado. A manchete mostra a maior exposição por infração entre os temas já vencidos.</p>
@@ -666,10 +676,10 @@ function Titulo({ o }: { o: Obrigacao }) {
   return <span className="font-medium [overflow-wrap:anywhere]">{o.titulo_completo}{o.titulo_origem === 'ia' && <Sparkles role="img" aria-label="título resumido com IA, a revisar" className="ml-1 inline h-3 w-3 text-slate-blue" />}</span>
 }
 
-/** Só a obrigação escolhida (link "Detalhes no plano" da visão executiva), com o caminho de volta ao plano completo. */
+/** Só a obrigação escolhida (link "Detalhes no plano" da visão executiva); o caminho de volta fica no cabeçalho. */
 function ItemUnico({ o }: { o: Obrigacao }) {
   return <main id="plano" className="mx-auto max-w-4xl space-y-6 px-4 pt-6 pb-8 sm:px-8 sm:pt-10 md:pb-28 print:pb-10">
-    <p className="flex flex-wrap items-center gap-3"><a href={urlPlanoCompleto(normaDaUrl())} className="botao">← Plano completo</a><a href={URL_EXECUTIVO} className="botao">← Visão executiva</a><span className="text-sm text-ink-soft">{plano.norma.titulo} · só esta obrigação</span></p>
+    <p className="text-sm text-ink-soft">{plano.norma.titulo} · só esta obrigação</p>
     <ul><ItemObrigacao o={o} /></ul>
   </main>
 }
