@@ -19,6 +19,7 @@ cantos arredondados, sombra suave, rótulos em caixa-alta espaçada. Os protóti
 | `--cor-destaque` | `#c8261a` | o único acento: número de exposição, ponto de vencida, foco, barra de redução |
 | `--cor-destaque-texto` | `#b3241a` | acento quando é texto pequeno (prazo vencido) |
 | `--cor-evite` | `#a11f15` | texto de "Evite" |
+| `--cor-limpar-fundo` / `-borda` / `-hover` | `#fdf0cf` / `#e5c98a` / `#f9e3ac` | só o botão "Limpar revisão" (texto em `--cor-destaque-texto`) |
 | `--cor-linha-suave` | `#dddddd` | divisórias finas |
 | `--cor-hover` | `#ededed` | fundo ao passar o mouse |
 | `--cor-barra-teto` / `-media` / `-reducao` | `#111111` / `#555555` / `#c8261a` | três barras do painel |
@@ -49,6 +50,7 @@ aceita letras minúsculas, números e hífen (`landing/src/tema.ts`).
 2. Sem `rounded-[...]`, `shadow-[...]` nem `font-serif` nos componentes.
 3. Contraste mínimo de 4,5:1 (WCAG AA, texto normal) nos pares: texto/fundo, invertido/texto,
    destaque-texto/fundo, destaque/fundo, evite/fundo, texto/hover, destaque-texto/hover, invertido/destaque,
+   invertido/destaque-texto, destaque-texto/limpar-fundo, destaque-texto/limpar-hover,
    barra-média/fundo; no tema base e em cada tema `[data-tema]`.
 4. O bloco `[data-tema="alternativo"]` existe e muda o destaque; `?tema=` só aceita nome simples.
 

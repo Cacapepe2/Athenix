@@ -79,6 +79,9 @@ const PARES: [string, string][] = [
   ['--cor-texto', '--cor-hover'],
   ['--cor-destaque-texto', '--cor-hover'],
   ['--cor-texto-invertido', '--cor-destaque'],
+  ['--cor-texto-invertido', '--cor-destaque-texto'],
+  ['--cor-destaque-texto', '--cor-limpar-fundo'],
+  ['--cor-destaque-texto', '--cor-limpar-hover'],
   ['--cor-barra-media', '--cor-fundo'],
 ]
 

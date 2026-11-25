@@ -1,5 +1,5 @@
 import { LinkFonte } from '../ui/LinkFonte'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { brlCurto, dataBR, HOJE, normaDaUrl, pct, type Modo, type Simulacao } from '../../content/plano'
 import { norma as dadosDa, NORMAS, urlPlanoCompleto } from '../../content/executivo'
 import { calendarioIcs, tarefasCsv } from '../../content/tarefas'
@@ -19,7 +19,7 @@ function baixar(nome: string, conteudo: string, tipo: string) {
 }
 const slug = (t: string) => t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 
-export function BlocosObrigacoes({ sim, modo }: { sim: Simulacao | null; modo: Modo }) {
+export function BlocosObrigacoes({ sim, modo, pedido }: { sim: Simulacao | null; modo: Modo; pedido?: { situacao: Filtros['situacao'] } | null }) {
   const [filtros, setFiltros] = useState<Filtros>(() => (typeof location === 'undefined' ? FILTROS_INICIAIS : filtrosDaUrl(location.search)))
   const [aberto, setAberto] = useState<string | null>(null)
   const todos = useMemo(() => blocosDoPlano(sim, modo, HOJE), [sim, modo])
@@ -30,6 +30,8 @@ export function BlocosObrigacoes({ sim, modo }: { sim: Simulacao | null; modo: M
     setAberto(null)
     history.replaceState(history.state, '', `${location.pathname}${urlComFiltros(location.search, novo)}${location.hash}`)
   }
+  // Atalho do menu lateral: só a situação pedida (os outros filtros ficam como estão).
+  useEffect(() => { if (pedido) mudar({ ...filtros, situacao: pedido.situacao }) }, [pedido]) // cada clique cria um pedido novo
   const naPagina = normaDaUrl()
   const outra = filtros.norma !== 'todas' && filtros.norma !== naPagina ? filtros.norma : null
   const temFiltro = OPCOES.some((o) => filtros[o.chave] !== 'todas')

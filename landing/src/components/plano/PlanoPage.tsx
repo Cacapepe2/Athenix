@@ -8,6 +8,8 @@ import { Tag } from '../product/Tag'
 import { Chevron } from '../ui/Chevron'
 import { AjudaGrupos } from './AjudaGrupos'
 import { BlocosObrigacoes } from './BlocosObrigacoes'
+import { MenuLateral, type GrupoMenu } from './MenuLateral'
+import { OPCOES as FILTROS, type FiltroSituacao } from '../../content/filtros'
 import { RespostasProvider, useRespostas } from './Respostas'
 import { Relatorio } from './Relatorio'
 import { ComparacaoAnterior } from './ComparacaoAnterior'
@@ -97,6 +99,7 @@ export function PlanoPage() {
   // ?item=<id> (link "Detalhes no plano"): só aquela obrigação, sem o resto do plano.
   const [itemUnico] = useState(() => { const id = typeof location !== 'undefined' ? new URLSearchParams(location.search).get('item') : null; return id ? plano.obrigacoes.find((o) => o.id === id) ?? null : null })
   const [geracao, setGeracao] = useState(0)
+  const [pedido, setPedido] = useState<{ situacao: FiltroSituacao } | null>(null)
   const [soDiagnostico, setSoDiagnostico] = useState(false)
   const [imprimindo, setImprimindo] = useState(() => typeof location !== 'undefined' && new URLSearchParams(location.search).has('relatorio'))
   const fimRelatorio = useCallback(() => {
@@ -146,10 +149,29 @@ export function PlanoPage() {
     return () => window.removeEventListener('afterprint', fim)
   }, [soDiagnostico])
 
+  const menu: GrupoMenu[] = [
+    { id: 'visao-geral', rotulo: 'Visão geral', itens: [{ rotulo: 'Porte da distribuidora', href: '#porte' }, { rotulo: 'Decisões da semana', href: '#decisoes' }] },
+    { id: 'temas', rotulo: 'Temas por valor em risco', itens: temas.map((t) => ({ rotulo: t.nome, href: `#tema-${t.id}` })) },
+    { id: 'seu-diagnostico', rotulo: 'Diagnóstico', itens: [{ rotulo: 'Gerar diagnóstico', href: '#seu-diagnostico' }] },
+    { id: 'obrigacoes', rotulo: 'Obrigações', itens: FILTROS.find((o) => o.chave === 'situacao')!.opcoes.map((o) => ({ rotulo: o.rotulo, href: '#obrigacoes', aoClicar: () => setPedido({ situacao: o.valor as FiltroSituacao }) })) },
+    { id: 'aprofundar', rotulo: 'Para aprofundar', itens: [
+      { rotulo: 'Como reduzir a exposição', href: '#reduzir' },
+      { rotulo: 'Quando cada coisa vence', href: '#linha' },
+      ...(plano.erros_materiais?.length ? [{ rotulo: 'Possíveis erros materiais', href: '#erros-materiais' }] : []),
+      { rotulo: 'Outros dispositivos', href: '#outros' },
+      { rotulo: 'Como chegamos aqui', href: '#metodo' },
+      { rotulo: 'Perguntas ao jurídico', href: '#perguntas-juridico' },
+      { rotulo: 'Como calculamos', href: '#como-calculamos' },
+      { rotulo: 'Referência do setor', href: '#referencia' },
+    ] },
+  ]
+
   return <RespostasProvider norma={normaDaUrl()}><Cenario.Provider value={{ sim, modo, relatorio: () => setImprimindo(true) }}>
     <header className="border-b border-line bg-ivory print:hidden"><div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-4 gap-y-3 px-4 py-4 sm:px-8"><a href="/" aria-label="Athenix, voltar ao início"><Logo /></a><nav aria-label="Páginas da demonstração" className="flex flex-wrap items-center gap-2"><a href={URL_EXECUTIVO} className="botao">← Visão executiva</a><a href="/" className="botao">← Voltar ao site</a></nav></div></header>
-    {itemUnico ? <ItemUnico o={itemUnico} /> : <main id="plano" className={`mx-auto max-w-7xl space-y-14 px-4 pt-6 pb-8 sm:px-8 sm:pt-10 md:pb-28 print:pb-10 ${soDiagnostico ? 'so-diagnostico' : ''} ${imprimindo ? 'so-relatorio' : ''}`}>
-      <section aria-labelledby="titulo-plano" className="space-y-6">
+    {itemUnico ? <ItemUnico o={itemUnico} /> : <div className="mx-auto max-w-[1440px] px-4 pt-6 sm:px-8 sm:pt-10 xl:grid xl:grid-cols-[220px_minmax(0,1fr)] xl:items-start xl:gap-10 print:block">
+    <MenuLateral grupos={menu} />
+    <main id="plano" className={`min-w-0 space-y-14 pt-6 pb-8 md:pb-28 xl:pt-0 print:pb-10 ${soDiagnostico ? 'so-diagnostico' : ''} ${imprimindo ? 'so-relatorio' : ''}`}>
+      <section id="visao-geral" aria-labelledby="titulo-plano" className="space-y-6">
         <p className={kicker}>Plano de ação · RN 1.137/2025 · {plano.perfil.rotulo.toLowerCase()} (não é empresa real)</p>
         <Porte setSim={setSim} />
         <p className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-2xl border border-slate-blue/40 border-l-4 border-l-slate-blue bg-acento-claro py-2 pr-4 pl-3 text-sm text-obsidian print:hidden">
@@ -202,8 +224,6 @@ export function PlanoPage() {
 
       <Prontidao sim={sim} modo={modo} />
 
-      <BlocosObrigacoes sim={sim} modo={modo} />
-
       <section aria-labelledby="temas" className={gerado ? 'print:hidden' : ''}>
         <p className={kicker}>Plano por tema</p>
         <h2 id="temas" className="font-display mt-2 text-3xl sm:text-4xl">Temas por valor em risco</h2>
@@ -228,7 +248,9 @@ export function PlanoPage() {
         </div>
       </section>
 
-      <div className="space-y-4 print:hidden">
+      <BlocosObrigacoes sim={sim} modo={modo} pedido={pedido} />
+
+      <div id="aprofundar" className="space-y-4 print:hidden">
         <Expansivel id="reduzir" titulo="Como reduzir a exposição" resumo="atenuantes do art. 24 da REN 846, regras comuns e valores por tema">{() => <ComoReduzir temas={temas} />}</Expansivel>
         <Expansivel id="linha" titulo="Quando cada coisa vence" resumo={`${r.por_situacao.vencida} vencidas, ${r.por_situacao['90dias']} em 90 dias, ${r.por_situacao.recorrente} recorrentes, ${semData} sem data`}>{() => <LinhaDoTempo />}</Expansivel>
         {!!plano.erros_materiais?.length && <Expansivel id="erros-materiais" titulo="Possíveis erros materiais da norma" resumo={`${plano.erros_materiais.length} ${plano.erros_materiais.length === 1 ? 'redação de prazo' : 'redações de prazo'} com possível erro na própria norma; leitura mais provável a confirmar`}>{() => <ErrosMateriais />}</Expansivel>}
@@ -240,7 +262,7 @@ export function PlanoPage() {
       </div>
       <div className="print:hidden"><button type="button" onClick={() => setImprimindo(true)} className="botao botao-escuro"><FileText aria-hidden="true" className="h-4 w-4" />Baixar meu relatório</button> <span className="text-sm">Página para imprimir ou salvar em PDF, com o que vocês escreveram e marcaram. Nada é enviado.</span></div>
       <footer className="border-t border-line pt-6 text-sm text-ink-soft">{plano.aviso} Iniciativa em validação. Não constitui parecer jurídico. <a className="botao ml-2 print:hidden" href="/">← Voltar à Athenix</a></footer>
-    </main>}
+    </main></div>}
     <Relatorio ativo={imprimindo} fim={fimRelatorio} diag={diag} sim={sim} modo={modo} />
     <div role="note" className="z-30 border-t md:fixed md:inset-x-0 md:bottom-0 border-line bg-obsidian/95 px-4 py-2.5 text-center text-xs leading-snug text-ivory print:hidden">
       Iniciativa em validação · títulos resumidos por IA · não constitui parecer jurídico

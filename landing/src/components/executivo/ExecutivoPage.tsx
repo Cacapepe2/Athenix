@@ -1,5 +1,6 @@
 import { LinkFonte } from '../ui/LinkFonte'
 import { useEffect, useRef, useState } from 'react'
+import { Pointer } from 'lucide-react'
 import { NORMA_PADRAO, NORMAS, norma as dadosDa, prazos, queda, textoContagem, top5, urlPlanoCompleto, urlRelatorio, valorGeral, type LinhaTop5 } from '../../content/executivo'
 import { RespostasProvider, useRespostas } from '../plano/Respostas'
 import { prontidao } from '../../content/prontidao'
@@ -74,7 +75,6 @@ function Executiva({ normaId, setNormaId }: { normaId: NormaId; setNormaId: (id:
           {p.simulador.faixas.map((x) => <button key={x.id} type="button" className="seg" aria-pressed={faixa.id === x.id} onClick={() => setPorteId(x.id)}>R$ {x.base / 1e9} bi</button>)}
         </div>
       </div>
-      <a href={urlPlanoCompleto(normaId)} className="botao">Plano completo →</a>
     </header>
 
     {p.comparacao_anterior && <p aria-label="Resumo da comparação histórica" className="flex flex-wrap items-baseline gap-x-3 gap-y-1 text-sm"><strong>{resumoComparacao(p)}</strong><small className="text-xs">Base: Módulo 4 do PRODIST ({p.comparacao_anterior.resumo.sem_fonte} registros sem histórico anterior e {p.comparacao_anterior.resumo.divergencias_v3} com divergências entre a v3 e a RN)</small></p>}
@@ -103,9 +103,13 @@ function Executiva({ normaId, setNormaId }: { normaId: NormaId; setNormaId: (id:
     </section>
 
     <section aria-labelledby="comece-por" className="flex flex-col gap-3.5">
-      <div className="flex flex-col gap-1">
-        <h2 id="comece-por" className="text-[17px] font-bold">Comece por</h2>
-        <span className="text-sm">Toque num item para ver o que fazer</span>
+      <div className="flex items-center gap-3.5">
+        <span aria-hidden="true" className="grid h-12 w-12 shrink-0 place-items-center rounded-lg bg-obsidian text-white"><Pointer className="h-6 w-6" /></span>
+        <div className="flex min-w-0 flex-col gap-0.5">
+          <p className="text-[20px] leading-tight font-bold sm:text-[24px]">Toque num item para ver o que fazer</p>
+          <h2 id="comece-por" className="text-[15px] font-semibold text-bronze-deep">Comece por</h2>
+        </div>
+        <span aria-hidden="true" className="hidden flex-1 border-t border-line sm:block" />
       </div>
       <div className="grid gap-3 [grid-template-columns:repeat(auto-fill,minmax(190px,1fr))]">
         {linhas.map((l) => {
@@ -145,11 +149,14 @@ function Painel({ l, fechar }: { l: LinhaTop5; fechar: () => void }) {
   const p = dadosDa(l.normaId).dados
   return <div className="painel-in">
     <div className="flex flex-wrap items-start justify-between gap-4 border-b-[length:var(--borda-forte)] border-obsidian px-6 py-5">
-      <div className="flex min-w-0 flex-1 flex-col gap-1">
+      <div className="flex min-w-0 flex-[1_1_280px] flex-col gap-1">
         <span className="text-[13px] font-semibold"><LinkFonte sha256={dadosDa(l.normaId).dados.norma.sha256} trecho={l.trecho}>{l.dispositivo ?? 'dispositivo a confirmar'}</LinkFonte></span>
         <span className="text-[22px] leading-tight font-bold">{l.frase}</span>
       </div>
-      <button type="button" onClick={fechar} aria-label="Fechar detalhes" className="seg seg-destaque">Fechar ✕</button>
+      <div className="flex flex-wrap gap-3">
+        <a href={l.link} className="botao">Detalhes no plano →</a>
+        <button type="button" onClick={fechar} aria-label="Fechar detalhes" className="seg seg-destaque">Fechar ✕</button>
+      </div>
     </div>
     <div className="grid [grid-template-columns:repeat(auto-fit,minmax(220px,1fr))]">
       <div className={COLUNA}>
@@ -177,7 +184,6 @@ function Painel({ l, fechar }: { l: LinhaTop5; fechar: () => void }) {
         <span className={TITULO_COLUNA}>Defesa possível</span>
         <span className="text-[15px] leading-snug">{l.defesa.texto}</span>
         {l.defesa.origem && <span className="self-start border border-obsidian px-2 py-0.5 text-xs font-semibold">{l.defesa.origem}</span>}
-        <a href={l.link} className="botao mt-auto self-start">Detalhes no plano →</a>
       </div>
     </div>
   </div>
