@@ -1,3 +1,4 @@
+import { Eraser } from 'lucide-react'
 import { OPCOES, FILTROS_TODAS, type Filtros } from '../../content/filtros'
 
 /** Filtros da seção "Obrigações", dentro do menu lateral. */
@@ -9,6 +10,6 @@ export function FiltrosMenu({ filtros, mudar }: { filtros: Filtros; mudar: (f: F
       {g.opcoes.map((o) => <button key={o.valor} type="button" className="filtro" aria-pressed={filtros[g.chave] === o.valor} onClick={() => mudar({ ...filtros, [g.chave]: o.valor })}>{o.rotulo}</button>)}
       </div>
     </fieldset>)}
-    <button type="button" className="filtro-limpar" disabled={OPCOES.every((g) => filtros[g.chave] === 'todas')} onClick={() => mudar(FILTROS_TODAS)}>Limpar filtros</button>
+    <button type="button" className="botao-limpar" disabled={OPCOES.every((g) => filtros[g.chave] === 'todas')} onClick={() => mudar(FILTROS_TODAS)}><Eraser aria-hidden="true" className="h-3.5 w-3.5" />Limpar filtros</button>
   </div>
 }
