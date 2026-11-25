@@ -42,7 +42,7 @@ export function NormToAction() {
       </div>
     <section ref={section} className="relative h-[460vh] bg-ivory" aria-label={story.eyebrow}>
       <div className="sticky top-0 flex h-svh flex-col pt-20 pb-5 lg:pt-16 lg:pb-0">
-        <div className="mx-auto grid h-full min-h-0 w-full max-w-7xl gap-5 px-5 sm:px-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-center lg:gap-14">
+        <div className="mx-auto grid h-full min-h-0 w-full max-w-7xl grid-cols-1 max-lg:grid-rows-[auto_minmax(0,1fr)] gap-5 px-5 sm:px-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-center lg:gap-14">
           <div className="lg:py-10">
             <div className="hidden lg:block">
               <Heading />
@@ -71,7 +71,7 @@ export function NormToAction() {
                       >
                         {s.title}
                       </span>
-                      <span className="ml-auto text-[0.7rem] text-ink-soft lg:hidden">
+                      <span className="ml-auto shrink-0 text-[0.7rem] text-ink-soft lg:hidden">
                         {i + 1} de {n}
                       </span>
                     </button>

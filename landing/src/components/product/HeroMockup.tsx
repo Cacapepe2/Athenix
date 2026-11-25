@@ -61,7 +61,7 @@ export function HeroMockup({ px, py }: { px: MotionValue<number>; py: MotionValu
               ))}
             </div>
 
-            <div className="mt-3 grid gap-2.5 sm:grid-cols-[0.85fr_1.15fr]">
+            <div className="mt-3 grid grid-cols-1 gap-2.5 sm:grid-cols-[0.85fr_1.15fr]">
               <div className="flex flex-col justify-between rounded-xl bg-stone/80 p-3.5">
                 <Gauge className="h-5 w-5 text-bronze-deep" strokeWidth={1.6} />
                 <div className="mt-3">
@@ -87,7 +87,7 @@ export function HeroMockup({ px, py }: { px: MotionValue<number>; py: MotionValu
                     <Icon className="h-4 w-4 shrink-0 text-slate-blue" strokeWidth={1.8} />
                     <span className="min-w-0 flex-1">
                       <span className="block text-[0.7rem] font-semibold text-obsidian">{title}</span>
-                      <span className="block truncate text-[0.62rem] text-ink-soft">{detail}</span>
+                      <span className="block text-[0.62rem] text-ink-soft sm:truncate">{detail}</span>
                     </span>
                     <ChevronRight className="h-3.5 w-3.5 text-ink-soft/60" />
                   </motion.div>
