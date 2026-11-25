@@ -160,9 +160,9 @@ export function PlanoPage() {
 
   const menu: GrupoMenu[] = [
     { id: 'visao-geral', rotulo: 'Visão geral', itens: [{ rotulo: 'Porte da distribuidora', href: '#porte' }, { rotulo: 'Decisões da semana', href: '#decisoes' }] },
+    { id: 'obrigacoes', rotulo: 'Obrigações', conteudo: <><p className="pt-1 pb-2 text-[11px]" data-contador-menu>Mostrando {filtrar(blocos, filtros).length} de {blocos.length}</p><FiltrosMenu filtros={filtros} mudar={mudarFiltros} /></> },
     { id: 'temas', rotulo: 'Temas por valor em risco', itens: temas.map((t) => ({ rotulo: t.nome, href: `#tema-${t.id}` })) },
     { id: 'seu-diagnostico', rotulo: 'Diagnóstico', itens: [{ rotulo: 'Gerar diagnóstico', href: '#seu-diagnostico' }] },
-    { id: 'obrigacoes', rotulo: 'Obrigações', conteudo: <><p className="pt-2 pl-4 text-xs" data-contador-menu>Mostrando {filtrar(blocos, filtros).length} de {blocos.length}</p><FiltrosMenu filtros={filtros} mudar={mudarFiltros} /></> },
     { id: 'aprofundar', rotulo: 'Para aprofundar', itens: [
       { rotulo: 'Como reduzir a exposição', href: '#reduzir' },
       { rotulo: 'Quando cada coisa vence', href: '#linha' },
@@ -177,7 +177,7 @@ export function PlanoPage() {
 
   return <RespostasProvider norma={normaDaUrl()}><Cenario.Provider value={{ sim, modo, relatorio: () => setImprimindo(true) }}>
     <header className="border-b border-line bg-ivory print:hidden"><div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-4 gap-y-3 px-4 py-4 sm:px-8"><a href="/" aria-label="Athenix, voltar ao início"><Logo /></a><nav aria-label="Páginas da demonstração" className="flex flex-wrap items-center gap-2">{itemUnico && <a href={urlPlanoCompleto(normaDaUrl())} className="botao">← Plano completo</a>}<a href={URL_EXECUTIVO} className="botao">← Visão executiva</a><a href="/" className="botao">← Voltar ao site</a></nav></div></header>
-    {itemUnico ? <ItemUnico o={itemUnico} /> : <div className="mx-auto max-w-[1440px] px-4 pt-6 sm:px-8 sm:pt-10 xl:grid xl:grid-cols-[220px_minmax(0,1fr)] xl:items-start xl:gap-10 print:block">
+    {itemUnico ? <ItemUnico o={itemUnico} /> : <div className="mx-auto max-w-[1440px] px-4 pt-6 sm:px-8 sm:pt-10 xl:grid xl:grid-cols-[256px_minmax(0,1fr)] xl:items-start xl:gap-10 print:block">
     <MenuLateral grupos={menu} />
     <main id="plano" className={`min-w-0 space-y-14 pt-6 pb-8 md:pb-28 xl:pt-0 print:pb-10 ${soDiagnostico ? 'so-diagnostico' : ''} ${imprimindo ? 'so-relatorio' : ''}`}>
       <section id="visao-geral" aria-labelledby="titulo-plano" className="space-y-6">
@@ -231,6 +231,8 @@ export function PlanoPage() {
         </div>
       </section>
 
+      <BlocosObrigacoes todos={blocos} filtros={filtros} mudar={mudarFiltros} />
+
       <Prontidao sim={sim} modo={modo} />
 
       <section aria-labelledby="temas" className={gerado ? 'print:hidden' : ''}>
@@ -256,8 +258,6 @@ export function PlanoPage() {
             </div>}
         </div>
       </section>
-
-      <BlocosObrigacoes todos={blocos} filtros={filtros} mudar={mudarFiltros} />
 
       <div id="aprofundar" className="space-y-4 print:hidden">
         <Expansivel id="reduzir" titulo="Como reduzir a exposição" resumo="atenuantes do art. 24 da REN 846, regras comuns e valores por tema">{() => <ComoReduzir temas={temas} />}</Expansivel>
