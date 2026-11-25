@@ -35,7 +35,7 @@ export function StoryStage({ step }: { step: number }) {
       aria-hidden="true"
       className="flex h-full flex-col overflow-hidden  border border-line bg-white/75 backdrop-blur"
     >
-      <div className="flex items-center justify-between gap-3 border-b border-line px-4 py-3 sm:px-5">
+      <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 border-b border-line px-4 py-3 sm:px-5">
         <span className="truncate text-[0.72rem] text-ink-soft">
           <span className="font-semibold text-obsidian">Athenix</span> · RN ANEEL 1.137/2025
         </span>
@@ -48,7 +48,7 @@ export function StoryStage({ step }: { step: number }) {
       <LayoutGroup>
         <div
           className={`relative grid min-h-0 flex-1 gap-4 p-4 sm:p-5 ${
-            step === 1 || step === 2 ? 'sm:grid-cols-[1fr_1fr]' : 'grid-cols-1'
+            step === 1 || step === 2 ? 'grid-cols-1 sm:grid-cols-[1fr_1fr]' : 'grid-cols-1'
           }`}
         >
           <AnimatePresence mode="popLayout">
@@ -141,18 +141,18 @@ export function StoryStage({ step }: { step: number }) {
                   <p className="font-display text-lg text-obsidian">Prazos</p>
                   <Tag kind="rule" label="Provisórios" />
                 </div>
-                <ul className="mt-3 space-y-2.5">
+                <ul className="mt-2 space-y-1.5 sm:mt-3 sm:space-y-2.5">
                   {obligations.map((o, i) => (
-                    <li key={o.id} className="rounded-xl border border-line bg-white p-3">
+                    <li key={o.id} className="rounded-xl border border-line bg-white px-3 py-2 sm:p-3">
                       <div className="flex items-center gap-3">
                         <Badge articleId={o.articleId} />
-                        <span className="text-[0.82rem] font-semibold text-obsidian">{o.short}</span>
+                        <span className="text-[0.82rem] leading-snug font-semibold sm:leading-normal text-obsidian">{o.short}</span>
                       </div>
                       <motion.div
                         initial={{ opacity: 0, y: -6 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, ease, delay: 0.35 + i * 0.15 }}
-                        className="mt-2.5 flex flex-wrap gap-x-5 gap-y-1.5 pl-9 text-[0.72rem] text-ink-soft"
+                        className="mt-1.5 flex flex-wrap gap-x-4 gap-y-1 sm:mt-2.5 sm:gap-x-5 sm:gap-y-1.5 pl-9 text-[0.72rem] text-ink-soft"
                       >
                         <span className="inline-flex items-center gap-1.5">
                           <CalendarClock className="h-3.5 w-3.5 text-slate-blue" />
@@ -178,15 +178,15 @@ export function StoryStage({ step }: { step: number }) {
                 </div>
                 <div className="mt-3 overflow-hidden rounded-xl border border-line bg-white">
                   {priorities.map((o, r) => (
-                    <div key={o.id} className="border-b border-line/70 px-3 py-2.5 last:border-0">
-                      <div className="flex items-center justify-between gap-2 text-[0.72rem]">
+                    <div key={o.id} className="border-b border-line/70 px-3 py-1.5 last:border-0 sm:py-2.5">
+                      <div className="flex flex-wrap items-center justify-between gap-x-2 text-[0.72rem] sm:flex-nowrap">
                         <span className="flex min-w-0 items-center gap-2 font-medium text-obsidian">
                           <Badge articleId={o.articleId} />
-                          <span className="truncate">{o.short}</span>
+                          <span className="sm:truncate">{o.short}</span>
                         </span>
-                        <span className="shrink-0 text-ink-soft">de advertência até {brl(o.impact.max)}</span>
+                        <span className="shrink-0 text-ink-soft max-sm:pl-8">de advertência até {brl(o.impact.max)}</span>
                       </div>
-                      <span className="mt-2 block h-1.5 bg-stone">
+                      <span className="mt-1 block h-1.5 sm:mt-2 bg-stone">
                         <motion.span
                           className="block h-full bg-slate-blue"
                           initial={{ width: 0 }}
